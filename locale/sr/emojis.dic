@@ -15,14 +15,43 @@ symbols:
 ↛	kosa crta sa strelicom nadesno	none
 ↑	strelica koja pokazuje nagore	none
 ↓	strelica koja pokazuje nadole	none
+↜	talasasta strelica nalevo	none
+↝	talasasta strelica nadesno	none
 ↞	strelica nalevo sa dva vrha	none
 ↟	strelica nagore sa dva vrha	none
 ↠	strelica nadesno sa dva vrha	none
 ↡	strelica nadole sa dva vrha	none
+↢	strelica sa repom nalevo	none
+↣	strelica sa repom nadesno	none
+↤	strelica sa crtom nalevo	none
+↥	strelica sa crtom nagore	none
+↦	strelica sa crtom nadesno	none
+↧	strelica sa crtom nadole	none
+↨	strelica nagore i nadole sa bazom	none
+↫	strelca nalevo sa petljom	none
+↬	strelca nadesno sa petljom	none
+↭	talasasta strelica sa vrhom nalevo i nadesno	none
+↯	cik-cak strelica nadole	none
 ↰	strelica nagore sa vrhom nalevo	none
 ↱	strelica nagore sa vrhom nadesno	none
 ↲	strelica nadole sa vrhom nalevo	none
 ↳	strelica nadole sa vrhom nadesno	none
+↴	strelica nadesno sa uglom nadole	none
+↵	strelica nadole sa uglom nalevo	none
+↶	polukružna strelica u smeru suprotnom od kazaljke na satu	none
+↷	polukružna strelica u smeru kazaljke na satu	none
+↸	strelica sa dugom crtom u smeru severozapada	none
+↹	strelica sa crtom nalevo iznad strelice sa crtom nadesno	none
+↺	otvorena kružna strelica u smeru suprotnom od kazaljke na satu	none
+↻	otvorena kružna strelica u smeru kazaljke na satu	none
+↼	harpun nalevo sa kukicom nagore	none
+↽	harpun nalevo sa kukicom nadole	none
+↾	harpun nagore sa kukicom nadesno	none
+↿	harpun nagore sa kukicom nalevo	none
+⇀	harpun nadesno sa kukicom nagore	none
+⇁	harpun nadesno sa kukicom nadole	none
+⇂	harpun nadole sa kukicom nadesno	none
+⇃	harpun nadole sa kukicom nalevo	none
 ⇄	strelica udesno iznad strelice nalevo	none
 ⇅	strelica nagore i strelica nadole	none
 ⇆	strelica nalevo iznad strelice nadesno	none
@@ -30,22 +59,40 @@ symbols:
 ⇈	uparene strelice nagore	none
 ⇉	uparene strelice udesno	none
 ⇊	uparene strelice nadole	none
+⇋	harpun nalevo iznad harpuna nadesno	none
+⇌	harpun nadesno iznad harpuna nalevo	none
 ⇐	dvostruka strelca nalevo	none
+⇍	precrtana dvostruka strelica nalevo	none
 ⇑	dvostruka strelica nagore	none
 ⇒	dvostruka strelica nadesno	none
+⇏	precrtana dvostruka strelica nadesno	none
 ⇓	dvostruka strelica nadole	none
 ⇔	dvostruka strelica nalevo i nadesno	none
+⇎	precrtana dvostruka strelica nalevo i nadesno	none
 ⇖	dvostruka strelica nagore i nalevo	none
 ⇗	dvostruka strelica nagore i nadesno	none
 ⇘	dvostruka strelica nadole i nadesno	none
 ⇙	dvostruka strelica nadole i nalevo	none
 ⇚	trostruka strelica nalevo	none
 ⇛	trostruka strelica nadesno	none
+⇜	krivudava strelica nalevo	none
+⇝	krivudava strelica nadesno	none
+⇞	dvostruko precrtana strelica nagore	none
+⇟	dvostruko precrtana strelica nadole	none
 ⇠	isprekidana crtica calevo	none
 ⇡	isprekidana crtica nagore	none
 ⇢	isprekidana crtica nadesno	none
 ⇣	isprekidana crtica nadole	none
+⇤	strelica nalevo sa crtom	none
+⇥	strelica nadesno sa crtom	none
+⇦	prazna strelica nalevo	none
+⇧	prazna strelica nagore	none
+⇨	prazna strelica nadesno	none
+⇩	prazna strelica nadole	none
+⇪	prazna strelica sa crtom nagore	none
+⇵	strelica nadole i strelica nagore	none
 ∀	za sve	none
+∂	parcijalni izvod	none
 ∃	postoji	none
 ∅	prazan skup	none
 ∆	inkrement	none
@@ -53,37 +100,207 @@ symbols:
 ∈	element skupa	none
 ∉	nije element	none
 ∋	sadrži kao član	none
+∎	kraj dokaza	none
 ∏	N-ti proizvod	none
+∑	N-arno sumiranje	none
+≮	nije manje od	none
 ≠	različito	none
 ≯	nije veće od	none
 −	znak minus	none
 ⁻	minus u eksponentu	none
 ∓	minus ili plus	none
+∕	kosa crta za deljenje	none
+∗	operator u obliku zvezdice	none
+∘	operator u obliku prstena	none
+∙	operator u obliku znaka za nabrajanje	none
 √	kvadratni koren	none
 ∝	proporcionalno	none
 ∞	beskonačno	none
 ∟	prav ugao	none
 ∠	ugao	none
+∣	deljenje	none
+∥	paralelno	none
+∧	logičko „i“	none
 ∩	presek	none
 ∪	unija	none
 ∫	E13.1–305	none
+∬	dvostruki integral	none
+∮	konturni integral	none
+∴	zato	none
+∵	jer	none
 ∶	odnos	none
 ∷	proporcija	none
+∼	operator u obliku znaka tilda	none
+∽	obrnuti znak tilda	none
+∾	obrnuti lenji s	none
+≃	asimptotski jednako	none
+≅	otprilike jednako	none
 ≈	približno jednako	none
+≌	sve jednako	none
+≒	otprilike jednako slici	none
+≖	prsten u jednakosti	none
 ≡	identično	none
+≣	strogo jednako	none
 ≤	manje ili jednako	none
 ≥	veće ili jednako	none
+≦	manje od iznad jednako	none
+≧	veće od iznad jednako	none
+≪	mnogo manje od	none
+≫	mnogo veće od	none
 ≬	između	none
+≳	veće od ekvivalenta	none
+≺	prethodi	none
+≻	sledi	none
+⊁	ne sledi	none
 ⊂	podskup	none
+⊃	nadskup	none
+⊆	podskup jednak	none
+⊇	nadskup jednak	none
+⊕	plus u krugu	none
+⊖	minus u krugu	none
+⊗	znak množenja u krugu	none
+⊘	znak deljenja u krugu	none
+⊙	operator u obliku tačke u krugu	none
+⊚	operator u obliku zaokruženog prstena	none
+⊛	operator u obliku zaokružene zvezdice	none
+⊞	plus u kvadratu	none
+⊟	minus u kvadratu	none
+⊥	netačno	none
+⊮	ne nameće	none
+⊰	prethodi ispod relacije	none
+⊱	sledi ispod relacije	none
+⋭	ne sadrži kao normalnu podgrupu jednaku	none
+⊶	original	none
+⊹	ermitska matrica	none
+⊿	pravokutni trougao	none
+⋁	N-arni logički simbol „ili“	none
+⋂	N-arni presjek	none
+⋃	N-arna unija	none
+⋅	operator u obliku tačke	none
+⋆	operator u obliku zvezde	none
+⋈	prirodni spoj	none
+⋒	dvostruki presek	none
+⋘	mnogo manje	none
+⋙	mnogo više	none
+⋮	vertikalna trotačka	none
+⋯	horizontalna trotačka na sredini	none
+⋰	dijagonalna trotačka nagore desno	none
+⋱	dijagonalna trotačka nadole desno	none
+■	popunjeni kvadrat	none
+□	prazan kvadrat	none
+▢	prazan kvadrat sa zaobljenim uglovima	none
+▣	prazan kvadrat sa popunjenim kvadratom	none
+▤	kvadrat sa horizontalnom popunom	none
+▥	kvadrat sa vertikalnom popunom	none
+▦	kvadrat sa ortogonalno iscrtanom popunom	none
+▧	kvadrat sa popunom od gore levo prema dole desno	none
+▨	kvadrat sa popunom od gore desno prema dole levo	none
+▩	kvadrat sa dijagonalno iscrtanom popunom	none
+▬	popunjeni pravougaonik	none
+▭	prazan pravougaonik	none
+▮	popunjeni vertikalni pravougaonik	none
+▰	popunjeni paralelogram	none
 ▲	ispunjen trougao okrenut nagore	none
+△	prazan trougao okrenut nagore	none
+▴	popunjeni mali trougao okrenut nagore	none
+▵	prazan mali trougao okrenut nagore	none
+▷	prazan trougao okrenut nadesno	none
+▸	popunjeni mali trougao okrenut nadesno	none
+▹	prazan mali trougao okrenut nadesno	none
+►	popunjeni pokazivač okrenut nadesno	none
+▻	prazan pokazivač okrenut nadesno	none
 ▼	ispunjen trougao okrenut nadole	none
+▽	prazan trougao okrenut nadole	none
+▾	popunjeni mali trougao okrenut nadole	none
+▿	prazan mali trougao okrenut nadole	none
+◁	prazan trougao okrenut nalevo	none
+◂	popunjeni trougao okrenut nalevo	none
+◃	prazan mali trougao okrenut nalevo	none
+◄	popunjeni pokazivač okrenut nalevo	none
+◅	prazan pokazivač okrenut nalevo	none
+◆	popunjeni romb	none
+◇	prazan romb	none
+◈	prazan romb sa popunjenim rombom	none
+◉	prazan krug sa popunjenim krugom	none
 ◊	romb	none
 ○	prazan krug	none
+◌	tačkasti krug	none
+◍	krug sa vertikalnom popunom	none
+◎	koncentrični krugovi	none
 ●	ispunjen krug	none
+◐	krug sa popunjenom levom polovinom	none
+◑	krug sa popunjenom desnom polovinom	none
+◒	krug sa popunjenom donjom polovinom	none
+◓	krug sa popunjenom gornjom polovinom	none
+◔	krug sa popunjenim gornnjim desnim kvadrantom	none
+◕	krug sa praznim gornjim levim kvadrantom	none
+◖	leva popunjena polovina kruga	none
+◗	desna popunjena polovina kruga	none
+◘	inverzni znak za nabrajanje	none
+◙	prazan krug u popunjenom krugu	none
+◜	kružni luk gornjeg levog kvadranta	none
+◝	kružni luk gornjeg desnog kvadranta	none
+◞	kružni luk donjeg desnog kvadranta	none
+◟	kružni luk donjeg levog kvadranta	none
+◠	gornji polukrug	none
+◡	donji polukrug	none
+◢	popunjeni trougao dole desno	none
+◣	popunjeni trougao dole levo	none
+◤	popunjeni trougao gore levo	none
+◥	popunjeni trougao gore desno	none
+◦	prazan znak za nabrajanje	none
 ◯	veliki prazni krug	none
+◳	prazan kvadrat s gornjim desnim kvadrantom	none
+◷	prazan krug s gornjim desnim kvadrantom	none
+◿	donji desni trougao	none
 ♪	osmina note	none
+⨧	plus i broj 2 u indeksu	none
+⨯	vektorski proizvod	none
+⨼	interni proizvod	none
+⩣	logičko „ili“ s dvostrukom podcrtom	none
+⩽	nagnuto manje od jednako	none
+⪍	manje od iznad slično jednakom	none
+⪚	dvostruka crta jednako veće od	none
+⪺	sledi iznad nije skoro jednako	none
 ♭	snizilica	none
 ♯	povisilica	none
+🥹	lice zadržava suze	none
+🧌	trol	none
+🩻	rendgenski zraci	none
+🩼	štaka	none
+🪩	disko kugla	none
+🪪	identifikacijska karta	none
+🪫	niski nivo baterije	none
+🪬	hamsa	none
+🪷	lotus	none
+🪸	koral	none
+🪹	prazno gnezdo	none
+🪺	gnezdo s jajima	none
+🫃	trudni muškarac	none
+🫄	trudna osoba	none
+🫅	osoba sa krunom	none
+🫗	sipanje tečnosti	none
+🫘	pasulj	none
+🫙	tegla	none
+🫠	lice se topi	none
+🫡	lice salutira	none
+🫢	lice otvorenih očiju sa rukom preko usta	none
+🫣	gledanje kroz prste	none
+🫤	lice sa dijagonalnim ustima	none
+🫥	lice isprekidanom linijom	none
+🫦	ugriz usne	none
+🫧	mehurići	none
+🫰	ruka sa prekrštenim palcem i kažiprstom	none
+🫱	ruka okrenuta nadesno	none
+🫲	ruka okrenuta nalevo	none
+🫳	dlan okrenut nadole	none
+🫴	dlan okrenut nagore	none
+🫵	kažiprst koji pokazuje prema gledaocu	none
+🫶	ruke koje prave srce	none
+🛝	tobogan	none
+🛞	točak	none
+🛟	pojas za spasavanje	none
+🟰	podebljani znak jednakosti	none
 😀	lice sa širokim osmehom	none
 😃	lice sa oduševljenim osmehom	none
 😄	lice koje se slatko smeje	none
@@ -1561,17 +1778,91 @@ symbols:
 🏳‍🌈	dugina zastava	none
 🏳‍⚧	transrodna zazstava	none
 🏴‍☠	piratska zastava	none
+₢	kruzeiro	none
 ₣	francuski franak	none
 ₤	lira	none
 ₥	mil	none
 ₩	von	none
 €	evro	none
+₰	nemački peni	none
 ₱	pezo	none
+₳	austral	none
+₶	francuska livra	none
 ₷	spesmilo	none
 ₹	indijska rupija	none
 ₽	rublja	none
 ₿	bitkoin	none
 ₨	rupija	none
+🫃🏻	trudni muškarac svetla koža	none
+🫃🏼	trudni muškarac srednje svetla koža	none
+🫃🏽	trudni muškarac ni svetla ni tamna koža	none
+🫃🏾	trudni muškarac srednje tamna koža	none
+🫃🏿	trudni muškarac tamna koža	none
+🫄🏻	trudna osoba svetla koža	none
+🫄🏼	trudna osoba srednje svetla koža	none
+🫄🏽	trudna osoba ni svetla ni tamna koža	none
+🫄🏾	trudna osoba srednje tamna koža	none
+🫄🏿	trudna osoba tamna koža	none
+🫅🏻	osoba sa krunom svetla koža	none
+🫅🏼	osoba sa krunom srednje svetla koža	none
+🫅🏽	osoba sa krunom ni svetla ni tamna koža	none
+🫅🏾	osoba sa krunom srednje tamna koža	none
+🫅🏿	osoba sa krunom tamna koža	none
+🫰🏻	ruka sa prekrštenim palcem i kažiprstom svetla koža	none
+🫰🏼	ruka sa prekrštenim palcem i kažiprstom srednje svetla koža	none
+🫰🏽	ruka sa prekrštenim palcem i kažiprstom ni svetla ni tamna koža	none
+🫰🏾	ruka sa prekrštenim palcem i kažiprstom srednje tamna koža	none
+🫰🏿	ruka sa prekrštenim palcem i kažiprstom tamna koža	none
+🫱🏻	ruka okrenuta nadesno svetla koža	none
+🫱🏼	ruka okrenuta nadesno srednje svetla koža	none
+🫱🏽	ruka okrenuta nadesno ni svetla ni tamna koža	none
+🫱🏾	ruka okrenuta nadesno srednje tamna koža	none
+🫱🏿	ruka okrenuta nadesno tamna koža	none
+🫱🏻‍🫲🏼	rukovanje svetla koža i srednje svetla koža	none
+🫱🏻‍🫲🏽	rukovanje svetla koža i ni svetla ni tamna koža	none
+🫱🏻‍🫲🏾	rukovanje svetla koža i srednje tamna koža	none
+🫱🏻‍🫲🏿	rukovanje svetla koža i tamna koža	none
+🫱🏼‍🫲🏻	rukovanje srednje svetla koža i svetla koža	none
+🫱🏼‍🫲🏽	rukovanje srednje svetla koža i ni svetla ni tamna koža	none
+🫱🏼‍🫲🏾	rukovanje srednje svetla koža i srednje tamna koža	none
+🫱🏼‍🫲🏿	rukovanje srednje svetla koža i tamna koža	none
+🫱🏽‍🫲🏻	rukovanje ni svetla ni tamna koža i svetla koža	none
+🫱🏽‍🫲🏼	rukovanje ni svetla ni tamna koža i srednje svetla koža	none
+🫱🏽‍🫲🏾	rukovanje ni svetla ni tamna koža i srednje tamna koža	none
+🫱🏽‍🫲🏿	rukovanje ni svetla ni tamna koža i tamna koža	none
+🫱🏾‍🫲🏻	rukovanje srednje tamna koža i svetla koža	none
+🫱🏾‍🫲🏼	rukovanje srednje tamna koža i srednje svetla koža	none
+🫱🏾‍🫲🏽	rukovanje srednje tamna koža i ni svetla ni tamna koža	none
+🫱🏾‍🫲🏿	rukovanje srednje tamna koža i tamna koža	none
+🫱🏿‍🫲🏻	rukovanje tamna koža i svetla koža	none
+🫱🏿‍🫲🏼	rukovanje tamna koža i srednje svetla koža	none
+🫱🏿‍🫲🏽	rukovanje tamna koža i ni svetla ni tamna koža	none
+🫱🏿‍🫲🏾	rukovanje tamna koža i srednje tamna koža	none
+🫲🏻	ruka okrenuta nalevo svetla koža	none
+🫲🏼	ruka okrenuta nalevo srednje svetla koža	none
+🫲🏽	ruka okrenuta nalevo ni svetla ni tamna koža	none
+🫲🏾	ruka okrenuta nalevo srednje tamna koža	none
+🫲🏿	ruka okrenuta nalevo tamna koža	none
+🫳🏻	dlan okrenut nadole svetla koža	none
+🫳🏼	dlan okrenut nadole srednje svetla koža	none
+🫳🏽	dlan okrenut nadole ni svetla ni tamna koža	none
+🫳🏾	dlan okrenut nadole srednje tamna koža	none
+🫳🏿	dlan okrenut nadole tamna koža	none
+🫴🏻	dlan okrenut nagore svetla koža	none
+🫴🏼	dlan okrenut nagore srednje svetla koža	none
+🫴🏽	dlan okrenut nagore ni svetla ni tamna koža	none
+🫴🏾	dlan okrenut nagore srednje tamna koža	none
+🫴🏿	dlan okrenut nagore tamna koža	none
+🫵🏻	kažiprst koji pokazuje prema gledaocu svetla koža	none
+🫵🏼	kažiprst koji pokazuje prema gledaocu srednje svetla koža	none
+🫵🏽	kažiprst koji pokazuje prema gledaocu ni svetla ni tamna koža	none
+🫵🏾	kažiprst koji pokazuje prema gledaocu srednje tamna koža	none
+🫵🏿	kažiprst koji pokazuje prema gledaocu tamna koža	none
+🫶🏻	ruke koje prave srce svetla koža	none
+🫶🏼	ruke koje prave srce srednje svetla koža	none
+🫶🏽	ruke koje prave srce ni svetla ni tamna koža	none
+🫶🏾	ruke koje prave srce srednje tamna koža	none
+🫶🏿	ruke koje prave srce tamna koža	none
 👋🏻	ruka koja maše svetla koža	none
 👋🏼	ruka koja maše srednje svetla koža	none
 👋🏽	ruka koja maše ni svetla ni tamna koža	none
@@ -1717,6 +2008,11 @@ symbols:
 🤲🏽	dlanovi nagore zajedno ni svetla ni tamna koža	none
 🤲🏾	dlanovi nagore zajedno srednje tamna koža	none
 🤲🏿	dlanovi nagore zajedno tamna koža	none
+🤝🏻	rukovanje svetla koža	none
+🤝🏼	rukovanje srednje svetla koža	none
+🤝🏽	rukovanje ni svetla ni tamna koža	none
+🤝🏾	rukovanje srednje tamna koža	none
+🤝🏿	rukovanje tamna koža	none
 🙏🏻	spojeni dlanovi svetla koža	none
 🙏🏼	spojeni dlanovi srednje svetla koža	none
 🙏🏽	spojeni dlanovi ni svetla ni tamna koža	none
@@ -3577,17 +3873,17 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	zastava Engleska	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	zastava Škotska	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zastava Vels	none
-₡	Kostarikanski kolon	none
-₦	Nigerijska naira	none
+₡	kostarikanski kolon	none
+₦	nigerijska naira	none
 ₧	Španska pezeta	none
-₪	Izraelski novi šekel	none
-₫	Vijetnamski dong	none
-₭	Laoški kip	none
-₮	Mongolski tugrik	none
-₲	Paragvajski gvarani	none
-₴	Ukrajinska hrivnja	none
-₵	Ganski sedi	none
-₸	Kazahstanski tenge	none
-₺	Turska lira	none
-₼	Azerbejdžanski manat	none
-₾	Gruzijski lari	none
+₪	izraelski novi šekel	none
+₫	vijetnamski dong	none
+₭	laoski kip	none
+₮	mongolski tugrik	none
+₲	paragvajski gvarani	none
+₴	ukrajinska grivna	none
+₵	ganski sedi	none
+₸	kazahstanski tenge	none
+₺	turska lira	none
+₼	azerbejdžanski manat	none
+₾	gruzijski lari	none

@@ -65,30 +65,242 @@ symbols:
 ⇍	ezkerrerako gezi bikoitza trazuarekin	none
 ⇑	gorako gezi bikoitza	none
 ⇒	eskuinerako gezi bikoitza	none
+⇏	eskuinerako gezi bkoitz marratua	none
+⇓	beherako gezi bikoitza	none
+⇔	ezker eta eskuinerako gezi bikoitza	none
+⇎	ezker eta eskuinerako gezi bikoitz marratua	none
+⇖	ipar-mendebalderako gezi bikoitza	none
+⇗	ipar-ekialderako gezi bikoitza	none
+⇘	hego-ekialderako gezi bikoitza	none
+⇙	hego-mendebalderako gezi bikoitza	none
+⇚	ezkerrerako gezi hirukoitza	none
+⇛	eskuinerako gezi hirukoitza	none
+⇜	ezkerrerako gezi zirrimarratua	none
+⇝	eskuinerako gezi zirrimarratua	none
+⇞	gorako gezi bikoitz marratua	none
+⇟	beherako gezi bikoitz marratua	none
+⇠	ezkerrerako puntadun gezia	none
+⇡	gorako puntadun gezia	none
+⇢	eskuinerako puntadun gezia	none
+⇣	beherako puntadun gezia	none
+⇤	ezkerrerako gezi-barra	none
+⇥	eskuinerako gezi-barra	none
+⇦	ezkerrerako gezi hutsa	none
+⇧	gorako gezi hutsa	none
+⇨	eskuinerako gezi hutsa	none
+⇩	beherako gezi hutsa	none
+⇪	gorako gezi hutsa barratik	none
+⇵	beherako gezia ezkerrean eta gorako gezia	none
+∀	guztientzat	none
+∂	diferentzial partziala	none
+∃	existitzen da	none
+∅	multzo hutsa	none
 ∆	gehikuntza	none
 ∇	nabla	none
 ∈	honen elementua	none
+∉	ez da elementu bat	none
+∋	kide gisa dauka	none
+∎	frogaren amaiera	none
+∏	n-ario produktua	none
+∑	n-ario batura	none
+≮	ez hau baino gutxiago	none
 ≠	ez da berdin	none
+≯	ez hau baino gehiago	none
 −	minus-ikurra	none
 ⁻	goi-indizeko minusa	none
+∓	minus edo plus	none
+∕	zatiketa-barra	none
+∗	izartxo-eragilea	none
+∘	eraztun-eragilea	none
+∙	bulet-eragile	none
 √	erro karratu	none
+∝	proportzionala	none
 ∞	infinitu-ikurra	none
+∟	eskuineko angelua	none
+∠	angelua	none
+∣	zatitzen du	none
+∥	paraleloa	none
+∧	konjuntzio logiko	none
 ∩	ebakidura	none
 ∪	lotura	none
+∫	integrala	none
+∬	integral bikoitza	none
+∮	ingeradun integrala	none
+∴	ondorioz	none
+∵	zeren eta	none
+∶	ratioa	none
+∷	proportzioa	none
+∼	tilet eragilea	none
+∽	tilet alderantzikatua	none
+∾	s etzan alderantzikatua	none
+≃	asintotikoki berdin	none
+≅	gutxi gorabehera berdin	none
 ≈	ia berdin	none
+≌	dena berdin	none
+≒	irudiaren berdina, gutxi gorabehera	none
+≖	eraztuna berdin barruan	none
 ≡	honen berbera	none
+≣	baliokide zorrotza	none
 ≤	hau baino txikiagoa edo berdina	none
 ≥	hau baino handiagoa edo berdina	none
+≦	hau baino gutxiago edo berdin	none
+≧	hau baino gehiago edo berdin	none
+≪	hau baino askoz gutxiago	none
+≫	hau baino askoz gehiago	none
+≬	artean	none
+≳	baliokidea baino handiagoa	none
+≺	honen aurrekoa	none
+≻	honen ondorengoa	none
+⊁	ez da arrakastatsua	none
 ⊂	honen azpimultzoa	none
+⊃	supermultzoa	none
+⊆	azpimultzoaren berdina	none
+⊇	supermultzoaren berdina	none
+⊕	plus zirkulu barruan	none
+⊖	minus zirkulu barruan	none
+⊗	bider zirkulu barruan	none
+⊘	zatiketa-barra zirkulu barruan	none
+⊙	puntu-eragilea zirkulu barruan	none
+⊚	eraztun-eragilea zirkulu barruan	none
+⊛	izartxo-eragilea zirkulu barruan	none
+⊞	plus koadro barruan	none
+⊟	minus koadro barruan	none
+⊥	tatxeta	none
+⊮	ez du behartzen	none
+⊰	honen aurrekoa mendekoan	none
+⊱	arrakasta du mendekoan	none
+⋭	ez dauka azpimultzoaren berdin gisa	none
+⊶	jatorrizkoa	none
+⊹	bateratze-matrize hermitiar	none
+⊿	eskuineko triangelua	none
+⋁	edo logika n-arioa	none
+⋂	n-ario ebakidura	none
+⋃	batura n-arioa	none
+⋅	puntu-eragilea	none
+⋆	izar-eragilea	none
+⋈	lotura natural	none
+⋒	ebakidura bikoitza	none
+⋘	hau baino askoz ere gutxiago	none
+⋙	hau baino askoz handiagoa	none
+⋮	hiru puntu bertikal	none
+⋯	hiru puntudun erdiko lerro horizontala	none
+⋰	goi-eskuineko hiru puntu diagonal	none
+⋱	behe-eskuineko hiru puntu diagonal	none
+■	karratu betea	none
+□	karratu hutsa	none
+▢	karratu hutsa izkina borobilduekin	none
+▣	karratu betea daukan karratu hutsa	none
+▤	karratua beteki horizontalarekin	none
+▥	karratua beteki bertikalarekin	none
+▦	karratua beteki marratu ortogonalarekin	none
+▧	karratua goi-ezkerreko izkina behe-eskuinean	none
+▨	karratua goi-eskuineko izkina behe-ezkerrean	none
+▩	karratua beteki marratu diagonalarekin	none
+▬	laukizuzen betea	none
+▭	laukizuzen hutsa	none
+▮	laukizuzen bertikal betea	none
+▰	paralelogramo betea	none
 ▲	gora seinalatzen duen triangelu betea	none
+△	gora begira dagoen triangelu hutsa	none
+▴	gora begira dagoen triangelu bete txikia	none
+▵	gora begira dagoen triangelu huts txikia	none
+▷	eskuinera begira dagoen triangelu hutsa	none
+▸	eskuinera begira dagoen triangelu bete txikia	none
+▹	eskuinera begira dagoen triangelu huts txikia	none
+►	eskuinera begira erakusle betea	none
+▻	eskuinera begira erakusle hutsa	none
 ▼	behera seinalatzen duen triangelu betea	none
+▽	behera begira dagoen triangelu hutsa	none
+▾	behera begira dagoen triangelu txiki betea	none
+▿	behera begira dagoen triangelu txiki hutsa	none
+◁	ezkerrera begira dagoen triangelu hutsa	none
+◂	ezkerrera begira dagoen triangelu txiki betea	none
+◃	ezkerrera begira dagoen triangelu txiki hutsa	none
+◄	ezkerrera begira dagoen erakusle betea	none
+◅	ezkerrera begira dagoen erakusle hutsa	none
+◆	diamante betea	none
+◇	diamante hutsa	none
+◈	diamante betea duen diamante hutsa	none
+◉	zirkulu betea duen zirkulu hutsa	none
 ◊	erronbo	none
 ○	zirkulu hutsa	none
+◌	puntudun zirkulua	none
+◍	zirkulua beteki bertikalarekin	none
+◎	zirkulu zentrokideak	none
 ●	zirkulu betea	none
+◐	zirkulua ezkerraldea beteta	none
+◑	zirkulua eskuinaldea beteta	none
+◒	zirkulua behealdea beteta	none
+◓	zirkulua goialdea beteta	none
+◔	zirkulu goi-eskuinaldeko koadrantea beteta	none
+◕	zirkulu betea goi-ezkerreko koadrantea izan ezik	none
+◖	ezkerraldea betetako zirkulu erdia	none
+◗	eskuinaldea betetako zirkulu erdia	none
+◘	bulet alderantzikatua	none
+◙	zirkulu hutsa duen karratu betea	none
+◜	arku zirkularraren goi-ezkerreko koadrantea	none
+◝	arku zirkularraren goi-eskuineko koadrantea	none
+◞	arku zirkularraren behe-eskuineko koadrantea	none
+◟	arku zirkularraren behe-ezkerreko koadrantea	none
+◠	zirkulu erdiaren goialdea	none
+◡	zirkulu erdiaren behealdea	none
+◢	behe-eskuineko triangelu betea	none
+◣	behe-ezkerreko triangelu betea	none
+◤	goi-ezkerreko triangelu betea	none
+◥	goi-eskuineko triangelu betea	none
+◦	bulet hutsa	none
 ◯	zirkulu huts handia	none
+◳	karratu hutsa goi-eskuinean koadrantearekin	none
+◷	zirkulu hutsa goi-eskuinean koadrantearekin	none
+◿	behe-eskuineko triangelua	none
 ♪	kortxea	none
+⨧	plus bi azpiindizearekin	none
+⨯	bektore-gurutzearen produktua	none
+⨼	barne-produktua	none
+⩣	edo logika azpibarra bikoitzarekin	none
+⩽	hau baino gutxiago berdin okertuarekin	none
+⪍	hau baino gutxiago antzeko berdinen gainean	none
+⪚	lerro bikoitzeko berdin baino handiagoa	none
+⪺	arrakasta du ez da ia berdina gainean	none
 ♭	bemola	none
 ♯	diesea	none
+🥹	malkoak dituen begiko aurpegia	none
+🧌	trolla	none
+🩻	z izpiak	none
+🩼	Makulua	none
+🪩	beirazko bola	none
+🪪	nortasun-agiria	none
+🪫	bateria gutxi	none
+🪬	hamsa	none
+🪷	lotusa	none
+🪸	korala	none
+🪹	habi hutsa	none
+🪺	habia arrautzekin	none
+🫃	gizona haurdun	none
+🫄	pertsona haurdun	none
+🫅	koroadun pertsona	none
+🫗	likidoa isurtzen	none
+🫘	babarrunak	none
+🫙	pitxerra	none
+🫠	urtzen ari den aurpegia	none
+🫡	agurtzen ari den aurpegia	none
+🫢	begiak irekita dauzkan eta ahoaren parean eskua duen aurpegia	none
+🫣	begi batekin espiatzen ari den aurpegia	none
+🫤	ahoa diagonalean duen aurpegia	none
+🫥	lerro etenarekin egindako aurpegia	none
+🫦	ezpainei koska egiten	none
+🫧	burbuilak	none
+🫰	erakuslea eta erpurua gurutzatuta	none
+🫱	eskuinera begira dagoen eskua	none
+🫲	ezkerrera begira dagoen eskua	none
+🫳	esku-ahurra beherantz duen eskua	none
+🫴	esku-ahura gora begira duen eskua	none
+🫵	ikusleari seinalatzen dion erakuslea	none
+🫶	bihotz-forma egiten ari diren eskuak	none
+🛝	txirrista	none
+🛞	gurpila	none
+🛟	sirena	none
+🟰	berdin-ikur lodia	none
 😀	barre egiten ari den aurpegia	none
 😃	barre egiten ari den aurpegia, ahoa irekita	none
 😄	begiez barreka ari den aurpegia	none
@@ -610,6 +822,7 @@ symbols:
 🦔	triku	none
 🦇	saguzarra	none
 🐻	hartz	none
+🐻‍❄	hartz zuria	none
 🐨	koala	none
 🐼	panda	none
 🦥	nagia	none
@@ -1565,13 +1778,91 @@ symbols:
 🏳‍🌈	ortzadarraren bandera	none
 🏳‍⚧	bandera transgeneroa	none
 🏴‍☠	piraten bandera	none
+₢	cruzeiro	none
+₣	libera frantsesa	none
+₤	lira	none
 ₥	milarena	none
 ₩	wona	none
 €	euroa	none
+₰	penny alemana	none
 ₱	pesoa	none
+₳	australa	none
+₶	Tourseko libera	none
+₷	spesmiloa	none
 ₹	errupia indiarra	none
 ₽	errubloa	none
 ₿	bitcoina	none
+₨	errupia	none
+🫃🏻	gizona haurdun 1–2. mota	none
+🫃🏼	gizona haurdun 3. mota	none
+🫃🏽	gizona haurdun bitarteko azal-tonua	none
+🫃🏾	gizona haurdun 5. mota	none
+🫃🏿	gizona haurdun 6. mota	none
+🫄🏻	pertsona haurdun 1–2. mota	none
+🫄🏼	pertsona haurdun 3. mota	none
+🫄🏽	pertsona haurdun bitarteko azal-tonua	none
+🫄🏾	pertsona haurdun 5. mota	none
+🫄🏿	pertsona haurdun 6. mota	none
+🫅🏻	koroadun pertsona 1–2. mota	none
+🫅🏼	koroadun pertsona 3. mota	none
+🫅🏽	koroadun pertsona bitarteko azal-tonua	none
+🫅🏾	koroadun pertsona 5. mota	none
+🫅🏿	koroadun pertsona 6. mota	none
+🫰🏻	erakuslea eta erpurua gurutzatuta 1–2. mota	none
+🫰🏼	erakuslea eta erpurua gurutzatuta 3. mota	none
+🫰🏽	erakuslea eta erpurua gurutzatuta bitarteko azal-tonua	none
+🫰🏾	erakuslea eta erpurua gurutzatuta 5. mota	none
+🫰🏿	erakuslea eta erpurua gurutzatuta 6. mota	none
+🫱🏻	eskuinera begira dagoen eskua 1–2. mota	none
+🫱🏼	eskuinera begira dagoen eskua 3. mota	none
+🫱🏽	eskuinera begira dagoen eskua bitarteko azal-tonua	none
+🫱🏾	eskuinera begira dagoen eskua 5. mota	none
+🫱🏿	eskuinera begira dagoen eskua 6. mota	none
+🫱🏻‍🫲🏼	esku-ematea 1–2. mota eta 3. mota	none
+🫱🏻‍🫲🏽	esku-ematea 1–2. mota eta bitarteko azal-tonua	none
+🫱🏻‍🫲🏾	esku-ematea 1–2. mota eta 5. mota	none
+🫱🏻‍🫲🏿	esku-ematea 1–2. mota eta 6. mota	none
+🫱🏼‍🫲🏻	esku-ematea 3. mota eta 1–2. mota	none
+🫱🏼‍🫲🏽	esku-ematea 3. mota eta bitarteko azal-tonua	none
+🫱🏼‍🫲🏾	esku-ematea 3. mota eta 5. mota	none
+🫱🏼‍🫲🏿	esku-ematea 3. mota eta 6. mota	none
+🫱🏽‍🫲🏻	esku-ematea bitarteko azal-tonua eta 1–2. mota	none
+🫱🏽‍🫲🏼	esku-ematea bitarteko azal-tonua eta 3. mota	none
+🫱🏽‍🫲🏾	esku-ematea bitarteko azal-tonua eta 5. mota	none
+🫱🏽‍🫲🏿	esku-ematea bitarteko azal-tonua eta 6. mota	none
+🫱🏾‍🫲🏻	esku-ematea 5. mota eta 1–2. mota	none
+🫱🏾‍🫲🏼	esku-ematea 5. mota eta 3. mota	none
+🫱🏾‍🫲🏽	esku-ematea 5. mota eta bitarteko azal-tonua	none
+🫱🏾‍🫲🏿	esku-ematea 5. mota eta 6. mota	none
+🫱🏿‍🫲🏻	esku-ematea 6. mota eta 1–2. mota	none
+🫱🏿‍🫲🏼	esku-ematea 6. mota eta 3. mota	none
+🫱🏿‍🫲🏽	esku-ematea 6. mota eta bitarteko azal-tonua	none
+🫱🏿‍🫲🏾	esku-ematea 6. mota eta 5. mota	none
+🫲🏻	ezkerrera begira dagoen eskua 1–2. mota	none
+🫲🏼	ezkerrera begira dagoen eskua 3. mota	none
+🫲🏽	ezkerrera begira dagoen eskua bitarteko azal-tonua	none
+🫲🏾	ezkerrera begira dagoen eskua 5. mota	none
+🫲🏿	ezkerrera begira dagoen eskua 6. mota	none
+🫳🏻	esku-ahurra beherantz duen eskua 1–2. mota	none
+🫳🏼	esku-ahurra beherantz duen eskua 3. mota	none
+🫳🏽	esku-ahurra beherantz duen eskua bitarteko azal-tonua	none
+🫳🏾	esku-ahurra beherantz duen eskua 5. mota	none
+🫳🏿	esku-ahurra beherantz duen eskua 6. mota	none
+🫴🏻	esku-ahura gora begira duen eskua 1–2. mota	none
+🫴🏼	esku-ahura gora begira duen eskua 3. mota	none
+🫴🏽	esku-ahura gora begira duen eskua bitarteko azal-tonua	none
+🫴🏾	esku-ahura gora begira duen eskua 5. mota	none
+🫴🏿	esku-ahura gora begira duen eskua 6. mota	none
+🫵🏻	ikusleari seinalatzen dion erakuslea 1–2. mota	none
+🫵🏼	ikusleari seinalatzen dion erakuslea 3. mota	none
+🫵🏽	ikusleari seinalatzen dion erakuslea bitarteko azal-tonua	none
+🫵🏾	ikusleari seinalatzen dion erakuslea 5. mota	none
+🫵🏿	ikusleari seinalatzen dion erakuslea 6. mota	none
+🫶🏻	bihotz-forma egiten ari diren eskuak 1–2. mota	none
+🫶🏼	bihotz-forma egiten ari diren eskuak 3. mota	none
+🫶🏽	bihotz-forma egiten ari diren eskuak bitarteko azal-tonua	none
+🫶🏾	bihotz-forma egiten ari diren eskuak 5. mota	none
+🫶🏿	bihotz-forma egiten ari diren eskuak 6. mota	none
 👋🏻	mugitzen ari den eskua 1–2. mota	none
 👋🏼	mugitzen ari den eskua 3. mota	none
 👋🏽	mugitzen ari den eskua bitarteko azal-tonua	none
@@ -1717,6 +2008,11 @@ symbols:
 🤲🏽	esku-azpiak elkartuta bitarteko azal-tonua	none
 🤲🏾	esku-azpiak elkartuta 5. mota	none
 🤲🏿	esku-azpiak elkartuta 6. mota	none
+🤝🏻	esku-ematea 1–2. mota	none
+🤝🏼	esku-ematea 3. mota	none
+🤝🏽	esku-ematea bitarteko azal-tonua	none
+🤝🏾	esku-ematea 5. mota	none
+🤝🏿	esku-ematea 6. mota	none
 🙏🏻	erregutzen ari diren eskuak 1–2. mota	none
 🙏🏼	erregutzen ari diren eskuak 3. mota	none
 🙏🏽	erregutzen ari diren eskuak bitarteko azal-tonua	none
@@ -3577,8 +3873,9 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	Bandera Ingalaterra	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	Bandera Eskozia	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	Bandera Gales	none
-₡	Costa Ricako colona	none
+₡	colon costarricarra	none
 ₦	naira nigeriarra	none
+₧	pezeta espainiarra	none
 ₪	shekel israeldar berria	none
 ₫	dong vietnamdarra	none
 ₭	kip laostarra	none

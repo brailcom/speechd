@@ -52,32 +52,255 @@ symbols:
 ⇁	praporek dole směrem doprava	none
 ⇂	pravorek vpravo směrem dolů	none
 ⇃	praporek vlevo směrem dolů	none
+⇄	šipka doprava nad šipkou doleva	none
 ⇅	šipky nahoru a dolů	none
 ⇆	šipka doleva nad šipkou doprava	none
+⇇	dvě šipky doleva	none
+⇈	dvě šipky nahoru	none
+⇉	dvě šipky doprava	none
+⇊	dvě šipky dolů	none
+⇋	praporek nahoře směrem doleva nad praporkem dole směrem doprava	none
+⇌	praporek nahoře směrem doprava nad praporkem dole směrem doleva	none
+⇐	zdvojená šipka doleva	none
+⇍	přeškrutnutá zdvojená šipka doleva	none
+⇑	zdvojená šipka nahoru	none
+⇒	zdvojená šipka doprava	none
+⇏	přeškrtnutá zdvojená šipka doprava	none
+⇓	zdvojená šipka dolu	none
+⇔	obousměrná zdvojená šipka	none
+⇎	přeškrtnutá obousměrná zdvojená šipka	none
+⇖	zdvojená šipka na severozápad	none
+⇗	zdvojená šipka na severovýchod	none
+⇘	zdvojená šipka na jihovýchod	none
+⇙	zdvojená šipka na jihozápad	none
+⇚	ztrojená šipka doleva	none
+⇛	ztrojená šipka doprava	none
+⇜	cik cak šipka doleva	none
+⇝	cik cak šipka doprava	none
+⇞	dvojitě přeškrtnutá šipka nahoru	none
+⇟	dvojitě přeškrtnutá šipka dolu	none
+⇠	přerušovaná šipka doleva	none
+⇡	přerušovaná šipka nahoru	none
+⇢	přerušovaná šipka doprava	none
+⇣	přerušovaná šipka dolu	none
+⇤	šipka doleva k zarážce	none
+⇥	šipka doprava k zarážce	none
+⇦	bílá šipka doleva	none
+⇧	bílá šipka nahoru	none
+⇨	bílá šipka doprava	none
+⇩	bílá šipka dolu	none
+⇪	bílá šipka nahoru se základnou	none
+⇵	šipka dolu vedle šipky dolu	none
+∀	pro každé	none
+∂	parciální diferenciál	none
+∃	existuje	none
+∅	prázdná množina	none
 ∆	delta	none
 ∇	nabla	none
 ∈	prvek množiny	none
+∉	není prvek	none
+∋	je členem	none
+∎	čtvereček	none
+∏	kapitál pi	none
+∑	suma	none
+≮	ne méně než	none
 ≠	nerovná se	none
+≯	ne více než	none
 −	znaménko minus	none
 ⁻	minus jako horní index	none
+∓	minus a plus	none
+∕	dělící lomítko	none
+∗	znak hvězdičky	none
+∘	operátor kroužek	none
+∙	operátor plné kolečko	none
 √	druhá odmocnina	none
+∝	úměrně k	none
 ∞	znak nekonečna	none
+∟	pravý úhel	none
+∠	úhel	none
+∣	znak dělitelnosti	none
+∥	znak rovnoběžnosti	none
+∧	logický součin	none
 ∩	průnik	none
 ∪	sjednocení	none
+∫	integrál	none
+∬	dvojný integrál	none
+∮	křivkový integrál	none
+∴	proto	none
+∵	protože	none
+∶	poměr	none
+∷	vzájemný poměr	none
+∼	operátor úměrnosti	none
+∽	obrácená vlnovka	none
+∾	obrácené ležaté s	none
+≃	asymptotická rovnost	none
+≅	shodnost	none
 ≈	rovná se přibližně	none
+≌	vše se rovná	none
+≒	přibližně rovný nebo obraz	none
+≖	kruh v rovnosti	none
 ≡	shoduje se	none
+≣	striktně ekvivalentní	none
 ≤	je menší nebo rovno	none
 ≥	je větší nebo rovno	none
+≦	méně než nad rovná se	none
+≧	více než na rovná se	none
+≪	mnohem menší než	none
+≫	mnohem větší než	none
+≬	mezi	none
+≳	větší než ekvivalent	none
+≺	předchází	none
+≻	následuje	none
+⊁	nenásleduje	none
 ⊂	podmnožina	none
+⊃	je nadmnožinou	none
+⊆	je podmnožinou nebo se rovná	none
+⊇	je nadmnožinou nebo se rovná	none
+⊕	plus v kroužku	none
+⊖	minus v kroužku	none
+⊗	krát v kroužku	none
+⊘	lomeno v kroužku	none
+⊙	operátor tečka v kroužku	none
+⊚	operátor kroužek v kroužku	none
+⊛	operátor hvězdička v kroužku	none
+⊞	plus ve čtverečku	none
+⊟	minus ve čtverečku	none
+⊥	kolmé k	none
+⊮	nevynucuje	none
+⊰	předchází v relaci	none
+⊱	následuje v relaci	none
+⋭	neobsahuje normální podskupinu	none
+⊶	původní	none
+⊹	hermitovská konjunktivní matice	none
+⊿	pravoúhlý trojúhelník	none
+⋁	n-členný logický součet	none
+⋂	n-členný průnik	none
+⋃	n-členné sjednocení	none
+⋅	operátor tečka	none
+⋆	operátor hvězdička	none
+⋈	spojení	none
+⋒	dvojitý průnik	none
+⋘	mnohem mnohem menší než	none
+⋙	mnohem mnohem větší než	none
+⋮	svislá výpustka	none
+⋯	středová vodorovná výpustka	none
+⋰	diagonální výpustka doprava nahoru	none
+⋱	diagonální výpustka doprava dolu	none
+■	plný čtverec	none
+□	prázdný čtverec	none
+▢	prázdný čtverec se zaoblenými rohy	none
+▣	plný čtvereček v prázdném čtverci	none
+▤	čtverec s vodorovnou výplní	none
+▥	čtverec se svislou výplní	none
+▦	čtverec s kostičkovanou výplní	none
+▧	čtverec s diagonální výplní zleva doprava	none
+▨	čtverec s diagonální výplní zprava doleva	none
+▩	čtverec s diagonální kostičkovanou výplní	none
+▬	plný obdélník	none
+▭	prázdný obdélník	none
+▮	plný svislý obdélník	none
+▰	plný rovnoběžník	none
 ▲	vyplněný trojúhelník směřující nahoru	none
+△	prázdný trojúhelník vrcholem nahoru	none
+▴	plný trojúhelníček vrcholem nahoru	none
+▵	prázdný trojúhelníček vrcholem nahoru	none
+▷	prázdný trojúhelník vrcholem doprava	none
+▸	plný trojúhelníček vrcholem doprava	none
+▹	prázdný trojúhelníček vrcholem doprava	none
+►	plný ukazatel doprava	none
+▻	prázdný ukazatel doprava	none
 ▼	vyplněný trojúhelník směřující dolů	none
+▽	prázdný trojúhelník vrcholem dolu	none
+▾	plný trojúhelníček vrcholem dolu	none
+▿	prázdný trojúhelníček vrcholem dolu	none
+◁	prázdný trojúhelník vrcholem doleva	none
+◂	plný trojúhelníček vrcholem doleva	none
+◃	prázdný trojúhelníček vrcholem doleva	none
+◄	plný ukazatel doleva	none
+◅	prázdný ukazatel doleva	none
+◆	plný kosočtverec	none
+◇	prázdný kosočtverec	none
+◈	plný kosočtvereček v prázdném kosočtverci	none
+◉	plný kruh v prázdném kruhu	none
 ◊	kosočtverec	none
 ○	prázdný kroužek	none
+◌	tečkovaný kruh	none
+◍	kruh se svislou výplní	none
+◎	soustředěné kružnice	none
 ●	plný kroužek	none
+◐	kruh s vyplněnou levou polovinou	none
+◑	kruh s vyplněnou pravou polovinou	none
+◒	kruh s vyplněnou spodní polovinou	none
+◓	kruh s vyplněnou horní polovinou	none
+◔	kruh s vyplněnou pravou horní čtvrtinou	none
+◕	kruh prázdnou levou horní čtvrtinou	none
+◖	plný levý půlkruh	none
+◗	plný pravý půlkruh	none
+◘	negativní kolečko	none
+◙	prázdný kruh v plném čtverci	none
+◜	levá horní čtvrtina kruhového oblouku	none
+◝	pravá horní čtvrtina kruhového oblouku	none
+◞	pravá dolní čtvrtina kruhového oblouku	none
+◟	levá dolní čtvrtina kruhového oblouku	none
+◠	horní polovina kruhového oblouku	none
+◡	dolní polovina kruhového oblouku	none
+◢	plný pravoúhlý trojúhelník dolu doprava	none
+◣	plný pravoúhlý trojúhelník dolu doleva	none
+◤	plný pravoúhlý trojúhelník nahoru doleva	none
+◥	plný pravoúhlý trojúhelník nahoru doprava	none
+◦	prázdné kolečko	none
 ◯	prázdný kruh	none
+◳	prázdný čtverec s pravou horní čtvrtinou	none
+◷	prázdný kruh s pravou horní čtvrtinou	none
+◿	prázdný trojúhelník dolu doprava	none
 ♪	osminová nota	none
+⨧	plus s dolním indexem dva	none
+⨯	kartézský součin	none
+⨼	vnitřní součin	none
+⩣	dvojitě podtržený logický součet	none
+⩽	rovno nebo menší než	none
+⪍	menší než nebo ekvivalentní	none
+⪚	dvojitý ekvivalent nebo větší než	none
+⪺	následuje nad téměř se nerovná	none
 ♭	bé	none
 ♯	křížek (posuvka)	none
+🥹	obličej se slzami na krajíčku	none
+🧌	troll	none
+🩻	rentgen	none
+🩼	berle	none
+🪩	zrcadlová koule	none
+🪪	průkaz	none
+🪫	slabá baterie	none
+🪬	hamsa	none
+🪷	lotos	none
+🪸	korál	none
+🪹	prázdné hnízdo	none
+🪺	hnízdo s vejci	none
+🫃	těhotný muž	none
+🫄	těhotná osoba	none
+🫅	člověk s korunou na hlavě	none
+🫗	vylévání tekutiny	none
+🫘	fazole	none
+🫙	dóza	none
+🫠	tající obličej	none
+🫡	salutující obličej	none
+🫢	obličej s otevřenýma očima a dlaní před pusou	none
+🫣	obličej vykukující jedním okem	none
+🫤	obličej s pusou našikmo	none
+🫥	obličej s tečkovaným obrysem	none
+🫦	skousnutý ret	none
+🫧	bubliny	none
+🫰	ruka se zkříženým palcem a ukazováčkem	none
+🫱	ruka otočená doprava	none
+🫲	ruka otočená doleva	none
+🫳	ruka otočená dlaní dolů	none
+🫴	ruka otočená dlaní vzhůru	none
+🫵	ukazováček namířený na diváka	none
+🫶	ruce spojené do tvaru srdce	none
+🛝	dětská skluzavka	none
+🛞	kolo	none
+🛟	záchranný kruh	none
+🟰	tučný znak rovnosti	none
 😀	zubící se obličej	none
 😃	zubící se obličej s velkýma očima	none
 😄	zubící se obličej s usměvavýma očima	none
@@ -913,7 +1136,7 @@ symbols:
 🦽	mechanický invalidní vozík	none
 🦼	elektrický invalidní vozík	none
 🛺	autorikša	none
-🚲	kolo	none
+🚲	jízdní kolo	none
 🛴	koloběžka	none
 🛹	skateboard	none
 🛼	kolečková brusle	none
@@ -1555,13 +1778,91 @@ symbols:
 🏳‍🌈	duhová vlajka	none
 🏳‍⚧	vlajka trans hrdosti	none
 🏴‍☠	pirátská vlajka	none
+₢	znak měny cruzeiro	none
+₣	francouzský frank	none
+₤	znak měny liry	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
+₰	německý fenik	none
 ₱	peso	none
+₳	znak měny austral	none
+₶	tourská libra	none
+₷	znak měny spesmilo	none
 ₹	indická rupie	none
 ₽	rubl	none
 ₿	bitcoin	none
+₨	rupie	none
+🫃🏻	těhotný muž světlý odstín pleti	none
+🫃🏼	těhotný muž středně světlý odstín pleti	none
+🫃🏽	těhotný muž střední odstín pleti	none
+🫃🏾	těhotný muž středně tmavý odstín pleti	none
+🫃🏿	těhotný muž tmavý odstín pleti	none
+🫄🏻	těhotná osoba světlý odstín pleti	none
+🫄🏼	těhotná osoba středně světlý odstín pleti	none
+🫄🏽	těhotná osoba střední odstín pleti	none
+🫄🏾	těhotná osoba středně tmavý odstín pleti	none
+🫄🏿	těhotná osoba tmavý odstín pleti	none
+🫅🏻	člověk s korunou na hlavě světlý odstín pleti	none
+🫅🏼	člověk s korunou na hlavě středně světlý odstín pleti	none
+🫅🏽	člověk s korunou na hlavě střední odstín pleti	none
+🫅🏾	člověk s korunou na hlavě středně tmavý odstín pleti	none
+🫅🏿	člověk s korunou na hlavě tmavý odstín pleti	none
+🫰🏻	ruka se zkříženým palcem a ukazováčkem světlý odstín pleti	none
+🫰🏼	ruka se zkříženým palcem a ukazováčkem středně světlý odstín pleti	none
+🫰🏽	ruka se zkříženým palcem a ukazováčkem střední odstín pleti	none
+🫰🏾	ruka se zkříženým palcem a ukazováčkem středně tmavý odstín pleti	none
+🫰🏿	ruka se zkříženým palcem a ukazováčkem tmavý odstín pleti	none
+🫱🏻	ruka otočená doprava světlý odstín pleti	none
+🫱🏼	ruka otočená doprava středně světlý odstín pleti	none
+🫱🏽	ruka otočená doprava střední odstín pleti	none
+🫱🏾	ruka otočená doprava středně tmavý odstín pleti	none
+🫱🏿	ruka otočená doprava tmavý odstín pleti	none
+🫱🏻‍🫲🏼	stisk rukou světlý odstín pleti, středně světlý odstín pleti	none
+🫱🏻‍🫲🏽	stisk rukou světlý odstín pleti, střední odstín pleti	none
+🫱🏻‍🫲🏾	stisk rukou světlý odstín pleti, středně tmavý odstín pleti	none
+🫱🏻‍🫲🏿	stisk rukou světlý odstín pleti, tmavý odstín pleti	none
+🫱🏼‍🫲🏻	stisk rukou středně světlý odstín pleti, světlý odstín pleti	none
+🫱🏼‍🫲🏽	stisk rukou středně světlý odstín pleti, střední odstín pleti	none
+🫱🏼‍🫲🏾	stisk rukou středně světlý odstín pleti, středně tmavý odstín pleti	none
+🫱🏼‍🫲🏿	stisk rukou středně světlý odstín pleti, tmavý odstín pleti	none
+🫱🏽‍🫲🏻	stisk rukou střední odstín pleti, světlý odstín pleti	none
+🫱🏽‍🫲🏼	stisk rukou střední odstín pleti, středně světlý odstín pleti	none
+🫱🏽‍🫲🏾	stisk rukou střední odstín pleti, středně tmavý odstín pleti	none
+🫱🏽‍🫲🏿	stisk rukou střední odstín pleti, tmavý odstín pleti	none
+🫱🏾‍🫲🏻	stisk rukou středně tmavý odstín pleti, světlý odstín pleti	none
+🫱🏾‍🫲🏼	stisk rukou středně tmavý odstín pleti, středně světlý odstín pleti	none
+🫱🏾‍🫲🏽	stisk rukou středně tmavý odstín pleti, střední odstín pleti	none
+🫱🏾‍🫲🏿	stisk rukou středně tmavý odstín pleti, tmavý odstín pleti	none
+🫱🏿‍🫲🏻	stisk rukou tmavý odstín pleti, světlý odstín pleti	none
+🫱🏿‍🫲🏼	stisk rukou tmavý odstín pleti, středně světlý odstín pleti	none
+🫱🏿‍🫲🏽	stisk rukou tmavý odstín pleti, střední odstín pleti	none
+🫱🏿‍🫲🏾	stisk rukou tmavý odstín pleti, středně tmavý odstín pleti	none
+🫲🏻	ruka otočená doleva světlý odstín pleti	none
+🫲🏼	ruka otočená doleva středně světlý odstín pleti	none
+🫲🏽	ruka otočená doleva střední odstín pleti	none
+🫲🏾	ruka otočená doleva středně tmavý odstín pleti	none
+🫲🏿	ruka otočená doleva tmavý odstín pleti	none
+🫳🏻	ruka otočená dlaní dolů světlý odstín pleti	none
+🫳🏼	ruka otočená dlaní dolů středně světlý odstín pleti	none
+🫳🏽	ruka otočená dlaní dolů střední odstín pleti	none
+🫳🏾	ruka otočená dlaní dolů středně tmavý odstín pleti	none
+🫳🏿	ruka otočená dlaní dolů tmavý odstín pleti	none
+🫴🏻	ruka otočená dlaní vzhůru světlý odstín pleti	none
+🫴🏼	ruka otočená dlaní vzhůru středně světlý odstín pleti	none
+🫴🏽	ruka otočená dlaní vzhůru střední odstín pleti	none
+🫴🏾	ruka otočená dlaní vzhůru středně tmavý odstín pleti	none
+🫴🏿	ruka otočená dlaní vzhůru tmavý odstín pleti	none
+🫵🏻	ukazováček namířený na diváka světlý odstín pleti	none
+🫵🏼	ukazováček namířený na diváka středně světlý odstín pleti	none
+🫵🏽	ukazováček namířený na diváka střední odstín pleti	none
+🫵🏾	ukazováček namířený na diváka středně tmavý odstín pleti	none
+🫵🏿	ukazováček namířený na diváka tmavý odstín pleti	none
+🫶🏻	ruce spojené do tvaru srdce světlý odstín pleti	none
+🫶🏼	ruce spojené do tvaru srdce středně světlý odstín pleti	none
+🫶🏽	ruce spojené do tvaru srdce střední odstín pleti	none
+🫶🏾	ruce spojené do tvaru srdce středně tmavý odstín pleti	none
+🫶🏿	ruce spojené do tvaru srdce tmavý odstín pleti	none
 👋🏻	mávající ruka světlý odstín pleti	none
 👋🏼	mávající ruka středně světlý odstín pleti	none
 👋🏽	mávající ruka střední odstín pleti	none
@@ -1707,6 +2008,11 @@ symbols:
 🤲🏽	zdvižené dlaně vedle sebe střední odstín pleti	none
 🤲🏾	zdvižené dlaně vedle sebe středně tmavý odstín pleti	none
 🤲🏿	zdvižené dlaně vedle sebe tmavý odstín pleti	none
+🤝🏻	stisk rukou světlý odstín pleti	none
+🤝🏼	stisk rukou středně světlý odstín pleti	none
+🤝🏽	stisk rukou střední odstín pleti	none
+🤝🏾	stisk rukou středně tmavý odstín pleti	none
+🤝🏿	stisk rukou tmavý odstín pleti	none
 🙏🏻	sepjaté ruce světlý odstín pleti	none
 🙏🏼	sepjaté ruce středně světlý odstín pleti	none
 🙏🏽	sepjaté ruce střední odstín pleti	none

@@ -3,10 +3,55 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+⇦	weisser Pfeil nach links	none
+⇧	weisser Pfeil nach oben	none
+⇨	weisser Pfeil nach rechts	none
+⇩	weisser Pfeil nach unten	none
+⇪	weisser Pfeil nach oben von Strich weglaufend	none
+≠	ungleich	none
+≯	nicht grösser als	none
+−	Minuszeichen	none
 ≈	fast gleich wie	none
 ≥	grösser als oder gleich	none
+≧	grösser als über gleich	none
+≫	viel grösser als	none
+≳	grösser als oder äquivalent	none
+⋙	sehr viel grösser als	none
+□	weisses Quadrat	none
+▢	weisses Quadrat mit abgerundeten Ecken	none
+▣	weisses Quadrat mit kleinem schwarzem Quadrat	none
+▭	weisses Rechteck	none
+△	weisses nach oben weisendes Dreieck	none
+▵	weisses nach oben weisendes kleines Dreieck	none
+▷	weisses nach rechts weisendes Dreieck	none
+▹	weisses nach rechts weisendes kleines Dreieck	none
+▻	weisser nach rechts weisender Zeiger	none
+▽	weisses nach unten weisendes Dreieck	none
+▿	weisses nach unten weisendes kleines Dreieck	none
+◁	weisses nach links weisendes Dreieck	none
+◃	weisses nach links weisendes kleines Dreieck	none
+◅	weisser nach links weisender Zeiger	none
+◇	weisses Karo	none
+◈	weisses Karo mit kleinem schwarzem Karo	none
+◉	weisser Kreis mit kleinem schwarzem Kreis	none
+◕	schwarzer Kreis mit weissem Viertel oben links	none
+◙	schwarzes Quadrat mit weissem Kreis	none
+◦	weisses Aufzählungszeichen	none
 ◯	grosser hohler Kreis	none
+◳	weisses Quadrat mit Viertel oben rechts	none
+◷	weisser Kreis mit Viertel oben rechts	none
+◿	weisses Dreieck unten rechts	none
 ♪	Achtelsnote	none
+⪚	gleich über grösser als	none
+♭	Erniedrigungszeichen	none
+🩻	Röntgen	none
+🩼	Krücke	none
+🪪	ID	none
+🫗	Flüssigkeit ausgiessen	none
+🫠	schmelzendes Gesicht	none
+🫡	grüssendes Gesicht	none
+🫦	Auf Lippe beissen	none
+🫧	Seifenblasen	none
 😃	grinsendes Gesicht mit grossen Augen	none
 😅	Lachender Smiley mit kaltem Schweiss	none
 🤐	Smiley mit Reissverschlussmund	none
@@ -20,12 +65,15 @@ symbols:
 👽	Ausserirdisches Wesen	none
 ❤‍🔥	brennendes Herz	none
 ❤‍🩹	Herz mit Pflaster	none
+🤎	braunes Herz	none
 🤍	weisses Herz	none
 💥	Zusammenstoss	none
 💦	Schweisstropfen	none
 🖖	Vulkanischer Gruss	none
 🤘	Teufelsgruss	none
 🦶	Fuss	none
+🧑‍🏫	Lehrer(in)	none
+🧑‍💼	Büroangestellte(r)	none
 🧟‍♂	Zombiemann	none
 🚶	Fussgänger(in)	none
 🚶‍♂	Fussgänger	none
@@ -47,13 +95,15 @@ symbols:
 🌌	Milchstrasse	none
 🌥	Sonne hinter grosser Wolke	none
 ⚽	Fussball	none
+🎒	Schulsack	none
 🩴	Flipflops	none
 ⛑	Helm mit weissem Kreuz	none
 📆	Abreisskalender	none
 📌	Reisszwecke	none
 📍	runde Reisszwecke	none
+🪝	Haken	none
 🛗	Lift	none
-🚼	Baby-Symbol	none
+🪠	Saugglocke	none
 🚸	Kinder-queren-die-Strasse-Schild	none
 🚷	Fussgänger-verboten-Schild	none
 ☢	radioaktiv	none
@@ -61,8 +111,6 @@ symbols:
 ➖	Minus	none
 ❔	weisses Fragezeichen	none
 ❕	weisses Ausrufezeichen	none
-💲	fettes Dollarzeichen	none
-⭕	Grosser Kreis	none
 ✅	Weisses Häkchen	none
 🔠	Eingabesymbol lateinische Grossbuchstaben	none
 🅰	Grossbuchstabe A in Quadrat	none
@@ -90,7 +138,7 @@ symbols:
 🔳	Weisse quadratische Schaltfläche	none
 🏳	Wehende weisse Fahne	none
 🏳‍⚧	Transgenderflagge	none
-₿	Bitcoin	none
+₱	Peso	none
 🖖🏻	Vulkanischer Gruss helle Hautfarbe	none
 🖖🏼	Vulkanischer Gruss mittelhelle Hautfarbe	none
 🖖🏽	Vulkanischer Gruss mittlere Hautfarbe	none
@@ -106,12 +154,12 @@ symbols:
 🦶🏽	Fuss mittlere Hautfarbe	none
 🦶🏾	Fuss mitteldunkle Hautfarbe	none
 🦶🏿	Fuss dunkle Hautfarbe	none
-🧑‍🦳	Erwachsener weisses Haar	none
-🧑🏻‍🦳	Erwachsener helle Hautfarbe, weisses Haar	none
-🧑🏼‍🦳	Erwachsener mittelhelle Hautfarbe, weisses Haar	none
-🧑🏽‍🦳	Erwachsener mittlere Hautfarbe, weisses Haar	none
-🧑🏾‍🦳	Erwachsener mitteldunkle Hautfarbe, weisses Haar	none
-🧑🏿‍🦳	Erwachsener dunkle Hautfarbe, weisses Haar	none
+🧑‍🦳	Person weisses Haar	none
+🧑🏻‍🦳	Person helle Hautfarbe, weisses Haar	none
+🧑🏼‍🦳	Person mittelhelle Hautfarbe, weisses Haar	none
+🧑🏽‍🦳	Person mittlere Hautfarbe, weisses Haar	none
+🧑🏾‍🦳	Person mitteldunkle Hautfarbe, weisses Haar	none
+🧑🏿‍🦳	Person dunkle Hautfarbe, weisses Haar	none
 👨‍🦳	Mann weisses Haar	none
 👨🏻‍🦳	Mann helle Hautfarbe, weisses Haar	none
 👨🏼‍🦳	Mann mittelhelle Hautfarbe, weisses Haar	none

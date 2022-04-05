@@ -264,11 +264,48 @@ symbols:
 ⪺	volg daarop bo-op nie amper gelyk nie	none
 ♭	mol	none
 ♯	kruis	none
+🥹	gesig wat wil huil	none
+🧌	trol	none
+🩻	x-straal	none
+🩼	kruk	none
+🪩	diskobal	none
+🪪	id-kaart	none
+🪫	lae battery	none
+🪬	hamsa	none
+🪷	lotus	none
+🪸	koraal	none
+🪹	leë nes	none
+🪺	nes met eiers	none
+🫃	swanger man	none
+🫄	swanger persoon	none
+🫅	persoon met kroon	none
+🫗	gooi vloeistof	none
+🫘	boontjies	none
+🫙	fles	none
+🫠	gesig wat smelt	none
+🫡	saluut	none
+🫢	gesig met hand oor mond	none
+🫣	gesiggie met een oog wat loer	none
+🫤	gesig met dwars mond	none
+🫥	gesig met stippellyn	none
+🫦	byt lip	none
+🫧	borrels	none
+🫰	hand met duim en wysvinger gekruis	none
+🫱	hand na regs	none
+🫲	hand na links	none
+🫳	hand met palm ondertoe	none
+🫴	hand met palm boontoe	none
+🫵	wysvinger na kyker	none
+🫶	handhartjie	none
+🛝	glyplank	none
+🛞	wiel	none
+🛟	boei	none
+🟰	gelykaanteken	none
 😀	grinnikende gesig	none
 😃	glimlaggende gesig met oop mond	none
 😄	gesig en oë glimlag	none
 😁	grinnikende gesig met glimlaggende oë	none
-😆	lag gesig met toe oë	none
+😆	glimlaggende gesig met toe oë toe	none
 😅	lag gesig met sweet	none
 🤣	gesig wat hard lag	none
 😂	gesig met trane van vreugde	none
@@ -493,7 +530,7 @@ symbols:
 🙎	dikbek persoon	none
 🙎‍♂	dikbek man	none
 🙎‍♀	dikbek vrou	none
-🙅	persoon wat wys NEE	none
+🙅	persoon wat NEE wys	none
 🙅‍♂	man wys NEE	none
 🙅‍♀	vrou wys NEE	none
 🙆	persoon wys als is goed	none
@@ -1548,7 +1585,7 @@ symbols:
 ⚱	begrafniskruik	none
 🗿	moai	none
 🪧	plakkaat	none
-🏧	ATM-teken	none
+🏧	OTM-teken	none
 🚮	"vullis in drom"-teken	none
 🚰	drinkbare water	none
 ♿	rolstoel-simbool	none
@@ -1756,6 +1793,76 @@ symbols:
 ₽	roebel	none
 ₿	bitcoin	none
 ₨	roepee	none
+🫃🏻	swanger man ligte velkleur	none
+🫃🏼	swanger man medium-ligte velkleur	none
+🫃🏽	swanger man medium velkleur	none
+🫃🏾	swanger man medium-donker velkleur	none
+🫃🏿	swanger man donker velkleur	none
+🫄🏻	swanger persoon ligte velkleur	none
+🫄🏼	swanger persoon medium-ligte velkleur	none
+🫄🏽	swanger persoon medium velkleur	none
+🫄🏾	swanger persoon medium-donker velkleur	none
+🫄🏿	swanger persoon donker velkleur	none
+🫅🏻	persoon met kroon ligte velkleur	none
+🫅🏼	persoon met kroon medium-ligte velkleur	none
+🫅🏽	persoon met kroon medium velkleur	none
+🫅🏾	persoon met kroon medium-donker velkleur	none
+🫅🏿	persoon met kroon donker velkleur	none
+🫰🏻	hand met duim en wysvinger gekruis ligte velkleur	none
+🫰🏼	hand met duim en wysvinger gekruis medium-ligte velkleur	none
+🫰🏽	hand met duim en wysvinger gekruis medium velkleur	none
+🫰🏾	hand met duim en wysvinger gekruis medium-donker velkleur	none
+🫰🏿	hand met duim en wysvinger gekruis donker velkleur	none
+🫱🏻	hand na regs ligte velkleur	none
+🫱🏼	hand na regs medium-ligte velkleur	none
+🫱🏽	hand na regs medium velkleur	none
+🫱🏾	hand na regs medium-donker velkleur	none
+🫱🏿	hand na regs donker velkleur	none
+🫱🏻‍🫲🏼	handskud ligte velkleur en medium-ligte velkleur	none
+🫱🏻‍🫲🏽	handskud ligte velkleur en medium velkleur	none
+🫱🏻‍🫲🏾	handskud ligte velkleur en medium-donker velkleur	none
+🫱🏻‍🫲🏿	handskud ligte velkleur en donker velkleur	none
+🫱🏼‍🫲🏻	handskud medium-ligte velkleur en ligte velkleur	none
+🫱🏼‍🫲🏽	handskud medium-ligte velkleur en medium velkleur	none
+🫱🏼‍🫲🏾	handskud medium-ligte velkleur en medium-donker velkleur	none
+🫱🏼‍🫲🏿	handskud medium-ligte velkleur en donker velkleur	none
+🫱🏽‍🫲🏻	handskud medium velkleur en ligte velkleur	none
+🫱🏽‍🫲🏼	handskud medium velkleur en medium-ligte velkleur	none
+🫱🏽‍🫲🏾	handskud medium velkleur en medium-donker velkleur	none
+🫱🏽‍🫲🏿	handskud medium velkleur en donker velkleur	none
+🫱🏾‍🫲🏻	handskud medium-donker velkleur en ligte velkleur	none
+🫱🏾‍🫲🏼	handskud medium-donker velkleur en medium-ligte velkleur	none
+🫱🏾‍🫲🏽	handskud medium-donker velkleur en medium velkleur	none
+🫱🏾‍🫲🏿	handskud medium-donker velkleur en donker velkleur	none
+🫱🏿‍🫲🏻	handskud donker velkleur en ligte velkleur	none
+🫱🏿‍🫲🏼	handskud donker velkleur en medium-ligte velkleur	none
+🫱🏿‍🫲🏽	handskud donker velkleur en medium velkleur	none
+🫱🏿‍🫲🏾	handskud donker velkleur en medium-donker velkleur	none
+🫲🏻	hand na links ligte velkleur	none
+🫲🏼	hand na links medium-ligte velkleur	none
+🫲🏽	hand na links medium velkleur	none
+🫲🏾	hand na links medium-donker velkleur	none
+🫲🏿	hand na links donker velkleur	none
+🫳🏻	hand met palm ondertoe ligte velkleur	none
+🫳🏼	hand met palm ondertoe medium-ligte velkleur	none
+🫳🏽	hand met palm ondertoe medium velkleur	none
+🫳🏾	hand met palm ondertoe medium-donker velkleur	none
+🫳🏿	hand met palm ondertoe donker velkleur	none
+🫴🏻	hand met palm boontoe ligte velkleur	none
+🫴🏼	hand met palm boontoe medium-ligte velkleur	none
+🫴🏽	hand met palm boontoe medium velkleur	none
+🫴🏾	hand met palm boontoe medium-donker velkleur	none
+🫴🏿	hand met palm boontoe donker velkleur	none
+🫵🏻	wysvinger na kyker ligte velkleur	none
+🫵🏼	wysvinger na kyker medium-ligte velkleur	none
+🫵🏽	wysvinger na kyker medium velkleur	none
+🫵🏾	wysvinger na kyker medium-donker velkleur	none
+🫵🏿	wysvinger na kyker donker velkleur	none
+🫶🏻	handhartjie ligte velkleur	none
+🫶🏼	handhartjie medium-ligte velkleur	none
+🫶🏽	handhartjie medium velkleur	none
+🫶🏾	handhartjie medium-donker velkleur	none
+🫶🏿	handhartjie donker velkleur	none
 👋🏻	wuiwende hand ligte velkleur	none
 👋🏼	wuiwende hand medium-ligte velkleur	none
 👋🏽	wuiwende hand medium velkleur	none
@@ -1901,6 +2008,11 @@ symbols:
 🤲🏽	palms op teen mekaar medium velkleur	none
 🤲🏾	palms op teen mekaar medium-donker velkleur	none
 🤲🏿	palms op teen mekaar donker velkleur	none
+🤝🏻	handskud ligte velkleur	none
+🤝🏼	handskud medium-ligte velkleur	none
+🤝🏽	handskud medium velkleur	none
+🤝🏾	handskud medium-donker velkleur	none
+🤝🏿	handskud donker velkleur	none
 🙏🏻	gevoude hande ligte velkleur	none
 🙏🏼	gevoude hande medium-ligte velkleur	none
 🙏🏽	gevoude hande medium velkleur	none
@@ -2323,11 +2435,11 @@ symbols:
 🙎🏽‍♀	dikbek vrou medium velkleur	none
 🙎🏾‍♀	dikbek vrou medium-donker velkleur	none
 🙎🏿‍♀	dikbek vrou donker velkleur	none
-🙅🏻	persoon wat wys NEE ligte velkleur	none
-🙅🏼	persoon wat wys NEE medium-ligte velkleur	none
-🙅🏽	persoon wat wys NEE medium velkleur	none
-🙅🏾	persoon wat wys NEE medium-donker velkleur	none
-🙅🏿	persoon wat wys NEE donker velkleur	none
+🙅🏻	persoon wat NEE wys ligte velkleur	none
+🙅🏼	persoon wat NEE wys medium-ligte velkleur	none
+🙅🏽	persoon wat NEE wys medium velkleur	none
+🙅🏾	persoon wat NEE wys medium-donker velkleur	none
+🙅🏿	persoon wat NEE wys donker velkleur	none
 🙅🏻‍♂	man wys NEE ligte velkleur	none
 🙅🏼‍♂	man wys NEE medium-ligte velkleur	none
 🙅🏽‍♂	man wys NEE medium velkleur	none

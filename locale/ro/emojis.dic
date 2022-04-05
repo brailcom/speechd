@@ -103,27 +103,204 @@ symbols:
 ∎	sfârșitul probei	none
 ∏	produs cartezian	none
 ∑	sumă peste	none
+≮	nu mai mic decât	none
 ≠	nu este egal	none
+≯	nu mai mare decât	none
 −	semnul minus	none
 ⁻	exponent minus	none
+∓	minus sau plus	none
+∕	bară oblică de împărțire	none
+∗	operator asterisc	none
+∘	operator inel	none
+∙	operator punct	none
 √	rădăcină pătrată	none
+∝	proporțional	none
 ∞	semnul infinit	none
+∟	unghi drept	none
+∠	unghi	none
+∣	divide	none
+∥	paralel cu	none
+∧	și logic	none
 ∩	intersecție	none
 ∪	reuniune	none
+∫	integrală	none
+∬	integrală dublă	none
+∮	integrală pe contur	none
+∴	prin urmare	none
+∵	deoarece	none
+∶	raport	none
+∷	proporție	none
+∼	operator tildă	none
+∽	tildă inversată	none
+∾	s orizontal inversat	none
+≃	asimptotic egal cu	none
+≅	aproximativ egal cu	none
 ≈	aproape egal	none
+≌	toate egale cu	none
+≒	aproximativ egal cu imaginea	none
+≖	inel egal cu	none
 ≡	identic cu	none
+≣	strict echivalent cu	none
 ≤	mai mic sau egal cu	none
 ≥	mai mare sau egal cu	none
+≦	mai puțin decât egal cu	none
+≧	mai mult decât egal cu	none
+≪	mult mai mic decât	none
+≫	mult mai mare decât	none
+≬	între	none
+≳	mai mare decât echivalent	none
+≺	precedă	none
+≻	succedă	none
+⊁	nu succedă	none
 ⊂	submulțime a	none
+⊃	este o supramulțime pentru	none
+⊆	este o submulțime egală cu	none
+⊇	este o supramulțime egală cu	none
+⊕	plus încercuit	none
+⊖	minus încercuit	none
+⊗	ori încercuit	none
+⊘	bară împărțire încercuită	none
+⊙	operator punct încercuit	none
+⊚	operator inel încercuit	none
+⊛	operator asterisc încercuit	none
+⊞	plus în pătrat	none
+⊟	minus în pătrat	none
+⊥	e perpendicular pe	none
+⊮	nu forțează	none
+⊰	precedă sub relație	none
+⊱	succedă sub relație	none
+⋭	nu conține ca submulțime normală egală cu	none
+⊶	original	none
+⊹	matrice hermiteană conjugată	none
+⊿	triunghi dreptunghic	none
+⋁	disjuncție logică	none
+⋂	intersecție logică	none
+⋃	reuniune logică	none
+⋅	operator pixel	none
+⋆	operator stea	none
+⋈	asociere naturală	none
+⋒	intersecție dublă	none
+⋘	foarte mult mai mic decât	none
+⋙	foarte mult mai mare decât	none
+⋮	elipsă verticală	none
+⋯	elipsă orizontală pe linia mediană	none
+⋰	elipsă diagonală dreapta sus	none
+⋱	elipsă diagonală dreapta jos	none
+■	pătrat umplut	none
+□	pătrat gol	none
+▢	pătrat gol cu colțuri rotunjite	none
+▣	pătrat gol cu un pătrat umplut înăuntru	none
+▤	pătrat umplut cu linii orizontale	none
+▥	pătrat umplut cu linii verticale	none
+▦	pătrat umplut cu grilaj ortogonal	none
+▧	pătrat umplut cu dungi diagonale din stânga sus în dreapta jos	none
+▨	pătrat umplut cu dungi diagonale din dreapta sus în stânga jos	none
+▩	pătrat umplut cu grilaj în diagonală	none
+▬	dreptunghi umplut	none
+▭	dreptunghi gol	none
+▮	dreptunghi vertical umplut	none
+▰	paralelogram umplut	none
 ▲	triunghi plin cu vârful în sus	none
+△	triunghi gol cu vârful în sus	none
+▴	triunghi mic umplut cu vârful în sus	none
+▵	triunghi mic gol cu vârful în sus	none
+▷	triunghi gol cu vârful în dreapta	none
+▸	triunghi mic umplut cu vârful în dreapta	none
+▹	triunghi mic gol cu vârful în dreapta	none
+►	săgeată umplută cu vârful în dreapta	none
+▻	săgeată goală cu vârful în dreapta	none
 ▼	triunghi plin cu vârful în jos	none
+▽	triunghi gol cu vârful în jos	none
+▾	triunghi mic umplut cu vârful în jos	none
+▿	triunghi mic gol cu vârful în jos	none
+◁	triunghi gol cu vârful în stânga	none
+◂	triunghi mic umplut cu vârful în stânga	none
+◃	triunghi mic gol cu vârful în stânga	none
+◄	săgeată umplută cu vârful în stânga	none
+◅	săgeată goală cu vârful în stânga	none
+◆	romb umplut	none
+◇	romb gol	none
+◈	romb gol cu un romb umplut înăuntru	none
+◉	cerc gol cu un cerc umplut înăuntru	none
 ◊	romb	none
 ○	cerc gol	none
+◌	cerc punctat	none
+◍	cerc umplut cu dungi verticale	none
+◎	cercuri concentrice	none
 ●	cerc plin	none
+◐	cerc umplut pe jumătatea stângă	none
+◑	cerc umplut pe jumătatea dreaptă	none
+◒	cerc umplut pe jumătatea inferioară	none
+◓	cerc umplut pe jumătatea superioară	none
+◔	cerc umplut în cadranul dreapta sus	none
+◕	cerc umplut în toate sferturile mai puțin cel din stânga sus	none
+◖	jumătate de cerc umplut în stânga	none
+◗	jumătate de cerc umplut în dreapta	none
+◘	bulină inversă	none
+◙	pătrat umplut cu un cerc gol înăuntru	none
+◜	arc de cerc cadranul stânga sus	none
+◝	arc de cerc cadranul dreapta sus	none
+◞	arc de cerc cadranul dreapta jos	none
+◟	arc de cerc cadranul stânga jos	none
+◠	semicerc superior	none
+◡	semicerc inferior	none
+◢	triunghi umplut dreapta jos	none
+◣	triunghi umplut stânga jos	none
+◤	triunghi umplut stânga sus	none
+◥	triunghi umplut dreapta sus	none
+◦	bulină goală	none
 ◯	cerc gol mare	none
+◳	pătrat gol cu cadranul dreapta sus gol	none
+◷	cerc gol cu cadranul dreapta sus gol	none
+◿	triunghi dreapta jos	none
 ♪	optime	none
+⨧	plus indice doi	none
+⨯	produs vectorial	none
+⨼	produs interior	none
+⩣	disjuncție logică cu bară dublă	none
+⩽	mai mic sau egal	none
+⪍	mai mic, asemănător sau egal	none
+⪚	mai mare sau egal cu două linii	none
+⪺	succedă peste nu aproape egal	none
 ♭	bemol	none
 ♯	diez	none
+🥹	față cu lacrimi în ochi	none
+🧌	trol	none
+🩻	radiografie	none
+🩼	cârjă	none
+🪩	glob cu oglinzi	none
+🪪	carte de identitate	none
+🪫	baterie slabă	none
+🪬	hamsa	none
+🪷	lotus	none
+🪸	coral	none
+🪹	cuib gol	none
+🪺	cuib cu ouă	none
+🫃	bărbat însărcinat	none
+🫄	persoană însărcinată	none
+🫅	persoană cu coroană	none
+🫗	lichid turnat	none
+🫘	fasole	none
+🫙	borcan	none
+🫠	față care se topește	none
+🫡	față care salută	none
+🫢	față cu ochii deschiși și palma la gură	none
+🫣	față care trage cu ochiul	none
+🫤	față cu gura pe diagonală	none
+🫥	față cu contur punctat	none
+🫦	buză mușcată	none
+🫧	balonașe	none
+🫰	mână cu degetul mare și arătătorul încrucișate	none
+🫱	mână spre dreapta	none
+🫲	mână spre stânga	none
+🫳	mână cu palma în jos	none
+🫴	mână cu palma în sus	none
+🫵	deget arătător îndreptat spre privitor	none
+🫶	mâini care formează o inimă	none
+🛝	tobogan pentru joacă	none
+🛞	roată	none
+🛟	colac de salvare	none
+🟰	semn gros de egal	none
 😀	față încântată	none
 😃	față încântată cu ochii mari	none
 😄	față încântată cu ochi zâmbitori	none
@@ -1601,13 +1778,91 @@ symbols:
 🏳‍🌈	steag curcubeu	none
 🏳‍⚧	steag transgender	none
 🏴‍☠	steagul piraților	none
+₢	cruzeiro	none
+₣	franc francez	none
+₤	liră sterlină	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
+₰	penny german	none
 ₱	peso	none
+₳	austral argentinian	none
+₶	livră tournois	none
+₷	spesmilo	none
 ₹	rupie indiană	none
 ₽	rublă	none
 ₿	bitcoin	none
+₨	rupie	none
+🫃🏻	bărbat însărcinat ton deschis al pielii	none
+🫃🏼	bărbat însărcinat ton semi‑deschis al pielii	none
+🫃🏽	bărbat însărcinat ton mediu al pielii	none
+🫃🏾	bărbat însărcinat ton semi‑închis al pielii	none
+🫃🏿	bărbat însărcinat ton închis al pielii	none
+🫄🏻	persoană însărcinată ton deschis al pielii	none
+🫄🏼	persoană însărcinată ton semi‑deschis al pielii	none
+🫄🏽	persoană însărcinată ton mediu al pielii	none
+🫄🏾	persoană însărcinată ton semi‑închis al pielii	none
+🫄🏿	persoană însărcinată ton închis al pielii	none
+🫅🏻	persoană cu coroană ton deschis al pielii	none
+🫅🏼	persoană cu coroană ton semi‑deschis al pielii	none
+🫅🏽	persoană cu coroană ton mediu al pielii	none
+🫅🏾	persoană cu coroană ton semi‑închis al pielii	none
+🫅🏿	persoană cu coroană ton închis al pielii	none
+🫰🏻	mână cu degetul mare și arătătorul încrucișate ton deschis al pielii	none
+🫰🏼	mână cu degetul mare și arătătorul încrucișate ton semi‑deschis al pielii	none
+🫰🏽	mână cu degetul mare și arătătorul încrucișate ton mediu al pielii	none
+🫰🏾	mână cu degetul mare și arătătorul încrucișate ton semi‑închis al pielii	none
+🫰🏿	mână cu degetul mare și arătătorul încrucișate ton închis al pielii	none
+🫱🏻	mână spre dreapta ton deschis al pielii	none
+🫱🏼	mână spre dreapta ton semi‑deschis al pielii	none
+🫱🏽	mână spre dreapta ton mediu al pielii	none
+🫱🏾	mână spre dreapta ton semi‑închis al pielii	none
+🫱🏿	mână spre dreapta ton închis al pielii	none
+🫱🏻‍🫲🏼	strângere de mână ton deschis al pielii, ton semi‑deschis al pielii	none
+🫱🏻‍🫲🏽	strângere de mână ton deschis al pielii, ton mediu al pielii	none
+🫱🏻‍🫲🏾	strângere de mână ton deschis al pielii, ton semi‑închis al pielii	none
+🫱🏻‍🫲🏿	strângere de mână ton deschis al pielii, ton închis al pielii	none
+🫱🏼‍🫲🏻	strângere de mână ton semi‑deschis al pielii, ton deschis al pielii	none
+🫱🏼‍🫲🏽	strângere de mână ton semi‑deschis al pielii, ton mediu al pielii	none
+🫱🏼‍🫲🏾	strângere de mână ton semi‑deschis al pielii, ton semi‑închis al pielii	none
+🫱🏼‍🫲🏿	strângere de mână ton semi‑deschis al pielii, ton închis al pielii	none
+🫱🏽‍🫲🏻	strângere de mână ton mediu al pielii, ton deschis al pielii	none
+🫱🏽‍🫲🏼	strângere de mână ton mediu al pielii, ton semi‑deschis al pielii	none
+🫱🏽‍🫲🏾	strângere de mână ton mediu al pielii, ton semi‑închis al pielii	none
+🫱🏽‍🫲🏿	strângere de mână ton mediu al pielii, ton închis al pielii	none
+🫱🏾‍🫲🏻	strângere de mână ton semi‑închis al pielii, ton deschis al pielii	none
+🫱🏾‍🫲🏼	strângere de mână ton semi‑închis al pielii, ton semi‑deschis al pielii	none
+🫱🏾‍🫲🏽	strângere de mână ton semi‑închis al pielii, ton mediu al pielii	none
+🫱🏾‍🫲🏿	strângere de mână ton semi‑închis al pielii, ton închis al pielii	none
+🫱🏿‍🫲🏻	strângere de mână ton închis al pielii, ton deschis al pielii	none
+🫱🏿‍🫲🏼	strângere de mână ton închis al pielii, ton semi‑deschis al pielii	none
+🫱🏿‍🫲🏽	strângere de mână ton închis al pielii, ton mediu al pielii	none
+🫱🏿‍🫲🏾	strângere de mână ton închis al pielii, ton semi‑închis al pielii	none
+🫲🏻	mână spre stânga ton deschis al pielii	none
+🫲🏼	mână spre stânga ton semi‑deschis al pielii	none
+🫲🏽	mână spre stânga ton mediu al pielii	none
+🫲🏾	mână spre stânga ton semi‑închis al pielii	none
+🫲🏿	mână spre stânga ton închis al pielii	none
+🫳🏻	mână cu palma în jos ton deschis al pielii	none
+🫳🏼	mână cu palma în jos ton semi‑deschis al pielii	none
+🫳🏽	mână cu palma în jos ton mediu al pielii	none
+🫳🏾	mână cu palma în jos ton semi‑închis al pielii	none
+🫳🏿	mână cu palma în jos ton închis al pielii	none
+🫴🏻	mână cu palma în sus ton deschis al pielii	none
+🫴🏼	mână cu palma în sus ton semi‑deschis al pielii	none
+🫴🏽	mână cu palma în sus ton mediu al pielii	none
+🫴🏾	mână cu palma în sus ton semi‑închis al pielii	none
+🫴🏿	mână cu palma în sus ton închis al pielii	none
+🫵🏻	deget arătător îndreptat spre privitor ton deschis al pielii	none
+🫵🏼	deget arătător îndreptat spre privitor ton semi‑deschis al pielii	none
+🫵🏽	deget arătător îndreptat spre privitor ton mediu al pielii	none
+🫵🏾	deget arătător îndreptat spre privitor ton semi‑închis al pielii	none
+🫵🏿	deget arătător îndreptat spre privitor ton închis al pielii	none
+🫶🏻	mâini care formează o inimă ton deschis al pielii	none
+🫶🏼	mâini care formează o inimă ton semi‑deschis al pielii	none
+🫶🏽	mâini care formează o inimă ton mediu al pielii	none
+🫶🏾	mâini care formează o inimă ton semi‑închis al pielii	none
+🫶🏿	mâini care formează o inimă ton închis al pielii	none
 👋🏻	mână fluturată ton deschis al pielii	none
 👋🏼	mână fluturată ton semi‑deschis al pielii	none
 👋🏽	mână fluturată ton mediu al pielii	none
@@ -1753,6 +2008,11 @@ symbols:
 🤲🏽	palme ridicate împreună ton mediu al pielii	none
 🤲🏾	palme ridicate împreună ton semi‑închis al pielii	none
 🤲🏿	palme ridicate împreună ton închis al pielii	none
+🤝🏻	strângere de mână ton deschis al pielii	none
+🤝🏼	strângere de mână ton semi‑deschis al pielii	none
+🤝🏽	strângere de mână ton mediu al pielii	none
+🤝🏾	strângere de mână ton semi‑închis al pielii	none
+🤝🏿	strângere de mână ton închis al pielii	none
 🙏🏻	mâini unite ton deschis al pielii	none
 🙏🏼	mâini unite ton semi‑deschis al pielii	none
 🙏🏽	mâini unite ton mediu al pielii	none

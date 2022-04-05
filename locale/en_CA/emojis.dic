@@ -3,30 +3,60 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+∉	not an element of	none
+∎	end of proof	none
+∝	is proportional	none
+∥	parallel to	none
+≃	asymptotically equal to	none
+≅	approximately equal to	none
+≌	all equal to	none
+≣	strictly equivalent to	none
 ≤	less than or equal to	none
 ≥	greater than or equal to	none
+≳	greater-than or equivalent to	none
+⊃	superset of	none
+⊆	subset of or equal to	none
+⊇	superset of or equal to	none
+⋭	does not contain as normal subgroup or equal	none
+⊶	original of	none
+⋰	upwards right diagonal ellipsis	none
+⋱	downwards right diagonal ellipsis	none
+▦	square with orthogonal crosshatch fill	none
+▧	square with upper left to lower right fill	none
+▨	square with upper right to lower left fill	none
+▩	square with diagonal crosshatch fill	none
+◔	circle with upper-right quadrant filled	none
+◕	circle with all but upper-left quadrant filled	none
+◜	upper-left quadrant circular arc	none
+◝	upper-right quadrant circular arc	none
+◞	lower-right quadrant circular arc	none
+◟	lower-left quadrant circular arc	none
+◢	filled lower-right triangle	none
+◣	filled lower-left triangle	none
+◤	filled upper-left triangle	none
+◥	filled upper-right triangle	none
+◳	hollow square with upper-right quadrant	none
+◷	hollow circle with upper-right quadrant	none
+◿	lower-right triangle	none
+⨧	plus sign with subscript two	none
+⨯	vector or cross product	none
+⩣	logical or with double underbar	none
+⩽	less-than or slanted equal to	none
+⪍	less-than above similar or equal	none
+⪚	double-line equal to or greater-than	none
+🫱	rightward hand	none
+🫲	leftward hand	none
 😍	smiling face with heart eyes	none
 😻	smiling cat face with heart eyes	none
-🤟	love you gesture	none
-🤙	call me hand	none
-🤶	Mrs. Claus	none
 🧑‍🎄	Mx. Claus	none
 🐞	ladybug	none
-🕸	spider web	none
-🌾	sheaf of rice	none
-🍔	hamburger	none
 🍟	French fries	none
-🥫	canned food	none
-🍪	cookie	none
-🍬	candy	none
-🍴	fork and knife	none
 🗻	mount Fuji	none
 🗼	Tokyo Tower	none
 🛕	Hindu temple	none
 ⛩	Shinto shrine	none
+🕋	Kaaba	none
 🎡	Ferris wheel	none
-💈	barber pole	none
-🚃	railway car	none
 🚇	subway	none
 🚋	streetcar	none
 🚎	trolley bus	none
@@ -51,58 +81,60 @@ symbols:
 🌌	Milky Way	none
 🎋	Tanabata tree	none
 🎑	moon-viewing ceremony	none
-⚽	soccer ball	none
 🏈	football	none
 🏉	rugby	none
-🏑	field hockey	none
 🏒	hockey	none
-🛷	sled	none
 🥌	curling rock	none
 🀄	Mahjong red dragon	none
-🎒	backpack	none
+🩴	flip-flop	none
 🧢	baseball cap	none
 💎	gemstone	none
-🎥	movie camera	none
-🔦	flashlight	none
+📯	post horn	none
 📮	mailbox	none
-📐	triangular ruler	none
-🗑	wastebasket	none
-🛠	hammer and wrench	none
-🔧	wrench	none
-🛋	couch and lamp	none
-🛒	shopping cart	none
-🚹	men’s room	none
-🚺	women’s room	none
+🪤	mousetrap	none
+🚺	ladies’ room	none
 🚻	washroom	none
+✡	Star of David	none
 ✝	Latin cross	none
 ☦	Orthodox cross	none
 🔼	upward button	none
 🔽	downward button	none
-✅	check mark button	none
-☑	check box with check	none
-✔	check mark	none
 🔠	input Latin uppercase	none
 🔡	input Latin lowercase	none
 🔤	input Latin letters	none
 🏁	checkered flag	none
+₣	French franc	none
+₰	German penny	none
 ₹	Indian rupee	none
-🤟🏻	love you gesture light skin tone	none
-🤟🏼	love you gesture medium-light skin tone	none
-🤟🏽	love you gesture medium skin tone	none
-🤟🏾	love you gesture medium-dark skin tone	none
-🤟🏿	love you gesture dark skin tone	none
-🤙🏻	call me hand light skin tone	none
-🤙🏼	call me hand medium-light skin tone	none
-🤙🏽	call me hand medium skin tone	none
-🤙🏾	call me hand medium-dark skin tone	none
-🤙🏿	call me hand dark skin tone	none
-🤶🏻	Mrs. Claus light skin tone	none
-🤶🏼	Mrs. Claus medium-light skin tone	none
-🤶🏽	Mrs. Claus medium skin tone	none
-🤶🏾	Mrs. Claus medium-dark skin tone	none
-🤶🏿	Mrs. Claus dark skin tone	none
+🫱🏻	rightward hand light skin tone	none
+🫱🏼	rightward hand medium-light skin tone	none
+🫱🏽	rightward hand medium skin tone	none
+🫱🏾	rightward hand medium-dark skin tone	none
+🫱🏿	rightward hand dark skin tone	none
+🫲🏻	leftward hand light skin tone	none
+🫲🏼	leftward hand medium-light skin tone	none
+🫲🏽	leftward hand medium skin tone	none
+🫲🏾	leftward hand medium-dark skin tone	none
+🫲🏿	leftward hand dark skin tone	none
 🧑🏻‍🎄	Mx. Claus light skin tone	none
 🧑🏼‍🎄	Mx. Claus medium-light skin tone	none
 🧑🏽‍🎄	Mx. Claus medium skin tone	none
 🧑🏾‍🎄	Mx. Claus medium-dark skin tone	none
 🧑🏿‍🎄	Mx. Claus dark skin tone	none
+🇦🇬	flag Antigua and Barbuda	none
+🇧🇦	flag Bosnia and Herzegovina	none
+🇧🇱	flag Saint-Barthélemy	none
+🇪🇦	flag Ceuta and Melilla	none
+🇬🇸	flag South Georgia and South Sandwich Islands	none
+🇭🇲	flag Heard and McDonald Islands	none
+🇰🇳	flag Saint Kitts and Nevis	none
+🇱🇨	flag Saint Lucia	none
+🇲🇫	flag Saint Martin	none
+🇵🇲	flag Saint-Pierre-et-Miquelon	none
+🇸🇭	flag Saint Helena	none
+🇸🇯	flag Svalbard and Jan Mayen	none
+🇸🇹	flag São Tomé and Príncipe	none
+🇹🇨	flag Turks and Caicos Islands	none
+🇹🇹	flag Trinidad and Tobago	none
+🇻🇨	flag Saint Vincent and the Grenadines	none
+🇼🇫	flag Wallis and Futuna	none

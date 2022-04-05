@@ -102,6 +102,13 @@ symbols:
 ○	indilinga engenalutho	none
 ●	indilinga egcwele	none
 ◯	indilinga enkulu engenalutho	none
+♪	inothi yesishiyagalombili	none
+🪹	isidleke esingenalutho	none
+🫃	indoda ekhulelwe	none
+🫄	umuntu okhulelwe	none
+🫗	uthela uketshezi	none
+🫥	ubuso bomugqa onamachashazi	none
+🫶	thanda izandla	none
 😀	ubuso obusinekile	none
 😃	ubuso obumoyizelayo obuvule umlomo	none
 😄	ubuso obumoyizelayo obuvule umlomo bunamehlo ajabule	none
@@ -1576,6 +1583,41 @@ symbols:
 ₹	i-indian rupee	none
 ₽	i-ruble	none
 ₿	i-bitcoin	none
+🫃🏻	indoda ekhulelwe uhlobo-1-2	none
+🫃🏼	indoda ekhulelwe uhlobo-3	none
+🫃🏽	indoda ekhulelwe uhlobo-4	none
+🫃🏾	indoda ekhulelwe uhlobo-5	none
+🫃🏿	indoda ekhulelwe uhlobo-6	none
+🫄🏻	umuntu okhulelwe uhlobo-1-2	none
+🫄🏼	umuntu okhulelwe uhlobo-3	none
+🫄🏽	umuntu okhulelwe uhlobo-4	none
+🫄🏾	umuntu okhulelwe uhlobo-5	none
+🫄🏿	umuntu okhulelwe uhlobo-6	none
+🫱🏻‍🫲🏼	xhawula uhlobo-1-2, uhlobo-3	none
+🫱🏻‍🫲🏽	xhawula uhlobo-1-2, uhlobo-4	none
+🫱🏻‍🫲🏾	xhawula uhlobo-1-2, uhlobo-5	none
+🫱🏻‍🫲🏿	xhawula uhlobo-1-2, uhlobo-6	none
+🫱🏼‍🫲🏻	xhawula uhlobo-3, uhlobo-1-2	none
+🫱🏼‍🫲🏽	xhawula uhlobo-3, uhlobo-4	none
+🫱🏼‍🫲🏾	xhawula uhlobo-3, uhlobo-5	none
+🫱🏼‍🫲🏿	xhawula uhlobo-3, uhlobo-6	none
+🫱🏽‍🫲🏻	xhawula uhlobo-4, uhlobo-1-2	none
+🫱🏽‍🫲🏼	xhawula uhlobo-4, uhlobo-3	none
+🫱🏽‍🫲🏾	xhawula uhlobo-4, uhlobo-5	none
+🫱🏽‍🫲🏿	xhawula uhlobo-4, uhlobo-6	none
+🫱🏾‍🫲🏻	xhawula uhlobo-5, uhlobo-1-2	none
+🫱🏾‍🫲🏼	xhawula uhlobo-5, uhlobo-3	none
+🫱🏾‍🫲🏽	xhawula uhlobo-5, uhlobo-4	none
+🫱🏾‍🫲🏿	xhawula uhlobo-5, uhlobo-6	none
+🫱🏿‍🫲🏻	xhawula uhlobo-6, uhlobo-1-2	none
+🫱🏿‍🫲🏼	xhawula uhlobo-6, uhlobo-3	none
+🫱🏿‍🫲🏽	xhawula uhlobo-6, uhlobo-4	none
+🫱🏿‍🫲🏾	xhawula uhlobo-6, uhlobo-5	none
+🫶🏻	thanda izandla uhlobo-1-2	none
+🫶🏼	thanda izandla uhlobo-3	none
+🫶🏽	thanda izandla uhlobo-4	none
+🫶🏾	thanda izandla uhlobo-5	none
+🫶🏿	thanda izandla uhlobo-6	none
 👋🏻	ukuphakamisa isandla uhlobo-1-2	none
 👋🏼	ukuphakamisa isandla uhlobo-3	none
 👋🏽	ukuphakamisa isandla uhlobo-4	none
@@ -1721,6 +1763,11 @@ symbols:
 🤲🏽	izandla zombili phezulu uhlobo-4	none
 🤲🏾	izandla zombili phezulu uhlobo-5	none
 🤲🏿	izandla zombili phezulu uhlobo-6	none
+🤝🏻	xhawula uhlobo-1-2	none
+🤝🏼	xhawula uhlobo-3	none
+🤝🏽	xhawula uhlobo-4	none
+🤝🏾	xhawula uhlobo-5	none
+🤝🏿	xhawula uhlobo-6	none
 🙏🏻	izandla ezigoqiwe uhlobo-1-2	none
 🙏🏼	izandla ezigoqiwe uhlobo-3	none
 🙏🏽	izandla ezigoqiwe uhlobo-4	none

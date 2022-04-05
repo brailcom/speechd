@@ -93,12 +93,14 @@ symbols:
 ⇵	rodyklė žemyn į kairę nuo rodyklės aukštyn	none
 ∀	visiems	none
 ∂	dalinis diferencialas	none
+∃	egzistuoja	none
 ∅	tuščia aibė	none
 ∆	didinti	none
 ∇	nabla	none
 ∈	priklauso	none
 ∉	ne elementas	none
 ∋	įeina kaip narys	none
+∎	galutinis įrodymas	none
 ∏	n-arė sandauga	none
 ∑	n-aris sumavimas	none
 ≮	ne mažiau nei	none
@@ -124,38 +126,181 @@ symbols:
 ∫	integralas	none
 ∬	dvigubas integralas	none
 ∮	kontūrinis integralas	none
+∴	iš to išplaukia	none
+∵	todėl, kad	none
 ∶	santykis	none
 ∷	proporcija	none
 ∼	tildės operatorius	none
 ∽	atvirkščia tildė	none
+∾	apversta horizontali s	none
+≃	asimptotiškai lygu	none
+≅	apytiksliai lygu	none
 ≈	apytiksliai	none
+≌	lygybė	none
+≒	apytiksliai lygu arba atvaizdas	none
+≖	lygybė su žiedu	none
 ≡	tapatu	none
+≣	griežtai ekvivalentu	none
 ≤	mažiau arba lygu	none
 ≥	daugiau arba lygu	none
 ≦	mažiau nei per lygus	none
+≧	daugiau nei per lygu	none
+≪	daug mažiau nei	none
+≫	daug daugiau nei	none
 ≬	tarp	none
+≳	daugiau nei arba ekvivalentu	none
+≺	yra prieš	none
+≻	yra po	none
+⊁	nėra po	none
 ⊂	poaibis	none
 ⊃	superaibė	none
+⊆	poaibis lygus	none
+⊇	superaibė lygi	none
 ⊕	pliuso ženklas apskritime	none
 ⊖	minuso ženklas apskritime	none
+⊗	daugybos ženklas apskritime	none
+⊘	dalybos ženklas apskritime	none
+⊙	taško operatorius apskritime	none
 ⊚	žiedo operatorius apskritime	none
+⊛	žvaigždutės operatorius apskritime	none
 ⊞	pliuso ženklas kvadrate	none
 ⊟	minuso ženklas kvadrate	none
+⊥	aukštyn	none
+⊮	neverčia	none
+⊰	yra prieš pagal sąryšį	none
+⊱	yra po pagal sąryšį	none
+⋭	neįeina kaip normali pogrupio lygybė	none
+⊶	originalas	none
+⊹	Hermito konjugacijos matrica	none
+⊿	statusis trikampis	none
+⋁	n-aris loginis arba	none
+⋂	n-arė sankirta	none
+⋃	n-arė sąjunga	none
 ⋅	taško operatorius	none
+⋆	žvaigždės operatorius	none
+⋈	natūralioji sąjunga	none
+⋒	dviguba sankirta	none
+⋘	labai daug mažiau nei	none
+⋙	labai daug daugiau nei	none
+⋮	vertikalioji elipsė	none
+⋯	horizontalioji elipsė eilutės viduryje	none
 ⋰	įstriža elipsė aukštyn ir dešinėn	none
 ⋱	įstriža elipsė žemyn ir dešinėn	none
 ■	užpildytas kvadratas	none
 □	tuščiaviduris kvadratas	none
 ▢	tuščiaviduris kvadratas suapvalintais kampais	none
+▣	tuščiaviduris kvadratas su užpildytu kvadratu viduje	none
+▤	horizontaliai užštrichuotas kvadratas	none
+▥	vertikaliai užštrichuotas kvadratas	none
+▦	statmenai kryžmai užštrichuotas kvadratas	none
+▧	iš kairiojo viršutinio į apatinį dešinįjį kampą užštrichuotas kvadratas	none
+▨	iš dešiniojo viršutinio į apatinį kairįjį kampą užštrichuotas kvadratas	none
+▩	įstrižai kryžmai užštrichuotas kvadratas	none
+▬	užpildytas stačiakampis	none
+▭	tuščiaviduris stačiakampis	none
+▮	užpildytas vertikalus stačiakampis	none
+▰	užpildytas gretasienis	none
 ▲	pilnaviduris į viršų nukreiptas trikampis	none
+△	tuščiaviduris trikampis kampu į viršų	none
+▴	mažas užpildytas trikampis kampu į viršų	none
+▵	mažas tuščiaviduris trikampis kampu į viršų	none
+▷	tuščiaviduris trikampis kampu į dešinę	none
+▸	mažas užpildytas trikampis kampu į dešinę	none
+▹	mažas tuščiaviduris trikampis kampu į dešinę	none
+►	užpildyta rodyklė į dešinę	none
+▻	tuščiavidurė rodyklė į dešinę	none
 ▼	pilnaviduris į apačią nukreiptas trikampis	none
+▽	tuščiaviduris trikampis kampu į apačią	none
+▾	mažas užpildytas trikampis kampu į apačią	none
+▿	mažas tuščiaviduris trikampis kampu į apačią	none
+◁	tuščiaviduris trikampis kampu į kairę	none
+◂	mažas užpildytas trikampis kampu į kairę	none
+◃	mažas tuščiaviduris trikampis kampu į kairę	none
+◄	užpildyta rodyklė į kairę	none
+◅	tuščiavidurė rodyklė į kairę	none
+◆	užpildytas rombas	none
+◇	tuščiaviduris rombas	none
+◈	tuščiaviduris rombas su užpildytu rombu viduje	none
+◉	tuščiaviduris apskritimas su užpildytu apskritimu viduje	none
 ◊	rombas	none
 ○	apskritimas	none
+◌	punktyrinis apskritimas	none
+◍	vertikaliai užštrichuotas apskritimas	none
+◎	koncentriniai apskritimai	none
 ●	skritulys	none
+◐	apskritimas užpildyta kairiąja puse	none
+◑	apskritimas užpildyta dešiniąja puse	none
+◒	apskritimas užpildyta apatine puse	none
+◓	apskritimas užpildyta viršutine puse	none
+◔	apskritimas užpildytu viršutiniu dešiniuoju ketvirčiu	none
+◕	apskritimas neužpildytu viršutiniu kairiuoju ketvirčiu	none
+◖	kairioji užpildyto apskritimo pusė	none
+◗	dešinioji užpildyto apskritimo pusė	none
+◘	atvirkštinis ženklelis	none
+◙	užpildytas kvadratas su tuščiaviduriu apskritimu	none
+◜	apskritimo viršutinio kairiojo kvadranto lankas	none
+◝	apskritimo viršutinio dešiniojo kvadranto lankas	none
+◞	apskritimo apatinio dešiniojo kvadranto lankas	none
+◟	apskritimo apatinio kairiojo kvadranto lankas	none
+◠	viršutinis puslankis	none
+◡	apatinis puslankis	none
+◢	užpildytas trikampis apačioje dešinėje	none
+◣	užpildytas trikampis apačioje kairėje	none
+◤	užpildytas trikampis viršuje kairėje	none
+◥	užpildytas trikampis viršuje dešinėje	none
+◦	tuščiaviduris ženklelis	none
 ◯	didelis apskritimas	none
+◳	tuščiavidurio kvadrato viršutinis dešinysis kvadrantas	none
+◷	tuščiaviduris apskritimas su viršutiniu dešiniuoju kvadrantu	none
+◿	apskritimas apačioje dešinėje	none
 ♪	aštuntinė nata	none
+⨧	plius apatinio indekso du	none
+⨯	vektorinė sandauga	none
+⨼	vidinė sandauga	none
+⩣	dukart pabrauktas loginis arba	none
+⩽	pasvirasis mažiau arba lygu	none
+⪍	mažiau nei virš panašiai lygu	none
+⪚	daugiau su dviguba linija	none
+⪺	eina po virš ne beveik lygu	none
 ♭	bemolis	none
 ♯	diezas	none
+🥹	ašaras tramdantis veidas	none
+🧌	trolis	none
+🩻	rentgenas	none
+🩼	ramentas	none
+🪩	veidrodinis rutulys	none
+🪪	tapatybės kortelė	none
+🪫	išeikvota baterija	none
+🪬	hamsa	none
+🪷	lotusas	none
+🪸	koralas	none
+🪹	tuščias lizdas	none
+🪺	lizdas su kiaušiniais	none
+🫃	nėščias vyras	none
+🫄	nėščias asmuo	none
+🫅	asmuo su karūna	none
+🫗	pilamas skystis	none
+🫘	pupelės	none
+🫙	stiklainis	none
+🫠	tirpstantis veidas	none
+🫡	pagarbą atiduodantis veidas	none
+🫢	veidas atmerktomis akimis ir ranka uždengta burna	none
+🫣	veidas su stebinčia akimi	none
+🫤	veidas įstriža burna	none
+🫥	punktyrinis veidas	none
+🫦	prikąsta lūpa	none
+🫧	burbulai	none
+🫰	ranka sukryžiuotu smiliumi ir nykščiu	none
+🫱	į dešinę rodanti ranka	none
+🫲	į kairę rodanti ranka	none
+🫳	ranka delnu žemyn	none
+🫴	ranka delnu į viršų	none
+🫵	į žiūrovą rodantis smilius	none
+🫶	širdelė iš rankų	none
+🛝	čiuožykla	none
+🛞	ratas	none
+🛟	gelbėjimo ratas	none
+🟰	paryškintas lygybės ženklas	none
 😀	išsišiepęs veidas	none
 😃	besišypsantis išsižiojęs veidas	none
 😄	besišypsantis išsižiojęs veidas besišypsančiomis akimis	none
@@ -1633,13 +1778,91 @@ symbols:
 🏳‍🌈	vaivorykštinė vėliava	none
 🏳‍⚧	žydra, rožinė ir balta vėliava	none
 🏴‍☠	piratų vėliava	none
+₢	kruzeiras	none
+₣	Prancūzijos frankas	none
+₤	lita	none
 ₥	milio ženklas	none
 ₩	vono ženklas	none
 €	euras	none
+₰	pfenigas	none
 ₱	peso ženklas	none
+₳	australis	none
+₶	Tūro livras	none
+₷	spesmilo	none
 ₹	Indijos rupija	none
 ₽	rublis	none
 ₿	bitkoino ženklas	none
+₨	rupija	none
+🫃🏻	nėščias vyras šviesios odos	none
+🫃🏼	nėščias vyras vidutinio gymio	none
+🫃🏽	nėščias vyras rusvos odos	none
+🫃🏾	nėščias vyras tamsios odos	none
+🫃🏿	nėščias vyras itin tamsios odos	none
+🫄🏻	nėščias asmuo šviesios odos	none
+🫄🏼	nėščias asmuo vidutinio gymio	none
+🫄🏽	nėščias asmuo rusvos odos	none
+🫄🏾	nėščias asmuo tamsios odos	none
+🫄🏿	nėščias asmuo itin tamsios odos	none
+🫅🏻	asmuo su karūna šviesios odos	none
+🫅🏼	asmuo su karūna vidutinio gymio	none
+🫅🏽	asmuo su karūna rusvos odos	none
+🫅🏾	asmuo su karūna tamsios odos	none
+🫅🏿	asmuo su karūna itin tamsios odos	none
+🫰🏻	ranka sukryžiuotu smiliumi ir nykščiu šviesios odos	none
+🫰🏼	ranka sukryžiuotu smiliumi ir nykščiu vidutinio gymio	none
+🫰🏽	ranka sukryžiuotu smiliumi ir nykščiu rusvos odos	none
+🫰🏾	ranka sukryžiuotu smiliumi ir nykščiu tamsios odos	none
+🫰🏿	ranka sukryžiuotu smiliumi ir nykščiu itin tamsios odos	none
+🫱🏻	į dešinę rodanti ranka šviesios odos	none
+🫱🏼	į dešinę rodanti ranka vidutinio gymio	none
+🫱🏽	į dešinę rodanti ranka rusvos odos	none
+🫱🏾	į dešinę rodanti ranka tamsios odos	none
+🫱🏿	į dešinę rodanti ranka itin tamsios odos	none
+🫱🏻‍🫲🏼	rankos paspaudimas šviesios odos vidutinio gymio	none
+🫱🏻‍🫲🏽	rankos paspaudimas šviesios odos rusvos odos	none
+🫱🏻‍🫲🏾	rankos paspaudimas šviesios odos tamsios odos	none
+🫱🏻‍🫲🏿	rankos paspaudimas šviesios odos itin tamsios odos	none
+🫱🏼‍🫲🏻	rankos paspaudimas vidutinio gymio šviesios odos	none
+🫱🏼‍🫲🏽	rankos paspaudimas vidutinio gymio rusvos odos	none
+🫱🏼‍🫲🏾	rankos paspaudimas vidutinio gymio tamsios odos	none
+🫱🏼‍🫲🏿	rankos paspaudimas vidutinio gymio itin tamsios odos	none
+🫱🏽‍🫲🏻	rankos paspaudimas rusvos odos šviesios odos	none
+🫱🏽‍🫲🏼	rankos paspaudimas rusvos odos vidutinio gymio	none
+🫱🏽‍🫲🏾	rankos paspaudimas rusvos odos tamsios odos	none
+🫱🏽‍🫲🏿	rankos paspaudimas rusvos odos itin tamsios odos	none
+🫱🏾‍🫲🏻	rankos paspaudimas tamsios odos šviesios odos	none
+🫱🏾‍🫲🏼	rankos paspaudimas tamsios odos vidutinio gymio	none
+🫱🏾‍🫲🏽	rankos paspaudimas tamsios odos rusvos odos	none
+🫱🏾‍🫲🏿	rankos paspaudimas tamsios odos itin tamsios odos	none
+🫱🏿‍🫲🏻	rankos paspaudimas itin tamsios odos šviesios odos	none
+🫱🏿‍🫲🏼	rankos paspaudimas itin tamsios odos vidutinio gymio	none
+🫱🏿‍🫲🏽	rankos paspaudimas itin tamsios odos rusvos odos	none
+🫱🏿‍🫲🏾	rankos paspaudimas itin tamsios odos tamsios odos	none
+🫲🏻	į kairę rodanti ranka šviesios odos	none
+🫲🏼	į kairę rodanti ranka vidutinio gymio	none
+🫲🏽	į kairę rodanti ranka rusvos odos	none
+🫲🏾	į kairę rodanti ranka tamsios odos	none
+🫲🏿	į kairę rodanti ranka itin tamsios odos	none
+🫳🏻	ranka delnu žemyn šviesios odos	none
+🫳🏼	ranka delnu žemyn vidutinio gymio	none
+🫳🏽	ranka delnu žemyn rusvos odos	none
+🫳🏾	ranka delnu žemyn tamsios odos	none
+🫳🏿	ranka delnu žemyn itin tamsios odos	none
+🫴🏻	ranka delnu į viršų šviesios odos	none
+🫴🏼	ranka delnu į viršų vidutinio gymio	none
+🫴🏽	ranka delnu į viršų rusvos odos	none
+🫴🏾	ranka delnu į viršų tamsios odos	none
+🫴🏿	ranka delnu į viršų itin tamsios odos	none
+🫵🏻	į žiūrovą rodantis smilius šviesios odos	none
+🫵🏼	į žiūrovą rodantis smilius vidutinio gymio	none
+🫵🏽	į žiūrovą rodantis smilius rusvos odos	none
+🫵🏾	į žiūrovą rodantis smilius tamsios odos	none
+🫵🏿	į žiūrovą rodantis smilius itin tamsios odos	none
+🫶🏻	širdelė iš rankų šviesios odos	none
+🫶🏼	širdelė iš rankų vidutinio gymio	none
+🫶🏽	širdelė iš rankų rusvos odos	none
+🫶🏾	širdelė iš rankų tamsios odos	none
+🫶🏿	širdelė iš rankų itin tamsios odos	none
 👋🏻	mojuojanti ranka šviesios odos	none
 👋🏼	mojuojanti ranka vidutinio gymio	none
 👋🏽	mojuojanti ranka rusvos odos	none
@@ -1785,6 +2008,11 @@ symbols:
 🤲🏽	delnai suglausti rusvos odos	none
 🤲🏾	delnai suglausti tamsios odos	none
 🤲🏿	delnai suglausti itin tamsios odos	none
+🤝🏻	rankos paspaudimas šviesios odos	none
+🤝🏼	rankos paspaudimas vidutinio gymio	none
+🤝🏽	rankos paspaudimas rusvos odos	none
+🤝🏾	rankos paspaudimas tamsios odos	none
+🤝🏿	rankos paspaudimas itin tamsios odos	none
 🙏🏻	suglausti delnai šviesios odos	none
 🙏🏼	suglausti delnai vidutinio gymio	none
 🙏🏽	suglausti delnai rusvos odos	none

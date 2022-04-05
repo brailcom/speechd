@@ -100,27 +100,207 @@ symbols:
 ∈	phần tử của	none
 ∉	không thuộc	none
 ∋	chứa	none
+∎	chứng minh kết thúc	none
+∏	tích đa phân	none
+∑	tổng đa phân	none
+≮	không nhỏ hơn	none
 ≠	dấu khác	none
+≯	không lớn hơn	none
 −	dấu trừ	none
 ⁻	dấu trừ trên	none
+∓	trừ hoặc cộng	none
+∕	dấu gạch chéo phân chia	none
+∗	toán tử dấu hoa thị	none
+∘	vòng toán tử	none
+∙	toán tử dấu đầu dòng	none
 √	căn bậc hai	none
+∝	tỷ lệ	none
 ∞	biểu tượng vô cực	none
+∟	góc vuông	none
+∠	góc	none
+∣	chia ra	none
+∥	song song	none
+∧	logic và	none
 ∩	giao	none
 ∪	hợp	none
+∫	tích phân	none
+∬	tích phân kép	none
+∮	tích phân theo chu tuyến	none
+∴	do đó	none
+∵	vì	none
+∶	tỉ số	none
+∷	tỷ lệ thức	none
+∼	toán tử tương ứng	none
+∽	dấu ngã ngược	none
+∾	cực thuận	none
+≃	gần bằng	none
+≅	xấp xỉ bằng	none
 ≈	dấu xấp xỉ	none
+≌	như nhau	none
+≒	xấp xỉ	none
+≖	tương đương	none
 ≡	bằng	none
+≣	tương đồng	none
 ≤	dấu nhỏ hơn hoặc bằng	none
 ≥	dấu lớn hơn hoặc bằng	none
+≦	nhỏ hơn bằng	none
+≧	lớn hơn bằng	none
+≪	ít hơn rất nhiều so với	none
+≫	lớn hơn nhiều	none
+≬	trong khoảng	none
+≳	lớn hơn tương đương	none
+≺	đứng trước	none
+≻	đứng sau	none
+⊁	không đứng saau	none
 ⊂	tập hợp con của	none
+⊃	tập cha	none
+⊆	tập con bằng	none
+⊇	tập cha bằng	none
+⊕	tổng trực tiếp	none
+⊖	hiệu số đối xứng	none
+⊗	tích tenxơ	none
+⊘	dấu chia trong vòng tròn	none
+⊙	toán tử chấm tròn	none
+⊚	toán tử vòng tròn	none
+⊛	toán tử hoa thị tròn	none
+⊞	phép cộng	none
+⊟	phép trừ	none
+⊥	chữ T lộn ngược	none
+⊮	không bắt buộc	none
+⊰	đứng trước trong hệ thức	none
+⊱	đứng sau trong hệ thức	none
+⋭	không chứa như nhóm con bình thường bằng	none
+⊶	gốc	none
+⊹	ma trận liên hợp hermitian	none
+⊿	tam giác vuông	none
+⋁	logic hoặc đa phân	none
+⋂	giao đa phân	none
+⋃	hợp đa phân	none
+⋅	toán tử dấu chấm	none
+⋆	toán tử nhân	none
+⋈	phép nối tự nhiên	none
+⋒	giao kép	none
+⋘	ít hơn rất nhiều	none
+⋙	lớn hơn rất nhiều	none
+⋮	dấu ba chấm dọc	none
+⋯	dấu ba chấm ngang đường trung tuyến	none
+⋰	dấu ba chấm chéo phải trên	none
+⋱	dấu ba chấm chéo phải xuống	none
+■	hình vuông đặc	none
+□	hình vuông rỗng	none
+▢	hình vuông rỗng có góc bo tròn	none
+▣	hình vuông rỗng chứa hình vuông đặc	none
+▤	hình vuông có sọc ngang	none
+▥	hình vuông có sọc dọc	none
+▦	hình vuông có sọc ngang dọc thẳng góc	none
+▧	hình vuông có sọc chéo từ trái trên xuống phải dưới	none
+▨	hình vuông có sọc chéo từ phải trên xuống trái dưới	none
+▩	hình vuông có sọc chéo song song	none
+▬	hình chữ nhật đặc	none
+▭	hình chữ nhật rỗng	none
+▮	hình chữ nhật dọc đặc	none
+▰	hình bình hành đặc	none
 ▲	tam giác hướng lên	none
+△	hình tam giác rỗng hướng lên	none
+▴	hình tam giác nhỏ đặc hướng lên	none
+▵	hình tam giác nhỏ rỗng hướng lên	none
+▷	hình tam giác rỗng hướng sang phải	none
+▸	hình tam giác nhỏ đặc hướng sang phải	none
+▹	hình tam giác nhỏ rỗng hướng sang phải	none
+►	con trỏ đặc hướng sang phải	none
+▻	con trỏ rỗng hướng sang phải	none
 ▼	tam giác hướng xuống	none
+▽	hình tam giác rỗng hướng xuống	none
+▾	hình tam giác nhỏ đặc hướng xuống	none
+▿	hình tam giác nhỏ rỗng hướng xuống	none
+◁	hình tam giác rỗng hướng sang trái	none
+◂	hình tam giác nhỏ đặc hướng sang trái	none
+◃	hình tam giác nhỏ rỗng hướng sang trái	none
+◄	con trỏ đặc hướng sang trái	none
+◅	con trỏ rỗng hướng sang trái	none
+◆	hình kim cương đặc	none
+◇	hình kim cương rỗng	none
+◈	hình kim cương rỗng chứa hình kim cương đặc	none
+◉	hình tròn rỗng chứa hình tròn đặc	none
 ◊	hình thoi	none
 ○	chấm rỗng	none
+◌	hình tròn chấm chấm	none
+◍	hình tròn có sọc dọc	none
+◎	hình tròn đồng tâm	none
 ●	chấm tròn	none
+◐	hình tròn nửa trái đặc	none
+◑	hình tròn nửa phải đặc	none
+◒	hình tròn nửa dưới đặc	none
+◓	hình tròn nửa trên đặc	none
+◔	hình tròn góc phần tư phía trên bên phải đặc	none
+◕	hình tròn góc phần tư phía trên bên trái rỗng	none
+◖	nửa hình tròn bên trái đặc	none
+◗	nửa hình tròn bên phải đặc	none
+◘	dấu đầu dòng ngược	none
+◙	hình vuông đặc chứa hình tròn rỗng	none
+◜	cung tròn góc phần tư phía trên bên trái	none
+◝	cung tròn góc phần tư phía trên bên phải	none
+◞	cung tròn góc phần tư phía dưới bên phải	none
+◟	cung tròn góc phần tư phía dưới bên trái	none
+◠	nửa hình tròn trên	none
+◡	nửa hình tròn dưới	none
+◢	hình tam giác phia dưới bên phải đặc	none
+◣	hình tam giác phia dưới bên trái đặc	none
+◤	hình tam giác phía trên bên trái đặc	none
+◥	hình tam giác phía trên bên phải đặc	none
+◦	dấu đầu dòng rỗng	none
 ◯	chấm rỗng lớn	none
+◳	hình vuông rỗng góc phần tư phía trên bên phải	none
+◷	hình tròn rỗng với góc phần tư phía trên bên phải	none
+◿	hình tam giác dưới bên phải	none
 ♪	nốt móc đơn	none
+⨧	dấu cộng với chỉ số dưới hai	none
+⨯	tích vectơ hữu hướng	none
+⨼	tích tự đẳng cấu trong	none
+⩣	logic hoặc gạch dưới kép	none
+⩽	nhỏ hơn hoặc nghiêng bằng	none
+⪍	nhỏ hơn hoặc đồng dạng bằng	none
+⪚	dấu bằng kép hoặc lớn hơn	none
+⪺	đứng sau hoặc gần như không bằng	none
 ♭	nốt giáng	none
 ♯	nốt thăng	none
+🥹	mặt kìm nén nước mắt	none
+🧌	người khổng lồ độc ác	none
+🩻	x-quang	none
+🩼	nạng	none
+🪩	quả cầu gương	none
+🪪	thẻ nhận dạng	none
+🪫	pin yếu	none
+🪬	hamsa	none
+🪷	hoa sen	none
+🪸	san hô	none
+🪹	tổ trống rỗng	none
+🪺	tổ có trứng	none
+🫃	người đàn ông mang bầu	none
+🫄	người mang bầu	none
+🫅	người đội vương miện	none
+🫗	đổ chất lỏng	none
+🫘	hạt đậu	none
+🫙	bình đựng	none
+🫠	mặt tan chảy	none
+🫡	mặt chào	none
+🫢	mặt với cặp mắt mở to và tay che miệng	none
+🫣	mặt hé mắt nhìn trộm	none
+🫤	mặt có miệng xiên	none
+🫥	mặt có đường viền chấm chấm	none
+🫦	cắn môi	none
+🫧	bong bóng	none
+🫰	bàn tay với ngón trỏ và ngón cái bắt chéo	none
+🫱	bàn tay hướng sang bên phải	none
+🫲	bàn tay hướng sang bên trái	none
+🫳	bàn tay có lòng bàn tay hướng xuống	none
+🫴	bàn tay có lòng bàn tay hướng lên	none
+🫵	ngón trỏ chỉ vào người xem	none
+🫶	hai bàn tay tạo hình trái tim	none
+🛝	cầu trượt	none
+🛞	bánh xe	none
+🛟	phao cứu sinh	none
+🟰	dấu bằng đậm	none
 😀	mặt cười toét	none
 😃	mặt cười miệng há với mắt to	none
 😄	mặt cười miệng há mắt cười	none
@@ -1598,13 +1778,91 @@ symbols:
 🏳‍🌈	cờ cầu vồng	none
 🏳‍⚧	cờ màu xanh, hồng và trắng	none
 🏴‍☠	cờ cướp biển	none
+₢	cruzeiro	none
+₣	đồng franc Pháp	none
+₤	lia	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
+₰	xu Đức	none
 ₱	peso	none
+₳	austral	none
+₶	đồng livre	none
+₷	đồng spesmilo	none
 ₹	rupee Ấn Độ	none
 ₽	rúp	none
 ₿	bitcoin	none
+₨	rupee	none
+🫃🏻	người đàn ông mang bầu màu da sáng	none
+🫃🏼	người đàn ông mang bầu màu da sáng trung bình	none
+🫃🏽	người đàn ông mang bầu màu da trung bình	none
+🫃🏾	người đàn ông mang bầu màu da tối trung bình	none
+🫃🏿	người đàn ông mang bầu màu da tối	none
+🫄🏻	người mang bầu màu da sáng	none
+🫄🏼	người mang bầu màu da sáng trung bình	none
+🫄🏽	người mang bầu màu da trung bình	none
+🫄🏾	người mang bầu màu da tối trung bình	none
+🫄🏿	người mang bầu màu da tối	none
+🫅🏻	người đội vương miện màu da sáng	none
+🫅🏼	người đội vương miện màu da sáng trung bình	none
+🫅🏽	người đội vương miện màu da trung bình	none
+🫅🏾	người đội vương miện màu da tối trung bình	none
+🫅🏿	người đội vương miện màu da tối	none
+🫰🏻	bàn tay với ngón trỏ và ngón cái bắt chéo màu da sáng	none
+🫰🏼	bàn tay với ngón trỏ và ngón cái bắt chéo màu da sáng trung bình	none
+🫰🏽	bàn tay với ngón trỏ và ngón cái bắt chéo màu da trung bình	none
+🫰🏾	bàn tay với ngón trỏ và ngón cái bắt chéo màu da tối trung bình	none
+🫰🏿	bàn tay với ngón trỏ và ngón cái bắt chéo màu da tối	none
+🫱🏻	bàn tay hướng sang bên phải màu da sáng	none
+🫱🏼	bàn tay hướng sang bên phải màu da sáng trung bình	none
+🫱🏽	bàn tay hướng sang bên phải màu da trung bình	none
+🫱🏾	bàn tay hướng sang bên phải màu da tối trung bình	none
+🫱🏿	bàn tay hướng sang bên phải màu da tối	none
+🫱🏻‍🫲🏼	bắt tay màu da sáng, màu da sáng trung bình	none
+🫱🏻‍🫲🏽	bắt tay màu da sáng, màu da trung bình	none
+🫱🏻‍🫲🏾	bắt tay màu da sáng, màu da tối trung bình	none
+🫱🏻‍🫲🏿	bắt tay màu da sáng, màu da tối	none
+🫱🏼‍🫲🏻	bắt tay màu da sáng trung bình, màu da sáng	none
+🫱🏼‍🫲🏽	bắt tay màu da sáng trung bình, màu da trung bình	none
+🫱🏼‍🫲🏾	bắt tay màu da sáng trung bình, màu da tối trung bình	none
+🫱🏼‍🫲🏿	bắt tay màu da sáng trung bình, màu da tối	none
+🫱🏽‍🫲🏻	bắt tay màu da trung bình, màu da sáng	none
+🫱🏽‍🫲🏼	bắt tay màu da trung bình, màu da sáng trung bình	none
+🫱🏽‍🫲🏾	bắt tay màu da trung bình, màu da tối trung bình	none
+🫱🏽‍🫲🏿	bắt tay màu da trung bình, màu da tối	none
+🫱🏾‍🫲🏻	bắt tay màu da tối trung bình, màu da sáng	none
+🫱🏾‍🫲🏼	bắt tay màu da tối trung bình, màu da sáng trung bình	none
+🫱🏾‍🫲🏽	bắt tay màu da tối trung bình, màu da trung bình	none
+🫱🏾‍🫲🏿	bắt tay màu da tối trung bình, màu da tối	none
+🫱🏿‍🫲🏻	bắt tay màu da tối, màu da sáng	none
+🫱🏿‍🫲🏼	bắt tay màu da tối, màu da sáng trung bình	none
+🫱🏿‍🫲🏽	bắt tay màu da tối, màu da trung bình	none
+🫱🏿‍🫲🏾	bắt tay màu da tối, màu da tối trung bình	none
+🫲🏻	bàn tay hướng sang bên trái màu da sáng	none
+🫲🏼	bàn tay hướng sang bên trái màu da sáng trung bình	none
+🫲🏽	bàn tay hướng sang bên trái màu da trung bình	none
+🫲🏾	bàn tay hướng sang bên trái màu da tối trung bình	none
+🫲🏿	bàn tay hướng sang bên trái màu da tối	none
+🫳🏻	bàn tay có lòng bàn tay hướng xuống màu da sáng	none
+🫳🏼	bàn tay có lòng bàn tay hướng xuống màu da sáng trung bình	none
+🫳🏽	bàn tay có lòng bàn tay hướng xuống màu da trung bình	none
+🫳🏾	bàn tay có lòng bàn tay hướng xuống màu da tối trung bình	none
+🫳🏿	bàn tay có lòng bàn tay hướng xuống màu da tối	none
+🫴🏻	bàn tay có lòng bàn tay hướng lên màu da sáng	none
+🫴🏼	bàn tay có lòng bàn tay hướng lên màu da sáng trung bình	none
+🫴🏽	bàn tay có lòng bàn tay hướng lên màu da trung bình	none
+🫴🏾	bàn tay có lòng bàn tay hướng lên màu da tối trung bình	none
+🫴🏿	bàn tay có lòng bàn tay hướng lên màu da tối	none
+🫵🏻	ngón trỏ chỉ vào người xem màu da sáng	none
+🫵🏼	ngón trỏ chỉ vào người xem màu da sáng trung bình	none
+🫵🏽	ngón trỏ chỉ vào người xem màu da trung bình	none
+🫵🏾	ngón trỏ chỉ vào người xem màu da tối trung bình	none
+🫵🏿	ngón trỏ chỉ vào người xem màu da tối	none
+🫶🏻	hai bàn tay tạo hình trái tim màu da sáng	none
+🫶🏼	hai bàn tay tạo hình trái tim màu da sáng trung bình	none
+🫶🏽	hai bàn tay tạo hình trái tim màu da trung bình	none
+🫶🏾	hai bàn tay tạo hình trái tim màu da tối trung bình	none
+🫶🏿	hai bàn tay tạo hình trái tim màu da tối	none
 👋🏻	vẫy tay màu da sáng	none
 👋🏼	vẫy tay màu da sáng trung bình	none
 👋🏽	vẫy tay màu da trung bình	none
@@ -1750,6 +2008,11 @@ symbols:
 🤲🏽	hai bàn tay chạm vào nhau màu da trung bình	none
 🤲🏾	hai bàn tay chạm vào nhau màu da tối trung bình	none
 🤲🏿	hai bàn tay chạm vào nhau màu da tối	none
+🤝🏻	bắt tay màu da sáng	none
+🤝🏼	bắt tay màu da sáng trung bình	none
+🤝🏽	bắt tay màu da trung bình	none
+🤝🏾	bắt tay màu da tối trung bình	none
+🤝🏿	bắt tay màu da tối	none
 🙏🏻	chắp tay màu da sáng	none
 🙏🏼	chắp tay màu da sáng trung bình	none
 🙏🏽	chắp tay màu da trung bình	none

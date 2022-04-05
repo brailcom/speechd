@@ -26,7 +26,6 @@ symbols:
 Ò	O ACCENT GRAVE	char	norep
 Ó	O ACCENT AIGU	char	norep
 Ô	O CIRKUMFLEKS	char	norep
-Õ	O ACCENT AIGU	char	norep
 Ö	O OMLYD	char	norep
 Ø	Ø	char	norep
 Ù	U ACCENT GRAVE	char	norep
@@ -34,7 +33,7 @@ symbols:
 Û	U CIRKUMFLEKS	char	norep
 Ü	U OMLYD	char	norep
 Ý	Y ACCENT AIGU	char	norep
-ß	dobbelt s	char	norep
+ß	dobbelt-s	char	norep
 à	a accent grave	char	norep
 â	a cirkumfleks	char	norep
 ä	a omlyd	char	norep
@@ -62,4 +61,4 @@ symbols:
 ÿ	y omlyd	char	norep
 Ÿ	Y OMLYD	char	norep
 	sort firkant	none
-	sort diamand	none
+	sort diamant	none

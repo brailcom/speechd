@@ -10,16 +10,65 @@ symbols:
 🏿	peau foncée	none
 ℗	copyright phonographique	none
 ←	flèche vers la gauche	none
+↚	flèche vers la gauche barrée	none
 →	flèche vers la droite	none
+↛	flèche vers la droite barrée	none
 ↑	flèche vers le haut	none
 ↓	flèche vers le bas	none
+↜	flèche vers la gauche ondulée	none
+↝	flèche vers la droite ondulée	none
+↞	flèche à deux pointes vers la gauche	none
+↟	flèche à deux pointes vers le haut	none
+↠	flèche à deux pointes vers la droite	none
+↡	flèche à deux pointes vers le bas	none
+↢	empenne vers la gauche	none
+↣	empenne vers la droite	none
+↤	flèche d’un taquet vers la gauche	none
+↥	flèche d’un taquet vers le haut	none
+↦	flèche d’un taquet vers la droite	none
+↧	flèche d’un taquet vers le bas	none
+↨	flèche haut-bas sur base	none
+↫	flèche vers la gauche avec boucle	none
+↬	flèche vers la droite avec boucle	none
+↭	flèche gauche-droite ondulée	none
+↯	flèche vers le bas en zigzag	none
+↰	flèche vers le haut avec pointe vers la gauche	none
+↱	flèche vers le haut avec pointe vers la droite	none
+↲	flèche vers le bas avec pointe vers la gauche	none
+↳	flèche vers le bas avec pointe vers la droite	none
+↴	flèche vers la droite avec coin vers le bas	none
+↵	flèche vers le bas avec coin vers la gauche	none
+↶	flèche semi-circulaire sens antihoraire en chef	none
+↷	flèche semi-circulaire sens horaire en chef	none
+↸	flèche nord-ouest jusqu’à un long taquet	none
+↹	flèche vers la gauche jusqu’à un taquet sur flèche vers la droite jusqu’à un taquet	none
+↺	flèche circulaire ouverte sens antihoraire	none
+↻	flèche circulaire ouverte sens horaire	none
+↼	harpon vers la gauche avec barbillon vers le haut	none
+↽	harpon vers la gauche avec barbillon vers le bas	none
+↾	harpon vers le haut avec barbillon vers la droite	none
+↿	harpon vers le haut avec barbillon vers la gauche	none
+⇀	harpon vers la droite avec barbillon vers le haut	none
+⇁	harpon vers la droite avec barbillon vers le bas	none
+⇂	harpon vers le bas avec barbillon vers la droite	none
+⇃	harpon vers le bas avec barbillon vers la gauche	none
+⇄	flèche vers la droite sur flèche vers la gauche	none
 ⇅	flèches vers le haut et vers le bas	none
 ⇆	flèche gauche au-dessus de flèche droite	none
+⇇	paire de flèches vers la gauche	none
+⇈	paire de flèches vers le haut	none
+⇉	paire de flèches vers la droite	none
+⇊	paire de flèches vers le bas	none
+⇋	harpon vers la gauche sur harpon vers la droite	none
+⇌	harpon vers la droite sur harpon vers la gauche	none
 ⇐	flèche double vers la gauche	none
+⇍	double flèche vers la gauche barrée	none
 ⇑	flèche double vers le haut	none
 ⇒	flèche double vers la droite	none
+⇏	double flèche vers la droite barrée	none
 ⇓	flèche double vers le bas	none
 ⇔	flèche double vers la gauche et la droite	none
+⇎	double flèche gauche​-droite barrée	none
 ⇖	flèche double vers le nord-ouest	none
 ⇗	flèche double vers le nord-est	none
 ⇘	flèche double vers le sud-est	none
@@ -28,22 +77,68 @@ symbols:
 ⇛	flèche triple vers la droite	none
 ⇜	flèche vers la gauche en tire-bouchon	none
 ⇝	flèche vers la droite en tire-bouchon	none
+⇞	flèche vers le haut avec double barre	none
+⇟	flèche vers le bas avec double barre	none
+⇠	flèche pointillée vers la gauche	none
+⇡	flèche pointillée vers le haut	none
+⇢	flèche pointillée vers la droite	none
+⇣	flèche pointillée vers le bas	none
+⇤	flèche vers la gauche jusqu’à un taquet	none
+⇥	flèche vers la droite jusqu’à un taquet	none
 ⇦	flèche creuse vers la gauche	none
 ⇧	flèche creuse vers le haut	none
 ⇨	flèche creuse vers la droite	none
 ⇩	flèche creuse vers le bas	none
+⇪	flèche creuse d’un taquet vers le haut	none
+⇵	flèche vers le bas à gauche d’une flèche vers le haut	none
+∀	pour tout	none
+∂	dérivée partielle	none
+∃	il existe	none
+∅	ensemble vide	none
 ∆	incrément	none
 ∇	nabla	none
 ∈	élément de	none
+∉	n’appartient pas	none
+∋	appartient	none
+∎	fin d’article	none
+∏	produit de la famille	none
+∑	sommation de la famille	none
+≮	pas inférieur à	none
 ≠	non égal	none
+≯	pas supérieur à	none
 −	signe moins	none
 ⁻	exposant moins	none
+∓	plus ou moins	none
+∕	barre oblique de division	none
+∗	opérateur astérisque	none
+∘	opérateur rond	none
+∙	opérateur puce	none
 √	racine carrée	none
+∝	proportionnel	none
 ∞	symbole de l’infini	none
+∟	angle droit	none
+∠	angle	none
+∣	est un diviseur de	none
+∥	parallèle	none
+∧	et logique	none
 ∩	intersection	none
 ∪	union	none
+∫	intégrale	none
+∬	double intégrale	none
+∮	intégrale de contour	none
+∴	par conséquent	none
+∵	parce que	none
+∶	rapport	none
+∷	proportion	none
+∼	opérateur tilde	none
+∽	tilde renversé	none
+∾	s couché renversé	none
+≃	asymptotiquement égal à	none
 ≅	approximativement égal à	none
 ≈	presque égal	none
+≌	entièrement égal à	none
+≒	approximativement égal à ou image de	none
+≖	rond dans égal	none
 ≡	identique à	none
 ≣	strictement équivalent à	none
 ≤	inférieur ou égal	none
@@ -53,6 +148,7 @@ symbols:
 ≪	très inférieur à	none
 ≫	très supérieur à	none
 ≬	entre	none
+≳	supérieur ou équivalent à	none
 ≺	précède	none
 ≻	suit	none
 ⊁	ne suit pas	none
@@ -63,11 +159,89 @@ symbols:
 ⊕	plus cerclé	none
 ⊖	moins cerclé	none
 ⊗	fois cerclé	none
+⊘	barre oblique de division cerclée	none
+⊙	opérateur point cerclé	none
+⊚	opérateur rond cerclé	none
+⊛	opérateur astérisque cerclé	none
+⊞	plus encadré	none
+⊟	moins encadré	none
+⊥	taquet vers le haut	none
+⊮	n’oblige pas	none
+⊰	précède sous relation	none
+⊱	suit sous relation	none
+⋭	ni égal ni contenant comme sous-groupe normal	none
+⊶	original de	none
+⊹	matrice hermitienne conjuguée	none
+⊿	triangle rectangle	none
+⋁	ou logique de la famille	none
+⋂	intersection de la famille	none
+⋃	union de la famille	none
+⋅	opérateur point	none
+⋆	opérateur étoile	none
+⋈	jointure naturelle	none
+⋒	double intersection	none
+⋘	considérablement inférieur à	none
+⋙	considérablement supérieur à	none
+⋮	trois points suspendus	none
+⋯	trois points médians	none
+⋰	trois points diagonaux vers le coin haut à droite	none
+⋱	trois points diagonaux vers le coin bas à droite	none
+■	carré plein	none
+□	carré creux	none
+▢	carré creux aux angles arrondis	none
+▣	carré creux contenant un carré plein	none
+▤	carré hachuré horizontalement	none
+▥	carré hachuré verticalement	none
+▦	carré quadrillé	none
+▧	carré hachuré du haut à droite vers le bas à gauche en diagonale	none
+▨	carré hachuré du haut à gauche vers le bas à droite	none
+▩	carré quadrillé en diagonale	none
+▬	rectangle plein	none
+▭	rectangle creux	none
+▮	rectangle vertical plein	none
+▰	parallélogramme plein	none
 ▲	triangle plein vers le haut	none
+△	triangle creux pointant vers le haut	none
+▴	petit triangle plein pointant vers le haut	none
+▵	petit triangle creux pointant vers le haut	none
+▷	triangle creux pointant vers la droite	none
+▸	petit triangle plein pointant vers la droite	none
+▹	petit triangle creux pointant vers la droite	none
+►	pointe pleine vers la droite	none
+▻	pointe creuse vers la droite	none
 ▼	triangle plein vers le bas	none
+▽	triangle creux pointant vers le bas	none
+▾	petit triangle plein pointant vers le bas	none
+▿	petit triangle creux pointant vers le bas	none
+◁	triangle creux pointant vers la gauche	none
+◂	petit triangle plein pointant vers la gauche	none
+◃	petit triangle creux pointant vers la gauche	none
+◄	pointe pleine vers la gauche	none
+◅	pointe creuse vers la gauche	none
+◆	losange plein	none
+◇	losange creux	none
+◈	losange creux contenant un losange plein	none
+◉	cercle creux contenant un cercle plein	none
 ◊	losange	none
 ○	cercle vide	none
+◌	cercle en pointillés	none
+◍	cercle hachuré verticalement	none
+◎	cercles concentriques	none
 ●	cercle plein	none
+◐	cercle avec moitié gauche pleine	none
+◑	cercle avec moitié droite pleine	none
+◒	cercle avec moitié inférieure pleine	none
+◓	cercle avec moitié supérieure pleine	none
+◔	cercle avec quadrant supérieur droit plein	none
+◕	cercle avec quadrant supérieur gauche vide	none
+◖	demi-cercle gauche plein	none
+◗	demi-cercle droit plein	none
+◘	puce noir au blanc	none
+◙	carré plein contenant un cercle creux	none
+◜	arc de cercle dans le quadrant supérieur gauche	none
+◝	arc de cercle dans le quadrant supérieur droit	none
+◞	arc de cercle dans le quadrant inférieur droit	none
+◟	arc de cercle dans le quadrant inférieur gauche	none
 ◠	demi-cercle supérieur	none
 ◡	demi-cercle inférieur	none
 ◢	triangle rectangle inférieur droit plein	none
@@ -90,6 +264,43 @@ symbols:
 ⪺	suit sur non presque égal à	none
 ♭	bémol	none
 ♯	dièse	none
+🥹	visage retenant ses larmes	none
+🧌	troll	none
+🩻	radiographie	none
+🩼	béquille	none
+🪩	boule à facettes	none
+🪪	carte d’identité	none
+🪫	pile faible	none
+🪬	main de Fatma	none
+🪷	lotus	none
+🪸	corail	none
+🪹	nid vide	none
+🪺	nid avec œufs	none
+🫃	homme enceinte	none
+🫄	personne enceinte	none
+🫅	personne avec une couronne	none
+🫗	verser un liquide	none
+🫘	haricots	none
+🫙	bocal	none
+🫠	visage qui fond	none
+🫡	visage qui fait un salut militaire	none
+🫢	visage avec yeux ouverts et main sur la bouche	none
+🫣	visage qui regarde entre ses doigts	none
+🫤	visage avec bouche en diagonale	none
+🫥	visage en pointillés	none
+🫦	lèvres qui se mordent	none
+🫧	bulles	none
+🫰	main avec index et pouce croisés	none
+🫱	main vers la droite	none
+🫲	main vers la gauche	none
+🫳	main paume vers le bas	none
+🫴	main paume vers le haut	none
+🫵	index pointant vers l’utilisateur	none
+🫶	mains qui forment un cœur	none
+🛝	toboggan	none
+🛞	roue	none
+🛟	bouée de sauvetage	none
+🟰	signe égal gras	none
 😀	visage rieur	none
 😃	visage souriant avec de grands yeux	none
 😄	visage très souriant aux yeux rieurs	none
@@ -999,7 +1210,7 @@ symbols:
 🌔	lune gibbeuse croissante	none
 🌕	pleine lune	none
 🌖	lune gibbeuse décroissante	none
-🌗	dernier quartier	none
+🌗	dernier quartier de lune	none
 🌘	lune décroissante	none
 🌙	croissant de lune	none
 🌚	nouvelle lune avec visage	none
@@ -1410,6 +1621,7 @@ symbols:
 ↖	flèche haut gauche	none
 ↕	flèche haut bas	none
 ↔	flèche gauche droite	none
+↮	flèche gauche-droite barrée	none
 ↩	flèche courbe gauche	none
 ↪	flèche courbe droite	none
 ⤴	flèche courbe haut	none
@@ -1581,6 +1793,76 @@ symbols:
 ₽	rouble	none
 ₿	bitcoin	none
 ₨	roupie	none
+🫃🏻	homme enceinte  peau claire	none
+🫃🏼	homme enceinte  peau moyennement claire	none
+🫃🏽	homme enceinte  peau légèrement mate	none
+🫃🏾	homme enceinte  peau mate	none
+🫃🏿	homme enceinte  peau foncée	none
+🫄🏻	personne enceinte  peau claire	none
+🫄🏼	personne enceinte  peau moyennement claire	none
+🫄🏽	personne enceinte  peau légèrement mate	none
+🫄🏾	personne enceinte  peau mate	none
+🫄🏿	personne enceinte  peau foncée	none
+🫅🏻	personne avec une couronne  peau claire	none
+🫅🏼	personne avec une couronne  peau moyennement claire	none
+🫅🏽	personne avec une couronne  peau légèrement mate	none
+🫅🏾	personne avec une couronne  peau mate	none
+🫅🏿	personne avec une couronne  peau foncée	none
+🫰🏻	main avec index et pouce croisés  peau claire	none
+🫰🏼	main avec index et pouce croisés  peau moyennement claire	none
+🫰🏽	main avec index et pouce croisés  peau légèrement mate	none
+🫰🏾	main avec index et pouce croisés  peau mate	none
+🫰🏿	main avec index et pouce croisés  peau foncée	none
+🫱🏻	main vers la droite  peau claire	none
+🫱🏼	main vers la droite  peau moyennement claire	none
+🫱🏽	main vers la droite  peau légèrement mate	none
+🫱🏾	main vers la droite  peau mate	none
+🫱🏿	main vers la droite  peau foncée	none
+🫱🏻‍🫲🏼	poignée de main  peau claire et peau moyennement claire	none
+🫱🏻‍🫲🏽	poignée de main  peau claire et peau légèrement mate	none
+🫱🏻‍🫲🏾	poignée de main  peau claire et peau mate	none
+🫱🏻‍🫲🏿	poignée de main  peau claire et peau foncée	none
+🫱🏼‍🫲🏻	poignée de main  peau moyennement claire et peau claire	none
+🫱🏼‍🫲🏽	poignée de main  peau moyennement claire et peau légèrement mate	none
+🫱🏼‍🫲🏾	poignée de main  peau moyennement claire et peau mate	none
+🫱🏼‍🫲🏿	poignée de main  peau moyennement claire et peau foncée	none
+🫱🏽‍🫲🏻	poignée de main  peau légèrement mate et peau claire	none
+🫱🏽‍🫲🏼	poignée de main  peau légèrement mate et peau moyennement claire	none
+🫱🏽‍🫲🏾	poignée de main  peau légèrement mate et peau mate	none
+🫱🏽‍🫲🏿	poignée de main  peau légèrement mate et peau foncée	none
+🫱🏾‍🫲🏻	poignée de main  peau mate et peau claire	none
+🫱🏾‍🫲🏼	poignée de main  peau mate et peau moyennement claire	none
+🫱🏾‍🫲🏽	poignée de main  peau mate et peau légèrement mate	none
+🫱🏾‍🫲🏿	poignée de main  peau mate et peau foncée	none
+🫱🏿‍🫲🏻	poignée de main  peau foncée et peau claire	none
+🫱🏿‍🫲🏼	poignée de main  peau foncée et peau moyennement claire	none
+🫱🏿‍🫲🏽	poignée de main  peau foncée et peau légèrement mate	none
+🫱🏿‍🫲🏾	poignée de main  peau foncée et peau mate	none
+🫲🏻	main vers la gauche  peau claire	none
+🫲🏼	main vers la gauche  peau moyennement claire	none
+🫲🏽	main vers la gauche  peau légèrement mate	none
+🫲🏾	main vers la gauche  peau mate	none
+🫲🏿	main vers la gauche  peau foncée	none
+🫳🏻	main paume vers le bas  peau claire	none
+🫳🏼	main paume vers le bas  peau moyennement claire	none
+🫳🏽	main paume vers le bas  peau légèrement mate	none
+🫳🏾	main paume vers le bas  peau mate	none
+🫳🏿	main paume vers le bas  peau foncée	none
+🫴🏻	main paume vers le haut  peau claire	none
+🫴🏼	main paume vers le haut  peau moyennement claire	none
+🫴🏽	main paume vers le haut  peau légèrement mate	none
+🫴🏾	main paume vers le haut  peau mate	none
+🫴🏿	main paume vers le haut  peau foncée	none
+🫵🏻	index pointant vers l’utilisateur  peau claire	none
+🫵🏼	index pointant vers l’utilisateur  peau moyennement claire	none
+🫵🏽	index pointant vers l’utilisateur  peau légèrement mate	none
+🫵🏾	index pointant vers l’utilisateur  peau mate	none
+🫵🏿	index pointant vers l’utilisateur  peau foncée	none
+🫶🏻	mains qui forment un cœur  peau claire	none
+🫶🏼	mains qui forment un cœur  peau moyennement claire	none
+🫶🏽	mains qui forment un cœur  peau légèrement mate	none
+🫶🏾	mains qui forment un cœur  peau mate	none
+🫶🏿	mains qui forment un cœur  peau foncée	none
 👋🏻	signe de la main  peau claire	none
 👋🏼	signe de la main  peau moyennement claire	none
 👋🏽	signe de la main  peau légèrement mate	none
@@ -1726,6 +2008,11 @@ symbols:
 🤲🏽	paume contre paume doigts vers le haut  peau légèrement mate	none
 🤲🏾	paume contre paume doigts vers le haut  peau mate	none
 🤲🏿	paume contre paume doigts vers le haut  peau foncée	none
+🤝🏻	poignée de main  peau claire	none
+🤝🏼	poignée de main  peau moyennement claire	none
+🤝🏽	poignée de main  peau légèrement mate	none
+🤝🏾	poignée de main  peau mate	none
+🤝🏿	poignée de main  peau foncée	none
 🙏🏻	mains en prière  peau claire	none
 🙏🏼	mains en prière  peau moyennement claire	none
 🙏🏽	mains en prière  peau légèrement mate	none

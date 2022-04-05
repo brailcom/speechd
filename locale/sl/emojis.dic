@@ -10,9 +10,9 @@ symbols:
 🏿	temen ten kože	none
 ℗	avtorske pravice za zvočni posnetek	none
 ←	puščica, obrnjena v levo	none
-↚	prečrtana puščica levo	none
+↚	puščica levo s poševnico	none
 →	puščica, obrnjena v desno	none
-↛	prečrtana puščica desno	none
+↛	puščica desno s poševnico	none
 ↑	puščica, obrnjena navzgor	none
 ↓	puščica, obrnjena navzdol	none
 ↜	vijugasta puščica levo	none
@@ -38,12 +38,12 @@ symbols:
 ↳	puščica navzdol desno	none
 ↴	kotna puščica desno navzdol	none
 ↵	kotna puščica levo navzdol	none
-↶	zgornja polkrožna puščica v nasprotni smeri urinega kazalca	none
-↷	zgornja polkrožna puščica v smeri urinega kazalca	none
+↶	zgornja polkrožna puščica v nasprotni smeri urnega kazalca	none
+↷	zgornja polkrožna puščica v smeri urnega kazalca	none
 ↸	puščica severozahod z dolgo črtico zgoraj	none
 ↹	puščica levo s črtico nad puščico desno s črtico	none
-↺	odprta krožna puščica v nasprotni smeri urinega kazalca	none
-↻	odprta krožna puščica v smeri urinega kazalca	none
+↺	odprta krožna puščica v nasprotni smeri urnega kazalca	none
+↻	odprta krožna puščica v smeri urnega kazalca	none
 ↼	harpuna levo z ostjo navzgor	none
 ↽	harpuna levo z ostjo navzdol	none
 ↾	harpuna navzgor z desno ostjo	none
@@ -52,32 +52,255 @@ symbols:
 ⇁	harpuna desno z ostjo navzdol	none
 ⇂	harpuna navzdol z desno ostjo	none
 ⇃	harpuna navzdol z levo ostjo	none
+⇄	puščica desno nad puščico levo	none
 ⇅	puščici, obrnjeni navzgor in navzdol	none
 ⇆	puščica v levo nad puščico v desno	none
+⇇	par puščic levo	none
+⇈	par puščic navzgor	none
+⇉	par puščic desno	none
+⇊	par puščic navzdol	none
+⇋	harpuna levo nad harpuno desno	none
+⇌	harpuna desno nad harpuno levo	none
+⇐	dvojna puščica levo	none
+⇍	dvojna prečrtana puščica levo	none
+⇑	dvojna puščica navzgor	none
+⇒	dvojna puščica desno	none
+⇏	dvojna prečrtana puščica desno	none
+⇓	dvojna puščica navzdol	none
+⇔	dvojna puščica levo-desno	none
+⇎	dvojna prečrtana puščica levo-desno	none
+⇖	dvojna puščica severozahod	none
+⇗	dvojna puščica severovzhod	none
+⇘	dvojna puščica jugovzhod	none
+⇙	dvojna puščica jugozahod	none
+⇚	trojna puščica levo	none
+⇛	trojna puščica desno	none
+⇜	valovita puščica levo	none
+⇝	valovita puščica desno	none
+⇞	dvakrat prečrtana puščica navzgor	none
+⇟	dvakrat prečrtana puščica navzdol	none
+⇠	črtkana puščica levo	none
+⇡	črtkana puščica navzgor	none
+⇢	črtkana puščica desno	none
+⇣	črtkana puščica navzdol	none
+⇤	puščica levo s črtico	none
+⇥	puščica desno s črtico	none
+⇦	votla puščica levo	none
+⇧	votla puščica navzgor	none
+⇨	votla puščica desno	none
+⇩	votla puščica navzdol	none
+⇪	votla puščica od črte navzgor	none
+⇵	puščica navzdol levo od puščice navzgor	none
+∀	za vse	none
+∂	parcialni diferencial	none
+∃	obstaja	none
+∅	prazna množica	none
 ∆	razlika	none
 ∇	nabla	none
 ∈	je element množice	none
+∉	ni element	none
+∋	vključuje kot element	none
+∎	znak za konec	none
+∏	produkt n-skupine	none
+∑	vsota n-skupine	none
+≮	ne manjše od	none
 ≠	ni enako	none
+≯	ne večje od	none
 −	znak za minus	none
 ⁻	nadpisani minus	none
+∓	minus ali plus	none
+∕	poševnica za deljenje	none
+∗	operator zvezdice	none
+∘	operator obroča	none
+∙	operator vrstične oznake	none
 √	kvadratni koren	none
+∝	sorazmerno	none
 ∞	znak za neskončno	none
+∟	pravi kot	none
+∠	kot	none
+∣	deljenje	none
+∥	vzporedno	none
+∧	logični in	none
 ∩	presek	none
 ∪	unija	none
-≈	približno enako	none
+∫	integral	none
+∬	dvojni integral	none
+∮	obrisni integral	none
+∴	zato	none
+∵	ker	none
+∶	razmerje	none
+∷	sorazmerje	none
+∼	operator vijuge	none
+∽	obrnjena vijuga	none
+∾	obrnjen ležeči s	none
+≃	asimptotično enako	none
+≅	približno enako	none
+≈	skoraj enako	none
+≌	vse enako	none
+≒	približno enako preslikavi	none
+≖	obroč v enačaju	none
 ≡	je enako	none
+≣	povsem enako	none
 ≤	manjše ali enako	none
 ≥	večje ali enako	none
+≦	manjše od nad enačajem	none
+≧	večje od nad enačajem	none
+≪	veliko manjše od	none
+≫	veliko večje od	none
+≬	med	none
+≳	večje od enakovredno	none
+≺	predhodnik	none
+≻	naslednik	none
+⊁	ni naslednik	none
 ⊂	je podmnožica množice	none
+⊃	nadmnožica	none
+⊆	je podmnožica	none
+⊇	je nadmnožica	none
+⊕	plus v krogu	none
+⊖	minus v krogu	none
+⊗	krat v krogu	none
+⊘	poševnica za deljenje v krogu	none
+⊙	operator pike v krogu	none
+⊚	operator obroča v krogu	none
+⊛	operator zvezdice v krogu	none
+⊞	plus v kvadratu	none
+⊟	minus v kvadratu	none
+⊥	žebljiček navzgor	none
+⊮	ne vsiljuje	none
+⊰	predhodnik v razmerju	none
+⊱	naslednik v razmerju	none
+⋭	ne vsebuje kot običajna podskupina, enaka	none
+⊶	original	none
+⊹	hermitska konjugirana matrika	none
+⊿	pravokotni trikotnik	none
+⋁	logična n-skupina ali	none
+⋂	presek n-skupin	none
+⋃	unija n-skupin	none
+⋅	operator pike	none
+⋆	operator zvezde	none
+⋈	naravna združitev	none
+⋒	dvojni presek	none
+⋘	zelo veliko manj kot	none
+⋙	zelo veliko več kot	none
+⋮	navpične tri pike	none
+⋯	tri pike v sredi vodoravno	none
+⋰	tri pike v diagonali gor desno	none
+⋱	tri pike v diagonali dol desno	none
+■	poln kvadrat	none
+□	prazen kvadrat	none
+▢	prazen kvadrat z zaobljenimi koti	none
+▣	poln kvadrat v praznem kvadratu	none
+▤	kvadrat z vodoravnim polnilom	none
+▥	kvadrat z navpičnim polnilom	none
+▦	kvadrat s pravokotnim križnim polnilom	none
+▧	kvadrat s poševnim polnilom od leve navzdol	none
+▨	kvadrat s poševnim polnilom od desne navzgor	none
+▩	kvadrat z diagonalnim križnim polnilom	none
+▬	poln pravokotnik	none
+▭	prazen pravokotnik	none
+▮	poln navpičen pravokotnik	none
+▰	poln paralelogram	none
 ▲	poln navzgor obrnjen trikotnik	none
+△	prazen trikotnik, obrnjen navzgor	none
+▴	poln majhen trikotnik, obrnjen navzgor	none
+▵	prazen majhen trikotnik, obrnjen navzgor	none
+▷	prazen trikotnik, obrnjen v desno	none
+▸	poln majhen trikotnik, obrnjen v desno	none
+▹	prazen majhen trikotnik, obrnjen v desno	none
+►	poln kazalec, obrnjen v desno	none
+▻	prazen kazalec, obrnjen v desno	none
 ▼	poln navzdol obrnjen trikotnik	none
+▽	prazen trikotnik, obrnjen navzdol	none
+▾	poln majhen trikotnik, obrnjen navzdol	none
+▿	prazen majhen trikotnik, obrnjen navzdol	none
+◁	prazen trikotnik, obrnjen v levo	none
+◂	poln majhen trikotnik, obrnjen v levo	none
+◃	prazen majhen trikotnik, obrnjen v levo	none
+◄	poln kazalec, obrnjen v levo	none
+◅	prazen kazalec, obrnjen v levo	none
+◆	poln karo	none
+◇	prazen karo	none
+◈	poln karo v praznem karu	none
+◉	poln krog v praznem krogu	none
 ◊	romb	none
 ○	votel krog	none
+◌	pikčast krog	none
+◍	krog z navpičnim polnilom	none
+◎	koncentrična kroga	none
 ●	poln krog	none
+◐	krog s polno levo polovico	none
+◑	krog s polno desno polovico	none
+◒	krog s polno spodnjo polovico	none
+◓	krog s polno zgornjo polovico	none
+◔	krog s polno desno zgornjo četrtino	none
+◕	poln krog s prazno levo zgornjo četrtino	none
+◖	polna leva polovica kroga	none
+◗	polna desna polovica kroga	none
+◘	obratna vrstična oznaka	none
+◙	prazen krog v polnem kvadratu	none
+◜	zgornja leva četrtina krožnega loka	none
+◝	zgornja desna četrtina krožnega loka	none
+◞	spodnja desna četrtina krožnega loka	none
+◟	spodnja leva četrtina krožnega loka	none
+◠	zgornji polkrog	none
+◡	spodnji polkrog	none
+◢	poln spodnji desni trikotnik	none
+◣	poln spodnji levi trikotnik	none
+◤	poln zgornji levi trikotnik	none
+◥	poln zgornji desni trikotnik	none
+◦	prazna vrstična oznaka	none
 ◯	velik votel krog	none
+◳	prazen kvadrat z zgornjo desno četrtino	none
+◷	prazen krog z zgornjo desno četrtino	none
+◿	spodnji desni trikotnik	none
 ♪	osminka	none
+⨧	plus s podpisano številko 2	none
+⨯	vektorski produkt	none
+⨼	notranji produkt	none
+⩣	logična ali dvojna podčrta	none
+⩽	manjše od s poševnim enačajem	none
+⪍	manjše od nad približno enako	none
+⪚	dvočrtni enačaj nad večje od	none
+⪺	naslednik nad skoraj enako	none
 ♭	nižaj	none
 ♯	višaj	none
+🥹	obraz, ki zadržuje jok	none
+🧌	trol	none
+🩻	rentgen	none
+🩼	bergla	none
+🪩	disko krogla	none
+🪪	osebni dokument	none
+🪫	skoraj prazna baterija	none
+🪬	roka Fatime	none
+🪷	lotos	none
+🪸	korala	none
+🪹	prazno gnezdo	none
+🪺	gnezdo z jajcema	none
+🫃	noseč moški	none
+🫄	noseča oseba	none
+🫅	oseba s krono	none
+🫗	zlivanje tekočine	none
+🫘	fižol	none
+🫙	kozarec za vlaganje	none
+🫠	taleči se obraz	none
+🫡	salutirajoč obraz	none
+🫢	obraz z razprtimi očmi in roko pred usti	none
+🫣	obraz s pogledujočim očesom	none
+🫤	obraz s poševnimi usti	none
+🫥	obraz s črtkasto črto	none
+🫦	grizenje ustnice	none
+🫧	mehurčki	none
+🫰	roka s prekrižanima kazalcem in palcem	none
+🫱	roka, obrnjena v desno	none
+🫲	roka, obrnjena v levo	none
+🫳	roka z dlanjo navzdol	none
+🫴	roka z dlanjo navzgor	none
+🫵	kazalec, usmerjen v opazovalca	none
+🫶	roki, sklenjeni v obliki srca	none
+🛝	tobogan	none
+🛞	avtomobilsko kolo	none
+🛟	rešilni obroč	none
+🟰	znak za enakovrednost	none
 😀	režeči obraz	none
 😃	smejoči obraz z odprtimi usti	none
 😄	smejoči obraz z odprtimi usti in smejočimi očmi	none
@@ -1398,7 +1621,7 @@ symbols:
 ↖	puščica levo gor	none
 ↕	puščica gor dol	none
 ↔	puščica levo desno	none
-↮	prečrtana puščica levo-desno	none
+↮	puščica levo-desno s poševnico	none
 ↩	puščica desno, ki se ukrivlja v levo	none
 ↪	puščica levo, ki se ukrivlja v desno	none
 ⤴	puščica desno, ki se ukrivlja gor	none
@@ -1555,13 +1778,91 @@ symbols:
 🏳‍🌈	mavrična zastava	none
 🏳‍⚧	transspolna zastava	none
 🏴‍☠	piratska zastava	none
+₢	cruzeiro	none
+₣	francoski frank	none
+₤	lira	none
 ₥	tisočinka	none
 ₩	won	none
 €	evro	none
+₰	nemški pfenig	none
 ₱	peso	none
+₳	avstral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	indijska rupija	none
 ₽	rubelj	none
 ₿	bitcoin	none
+₨	rupija	none
+🫃🏻	noseč moški svetel ten kože	none
+🫃🏼	noseč moški srednje svetel ten kože	none
+🫃🏽	noseč moški srednji ten kože	none
+🫃🏾	noseč moški srednje temen ten kože	none
+🫃🏿	noseč moški temen ten kože	none
+🫄🏻	noseča oseba svetel ten kože	none
+🫄🏼	noseča oseba srednje svetel ten kože	none
+🫄🏽	noseča oseba srednji ten kože	none
+🫄🏾	noseča oseba srednje temen ten kože	none
+🫄🏿	noseča oseba temen ten kože	none
+🫅🏻	oseba s krono svetel ten kože	none
+🫅🏼	oseba s krono srednje svetel ten kože	none
+🫅🏽	oseba s krono srednji ten kože	none
+🫅🏾	oseba s krono srednje temen ten kože	none
+🫅🏿	oseba s krono temen ten kože	none
+🫰🏻	roka s prekrižanima kazalcem in palcem svetel ten kože	none
+🫰🏼	roka s prekrižanima kazalcem in palcem srednje svetel ten kože	none
+🫰🏽	roka s prekrižanima kazalcem in palcem srednji ten kože	none
+🫰🏾	roka s prekrižanima kazalcem in palcem srednje temen ten kože	none
+🫰🏿	roka s prekrižanima kazalcem in palcem temen ten kože	none
+🫱🏻	roka, obrnjena v desno svetel ten kože	none
+🫱🏼	roka, obrnjena v desno srednje svetel ten kože	none
+🫱🏽	roka, obrnjena v desno srednji ten kože	none
+🫱🏾	roka, obrnjena v desno srednje temen ten kože	none
+🫱🏿	roka, obrnjena v desno temen ten kože	none
+🫱🏻‍🫲🏼	rokovanje svetel ten kože in srednje svetel ten kože	none
+🫱🏻‍🫲🏽	rokovanje svetel ten kože in srednji ten kože	none
+🫱🏻‍🫲🏾	rokovanje svetel ten kože in srednje temen ten kože	none
+🫱🏻‍🫲🏿	rokovanje svetel ten kože in temen ten kože	none
+🫱🏼‍🫲🏻	rokovanje srednje svetel ten kože in svetel ten kože	none
+🫱🏼‍🫲🏽	rokovanje srednje svetel ten kože in srednji ten kože	none
+🫱🏼‍🫲🏾	rokovanje srednje svetel ten kože in srednje temen ten kože	none
+🫱🏼‍🫲🏿	rokovanje srednje svetel ten kože in temen ten kože	none
+🫱🏽‍🫲🏻	rokovanje srednji ten kože in svetel ten kože	none
+🫱🏽‍🫲🏼	rokovanje srednji ten kože in srednje svetel ten kože	none
+🫱🏽‍🫲🏾	rokovanje srednji ten kože in srednje temen ten kože	none
+🫱🏽‍🫲🏿	rokovanje srednji ten kože in temen ten kože	none
+🫱🏾‍🫲🏻	rokovanje srednje temen ten kože in svetel ten kože	none
+🫱🏾‍🫲🏼	rokovanje srednje temen ten kože in srednje svetel ten kože	none
+🫱🏾‍🫲🏽	rokovanje srednje temen ten kože in srednji ten kože	none
+🫱🏾‍🫲🏿	rokovanje srednje temen ten kože in temen ten kože	none
+🫱🏿‍🫲🏻	rokovanje temen ten kože in svetel ten kože	none
+🫱🏿‍🫲🏼	rokovanje temen ten kože in srednje svetel ten kože	none
+🫱🏿‍🫲🏽	rokovanje temen ten kože in srednji ten kože	none
+🫱🏿‍🫲🏾	rokovanje temen ten kože in srednje temen ten kože	none
+🫲🏻	roka, obrnjena v levo svetel ten kože	none
+🫲🏼	roka, obrnjena v levo srednje svetel ten kože	none
+🫲🏽	roka, obrnjena v levo srednji ten kože	none
+🫲🏾	roka, obrnjena v levo srednje temen ten kože	none
+🫲🏿	roka, obrnjena v levo temen ten kože	none
+🫳🏻	roka z dlanjo navzdol svetel ten kože	none
+🫳🏼	roka z dlanjo navzdol srednje svetel ten kože	none
+🫳🏽	roka z dlanjo navzdol srednji ten kože	none
+🫳🏾	roka z dlanjo navzdol srednje temen ten kože	none
+🫳🏿	roka z dlanjo navzdol temen ten kože	none
+🫴🏻	roka z dlanjo navzgor svetel ten kože	none
+🫴🏼	roka z dlanjo navzgor srednje svetel ten kože	none
+🫴🏽	roka z dlanjo navzgor srednji ten kože	none
+🫴🏾	roka z dlanjo navzgor srednje temen ten kože	none
+🫴🏿	roka z dlanjo navzgor temen ten kože	none
+🫵🏻	kazalec, usmerjen v opazovalca svetel ten kože	none
+🫵🏼	kazalec, usmerjen v opazovalca srednje svetel ten kože	none
+🫵🏽	kazalec, usmerjen v opazovalca srednji ten kože	none
+🫵🏾	kazalec, usmerjen v opazovalca srednje temen ten kože	none
+🫵🏿	kazalec, usmerjen v opazovalca temen ten kože	none
+🫶🏻	roki, sklenjeni v obliki srca svetel ten kože	none
+🫶🏼	roki, sklenjeni v obliki srca srednje svetel ten kože	none
+🫶🏽	roki, sklenjeni v obliki srca srednji ten kože	none
+🫶🏾	roki, sklenjeni v obliki srca srednje temen ten kože	none
+🫶🏿	roki, sklenjeni v obliki srca temen ten kože	none
 👋🏻	mahajoča dlan svetel ten kože	none
 👋🏼	mahajoča dlan srednje svetel ten kože	none
 👋🏽	mahajoča dlan srednji ten kože	none
@@ -1707,6 +2008,11 @@ symbols:
 🤲🏽	dvignjeni odprti dlani srednji ten kože	none
 🤲🏾	dvignjeni odprti dlani srednje temen ten kože	none
 🤲🏿	dvignjeni odprti dlani temen ten kože	none
+🤝🏻	rokovanje svetel ten kože	none
+🤝🏼	rokovanje srednje svetel ten kože	none
+🤝🏽	rokovanje srednji ten kože	none
+🤝🏾	rokovanje srednje temen ten kože	none
+🤝🏿	rokovanje temen ten kože	none
 🙏🏻	staknjeni dlani svetel ten kože	none
 🙏🏼	staknjeni dlani srednje svetel ten kože	none
 🙏🏽	staknjeni dlani srednji ten kože	none

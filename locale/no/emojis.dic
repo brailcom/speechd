@@ -93,30 +93,214 @@ symbols:
 ⇵	pil ned til høyre for pil opp	none
 ∀	allkvantor	none
 ∂	partielt derivert	none
+∃	eksistenskvantor	none
+∅	den tomme mengden	none
 ∆	matematisk endring	none
 ∇	nabla	none
 ∈	element i	none
+∉	ikke element i	none
+∋	inneholder som medlem	none
+∎	slutt på bevis	none
+∏	produktserie	none
+∑	sum av en rekke	none
+≮	ikke mindre enn	none
 ≠	er ikke lik	none
+≯	ikke større enn	none
 −	minustegn	none
 ⁻	hevet minustegn	none
+∓	minus-eller-pluss	none
+∕	divisjonstegn	none
+∗	asteriskoperator	none
+∘	ringoperator	none
+∙	punktoperator	none
 √	kvadratrot	none
+∝	proporsjonal med	none
 ∞	uendelighetstegn	none
+∟	rett vinkel	none
+∠	vinkel	none
+∣	divisor	none
+∥	parallell	none
+∧	og-junktor	none
 ∩	snitt	none
 ∪	union	none
+∫	integraltegn	none
+∬	dobbeltintegraltegn	none
+∮	sirkulasjonsintegral	none
+∴	derfor	none
+∵	fordi	none
+∶	forhold	none
+∷	proporsjon	none
+∼	tildeoperator	none
+∽	omvendt tilde	none
+∾	omvendt doven s	none
+≃	asymptotisk lik	none
+≅	isomorfisk lik	none
 ≈	er tilnærmet lik	none
+≌	kongruent	none
+≒	tilnærmet lik bildet	none
+≖	ring i likhetstegn	none
 ≡	identisk lik	none
+≣	identisk med	none
 ≤	er mindre enn eller lik	none
 ≥	er større enn eller lik	none
+≦	mindre enn over lihetstegn	none
+≧	større enn over lihetstegn	none
+≪	mye mindre enn	none
+≫	mye større enn	none
+≬	mellom	none
+≳	større enn tilnærmet lik	none
+≺	foregår	none
+≻	etterfølger	none
+⊁	etterfølger ikke	none
 ⊂	delmengde av	none
+⊃	supermengde	none
+⊆	delmengde lik	none
+⊇	supermengde lik	none
+⊕	innsirklet plusstegn	none
+⊖	innsirklet minustegn	none
+⊗	innsirklet multipliseringstegn	none
+⊘	innsirklet divisjonstegn	none
+⊙	innsirklet prikkoperator	none
+⊚	innsirklet ringoperator	none
+⊛	innsirklet asteriskoperator	none
+⊞	plusstegn i firkant	none
+⊟	minustegn i firkant	none
+⊥	falsum	none
+⊮	tvinger ikke	none
+⊰	foregår under relasjon	none
+⊱	etterfølger under relasjon	none
+⋭	inneholder ikke som normal delgruppe lik	none
+⊶	original	none
+⊹	hermitisk konjugert matrise	none
+⊿	rettvinklet triangel	none
+⋁	n-ær logisk eller	none
+⋂	n-ært snitt	none
+⋃	n-ær union	none
+⋅	prikkoperator	none
+⋆	stjerneoperator	none
+⋈	naturlig forening	none
+⋒	dobbelt snitt	none
+⋘	veldig mye mindre enn	none
+⋙	veldig mye større enn	none
+⋮	loddrett ellipse	none
+⋯	sentrert vannrett ellipse	none
+⋰	diagonal ellipse oppover mot høyre	none
+⋱	diagonal ellipse nedover mot høyre	none
+■	fylt firkant	none
+□	hul firkant	none
+▢	hul firkant med avrundede hjørner	none
+▣	hul firkant med en fylt firkant inni	none
+▤	firkant med vannrette streker inni	none
+▥	firkant med loddrette streker inni	none
+▦	firkant med ortogonalt rutemønster inni	none
+▧	firkant med diagonale streker fra øverst til venstre mot nederst til høyre inni	none
+▨	firkant med diagonale streker fra øverst til høyre mot nederst til venstre inni	none
+▩	firkant med diagonalt rutemønster inni	none
+▬	fylt rektangel	none
+▭	hult rektangel	none
+▮	fylt vertikalt rektangel	none
+▰	fylt parallellogram	none
 ▲	fylt trekant som peker opp	none
+△	hult triangel som peker oppover	none
+▴	lite, fylt triangel som peker oppover	none
+▵	lite, hult triangel som peker oppover	none
+▷	hult triangel som peker mot høyre	none
+▸	lite, fylt triangel som peker mot høyre	none
+▹	lite, hult triangel som peker mot høyre	none
+►	fylt peker som peker mot høyre	none
+▻	hul peker som peker mot høyre	none
 ▼	fylt trekant som peker ned	none
-◊	hult rutersymbol	none
+▽	hult triangel som peker nedover	none
+▾	lite, fylt triangel som peker nedover	none
+▿	lite, hult triangel som peker nedover	none
+◁	hult triangel som peker mot venstre	none
+◂	lite, fylt triangel som peker mot venstre	none
+◃	lite, hult triangel som peker mot venstre	none
+◄	fylt peker som peker mot venstre	none
+◅	hul peker som peker mot venstre	none
+◆	fylt rutersymbol	none
+◇	hult rutersymbol	none
+◈	hult rutersymbol med fylt rutersymbol inni	none
+◉	hul sirkel med fylt sirkel inni	none
+◊	hult rombesymbol	none
 ○	hul sirkel	none
+◌	stiplet sirkel	none
+◍	sirkel med loddrette streker inni	none
+◎	hul sirkel med hul sirkel inni	none
 ●	fylt sirkel	none
+◐	sirkel med venstre halvdel fylt	none
+◑	sirkel med høyre halvdel fylt	none
+◒	sirkel med nedre halvdel fylt	none
+◓	sirkel med øvre halvdel fylt	none
+◔	sirkel med fjerdedelen øverst til høyre fylt	none
+◕	sirkel med alt bortsett fra fjerdedelen øverst til venstre fylt	none
+◖	fylt venstre halvsirkel	none
+◗	fylt høyre halvsirkel	none
+◘	invertert punktlistepunkt	none
+◙	fylt firkant med hul sirkel inni	none
+◜	sirkelbue av fjerdedelen øverst til venstre i en sirkel	none
+◝	sirkelbue av fjerdedelen øverst til høyre i en sirkel	none
+◞	sirkelbue av fjerdedelen nederst til høyre i en sirkel	none
+◟	sirkelbue av fjerdedelen nederst til venstre i en sirkel	none
+◠	øvre halvsirkel	none
+◡	nedre halvsirkel	none
+◢	fylt triangel med rett vinkel nederst til høyre	none
+◣	fylt triangel med rett vinkel nederst til venstre	none
+◤	fylt triangel med rett vinkel øverst til venstre	none
+◥	fylt triangel med rett vinkel øverst til høyre	none
+◦	hult punktlistepunkt	none
 ◯	stor hul sirkel	none
+◳	hul firkant med hul firkant øverst til høyre	none
+◷	hul sirkel med hul sektor øverst til høyre	none
+◿	hult triangel med rett vinkel nederst til høyre	none
 ♪	åttendelsnote	none
+⨧	plusstegn med senket totall	none
+⨯	kryssprodukt av vektorer	none
+⨼	interiørprodukt	none
+⩣	logisk Eller med dobbel understrek	none
+⩽	mindre enn eller lik med likhetstegn på skrå	none
+⪍	mindre enn eller lik over asymptotisk lik	none
+⪚	likhetstegn over større enn	none
+⪺	etterfølger over ikke tilnærmet lik	none
 ♭	note-b	none
 ♯	note-kryss	none
+🥹	fjes som holder tilbake tårene	none
+🧌	troll	none
+🩻	røntgen	none
+🩼	krykke	none
+🪩	speilkule	none
+🪪	ID-kort	none
+🪫	lite batteri	none
+🪬	hamsa	none
+🪷	lotusblomst	none
+🪸	korall	none
+🪹	tomt rede	none
+🪺	rede med egg	none
+🫃	gravid mann	none
+🫄	gravid person	none
+🫅	person med krone	none
+🫗	helle væske	none
+🫘	bønner	none
+🫙	krukke	none
+🫠	fjes som smelter	none
+🫡	fjes som viser honnør	none
+🫢	fjes med åpne øyne og hånd over munnen	none
+🫣	fjes som titter frem bak hendene	none
+🫤	fjes med diagonal munn	none
+🫥	fjes med stiplet omriss	none
+🫦	bite seg i leppen	none
+🫧	bobler	none
+🫰	hånd med pekefinger og tommel krysset	none
+🫱	hånd mot høyre	none
+🫲	hånd mot venstre	none
+🫳	håndflaten ned	none
+🫴	håndflaten opp	none
+🫵	pekefinger peker på leseren	none
+🫶	hjertehender	none
+🛝	sklie	none
+🛞	hjul	none
+🛟	livbøye	none
+🟰	likhetstegn i fet skrift	none
 😀	glisefjes	none
 😃	glisende fjes med vidåpne øyne	none
 😄	smilefjes med åpen munn og smilende øyne	none
@@ -1594,13 +1778,91 @@ symbols:
 🏳‍🌈	regnbueflagg	none
 🏳‍⚧	transpersonflagg	none
 🏴‍☠	sjørøverflagg	none
+₢	cruzeiro	none
+₣	franske franc	none
+₤	lire	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
+₰	tyske pfennig	none
 ₱	peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	indiske rupi	none
 ₽	rubler	none
 ₿	bitcoin	none
+₨	rupier	none
+🫃🏻	gravid mann hudtype 1–2	none
+🫃🏼	gravid mann hudtype 3	none
+🫃🏽	gravid mann hudtype 4	none
+🫃🏾	gravid mann hudtype 5	none
+🫃🏿	gravid mann hudtype 6	none
+🫄🏻	gravid person hudtype 1–2	none
+🫄🏼	gravid person hudtype 3	none
+🫄🏽	gravid person hudtype 4	none
+🫄🏾	gravid person hudtype 5	none
+🫄🏿	gravid person hudtype 6	none
+🫅🏻	person med krone hudtype 1–2	none
+🫅🏼	person med krone hudtype 3	none
+🫅🏽	person med krone hudtype 4	none
+🫅🏾	person med krone hudtype 5	none
+🫅🏿	person med krone hudtype 6	none
+🫰🏻	hånd med pekefinger og tommel krysset hudtype 1–2	none
+🫰🏼	hånd med pekefinger og tommel krysset hudtype 3	none
+🫰🏽	hånd med pekefinger og tommel krysset hudtype 4	none
+🫰🏾	hånd med pekefinger og tommel krysset hudtype 5	none
+🫰🏿	hånd med pekefinger og tommel krysset hudtype 6	none
+🫱🏻	hånd mot høyre hudtype 1–2	none
+🫱🏼	hånd mot høyre hudtype 3	none
+🫱🏽	hånd mot høyre hudtype 4	none
+🫱🏾	hånd mot høyre hudtype 5	none
+🫱🏿	hånd mot høyre hudtype 6	none
+🫱🏻‍🫲🏼	håndhilse hudtype 1–2, hudtype 3	none
+🫱🏻‍🫲🏽	håndhilse hudtype 1–2, hudtype 4	none
+🫱🏻‍🫲🏾	håndhilse hudtype 1–2, hudtype 5	none
+🫱🏻‍🫲🏿	håndhilse hudtype 1–2, hudtype 6	none
+🫱🏼‍🫲🏻	håndhilse hudtype 3, hudtype 1–2	none
+🫱🏼‍🫲🏽	håndhilse hudtype 3, hudtype 4	none
+🫱🏼‍🫲🏾	håndhilse hudtype 3, hudtype 5	none
+🫱🏼‍🫲🏿	håndhilse hudtype 3, hudtype 6	none
+🫱🏽‍🫲🏻	håndhilse hudtype 4, hudtype 1–2	none
+🫱🏽‍🫲🏼	håndhilse hudtype 4, hudtype 3	none
+🫱🏽‍🫲🏾	håndhilse hudtype 4, hudtype 5	none
+🫱🏽‍🫲🏿	håndhilse hudtype 4, hudtype 6	none
+🫱🏾‍🫲🏻	håndhilse hudtype 5, hudtype 1–2	none
+🫱🏾‍🫲🏼	håndhilse hudtype 5, hudtype 3	none
+🫱🏾‍🫲🏽	håndhilse hudtype 5, hudtype 4	none
+🫱🏾‍🫲🏿	håndhilse hudtype 5, hudtype 6	none
+🫱🏿‍🫲🏻	håndhilse hudtype 6, hudtype 1–2	none
+🫱🏿‍🫲🏼	håndhilse hudtype 6, hudtype 3	none
+🫱🏿‍🫲🏽	håndhilse hudtype 6, hudtype 4	none
+🫱🏿‍🫲🏾	håndhilse hudtype 6, hudtype 5	none
+🫲🏻	hånd mot venstre hudtype 1–2	none
+🫲🏼	hånd mot venstre hudtype 3	none
+🫲🏽	hånd mot venstre hudtype 4	none
+🫲🏾	hånd mot venstre hudtype 5	none
+🫲🏿	hånd mot venstre hudtype 6	none
+🫳🏻	håndflaten ned hudtype 1–2	none
+🫳🏼	håndflaten ned hudtype 3	none
+🫳🏽	håndflaten ned hudtype 4	none
+🫳🏾	håndflaten ned hudtype 5	none
+🫳🏿	håndflaten ned hudtype 6	none
+🫴🏻	håndflaten opp hudtype 1–2	none
+🫴🏼	håndflaten opp hudtype 3	none
+🫴🏽	håndflaten opp hudtype 4	none
+🫴🏾	håndflaten opp hudtype 5	none
+🫴🏿	håndflaten opp hudtype 6	none
+🫵🏻	pekefinger peker på leseren hudtype 1–2	none
+🫵🏼	pekefinger peker på leseren hudtype 3	none
+🫵🏽	pekefinger peker på leseren hudtype 4	none
+🫵🏾	pekefinger peker på leseren hudtype 5	none
+🫵🏿	pekefinger peker på leseren hudtype 6	none
+🫶🏻	hjertehender hudtype 1–2	none
+🫶🏼	hjertehender hudtype 3	none
+🫶🏽	hjertehender hudtype 4	none
+🫶🏾	hjertehender hudtype 5	none
+🫶🏿	hjertehender hudtype 6	none
 👋🏻	vinkende hånd hudtype 1–2	none
 👋🏼	vinkende hånd hudtype 3	none
 👋🏽	vinkende hånd hudtype 4	none
@@ -1746,6 +2008,11 @@ symbols:
 🤲🏽	håndflatene sammen hudtype 4	none
 🤲🏾	håndflatene sammen hudtype 5	none
 🤲🏿	håndflatene sammen hudtype 6	none
+🤝🏻	håndhilse hudtype 1–2	none
+🤝🏼	håndhilse hudtype 3	none
+🤝🏽	håndhilse hudtype 4	none
+🤝🏾	håndhilse hudtype 5	none
+🤝🏿	håndhilse hudtype 6	none
 🙏🏻	foldede hender hudtype 1–2	none
 🙏🏼	foldede hender hudtype 3	none
 🙏🏽	foldede hender hudtype 4	none

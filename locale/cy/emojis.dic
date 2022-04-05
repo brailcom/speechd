@@ -32,12 +32,35 @@ symbols:
 ↬	saeth i’r dde gyda dolen	none
 ↭	saeth donnog chwith dde	none
 ↯	saeth igam-ogam i lawr	none
+↰	saeth i fyny gyda’r pwynt i’r chwith	none
+↱	saeth i fyny gyda’r pwynt i’r dde	none
+↲	saeth i lawr gyda’r pwynt i’r chwith	none
+↳	saeth i lawr gyda’r pwynt i’r dde	none
+↴	saeth i’r dde gyda’r gornel i lawr	none
+↵	saeth i lawr gyda’r gornel i’r chwith	none
+↶	saeth hanner cylch uchaf gwrthglocwedd	none
+↷	saeth hanner cylch uchaf clocwedd	none
+↸	bar hir saeth y gogledd orllewin	none
+↹	bar saeth i’r chwith dros far saeth i’r dde	none
+↺	saeth cylch agored gwrthglocwedd	none
+↻	saeth cylch agored clocwedd	none
+↼	tryfer i’r chwith gyda’r adfach i fyny	none
+↽	tryfer i’r chwith gyda’r adfach i lawr	none
+↾	tryfer i fyny gyda’r adfach i’r dde	none
+↿	tryfer i fyny gyda’r adfach i’r chwith	none
+⇀	tryfer i’r dde gyda’r adfach i fyny	none
+⇁	tryfer i’r dde gyda’r adfach i lawr	none
+⇂	tryfer i lawr gyda’r adfach i’r dde	none
+⇃	tryfer i lawr gyda’r adfach i’r chwith	none
+⇄	saeth i’r dde dros saeth i’r chwith	none
 ⇅	saethau yn pwyntio i fyny ac i lawr	none
 ⇆	saethau i’r chwith dros ben saethau i’r dde	none
 ⇇	saethau pâr i’r chwith	none
 ⇈	saethau pâr i fyny	none
 ⇉	saethau pâr i’r dde	none
 ⇊	saethau pâr i lawr	none
+⇋	tryfer i’r chwith dros dryfer i’r dde	none
+⇌	tryfer i’r dde dros dryfer i’r chwith	none
 ⇐	saeth ddwbl i’r chwith	none
 ⇍	saeth ddwbl i’r chwith strôc	none
 ⇑	saeth ddwbl i fyny	none
@@ -54,6 +77,12 @@ symbols:
 ⇛	saeth driphlyg i’r dde	none
 ⇜	saeth grych i’r chwith	none
 ⇝	saeth grych i’r dde	none
+⇞	saeth i fyny strôc ddwbl	none
+⇟	saeth i lawr strôc ddwbl	none
+⇠	saeth doriedig i’r chwith	none
+⇡	saeth doriedig i fyny	none
+⇢	saeth doriedig i’r dde	none
+⇣	saeth doriedig i lawr	none
 ⇤	saeth i’r chwith bar	none
 ⇥	saeth i’r dde bar	none
 ⇦	saeth wag i’r chwith	none
@@ -62,60 +91,216 @@ symbols:
 ⇩	saeth wag i lawr	none
 ⇪	saeth wag i fyny o’r bar	none
 ⇵	saeth i lawr i’r chwith saeth i fyny	none
+∀	i bawb	none
 ∂	differyn rhannol	none
+∃	mae yn bodoli	none
 ∅	set wag	none
 ∆	cynyddran	none
 ∇	nabla	none
 ∈	elfen o	none
 ∉	ddim yn elfen	none
+∋	yn cynnwys fel aelod	none
+∎	prawf diwedd	none
+∏	cynnyrch n-ary	none
+∑	crynhoad n-ary	none
+≮	dim llai na	none
 ≠	ddim yn gyfartal	none
+≯	ddim mwy na	none
 −	arwydd minws	none
 ⁻	uwchysgrifen minws	none
+∓	minws neu blws	none
+∕	slaes rhannu	none
+∗	gweithredwr serennig	none
+∘	gweithredwr cylch	none
+∙	gweithredwr bwled	none
 √	ail isradd	none
+∝	cyfrannol	none
 ∞	arwydd anfeidredd	none
+∟	ongl sgwâr	none
+∠	ongl	none
+∣	yn rhannu	none
+∥	cyfochrog	none
+∧	rhesymegol a	none
 ∩	croestoriad	none
 ∪	uno	none
+∫	integrol	none
+∬	integrol ddwbl	none
+∮	cyfuchlin integrol	none
+∴	felly	none
 ∵	oherwydd	none
 ∶	cymhareb	none
 ∷	cyfran	none
+∼	gweithredwr tild	none
+∽	tild wedi’i wrthdroi	none
+∾	s gwrthdro diog	none
+≃	anghymesur yn hafal	none
+≅	bron yn hafal	none
 ≈	bron yn gyfartal	none
+≌	i gyd yn hafal	none
+≒	tua’r un faint â’r ddelwedd	none
+≖	cylch yn hafalnod	none
 ≡	union yr un fath â	none
+≣	hollol hafal	none
 ≤	llai na neu’n gyfartal	none
 ≥	mwy na neu’n gyfartal	none
+≦	arwydd llai na dros hafalnod	none
+≧	arwydd mwy na dros hafalnod	none
 ≪	llawer llai na	none
 ≫	llawer mwy na	none
 ≬	rhwng	none
+≳	mwy na hafal	none
 ≺	yn rhagflaenu	none
 ≻	yn dilyn	none
 ⊁	nid yw’n dilyn	none
 ⊂	is-set o	none
+⊃	uwchset	none
+⊆	is-set hafal	none
+⊇	uwchset hafal	none
 ⊕	plws mewn cylch	none
 ⊖	minws mewn cylch	none
+⊗	amseroedd mewn cylch	none
+⊘	slaes rhannu mewn cylch	none
+⊙	gweithredwr dotiau mewn cylch	none
+⊚	gweithredwr cylch mewn cylch	none
+⊛	gweithredwr seren mewn cylch	none
 ⊞	plws mewn sgwâr	none
 ⊟	minws mewn sgwâr	none
+⊥	tac i fyny	none
+⊮	ddim yn gorfodi	none
+⊰	yn rhagflaenu dan berthynas	none
+⊱	yn dilyn o dan berthynas	none
+⋭	ddim yn cynnwys fel is-grŵp hafal arferol	none
 ⊶	gwreiddiol	none
+⊹	matrics cyfunedig hermitian	none
 ⊿	triongl dde	none
+⋁	n-ary rhesymegol neu	none
+⋂	croestoriad n-ary	none
+⋃	uniad n-ary	none
 ⋅	gweithredwr dot	none
 ⋆	gweithredwr seren	none
+⋈	uniad naturiol	none
+⋒	croestoriad dwbl	none
 ⋘	llawer iawn yn llai na	none
 ⋙	llawer iawn yn fwy na	none
 ⋮	hepgoriad fertigol	none
 ⋯	hepgoriad llorweddol llinell ganol	none
+⋰	hepgoriad i fyny croeslin dde	none
+⋱	hepgoriad i lawr croeslin dde	none
 ■	sgwâr wedi’i lenwi	none
 □	sgwâr wag	none
 ▢	sgwâr wag â chorneli crwn	none
+▣	sgwâr gwag sy’n cynnwys sgwâr wedi’i lenwi	none
+▤	sgwâr gyda llenwad llorweddol	none
+▥	sgwâr gyda llenwad fertigol	none
+▦	sgwâr llenwad croes-groes orthogonal	none
+▧	sgwâr llenwad chwith uchaf de isaf	none
+▨	sgwâr llenwad de uchaf chwith isaf	none
+▩	sgwâr llenwad croes-groeslin croeslin	none
 ▬	petryal wedi’i lenwi	none
 ▭	petryal gwag	none
 ▮	petryal fertigol wedi’i lenwi	none
+▰	paralelogram wedi’i lenwi	none
 ▲	triongl wedi’i lenwi yn pwyntio i fyny	none
+△	triongl i fyny gwag	none
+▴	triongl i fyny bach wedi’i lenwi	none
+▵	triongl i fyny bach gwag	none
+▷	triongl i’r dde gwag	none
+▸	triongl i’r dde bach wedi’i lenwi	none
+▹	triongl i’r dde bach gwag	none
+►	pwyntydd i’r dde wedi’i lenwi	none
+▻	pwyntydd i’r dde gwag	none
 ▼	triongl wedi’i lenwi yn pwyntio i lawr	none
+▽	triongl i lawr gwag	none
+▾	triongl i lawr wedi’i lenwi	none
+▿	triongl i lawr bach wedi’i lenwi	none
+◁	triongl i’r chwith gwag	none
+◂	triongl i’r chwith bach wedi’i lenwi	none
+◃	triongl i’r chwith bach pwyntio gwag	none
+◄	pwyntydd i’r chwith wedi’i lenwi	none
+◅	pwyntydd gwag i’r chwith	none
+◆	diemwnt wedi’i lenwi	none
+◇	diemwnt gwag	none
+◈	diemwnt gwag sy’n cynnwys diemwnt wedi’i lenwi	none
+◉	cylch gwag sy’n cynnwys cylch wedi’i lenwi	none
 ◊	losen	none
 ○	cylch gwag	none
+◌	cylch dotiog	none
+◍	cylch gyda llenwad fertigol	none
+◎	cylchoedd consentrig	none
 ●	cylch wedi’i lenwi	none
+◐	cylch hanner chwith wedi’i lenwi	none
+◑	cylch hanner dde wedi’i lenwi	none
+◒	cylch hanner isaf wedi’i lenwi	none
+◓	cylch hanner uchaf wedi’i lenwi	none
+◔	cylch cwadrant dde uchaf wedi’i lenwi	none
+◕	cylch wedi’i lenwi heblaw am gwadrant chwith uchaf	none
+◖	hanner chwith cylch wedi’i lenwi	none
+◗	hanner chwith dde wedi’i lenwi	none
+◘	bwled gwrthdro	none
+◙	sgwâr wedi’i lenwi sy’n cynnwys cylch gwag	none
+◜	arc crwn cwadrant chwith uchaf	none
+◝	arc crwn cwadrant dde uchaf	none
+◞	arc crwn cwadrant dde isaf	none
+◟	arc crwn cwadrant chwith isaf	none
+◠	hanner cylch uchaf	none
+◡	hanner cylch isaf	none
+◢	triongl dde isaf wedi’i lenwi	none
+◣	triongl chwith isaf wedi’i lenwi	none
+◤	triongl chwith uchaf wedi’i lenwi	none
+◥	triongl dde uchaf wedi’i lenwi	none
+◦	bwled gwag	none
 ◯	cylch gwag mawr	none
+◳	cwadrant sgwâr uchaf gwag	none
+◷	cylch gwag gyda chwadrant dde uchaf	none
+◿	triongl dde isaf	none
 ♪	wythfed nodyn	none
+⨧	plws is-sgript dau	none
+⨯	traws-gynnyrch fector	none
+⨼	cynnyrch mewnol	none
+⩣	is-res rhesymegol neu ddwbl	none
+⩽	llai na hafalnod ar ogwydd	none
+⪍	arwydd llai nag uwchben hafalnod tebyg	none
+⪚	llinell ddwbl hafalnod arwydd mwy na	none
+⪺	yn dilyn uwchben ddim bron yn hafal	none
 ♭	fflat	none
 ♯	miniog	none
+🥹	wyneb yn dal dagrau yn ôl	none
+🧌	ellyll	none
+🩻	pelydr-x	none
+🩼	bagl	none
+🪩	pêl ddrych	none
+🪪	cerdyn adnabod	none
+🪫	batri isel	none
+🪬	hamsa	none
+🪷	lotws	none
+🪸	cwrel	none
+🪹	nyth gwag	none
+🪺	nythu gydag wyau	none
+🫃	dyn beichiog	none
+🫄	person beichiog	none
+🫅	person â choron	none
+🫗	arllwys hylif	none
+🫘	ffa	none
+🫙	jar	none
+🫠	wyneb toddi	none
+🫡	wyneb saliwt	none
+🫢	wyneb gyda llygaid agored a llaw dros geg	none
+🫣	wyneb gyda llygad sy’n sbïo	none
+🫤	wyneb â cheg letraws	none
+🫥	wyneb llinell dotiog	none
+🫦	brathu gwefus	none
+🫧	swigod	none
+🫰	llaw gyda bys mynegai a bawd wedi’i chroesi	none
+🫱	llaw i’r dde	none
+🫲	llaw i’r chwith	none
+🫳	llaw palmwydd i lawr	none
+🫴	llaw palmwydd i fyny	none
+🫵	bys mynegai yn pwyntio at y gwyliwr	none
+🫶	dwylo calon	none
+🛝	sleid maes chwarae	none
+🛞	olwyn	none
+🛟	bwi cylch	none
+🟰	arwydd hafal trwm	none
 😀	wyneb yn gwenu â cheg agored	none
 😃	wyneb yn gwenu â cheg agored a llygaid mawr	none
 😄	wyneb yn gwenu â cheg agored a gwên yn y llygaid	none
@@ -1593,16 +1778,91 @@ symbols:
 🏳‍🌈	baner enfys	none
 🏳‍⚧	baner las, pinc a gwyn	none
 🏴‍☠	baner môr-leidr	none
+₢	crwseiro	none
+₣	ffranc Ffrengig	none
 ₤	lira	none
 ₥	milfed	none
 ₩	won	none
 €	ewro	none
+₰	ceiniog yr Almaen	none
 ₱	peso	none
+₳	deheuol	none
+₶	llyfr twrnamaint	none
 ₷	spesmilo	none
 ₹	rwpî indiaidd	none
 ₽	rwbl	none
 ₿	bitcoin	none
 ₨	rwpî	none
+🫃🏻	dyn beichiog arlliw croen golau	none
+🫃🏼	dyn beichiog arlliw croen canolig-golau	none
+🫃🏽	dyn beichiog arlliw croen canolog	none
+🫃🏾	dyn beichiog arlliw croen canolig-tywyll	none
+🫃🏿	dyn beichiog arlliw croen tywyll	none
+🫄🏻	person beichiog arlliw croen golau	none
+🫄🏼	person beichiog arlliw croen canolig-golau	none
+🫄🏽	person beichiog arlliw croen canolog	none
+🫄🏾	person beichiog arlliw croen canolig-tywyll	none
+🫄🏿	person beichiog arlliw croen tywyll	none
+🫅🏻	person â choron arlliw croen golau	none
+🫅🏼	person â choron arlliw croen canolig-golau	none
+🫅🏽	person â choron arlliw croen canolog	none
+🫅🏾	person â choron arlliw croen canolig-tywyll	none
+🫅🏿	person â choron arlliw croen tywyll	none
+🫰🏻	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen golau	none
+🫰🏼	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen canolig-golau	none
+🫰🏽	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen canolog	none
+🫰🏾	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen canolig-tywyll	none
+🫰🏿	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen tywyll	none
+🫱🏻	llaw i’r dde arlliw croen golau	none
+🫱🏼	llaw i’r dde arlliw croen canolig-golau	none
+🫱🏽	llaw i’r dde arlliw croen canolog	none
+🫱🏾	llaw i’r dde arlliw croen canolig-tywyll	none
+🫱🏿	llaw i’r dde arlliw croen tywyll	none
+🫱🏻‍🫲🏼	ysgwyd dwylo arlliw croen golau, arlliw croen canolig-golau	none
+🫱🏻‍🫲🏽	ysgwyd dwylo arlliw croen golau, arlliw croen canolog	none
+🫱🏻‍🫲🏾	ysgwyd dwylo arlliw croen golau, arlliw croen canolig-tywyll	none
+🫱🏻‍🫲🏿	ysgwyd dwylo arlliw croen golau, arlliw croen tywyll	none
+🫱🏼‍🫲🏻	ysgwyd dwylo arlliw croen canolig-golau, arlliw croen golau	none
+🫱🏼‍🫲🏽	ysgwyd dwylo arlliw croen canolig-golau, arlliw croen canolog	none
+🫱🏼‍🫲🏾	ysgwyd dwylo arlliw croen canolig-golau, arlliw croen canolig-tywyll	none
+🫱🏼‍🫲🏿	ysgwyd dwylo arlliw croen canolig-golau, arlliw croen tywyll	none
+🫱🏽‍🫲🏻	ysgwyd dwylo arlliw croen canolog, arlliw croen golau	none
+🫱🏽‍🫲🏼	ysgwyd dwylo arlliw croen canolog, arlliw croen canolig-golau	none
+🫱🏽‍🫲🏾	ysgwyd dwylo arlliw croen canolog, arlliw croen canolig-tywyll	none
+🫱🏽‍🫲🏿	ysgwyd dwylo arlliw croen canolog, arlliw croen tywyll	none
+🫱🏾‍🫲🏻	ysgwyd dwylo arlliw croen canolig-tywyll, arlliw croen golau	none
+🫱🏾‍🫲🏼	ysgwyd dwylo arlliw croen canolig-tywyll, arlliw croen canolig-golau	none
+🫱🏾‍🫲🏽	ysgwyd dwylo arlliw croen canolig-tywyll, arlliw croen canolog	none
+🫱🏾‍🫲🏿	ysgwyd dwylo arlliw croen canolig-tywyll, arlliw croen tywyll	none
+🫱🏿‍🫲🏻	ysgwyd dwylo arlliw croen tywyll, arlliw croen golau	none
+🫱🏿‍🫲🏼	ysgwyd dwylo arlliw croen tywyll, arlliw croen canolig-golau	none
+🫱🏿‍🫲🏽	ysgwyd dwylo arlliw croen tywyll, arlliw croen canolog	none
+🫱🏿‍🫲🏾	ysgwyd dwylo arlliw croen tywyll, arlliw croen canolig-tywyll	none
+🫲🏻	llaw i’r chwith arlliw croen golau	none
+🫲🏼	llaw i’r chwith arlliw croen canolig-golau	none
+🫲🏽	llaw i’r chwith arlliw croen canolog	none
+🫲🏾	llaw i’r chwith arlliw croen canolig-tywyll	none
+🫲🏿	llaw i’r chwith arlliw croen tywyll	none
+🫳🏻	llaw palmwydd i lawr arlliw croen golau	none
+🫳🏼	llaw palmwydd i lawr arlliw croen canolig-golau	none
+🫳🏽	llaw palmwydd i lawr arlliw croen canolog	none
+🫳🏾	llaw palmwydd i lawr arlliw croen canolig-tywyll	none
+🫳🏿	llaw palmwydd i lawr arlliw croen tywyll	none
+🫴🏻	llaw palmwydd i fyny arlliw croen golau	none
+🫴🏼	llaw palmwydd i fyny arlliw croen canolig-golau	none
+🫴🏽	llaw palmwydd i fyny arlliw croen canolog	none
+🫴🏾	llaw palmwydd i fyny arlliw croen canolig-tywyll	none
+🫴🏿	llaw palmwydd i fyny arlliw croen tywyll	none
+🫵🏻	bys mynegai yn pwyntio at y gwyliwr arlliw croen golau	none
+🫵🏼	bys mynegai yn pwyntio at y gwyliwr arlliw croen canolig-golau	none
+🫵🏽	bys mynegai yn pwyntio at y gwyliwr arlliw croen canolog	none
+🫵🏾	bys mynegai yn pwyntio at y gwyliwr arlliw croen canolig-tywyll	none
+🫵🏿	bys mynegai yn pwyntio at y gwyliwr arlliw croen tywyll	none
+🫶🏻	dwylo calon arlliw croen golau	none
+🫶🏼	dwylo calon arlliw croen canolig-golau	none
+🫶🏽	dwylo calon arlliw croen canolog	none
+🫶🏾	dwylo calon arlliw croen canolig-tywyll	none
+🫶🏿	dwylo calon arlliw croen tywyll	none
 👋🏻	llaw yn chwifio arlliw croen golau	none
 👋🏼	llaw yn chwifio arlliw croen canolig-golau	none
 👋🏽	llaw yn chwifio arlliw croen canolog	none
@@ -1748,6 +2008,11 @@ symbols:
 🤲🏽	cledrau dwylo yn yr awyr gyda’u gilydd arlliw croen canolog	none
 🤲🏾	cledrau dwylo yn yr awyr gyda’u gilydd arlliw croen canolig-tywyll	none
 🤲🏿	cledrau dwylo yn yr awyr gyda’u gilydd arlliw croen tywyll	none
+🤝🏻	ysgwyd dwylo arlliw croen golau	none
+🤝🏼	ysgwyd dwylo arlliw croen canolig-golau	none
+🤝🏽	ysgwyd dwylo arlliw croen canolog	none
+🤝🏾	ysgwyd dwylo arlliw croen canolig-tywyll	none
+🤝🏿	ysgwyd dwylo arlliw croen tywyll	none
 🙏🏻	dwylo wedi plygu arlliw croen golau	none
 🙏🏼	dwylo wedi plygu arlliw croen canolig-golau	none
 🙏🏽	dwylo wedi plygu arlliw croen canolog	none

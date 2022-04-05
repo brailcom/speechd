@@ -52,32 +52,255 @@ symbols:
 ⇁	arpione a destra con punta verso il basso	none
 ⇂	arpione in basso con punta verso destra	none
 ⇃	arpione in basso con punta verso sinistra	none
+⇄	freccia a destra su freccia a sinistra	none
 ⇅	freccia verso l’alto e freccia verso il basso	none
 ⇆	freccia verso sinistra su freccia verso destra	none
+⇇	coppia di frecce rivolte a sinistra	none
+⇈	coppia di frecce rivolte verso l’alto	none
+⇉	coppia di frecce rivolte a destra	none
+⇊	coppia di frecce rivolte verso il basso	none
+⇋	arpione a sinistra su arpione a destra	none
+⇌	arpione a destra su arpione a sinistra	none
+⇐	freccia doppia a sinstra	none
+⇍	freccia doppia a sinistra barrata	none
+⇑	freccia doppia verso l’alto	none
+⇒	freccia doppia a destra	none
+⇏	freccia doppia a destra barrata	none
+⇓	freccia doppia verso il basso	none
+⇔	freccia doppia sinistra e destra	none
+⇎	freccia doppia sinistra e destra barrata	none
+⇖	freccia doppia nord-ovest	none
+⇗	freccia doppia nord-est	none
+⇘	freccia doppia sud-est	none
+⇙	freccia doppia sud-ovest	none
+⇚	freccia tripla a sinistra	none
+⇛	freccia tripla a destra	none
+⇜	freccia ondulare a sinistra	none
+⇝	freccia ondulare a destra	none
+⇞	freccia doppia verso l’alto con doppia barra	none
+⇟	freccia doppia verso il basso con doppia barra	none
+⇠	freccia tratteggiata a sinistra	none
+⇡	freccia tratteggiata verso l’alto	none
+⇢	freccia tratteggiata a destra	none
+⇣	freccia tratteggiata verso il basso	none
+⇤	freccia a sinistra verso barra	none
+⇥	freccia a destra verso barra	none
+⇦	freccia vuota a sinistra	none
+⇧	freccia vuota verso l’alto	none
+⇨	freccia vuota a destra	none
+⇩	freccia vuota verso il basso	none
+⇪	freccia vuota verso l’alto dalla barra	none
+⇵	freccia verso il basso con freccia verso l’alto a destra	none
+∀	per ogni	none
+∂	derivata parziale	none
+∃	esiste	none
+∅	insieme vuoto	none
 ∆	simbolo di incremento	none
 ∇	nabla	none
 ∈	simbolo di appartenenza	none
+∉	non appartiene	none
+∋	contiene	none
+∎	end of proof	none
+∏	prodotto n-ary	none
+∑	sommatoria n-ary	none
+≮	non minore di	none
 ≠	disuguale	none
+≯	non maggiore di	none
 −	segno meno	none
 ⁻	segno meno in apice	none
+∓	meno o più	none
+∕	barra di divisione	none
+∗	operatore asterisco	none
+∘	operatore anello	none
+∙	operatore punto elenco	none
 √	radice quadrata	none
+∝	proporzionale	none
 ∞	simbolo di infinito	none
+∟	angolo retto	none
+∠	angolo	none
+∣	divide	none
+∥	parallelo	none
+∧	and logico	none
 ∩	simbolo di intersezione	none
 ∪	simbolo di unione	none
+∫	integrale	none
+∬	integrale doppio	none
+∮	integrale curvilineo	none
+∴	quindi	none
+∵	perché	none
+∶	rapporto	none
+∷	proporzione	none
+∼	operatore tilde	none
+∽	tilde rovesciata	none
+∾	lazy s invertito	none
+≃	asintoticamente uguale	none
+≅	congruente geometricamente	none
 ≈	quasi uguale	none
+≌	tutto uguale	none
+≒	approssimativamente uguale all’immagine	none
+≖	anello pari a	none
 ≡	simbolo di coincidenza	none
+≣	strettamente equivalente	none
 ≤	minore o uguale	none
 ≥	maggiore o uguale	none
+≦	minore di su uguale	none
+≧	maggiore di su uguale	none
+≪	molto minore di	none
+≫	molto maggiore di	none
+≬	tra	none
+≳	maggiore di o equivalente a	none
+≺	precede	none
+≻	segue	none
+⊁	non segue	none
 ⊂	simbolo di sottoinsieme	none
+⊃	sovrainsieme	none
+⊆	sottoinsieme uguale a	none
+⊇	sovrainsieme uguale a	none
+⊕	segno più in cerchio	none
+⊖	segno meno in cerchio	none
+⊗	segno di moltiplicazione in cerchio	none
+⊘	barra di divisione in cerchio	none
+⊙	operatore punto in cerchio	none
+⊚	operatore anello in cerchio	none
+⊛	operatore asterisco in cerchio	none
+⊞	segno più in quadrato	none
+⊟	segno meno in quadrato	none
+⊥	contraddizione	none
+⊮	non forza	none
+⊰	precede nella relazione	none
+⊱	segue nella relazione	none
+⋭	non contiene come sottogruppo normale o uguale	none
+⊶	originale	none
+⊹	matrice hermitiana coniugata	none
+⊿	triangolo rettangolo	none
+⋁	n-ary logico o	none
+⋂	intersezione n-ary	none
+⋃	unione n-ary	none
+⋅	operatore punto	none
+⋆	operatore asterisco (*)	none
+⋈	unione naturale	none
+⋒	intersezione doppia	none
+⋘	molto molto minore di	none
+⋙	molto molto maggiore di	none
+⋮	puntini di sospensione verticali	none
+⋯	puntini di sospensione centrati	none
+⋰	puntini di sospensione diagonali in alto a destra	none
+⋱	puntini di sospensione diagonali in basso a destra	none
+■	quadrato pieno	none
+□	quadrato vuoto	none
+▢	quadrato vuoto con angoli arrotondati	none
+▣	quadrato vuoto con quadrato pieno	none
+▤	quadrato con riempimento orizzontale	none
+▥	quadrato con riempimento verticale	none
+▦	quadrato con riempimento tratteggiato ortogonale	none
+▧	quadrato con righe inclinate da sinistra a destra	none
+▨	quadrato con righe inclinate da destra a sinistra	none
+▩	quadrato con riempimento tratteggiato diagonale	none
+▬	rettangolo pieno	none
+▭	rettangolo vuoto	none
+▮	rettangolo verticale pieno	none
+▰	parallelogramma pieno	none
 ▲	triangolo pieno rivolto verso l’alto	none
+△	triangolo vuoto rivolto verso l’alto	none
+▴	triangolo piccolo pieno rivolto verso l’alto	none
+▵	triangolo piccolo vuoto rivolto verso l’alto	none
+▷	triangolo vuoto rivolto verso destra	none
+▸	triangolo piccolo pieno rivolto verso destra	none
+▹	triangolo piccolo vuoto rivolto verso destra	none
+►	puntatore pieno rivolto verso destra	none
+▻	puntatore vuoto rivolto verso destra	none
 ▼	triangolo pieno capovolto	none
+▽	triangolo vuoto capovolto	none
+▾	triangolo piccolo pieno capovolto	none
+▿	triangolo piccolo vuoto capovolto	none
+◁	triangolo vuoto rivolto verso sinistra	none
+◂	triangolo piccolo pieno rivolto verso sinistra	none
+◃	triangolo piccolo vuoto rivolto verso sinistra	none
+◄	puntatore pieno rivolto verso sinistra	none
+◅	puntatore vuoto rivolto verso sinistra	none
+◆	rombo pieno	none
+◇	rombo vuoto	none
+◈	rombo vuoto con rombo pieno	none
+◉	cerchio vuoto con cerchio pieno	none
 ◊	losanga	none
 ○	cerchio vuoto	none
+◌	cerchio tratteggiato	none
+◍	cerchio con riempimento verticale	none
+◎	cerchi concentrici	none
 ●	cerchio pieno	none
+◐	cerchio con metà sinistra piena	none
+◑	cerchio con metà destra piena	none
+◒	cerchio con metà inferiore piena	none
+◓	cerchio con metà superiore piena	none
+◔	cerchio con quadrante in alto a destra pieno	none
+◕	cerchio con quadrante in alto a sinistra vuoto	none
+◖	semicerchio sinistro pieno	none
+◗	semicerchio destro pieno	none
+◘	punto elenco inverso	none
+◙	quadrato pieno con cerchio vuoto	none
+◜	arco circolare del quadrante in alto a sinistra	none
+◝	arco circolare del quadrante in alto a destra	none
+◞	arco circolare del quadrante in basso a destra	none
+◟	arco circolare del quadrante in basso a sinistra	none
+◠	semicerchio superiore	none
+◡	semicerchio inferiore	none
+◢	triangolo in basso a destra pieno	none
+◣	triangolo in basso a sinistra pieno	none
+◤	triangolo in alto a sinistra pieno	none
+◥	triangolo in alto a destra pieno	none
+◦	punto elenco vuoto	none
 ◯	cerchio vuoto grande	none
+◳	quadrato vuoto con quadrante in alto a destra	none
+◷	cerchio vuoto con quadrante in alto a destra	none
+◿	triangolo in basso a destra vuoto	none
 ♪	croma	none
+⨧	segno più con pedice due	none
+⨯	prodotto vettoriale	none
+⨼	prodotto interno	none
+⩣	operatore logico or con barra inferiore doppia	none
+⩽	minore di sopra uguale a obliquo	none
+⪍	minore di sopra circa uguale	none
+⪚	uguale doppio sopra maggiore di	none
+⪺	segue sopra non quasi uguale	none
 ♭	bemolle	none
 ♯	diesis	none
+🥹	faccina che trattiene le lacrime	none
+🧌	troll	none
+🩻	radiografia	none
+🩼	stampella	none
+🪩	palla da discoteca	none
+🪪	carta d’identità	none
+🪫	batteria scarica	none
+🪬	mano di Fatima	none
+🪷	loto	none
+🪸	corallo	none
+🪹	nido vuoto	none
+🪺	nido con uova	none
+🫃	uomo incinto	none
+🫄	persona incinta	none
+🫅	persona con corona	none
+🫗	liquido versato	none
+🫘	fagioli	none
+🫙	barattolo	none
+🫠	faccina che si scioglie	none
+🫡	faccina che fa il saluto	none
+🫢	faccina con occhi aperti e mano sulla bocca	none
+🫣	faccina che sbircia tra le dita	none
+🫤	faccina perplessa	none
+🫥	faccina tratteggiata	none
+🫦	bocca che morde il labbro	none
+🫧	bolle	none
+🫰	mano con indice e pollice incrociati	none
+🫱	mano rivolta a destra	none
+🫲	mano rivolta a sinistra	none
+🫳	mano con il palmo verso il basso	none
+🫴	mano con il palmo verso l’alto	none
+🫵	indice verso l’osservatore	none
+🫶	mani a cuore	none
+🛝	scivolo	none
+🛞	ruota	none
+🛟	salvagente	none
+🟰	segno di uguaglianza	none
 😀	faccina con un gran sorriso	none
 😃	faccina con un gran sorriso e occhi spalancati	none
 😄	faccina con sorriso e occhi sorridenti	none
@@ -1256,7 +1479,7 @@ symbols:
 📫	cassetta postale chiusa bandierina alzata	none
 📪	cassetta postale chiusa bandierina abbassata	none
 📬	cassetta postale aperta bandierina alzata	none
-📭	cassetta postale con bandierina abbassata	none
+📭	cassetta postale aperta bandierina abbassata	none
 📮	cassetta delle lettere	none
 🗳	urna elettorale con scheda	none
 ✏	matita	none
@@ -1384,7 +1607,7 @@ symbols:
 🚯	simbolo del divieto di gettare rifiuti	none
 🚱	simbolo di acqua non potabile	none
 🚷	simbolo del divieto di transito pedoni	none
-📵	simbolo che vieta l’utilizzo dei telefoni cellulari	none
+📵	simbolo che vieta l’uso dei cellulari	none
 🔞	simbolo di divieto ai minorenni	none
 ☢	simbolo della radioattività	none
 ☣	simbolo del rischio biologico	none
@@ -1404,7 +1627,7 @@ symbols:
 ⤴	freccia curva in alto	none
 ⤵	freccia curva in basso	none
 🔃	frecce verticali che ruotano in senso orario	none
-🔄	pulsante con frecce che ruotano in senso antiorario	none
+🔄	frecce che ruotano in senso antiorario	none
 🔙	freccia BACK	none
 🔚	freccia END	none
 🔛	freccia ON	none
@@ -1462,10 +1685,10 @@ symbols:
 ♀	simbolo genere femminile	none
 ♂	simbolo genere maschile	none
 ⚧	simbolo transgender	none
-✖	segno moltiplicazione	none
-➕	simbolo dell’addizione	none
-➖	simbolo della sottrazione	none
-➗	simbolo della divisione	none
+✖	moltiplicazione	none
+➕	addizione	none
+➖	sottrazione	none
+➗	divisione	none
 ♾	simbolo dell’infinito	none
 ❓	punto interrogativo rosso	none
 ❔	punto interrogativo bianco	none
@@ -1479,7 +1702,7 @@ symbols:
 🔱	tridente	none
 📛	tesserino per nome	none
 🔰	ideogramma giapponese di “Principiante”	none
-⭕	cerchio	none
+⭕	cerchio rosso vuoto	none
 ✅	pulsante segno di spunta	none
 ☑	riquadro con spunta	none
 ✔	segno di spunta	none
@@ -1555,13 +1778,91 @@ symbols:
 🏳‍🌈	bandiera arcobaleno	none
 🏳‍⚧	bandiera transgender	none
 🏴‍☠	bandiera dei pirati	none
+₢	cruzeiro	none
+₣	franco francese	none
+₤	lira	none
 ₥	mill	none
 ₩	won	none
 €	simbolo dell’euro	none
+₰	pfennig tedesco	none
 ₱	peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	simbolo della rupia indiana	none
 ₽	simbolo del rublo	none
 ₿	bitcoin	none
+₨	rupia	none
+🫃🏻	uomo incinto carnagione chiara	none
+🫃🏼	uomo incinto carnagione abbastanza chiara	none
+🫃🏽	uomo incinto carnagione olivastra	none
+🫃🏾	uomo incinto carnagione abbastanza scura	none
+🫃🏿	uomo incinto carnagione scura	none
+🫄🏻	persona incinta carnagione chiara	none
+🫄🏼	persona incinta carnagione abbastanza chiara	none
+🫄🏽	persona incinta carnagione olivastra	none
+🫄🏾	persona incinta carnagione abbastanza scura	none
+🫄🏿	persona incinta carnagione scura	none
+🫅🏻	persona con corona carnagione chiara	none
+🫅🏼	persona con corona carnagione abbastanza chiara	none
+🫅🏽	persona con corona carnagione olivastra	none
+🫅🏾	persona con corona carnagione abbastanza scura	none
+🫅🏿	persona con corona carnagione scura	none
+🫰🏻	mano con indice e pollice incrociati carnagione chiara	none
+🫰🏼	mano con indice e pollice incrociati carnagione abbastanza chiara	none
+🫰🏽	mano con indice e pollice incrociati carnagione olivastra	none
+🫰🏾	mano con indice e pollice incrociati carnagione abbastanza scura	none
+🫰🏿	mano con indice e pollice incrociati carnagione scura	none
+🫱🏻	mano rivolta a destra carnagione chiara	none
+🫱🏼	mano rivolta a destra carnagione abbastanza chiara	none
+🫱🏽	mano rivolta a destra carnagione olivastra	none
+🫱🏾	mano rivolta a destra carnagione abbastanza scura	none
+🫱🏿	mano rivolta a destra carnagione scura	none
+🫱🏻‍🫲🏼	stretta di mano carnagione chiara e carnagione abbastanza chiara	none
+🫱🏻‍🫲🏽	stretta di mano carnagione chiara e carnagione olivastra	none
+🫱🏻‍🫲🏾	stretta di mano carnagione chiara e carnagione abbastanza scura	none
+🫱🏻‍🫲🏿	stretta di mano carnagione chiara e carnagione scura	none
+🫱🏼‍🫲🏻	stretta di mano carnagione abbastanza chiara e carnagione chiara	none
+🫱🏼‍🫲🏽	stretta di mano carnagione abbastanza chiara e carnagione olivastra	none
+🫱🏼‍🫲🏾	stretta di mano carnagione abbastanza chiara e carnagione abbastanza scura	none
+🫱🏼‍🫲🏿	stretta di mano carnagione abbastanza chiara e carnagione scura	none
+🫱🏽‍🫲🏻	stretta di mano carnagione olivastra e carnagione chiara	none
+🫱🏽‍🫲🏼	stretta di mano carnagione olivastra e carnagione abbastanza chiara	none
+🫱🏽‍🫲🏾	stretta di mano carnagione olivastra e carnagione abbastanza scura	none
+🫱🏽‍🫲🏿	stretta di mano carnagione olivastra e carnagione scura	none
+🫱🏾‍🫲🏻	stretta di mano carnagione abbastanza scura e carnagione chiara	none
+🫱🏾‍🫲🏼	stretta di mano carnagione abbastanza scura e carnagione abbastanza chiara	none
+🫱🏾‍🫲🏽	stretta di mano carnagione abbastanza scura e carnagione olivastra	none
+🫱🏾‍🫲🏿	stretta di mano carnagione abbastanza scura e carnagione scura	none
+🫱🏿‍🫲🏻	stretta di mano carnagione scura e carnagione chiara	none
+🫱🏿‍🫲🏼	stretta di mano carnagione scura e carnagione abbastanza chiara	none
+🫱🏿‍🫲🏽	stretta di mano carnagione scura e carnagione olivastra	none
+🫱🏿‍🫲🏾	stretta di mano carnagione scura e carnagione abbastanza scura	none
+🫲🏻	mano rivolta a sinistra carnagione chiara	none
+🫲🏼	mano rivolta a sinistra carnagione abbastanza chiara	none
+🫲🏽	mano rivolta a sinistra carnagione olivastra	none
+🫲🏾	mano rivolta a sinistra carnagione abbastanza scura	none
+🫲🏿	mano rivolta a sinistra carnagione scura	none
+🫳🏻	mano con il palmo verso il basso carnagione chiara	none
+🫳🏼	mano con il palmo verso il basso carnagione abbastanza chiara	none
+🫳🏽	mano con il palmo verso il basso carnagione olivastra	none
+🫳🏾	mano con il palmo verso il basso carnagione abbastanza scura	none
+🫳🏿	mano con il palmo verso il basso carnagione scura	none
+🫴🏻	mano con il palmo verso l’alto carnagione chiara	none
+🫴🏼	mano con il palmo verso l’alto carnagione abbastanza chiara	none
+🫴🏽	mano con il palmo verso l’alto carnagione olivastra	none
+🫴🏾	mano con il palmo verso l’alto carnagione abbastanza scura	none
+🫴🏿	mano con il palmo verso l’alto carnagione scura	none
+🫵🏻	indice verso l’osservatore carnagione chiara	none
+🫵🏼	indice verso l’osservatore carnagione abbastanza chiara	none
+🫵🏽	indice verso l’osservatore carnagione olivastra	none
+🫵🏾	indice verso l’osservatore carnagione abbastanza scura	none
+🫵🏿	indice verso l’osservatore carnagione scura	none
+🫶🏻	mani a cuore carnagione chiara	none
+🫶🏼	mani a cuore carnagione abbastanza chiara	none
+🫶🏽	mani a cuore carnagione olivastra	none
+🫶🏾	mani a cuore carnagione abbastanza scura	none
+🫶🏿	mani a cuore carnagione scura	none
 👋🏻	mano che saluta carnagione chiara	none
 👋🏼	mano che saluta carnagione abbastanza chiara	none
 👋🏽	mano che saluta carnagione olivastra	none
@@ -1707,6 +2008,11 @@ symbols:
 🤲🏽	mani unite in alto carnagione olivastra	none
 🤲🏾	mani unite in alto carnagione abbastanza scura	none
 🤲🏿	mani unite in alto carnagione scura	none
+🤝🏻	stretta di mano carnagione chiara	none
+🤝🏼	stretta di mano carnagione abbastanza chiara	none
+🤝🏽	stretta di mano carnagione olivastra	none
+🤝🏾	stretta di mano carnagione abbastanza scura	none
+🤝🏿	stretta di mano carnagione scura	none
 🙏🏻	mani giunte carnagione chiara	none
 🙏🏼	mani giunte carnagione abbastanza chiara	none
 🙏🏽	mani giunte carnagione olivastra	none

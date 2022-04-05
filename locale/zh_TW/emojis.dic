@@ -94,30 +94,213 @@ symbols:
 ∀	全稱量詞符號	none
 ∂	偏導數符號	none
 ∃	存在量詞符號	none
+∅	空集	none
 ∆	遞增	none
 ∇	遞減	none
 ∈	屬於	none
+∉	不屬於	none
+∋	包含	none
+∎	證明完畢	none
+∏	n 元求積	none
+∑	n 元求和	none
+≮	不小於	none
 ≠	不等號	none
+≯	不大於	none
 −	減號	none
 ⁻	上標負數	none
+∓	負正號	none
+∕	除法斜線	none
+∗	星號運算子	none
+∘	環運算子	none
+∙	項目符號運算子	none
 √	平方根	none
+∝	正比	none
 ∞	無限符號	none
+∟	直角	none
+∠	銳角	none
+∣	整除	none
+∥	平行	none
+∧	邏輯且	none
 ∩	交集	none
 ∪	聯集	none
+∫	積分	none
+∬	雙重積分	none
+∮	路徑積分	none
+∴	所以	none
+∵	因為	none
+∶	比率	none
+∷	比例	none
+∼	波浪號	none
+∽	反向波浪號	none
+∾	逆向橫躺式 S	none
+≃	漸近相等	none
+≅	約等於	none
 ≈	約略等於	none
+≌	全等於	none
+≒	大約等於	none
+≖	有環的等號	none
 ≡	全等	none
+≣	完全相等	none
 ≤	小於或等於	none
 ≥	大於或等於	none
+≦	小於在等於上	none
+≧	大於在等於上	none
+≪	遠小於	none
+≫	遠大於	none
+≬	之間	none
+≳	大於等於	none
+≺	先行於	none
+≻	後接於	none
+⊁	不後接於	none
 ⊂	子集	none
+⊃	母集	none
+⊆	子集等於	none
+⊇	母集等於	none
+⊕	帶圓圈的加號	none
+⊖	帶圓圈的減號	none
+⊗	帶圓圈的乘號	none
+⊘	帶圓圈的除號	none
+⊙	帶圓圈的句點運算子	none
+⊚	帶圓圈的環運算子	none
+⊛	帶圓圈的星號運算子	none
+⊞	帶方框加號	none
+⊟	帶方框減號	none
+⊥	倒 T	none
+⊮	不強制	none
+⊰	關係下先行於	none
+⊱	關係下後接於	none
+⋭	不包含為正規子群或等於	none
+⊶	原點	none
+⊹	赫密特共軛矩陣	none
+⊿	直角三角形	none
+⋁	n 元邏輯或	none
+⋂	n 元交集	none
+⋃	n 元聯集	none
+⋅	句點運算子	none
+⋆	星運算子	none
+⋈	自然合併	none
+⋒	雙交集	none
+⋘	遠遠小於	none
+⋙	遠遠大於	none
+⋮	垂直省略號	none
+⋯	中線水平省略號	none
+⋰	右上對角省略號	none
+⋱	右下對角省略號	none
+■	實心方塊	none
+□	空心方塊	none
+▢	空心圓角方塊	none
+▣	空心方塊內有實心方塊	none
+▤	方塊內填滿水平線	none
+▥	方塊內填滿垂直線	none
+▦	方塊內填滿交叉線	none
+▧	方塊內填滿左上右下斜線	none
+▨	方塊內填滿右上左下斜線	none
+▩	方塊內填滿對角交叉線	none
+▬	實心矩形	none
+▭	空心矩形	none
+▮	實心垂直矩形	none
+▰	實心平行四邊形	none
 ▲	實心正三角形	none
+△	空心正三角形	none
+▴	小實心正三角形	none
+▵	小空心正三角形	none
+▷	空心右指三角形	none
+▸	實心右指小三角形	none
+▹	空心右指小三角形	none
+►	實心右指指標	none
+▻	空心右指指標	none
 ▼	實心倒三角形	none
+▽	空心倒三角形	none
+▾	小實心倒三角形	none
+▿	小空心倒三角形	none
+◁	空心左指三角形	none
+◂	實心左指小三角形	none
+◃	空心左指小三角形	none
+◄	實心左指指標	none
+◅	空心左指指標	none
+◆	實心菱形	none
+◇	空心菱形	none
+◈	空心菱形內有實心菱形	none
+◉	空心圓內有實心圓	none
 ◊	菱形	none
 ○	空心圓	none
+◌	點線圓形	none
+◍	圓形內填滿垂直線	none
+◎	同心圓	none
 ●	實心圓	none
+◐	圓形左半填滿	none
+◑	圓形右半填滿	none
+◒	圓形下半填滿	none
+◓	圓形上半填滿	none
+◔	圓形右上象限填滿	none
+◕	圓形左上象限未填滿	none
+◖	實心左半圓	none
+◗	實心右半圓	none
+◘	反白項目符號	none
+◙	實心方塊內有空心圓	none
+◜	左上象限圓弧	none
+◝	右上象限圓弧	none
+◞	右下象限圓弧	none
+◟	左下象限圓弧	none
+◠	上半圓	none
+◡	下半圓	none
+◢	實心右下三角形	none
+◣	實心左下三角形	none
+◤	實心左上三角形	none
+◥	實心右上三角形	none
+◦	空心項目符號	none
 ◯	大空心圓	none
+◳	空心方塊右上象限	none
+◷	空心圓右上象限	none
+◿	右下三角形	none
 ♪	八分音符	none
+⨧	加號下標 2	none
+⨯	向量外積	none
+⨼	內積	none
+⩣	邏輯或雙下横線	none
+⩽	小於斜等號	none
+⪍	小於在相似等上方	none
+⪚	雙線等號大於	none
+⪺	後接於在幾乎不等於上	none
 ♭	降記號	none
 ♯	升記號	none
+🥹	強忍淚水的臉	none
+🧌	巨人	none
+🩻	X 光	none
+🩼	拐杖	none
+🪩	鏡面球	none
+🪪	識別證	none
+🪫	電量不足	none
+🪬	法蒂瑪之手	none
+🪷	蓮花	none
+🪸	珊瑚	none
+🪹	空巢	none
+🪺	有蛋的巢	none
+🫃	懷孕的男人	none
+🫄	懷孕的人	none
+🫅	戴皇冠的人	none
+🫗	倒出液體	none
+🫘	豆子	none
+🫙	廣口瓶	none
+🫠	融化的臉	none
+🫡	敬禮的臉	none
+🫢	張眼摀嘴的臉	none
+🫣	一眼偷看的臉	none
+🫤	歪嘴的臉	none
+🫥	虛線的臉	none
+🫦	咬唇	none
+🫧	泡泡	none
+🫰	食指和拇指交叉的手	none
+🫱	向右的手	none
+🫲	向左的手	none
+🫳	手掌向下	none
+🫴	手掌向上	none
+🫵	食指朝向觀眾	none
+🫶	雙手心形	none
+🛝	溜滑梯	none
+🛞	輪子	none
+🛟	救生圈	none
+🟰	粗體等號	none
 😀	笑臉	none
 😃	大笑	none
 😄	呵呵	none
@@ -1346,7 +1529,7 @@ symbols:
 🪃	迴力鏢	none
 🏹	弓箭	none
 🛡	盾牌	none
-🪚	木工鉅	none
+🪚	木工鋸	none
 🔧	扳手	none
 🪛	螺絲起子	none
 🔩	螺絲	none
@@ -1595,13 +1778,91 @@ symbols:
 🏳‍🌈	彩虹旗	none
 🏳‍⚧	跨性別旗	none
 🏴‍☠	海盜旗	none
+₢	克魯塞羅	none
+₣	法國法郎	none
+₤	里拉	none
 ₥	密爾	none
 ₩	韓元	none
 €	歐元符號	none
+₰	德國便士	none
 ₱	比索	none
+₳	奧斯特拉爾	none
+₶	圖爾里弗爾	none
+₷	斯貝斯米羅	none
 ₹	印度盧比	none
 ₽	盧布	none
 ₿	比特幣	none
+₨	盧比	none
+🫃🏻	懷孕的男人 白皮膚	none
+🫃🏼	懷孕的男人 黃皮膚	none
+🫃🏽	懷孕的男人 淺褐皮膚	none
+🫃🏾	懷孕的男人 褐皮膚	none
+🫃🏿	懷孕的男人 黑皮膚	none
+🫄🏻	懷孕的人 白皮膚	none
+🫄🏼	懷孕的人 黃皮膚	none
+🫄🏽	懷孕的人 淺褐皮膚	none
+🫄🏾	懷孕的人 褐皮膚	none
+🫄🏿	懷孕的人 黑皮膚	none
+🫅🏻	戴皇冠的人 白皮膚	none
+🫅🏼	戴皇冠的人 黃皮膚	none
+🫅🏽	戴皇冠的人 淺褐皮膚	none
+🫅🏾	戴皇冠的人 褐皮膚	none
+🫅🏿	戴皇冠的人 黑皮膚	none
+🫰🏻	食指和拇指交叉的手 白皮膚	none
+🫰🏼	食指和拇指交叉的手 黃皮膚	none
+🫰🏽	食指和拇指交叉的手 淺褐皮膚	none
+🫰🏾	食指和拇指交叉的手 褐皮膚	none
+🫰🏿	食指和拇指交叉的手 黑皮膚	none
+🫱🏻	向右的手 白皮膚	none
+🫱🏼	向右的手 黃皮膚	none
+🫱🏽	向右的手 淺褐皮膚	none
+🫱🏾	向右的手 褐皮膚	none
+🫱🏿	向右的手 黑皮膚	none
+🫱🏻‍🫲🏼	握手 白皮膚 黃皮膚	none
+🫱🏻‍🫲🏽	握手 白皮膚 淺褐皮膚	none
+🫱🏻‍🫲🏾	握手 白皮膚 褐皮膚	none
+🫱🏻‍🫲🏿	握手 白皮膚 黑皮膚	none
+🫱🏼‍🫲🏻	握手 黃皮膚 白皮膚	none
+🫱🏼‍🫲🏽	握手 黃皮膚 淺褐皮膚	none
+🫱🏼‍🫲🏾	握手 黃皮膚 褐皮膚	none
+🫱🏼‍🫲🏿	握手 黃皮膚 黑皮膚	none
+🫱🏽‍🫲🏻	握手 淺褐皮膚 白皮膚	none
+🫱🏽‍🫲🏼	握手 淺褐皮膚 黃皮膚	none
+🫱🏽‍🫲🏾	握手 淺褐皮膚 褐皮膚	none
+🫱🏽‍🫲🏿	握手 淺褐皮膚 黑皮膚	none
+🫱🏾‍🫲🏻	握手 褐皮膚 白皮膚	none
+🫱🏾‍🫲🏼	握手 褐皮膚 黃皮膚	none
+🫱🏾‍🫲🏽	握手 褐皮膚 淺褐皮膚	none
+🫱🏾‍🫲🏿	握手 褐皮膚 黑皮膚	none
+🫱🏿‍🫲🏻	握手 黑皮膚 白皮膚	none
+🫱🏿‍🫲🏼	握手 黑皮膚 黃皮膚	none
+🫱🏿‍🫲🏽	握手 黑皮膚 淺褐皮膚	none
+🫱🏿‍🫲🏾	握手 黑皮膚 褐皮膚	none
+🫲🏻	向左的手 白皮膚	none
+🫲🏼	向左的手 黃皮膚	none
+🫲🏽	向左的手 淺褐皮膚	none
+🫲🏾	向左的手 褐皮膚	none
+🫲🏿	向左的手 黑皮膚	none
+🫳🏻	手掌向下 白皮膚	none
+🫳🏼	手掌向下 黃皮膚	none
+🫳🏽	手掌向下 淺褐皮膚	none
+🫳🏾	手掌向下 褐皮膚	none
+🫳🏿	手掌向下 黑皮膚	none
+🫴🏻	手掌向上 白皮膚	none
+🫴🏼	手掌向上 黃皮膚	none
+🫴🏽	手掌向上 淺褐皮膚	none
+🫴🏾	手掌向上 褐皮膚	none
+🫴🏿	手掌向上 黑皮膚	none
+🫵🏻	食指朝向觀眾 白皮膚	none
+🫵🏼	食指朝向觀眾 黃皮膚	none
+🫵🏽	食指朝向觀眾 淺褐皮膚	none
+🫵🏾	食指朝向觀眾 褐皮膚	none
+🫵🏿	食指朝向觀眾 黑皮膚	none
+🫶🏻	雙手心形 白皮膚	none
+🫶🏼	雙手心形 黃皮膚	none
+🫶🏽	雙手心形 淺褐皮膚	none
+🫶🏾	雙手心形 褐皮膚	none
+🫶🏿	雙手心形 黑皮膚	none
 👋🏻	揮手 白皮膚	none
 👋🏼	揮手 黃皮膚	none
 👋🏽	揮手 淺褐皮膚	none
@@ -1747,6 +2008,11 @@ symbols:
 🤲🏽	雙手掌朝上 淺褐皮膚	none
 🤲🏾	雙手掌朝上 褐皮膚	none
 🤲🏿	雙手掌朝上 黑皮膚	none
+🤝🏻	握手 白皮膚	none
+🤝🏼	握手 黃皮膚	none
+🤝🏽	握手 淺褐皮膚	none
+🤝🏾	握手 褐皮膚	none
+🤝🏿	握手 黑皮膚	none
 🙏🏻	感恩 白皮膚	none
 🙏🏼	感恩 黃皮膚	none
 🙏🏽	感恩 淺褐皮膚	none

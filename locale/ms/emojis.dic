@@ -40,52 +40,267 @@ symbols:
 ↵	anak panah ke bawah menukar arah ke kiri	none
 ↶	anak panah separuh bulatan atas arah lawan jam	none
 ↷	anak panah separuh bulatan atas arah ikut jam	none
+↸	palang panjang anak panah barat laut	none
+↹	palang anak panah ke kiri di atas palang anak panah ke kanan	none
 ↺	anak panah bulatan terbuka arah lawan jam	none
 ↻	anak panah bulatan terbuka arah ikut jam	none
+↼	ruit serampang ke kiri menuding ke atas	none
+↽	ruit serampang ke kiri menuding ke bawah	none
+↾	ruit serampang ke atas menuding ke kanan	none
+↿	ruit serampang ke atas menuding ke kiri	none
+⇀	ruit serampang ke kanan menuding ke atas	none
+⇁	ruit serampang ke kanan menuding ke bawah	none
+⇂	ruit serampang ke bawah menuding ke kanan	none
+⇃	ruit serampang ke bawah menuding ke kiri	none
+⇄	anak panah ke kanan di atas palang anak panah ke kiri	none
 ⇅	anak panah tunjuk atas dan tunjuk bawah	none
 ⇆	anak panah tunjuk kiri di atas anak panah tunjuk kanan	none
+⇇	anak panah berpasangan ke kiri	none
+⇈	anak panah berpasangan ke atas	none
+⇉	anak panah berpasangan ke kanan	none
+⇊	anak panah berpasangan ke bawah	none
+⇋	serampang ke kiri di atas serampang ke kanan	none
+⇌	serampang ke kanan di atas serampang ke kiri	none
 ⇐	anak panah berganda ke kiri	none
+⇍	garis miring anak panah berganda ke kiri	none
 ⇑	anak panah berganda ke atas	none
 ⇒	anak panah berganda ke kanan	none
+⇏	garis miring anak panah berganda ke kanan	none
 ⇓	anak panah berganda ke bawah	none
 ⇔	anak panah berganda kiri kanan	none
+⇎	garis miring anak panah berganda kiri kanan	none
+⇖	anak panah berganda barat laut	none
+⇗	anak panah berganda timur laut	none
+⇘	anak panah berganda tenggara	none
+⇙	anak panah berganda barat daya	none
+⇚	anak panah ganda tiga ke kiri	none
+⇛	anak panah ganda tiga ke kanan	none
+⇜	anak panah berpintal ke kiri	none
+⇝	anak panah berpintal ke kanan	none
+⇞	garis berganda anak panah ke atas	none
+⇟	garis berganda anak panah ke bawah	none
+⇠	anak panah garis berputus-putus ke kiri	none
+⇡	anak panah garis berputus-putus ke atas	none
+⇢	anak panah garis berputus-putus ke kanan	none
+⇣	anak panah garis berputus-putus ke bawah	none
+⇤	palang anak panah ke kiri	none
+⇥	palang anak panah ke kanan	none
+⇦	anak panah geronggang ke kiri	none
+⇧	anak panah geronggang ke atas	none
+⇨	anak panah geronggang ke kanan	none
+⇩	anak panah geronggang ke bawah	none
+⇪	anak panah geronggang ke atas dari palang	none
+⇵	anak panah ke bawah ke kiri anak panah ke atas	none
 ∀	untuk semua	none
 ∂	pembezaan separa	none
+∃	wujud	none
 ∅	set kosong	none
 ∆	kenaikan	none
 ∇	nabla	none
 ∈	unsur	none
 ∉	bukan unsur	none
+∋	mengandungi sebagai ahli	none
+∎	penamat bukti	none
+∏	hasil darab n-ner	none
+∑	hasil tambah n-ner	none
+≮	tidak kurang daripada	none
 ≠	tidak sama dengan	none
+≯	tidak besar daripada	none
 −	tanda tolak	none
 ⁻	tolak superskrip	none
+∓	tolak atau campur	none
+∕	garis condong pembahagian	none
+∗	operator asterisk	none
+∘	operator gelanggang	none
+∙	operator bulet	none
 √	punca kuasa dua	none
+∝	berkadaran	none
 ∞	simbol infiniti	none
 ∟	sudut tegak	none
 ∠	sudut	none
+∣	membahagi	none
+∥	selari	none
+∧	logik dan	none
 ∩	persilangan	none
 ∪	kesatuan	none
 ∫	kamiran	none
 ∬	kamiran ganda dua	none
 ∮	kamiran kontur	none
+∴	jadi	none
+∵	sebab	none
 ∶	nisbah	none
+∷	perkadaran	none
+∼	operator tilde	none
+∽	tilde terbalik	none
+∾	s malas songsang	none
+≃	persamaan asimptot	none
+≅	persamaan lebih kurang	none
 ≈	hampir sama dengan	none
+≌	semua sama	none
+≒	lebih kurang sama dengan imej	none
+≖	gelanggang dalam tanda sama	none
 ≡	bersamaan dengan	none
+≣	setara tegas	none
 ≤	kurang daripada atau sama dengan	none
 ≥	lebih besar daripada atau sama dengan	none
+≦	tanda kurang daripada di atas tanda sama	none
+≧	tanda lebih besar daripada di atas tanda sama	none
+≪	jauh kurang daripada	none
+≫	jauh lebih besar daripada	none
 ≬	di antara	none
+≳	lebih besar atau setara	none
+≺	mendahului	none
+≻	mengekori	none
+⊁	tidak mengekori	none
 ⊂	subset	none
 ⊃	superset	none
+⊆	subset atau sama dengan	none
+⊇	superset atau sama dengan	none
+⊕	tanda campur berbulat	none
+⊖	tanda tolak berbulat	none
+⊗	tanda darab berbulat	none
+⊘	garis condong pembahagian berbulat	none
+⊙	operator titik berbulat	none
+⊚	operator gelanggang berbulat	none
+⊛	operator asterisk berbulat	none
+⊞	tanda campur di dalam persegi	none
+⊟	tanda tolak di dalam persegi	none
+⊥	paku tekan ke atas	none
+⊮	tidak paksa	none
+⊰	mendahului dengan hubungan	none
+⊱	mengekori dengan hubungan	none
+⋭	tanda sama tidak mengandungi sebagai subkumpulan normal	none
+⊶	asal	none
+⊹	matriks konjugat Hermitian	none
+⊿	segi tiga sudut tegak	none
+⋁	logik atau n-ner	none
+⋂	persilangan n-ner	none
+⋃	kesatuan n-ner	none
+⋅	operator titik	none
+⋆	operator bintang	none
+⋈	cantuman asli	none
+⋒	persilangan ganda dua	none
+⋘	sangat jauh kurang daripada	none
+⋙	sangat jauh lebih besar daripada	none
 ⋮	elipsis menegak	none
+⋯	elipsis lintang garis tengah	none
+⋰	elipsis pepenjuru atas kanan	none
+⋱	elipsis pepenjuru bawah kanan	none
+■	persegi berisi	none
+□	persegi geronggang	none
+▢	persegi geronggang dengan penjuru bulat	none
+▣	persegi berisi di dalam persegi geronggang	none
+▤	persegi dengan isian lintang	none
+▥	persegi dengan isian menegak	none
+▦	persegi dengan isian jejaring silang ortogon	none
+▧	persegi dengan isian atas kiri dan bawah kanan	none
+▨	persegi dengan isian atas kanan dan bawah kiri	none
+▩	persegi dengan isian jejaring silang pepenjuru	none
+▬	segi empat tepat berisi	none
+▭	segi empat tepat geronggang	none
+▮	segi empat tepat menegak berisi	none
+▰	segi empat selari berisi	none
 ▲	segi tiga berisi menunjuk ke atas	none
+△	segi tiga geronggang menuding ke atas	none
+▴	segi tiga kecil berisi menuding ke atas	none
+▵	segi tiga kecil geronggang menuding ke atas	none
+▷	segi tiga geronggang menuding ke kanan	none
+▸	segi tiga kecil berisi menuding ke kanan	none
+▹	segi tiga kecil geronggang menuding ke kanan	none
+►	penunjuk berisi menuding ke kanan	none
+▻	penunjuk geronggang menuding ke kanan	none
 ▼	segi tiga berisi menunjuk ke bawah	none
+▽	segi tiga geronggang menuding ke bawah	none
+▾	segi tiga kecil berisi menuding ke bawah	none
+▿	segi tiga kecil geronggang menuding ke bawah	none
+◁	segi tiga geronggang menuding ke kiri	none
+◂	segi tiga kecil berisi menuding ke kiri	none
+◃	segi tiga kecil geronggang menuding ke kiri	none
+◄	penunjuk berisi menuding ke kiri	none
+◅	penunjuk geronggang menuding ke kiri	none
+◆	wajik berisi	none
+◇	wajik geronggang	none
+◈	wajik berisi di dalam wajik geronggang	none
+◉	bulatan berisi di dalam bulatan geronggang	none
 ◊	wajik	none
 ○	bulatan kosong	none
+◌	bulatan berbintik	none
+◍	bulatan dengan isian menegak	none
+◎	bulatan sepusat	none
 ●	bulatan berisi	none
+◐	bulatan dengan bahagian kiri berisi	none
+◑	bulatan dengan bahagian kanan berisi	none
+◒	bulatan dengan bahagian bawah berisi	none
+◓	bulatan dengan bahagian atas berisi	none
+◔	bulatan dengan sukuan atas kanan berisi	none
+◕	bulatan berisi kecuali sukuan atas kiri	none
+◖	bulatan separuh bahagian kiri berisi	none
+◗	bulatan separuh bahagian kanan berisi	none
+◘	bulet songsang	none
+◙	bulatan geronggang di dalam persegi berisi	none
+◜	lengkuk sukuan bulat atas kiri	none
+◝	lengkuk sukuan bulat atas kanan	none
+◞	lengkuk sukuan bulat bawah kanan	none
+◟	lengkuk sukuan bulat bawah kiri	none
+◠	bulatan separuh bahagian atas	none
+◡	bulatan separuh bahagian bawah	none
+◢	segi tiga bawah kanan berisi	none
+◣	segi tiga bawah kiri berisi	none
+◤	segi tiga atas kiri berisi	none
+◥	segi tiga atas kanan berisi	none
+◦	bulet geronggang	none
 ◯	bulatan kosong besar	none
+◳	persegi geronggang dengan sukuan atas kanan	none
+◷	bulatan geronggang dengan sukuan atas kanan	none
+◿	segi tiga bawah kanan	none
 ♪	not perlapan	none
+⨧	tanda campur dengan subskrip dua	none
+⨯	hasil darab silang vektor	none
+⨼	hasil darab pedalaman	none
+⩣	palang bawah berganda logik atau	none
+⩽	tanda sama condong kurang daripada	none
+⪍	tanda kurang daripada di atas tanda serupa	none
+⪚	tanda sama garis berganda lebih besar daripada	none
+⪺	tanda mendahului di atas tanda sama bukan hampir	none
 ♭	flet	none
 ♯	syap	none
+🥹	muka menahan air mata	none
+🧌	raksasa	none
+🩻	sinar-x	none
+🩼	topang	none
+🪩	bola cermin	none
+🪪	kad pengenalan	none
+🪫	bateri lemah	none
+🪬	hamsa	none
+🪷	teratai	none
+🪸	karang	none
+🪹	sarang kosong	none
+🪺	sarang dengan telur	none
+🫃	lelaki bunting	none
+🫄	orang hamil	none
+🫅	orang memakai mahkota	none
+🫗	menuang cecair	none
+🫘	kacang	none
+🫙	balang	none
+🫠	muka mencair	none
+🫡	muka sedang menabik	none
+🫢	muka dengan mata terbuka dan tangan atas mulut	none
+🫣	muka dengan mata mengintai	none
+🫤	muka dengan mulut serong	none
+🫥	muka garis putus-putus	none
+🫦	menggigit bibir	none
+🫧	buih	none
+🫰	tangan dengan jari telunjuk dan ibu jari bersilang	none
+🫱	tangan kanan	none
+🫲	tangan kiri	none
+🫳	tapak tangan ke bawah	none
+🫴	tapak tangan ke atas	none
+🫵	jari telunjuk menunjuk ke arah pemandang	none
+🫶	tangan berbentuk hati	none
+🛝	papan gelongsor taman permainan	none
+🛞	roda	none
+🛟	boya	none
+🟰	tanda sama dengan tebal	none
 😀	muka tersengih	none
 😃	muka tersengih dengan mata besar	none
 😄	muka tersengih dan mata tersenyum	none
@@ -1563,13 +1778,91 @@ symbols:
 🏳‍🌈	bendera pelangi	none
 🏳‍⚧	bendera biru,merah jambu, dan putih	none
 🏴‍☠	bendera lanun	none
+₢	cruzeiro	none
+₣	franc perancis	none
+₤	lira	none
 ₥	juta	none
 ₩	won	none
 €	euro	none
+₰	peni jerman	none
 ₱	peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	rupee india	none
 ₽	rouble	none
 ₿	bitcoin	none
+₨	rupee	none
+🫃🏻	lelaki bunting ton kulit cerah	none
+🫃🏼	lelaki bunting ton kulit sederhana cerah	none
+🫃🏽	lelaki bunting ton kulit sederhana	none
+🫃🏾	lelaki bunting ton kulit sederhana gelap	none
+🫃🏿	lelaki bunting ton kulit gelap	none
+🫄🏻	orang hamil ton kulit cerah	none
+🫄🏼	orang hamil ton kulit sederhana cerah	none
+🫄🏽	orang hamil ton kulit sederhana	none
+🫄🏾	orang hamil ton kulit sederhana gelap	none
+🫄🏿	orang hamil ton kulit gelap	none
+🫅🏻	orang memakai mahkota ton kulit cerah	none
+🫅🏼	orang memakai mahkota ton kulit sederhana cerah	none
+🫅🏽	orang memakai mahkota ton kulit sederhana	none
+🫅🏾	orang memakai mahkota ton kulit sederhana gelap	none
+🫅🏿	orang memakai mahkota ton kulit gelap	none
+🫰🏻	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit cerah	none
+🫰🏼	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit sederhana cerah	none
+🫰🏽	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit sederhana	none
+🫰🏾	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit sederhana gelap	none
+🫰🏿	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit gelap	none
+🫱🏻	tangan kanan ton kulit cerah	none
+🫱🏼	tangan kanan ton kulit sederhana cerah	none
+🫱🏽	tangan kanan ton kulit sederhana	none
+🫱🏾	tangan kanan ton kulit sederhana gelap	none
+🫱🏿	tangan kanan ton kulit gelap	none
+🫱🏻‍🫲🏼	berjabat tangan ton kulit cerah dan ton kulit sederhana cerah	none
+🫱🏻‍🫲🏽	berjabat tangan ton kulit cerah dan ton kulit sederhana	none
+🫱🏻‍🫲🏾	berjabat tangan ton kulit cerah dan ton kulit sederhana gelap	none
+🫱🏻‍🫲🏿	berjabat tangan ton kulit cerah dan ton kulit gelap	none
+🫱🏼‍🫲🏻	berjabat tangan ton kulit sederhana cerah dan ton kulit cerah	none
+🫱🏼‍🫲🏽	berjabat tangan ton kulit sederhana cerah dan ton kulit sederhana	none
+🫱🏼‍🫲🏾	berjabat tangan ton kulit sederhana cerah dan ton kulit sederhana gelap	none
+🫱🏼‍🫲🏿	berjabat tangan ton kulit sederhana cerah dan ton kulit gelap	none
+🫱🏽‍🫲🏻	berjabat tangan ton kulit sederhana dan ton kulit cerah	none
+🫱🏽‍🫲🏼	berjabat tangan ton kulit sederhana dan ton kulit sederhana cerah	none
+🫱🏽‍🫲🏾	berjabat tangan ton kulit sederhana dan ton kulit sederhana gelap	none
+🫱🏽‍🫲🏿	berjabat tangan ton kulit sederhana dan ton kulit gelap	none
+🫱🏾‍🫲🏻	berjabat tangan ton kulit sederhana gelap dan ton kulit cerah	none
+🫱🏾‍🫲🏼	berjabat tangan ton kulit sederhana gelap dan ton kulit sederhana cerah	none
+🫱🏾‍🫲🏽	berjabat tangan ton kulit sederhana gelap dan ton kulit sederhana	none
+🫱🏾‍🫲🏿	berjabat tangan ton kulit sederhana gelap dan ton kulit gelap	none
+🫱🏿‍🫲🏻	berjabat tangan ton kulit gelap dan ton kulit cerah	none
+🫱🏿‍🫲🏼	berjabat tangan ton kulit gelap dan ton kulit sederhana cerah	none
+🫱🏿‍🫲🏽	berjabat tangan ton kulit gelap dan ton kulit sederhana	none
+🫱🏿‍🫲🏾	berjabat tangan ton kulit gelap dan ton kulit sederhana gelap	none
+🫲🏻	tangan kiri ton kulit cerah	none
+🫲🏼	tangan kiri ton kulit sederhana cerah	none
+🫲🏽	tangan kiri ton kulit sederhana	none
+🫲🏾	tangan kiri ton kulit sederhana gelap	none
+🫲🏿	tangan kiri ton kulit gelap	none
+🫳🏻	tapak tangan ke bawah ton kulit cerah	none
+🫳🏼	tapak tangan ke bawah ton kulit sederhana cerah	none
+🫳🏽	tapak tangan ke bawah ton kulit sederhana	none
+🫳🏾	tapak tangan ke bawah ton kulit sederhana gelap	none
+🫳🏿	tapak tangan ke bawah ton kulit gelap	none
+🫴🏻	tapak tangan ke atas ton kulit cerah	none
+🫴🏼	tapak tangan ke atas ton kulit sederhana cerah	none
+🫴🏽	tapak tangan ke atas ton kulit sederhana	none
+🫴🏾	tapak tangan ke atas ton kulit sederhana gelap	none
+🫴🏿	tapak tangan ke atas ton kulit gelap	none
+🫵🏻	jari telunjuk menunjuk ke arah pemandang ton kulit cerah	none
+🫵🏼	jari telunjuk menunjuk ke arah pemandang ton kulit sederhana cerah	none
+🫵🏽	jari telunjuk menunjuk ke arah pemandang ton kulit sederhana	none
+🫵🏾	jari telunjuk menunjuk ke arah pemandang ton kulit sederhana gelap	none
+🫵🏿	jari telunjuk menunjuk ke arah pemandang ton kulit gelap	none
+🫶🏻	tangan berbentuk hati ton kulit cerah	none
+🫶🏼	tangan berbentuk hati ton kulit sederhana cerah	none
+🫶🏽	tangan berbentuk hati ton kulit sederhana	none
+🫶🏾	tangan berbentuk hati ton kulit sederhana gelap	none
+🫶🏿	tangan berbentuk hati ton kulit gelap	none
 👋🏻	lambai tangan ton kulit cerah	none
 👋🏼	lambai tangan ton kulit sederhana cerah	none
 👋🏽	lambai tangan ton kulit sederhana	none
@@ -1715,6 +2008,11 @@ symbols:
 🤲🏽	tapak tangan rapat ton kulit sederhana	none
 🤲🏾	tapak tangan rapat ton kulit sederhana gelap	none
 🤲🏿	tapak tangan rapat ton kulit gelap	none
+🤝🏻	berjabat tangan ton kulit cerah	none
+🤝🏼	berjabat tangan ton kulit sederhana cerah	none
+🤝🏽	berjabat tangan ton kulit sederhana	none
+🤝🏾	berjabat tangan ton kulit sederhana gelap	none
+🤝🏿	berjabat tangan ton kulit gelap	none
 🙏🏻	menyusun jari ton kulit cerah	none
 🙏🏼	menyusun jari ton kulit sederhana cerah	none
 🙏🏽	menyusun jari ton kulit sederhana	none
