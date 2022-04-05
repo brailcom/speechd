@@ -488,7 +488,7 @@ AC_SUBST([localedatadir])
 
 # Path for module binaries:
 AC_ARG_WITH([module-bindir],
-	AS_HELP_STRING([--with-module-bindir],[Directory where to install speech-dispatcher modules (defaults to ${libdir}/speech-dispatcher-modules)]),
+	AS_HELP_STRING([--with-module-bindir],[Directory where to install speech-dispatcher modules (defaults to ${libexecdir}/speech-dispatcher-modules)]),
 	[modulebindir=$withval], [modulebindir='${libexecdir}/speech-dispatcher-modules'])
 AC_SUBST([modulebindir])
 
