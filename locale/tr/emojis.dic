@@ -264,6 +264,43 @@ symbols:
 ⪺	hemen hemen eşit değil üstünde sonra gelir	none
 ♭	düz	none
 ♯	diyez	none
+🥹	gözleri dolmuş yüz	none
+🧌	trol	none
+🩻	x ışını	none
+🩼	koltuk değneği	none
+🪩	aynalı küre	none
+🪪	kimlik kartı	none
+🪫	düşük pil	none
+🪬	Fatıma’nın Eli	none
+🪷	nilüfer	none
+🪸	mercan	none
+🪹	boş yuva	none
+🪺	yumurta bulunan yuva	none
+🫃	hamile adam	none
+🫄	hamile kişi	none
+🫅	taç takmış insan	none
+🫗	dökülen sıvı	none
+🫘	fasulye	none
+🫙	kavanoz	none
+🫠	eriyen yüz	none
+🫡	selamlayan yüz	none
+🫢	el ağızdayken gözler açık yüz	none
+🫣	gizlice bakan yüz	none
+🫤	şüpheli yüz	none
+🫥	noktalı çizgili yüz	none
+🫦	ısırılan dudak	none
+🫧	baloncuk	none
+🫰	işaret parmağı ve baş parmak birbirine geçmiş el	none
+🫱	sağa bakan el	none
+🫲	sola bakan el	none
+🫳	avuç içi aşağı bakan el	none
+🫴	avuç içi yukarı bakan el	none
+🫵	karşıyı işaret eden işaret parmağı	none
+🫶	kalp oluşturan eller	none
+🛝	kaydırak	none
+🛞	tekerlek	none
+🛟	cankurtaran simidi	none
+🟰	kalın eşittir işareti	none
 😀	sırıtan yüz	none
 😃	ağzı açık sırıtma	none
 😄	gülen gözlerle ağzı açık sırıtma	none
@@ -1756,6 +1793,76 @@ symbols:
 ₽	ruble	none
 ₿	bitcoin	none
 ₨	rupi	none
+🫃🏻	hamile adam açık cilt tonu	none
+🫃🏼	hamile adam orta açık cilt tonu	none
+🫃🏽	hamile adam orta cilt tonu	none
+🫃🏾	hamile adam orta koyu cilt tonu	none
+🫃🏿	hamile adam koyu cilt tonu	none
+🫄🏻	hamile kişi açık cilt tonu	none
+🫄🏼	hamile kişi orta açık cilt tonu	none
+🫄🏽	hamile kişi orta cilt tonu	none
+🫄🏾	hamile kişi orta koyu cilt tonu	none
+🫄🏿	hamile kişi koyu cilt tonu	none
+🫅🏻	taç takmış insan açık cilt tonu	none
+🫅🏼	taç takmış insan orta açık cilt tonu	none
+🫅🏽	taç takmış insan orta cilt tonu	none
+🫅🏾	taç takmış insan orta koyu cilt tonu	none
+🫅🏿	taç takmış insan koyu cilt tonu	none
+🫰🏻	işaret parmağı ve baş parmak birbirine geçmiş el açık cilt tonu	none
+🫰🏼	işaret parmağı ve baş parmak birbirine geçmiş el orta açık cilt tonu	none
+🫰🏽	işaret parmağı ve baş parmak birbirine geçmiş el orta cilt tonu	none
+🫰🏾	işaret parmağı ve baş parmak birbirine geçmiş el orta koyu cilt tonu	none
+🫰🏿	işaret parmağı ve baş parmak birbirine geçmiş el koyu cilt tonu	none
+🫱🏻	sağa bakan el açık cilt tonu	none
+🫱🏼	sağa bakan el orta açık cilt tonu	none
+🫱🏽	sağa bakan el orta cilt tonu	none
+🫱🏾	sağa bakan el orta koyu cilt tonu	none
+🫱🏿	sağa bakan el koyu cilt tonu	none
+🫱🏻‍🫲🏼	el sıkışma açık cilt tonu orta açık cilt tonu	none
+🫱🏻‍🫲🏽	el sıkışma açık cilt tonu orta cilt tonu	none
+🫱🏻‍🫲🏾	el sıkışma açık cilt tonu orta koyu cilt tonu	none
+🫱🏻‍🫲🏿	el sıkışma açık cilt tonu koyu cilt tonu	none
+🫱🏼‍🫲🏻	el sıkışma orta açık cilt tonu açık cilt tonu	none
+🫱🏼‍🫲🏽	el sıkışma orta açık cilt tonu orta cilt tonu	none
+🫱🏼‍🫲🏾	el sıkışma orta açık cilt tonu orta koyu cilt tonu	none
+🫱🏼‍🫲🏿	el sıkışma orta açık cilt tonu koyu cilt tonu	none
+🫱🏽‍🫲🏻	el sıkışma orta cilt tonu açık cilt tonu	none
+🫱🏽‍🫲🏼	el sıkışma orta cilt tonu orta açık cilt tonu	none
+🫱🏽‍🫲🏾	el sıkışma orta cilt tonu orta koyu cilt tonu	none
+🫱🏽‍🫲🏿	el sıkışma orta cilt tonu koyu cilt tonu	none
+🫱🏾‍🫲🏻	el sıkışma orta koyu cilt tonu açık cilt tonu	none
+🫱🏾‍🫲🏼	el sıkışma orta koyu cilt tonu orta açık cilt tonu	none
+🫱🏾‍🫲🏽	el sıkışma orta koyu cilt tonu orta cilt tonu	none
+🫱🏾‍🫲🏿	el sıkışma orta koyu cilt tonu koyu cilt tonu	none
+🫱🏿‍🫲🏻	el sıkışma koyu cilt tonu açık cilt tonu	none
+🫱🏿‍🫲🏼	el sıkışma koyu cilt tonu orta açık cilt tonu	none
+🫱🏿‍🫲🏽	el sıkışma koyu cilt tonu orta cilt tonu	none
+🫱🏿‍🫲🏾	el sıkışma koyu cilt tonu orta koyu cilt tonu	none
+🫲🏻	sola bakan el açık cilt tonu	none
+🫲🏼	sola bakan el orta açık cilt tonu	none
+🫲🏽	sola bakan el orta cilt tonu	none
+🫲🏾	sola bakan el orta koyu cilt tonu	none
+🫲🏿	sola bakan el koyu cilt tonu	none
+🫳🏻	avuç içi aşağı bakan el açık cilt tonu	none
+🫳🏼	avuç içi aşağı bakan el orta açık cilt tonu	none
+🫳🏽	avuç içi aşağı bakan el orta cilt tonu	none
+🫳🏾	avuç içi aşağı bakan el orta koyu cilt tonu	none
+🫳🏿	avuç içi aşağı bakan el koyu cilt tonu	none
+🫴🏻	avuç içi yukarı bakan el açık cilt tonu	none
+🫴🏼	avuç içi yukarı bakan el orta açık cilt tonu	none
+🫴🏽	avuç içi yukarı bakan el orta cilt tonu	none
+🫴🏾	avuç içi yukarı bakan el orta koyu cilt tonu	none
+🫴🏿	avuç içi yukarı bakan el koyu cilt tonu	none
+🫵🏻	karşıyı işaret eden işaret parmağı açık cilt tonu	none
+🫵🏼	karşıyı işaret eden işaret parmağı orta açık cilt tonu	none
+🫵🏽	karşıyı işaret eden işaret parmağı orta cilt tonu	none
+🫵🏾	karşıyı işaret eden işaret parmağı orta koyu cilt tonu	none
+🫵🏿	karşıyı işaret eden işaret parmağı koyu cilt tonu	none
+🫶🏻	kalp oluşturan eller açık cilt tonu	none
+🫶🏼	kalp oluşturan eller orta açık cilt tonu	none
+🫶🏽	kalp oluşturan eller orta cilt tonu	none
+🫶🏾	kalp oluşturan eller orta koyu cilt tonu	none
+🫶🏿	kalp oluşturan eller koyu cilt tonu	none
 👋🏻	el sallama açık cilt tonu	none
 👋🏼	el sallama orta açık cilt tonu	none
 👋🏽	el sallama orta cilt tonu	none
@@ -1901,6 +2008,11 @@ symbols:
 🤲🏽	iki avuç açık orta cilt tonu	none
 🤲🏾	iki avuç açık orta koyu cilt tonu	none
 🤲🏿	iki avuç açık koyu cilt tonu	none
+🤝🏻	el sıkışma açık cilt tonu	none
+🤝🏼	el sıkışma orta açık cilt tonu	none
+🤝🏽	el sıkışma orta cilt tonu	none
+🤝🏾	el sıkışma orta koyu cilt tonu	none
+🤝🏿	el sıkışma koyu cilt tonu	none
 🙏🏻	birleşen eller açık cilt tonu	none
 🙏🏼	birleşen eller orta açık cilt tonu	none
 🙏🏽	birleşen eller orta cilt tonu	none

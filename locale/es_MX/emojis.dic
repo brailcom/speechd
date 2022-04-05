@@ -3,6 +3,39 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+🏻	↑↑↑	none
+🏼	↑↑↑	none
+🏽	↑↑↑	none
+🏾	↑↑↑	none
+🏿	↑↑↑	none
+℗	↑↑↑	none
+←	↑↑↑	none
+↚	↑↑↑	none
+→	↑↑↑	none
+↛	↑↑↑	none
+↑	↑↑↑	none
+↓	↑↑↑	none
+↜	↑↑↑	none
+↝	↑↑↑	none
+↞	↑↑↑	none
+↟	↑↑↑	none
+↠	↑↑↑	none
+↡	↑↑↑	none
+↢	↑↑↑	none
+↣	↑↑↑	none
+↤	↑↑↑	none
+↥	↑↑↑	none
+↦	↑↑↑	none
+↧	↑↑↑	none
+↨	↑↑↑	none
+↫	↑↑↑	none
+↬	↑↑↑	none
+↭	↑↑↑	none
+↯	↑↑↑	none
+↰	↑↑↑	none
+↱	↑↑↑	none
+↲	↑↑↑	none
+↳	↑↑↑	none
 ↴	Flecha hacia la derecha con la esquina hacia abajo	none
 ↵	Flecha hacia abajo con la esquina hacia la izquierda	none
 ↶	Flecha de semicírculo superior en sentido antihorario	none
@@ -20,7 +53,9 @@ symbols:
 ⇂	Arpón hacia abajo con púa hacia la derecha	none
 ⇃	Arpón hacia abajo con púa hacia la izquierda	none
 ⇄	Flecha hacia la derecha sobre flecha hacia la izquierda	none
-⇇	Flechas pareadas a la izquierda	none
+⇅	↑↑↑	none
+⇆	↑↑↑	none
+⇇	par de flechas hacia la izquierda	none
 ⇈	Flechas pareadas hacia arriba	none
 ⇉	Flechas pareadas hacia la derecha	none
 ⇊	Flechas pareadas hacia abajo	none
@@ -60,226 +95,1474 @@ symbols:
 ∂	Diferencial parcial	none
 ∃	Existe	none
 ∅	Conjunto vacío	none
+∆	↑↑↑	none
+∇	↑↑↑	none
+∈	↑↑↑	none
 ∉	No es un elemento de	none
 ∋	Contiene como miembro	none
 ∎	Fin de la prueba	none
 ∏	Producto n-ario	none
 ∑	Suma n-aria	none
 ≮	No menos que	none
+≠	↑↑↑	none
 ≯	No mayor que	none
+−	↑↑↑	none
+⁻	↑↑↑	none
 ∓	Signo menos o más	none
 ∕	Barra de división	none
 ∗	Operador de asterisco	none
 ∘	Operador de anillo	none
 ∙	Operador de bala	none
+√	↑↑↑	none
 ∝	Proporcional a	none
+∞	↑↑↑	none
+∟	↑↑↑	none
+∠	↑↑↑	none
+∣	divisor	none
+∥	en paralelo	none
+∧	lógico y	none
+∩	↑↑↑	none
+∪	↑↑↑	none
+∫	integral	none
+∬	doble integral	none
+∮	integral de contorno	none
+∴	por lo tanto	none
+∵	porque	none
+∶	relación	none
+∷	proporción	none
+∼	operador de tilde	none
+∽	tilde invertida	none
+∾	s invertida horizontal	none
+≃	asintóticamente igual	none
+≅	aproximadamente igual	none
+≈	↑↑↑	none
+≌	todo igual	none
+≒	aproximadamente igual a la imagen	none
+≖	anillo en igualdad	none
+≡	↑↑↑	none
+≣	estrictamente equivalente	none
+≤	↑↑↑	none
+≥	↑↑↑	none
+≦	menos que sobre igual	none
+≧	mayor que sobre igual	none
+≪	mucho menos que	none
+≫	mucho mayor que	none
+≬	entre	none
+≳	mayor o equivalente a	none
+≺	precede	none
+≻	sucede	none
+⊁	no sucede	none
+⊂	↑↑↑	none
+⊃	superconjunto	none
+⊆	subconjunto igual	none
+⊇	superconjunto igual	none
+⊕	más rodeado de un círculo	none
+⊖	menos rodeado de círculo	none
+⊗	multiplicador rodeado de círculo	none
+⊘	barra de división en círculo	none
+⊙	operador de punto en círculo	none
+⊚	operador de anillo en círculo	none
+⊛	operador de asterisco en círculo	none
+⊞	más en cuadro	none
+⊟	menos en cuadro	none
+⊥	tachuela hacia arriba	none
+⊮	no fuerza	none
+⊰	precede bajo la relación	none
+⊱	sucede bajo la relación	none
+⋭	no contiene como subgrupo normal igual	none
+⊶	original	none
+⊹	matriz conjugada hermitiana	none
+⊿	triángulo rectángulo	none
+⋁	n-ario lógico o	none
+⋂	intersección n-aria	none
+⋃	unión n-aria	none
+⋅	↑↑↑	none
+⋆	↑↑↑	none
+⋈	↑↑↑	none
+⋒	doble intersección	none
+⋘	mucho menos-que	none
+⋙	mucho mayor-que	none
+⋮	↑↑↑	none
+⋯	↑↑↑	none
+⋰	↑↑↑	none
+⋱	↑↑↑	none
+■	↑↑↑	none
+□	↑↑↑	none
+▢	↑↑↑	none
+▣	cuadrado hueco que contiene un cuadrado relleno	none
+▤	cuadrado con relleno horizontal	none
+▥	cuadrado con relleno vertical	none
+▦	relleno cuadrado ortogonal en forma de cruz	none
+▧	cuadrado con relleno superior izquierdo e inferior derecho	none
+▨	cuadrado con relleno superior derecho e inferior izquierdo	none
+▩	cuadrado con relleno diagonal	none
+▬	↑↑↑	none
+▭	↑↑↑	none
+▮	↑↑↑	none
+▰	↑↑↑	none
+▲	triángulo relleno apuntando hacia arriba	none
+△	triángulo hueco hacia arriba	none
+▴	triángulo pequeño relleno hacia arriba	none
+▵	triángulo pequeño hueco hacia arriba	none
+▷	triángulo hueco hacia la derecha	none
+▸	triángulo pequeño relleno hacia la derecha	none
+▹	triángulo pequeño hueco hacia la derecha	none
+►	puntero relleno hacia la derecha	none
+▻	puntero hueco hacia la derecha	none
+▼	triángulo relleno apuntando hacia abajo	none
+▽	triángulo hueco hacia abajo	none
+▾	triángulo pequeño relleno hacia abajo	none
+▿	triángulo pequeño hueco hacia abajo	none
+◁	triángulo hueco hacia la izquierda	none
+◂	triángulo pequeño relleno a la izquierda	none
+◃	triángulo pequeño hueco a la izquierda	none
+◄	puntero relleno hacia la izquierda	none
+◅	puntero hueco hacia la izquierda	none
+◆	rombo relleno	none
+◇	rombo hueco	none
+◈	rombo hueco con rombo relleno dentro	none
+◉	círculo hueco con círculo relleno dentro	none
+◊	↑↑↑	none
+○	↑↑↑	none
+◌	círculo punteado	none
+◍	círculo con relleno vertical	none
+◎	círculos concéntricos	none
+●	↑↑↑	none
+◐	círculo relleno a la izquierda	none
+◑	círculo relleno a la derecha	none
+◒	círculo relleno abajo	none
+◓	círculo relleno arriba	none
+◔	círculo con cuadrante superior derecho relleno	none
+◕	círculo relleno excepto en cuadrante superior izquierdo	none
+◖	medio círculo izquierdo relleno	none
+◗	medio círculo derecho relleno	none
+◘	↑↑↑	none
+◙	cuadrado relleno con círculo hueco dentro	none
+◜	arco circular en cuadrante superior izquierdo	none
+◝	arco circular en cuadrante superior derecho	none
+◞	arco circular en cuadrante inferior derecho	none
+◟	arco circular en cuadrante inferior izquierdo	none
+◠	↑↑↑	none
+◡	↑↑↑	none
+◢	triángulo inferior derecho relleno	none
+◣	triángulo inferior izquierdo relleno	none
+◤	triángulo superior izquierdo relleno	none
+◥	triángulo superior derecho relleno	none
+◦	viñeta hueca	none
+◯	↑↑↑	none
+◳	cuadrado hueco con cuadrante superior derecho hueco	none
+◷	círculo hueco con cuadrante superior derecho hueco	none
+◿	triángulo inferior derecho hueco	none
+♪	↑↑↑	none
+⨧	más subíndice dos	none
+⨯	producto vectorial cruzado	none
+⨼	producto interior	none
+⩣	barra doble inferior o lógica	none
+⩽	menor o igual que inclinado	none
+⪍	menor que sobre aproximadamente igual	none
+⪚	igual sobre mayor que	none
+⪺	sucede sobre no casi iguales	none
+♭	↑↑↑	none
+♯	↑↑↑	none
+🥹	↑↑↑	none
+🧌	↑↑↑	none
+🩻	↑↑↑	none
+🩼	↑↑↑	none
+🪩	↑↑↑	none
+🪪	↑↑↑	none
+🪫	batería baja	none
+🪬	↑↑↑	none
+🪷	↑↑↑	none
+🪸	↑↑↑	none
+🪹	↑↑↑	none
+🪺	↑↑↑	none
+🫃	↑↑↑	none
+🫄	↑↑↑	none
+🫅	↑↑↑	none
+🫗	líquido derramándose	none
+🫘	↑↑↑	none
+🫙	↑↑↑	none
+🫠	↑↑↑	none
+🫡	↑↑↑	none
+🫢	↑↑↑	none
+🫣	↑↑↑	none
+🫤	↑↑↑	none
+🫥	↑↑↑	none
+🫦	mordiendo el labio	none
+🫧	↑↑↑	none
+🫰	↑↑↑	none
+🫱	↑↑↑	none
+🫲	↑↑↑	none
+🫳	↑↑↑	none
+🫴	↑↑↑	none
+🫵	↑↑↑	none
+🫶	↑↑↑	none
+🛝	↑↑↑	none
+🛞	↑↑↑	none
+🛟	↑↑↑	none
+🟰	signo igual	none
 😀	cara sonriendo	none
 😃	cara sonriendo con ojos grandes	none
 😄	cara sonriendo con ojos sonrientes	none
 😁	cara radiante con ojos sonrientes	none
 😆	cara sonriendo con los ojos cerrados	none
 😅	cara sonriendo con sudor frío	none
+🤣	↑↑↑	none
 😂	cara llorando de felicidad	none
 🙂	cara sonriendo ligeramente	none
+🙃	↑↑↑	none
 😉	cara guiñando el ojo	none
 😊	cara feliz con ojos sonrientes	none
-🥰	cara sonriente con 4 corazones	none
+😇	cara sonriendo con aureola	none
+🥰	↑↑↑	none
+😍	cara sonriendo con ojos de corazón	none
+🤩	↑↑↑	none
+😘	cara lanzando un beso	none
+😗	↑↑↑	none
+☺	↑↑↑	none
 😚	cara besando con los ojos cerrados	none
+😙	cara besando con ojos sonrientes	none
+🥲	cara sonriente con lágrima	none
 😋	cara saboreando comida	none
+😛	cara sacando la lengua	none
+😜	cara sacando la lengua y guiñando un ojo	none
+🤪	cara de loco	none
 😝	cara con ojos cerrados y sacando la lengua	none
+🤑	cara con lengua de dinero	none
+🤗	↑↑↑	none
+🤭	↑↑↑	none
+🤫	↑↑↑	none
+🤔	↑↑↑	none
+🤐	cara con la boca cerrada con cierre	none
+🤨	↑↑↑	none
+😐	↑↑↑	none
+😑	cara sin expresión	none
+😶	↑↑↑	none
+😶‍🌫	↑↑↑	none
+😏	cara sonriendo con superioridad	none
+😒	↑↑↑	none
 🙄	cara con ojos en blanco	none
+😬	↑↑↑	none
+😮‍💨	↑↑↑	none
+🤥	↑↑↑	none
+😌	↑↑↑	none
+😔	cara desanimada	none
+😪	↑↑↑	none
+🤤	↑↑↑	none
+😴	↑↑↑	none
 😷	cara con mascarilla médica	none
+🤒	↑↑↑	none
 🤕	cara con la cabeza vendada	none
+🤢	↑↑↑	none
+🤮	↑↑↑	none
 🤧	cara estornudando	none
 🥵	cara de calor	none
 🥶	cara de frío	none
 🥴	cara de mareo	none
 😵	cara mareada	none
+😵‍💫	↑↑↑	none
+🤯	↑↑↑	none
+🤠	↑↑↑	none
+🥳	cara de fiesta	none
+🥸	cara disfrazada	none
+😎	cara sonriendo con lentes de sol	none
+🤓	↑↑↑	none
+🧐	↑↑↑	none
+😕	↑↑↑	none
 😟	cara preocupada	none
+🙁	↑↑↑	none
+☹	↑↑↑	none
+😮	↑↑↑	none
+😯	↑↑↑	none
+😲	↑↑↑	none
+😳	↑↑↑	none
 🥺	cara de súplica	none
 😦	cara con el ceño fruncido y la boca abierta	none
 😧	cara angustiada	none
 😨	cara asustada	none
+😰	cara con ansiedad y sudor	none
+😥	cara triste pero aliviada	none
 😢	cara llorando	none
+😭	↑↑↑	none
 😱	cara gritando de miedo	none
+😖	↑↑↑	none
+😣	cara perseverante	none
 😞	cara decepcionada	none
+😓	↑↑↑	none
 😩	cara agotada	none
+😫	cara cansada	none
+🥱	↑↑↑	none
 😤	cara resoplando	none
 😡	cara de enojo	none
 😠	cara enfadada	none
+🤬	↑↑↑	none
 😈	cara malvada sonriendo con cuernos	none
 👿	cara malvada enfadada con cuernos	none
 💀	calavera	none
 ☠	calavera y huesos cruzados	none
 💩	caca con ojos	none
+🤡	↑↑↑	none
 👹	demonio japonés oni	none
+👺	↑↑↑	none
+👻	↑↑↑	none
 👽	alienígena	none
 👾	monstruo alienígena	none
 🤖	cara de robot	none
 😺	cara de gato sonriendo	none
+😸	↑↑↑	none
 😹	cara de gato llorando de risa	none
 😻	gato con ojos de corazón	none
 😼	cara de gato con sonrisa irónica	none
 😽	cara de gato besando	none
 🙀	cara de gato asustado	none
 😿	cara de gato llorando	none
+😾	cara de gato enfadado	none
 🙈	mono con los ojos tapados	none
 🙉	mono con los oídos tapados	none
 🙊	mono con la boca tapada	none
+💋	↑↑↑	none
+💌	↑↑↑	none
+💘	↑↑↑	none
 💝	corazón con lazo	none
+💖	↑↑↑	none
 💗	corazón creciente	none
 💓	corazón latiendo	none
 💞	corazones giratorios	none
+💕	↑↑↑	none
 💟	adorno de corazón	none
+❣	↑↑↑	none
+💔	↑↑↑	none
+❤‍🔥	↑↑↑	none
+❤‍🩹	↑↑↑	none
+❤	↑↑↑	none
+🧡	↑↑↑	none
+💛	↑↑↑	none
+💚	↑↑↑	none
+💙	↑↑↑	none
+💜	↑↑↑	none
 🤎	corazón café	none
+🖤	↑↑↑	none
+🤍	↑↑↑	none
+💯	↑↑↑	none
 💢	símbolo de enfado	none
+💥	↑↑↑	none
 💫	símbolo de mareo	none
+💦	↑↑↑	none
+💨	↑↑↑	none
+🕳	↑↑↑	none
+💣	↑↑↑	none
+💬	↑↑↑	none
 👁‍🗨	ojo en un globo de texto	none
+🗨	↑↑↑	none
+🗯	↑↑↑	none
+💭	↑↑↑	none
+💤	símbolo de sueño	none
+👋	↑↑↑	none
 🤚	dorso de la mano	none
+🖐	↑↑↑	none
+✋	↑↑↑	none
+🖖	↑↑↑	none
 👌	señal de aprobación con la mano	none
 🤌	dedos unidos	none
+🤏	↑↑↑	none
 ✌	mano con señal de victoria	none
+🤞	dedos cruzados	none
+🤟	↑↑↑	none
 🤘	mano haciendo los cuernos	none
 🤙	mano haciendo el gesto de llamar	none
 👈	mano apuntando índice a la izquierda	none
 👉	mano apuntando índice a la derecha	none
+👆	↑↑↑	none
 🖕	mano con el dedo medio levantado	none
+👇	↑↑↑	none
+☝	dedo índice hacia arriba	none
+👍	↑↑↑	none
+👎	↑↑↑	none
 ✊	puño en alto	none
+👊	puño cerrado	none
 🤛	puño hacia la izquierda	none
 🤜	puño hacia la derecha	none
+👏	↑↑↑	none
 🙌	manos levantadas celebrando	none
+👐	↑↑↑	none
+🤲	↑↑↑	none
+🤝	↑↑↑	none
+🙏	↑↑↑	none
+✍	↑↑↑	none
+💅	pintarse las uñas	none
 🤳	selfi	none
+💪	↑↑↑	none
+🦾	↑↑↑	none
+🦿	↑↑↑	none
+🦵	pierna	none
+🦶	↑↑↑	none
+👂	↑↑↑	none
 🦻	oreja con prótesis auditiva	none
+👃	↑↑↑	none
+🧠	↑↑↑	none
 🫀	órgano cardíaco	none
+🫁	pulmones	none
+🦷	↑↑↑	none
+🦴	hueso	none
+👀	↑↑↑	none
+👁	↑↑↑	none
+👅	↑↑↑	none
+👄	↑↑↑	none
+👶	↑↑↑	none
 🧒	joven	none
+👦	↑↑↑	none
+👧	↑↑↑	none
 🧑	persona	none
+👱	↑↑↑	none
+👨	↑↑↑	none
+🧔	↑↑↑	none
+🧔‍♂	↑↑↑	none
+👱‍♂	↑↑↑	none
+👩	↑↑↑	none
+🧔‍♀	↑↑↑	none
+👱‍♀	↑↑↑	none
 🧓	persona mayor	none
+👴	↑↑↑	none
+👵	↑↑↑	none
+🙍	persona frunciendo el ceño	none
+🙍‍♂	↑↑↑	none
 🙍‍♀	mujer frunciendo el ceño	none
+🙎	persona haciendo pucheros	none
+🙎‍♂	↑↑↑	none
+🙎‍♀	↑↑↑	none
 🙅	persona haciendo el gesto de "no"	none
+🙅‍♂	↑↑↑	none
+🙅‍♀	↑↑↑	none
 🙆	persona haciendo el gesto de "de acuerdo"	none
+🙆‍♂	↑↑↑	none
+🙆‍♀	↑↑↑	none
+💁	persona de mostrador de información	none
+💁‍♂	↑↑↑	none
+💁‍♀	↑↑↑	none
+🙋	↑↑↑	none
+🙋‍♂	↑↑↑	none
+🙋‍♀	↑↑↑	none
+🧏	↑↑↑	none
+🧏‍♂	↑↑↑	none
+🧏‍♀	↑↑↑	none
+🙇	↑↑↑	none
+🙇‍♂	↑↑↑	none
+🙇‍♀	↑↑↑	none
+🤦	persona con la mano en la frente	none
+🤦‍♂	↑↑↑	none
+🤦‍♀	↑↑↑	none
+🤷	↑↑↑	none
+🤷‍♂	↑↑↑	none
+🤷‍♀	↑↑↑	none
+🧑‍⚕	↑↑↑	none
+👨‍⚕	↑↑↑	none
+👩‍⚕	↑↑↑	none
+🧑‍🎓	estudiante	none
+👨‍🎓	↑↑↑	none
+👩‍🎓	↑↑↑	none
 🧑‍🏫	maestro	none
+👨‍🏫	↑↑↑	none
+👩‍🏫	↑↑↑	none
 🧑‍⚖	juez	none
+👨‍⚖	↑↑↑	none
+👩‍⚖	↑↑↑	none
 🧑‍🌾	granjero	none
 👨‍🌾	granjero hombre	none
 👩‍🌾	granjera mujer	none
 🧑‍🍳	cocinero	none
+👨‍🍳	↑↑↑	none
+👩‍🍳	↑↑↑	none
+🧑‍🔧	↑↑↑	none
+👨‍🔧	↑↑↑	none
+👩‍🔧	↑↑↑	none
 🧑‍🏭	obrero de fábrica	none
+👨‍🏭	↑↑↑	none
+👩‍🏭	↑↑↑	none
+🧑‍💼	oficinista	none
+👨‍💼	↑↑↑	none
+👩‍💼	↑↑↑	none
+🧑‍🔬	↑↑↑	none
+👨‍🔬	↑↑↑	none
+👩‍🔬	↑↑↑	none
+🧑‍💻	↑↑↑	none
+👨‍💻	↑↑↑	none
+👩‍💻	↑↑↑	none
+🧑‍🎤	cantante	none
+👨‍🎤	↑↑↑	none
+👩‍🎤	↑↑↑	none
+🧑‍🎨	artista	none
+👨‍🎨	↑↑↑	none
+👩‍🎨	↑↑↑	none
+🧑‍✈	piloto	none
+👨‍✈	↑↑↑	none
+👩‍✈	↑↑↑	none
+🧑‍🚀	astronauta	none
+👨‍🚀	↑↑↑	none
+👩‍🚀	↑↑↑	none
+🧑‍🚒	bombero	none
+👨‍🚒	↑↑↑	none
+👩‍🚒	↑↑↑	none
+👮	↑↑↑	none
+👮‍♂	↑↑↑	none
+👮‍♀	↑↑↑	none
+🕵	↑↑↑	none
+🕵‍♂	↑↑↑	none
+🕵‍♀	↑↑↑	none
+💂	↑↑↑	none
+💂‍♂	↑↑↑	none
+💂‍♀	↑↑↑	none
+🥷	ninja	none
 👷	persona obrera de construcción	none
 👷‍♂	obrero de construcción	none
 👷‍♀	obrera de construcción	none
+🤴	↑↑↑	none
+👸	↑↑↑	none
+👳	↑↑↑	none
+👳‍♂	↑↑↑	none
+👳‍♀	↑↑↑	none
+👲	↑↑↑	none
+🧕	↑↑↑	none
+🤵	↑↑↑	none
+🤵‍♂	hombre con esmoquin	none
+🤵‍♀	↑↑↑	none
+👰	↑↑↑	none
+👰‍♂	↑↑↑	none
+👰‍♀	↑↑↑	none
+🤰	↑↑↑	none
+🤱	↑↑↑	none
+👩‍🍼	↑↑↑	none
+👨‍🍼	↑↑↑	none
+🧑‍🍼	↑↑↑	none
+👼	↑↑↑	none
+🎅	↑↑↑	none
+🤶	↑↑↑	none
+🧑‍🎄	↑↑↑	none
 🦸	superheroína	none
+🦸‍♂	superhéroe	none
 🦸‍♀	mujer superheroína	none
 🦹	supervillano	none
 🦹‍♂	hombre supervillano	none
+🦹‍♀	supervillana	none
+🧙	↑↑↑	none
+🧙‍♂	↑↑↑	none
+🧙‍♀	↑↑↑	none
+🧚	↑↑↑	none
+🧚‍♂	↑↑↑	none
+🧚‍♀	↑↑↑	none
+🧛	↑↑↑	none
+🧛‍♂	↑↑↑	none
+🧛‍♀	↑↑↑	none
+🧜	↑↑↑	none
+🧜‍♂	↑↑↑	none
+🧜‍♀	↑↑↑	none
+🧝	↑↑↑	none
+🧝‍♂	↑↑↑	none
+🧝‍♀	↑↑↑	none
+🧞	↑↑↑	none
+🧞‍♂	↑↑↑	none
+🧞‍♀	↑↑↑	none
 🧟	persona zombi	none
+🧟‍♂	↑↑↑	none
+🧟‍♀	↑↑↑	none
 💆	persona recibiendo masaje	none
+💆‍♂	↑↑↑	none
+💆‍♀	↑↑↑	none
 💇	persona cortándose el pelo	none
+💇‍♂	↑↑↑	none
+💇‍♀	↑↑↑	none
+🚶	↑↑↑	none
+🚶‍♂	↑↑↑	none
+🚶‍♀	↑↑↑	none
+🧍	↑↑↑	none
+🧍‍♂	↑↑↑	none
+🧍‍♀	↑↑↑	none
+🧎	↑↑↑	none
+🧎‍♂	↑↑↑	none
+🧎‍♀	↑↑↑	none
 🧑‍🦯	Persona con bastón blanco	none
+👨‍🦯	↑↑↑	none
+👩‍🦯	↑↑↑	none
+🧑‍🦼	↑↑↑	none
+👨‍🦼	↑↑↑	none
+👩‍🦼	↑↑↑	none
+🧑‍🦽	persona en silla de ruedas manual	none
+👨‍🦽	↑↑↑	none
+👩‍🦽	↑↑↑	none
+🏃	↑↑↑	none
+🏃‍♂	↑↑↑	none
+🏃‍♀	↑↑↑	none
 💃	bailarina	none
 🕺	bailarín	none
+🕴	↑↑↑	none
+👯	↑↑↑	none
+👯‍♂	↑↑↑	none
+👯‍♀	↑↑↑	none
 🧖	persona en sauna	none
 🧖‍♂	hombre en sauna	none
 🧖‍♀	mujer en sauna	none
+🧗	↑↑↑	none
+🧗‍♂	↑↑↑	none
+🧗‍♀	↑↑↑	none
+🤺	↑↑↑	none
+🏇	↑↑↑	none
+⛷	↑↑↑	none
+🏂	↑↑↑	none
 🏌	persona jugando al golf	none
+🏌‍♂	↑↑↑	none
+🏌‍♀	↑↑↑	none
 🏄	persona haciendo surf	none
+🏄‍♂	↑↑↑	none
+🏄‍♀	↑↑↑	none
+🚣	↑↑↑	none
 🚣‍♂	hombre remando	none
 🚣‍♀	mujer remando	none
+🏊	↑↑↑	none
+🏊‍♂	↑↑↑	none
+🏊‍♀	↑↑↑	none
 ⛹	persona botando un balón	none
+⛹‍♂	↑↑↑	none
+⛹‍♀	↑↑↑	none
+🏋	↑↑↑	none
+🏋‍♂	↑↑↑	none
+🏋‍♀	↑↑↑	none
+🚴	↑↑↑	none
+🚴‍♂	↑↑↑	none
+🚴‍♀	↑↑↑	none
+🚵	↑↑↑	none
+🚵‍♂	↑↑↑	none
+🚵‍♀	↑↑↑	none
 🤸	persona haciendo una vuelta de carro	none
 🤸‍♂	hombre haciendo una vuelta de carro	none
 🤸‍♀	mujer haciendo una vuelta de carro	none
+🤼	↑↑↑	none
+🤼‍♂	↑↑↑	none
+🤼‍♀	↑↑↑	none
+🤽	↑↑↑	none
+🤽‍♂	↑↑↑	none
+🤽‍♀	↑↑↑	none
+🤾	↑↑↑	none
+🤾‍♂	↑↑↑	none
+🤾‍♀	↑↑↑	none
 🤹	malabarista	none
+🤹‍♂	↑↑↑	none
+🤹‍♀	↑↑↑	none
+🧘	↑↑↑	none
+🧘‍♂	↑↑↑	none
+🧘‍♀	↑↑↑	none
 🛀	persona en tina	none
+🛌	↑↑↑	none
+🧑‍🤝‍🧑	↑↑↑	none
+👭	↑↑↑	none
+👫	↑↑↑	none
+👬	↑↑↑	none
 💏	beso	none
 💑	hombre y mujer enamorados	none
-🫂	personas que se abrazan	none
+👪	↑↑↑	none
+🗣	↑↑↑	none
+👤	↑↑↑	none
+👥	↑↑↑	none
+🫂	↑↑↑	none
 👣	huellas de pies	none
+🦰	↑↑↑	none
+🦱	↑↑↑	none
+🦳	↑↑↑	none
+🦲	↑↑↑	none
+🐵	↑↑↑	none
+🐒	↑↑↑	none
+🦍	↑↑↑	none
+🦧	↑↑↑	none
+🐶	↑↑↑	none
+🐕	↑↑↑	none
+🦮	↑↑↑	none
+🐕‍🦺	↑↑↑	none
+🐩	↑↑↑	none
+🐺	↑↑↑	none
+🦊	↑↑↑	none
+🦝	mapache	none
+🐱	↑↑↑	none
+🐈	↑↑↑	none
+🐈‍⬛	gato negro	none
+🦁	↑↑↑	none
+🐯	↑↑↑	none
+🐅	↑↑↑	none
+🐆	↑↑↑	none
+🐴	↑↑↑	none
+🐎	↑↑↑	none
+🦄	↑↑↑	none
+🦓	↑↑↑	none
+🦌	↑↑↑	none
+🦬	bisonte	none
+🐮	↑↑↑	none
+🐂	↑↑↑	none
+🐃	↑↑↑	none
+🐄	↑↑↑	none
+🐷	↑↑↑	none
+🐖	↑↑↑	none
+🐗	↑↑↑	none
+🐽	↑↑↑	none
+🐏	↑↑↑	none
+🐑	↑↑↑	none
+🐐	↑↑↑	none
+🐪	↑↑↑	none
+🐫	↑↑↑	none
+🦙	llama	none
+🦒	↑↑↑	none
+🐘	↑↑↑	none
+🦣	mamut	none
+🦏	↑↑↑	none
+🦛	hipopótamo	none
+🐭	↑↑↑	none
+🐁	↑↑↑	none
+🐀	↑↑↑	none
+🐹	↑↑↑	none
+🐰	↑↑↑	none
+🐇	↑↑↑	none
+🐿	ardilla	none
+🦫	castor	none
+🦔	↑↑↑	none
+🦇	↑↑↑	none
+🐻	↑↑↑	none
+🐻‍❄	oso polar	none
+🐨	↑↑↑	none
+🐼	↑↑↑	none
+🦥	↑↑↑	none
+🦦	↑↑↑	none
 🦨	zorrillo	none
+🦘	canguro	none
+🦡	tejón	none
+🐾	↑↑↑	none
+🦃	↑↑↑	none
+🐔	gallina	none
+🐓	↑↑↑	none
+🐣	↑↑↑	none
+🐤	↑↑↑	none
+🐥	↑↑↑	none
+🐦	↑↑↑	none
+🐧	↑↑↑	none
+🕊	↑↑↑	none
+🦅	↑↑↑	none
+🦆	↑↑↑	none
+🦢	cisne	none
+🦉	↑↑↑	none
+🦤	dodo	none
+🪶	pluma	none
+🦩	↑↑↑	none
+🦚	pavo real	none
+🦜	loro	none
+🐸	↑↑↑	none
+🐊	↑↑↑	none
+🐢	↑↑↑	none
+🦎	↑↑↑	none
+🐍	↑↑↑	none
+🐲	↑↑↑	none
+🐉	↑↑↑	none
+🦕	↑↑↑	none
+🦖	↑↑↑	none
+🐳	↑↑↑	none
+🐋	↑↑↑	none
+🐬	↑↑↑	none
+🦭	foca	none
+🐟	↑↑↑	none
+🐠	↑↑↑	none
+🐡	↑↑↑	none
+🦈	↑↑↑	none
+🐙	↑↑↑	none
 🐚	caracol marino	none
+🐌	↑↑↑	none
+🦋	↑↑↑	none
+🐛	↑↑↑	none
+🐜	↑↑↑	none
+🐝	↑↑↑	none
+🪲	escarabajo	none
+🐞	↑↑↑	none
+🦗	↑↑↑	none
+🪳	cucaracha	none
+🕷	↑↑↑	none
+🕸	↑↑↑	none
+🦂	↑↑↑	none
+🦟	mosquito	none
+🪰	mosca	none
+🪱	gusano	none
+🦠	microbio	none
+💐	↑↑↑	none
+🌸	↑↑↑	none
+💮	↑↑↑	none
+🏵	↑↑↑	none
+🌹	↑↑↑	none
+🥀	↑↑↑	none
+🌺	↑↑↑	none
+🌻	↑↑↑	none
+🌼	↑↑↑	none
+🌷	↑↑↑	none
+🌱	↑↑↑	none
 🪴	planta en una maceta	none
+🌲	↑↑↑	none
+🌳	↑↑↑	none
+🌴	↑↑↑	none
+🌵	↑↑↑	none
+🌾	↑↑↑	none
+🌿	↑↑↑	none
+☘	↑↑↑	none
+🍀	↑↑↑	none
+🍁	↑↑↑	none
+🍂	↑↑↑	none
+🍃	↑↑↑	none
+🍇	↑↑↑	none
+🍈	↑↑↑	none
+🍉	↑↑↑	none
+🍊	↑↑↑	none
+🍋	↑↑↑	none
 🍌	plátano	none
+🍍	piña	none
+🥭	mango	none
+🍎	↑↑↑	none
+🍏	↑↑↑	none
+🍐	↑↑↑	none
+🍑	↑↑↑	none
+🍒	↑↑↑	none
 🍓	fresa	none
+🫐	arándanos	none
+🥝	↑↑↑	none
+🍅	↑↑↑	none
+🫒	aceituna	none
+🥥	↑↑↑	none
 🥑	aguacate	none
+🍆	↑↑↑	none
+🥔	↑↑↑	none
+🥕	↑↑↑	none
+🌽	↑↑↑	none
 🌶	chile picante	none
 🫑	pimiento morrón	none
+🥒	↑↑↑	none
 🥬	verdura de hoja	none
+🥦	↑↑↑	none
+🧄	↑↑↑	none
+🧅	↑↑↑	none
+🍄	↑↑↑	none
 🥜	cacahuate	none
+🌰	↑↑↑	none
+🍞	↑↑↑	none
+🥐	↑↑↑	none
+🥖	↑↑↑	none
 🫓	pan plano	none
+🥨	↑↑↑	none
+🥯	bagel	none
+🥞	↑↑↑	none
 🧇	waffle	none
+🧀	↑↑↑	none
+🍖	↑↑↑	none
+🍗	↑↑↑	none
+🥩	↑↑↑	none
+🥓	↑↑↑	none
+🍔	↑↑↑	none
+🍟	↑↑↑	none
+🍕	↑↑↑	none
 🌭	perro caliente	none
+🥪	↑↑↑	none
+🌮	↑↑↑	none
+🌯	↑↑↑	none
+🫔	tamal	none
+🥙	↑↑↑	none
+🧆	↑↑↑	none
+🥚	↑↑↑	none
+🍳	↑↑↑	none
+🥘	↑↑↑	none
+🍲	↑↑↑	none
+🫕	fondue	none
 🥣	tazón con cuchara	none
+🥗	↑↑↑	none
+🍿	↑↑↑	none
+🧈	↑↑↑	none
+🧂	sal	none
+🥫	↑↑↑	none
+🍱	↑↑↑	none
+🍘	↑↑↑	none
+🍙	↑↑↑	none
+🍚	↑↑↑	none
+🍛	↑↑↑	none
+🍜	tazón de fideos	none
+🍝	↑↑↑	none
+🍠	↑↑↑	none
+🍢	↑↑↑	none
+🍣	↑↑↑	none
+🍤	↑↑↑	none
+🍥	↑↑↑	none
+🥮	pastel de luna	none
+🍡	↑↑↑	none
 🥟	empanada	none
+🥠	↑↑↑	none
+🥡	↑↑↑	none
+🦀	↑↑↑	none
+🦞	langosta	none
+🦐	↑↑↑	none
+🦑	↑↑↑	none
 🦪	ostión	none
 🍦	helado en barquillo	none
+🍧	↑↑↑	none
+🍨	↑↑↑	none
+🍩	↑↑↑	none
+🍪	↑↑↑	none
 🎂	pastel de cumpleaños	none
 🍰	rebanada de pastel	none
 🧁	pastelito	none
 🥧	pay	none
+🍫	↑↑↑	none
+🍬	↑↑↑	none
+🍭	↑↑↑	none
+🍮	↑↑↑	none
+🍯	↑↑↑	none
+🍼	↑↑↑	none
+🥛	↑↑↑	none
+☕	↑↑↑	none
+🫖	tetera	none
+🍵	↑↑↑	none
+🍶	↑↑↑	none
+🍾	↑↑↑	none
+🍷	↑↑↑	none
+🍸	↑↑↑	none
+🍹	↑↑↑	none
+🍺	↑↑↑	none
+🍻	↑↑↑	none
+🥂	↑↑↑	none
+🥃	↑↑↑	none
+🥤	↑↑↑	none
+🧋	té de burbujas	none
+🧃	↑↑↑	none
+🧉	↑↑↑	none
 🧊	hielo	none
+🥢	↑↑↑	none
+🍽	↑↑↑	none
+🍴	↑↑↑	none
+🥄	↑↑↑	none
+🔪	↑↑↑	none
+🏺	↑↑↑	none
+🌍	↑↑↑	none
+🌎	↑↑↑	none
+🌏	↑↑↑	none
+🌐	↑↑↑	none
+🗺	↑↑↑	none
+🗾	↑↑↑	none
+🧭	brújula	none
+🏔	↑↑↑	none
+⛰	↑↑↑	none
+🌋	↑↑↑	none
+🗻	↑↑↑	none
+🏕	↑↑↑	none
+🏖	↑↑↑	none
+🏜	↑↑↑	none
+🏝	↑↑↑	none
+🏞	↑↑↑	none
+🏟	↑↑↑	none
+🏛	↑↑↑	none
+🏗	↑↑↑	none
 🧱	ladrillos	none
+🪨	↑↑↑	none
+🪵	↑↑↑	none
 🛖	choza	none
+🏘	↑↑↑	none
+🏚	↑↑↑	none
+🏠	↑↑↑	none
+🏡	↑↑↑	none
+🏢	↑↑↑	none
+🏣	↑↑↑	none
+🏤	↑↑↑	none
+🏥	↑↑↑	none
+🏦	↑↑↑	none
+🏨	↑↑↑	none
+🏩	↑↑↑	none
+🏪	↑↑↑	none
+🏫	↑↑↑	none
 🏬	tienda departamental	none
+🏭	↑↑↑	none
+🏯	↑↑↑	none
+🏰	↑↑↑	none
 💒	boda religiosa	none
+🗼	↑↑↑	none
+🗽	↑↑↑	none
+⛪	↑↑↑	none
+🕌	↑↑↑	none
+🛕	↑↑↑	none
+🕍	↑↑↑	none
+⛩	↑↑↑	none
+🕋	↑↑↑	none
+⛲	↑↑↑	none
 ⛺	casa de campaña	none
+🌁	↑↑↑	none
+🌃	↑↑↑	none
+🏙	↑↑↑	none
+🌄	↑↑↑	none
+🌅	↑↑↑	none
+🌆	↑↑↑	none
+🌇	↑↑↑	none
+🌉	↑↑↑	none
+♨	↑↑↑	none
+🎠	↑↑↑	none
 🎡	rueda de la fortuna	none
+🎢	↑↑↑	none
 💈	peluquería	none
+🎪	↑↑↑	none
 🚂	locomotora	none
+🚃	↑↑↑	none
+🚄	↑↑↑	none
+🚅	↑↑↑	none
+🚆	↑↑↑	none
+🚇	↑↑↑	none
+🚈	↑↑↑	none
+🚉	↑↑↑	none
+🚊	↑↑↑	none
+🚝	↑↑↑	none
+🚞	↑↑↑	none
+🚋	↑↑↑	none
+🚌	↑↑↑	none
+🚍	autobús se aproxima	none
+🚎	↑↑↑	none
+🚐	↑↑↑	none
+🚑	↑↑↑	none
+🚒	↑↑↑	none
+🚓	↑↑↑	none
 🚔	patrulla se aproxima	none
+🚕	↑↑↑	none
+🚖	↑↑↑	none
+🚗	↑↑↑	none
+🚘	↑↑↑	none
 🚙	vehículo utilitario deportivo	none
+🛻	↑↑↑	none
+🚚	↑↑↑	none
 🚛	trailer	none
+🚜	↑↑↑	none
 🏎	auto de carreras	none
+🏍	↑↑↑	none
 🛵	motoneta	none
+🦽	↑↑↑	none
+🦼	↑↑↑	none
+🛺	↑↑↑	none
+🚲	↑↑↑	none
 🛴	patín del diablo	none
 🛹	patineta	none
 🛼	patín	none
+🚏	↑↑↑	none
+🛣	↑↑↑	none
+🛤	↑↑↑	none
 🛢	barril de petróleo	none
+⛽	↑↑↑	none
 🚨	sirena de patrulla	none
+🚥	↑↑↑	none
+🚦	↑↑↑	none
 🛑	señal de alto	none
+🚧	↑↑↑	none
+⚓	↑↑↑	none
+⛵	↑↑↑	none
+🛶	↑↑↑	none
+🚤	↑↑↑	none
+🛳	↑↑↑	none
+⛴	↑↑↑	none
+🛥	↑↑↑	none
+🚢	↑↑↑	none
+✈	↑↑↑	none
+🛩	↑↑↑	none
+🛫	↑↑↑	none
+🛬	↑↑↑	none
+🪂	↑↑↑	none
+💺	↑↑↑	none
+🚁	↑↑↑	none
+🚟	↑↑↑	none
+🚠	↑↑↑	none
+🚡	↑↑↑	none
+🛰	↑↑↑	none
+🚀	↑↑↑	none
+🛸	platillo volador	none
+🛎	↑↑↑	none
+🧳	equipaje	none
+⌛	↑↑↑	none
+⏳	↑↑↑	none
+⌚	↑↑↑	none
+⏰	↑↑↑	none
+⏱	↑↑↑	none
+⏲	↑↑↑	none
+🕰	↑↑↑	none
+🕛	↑↑↑	none
+🕧	↑↑↑	none
+🕐	↑↑↑	none
+🕜	↑↑↑	none
+🕑	↑↑↑	none
+🕝	↑↑↑	none
+🕒	↑↑↑	none
+🕞	↑↑↑	none
+🕓	↑↑↑	none
+🕟	↑↑↑	none
+🕔	↑↑↑	none
+🕠	↑↑↑	none
+🕕	↑↑↑	none
+🕡	↑↑↑	none
+🕖	↑↑↑	none
+🕢	↑↑↑	none
+🕗	↑↑↑	none
+🕣	↑↑↑	none
+🕘	↑↑↑	none
+🕤	↑↑↑	none
+🕙	↑↑↑	none
+🕥	↑↑↑	none
+🕚	↑↑↑	none
+🕦	↑↑↑	none
+🌑	↑↑↑	none
+🌒	↑↑↑	none
+🌓	↑↑↑	none
+🌔	↑↑↑	none
+🌕	↑↑↑	none
+🌖	↑↑↑	none
+🌗	↑↑↑	none
+🌘	↑↑↑	none
+🌙	↑↑↑	none
+🌚	↑↑↑	none
+🌛	↑↑↑	none
+🌜	↑↑↑	none
+🌡	↑↑↑	none
+☀	↑↑↑	none
+🌝	↑↑↑	none
+🌞	↑↑↑	none
+🪐	↑↑↑	none
+⭐	↑↑↑	none
+🌟	↑↑↑	none
+🌠	↑↑↑	none
+🌌	↑↑↑	none
+☁	↑↑↑	none
+⛅	↑↑↑	none
+⛈	↑↑↑	none
+🌤	↑↑↑	none
+🌥	↑↑↑	none
+🌦	↑↑↑	none
+🌧	↑↑↑	none
+🌨	↑↑↑	none
+🌩	↑↑↑	none
+🌪	↑↑↑	none
+🌫	↑↑↑	none
+🌬	↑↑↑	none
+🌀	↑↑↑	none
+🌈	↑↑↑	none
+🌂	↑↑↑	none
+☂	↑↑↑	none
+☔	↑↑↑	none
+⛱	↑↑↑	none
+⚡	↑↑↑	none
+❄	↑↑↑	none
+☃	↑↑↑	none
+⛄	↑↑↑	none
+☄	↑↑↑	none
+🔥	↑↑↑	none
+💧	↑↑↑	none
+🌊	↑↑↑	none
+🎃	↑↑↑	none
+🎄	↑↑↑	none
+🎆	↑↑↑	none
+🎇	↑↑↑	none
+🧨	petardo	none
+✨	↑↑↑	none
+🎈	↑↑↑	none
+🎉	↑↑↑	none
+🎊	↑↑↑	none
+🎋	↑↑↑	none
+🎍	↑↑↑	none
+🎎	↑↑↑	none
 🎏	koinobori	none
+🎐	↑↑↑	none
 🎑	ceremonia de contemplación de la luna	none
+🧧	sobre rojo	none
+🎀	↑↑↑	none
+🎁	↑↑↑	none
+🎗	↑↑↑	none
 🎟	boleto de entrada	none
+🎫	↑↑↑	none
+🎖	↑↑↑	none
+🏆	↑↑↑	none
+🏅	↑↑↑	none
+🥇	↑↑↑	none
+🥈	↑↑↑	none
+🥉	↑↑↑	none
+⚽	↑↑↑	none
+⚾	↑↑↑	none
 🥎	sóftbol	none
+🏀	↑↑↑	none
 🏐	pelota de voleibol	none
+🏈	↑↑↑	none
+🏉	↑↑↑	none
+🎾	↑↑↑	none
 🥏	frisbee	none
+🎳	↑↑↑	none
+🏏	↑↑↑	none
+🏑	↑↑↑	none
+🏒	↑↑↑	none
+🥍	lacrosse	none
+🏓	↑↑↑	none
+🏸	↑↑↑	none
+🥊	↑↑↑	none
+🥋	↑↑↑	none
+🥅	↑↑↑	none
+⛳	↑↑↑	none
+⛸	↑↑↑	none
+🎣	↑↑↑	none
+🤿	↑↑↑	none
+🎽	↑↑↑	none
+🎿	↑↑↑	none
+🛷	↑↑↑	none
+🥌	↑↑↑	none
+🎯	↑↑↑	none
 🪀	yoyo	none
+🪁	↑↑↑	none
+🎱	↑↑↑	none
+🔮	↑↑↑	none
+🪄	varita mágica	none
 🧿	nazar	none
+🎮	↑↑↑	none
+🕹	↑↑↑	none
+🎰	↑↑↑	none
+🎲	↑↑↑	none
+🧩	↑↑↑	none
 🧸	oso de peluche	none
+🪅	↑↑↑	none
 🪆	muñecas rusas	none
+♠	↑↑↑	none
+♥	↑↑↑	none
+♦	↑↑↑	none
+♣	↑↑↑	none
 ♟	peón (ajedrez)	none
+🃏	↑↑↑	none
+🀄	↑↑↑	none
+🎴	↑↑↑	none
+🎭	↑↑↑	none
+🖼	↑↑↑	none
+🎨	↑↑↑	none
+🧵	hilo	none
+🪡	aguja de coser	none
+🧶	ovillo	none
+🪢	nudo	none
+👓	lentes	none
 🕶	lentes de sol	none
 🥽	goggles	none
+🥼	bata de laboratorio	none
+🦺	↑↑↑	none
+👔	↑↑↑	none
+👕	↑↑↑	none
 👖	pantalones de mezclilla	none
+🧣	↑↑↑	none
+🧤	↑↑↑	none
+🧥	↑↑↑	none
+🧦	↑↑↑	none
+👗	↑↑↑	none
+👘	↑↑↑	none
+🥻	↑↑↑	none
+🩱	↑↑↑	none
+🩲	↑↑↑	none
 🩳	shorts	none
+👙	↑↑↑	none
+👚	↑↑↑	none
+👛	↑↑↑	none
+👜	bolso	none
+👝	bolso de mano	none
+🛍	↑↑↑	none
 🎒	mochila escolar	none
+🩴	↑↑↑	none
+👞	↑↑↑	none
 👟	tenis	none
 🥾	botas de excursión	none
 🥿	zapato de piso	none
 👠	zapatilla	none
+👡	↑↑↑	none
+🩰	↑↑↑	none
+👢	↑↑↑	none
+👑	↑↑↑	none
+👒	↑↑↑	none
 🎩	sombrero de copa	none
 🎓	birrete	none
+🧢	↑↑↑	none
+🪖	↑↑↑	none
 ⛑	casco con una cruz blanca	none
+📿	↑↑↑	none
+💄	↑↑↑	none
+💍	↑↑↑	none
+💎	↑↑↑	none
 🔇	bocina silenciada	none
 🔈	bocina a volumen bajo	none
 🔉	bocina a volumen medio	none
 🔊	bocina a volumen alto	none
 📢	altavoz	none
+📣	↑↑↑	none
+📯	↑↑↑	none
+🔔	↑↑↑	none
+🔕	↑↑↑	none
 🎼	partitura	none
+🎵	↑↑↑	none
+🎶	↑↑↑	none
+🎙	↑↑↑	none
+🎚	↑↑↑	none
+🎛	perillas	none
+🎤	↑↑↑	none
 🎧	audífonos	none
+📻	↑↑↑	none
+🎷	↑↑↑	none
+🪗	acordeón	none
+🎸	↑↑↑	none
+🎹	↑↑↑	none
+🎺	↑↑↑	none
+🎻	↑↑↑	none
+🪕	↑↑↑	none
+🥁	↑↑↑	none
+🪘	↑↑↑	none
+📱	↑↑↑	none
 📲	flecha apuntado a teléfono celular	none
 ☎	teléfono fijo	none
+📞	↑↑↑	none
 📟	bíper	none
+📠	↑↑↑	none
+🔋	↑↑↑	none
+🔌	↑↑↑	none
+💻	↑↑↑	none
+🖥	↑↑↑	none
+🖨	↑↑↑	none
+⌨	↑↑↑	none
+🖱	↑↑↑	none
+🖲	↑↑↑	none
 💽	disco duro	none
+💾	↑↑↑	none
+💿	↑↑↑	none
+📀	↑↑↑	none
+🧮	↑↑↑	none
 🎥	cámara de video	none
+🎞	↑↑↑	none
+📽	↑↑↑	none
+🎬	↑↑↑	none
 📺	televisión	none
+📷	↑↑↑	none
+📸	↑↑↑	none
+📹	↑↑↑	none
 📼	videocasete	none
+🔍	↑↑↑	none
+🔎	↑↑↑	none
+🕯	↑↑↑	none
 💡	foco	none
+🔦	↑↑↑	none
+🏮	↑↑↑	none
+🪔	↑↑↑	none
+📔	↑↑↑	none
+📕	↑↑↑	none
+📖	↑↑↑	none
+📗	↑↑↑	none
+📘	↑↑↑	none
+📙	↑↑↑	none
+📚	↑↑↑	none
+📓	↑↑↑	none
+📒	↑↑↑	none
 📃	página doblada	none
+📜	↑↑↑	none
+📄	↑↑↑	none
+📰	↑↑↑	none
+🗞	↑↑↑	none
+📑	↑↑↑	none
+🔖	↑↑↑	none
+🏷	↑↑↑	none
+💰	↑↑↑	none
+🪙	moneda	none
+💴	↑↑↑	none
+💵	↑↑↑	none
+💶	↑↑↑	none
+💷	↑↑↑	none
+💸	↑↑↑	none
+💳	↑↑↑	none
+🧾	↑↑↑	none
+💹	↑↑↑	none
+✉	↑↑↑	none
+📧	↑↑↑	none
+📨	↑↑↑	none
+📩	↑↑↑	none
+📤	↑↑↑	none
+📥	↑↑↑	none
+📦	↑↑↑	none
+📫	↑↑↑	none
+📪	↑↑↑	none
+📬	↑↑↑	none
+📭	↑↑↑	none
+📮	↑↑↑	none
+🗳	↑↑↑	none
+✏	↑↑↑	none
 ✒	pluma de lapicera	none
+🖋	↑↑↑	none
+🖊	↑↑↑	none
+🖌	↑↑↑	none
+🖍	↑↑↑	none
+📝	↑↑↑	none
+💼	↑↑↑	none
+📁	↑↑↑	none
+📂	↑↑↑	none
+🗂	↑↑↑	none
+📅	↑↑↑	none
+📆	↑↑↑	none
+🗒	↑↑↑	none
+🗓	↑↑↑	none
+📇	↑↑↑	none
+📈	↑↑↑	none
+📉	↑↑↑	none
+📊	↑↑↑	none
+📋	↑↑↑	none
+📌	↑↑↑	none
+📍	↑↑↑	none
+📎	↑↑↑	none
+🖇	↑↑↑	none
+📏	↑↑↑	none
+📐	↑↑↑	none
+✂	↑↑↑	none
+🗃	↑↑↑	none
+🗄	↑↑↑	none
 🗑	papelera	none
+🔒	↑↑↑	none
+🔓	↑↑↑	none
+🔏	↑↑↑	none
+🔐	↑↑↑	none
+🔑	↑↑↑	none
+🗝	↑↑↑	none
+🔨	↑↑↑	none
+🪓	↑↑↑	none
+⛏	↑↑↑	none
+⚒	↑↑↑	none
+🛠	↑↑↑	none
+🗡	↑↑↑	none
+⚔	↑↑↑	none
+🔫	↑↑↑	none
+🪃	↑↑↑	none
+🏹	↑↑↑	none
+🛡	↑↑↑	none
+🪚	↑↑↑	none
+🔧	↑↑↑	none
+🪛	destornillador	none
+🔩	↑↑↑	none
+⚙	↑↑↑	none
 🗜	abrazadera	none
+⚖	↑↑↑	none
+🦯	↑↑↑	none
+🔗	↑↑↑	none
+⛓	↑↑↑	none
+🪝	gancho	none
+🧰	↑↑↑	none
+🧲	↑↑↑	none
+🪜	↑↑↑	none
+⚗	↑↑↑	none
+🧪	↑↑↑	none
 🧫	placa de Petri	none
 🧬	ADN	none
+🔬	↑↑↑	none
+🔭	↑↑↑	none
+📡	↑↑↑	none
+💉	↑↑↑	none
+🩸	↑↑↑	none
+💊	↑↑↑	none
 🩹	curita	none
+🩺	↑↑↑	none
+🚪	↑↑↑	none
+🛗	ascensor	none
+🪞	espejo	none
+🪟	ventana	none
+🛏	↑↑↑	none
+🛋	↑↑↑	none
+🪑	↑↑↑	none
+🚽	↑↑↑	none
 🪠	destapacaños	none
 🚿	regadera	none
 🛁	tina	none
@@ -287,37 +1570,229 @@ symbols:
 🪒	navaja de afeitar	none
 🧴	botella de loción	none
 🧷	broche de seguridad	none
+🧹	escoba	none
 🧺	canasta	none
+🧻	rollo de papel	none
 🪣	balde	none
+🧼	jabón	none
+🪥	cepillo de dientes	none
+🧽	esponja	none
+🧯	extintor	none
+🛒	↑↑↑	none
+🚬	↑↑↑	none
+⚰	↑↑↑	none
+🪦	lápida	none
+⚱	↑↑↑	none
 🗿	estatua de Isla de Pascua	none
 🪧	cartel	none
 🏧	cartel de cajero automático	none
+🚮	↑↑↑	none
+🚰	↑↑↑	none
 ♿	señal de acceso para silla de ruedas	none
 🚹	señal del baño de los hombres	none
 🚺	señal del baño de las mujeres	none
+🚻	↑↑↑	none
+🚼	↑↑↑	none
+🚾	↑↑↑	none
+🛂	↑↑↑	none
+🛃	↑↑↑	none
+🛄	↑↑↑	none
+🛅	↑↑↑	none
+⚠	↑↑↑	none
+🚸	↑↑↑	none
+⛔	↑↑↑	none
+🚫	↑↑↑	none
+🚳	↑↑↑	none
+🚭	↑↑↑	none
+🚯	↑↑↑	none
+🚱	↑↑↑	none
+🚷	↑↑↑	none
+📵	↑↑↑	none
+🔞	↑↑↑	none
+☢	↑↑↑	none
+☣	↑↑↑	none
+⬆	↑↑↑	none
+↗	↑↑↑	none
+➡	↑↑↑	none
 ↘	flecha hacia el sureste	none
+⬇	↑↑↑	none
 ↙	flecha hacia el suroeste	none
-↩	flecha de retorno al oeste por la derecha	none
-↪	flecha de retorno al este por la izquierda	none
-⤴	flecha de retorno al norte por la izquierda	none
-⤵	flecha de retorno al sur por la derecha	none
+⬅	↑↑↑	none
+↖	↑↑↑	none
+↕	↑↑↑	none
+↔	↑↑↑	none
+↮	↑↑↑	none
+↩	↑↑↑	none
+↪	↑↑↑	none
+⤴	↑↑↑	none
+⤵	↑↑↑	none
+🔃	↑↑↑	none
+🔄	↑↑↑	none
+🔙	↑↑↑	none
+🔚	↑↑↑	none
+🔛	↑↑↑	none
+🔜	↑↑↑	none
+🔝	↑↑↑	none
+🛐	↑↑↑	none
+⚛	↑↑↑	none
+🕉	↑↑↑	none
+✡	↑↑↑	none
 ☸	rueda del dharma	none
+☯	↑↑↑	none
+✝	↑↑↑	none
+☦	↑↑↑	none
+☪	↑↑↑	none
+☮	↑↑↑	none
+🕎	↑↑↑	none
+🔯	↑↑↑	none
+♈	↑↑↑	none
+♉	↑↑↑	none
+♊	↑↑↑	none
+♋	↑↑↑	none
+♌	↑↑↑	none
+♍	↑↑↑	none
+♎	↑↑↑	none
+♏	↑↑↑	none
+♐	↑↑↑	none
+♑	↑↑↑	none
+♒	↑↑↑	none
+♓	↑↑↑	none
+⛎	↑↑↑	none
+🔀	↑↑↑	none
+🔁	↑↑↑	none
+🔂	↑↑↑	none
+▶	↑↑↑	none
+⏩	↑↑↑	none
+⏭	↑↑↑	none
+⏯	↑↑↑	none
+◀	↑↑↑	none
+⏪	↑↑↑	none
+⏮	↑↑↑	none
+🔼	↑↑↑	none
+⏫	↑↑↑	none
+🔽	↑↑↑	none
+⏬	↑↑↑	none
+⏸	↑↑↑	none
+⏹	↑↑↑	none
+⏺	↑↑↑	none
+⏏	↑↑↑	none
+🎦	↑↑↑	none
 🔅	reducir brillo	none
 🔆	aumentar brillo	none
+📶	↑↑↑	none
+📳	↑↑↑	none
+📴	↑↑↑	none
+♀	↑↑↑	none
+♂	↑↑↑	none
+⚧	↑↑↑	none
 ✖	signo de multiplicación	none
-➕	signo de suma	none
+➕	↑↑↑	none
 ➖	signo de resta	none
 ➗	signo de división	none
+♾	infinito	none
+❓	↑↑↑	none
+❔	↑↑↑	none
+❕	↑↑↑	none
+❗	↑↑↑	none
+💱	↑↑↑	none
+💲	↑↑↑	none
+⚕	↑↑↑	none
+♻	↑↑↑	none
+⚜	↑↑↑	none
+🔱	↑↑↑	none
 📛	gafete	none
+🔰	↑↑↑	none
+⭕	↑↑↑	none
+✅	↑↑↑	none
+☑	↑↑↑	none
 ✔	marca de verificación	none
 ❌	tache	none
+❎	↑↑↑	none
+➰	↑↑↑	none
+➿	↑↑↑	none
+✳	↑↑↑	none
+✴	↑↑↑	none
+❇	↑↑↑	none
 ™	marca registrada	none
+🔠	↑↑↑	none
+🔡	↑↑↑	none
+🔢	↑↑↑	none
+🔣	↑↑↑	none
+🔤	↑↑↑	none
+🅰	↑↑↑	none
+🆎	↑↑↑	none
+🅱	↑↑↑	none
+🆑	↑↑↑	none
+🆒	↑↑↑	none
+🆓	↑↑↑	none
+ℹ	↑↑↑	none
+🆔	↑↑↑	none
+Ⓜ	↑↑↑	none
+🆕	↑↑↑	none
+🆖	↑↑↑	none
+🅾	↑↑↑	none
+🆗	↑↑↑	none
+🅿	↑↑↑	none
+🆘	↑↑↑	none
+🆙	↑↑↑	none
+🆚	↑↑↑	none
+🔴	↑↑↑	none
+🟠	↑↑↑	none
+🟡	↑↑↑	none
+🟢	↑↑↑	none
+🔵	↑↑↑	none
+🟣	↑↑↑	none
 🟤	círculo café	none
+⚫	↑↑↑	none
+⚪	↑↑↑	none
+🟥	↑↑↑	none
+🟧	↑↑↑	none
+🟨	↑↑↑	none
+🟩	↑↑↑	none
+🟦	↑↑↑	none
+🟪	↑↑↑	none
 🟫	cuadrado café	none
+⬛	↑↑↑	none
+⬜	↑↑↑	none
+◼	↑↑↑	none
+◻	↑↑↑	none
+◾	↑↑↑	none
+◽	↑↑↑	none
+▪	↑↑↑	none
+▫	↑↑↑	none
+🔶	↑↑↑	none
+🔷	↑↑↑	none
+🔸	↑↑↑	none
 🔹	diamante azul pequeño	none
+🔺	↑↑↑	none
+🔻	↑↑↑	none
 💠	diamante en flor	none
+🔘	↑↑↑	none
+🔳	↑↑↑	none
+🔲	↑↑↑	none
+🏁	↑↑↑	none
 🚩	banderín triangular	none
+🎌	↑↑↑	none
+🏴	↑↑↑	none
+🏳	↑↑↑	none
+🏳‍🌈	↑↑↑	none
+🏳‍⚧	↑↑↑	none
+🏴‍☠	bandera pirata	none
+₢	↑↑↑	none
+₣	↑↑↑	none
+₤	↑↑↑	none
 ₥	mil	none
+₩	won	none
+€	↑↑↑	none
+₰	↑↑↑	none
+₱	peso	none
+₳	↑↑↑	none
+₶	↑↑↑	none
+₷	↑↑↑	none
+₹	↑↑↑	none
+₽	↑↑↑	none
+₿	bitcoin	none
+₨	↑↑↑	none
 🤚🏻	dorso de la mano tono de piel claro	none
 🤚🏼	dorso de la mano tono de piel claro medio	none
 🤚🏽	dorso de la mano tono de piel medio	none

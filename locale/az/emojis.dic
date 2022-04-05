@@ -62,17 +62,17 @@ symbols:
 ⇋	sağa doğru olan qarmağın üzərində sola doğru qarmaq	none
 ⇌	sola doğru olan qarmağın üzərində sağa doğru qarmaq	none
 ⇐	sola doğru ikili ox	none
-⇍	sola doğru ikili ox xətti	none
+⇍	üzəri xəttli sola doğru ikili ox	none
 ⇑	yuxarıya doğru ikili ox	none
 ⇒	sağa doğru ikili ox	none
-⇏	sağa doğru ikili ox xətti	none
+⇏	üzəri xəttli sağa doğru ikili ox	none
 ⇓	aşağıya doğru ikili ox	none
 ⇔	sol-sağ istiqamətli ikili ox	none
-⇎	sol-sağ istiqamətli ikili ox xətti	none
-⇖	şimal qərb ikili oxu	none
-⇗	şimal şərq ikili oxu	none
-⇘	cənub şərq ikili oxu	none
-⇙	cənub qərb ikili oxu	none
+⇎	üzəri xəttli sol-sağ istiqamətli ikili ox	none
+⇖	şimal qərb istiqamətli ikili ox	none
+⇗	şimal şərq istiqamətli ikili ox	none
+⇘	cənub şərq istiqamətli ikili ox	none
+⇙	cənub qərb istiqamətli ikili ox	none
 ⇚	sola doğru üçlü ox	none
 ⇛	sağa doğru üçlü ox	none
 ⇜	sola doğru kərtikli ox	none
@@ -83,14 +83,14 @@ symbols:
 ⇡	yuxarıya doğru tireli ox	none
 ⇢	sağa doğru tireli ox	none
 ⇣	aşağıya doğru tireli ox	none
-⇤	sola doğru ox xətti	none
-⇥	sağa doğru ox xətti	none
-⇦	sola doğru dəlikli ox	none
-⇧	yuxarıya doğru dəlikli ox	none
-⇨	sağa doğru dəlikli ox	none
-⇩	aşağıya doğru dəlikli ox	none
-⇪	xəttdən yuxarıya doğru dəlikli ox	none
-⇵	aşağı oxun solunda yuxarı ox	none
+⇤	soldakı xəttə doğru ox	none
+⇥	sağdakı xəttə doğru ox	none
+⇦	sola doğru içiboş ox	none
+⇧	yuxarıya doğru içiboş ox	none
+⇨	sağa doğru içiboş ox	none
+⇩	aşağıya doğru içiboş ox	none
+⇪	xəttdən yuxarıya doğru içiboş ox	none
+⇵	yuxarı oxun solunda aşağı ox	none
 ∀	çevrilmiş A	none
 ∂	qismən differensial	none
 ∃	çevrilmiş E	none
@@ -101,13 +101,13 @@ symbols:
 ∉	çoxluğa daxil deyil	none
 ∋	çoxluğa daxildir	none
 ∎	son sübut	none
-∏	yaranma	none
-∑	cəm	none
+∏	n-ar məhsul	none
+∑	n-ar cəm	none
 ≮	kiçik deyil	none
 ≠	qeyri-bərabər	none
 ≯	böyük deyil	none
 −	çıxma işarəsi	none
-⁻	üstdə minus	none
+⁻	üstdə çıxma	none
 ∓	çıx-yaxud-üstəgəl	none
 ∕	bölmə sleşi	none
 ∗	ulduz operatoru	none
@@ -118,22 +118,189 @@ symbols:
 ∞	sonsuzluq işarəsi	none
 ∟	sağ bucaq	none
 ∠	bucaq	none
+∣	bölür	none
+∥	paralel	none
+∧	məntiqi və	none
 ∩	kəsişmə	none
 ∪	birləşmə	none
+∫	inteqral	none
+∬	ikiqat inteqral	none
+∮	kontur inteqralı	none
+∴	buna görə də	none
+∵	çünki	none
+∶	əmsal	none
+∷	nisbət	none
+∼	tilda operatoru	none
+∽	tərs tilda	none
+∾	çevrilmiş tənbəl s	none
+≃	asimptotik bərabər	none
+≅	təqribən bərabər	none
 ≈	təxminən bərabər	none
+≌	tamamilə bərabər	none
+≒	təqribən şəklə bərabər	none
+≖	bərabər çevrəyə al	none
 ≡	bərabərdir	none
+≣	tam ekvivalent	none
 ≤	kiçik və ya bərabər	none
 ≥	böyük və ya bərabər	none
+≦	bərabərdən kiçik	none
+≧	bərabərdən böyük	none
+≪	...çox az	none
+≫	...çox artıq	none
+≬	arasında	none
+≳	ekvivalentindən böyükdür	none
+≺	qabaqlayır	none
+≻	dalınca gəlir	none
+⊁	dalınca gəlmir	none
 ⊂	altçoxluğu	none
+⊃	üst çoxluq	none
+⊆	alt çoxluğa bərabər	none
+⊇	üst çoxluğa bərabər	none
+⊕	çevrələnmiş üstəgəl	none
+⊖	çevrələnmiş çıxma	none
+⊗	birbaşa cəm	none
+⊘	çevrələnmiş bölmə sleşi	none
+⊙	çevrələnmiş nöqtə operatoru	none
+⊚	çevrələnmiş halqa operatoru	none
+⊛	çevrələnmiş ulduzcuq operatoru	none
+⊞	kvadrat içində üstəgəl	none
+⊟	kvadrat içində çıxma	none
+⊥	yanlış element	none
+⊮	məcbur etmir	none
+⊰	ondan əvvəl dayanır	none
+⊱	ondan sonra dayanır	none
+⋭	normal qrupaltı bərabəri kimi ehtiva etmir	none
+⊶	orijinal	none
+⊹	kvadrat konyuqat matris	none
+⊿	düzbucaqlı üçbucaq	none
+⋁	n-ar məntiqi və ya	none
+⋂	n-ar kəsişmə	none
+⋃	n-ar birləşmə	none
+⋅	nöqtə operatoru	none
+⋆	ulduz-operator	none
+⋈	təbii qoşulma	none
+⋒	ikiqat kəsişmə	none
+⋘	çox-çox az	none
+⋙	çox-çox artıq	none
+⋮	şaquli üç nöqtə	none
+⋯	üfüqi orta xətt üç nöqtəsi	none
+⋰	diaqonal üzrə yuxarıya üç nöqtə	none
+⋱	diaqonal üzrə aşağıya üç nöqtə	none
+■	dolu kvadrat	none
+□	boş kvadrat	none
+▢	küncləri girdə boş kvadrat	none
+▣	içində dolu kvadrat olan boş kvadrat	none
+▤	üfüqi doldurulan kvadrat	none
+▥	şaquli doldurulan kvadrat	none
+▦	ortoqonal çarpaz doldurulan kvadrat	none
+▧	yuxarı solu aşağı sağı doldurulan kvadrat	none
+▨	yuxarı sağı aşağı solu doldurulan kvadrat	none
+▩	diaqonal üzrə çarpaz doldurulan kvadrat	none
+▬	dolu düzbucaqlı	none
+▭	boş düzbucaqlı	none
+▮	dolu şaquli düzbucaqlı	none
+▰	dolu paraleloqram	none
 ▲	yuxarı yönəlmiş dolu üçbucaq	none
+△	ucu yuxarı boş üçbucaq	none
+▴	ucu yuxarı dolu kiçik üçbucaq	none
+▵	ucu yuxarı boş kiçik üçbucaq	none
+▷	ucu sağa boş üçbucaq	none
+▸	ucu sağa dolu kiçik üçbucaq	none
+▹	ucu sağa boş kiçik üçbucaq	none
+►	ucu sağa dolu istiqamətləndirici	none
+▻	ucu sağa boş istiqamətləndirici	none
 ▼	aşağı yönəlmiş dolu üçbucaq	none
+▽	ucu aşağı boş üçbucaq	none
+▾	ucu aşağı dolu kiçik üçbucaq	none
+▿	ucu aşağı boş kiçik üçbucaq	none
+◁	ucu sola boş üçbucaq	none
+◂	ucu sola dolu kiçik üçbucaq	none
+◃	ucu sola boş kiçik üçbucaq	none
+◄	ucu sola dolu istiqamətləndirici	none
+◅	ucu sola boş istiqamətləndirici	none
+◆	dolu romb	none
+◇	boş romb	none
+◈	içində dolu romb olan boş romb	none
+◉	içində dolu dairə olan boş dairə	none
 ◊	rombşəkilli fiqur	none
 ○	boş dairə	none
+◌	nöqtələrdən ibarət çevrə	none
+◍	şaquli doldurulan dairə	none
+◎	konsentrik dairələr	none
 ●	dolu dairə	none
+◐	sol yarısı dolu dairə	none
+◑	sağ yarısı dolu dairə	none
+◒	aşağı yarısı dolu dairə	none
+◓	yuxarı yarısı dolu dairə	none
+◔	yuxarı sağ kvadrantı dolu dairə	none
+◕	yuxarı sol kvadrantı xaric tamamilə dolu dairə	none
+◖	sol yarısı dolmuş dairə	none
+◗	sağ yarısı dolmuş dairə	none
+◘	tərsinə marker	none
+◙	içində boş dairə olan dolu kvadrat	none
+◜	yuxarı sol kvadrant qövsü	none
+◝	yuxarı sağ kvadrant qövsü	none
+◞	aşağı sağ kvadrant qövsü	none
+◟	aşağı sol kvadrant qövsü	none
+◠	yuxarı yarımdairə	none
+◡	aşağı yarımdairə	none
+◢	aşağı sağa yönəlmiş dolu üçbucaq	none
+◣	aşağı sola yönəlmiş dolu üçbucaq	none
+◤	yuxarı sola yönəlmiş dolu üçbucaq	none
+◥	yuxarı sağa yönəlmiş dolu üçbucaq	none
+◦	boş marker	none
 ◯	böyük boş dairə	none
+◳	boş kvadratın yuxarı sağ kvadrantı	none
+◷	yuxarı sağ kvadrantı olan boş dairə	none
+◿	aşağı sağa yönəlmiş üçbucaq	none
 ♪	səkkizinci not	none
+⨧	üstəgəl altında iki	none
+⨯	vektorların kəsişmə məhsulu	none
+⨼	daxili məhsul	none
+⩣	məntiqi və ya qoşa alt xətt	none
+⩽	maili bərabərdən kiçik	none
+⪍	təqribən bərabərdən kiçik	none
+⪚	qoşa xəttli bərabərdən böyük	none
+⪺	təqribən bərabərdən geri qalır	none
 ♭	bemol	none
 ♯	diez	none
+🥹	dolmuş gözləri olan üz	none
+🧌	troll	none
+🩻	rentgen	none
+🩼	qoltuqağacı	none
+🪩	güzgü top	none
+🪪	şəxsiyyət vəsiqəsi	none
+🪫	bitən enerji	none
+🪬	hamsa	none
+🪷	lotus	none
+🪸	mərcan	none
+🪹	boş yuva	none
+🪺	yumurtalı yuva	none
+🫃	hamilə kişi	none
+🫄	hamilə adam	none
+🫅	taclı adam	none
+🫗	maye süzülməsi	none
+🫘	lobya	none
+🫙	banka	none
+🫠	əriyən üz	none
+🫡	salamlayan üz	none
+🫢	açıq gözlü üz və ağzı tutmuş əl	none
+🫣	baxan gözlə üz	none
+🫤	diaqonal ağızlı üz	none
+🫥	nöqtəli xətli üz	none
+🫦	dişlənən dodaq	none
+🫧	köpüklər	none
+🫰	əl barmağı və baş barmağı çarpazlanmış vəziyyətdə	none
+🫱	sağ əl	none
+🫲	sol əl	none
+🫳	aşağı əl	none
+🫴	yuxarı əl	none
+🫵	tamaşaçıya işarə edən barmaq	none
+🫶	əldən ürək	none
+🛝	oyun slaydı	none
+🛞	təkər	none
+🛟	üzük buy	none
+🟰	ağır bərabərlik işarəsi	none
 😀	gülən üz	none
 😃	açıq ağızla gülən üz	none
 😄	açıq ağız və gülən gözlərlə gülən üz	none
@@ -1421,7 +1588,7 @@ symbols:
 🏧	Bankomat işarəsi	none
 🚮	zibili qutuya atın işarəsi	none
 🚰	içməli su	none
-♿	əlil arabası	none
+♿	əlil arabası işarəsi	none
 🚹	kişi tualeti	none
 🚺	qadın tualeti	none
 🚻	ayaqyolu	none
@@ -1429,7 +1596,7 @@ symbols:
 🚾	wc	none
 🛂	pasport yoxlaması	none
 🛃	gömrük	none
-🛄	baqaj tələbi	none
+🛄	baqajın verilməsi	none
 🛅	saxlama kamerası	none
 ⚠	xəbərdarlıq	none
 🚸	uşaqlar yol keçir	none
@@ -1519,14 +1686,14 @@ symbols:
 ♂	kişi işarəsi	none
 ⚧	transgender simvolu	none
 ✖	qalın vurma x	none
-➕	qalın plus işarəsi	none
-➖	qalın minus işarəsi	none
+➕	qalın üstəgəl işarəsi	none
+➖	qalın çıxma işarəsi	none
 ➗	qalın bölmə işarəsi	none
 ♾	sonsuzluq	none
-❓	sual işarəsi	none
+❓	qırmızı sual işarəsi	none
 ❔	ağ sual işarəsi	none
 ❕	ağ nida işarəsi	none
-❗	nida işarəsi	none
+❗	qırmızı nida işarəsi	none
 💱	valyuta mübadiləsi	none
 💲	qalın dollar işarəsi	none
 ⚕	tibb işarəsi	none
@@ -1535,9 +1702,9 @@ symbols:
 🔱	üçdiş emblem	none
 📛	ad nişanı	none
 🔰	yaponların başlayan üçün simvolu	none
-⭕	qalın böyük dairə	none
-✅	ağ qalın təsdiq işarəsi	none
-☑	təsdiqlənmiş seçki qutusu	none
+⭕	qırmızı qalın dairə	none
+✅	təsdiq işarəsi	none
+☑	təsdiqlənmiş seçim düzbucaqlısı	none
 ✔	qalın təsdiq işarəsi	none
 ❌	çarpazlamaq işarəsi	none
 ❎	çarpazlamaq düyməsi	none
@@ -1558,24 +1725,24 @@ symbols:
 🆑	kvadrat cl düyməsi	none
 🆒	kvadrat əla düyməsi	none
 🆓	kvadrat ödənişsiz	none
-ℹ	informasiya məlumatı	none
-🆔	kvadrat kimlik	none
-Ⓜ	dairəvi m hərfi	none
-🆕	kvadrat yeni	none
-🆖	kvadrat ng	none
+ℹ	məlumat	none
+🆔	kimlik düyməsi	none
+Ⓜ	dairə içində M	none
+🆕	yeni düyməsi	none
+🆖	NG düyməsi	none
 🅾	o düyməsi	none
-🆗	kvadrat ok	none
+🆗	OK düyməsi	none
 🅿	p düyməsi	none
-🆘	kvadrat sos	none
-🆙	up! button	none
-🆚	kvadrat vs	none
+🆘	SOS düyməsi	none
+🆙	YUXARI! düyməsi	none
+🆚	QARŞI düyməsi	none
 🔴	qırmızı dairə	none
-🟠	narıncı çevrə	none
-🟡	sarı çevrə	none
-🟢	yaşıl çevrə	none
+🟠	narıncı dairə	none
+🟡	sarı dairə	none
+🟢	yaşıl dairə	none
 🔵	mavi dairə	none
-🟣	bənövşəyi çevrə	none
-🟤	qəhvəyi çevrə	none
+🟣	bənövşəyi dairə	none
+🟤	qəhvəyi dairə	none
 ⚫	qara dairə	none
 ⚪	ağ dairə	none
 🟥	qırmızı kvadrat	none
@@ -1589,7 +1756,7 @@ symbols:
 ⬜	ağ böyük kvadrat	none
 ◼	qara orta ölçülü kvadrat	none
 ◻	ağ orta ölçülü kvadrat	none
-◾	qara orta kiçiklikdə kvadrat	none
+◾	qara orta-kiçik kvadrat	none
 ◽	ağ orta kiçiklikdə kvadrat	none
 ▪	qara balaca kvadrat	none
 ▫	ağ balaca kvadrat	none
@@ -1606,18 +1773,96 @@ symbols:
 🏁	damalı bayraq	none
 🚩	üçbucaq bayraq	none
 🎌	kəsişən bayraqlar	none
-🏴	dalğalanan qara bayraq	none
-🏳	dalğalanan ağ bayraq	none
+🏴	qara bayraq	none
+🏳	ağ bayraq	none
 🏳‍🌈	göy qurşağı bayrağı	none
 🏳‍⚧	göy, çəhrayı və ağ bayraq	none
 🏴‍☠	quldur bayrağı	none
+₢	kruzeyro	none
+₣	fransız frankı	none
+₤	lira	none
 ₥	mill	none
 ₩	von	none
 €	avro	none
+₰	alman pennisi	none
 ₱	peso	none
+₳	austral	none
+₶	tur livri	none
+₷	spesmilo	none
 ₹	Hindistan rupisi	none
 ₽	rubl	none
 ₿	bitkoin	none
+₨	rupi	none
+🫃🏻	hamilə kişi açıq dəri tonu	none
+🫃🏼	hamilə kişi orta-açıq dəri tonu	none
+🫃🏽	hamilə kişi orta dəri tonu	none
+🫃🏾	hamilə kişi orta-tünd dəri tonu	none
+🫃🏿	hamilə kişi tünd dəri tonu	none
+🫄🏻	hamilə adam açıq dəri tonu	none
+🫄🏼	hamilə adam orta-açıq dəri tonu	none
+🫄🏽	hamilə adam orta dəri tonu	none
+🫄🏾	hamilə adam orta-tünd dəri tonu	none
+🫄🏿	hamilə adam tünd dəri tonu	none
+🫅🏻	taclı adam açıq dəri tonu	none
+🫅🏼	taclı adam orta-açıq dəri tonu	none
+🫅🏽	taclı adam orta dəri tonu	none
+🫅🏾	taclı adam orta-tünd dəri tonu	none
+🫅🏿	taclı adam tünd dəri tonu	none
+🫰🏻	əl barmağı və baş barmağı çarpazlanmış vəziyyətdə açıq dəri tonu	none
+🫰🏼	əl barmağı və baş barmağı çarpazlanmış vəziyyətdə orta-açıq dəri tonu	none
+🫰🏽	əl barmağı və baş barmağı çarpazlanmış vəziyyətdə orta dəri tonu	none
+🫰🏾	əl barmağı və baş barmağı çarpazlanmış vəziyyətdə orta-tünd dəri tonu	none
+🫰🏿	əl barmağı və baş barmağı çarpazlanmış vəziyyətdə tünd dəri tonu	none
+🫱🏻	sağ əl açıq dəri tonu	none
+🫱🏼	sağ əl orta-açıq dəri tonu	none
+🫱🏽	sağ əl orta dəri tonu	none
+🫱🏾	sağ əl orta-tünd dəri tonu	none
+🫱🏿	sağ əl tünd dəri tonu	none
+🫱🏻‍🫲🏼	salamlaşmaq açıq dəri tonu, orta-açıq dəri tonu	none
+🫱🏻‍🫲🏽	salamlaşmaq açıq dəri tonu, orta dəri tonu	none
+🫱🏻‍🫲🏾	salamlaşmaq açıq dəri tonu, orta-tünd dəri tonu	none
+🫱🏻‍🫲🏿	salamlaşmaq açıq dəri tonu, tünd dəri tonu	none
+🫱🏼‍🫲🏻	salamlaşmaq orta-açıq dəri tonu, açıq dəri tonu	none
+🫱🏼‍🫲🏽	salamlaşmaq orta-açıq dəri tonu, orta dəri tonu	none
+🫱🏼‍🫲🏾	salamlaşmaq orta-açıq dəri tonu, orta-tünd dəri tonu	none
+🫱🏼‍🫲🏿	salamlaşmaq orta-açıq dəri tonu, tünd dəri tonu	none
+🫱🏽‍🫲🏻	salamlaşmaq orta dəri tonu, açıq dəri tonu	none
+🫱🏽‍🫲🏼	salamlaşmaq orta dəri tonu, orta-açıq dəri tonu	none
+🫱🏽‍🫲🏾	salamlaşmaq orta dəri tonu, orta-tünd dəri tonu	none
+🫱🏽‍🫲🏿	salamlaşmaq orta dəri tonu, tünd dəri tonu	none
+🫱🏾‍🫲🏻	salamlaşmaq orta-tünd dəri tonu, açıq dəri tonu	none
+🫱🏾‍🫲🏼	salamlaşmaq orta-tünd dəri tonu, orta-açıq dəri tonu	none
+🫱🏾‍🫲🏽	salamlaşmaq orta-tünd dəri tonu, orta dəri tonu	none
+🫱🏾‍🫲🏿	salamlaşmaq orta-tünd dəri tonu, tünd dəri tonu	none
+🫱🏿‍🫲🏻	salamlaşmaq tünd dəri tonu, açıq dəri tonu	none
+🫱🏿‍🫲🏼	salamlaşmaq tünd dəri tonu, orta-açıq dəri tonu	none
+🫱🏿‍🫲🏽	salamlaşmaq tünd dəri tonu, orta dəri tonu	none
+🫱🏿‍🫲🏾	salamlaşmaq tünd dəri tonu, orta-tünd dəri tonu	none
+🫲🏻	sol əl açıq dəri tonu	none
+🫲🏼	sol əl orta-açıq dəri tonu	none
+🫲🏽	sol əl orta dəri tonu	none
+🫲🏾	sol əl orta-tünd dəri tonu	none
+🫲🏿	sol əl tünd dəri tonu	none
+🫳🏻	aşağı əl açıq dəri tonu	none
+🫳🏼	aşağı əl orta-açıq dəri tonu	none
+🫳🏽	aşağı əl orta dəri tonu	none
+🫳🏾	aşağı əl orta-tünd dəri tonu	none
+🫳🏿	aşağı əl tünd dəri tonu	none
+🫴🏻	yuxarı əl açıq dəri tonu	none
+🫴🏼	yuxarı əl orta-açıq dəri tonu	none
+🫴🏽	yuxarı əl orta dəri tonu	none
+🫴🏾	yuxarı əl orta-tünd dəri tonu	none
+🫴🏿	yuxarı əl tünd dəri tonu	none
+🫵🏻	tamaşaçıya işarə edən barmaq açıq dəri tonu	none
+🫵🏼	tamaşaçıya işarə edən barmaq orta-açıq dəri tonu	none
+🫵🏽	tamaşaçıya işarə edən barmaq orta dəri tonu	none
+🫵🏾	tamaşaçıya işarə edən barmaq orta-tünd dəri tonu	none
+🫵🏿	tamaşaçıya işarə edən barmaq tünd dəri tonu	none
+🫶🏻	əldən ürək açıq dəri tonu	none
+🫶🏼	əldən ürək orta-açıq dəri tonu	none
+🫶🏽	əldən ürək orta dəri tonu	none
+🫶🏾	əldən ürək orta-tünd dəri tonu	none
+🫶🏿	əldən ürək tünd dəri tonu	none
 👋🏻	əl sallayan əllər açıq dəri tonu	none
 👋🏼	əl sallayan əllər orta-açıq dəri tonu	none
 👋🏽	əl sallayan əllər orta dəri tonu	none
@@ -1763,6 +2008,11 @@ symbols:
 🤲🏽	əllər yuxarı orta dəri tonu	none
 🤲🏾	əllər yuxarı orta-tünd dəri tonu	none
 🤲🏿	əllər yuxarı tünd dəri tonu	none
+🤝🏻	salamlaşmaq açıq dəri tonu	none
+🤝🏼	salamlaşmaq orta-açıq dəri tonu	none
+🤝🏽	salamlaşmaq orta dəri tonu	none
+🤝🏾	salamlaşmaq orta-tünd dəri tonu	none
+🤝🏿	salamlaşmaq tünd dəri tonu	none
 🙏🏻	qatlanmış əllər açıq dəri tonu	none
 🙏🏼	qatlanmış əllər orta-açıq dəri tonu	none
 🙏🏽	qatlanmış əllər orta dəri tonu	none

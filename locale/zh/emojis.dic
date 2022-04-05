@@ -62,30 +62,245 @@ symbols:
 ⇋	上面是向左鱼叉，下面是向右鱼叉	none
 ⇌	上面是向右鱼叉，下面是向左鱼叉	none
 ⇐	向左双箭头	none
+⇍	带删除线的向左双箭头	none
+⇑	向上双箭头	none
+⇒	向右双箭头	none
+⇏	带删除线的向右双箭头	none
+⇓	向下双箭头	none
+⇔	左右双箭头	none
+⇎	带删除线的左右双箭头	none
+⇖	西北双箭头	none
+⇗	东北双箭头	none
+⇘	东南双箭头	none
+⇙	西南双箭头	none
+⇚	向左三箭头	none
+⇛	向右三箭头	none
+⇜	向左曲线箭头	none
+⇝	向右曲线箭头	none
+⇞	带双删除线的向上箭头	none
+⇟	带双删除线的向下箭头	none
+⇠	向左虚线箭头	none
+⇡	向上虚线箭头	none
+⇢	向右虚线箭头	none
+⇣	向下虚线箭头	none
+⇤	头带杠的向左箭头	none
+⇥	头带杠的向右箭头	none
+⇦	向左空心箭头	none
+⇧	向上空心箭头	none
+⇨	向右空心箭头	none
+⇩	向下空心箭头	none
+⇪	尾部带杠的向上空心箭头	none
+⇵	左边是向下箭头，右边是向上箭头	none
+∀	全称量词	none
+∂	偏微分	none
+∃	存在量词	none
+∅	空集	none
 ∆	增量	none
 ∇	向量微分	none
 ∈	是...的元素	none
+∉	不属于	none
+∋	包含为成员	none
+∎	证明完毕	none
+∏	N元乘积	none
+∑	N元求和	none
+≮	不小于	none
 ≠	不等于	none
+≯	不大于	none
 −	减号	none
 ⁻	上标减号	none
+∓	减或加	none
+∕	除号斜线	none
+∗	星号运算符	none
+∘	环运算符	none
+∙	项目符号运算符	none
 √	平方根	none
+∝	成比例	none
 ∞	无穷大符号	none
+∟	直角	none
+∠	角	none
+∣	整除	none
+∥	平行	none
+∧	逻辑与	none
 ∩	交集	none
 ∪	并集	none
+∫	积分	none
+∬	二重积分	none
+∮	曲线积分	none
+∴	所以	none
+∵	因为	none
+∶	比率	none
+∷	比例	none
+∼	波浪号运算符	none
+∽	反转波浪号	none
+∾	倒置躺倒s	none
+≃	渐近相等	none
+≅	近似相等	none
 ≈	约等于	none
+≌	全等	none
+≒	约等于或近似于	none
+≖	环等于	none
 ≡	等同于	none
+≣	严格等价于	none
 ≤	小于等于	none
 ≥	大于等于	none
+≦	小于或等于	none
+≧	大于或等于	none
+≪	远小于	none
+≫	远大于	none
+≬	介于	none
+≳	大于或等价于	none
+≺	先于	none
+≻	后于	none
+⊁	不后于	none
 ⊂	是...的子集	none
+⊃	超集	none
+⊆	子集或等于	none
+⊇	超集或等于	none
+⊕	带圆圈加号	none
+⊖	带圆圈减号	none
+⊗	带圆圈乘号	none
+⊘	带圆圈除号斜线	none
+⊙	带圆圈点运算符	none
+⊚	带圆圈环运算符	none
+⊛	带圆圈星号运算符	none
+⊞	带方框加号	none
+⊟	带方框减号	none
+⊥	上丁字	none
+⊮	不强制	none
+⊰	关系上先于	none
+⊱	关系上后于	none
+⋭	不属于正规子群或等于	none
+⊶	原	none
+⊹	厄密共轭矩阵	none
+⊿	直角三角形	none
+⋁	N元逻辑或	none
+⋂	N元交集	none
+⋃	N元并集	none
+⋅	点运算符	none
+⋆	星运算符	none
+⋈	自然连接	none
+⋒	双交集	none
+⋘	极小于	none
+⋙	极大于	none
+⋮	垂直省略号	none
+⋯	中线水平省略号	none
+⋰	右上对角线省略号	none
+⋱	右下对角线省略号	none
+■	实心方形	none
+□	空心方形	none
+▢	带圆角的空心方形	none
+▣	包含实心方形的空心方形	none
+▤	带水平填充符的方形	none
+▥	带垂直填充符的方形	none
+▦	带直角交叉填充符的方形	none
+▧	带左上到右下填充符的方形	none
+▨	带右上到左下填充符的方形	none
+▩	带对角线交叉填充符的方形	none
+▬	实心矩形	none
+▭	空心矩形	none
+▮	实心垂直矩形	none
+▰	实心平行四边形	none
 ▲	实心向上三角	none
+△	空心向上三角	none
+▴	实心向上小型三角	none
+▵	空心向上小型三角	none
+▷	空心向右三角	none
+▸	实心向右小型三角	none
+▹	空心向右小型三角	none
+►	实心向右指针	none
+▻	空心向右指针	none
 ▼	实心向下三角	none
+▽	空心向下三角	none
+▾	实心向下小型三角	none
+▿	空心向下小型三角	none
+◁	空心向左三角	none
+◂	实心向左小型三角	none
+◃	空心向左小型三角	none
+◄	实心向左指针	none
+◅	空心向左指针	none
+◆	实心菱形	none
+◇	空心菱形	none
+◈	包含实心菱形的空心菱形	none
+◉	包含实心圆圈的空心圆圈	none
 ◊	菱形	none
 ○	空心圆	none
+◌	虚线圆圈	none
+◍	带垂直填充符的圆圈	none
+◎	同心圆	none
 ●	实心圆	none
+◐	左半实心的圆圈	none
+◑	右半实心的圆圈	none
+◒	下半实心的圆圈	none
+◓	上半实心的圆圈	none
+◔	右上象限实心的圆圈	none
+◕	除左上象限外均实心的圆圈	none
+◖	左半实心圆圈	none
+◗	右半实心圆圈	none
+◘	反白项目符号	none
+◙	包含空心圆圈的实心方形	none
+◜	左上象限圆弧	none
+◝	右上象限圆弧	none
+◞	右下象限圆弧	none
+◟	左下象限圆弧	none
+◠	上半圆圈	none
+◡	下半圆圈	none
+◢	实心右下三角	none
+◣	实心左下三角	none
+◤	实心左上三角	none
+◥	实心右上三角	none
+◦	空心项目符号	none
 ◯	大空心圆	none
+◳	右上象限空心方形	none
+◷	右上象限空心圆圈	none
+◿	右下三角	none
 ♪	八分音符	none
+⨧	带下标二的加号	none
+⨯	向量叉乘	none
+⨼	内积	none
+⩣	带双底线的逻辑或	none
+⩽	小于或倾斜等于	none
+⪍	小于或相似	none
+⪚	双线等于或大于	none
+⪺	后于或不约等于	none
 ♭	降音符	none
 ♯	升号	none
+🥹	忍住泪水	none
+🧌	穴居巨怪	none
+🩻	X射线	none
+🩼	拐杖	none
+🪩	镜球	none
+🪪	身份证	none
+🪫	电池电量不足	none
+🪬	法蒂玛之手	none
+🪷	莲花	none
+🪸	珊瑚	none
+🪹	空巢	none
+🪺	有蛋的巢	none
+🫃	怀孕的男人	none
+🫄	怀孕的人	none
+🫅	戴王冠的人	none
+🫗	倾倒液体	none
+🫘	豆	none
+🫙	罐	none
+🫠	融化	none
+🫡	致敬	none
+🫢	睁眼捂嘴	none
+🫣	偷看	none
+🫤	郁闷	none
+🫥	虚线脸	none
+🫦	咬住嘴唇	none
+🫧	气泡	none
+🫰	食指与拇指交叉的手	none
+🫱	向右的手	none
+🫲	向左的手	none
+🫳	掌心向下的手	none
+🫴	掌心向上的手	none
+🫵	指向观察者的食指	none
+🫶	做成心形的双手	none
+🛝	游乐场滑梯	none
+🛞	车轮	none
+🛟	救生圈	none
+🟰	粗等号	none
 😀	嘿嘿	none
 😃	哈哈	none
 😄	大笑	none
@@ -1563,13 +1778,91 @@ symbols:
 🏳‍🌈	彩虹旗	none
 🏳‍⚧	跨性别旗	none
 🏴‍☠	海盗旗	none
+₢	克鲁赛罗	none
+₣	法国法郎	none
+₤	里拉	none
 ₥	密尔	none
 ₩	韩元	none
 €	欧元符号	none
+₰	德国便士	none
 ₱	比索	none
+₳	澳大利亚货币符号	none
+₶	里弗尔	none
+₷	斯佩斯米洛	none
 ₹	印度卢比符号	none
 ₽	卢布符号	none
 ₿	比特币	none
+₨	卢比	none
+🫃🏻	怀孕的男人 较浅肤色	none
+🫃🏼	怀孕的男人 中等-浅肤色	none
+🫃🏽	怀孕的男人 中等肤色	none
+🫃🏾	怀孕的男人 中等-深肤色	none
+🫃🏿	怀孕的男人 较深肤色	none
+🫄🏻	怀孕的人 较浅肤色	none
+🫄🏼	怀孕的人 中等-浅肤色	none
+🫄🏽	怀孕的人 中等肤色	none
+🫄🏾	怀孕的人 中等-深肤色	none
+🫄🏿	怀孕的人 较深肤色	none
+🫅🏻	戴王冠的人 较浅肤色	none
+🫅🏼	戴王冠的人 中等-浅肤色	none
+🫅🏽	戴王冠的人 中等肤色	none
+🫅🏾	戴王冠的人 中等-深肤色	none
+🫅🏿	戴王冠的人 较深肤色	none
+🫰🏻	食指与拇指交叉的手 较浅肤色	none
+🫰🏼	食指与拇指交叉的手 中等-浅肤色	none
+🫰🏽	食指与拇指交叉的手 中等肤色	none
+🫰🏾	食指与拇指交叉的手 中等-深肤色	none
+🫰🏿	食指与拇指交叉的手 较深肤色	none
+🫱🏻	向右的手 较浅肤色	none
+🫱🏼	向右的手 中等-浅肤色	none
+🫱🏽	向右的手 中等肤色	none
+🫱🏾	向右的手 中等-深肤色	none
+🫱🏿	向右的手 较深肤色	none
+🫱🏻‍🫲🏼	握手 较浅肤色中等-浅肤色	none
+🫱🏻‍🫲🏽	握手 较浅肤色中等肤色	none
+🫱🏻‍🫲🏾	握手 较浅肤色中等-深肤色	none
+🫱🏻‍🫲🏿	握手 较浅肤色较深肤色	none
+🫱🏼‍🫲🏻	握手 中等-浅肤色较浅肤色	none
+🫱🏼‍🫲🏽	握手 中等-浅肤色中等肤色	none
+🫱🏼‍🫲🏾	握手 中等-浅肤色中等-深肤色	none
+🫱🏼‍🫲🏿	握手 中等-浅肤色较深肤色	none
+🫱🏽‍🫲🏻	握手 中等肤色较浅肤色	none
+🫱🏽‍🫲🏼	握手 中等肤色中等-浅肤色	none
+🫱🏽‍🫲🏾	握手 中等肤色中等-深肤色	none
+🫱🏽‍🫲🏿	握手 中等肤色较深肤色	none
+🫱🏾‍🫲🏻	握手 中等-深肤色较浅肤色	none
+🫱🏾‍🫲🏼	握手 中等-深肤色中等-浅肤色	none
+🫱🏾‍🫲🏽	握手 中等-深肤色中等肤色	none
+🫱🏾‍🫲🏿	握手 中等-深肤色较深肤色	none
+🫱🏿‍🫲🏻	握手 较深肤色较浅肤色	none
+🫱🏿‍🫲🏼	握手 较深肤色中等-浅肤色	none
+🫱🏿‍🫲🏽	握手 较深肤色中等肤色	none
+🫱🏿‍🫲🏾	握手 较深肤色中等-深肤色	none
+🫲🏻	向左的手 较浅肤色	none
+🫲🏼	向左的手 中等-浅肤色	none
+🫲🏽	向左的手 中等肤色	none
+🫲🏾	向左的手 中等-深肤色	none
+🫲🏿	向左的手 较深肤色	none
+🫳🏻	掌心向下的手 较浅肤色	none
+🫳🏼	掌心向下的手 中等-浅肤色	none
+🫳🏽	掌心向下的手 中等肤色	none
+🫳🏾	掌心向下的手 中等-深肤色	none
+🫳🏿	掌心向下的手 较深肤色	none
+🫴🏻	掌心向上的手 较浅肤色	none
+🫴🏼	掌心向上的手 中等-浅肤色	none
+🫴🏽	掌心向上的手 中等肤色	none
+🫴🏾	掌心向上的手 中等-深肤色	none
+🫴🏿	掌心向上的手 较深肤色	none
+🫵🏻	指向观察者的食指 较浅肤色	none
+🫵🏼	指向观察者的食指 中等-浅肤色	none
+🫵🏽	指向观察者的食指 中等肤色	none
+🫵🏾	指向观察者的食指 中等-深肤色	none
+🫵🏿	指向观察者的食指 较深肤色	none
+🫶🏻	做成心形的双手 较浅肤色	none
+🫶🏼	做成心形的双手 中等-浅肤色	none
+🫶🏽	做成心形的双手 中等肤色	none
+🫶🏾	做成心形的双手 中等-深肤色	none
+🫶🏿	做成心形的双手 较深肤色	none
 👋🏻	挥手 较浅肤色	none
 👋🏼	挥手 中等-浅肤色	none
 👋🏽	挥手 中等肤色	none
@@ -1715,6 +2008,11 @@ symbols:
 🤲🏽	掌心向上托起 中等肤色	none
 🤲🏾	掌心向上托起 中等-深肤色	none
 🤲🏿	掌心向上托起 较深肤色	none
+🤝🏻	握手 较浅肤色	none
+🤝🏼	握手 中等-浅肤色	none
+🤝🏽	握手 中等肤色	none
+🤝🏾	握手 中等-深肤色	none
+🤝🏿	握手 较深肤色	none
 🙏🏻	双手合十 较浅肤色	none
 🙏🏼	双手合十 中等-浅肤色	none
 🙏🏽	双手合十 中等肤色	none

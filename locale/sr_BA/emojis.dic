@@ -9,28 +9,98 @@ symbols:
 ←	strelica koja pokazuje nalijevo	none
 ↚	kosa crta sa strelicom nalijevo	none
 ↓	strelica koja pokazuje nadolje	none
+↜	talasasta strelica nalijevo	none
 ↞	strelica nalijevo sa dva vrha	none
 ↡	strelica nadolje sa dva vrha	none
+↢	strelica sa repom nalijevo	none
+↣	strelica sa repom nadesno	none
+↤	strelica sa crtom nalijevo	none
+↧	strelica sa crtom nadolje	none
+↨	strelica nagore i nadolje sa bazom	none
+↫	strelica nalijevo sa petljom	none
+↬	strelica nadesno sa petljom	none
+↭	talasasta strelica sa vrhom nalijevo i nadesno	none
+↯	cik-cak strelica nadolje	none
 ↰	strelica nagore sa vrhom nalijevo	none
 ↲	strelica nadolje sa vrhom nalijevo	none
 ↳	strelica nadolje sa vrhom nadesno	none
+↴	strelica nadesno sa uglom nadolje	none
+↵	strelica nadolje sa uglom nalijevo	none
+↶	polukružna strelica u smjeru suprotnom od kazaljke na satu	none
+↷	polukružna strelica u smjeru kazaljke na satu	none
+↸	strelica sa dugom crtom u smjeru sjeverozapada	none
+↹	strelica sa crtom nalijevo iznad strelice sa crtom nadesno	none
+↺	otvorena kružna strelica u smjeru suprotnom od kazaljke na satu	none
+↻	otvorena kružna strelica u smjeru kazaljke na satu	none
+↼	harpun nalijevo sa kukicom nagore	none
+↽	harpun nalijevo sa kukicom nadolje	none
+↿	harpun nagore sa kukicom nalijevo	none
+⇁	harpun nadesno sa kukicom nadolje	none
+⇂	harpun nadolje sa kukicom nadesno	none
+⇃	harpun nadolje sa kukicom nalijevo	none
 ⇄	strelica udesno iznad strelice nalijevo	none
 ⇅	strelica nagore i strelica nadolje	none
 ⇆	strelica nalijevo iznad strelice nadesno	none
 ⇇	uparene strelice nalijevo	none
 ⇊	uparene strelice nadolje	none
-⇐	dvostruka strelca nalijevo	none
+⇋	harpun nalijevo iznad harpuna nadesno	none
+⇌	harpun nadesno iznad harpuna nalijevo	none
+⇐	dvostruka strelica nalijevo	none
+⇍	precrtana dvostruka strelica nalijevo	none
 ⇓	dvostruka strelica nadolje	none
 ⇔	dvostruka strelica nalijevo i nadesno	none
+⇎	precrtana dvostruka strelica nalijevo i nadesno	none
 ⇖	dvostruka strelica nagore i nalijevo	none
 ⇘	dvostruka strelica nadolje i nadesno	none
 ⇙	dvostruka strelica nadolje i nalijevo	none
 ⇚	trostruka strelica nalijevo	none
+⇜	krivudava strelica nalijevo	none
+⇟	dvostruko precrtana strelica nadolje	none
 ⇠	isprekidana crtica nalijevo	none
 ⇣	isprekidana crtica nadolje	none
+⇤	strelica nalijevo sa crtom	none
+⇦	prazna strelica nalijevo	none
+⇩	prazna strelica nadolje	none
+⇵	strelica nadolje i strelica nagore	none
+∕	kosa crta za dijeljenje	none
+∗	operator u obliku zvjezdice	none
 √	kvadratni korijen	none
+∣	dijeljenje	none
 ∩	presjek	none
+∫	integral	none
+∾	obrnuti lijeni s	none
+≪	mnogo manje od	none
+≻	slijedi	none
+⊁	ne slijedi	none
+⊘	znak dijeljenja u krugu	none
+⊛	operator u obliku zaokružene zvjezdice	none
+⊱	slijedi ispod relacije	none
+⋆	operator u obliku zvijezde	none
+⋒	dvostruki presjek	none
+⋱	dijagonalna trotačka nadolje desno	none
+▧	kvadrat sa popunom od gore lijevo prema dolje desno	none
+▨	kvadrat sa popunom od gore desno prema dolje lijevo	none
 ▼	ispunjen trougao okrenut nadolje	none
+▽	prazan trougao okrenut nadolje	none
+▾	popunjeni mali trougao okrenut nadolje	none
+▿	prazan mali trougao okrenut nadolje	none
+◁	prazan trougao okrenut nalijevo	none
+◂	popunjeni mali trougao okrenut nalijevo	none
+◃	prazan mali trougao okrenut nalijevo	none
+◄	popunjeni pokazivač okrenut nalijevo	none
+◅	prazan pokazivač okrenut nalijevo	none
+◔	krug sa popunjenim gornjim desnim kvadrantom	none
+◕	krug sa praznim gornjim lijevim kvadrantom	none
+◖	lijeva popunjena polovina kruga	none
+◜	kružni luk gornjeg lijevog kvadranta	none
+◟	kružni luk donjeg lijevog kvadranta	none
+◢	popunjeni trougao dolje desno	none
+◣	popunjeni trougao dolje lijevo	none
+◤	popunjeni trougao gore lijevo	none
+⪺	slijedi iznad nije skoro jednako	none
+🪹	prazno gnijezdo	none
+🪺	gnijezdo s jajima	none
+🫧	mjehurići	none
 😀	lice sa širokim osmijehom	none
 😃	lice sa oduševljenim osmijehom	none
 😄	lice koje se slatko smije	none
@@ -46,7 +116,9 @@ symbols:
 😙	lice koje ljubi sa nasmijanim očima	none
 🥲	nasmijano lice sa suzom	none
 😏	lice koje se zlobno smješka	none
+😮‍💨	lice izdiše	none
 🤒	lice sa toplomjerom	none
+😵‍💫	lice sa spiralnim očima	none
 😎	nasmijano lice sa naočarima za sunce	none
 🥱	lice zijeva	none
 😈	nasmijano lice sa rogovima	none
@@ -55,6 +127,7 @@ symbols:
 😻	nasmijana mačka sa očima u obliku srca	none
 😼	mačka sa kiselim osmijehom	none
 💘	srce probodeno strijelom	none
+❤‍🔥	zapaljeno srce	none
 ❤‍🩹	srce koje zacjeljuje	none
 🤍	bijelo srce	none
 💨	bježanje	none
@@ -67,6 +140,7 @@ symbols:
 👊	usmjerena pesnica	none
 🤛	pesnica ulijevo	none
 🦿	mehanička noga	none
+🫀	anatomsko srce	none
 🧒	dijete	none
 👦	dječak	none
 👧	djevojčica	none
@@ -129,7 +203,6 @@ symbols:
 🍾	boca iz koje izlijeće čep	none
 🗺	mapa svijeta	none
 🏔	snježni vrh planine	none
-🏩	ljubav	none
 🏪	prodavnica mješovite robe	none
 💒	vjenčanje	none
 🌃	zvjezdana noć	none
@@ -177,9 +250,12 @@ symbols:
 ♟	šahovski pješak	none
 🎴	karte za igranje sa cvijetom	none
 🎭	scenska umjetnost	none
+🥽	zaštitne naočari	none
 🥼	bijeli mantil	none
 🩱	jednodijelni kupaći	none
 👚	ženska odjeća	none
+🥾	cipela za planinarenje	none
+🥿	ravna cipela	none
 🪖	šljem	none
 ⛑	kaciga sa bijelim krstom	none
 🔍	lupa usmjerena nalijevo	none
@@ -190,10 +266,10 @@ symbols:
 🔖	obilježivač stranica u knjizi	none
 🗂	razdjelnici za katalog kartica	none
 🗒	bilježnica sa spiralom	none
-🔓	otključano	none
 🪓	sjekira	none
 🏹	luk i strijela	none
 🦯	bijeli štap	none
+♿	simbol za invalidska kolica	none
 🚸	prelaz za djecu	none
 🚷	zabranjeno za pješake	none
 🔞	zabranjeno za maloljetne	none
@@ -235,6 +311,56 @@ symbols:
 🔳	bijelo kvadratno dugme	none
 🏳	bijela zastava	none
 🏳‍⚧	transrodna zastava	none
+₤	lira	none
+₰	njemački peni	none
+🫃🏻	trudni muškarac svijetla koža	none
+🫃🏼	trudni muškarac srednje svijetla koža	none
+🫃🏽	trudni muškarac ni svijetla ni tamna koža	none
+🫄🏻	trudna osoba svijetla koža	none
+🫄🏼	trudna osoba srednje svijetla koža	none
+🫄🏽	trudna osoba ni svijetla ni tamna koža	none
+🫅🏻	osoba sa krunom svijetla koža	none
+🫅🏼	osoba sa krunom srednje svijetla koža	none
+🫅🏽	osoba sa krunom ni svijetla ni tamna koža	none
+🫰🏻	ruka sa prekrštenim palcem i kažiprstom svijetla koža	none
+🫰🏼	ruka sa prekrštenim palcem i kažiprstom srednje svijetla koža	none
+🫰🏽	ruka sa prekrštenim palcem i kažiprstom ni svijetla ni tamna koža	none
+🫱🏻	ruka okrenuta nadesno svijetla koža	none
+🫱🏼	ruka okrenuta nadesno srednje svijetla koža	none
+🫱🏽	ruka okrenuta nadesno ni svijetla ni tamna koža	none
+🫱🏻‍🫲🏼	rukovanje svijetla koža i srednje svijetla koža	none
+🫱🏻‍🫲🏽	rukovanje svijetla koža i ni svijetla ni tamna koža	none
+🫱🏻‍🫲🏾	rukovanje svijetla koža i srednje tamna koža	none
+🫱🏻‍🫲🏿	rukovanje svijetla koža i tamna koža	none
+🫱🏼‍🫲🏻	rukovanje srednje svijetla koža i svijetla koža	none
+🫱🏼‍🫲🏽	rukovanje srednje svijetla koža i ni svijetla ni tamna koža	none
+🫱🏼‍🫲🏾	rukovanje srednje svijetla koža i srednje tamna koža	none
+🫱🏼‍🫲🏿	rukovanje srednje svijetla koža i tamna koža	none
+🫱🏽‍🫲🏻	rukovanje ni svijetla ni tamna koža i svijetla koža	none
+🫱🏽‍🫲🏼	rukovanje ni svijetla ni tamna koža i srednje svijetla koža	none
+🫱🏽‍🫲🏾	rukovanje ni svijetla ni tamna koža i srednje tamna koža	none
+🫱🏽‍🫲🏿	rukovanje ni svijetla ni tamna koža i tamna koža	none
+🫱🏾‍🫲🏻	rukovanje srednje tamna koža i svijetla koža	none
+🫱🏾‍🫲🏼	rukovanje srednje tamna koža i srednje svijetla koža	none
+🫱🏾‍🫲🏽	rukovanje srednje tamna koža i ni svijetla ni tamna koža	none
+🫱🏿‍🫲🏻	rukovanje tamna koža i svijetla koža	none
+🫱🏿‍🫲🏼	rukovanje tamna koža i srednje svijetla koža	none
+🫱🏿‍🫲🏽	rukovanje tamna koža i ni svijetla ni tamna koža	none
+🫲🏻	ruka okrenuta nalevo svijetla koža	none
+🫲🏼	ruka okrenuta nalevo srednje svijetla koža	none
+🫲🏽	ruka okrenuta nalevo ni svijetla ni tamna koža	none
+🫳🏻	dlan okrenut nadole svijetla koža	none
+🫳🏼	dlan okrenut nadole srednje svijetla koža	none
+🫳🏽	dlan okrenut nadole ni svijetla ni tamna koža	none
+🫴🏻	dlan okrenut nagore svijetla koža	none
+🫴🏼	dlan okrenut nagore srednje svijetla koža	none
+🫴🏽	dlan okrenut nagore ni svijetla ni tamna koža	none
+🫵🏻	kažiprst koji pokazuje prema gledaocu svijetla koža	none
+🫵🏼	kažiprst koji pokazuje prema gledaocu srednje svijetla koža	none
+🫵🏽	kažiprst koji pokazuje prema gledaocu ni svijetla ni tamna koža	none
+🫶🏻	ruke koje prave srce svijetla koža	none
+🫶🏼	ruke koje prave srce srednje svijetla koža	none
+🫶🏽	ruke koje prave srce ni svijetla ni tamna koža	none
 👋🏻	ruka koja maše svijetla koža	none
 👋🏼	ruka koja maše srednje svijetla koža	none
 👋🏽	ruka koja maše ni svijetla ni tamna koža	none
@@ -334,6 +460,9 @@ symbols:
 🤲🏻	dlanovi nagore zajedno svijetla koža	none
 🤲🏼	dlanovi nagore zajedno srednje svijetla koža	none
 🤲🏽	dlanovi nagore zajedno ni svijetla ni tamna koža	none
+🤝🏻	rukovanje svijetla koža	none
+🤝🏼	rukovanje srednje svijetla koža	none
+🤝🏽	rukovanje ni svijetla ni tamna koža	none
 🙏🏻	spojeni dlanovi svijetla koža	none
 🙏🏼	spojeni dlanovi srednje svijetla koža	none
 🙏🏽	spojeni dlanovi ni svijetla ni tamna koža	none

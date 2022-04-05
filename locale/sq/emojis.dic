@@ -112,7 +112,7 @@ symbols:
 ∕	thyesë pjesëtimi	none
 ∗	operator yllth	none
 ∘	operator rreth	none
-∙	operator pikë	none
+∙	operator pikësim	none
 √	rrënja katrore	none
 ∝	përpjesëtimor	none
 ∞	shenja e infinitit	none
@@ -136,19 +136,171 @@ symbols:
 ≃	barazim asimptotik	none
 ≅	afërsisht baraz	none
 ≈	thuajse baras	none
+≌	të gjitha baras	none
+≒	afërsisht baras me imazhin	none
+≖	unazë barazimi	none
 ≡	njëlloj me	none
+≣	barasvlerë strikte	none
 ≤	më e vogël ose baras	none
 ≥	më e madhe ose baras	none
+≦	më pak ose baras	none
+≧	më shumë ose baras	none
+≪	shumë më pak	none
+≫	shumë më shumë	none
+≬	ndërmjet	none
+≳	më shumë ose afërsisht	none
+≺	pararend	none
+≻	tejkalon	none
+⊁	nuk tejkalon	none
 ⊂	nënbashkësi e	none
+⊃	mbibashkësi	none
+⊆	nënbashkësia baras	none
+⊇	mbibashkësia baras	none
+⊕	rreth me plus	none
+⊖	rreth me minus	none
+⊗	rreth me kryq	none
+⊘	rreth me thyesë	none
+⊙	operator rrethi me pikë	none
+⊚	operator rrethi me rreth	none
+⊛	operator rrethi me yll	none
+⊞	katror me plus	none
+⊟	katror me minus	none
+⊥	thumb lart	none
+⊮	nuk detyron	none
+⊰	pararend në raport	none
+⊱	tejkalon në raport	none
+⋭	nuk përmban si të barabartë nëngrupi normal	none
+⊶	origjinal	none
+⊹	matricë lidhjeje hermitiane	none
+⊿	trekëndësh kënddrejtë	none
+⋁	n-ar logjik ose	none
+⋂	ndërprerje n-are	none
+⋃	bashkim n-ar	none
+⋅	operator pikë	none
+⋆	operator yll	none
+⋈	bashkim natyral	none
+⋒	ndërprerje dyshe	none
+⋘	shumë më pak se	none
+⋙	shumë më shumë se	none
+⋮	trepikësh vertikal	none
+⋯	trepikësh horizontal mesi	none
+⋰	trepikësh diagonal djathtas lart	none
+⋱	trepikësh diagonal djathtas poshtë	none
+■	katror i mbushur	none
+□	katror i zbrazët	none
+▢	katror i zbrazët me kënde të harkuara	none
+▣	katror i zbrazët me katror të mbushur	none
+▤	katror me mbushje horizontale	none
+▥	katror me mbushje vertikale	none
+▦	katror me mbushje rrjete drejtkëndore	none
+▧	katror me mbushje majtas lart djathtas poshtë	none
+▨	katror me mbushje djathtas lart majtas poshtë	none
+▩	katror me mbushje rrjete diagonale	none
+▬	drejtkëndësh i mbushur	none
+▭	drejtkëndësh i zbrazët	none
+▮	drejtkëndësh i mbushur vertikal	none
+▰	paralelogram i mbushur	none
 ▲	trekëndësh i mbushur, me drejtim lart	none
+△	trekëndësh i zbrazët me drejtim lart	none
+▴	trekëndësh i mbushur i vogël me drejtim lart	none
+▵	trekëndësh i zbrazët i vogël me drejtim lart	none
+▷	trekëndësh i zbrazët i me drejtim djathtas	none
+▸	trekëndësh i mbushur i vogël me drejtim djathtas	none
+▹	trekëndësh i mbushur i zbrazët me drejtim djathtas	none
+►	tregues i mbushur me drejtim djathtas	none
+▻	tregues i zbrazët me drejtim djathtas	none
 ▼	trekëndësh i mbushur, me drejtim poshtë	none
+▽	tregues i mbushur me drejtim poshtë	none
+▾	trekëndësh i mbushur i vogël me drejtim poshtë	none
+▿	trekëndësh i zbrazët i vogël me drejtim poshtë	none
+◁	trekëndësh i zbrazët me drejtim majtas	none
+◂	trekëndësh i mbushur i vogël me drejtim majtas	none
+◃	trekëndësh i zbrazët i vogël me drejtim majtas	none
+◄	tregues i mbushur me drejtim majtas	none
+◅	tregues i zbrazët me drejtim majtas	none
+◆	romb i mbushur	none
+◇	romb i zbrazët	none
+◈	romb i zbrazët me romb të mbushur	none
+◉	rreth i zbrazët me rreth të mbushur	none
 ◊	romb	none
 ○	rreth bosh	none
+◌	rreth i pikëzuar	none
+◍	rreth me mbushje vertikale	none
+◎	rrathë bashkëqendrorë	none
 ●	rreth i mbushur	none
+◐	rreth gjysmë i mbushur majtas	none
+◑	rreth gjysmë i mbushur djathtas	none
+◒	rreth gjysmë i mbushur poshtë	none
+◓	rreth gjysmë i mbushur lart	none
+◔	rreth me sektor të mbushur djathtas lart	none
+◕	rreth i mbushur përveç sektorit majtas lart	none
+◖	gjysmërreth i mbushur i majtë	none
+◗	gjysmërreth i mbushur i djathtë	none
+◘	pikë e anasjellë	none
+◙	katror i mbushur me rreth të zbrazët	none
+◜	hark sektori majtas lart	none
+◝	hark sektori djathtas lart	none
+◞	hark sektori djathtas poshtë	none
+◟	hark sektori majtas poshtë	none
+◠	gjysmëhark lart	none
+◡	gjysmëhark poshtë	none
+◢	trekëndësh i mbushur djathtas poshtë	none
+◣	trekëndësh i mbushur majtas poshtë	none
+◤	trekëndësh i mbushur majtas lart	none
+◥	trekëndësh i mbushur djathtas lart	none
+◦	pikë e zbrazët	none
 ◯	rreth i madh bosh	none
+◳	katror i zbrazët me sektor djathtas lart	none
+◷	rreth i zbrazët me sektor djathtas lart	none
+◿	trekëndësh djathtas poshtë	none
 ♪	nota e tetë	none
+⨧	plus dy subskript	none
+⨯	kryq vektorial produkti	none
+⨼	produkt i brendshëm	none
+⩣	nënviza logjike ose dyshe	none
+⩽	më pak ose baras i pjerrët	none
+⪍	më pak ose përafërsisht	none
+⪚	më shumë ose baras me dy rreshta	none
+⪺	tejkalon ose përafërsisht	none
 ♭	bemol	none
 ♯	diez	none
+🥹	fytyrë që mezi mban lotët	none
+🧌	xhuxh	none
+🩻	grafi	none
+🩼	patericë	none
+🪩	sferë diskoje	none
+🪪	letërnjoftim	none
+🪫	bateri e ulët	none
+🪬	hajmali	none
+🪷	zambak uji	none
+🪸	koral	none
+🪹	fole bosh	none
+🪺	fole me vezë	none
+🫃	burrë shtatzënë	none
+🫄	person shtatzënë	none
+🫅	person me kurorë	none
+🫗	hedhje lëngu	none
+🫘	fasule	none
+🫙	kanë	none
+🫠	fytyrë që shkrin	none
+🫡	fytyrë përshëndetëse	none
+🫢	fytyrë me sy të hapur dhe dorën mbi gojë	none
+🫣	fytyrë me sy përgjues	none
+🫤	fytyrë me gojë diagonale	none
+🫥	fytyrë me vijë të pikëzuar	none
+🫦	kafshim buze	none
+🫧	flluska	none
+🫰	dorë me gishtin tregues dhe të madhin të kapur	none
+🫱	dorë djathtas	none
+🫲	dorë majtas	none
+🫳	dorë me pëllëmbë poshtë	none
+🫴	dorë me pëllëmbë lart	none
+🫵	gishti tregues nga shikuesi	none
+🫶	duar si zemër	none
+🛝	rrëshqitëse këndi lojërash	none
+🛞	rrotë	none
+🛟	bovë rrethore	none
+🟰	shenjë e fortë barazie	none
 😀	fytyrë e zgërdheshur	none
 😃	fytyrë e qeshur me gojën e hapur	none
 😄	fytyrë me gojë të hapur dhe sy të qeshur	none
@@ -1626,13 +1778,91 @@ symbols:
 🏳‍🌈	flamur i ylbertë	none
 🏳‍⚧	flamur blu, rozë dhe i bardhë	none
 🏴‍☠	flamur piratësh	none
+₢	kruseiro	none
+₣	frangë franceze	none
+₤	lirë	none
 ₥	mill	none
 ₩	uon	none
 €	euro	none
+₰	qindarkë gjermane	none
 ₱	pezo	none
+₳	austral	none
+₶	lirë tureze	none
+₷	spesmilo	none
 ₹	rupi indiane	none
 ₽	rubël	none
 ₿	bitcoin	none
+₨	rupje	none
+🫃🏻	burrë shtatzënë nuancë lëkure e çelët	none
+🫃🏼	burrë shtatzënë nuancë lëkure gjysmë e çelët	none
+🫃🏽	burrë shtatzënë nuancë lëkure zeshkane	none
+🫃🏾	burrë shtatzënë nuancë lëkure gjysmë e errët	none
+🫃🏿	burrë shtatzënë nuancë lëkure e errët	none
+🫄🏻	person shtatzënë nuancë lëkure e çelët	none
+🫄🏼	person shtatzënë nuancë lëkure gjysmë e çelët	none
+🫄🏽	person shtatzënë nuancë lëkure zeshkane	none
+🫄🏾	person shtatzënë nuancë lëkure gjysmë e errët	none
+🫄🏿	person shtatzënë nuancë lëkure e errët	none
+🫅🏻	person me kurorë nuancë lëkure e çelët	none
+🫅🏼	person me kurorë nuancë lëkure gjysmë e çelët	none
+🫅🏽	person me kurorë nuancë lëkure zeshkane	none
+🫅🏾	person me kurorë nuancë lëkure gjysmë e errët	none
+🫅🏿	person me kurorë nuancë lëkure e errët	none
+🫰🏻	dorë me gishtin tregues dhe të madhin të kapur nuancë lëkure e çelët	none
+🫰🏼	dorë me gishtin tregues dhe të madhin të kapur nuancë lëkure gjysmë e çelët	none
+🫰🏽	dorë me gishtin tregues dhe të madhin të kapur nuancë lëkure zeshkane	none
+🫰🏾	dorë me gishtin tregues dhe të madhin të kapur nuancë lëkure gjysmë e errët	none
+🫰🏿	dorë me gishtin tregues dhe të madhin të kapur nuancë lëkure e errët	none
+🫱🏻	dorë djathtas nuancë lëkure e çelët	none
+🫱🏼	dorë djathtas nuancë lëkure gjysmë e çelët	none
+🫱🏽	dorë djathtas nuancë lëkure zeshkane	none
+🫱🏾	dorë djathtas nuancë lëkure gjysmë e errët	none
+🫱🏿	dorë djathtas nuancë lëkure e errët	none
+🫱🏻‍🫲🏼	shtrëngim duarsh nuancë lëkure e çelët e nuancë lëkure gjysmë e çelët	none
+🫱🏻‍🫲🏽	shtrëngim duarsh nuancë lëkure e çelët e nuancë lëkure zeshkane	none
+🫱🏻‍🫲🏾	shtrëngim duarsh nuancë lëkure e çelët e nuancë lëkure gjysmë e errët	none
+🫱🏻‍🫲🏿	shtrëngim duarsh nuancë lëkure e çelët e nuancë lëkure e errët	none
+🫱🏼‍🫲🏻	shtrëngim duarsh nuancë lëkure gjysmë e çelët e nuancë lëkure e çelët	none
+🫱🏼‍🫲🏽	shtrëngim duarsh nuancë lëkure gjysmë e çelët e nuancë lëkure zeshkane	none
+🫱🏼‍🫲🏾	shtrëngim duarsh nuancë lëkure gjysmë e çelët e nuancë lëkure gjysmë e errët	none
+🫱🏼‍🫲🏿	shtrëngim duarsh nuancë lëkure gjysmë e çelët e nuancë lëkure e errët	none
+🫱🏽‍🫲🏻	shtrëngim duarsh nuancë lëkure zeshkane e nuancë lëkure e çelët	none
+🫱🏽‍🫲🏼	shtrëngim duarsh nuancë lëkure zeshkane e nuancë lëkure gjysmë e çelët	none
+🫱🏽‍🫲🏾	shtrëngim duarsh nuancë lëkure zeshkane e nuancë lëkure gjysmë e errët	none
+🫱🏽‍🫲🏿	shtrëngim duarsh nuancë lëkure zeshkane e nuancë lëkure e errët	none
+🫱🏾‍🫲🏻	shtrëngim duarsh nuancë lëkure gjysmë e errët e nuancë lëkure e çelët	none
+🫱🏾‍🫲🏼	shtrëngim duarsh nuancë lëkure gjysmë e errët e nuancë lëkure gjysmë e çelët	none
+🫱🏾‍🫲🏽	shtrëngim duarsh nuancë lëkure gjysmë e errët e nuancë lëkure zeshkane	none
+🫱🏾‍🫲🏿	shtrëngim duarsh nuancë lëkure gjysmë e errët e nuancë lëkure e errët	none
+🫱🏿‍🫲🏻	shtrëngim duarsh nuancë lëkure e errët e nuancë lëkure e çelët	none
+🫱🏿‍🫲🏼	shtrëngim duarsh nuancë lëkure e errët e nuancë lëkure gjysmë e çelët	none
+🫱🏿‍🫲🏽	shtrëngim duarsh nuancë lëkure e errët e nuancë lëkure zeshkane	none
+🫱🏿‍🫲🏾	shtrëngim duarsh nuancë lëkure e errët e nuancë lëkure gjysmë e errët	none
+🫲🏻	dorë majtas nuancë lëkure e çelët	none
+🫲🏼	dorë majtas nuancë lëkure gjysmë e çelët	none
+🫲🏽	dorë majtas nuancë lëkure zeshkane	none
+🫲🏾	dorë majtas nuancë lëkure gjysmë e errët	none
+🫲🏿	dorë majtas nuancë lëkure e errët	none
+🫳🏻	dorë me pëllëmbë poshtë nuancë lëkure e çelët	none
+🫳🏼	dorë me pëllëmbë poshtë nuancë lëkure gjysmë e çelët	none
+🫳🏽	dorë me pëllëmbë poshtë nuancë lëkure zeshkane	none
+🫳🏾	dorë me pëllëmbë poshtë nuancë lëkure gjysmë e errët	none
+🫳🏿	dorë me pëllëmbë poshtë nuancë lëkure e errët	none
+🫴🏻	dorë me pëllëmbë lart nuancë lëkure e çelët	none
+🫴🏼	dorë me pëllëmbë lart nuancë lëkure gjysmë e çelët	none
+🫴🏽	dorë me pëllëmbë lart nuancë lëkure zeshkane	none
+🫴🏾	dorë me pëllëmbë lart nuancë lëkure gjysmë e errët	none
+🫴🏿	dorë me pëllëmbë lart nuancë lëkure e errët	none
+🫵🏻	gishti tregues nga shikuesi nuancë lëkure e çelët	none
+🫵🏼	gishti tregues nga shikuesi nuancë lëkure gjysmë e çelët	none
+🫵🏽	gishti tregues nga shikuesi nuancë lëkure zeshkane	none
+🫵🏾	gishti tregues nga shikuesi nuancë lëkure gjysmë e errët	none
+🫵🏿	gishti tregues nga shikuesi nuancë lëkure e errët	none
+🫶🏻	duar si zemër nuancë lëkure e çelët	none
+🫶🏼	duar si zemër nuancë lëkure gjysmë e çelët	none
+🫶🏽	duar si zemër nuancë lëkure zeshkane	none
+🫶🏾	duar si zemër nuancë lëkure gjysmë e errët	none
+🫶🏿	duar si zemër nuancë lëkure e errët	none
 👋🏻	dorë që tundet nuancë lëkure e çelët	none
 👋🏼	dorë që tundet nuancë lëkure gjysmë e çelët	none
 👋🏽	dorë që tundet nuancë lëkure zeshkane	none
@@ -1778,6 +2008,11 @@ symbols:
 🤲🏽	pëllëmbë të bashkuara nuancë lëkure zeshkane	none
 🤲🏾	pëllëmbë të bashkuara nuancë lëkure gjysmë e errët	none
 🤲🏿	pëllëmbë të bashkuara nuancë lëkure e errët	none
+🤝🏻	shtrëngim duarsh nuancë lëkure e çelët	none
+🤝🏼	shtrëngim duarsh nuancë lëkure gjysmë e çelët	none
+🤝🏽	shtrëngim duarsh nuancë lëkure zeshkane	none
+🤝🏾	shtrëngim duarsh nuancë lëkure gjysmë e errët	none
+🤝🏿	shtrëngim duarsh nuancë lëkure e errët	none
 🙏🏻	duar të mbledhura nuancë lëkure e çelët	none
 🙏🏼	duar të mbledhura nuancë lëkure gjysmë e çelët	none
 🙏🏽	duar të mbledhura nuancë lëkure zeshkane	none

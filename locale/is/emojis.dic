@@ -176,6 +176,43 @@ symbols:
 ♪	áttundapartsnóta	none
 ♭	lækkaður tónn	none
 ♯	hækkaður tónn	none
+🥹	andlit að berjast við tárin	none
+🧌	jarðálfur	none
+🩻	röntgengeisli	none
+🩼	hækja	none
+🪩	diskókúla	none
+🪪	persónuskilríki	none
+🪫	raflítil rafhlaða	none
+🪬	hamsa	none
+🪷	lótus	none
+🪸	kórall	none
+🪹	tómt hreiður	none
+🪺	hreiður með eggjum	none
+🫃	barnshafandi maður	none
+🫄	barnshafandi manneskja	none
+🫅	manneskja með kórónu	none
+🫗	hellir vökva	none
+🫘	baunir	none
+🫙	krukka	none
+🫠	andlit að bráðna	none
+🫡	andlit að heilsa	none
+🫢	andlit með opin augu og hendi yfir munni	none
+🫣	andlit með auga að kikja	none
+🫤	andlit með skáhallan munn	none
+🫥	punktalínuandlit	none
+🫦	bítur í vör	none
+🫧	loftbólur	none
+🫰	hendi með vísifingur og þumal í kross	none
+🫱	hendi hægra megin	none
+🫲	hendi vinstra megin	none
+🫳	hendi með lófa niður	none
+🫴	hendi með lófa upp	none
+🫵	vísifingur bendir á áhorfandann	none
+🫶	hjartahendur	none
+🛝	rennibraut	none
+🛞	hjól	none
+🛟	björgunarhringur	none
+🟰	þungt jafnaðarmerki	none
 😀	glottandi andlit	none
 😃	brosandi andlit með opinn munn	none
 😄	hlæjandi andlit	none
@@ -600,7 +637,7 @@ symbols:
 🏋	kraftlyftingamaður	none
 🏋‍♂	maður í kraftlyftingum	none
 🏋‍♀	kona í kraftlyftingum	none
-🚴	hjól	none
+🚴	manneskja á hjóli	none
 🚴‍♂	maður á hjóli	none
 🚴‍♀	kona á hjóli	none
 🚵	fjallahjól	none
@@ -1663,6 +1700,76 @@ symbols:
 ₽	rúbla	none
 ₿	bitcoin	none
 ₨	rúpía	none
+🫃🏻	barnshafandi maður ljós húðlitur	none
+🫃🏼	barnshafandi maður meðalljós húðlitur	none
+🫃🏽	barnshafandi maður millihúðlitur	none
+🫃🏾	barnshafandi maður meðaldökkur húðlitur	none
+🫃🏿	barnshafandi maður dökkur húðlitur	none
+🫄🏻	barnshafandi manneskja ljós húðlitur	none
+🫄🏼	barnshafandi manneskja meðalljós húðlitur	none
+🫄🏽	barnshafandi manneskja millihúðlitur	none
+🫄🏾	barnshafandi manneskja meðaldökkur húðlitur	none
+🫄🏿	barnshafandi manneskja dökkur húðlitur	none
+🫅🏻	manneskja með kórónu ljós húðlitur	none
+🫅🏼	manneskja með kórónu meðalljós húðlitur	none
+🫅🏽	manneskja með kórónu millihúðlitur	none
+🫅🏾	manneskja með kórónu meðaldökkur húðlitur	none
+🫅🏿	manneskja með kórónu dökkur húðlitur	none
+🫰🏻	hendi með vísifingur og þumal í kross ljós húðlitur	none
+🫰🏼	hendi með vísifingur og þumal í kross meðalljós húðlitur	none
+🫰🏽	hendi með vísifingur og þumal í kross millihúðlitur	none
+🫰🏾	hendi með vísifingur og þumal í kross meðaldökkur húðlitur	none
+🫰🏿	hendi með vísifingur og þumal í kross dökkur húðlitur	none
+🫱🏻	hendi hægra megin ljós húðlitur	none
+🫱🏼	hendi hægra megin meðalljós húðlitur	none
+🫱🏽	hendi hægra megin millihúðlitur	none
+🫱🏾	hendi hægra megin meðaldökkur húðlitur	none
+🫱🏿	hendi hægra megin dökkur húðlitur	none
+🫱🏻‍🫲🏼	handaband ljós húðlitur og meðalljós húðlitur	none
+🫱🏻‍🫲🏽	handaband ljós húðlitur og millihúðlitur	none
+🫱🏻‍🫲🏾	handaband ljós húðlitur og meðaldökkur húðlitur	none
+🫱🏻‍🫲🏿	handaband ljós húðlitur og dökkur húðlitur	none
+🫱🏼‍🫲🏻	handaband meðalljós húðlitur og ljós húðlitur	none
+🫱🏼‍🫲🏽	handaband meðalljós húðlitur og millihúðlitur	none
+🫱🏼‍🫲🏾	handaband meðalljós húðlitur og meðaldökkur húðlitur	none
+🫱🏼‍🫲🏿	handaband meðalljós húðlitur og dökkur húðlitur	none
+🫱🏽‍🫲🏻	handaband millihúðlitur og ljós húðlitur	none
+🫱🏽‍🫲🏼	handaband millihúðlitur og meðalljós húðlitur	none
+🫱🏽‍🫲🏾	handaband millihúðlitur og meðaldökkur húðlitur	none
+🫱🏽‍🫲🏿	handaband millihúðlitur og dökkur húðlitur	none
+🫱🏾‍🫲🏻	handaband meðaldökkur húðlitur og ljós húðlitur	none
+🫱🏾‍🫲🏼	handaband meðaldökkur húðlitur og meðalljós húðlitur	none
+🫱🏾‍🫲🏽	handaband meðaldökkur húðlitur og millihúðlitur	none
+🫱🏾‍🫲🏿	handaband meðaldökkur húðlitur og dökkur húðlitur	none
+🫱🏿‍🫲🏻	handaband dökkur húðlitur og ljós húðlitur	none
+🫱🏿‍🫲🏼	handaband dökkur húðlitur og meðalljós húðlitur	none
+🫱🏿‍🫲🏽	handaband dökkur húðlitur og millihúðlitur	none
+🫱🏿‍🫲🏾	handaband dökkur húðlitur og meðaldökkur húðlitur	none
+🫲🏻	hendi vinstra megin ljós húðlitur	none
+🫲🏼	hendi vinstra megin meðalljós húðlitur	none
+🫲🏽	hendi vinstra megin millihúðlitur	none
+🫲🏾	hendi vinstra megin meðaldökkur húðlitur	none
+🫲🏿	hendi vinstra megin dökkur húðlitur	none
+🫳🏻	hendi með lófa niður ljós húðlitur	none
+🫳🏼	hendi með lófa niður meðalljós húðlitur	none
+🫳🏽	hendi með lófa niður millihúðlitur	none
+🫳🏾	hendi með lófa niður meðaldökkur húðlitur	none
+🫳🏿	hendi með lófa niður dökkur húðlitur	none
+🫴🏻	hendi með lófa upp ljós húðlitur	none
+🫴🏼	hendi með lófa upp meðalljós húðlitur	none
+🫴🏽	hendi með lófa upp millihúðlitur	none
+🫴🏾	hendi með lófa upp meðaldökkur húðlitur	none
+🫴🏿	hendi með lófa upp dökkur húðlitur	none
+🫵🏻	vísifingur bendir á áhorfandann ljós húðlitur	none
+🫵🏼	vísifingur bendir á áhorfandann meðalljós húðlitur	none
+🫵🏽	vísifingur bendir á áhorfandann millihúðlitur	none
+🫵🏾	vísifingur bendir á áhorfandann meðaldökkur húðlitur	none
+🫵🏿	vísifingur bendir á áhorfandann dökkur húðlitur	none
+🫶🏻	hjartahendur ljós húðlitur	none
+🫶🏼	hjartahendur meðalljós húðlitur	none
+🫶🏽	hjartahendur millihúðlitur	none
+🫶🏾	hjartahendur meðaldökkur húðlitur	none
+🫶🏿	hjartahendur dökkur húðlitur	none
 👋🏻	hönd veifar ljós húðlitur	none
 👋🏼	hönd veifar meðalljós húðlitur	none
 👋🏽	hönd veifar millihúðlitur	none
@@ -1808,6 +1915,11 @@ symbols:
 🤲🏽	lófar saman millihúðlitur	none
 🤲🏾	lófar saman meðaldökkur húðlitur	none
 🤲🏿	lófar saman dökkur húðlitur	none
+🤝🏻	handaband ljós húðlitur	none
+🤝🏼	handaband meðalljós húðlitur	none
+🤝🏽	handaband millihúðlitur	none
+🤝🏾	handaband meðaldökkur húðlitur	none
+🤝🏿	handaband dökkur húðlitur	none
 🙏🏻	bæn ljós húðlitur	none
 🙏🏼	bæn meðalljós húðlitur	none
 🙏🏽	bæn millihúðlitur	none
@@ -3150,11 +3262,11 @@ symbols:
 🏋🏽‍♀	kona í kraftlyftingum millihúðlitur	none
 🏋🏾‍♀	kona í kraftlyftingum meðaldökkur húðlitur	none
 🏋🏿‍♀	kona í kraftlyftingum dökkur húðlitur	none
-🚴🏻	hjól ljós húðlitur	none
-🚴🏼	hjól meðalljós húðlitur	none
-🚴🏽	hjól millihúðlitur	none
-🚴🏾	hjól meðaldökkur húðlitur	none
-🚴🏿	hjól dökkur húðlitur	none
+🚴🏻	manneskja á hjóli ljós húðlitur	none
+🚴🏼	manneskja á hjóli meðalljós húðlitur	none
+🚴🏽	manneskja á hjóli millihúðlitur	none
+🚴🏾	manneskja á hjóli meðaldökkur húðlitur	none
+🚴🏿	manneskja á hjóli dökkur húðlitur	none
 🚴🏻‍♂	maður á hjóli ljós húðlitur	none
 🚴🏼‍♂	maður á hjóli meðalljós húðlitur	none
 🚴🏽‍♂	maður á hjóli millihúðlitur	none

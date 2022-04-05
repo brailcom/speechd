@@ -41,7 +41,7 @@ symbols:
 ↶	anticlockwise top semicircle arrow	none
 ↷	clockwise top semicircle arrow	none
 ↸	north west arrow long bar	none
-↹	leftwards arrow bar over rightwards arrow bar	none
+↹	leftwards over rightwards arrow bars	none
 ↺	anticlockwise open circle arrow	none
 ↻	clockwise open circle arrow	none
 ↼	leftwards harpoon barb upwards	none
@@ -264,6 +264,43 @@ symbols:
 ⪺	succeeds above not almost equal	none
 ♭	flat	none
 ♯	sharp	none
+🥹	face holding back tears	none
+🧌	troll	none
+🩻	x-ray	none
+🩼	crutch	none
+🪩	mirror ball	none
+🪪	identification card	none
+🪫	low battery	none
+🪬	hamsa	none
+🪷	lotus	none
+🪸	coral	none
+🪹	empty nest	none
+🪺	nest with eggs	none
+🫃	pregnant man	none
+🫄	pregnant person	none
+🫅	person with crown	none
+🫗	pouring liquid	none
+🫘	beans	none
+🫙	jar	none
+🫠	melting face	none
+🫡	saluting face	none
+🫢	face with open eyes and hand over mouth	none
+🫣	face with peeking eye	none
+🫤	face with diagonal mouth	none
+🫥	dotted line face	none
+🫦	biting lip	none
+🫧	bubbles	none
+🫰	hand with index finger and thumb crossed	none
+🫱	rightwards hand	none
+🫲	leftwards hand	none
+🫳	palm down hand	none
+🫴	palm up hand	none
+🫵	index pointing at the viewer	none
+🫶	heart hands	none
+🛝	playground slide	none
+🛞	wheel	none
+🛟	ring buoy	none
+🟰	heavy equals sign	none
 😀	grinning face	none
 😃	grinning face with big eyes	none
 😄	grinning face with smiling eyes	none
@@ -292,7 +329,7 @@ symbols:
 🤪	zany face	none
 😝	squinting face with tongue	none
 🤑	money-mouth face	none
-🤗	hugging face	none
+🤗	smiling face with open hands	none
 🤭	face with hand over mouth	none
 🤫	shushing face	none
 🤔	thinking face	none
@@ -322,7 +359,7 @@ symbols:
 🥵	hot face	none
 🥶	cold face	none
 🥴	woozy face	none
-😵	knocked-out face	none
+😵	face with crossed-out eyes	none
 😵‍💫	face with spiral eyes	none
 🤯	exploding head	none
 🤠	cowboy hat face	none
@@ -356,7 +393,7 @@ symbols:
 😫	tired face	none
 🥱	yawning face	none
 😤	face with steam from nose	none
-😡	pouting face	none
+😡	enraged face	none
 😠	angry face	none
 🤬	face with symbols on mouth	none
 😈	smiling face with horns	none
@@ -419,7 +456,7 @@ symbols:
 🗨	left speech bubble	none
 🗯	right anger bubble	none
 💭	thought balloon	none
-💤	zzz	none
+💤	ZZZ	none
 👋	waving hand	none
 🤚	raised back of hand	none
 🖐	hand with fingers splayed	none
@@ -1756,6 +1793,76 @@ symbols:
 ₽	ruble	none
 ₿	bitcoin	none
 ₨	rupee	none
+🫃🏻	pregnant man light skin tone	none
+🫃🏼	pregnant man medium-light skin tone	none
+🫃🏽	pregnant man medium skin tone	none
+🫃🏾	pregnant man medium-dark skin tone	none
+🫃🏿	pregnant man dark skin tone	none
+🫄🏻	pregnant person light skin tone	none
+🫄🏼	pregnant person medium-light skin tone	none
+🫄🏽	pregnant person medium skin tone	none
+🫄🏾	pregnant person medium-dark skin tone	none
+🫄🏿	pregnant person dark skin tone	none
+🫅🏻	person with crown light skin tone	none
+🫅🏼	person with crown medium-light skin tone	none
+🫅🏽	person with crown medium skin tone	none
+🫅🏾	person with crown medium-dark skin tone	none
+🫅🏿	person with crown dark skin tone	none
+🫰🏻	hand with index finger and thumb crossed light skin tone	none
+🫰🏼	hand with index finger and thumb crossed medium-light skin tone	none
+🫰🏽	hand with index finger and thumb crossed medium skin tone	none
+🫰🏾	hand with index finger and thumb crossed medium-dark skin tone	none
+🫰🏿	hand with index finger and thumb crossed dark skin tone	none
+🫱🏻	rightwards hand light skin tone	none
+🫱🏼	rightwards hand medium-light skin tone	none
+🫱🏽	rightwards hand medium skin tone	none
+🫱🏾	rightwards hand medium-dark skin tone	none
+🫱🏿	rightwards hand dark skin tone	none
+🫱🏻‍🫲🏼	handshake light skin tone, medium-light skin tone	none
+🫱🏻‍🫲🏽	handshake light skin tone, medium skin tone	none
+🫱🏻‍🫲🏾	handshake light skin tone, medium-dark skin tone	none
+🫱🏻‍🫲🏿	handshake light skin tone, dark skin tone	none
+🫱🏼‍🫲🏻	handshake medium-light skin tone, light skin tone	none
+🫱🏼‍🫲🏽	handshake medium-light skin tone, medium skin tone	none
+🫱🏼‍🫲🏾	handshake medium-light skin tone, medium-dark skin tone	none
+🫱🏼‍🫲🏿	handshake medium-light skin tone, dark skin tone	none
+🫱🏽‍🫲🏻	handshake medium skin tone, light skin tone	none
+🫱🏽‍🫲🏼	handshake medium skin tone, medium-light skin tone	none
+🫱🏽‍🫲🏾	handshake medium skin tone, medium-dark skin tone	none
+🫱🏽‍🫲🏿	handshake medium skin tone, dark skin tone	none
+🫱🏾‍🫲🏻	handshake medium-dark skin tone, light skin tone	none
+🫱🏾‍🫲🏼	handshake medium-dark skin tone, medium-light skin tone	none
+🫱🏾‍🫲🏽	handshake medium-dark skin tone, medium skin tone	none
+🫱🏾‍🫲🏿	handshake medium-dark skin tone, dark skin tone	none
+🫱🏿‍🫲🏻	handshake dark skin tone, light skin tone	none
+🫱🏿‍🫲🏼	handshake dark skin tone, medium-light skin tone	none
+🫱🏿‍🫲🏽	handshake dark skin tone, medium skin tone	none
+🫱🏿‍🫲🏾	handshake dark skin tone, medium-dark skin tone	none
+🫲🏻	leftwards hand light skin tone	none
+🫲🏼	leftwards hand medium-light skin tone	none
+🫲🏽	leftwards hand medium skin tone	none
+🫲🏾	leftwards hand medium-dark skin tone	none
+🫲🏿	leftwards hand dark skin tone	none
+🫳🏻	palm down hand light skin tone	none
+🫳🏼	palm down hand medium-light skin tone	none
+🫳🏽	palm down hand medium skin tone	none
+🫳🏾	palm down hand medium-dark skin tone	none
+🫳🏿	palm down hand dark skin tone	none
+🫴🏻	palm up hand light skin tone	none
+🫴🏼	palm up hand medium-light skin tone	none
+🫴🏽	palm up hand medium skin tone	none
+🫴🏾	palm up hand medium-dark skin tone	none
+🫴🏿	palm up hand dark skin tone	none
+🫵🏻	index pointing at the viewer light skin tone	none
+🫵🏼	index pointing at the viewer medium-light skin tone	none
+🫵🏽	index pointing at the viewer medium skin tone	none
+🫵🏾	index pointing at the viewer medium-dark skin tone	none
+🫵🏿	index pointing at the viewer dark skin tone	none
+🫶🏻	heart hands light skin tone	none
+🫶🏼	heart hands medium-light skin tone	none
+🫶🏽	heart hands medium skin tone	none
+🫶🏾	heart hands medium-dark skin tone	none
+🫶🏿	heart hands dark skin tone	none
 👋🏻	waving hand light skin tone	none
 👋🏼	waving hand medium-light skin tone	none
 👋🏽	waving hand medium skin tone	none
@@ -1901,6 +2008,11 @@ symbols:
 🤲🏽	palms up together medium skin tone	none
 🤲🏾	palms up together medium-dark skin tone	none
 🤲🏿	palms up together dark skin tone	none
+🤝🏻	handshake light skin tone	none
+🤝🏼	handshake medium-light skin tone	none
+🤝🏽	handshake medium skin tone	none
+🤝🏾	handshake medium-dark skin tone	none
+🤝🏿	handshake dark skin tone	none
 🙏🏻	folded hands light skin tone	none
 🙏🏼	folded hands medium-light skin tone	none
 🙏🏽	folded hands medium skin tone	none

@@ -10,11 +10,88 @@ symbols:
 🏿	tumma iho	none
 ℗	äänitteen tekijänoikeus	none
 ←	vasemmalle osoittava nuoli	none
+↚	vasemmalle vetävä nuoli	none
 →	oikealle osoittava nuoli	none
+↛	oikealle vetävä nuoli	none
 ↑	ylös osoittava nuoli	none
 ↓	alas osoittava nuoli	none
+↜	aaltonuoli vasemmalle	none
+↝	aaltonuoli oikeaan	none
+↞	kaksipäinen nuoli vasemmalle	none
+↟	kaksipäinen nuoli ylös	none
+↠	kaksipäinen nuoli oikealle	none
+↡	kaksipäinen nuoli alas	none
+↢	hahlonuoli vasemmalle	none
+↣	hahlonuoli oikealle	none
+↤	nuoli palkista vasemmalle	none
+↥	nuoli palkista ylös	none
+↦	nuoli palkista oikealle	none
+↧	nuoli palkista alas	none
+↨	nuoli ylös ja alas sekä kanta	none
+↫	kierrenuoli vasemmalle	none
+↬	kierrenuoli oikealle	none
+↭	aaltonuoli vasemmalle ja oikealle	none
+↯	siksak-nuoli alas	none
+↰	vasemmalle kaartuva nuoli ylös	none
+↱	oikealle kaartuva nuoli ylös	none
+↲	vasemmalle kaartuva nuoli alas	none
+↳	oikealle kaartuva nuoli alas	none
+↴	alas kaartuva kulmanuoli oikealle	none
+↵	vasemmalle kaartuva kulmanuoli alas	none
+↶	vastapäivään kulkeva ylempi puoliympyränuoli	none
+↷	myötäpäivään kulkeva ylempi puoliympyränuoli	none
+↸	luodenuoli ja pitkä palkki	none
+↹	oikealle osoittavan nuolipalkin yllä nuolipalkki vasemmalle	none
+↺	avoimen ympyrän nuoli vastapäivään	none
+↻	avoimen ympyrän nuoli myötäpäivään	none
+↼	väkäpiikki vasemmalle ja ylös	none
+↽	väkäpiikki vasemmalle ja alas	none
+↾	väkäpiikki ylös ja oikealle	none
+↿	väkäpiikki ylös ja vasemmalle	none
+⇀	väkäpiikki oikealle ja ylös	none
+⇁	väkäpiikki oikealle ja alas	none
+⇂	väkäpiikki alas ja oikealle	none
+⇃	väkäpiikki alas ja vasemmalle	none
+⇄	nuoli oikealle jonka alla nuoli vasemmalle	none
 ⇅	ylös ja alas osoittavat nuolet	none
 ⇆	nuolet vasemmalle ja oikealle päällekkäin	none
+⇇	nuolipari vasemmalle	none
+⇈	nuolipari ylös	none
+⇉	nuolipari oikealle	none
+⇊	nuolipari alas	none
+⇋	väkäpiikki vasemmalle jonka alla väkäpiikki oikealle	none
+⇌	väkäpiikki oikealle jonka alla väkäpiikki vasemmalle	none
+⇐	kaksoisnuoli vasemmalle	none
+⇍	yliviivattu kaksoisnuoli vasemmalle	none
+⇑	kaksoisnuoli ylös	none
+⇒	kaksoisnuoli oikealle	none
+⇏	yliviivattu kaksoisnuoli oikealle	none
+⇓	kaksoisnuoli alas	none
+⇔	kaksoisnuoli vasemmalle ja oikealle	none
+⇎	yliviivattu kaksoisnuoli vasemmalle ja oikealle	none
+⇖	kaksoisnuoli luoteeseen	none
+⇗	kaksoisnuoli koiliseen	none
+⇘	kaksoisnuoli kaakkoon	none
+⇙	kaksoisnuoli lounaaseen	none
+⇚	kolmoisnuoli vasemmalle	none
+⇛	kolmoisnuoli oikealle	none
+⇜	koukeronuoli vasemmalle	none
+⇝	koukeronuoli oikealle	none
+⇞	kahdesti yliviivattu nuoli ylös	none
+⇟	kahdesti yliviivattu nuoli alas	none
+⇠	katkoviivanuoli vasemmalle	none
+⇡	katkoviivanuoli ylös	none
+⇢	katkoviivanuoli oikealle	none
+⇣	katkoviivanuoli alas	none
+⇤	pystyviivaan päättyvä vasemmalle osoittava nuoli	none
+⇥	pystyviivaan päättyvä oikealle osoittava nuoli	none
+⇦	tyhjä nuoli vasemmalle	none
+⇧	tyhjä nuoli ylös	none
+⇨	tyhjä nuoli oikealle	none
+⇩	tyhjä nuoli alas	none
+⇪	palkista alkava tyhjä nuoli ylös	none
+⇵	nuoli alas ja nuoli ylös	none
+∀	kaikille	none
 ∂	osittaisderivaatta	none
 ∃	eksistenssikvanttori	none
 ∅	tyhjä joukko	none
@@ -22,43 +99,208 @@ symbols:
 ∇	nabla	none
 ∈	kuuluu joukkoon	none
 ∉	ei kuulu joukkoon	none
+∋	jäsenenä joukkoon kuuluva	none
+∎	todistuksen loppu	none
+∏	monikkotulo	none
 ∑	summa	none
+≮	ei pienempi kuin	none
 ≠	eri suuri kuin	none
+≯	ei suurempi kuin	none
 −	miinus	none
 ⁻	yläindeksi miinus	none
 ∓	miinus tai plus	none
+∕	jakoviiva	none
 ∗	asteriski­operaat­to­ri	none
+∘	pallo-operaattori	none
+∙	luettelomerkkioperaattori	none
 √	neliöjuuri	none
+∝	verrannollinen	none
 ∞	äärettömän merkki	none
+∟	oikea kulma	none
+∠	kulma	none
+∣	jakaja	none
+∥	paralleeli	none
+∧	looginen konjunktio	none
 ∩	leikkaus	none
 ∪	yhdiste	none
 ∫	integraali	none
+∬	kaksoisintegraali	none
+∮	käyräintegraali	none
+∴	koska	none
+∵	siis	none
+∶	suhde	none
+∷	suhteellisuus	none
 ∼	tildeoperaattori	none
 ∽	käänteinen tilde	none
+∾	ylösalainen laiska s	none
+≃	asymptoottinen	none
+≅	yhtenevä	none
 ≈	likimäärin yhtä suuri kuin	none
+≌	kaikki yhtä suuria kuin	none
+≒	lähes yhtä suuri	none
+≖	ympyrän sisältävä yhtäläisyysmerkki	none
 ≡	sama kuin	none
+≣	tarkka vastaavuus	none
 ≤	pienempi tai yhtä suuri kuin	none
 ≥	suurempi tai yhtä suuri kuin	none
+≦	yhtäläisyysmerkin yläpuolella oleva pienempi kuin -merkki	none
+≧	yhtäläisyysmerkin yläpuolella oleva suurempi kuin -merkki	none
+≪	paljon pienempi kuin	none
+≫	paljon suurempi kuin	none
+≬	välissä	none
+≳	suurempi kuin tai ekvivalentti	none
+≺	edeltää	none
+≻	seuraa	none
+⊁	ei seuraa	none
 ⊂	on osajoukko	none
+⊃	ylijoukko	none
 ⊆	osajoukko	none
 ⊇	yläjoukko	none
 ⊕	ympyröity plus	none
 ⊖	ympyröity miinus	none
+⊗	ympyröity kertomerkki	none
+⊘	ympyröity jakomerkki	none
+⊙	ympyröity pisteoperaattori	none
+⊚	ympyröity pallo-operaattori	none
 ⊛	ympyröity asteriskioperaattori	none
+⊞	plus neliössä	none
+⊟	miinus neliössä	none
+⊥	ylös osoittava nupi	none
+⊮	ei pakota	none
+⊰	relationaalinen edeltäminen	none
+⊱	relationaalinen seuraaminen	none
+⋭	normaalina aliryhmänä sisältämisen ja yhtäläisyyden negaatio	none
+⊶	alkuperäinen	none
+⊹	Hermiten konjugaattimatriisi	none
+⊿	oikeanpuoleinen kolmio	none
+⋁	monikko looginen tai	none
+⋂	monikkoleikkaus	none
+⋃	monikkounioni	none
+⋅	pisteoperaattori	none
+⋆	tähtioperaattori	none
+⋈	luonnollinen liitos	none
+⋒	kaksoisleikkaus	none
+⋘	huomattavasti pienempi kuin	none
+⋙	huomattavasti suurempi kuin	none
+⋮	pystysuuntainen ellipsi	none
+⋯	rivinkeskinen ellipsi	none
+⋰	ellipsi ylös oikealle	none
+⋱	ellipsi alas oikealle	none
+■	täytetty neliö	none
+□	tyhjä neliö	none
+▢	tyhjä neliö jossa pyöristetyt kulmat	none
+▣	tyhjä neliö jossa täytetty neliö	none
+▤	vaakasuuntaisesti täytetty neliö	none
+▥	pystysuuntaisesti täytetty neliö	none
+▦	suorakulmaisilla ristiviivoilla täytetty neliö	none
+▧	ylävasemmalta alaoikealle täytetty neliö	none
+▨	yläoikealta alavasemmalle täytetty neliö	none
+▩	vinoilla ristiviivoilla täytetty neliö	none
+▬	täytetty suorakulmio	none
+▭	tyhjä suorakulmio	none
+▮	täytetty pystysuuntainen suorakulmio	none
+▰	täytetty suunnikas	none
 ▲	musta ylös osoittava kolmio	none
+△	tyhjä kolmio ylös	none
+▴	pieni täytetty kolmio ylös	none
+▵	pieni tyhjä kolmio ylös	none
+▷	tyhjä kolmio oikealle	none
+▸	pieni täytetty kolmio oikealle	none
+▹	pieni tyhjä kolmio oikealle	none
+►	täytetty osoitin oikealle	none
+▻	tyhjä osoitin oikealle	none
 ▼	musta alas osoittava kolmio	none
+▽	tyhjä kolmio alas	none
+▾	pieni täytetty kolmio alas	none
+▿	pieni tyhjä kolmio alas	none
+◁	tyhjä kolmio vasemmalle	none
+◂	pieni täytetty kolmio vasemmalle	none
+◃	pieni tyhjä kolmio vasemmalle	none
+◄	täytetty osoitin vasemmalle	none
+◅	tyhjä osoitin vasemmalle	none
+◆	täytetty vinoneliö	none
+◇	tyhjä vinoneliö	none
+◈	tyhjä vinoneliö jossa täytetty neliö	none
+◉	tyhjä ympyrä jossa täytetty ympyrä	none
 ◊	vinoneliö	none
 ○	tyhjä ympyrä	none
+◌	pisteympyrä	none
+◍	pystysuuntaisesti täytetty ympyrä	none
+◎	samankeskiset ympyrät	none
 ●	täytetty ympyrä	none
+◐	vasemmalta puoliskoltaan täytetty ympyrä	none
+◑	oikealta puoliskoltaan täytetty ympyrä	none
+◒	alapuoliskoltaan täytetty ympyrä	none
+◓	yläpuoliskoltaan täytetty ympyrä	none
+◔	ympyrä, jonka oikea yläneljännes täytetty	none
+◕	ympyrä, jonka muut neljännekset paitsi ylävasen täytetty	none
 ◖	täytetyn ympyrän vasen puolisko	none
 ◗	täytetyn ympyrän oikea puolisko	none
+◘	käänteinen luettelomerkki	none
+◙	täytetty neliö jossa tyhjä ympyrä	none
+◜	vasemman yläneljänneksen pyöreä kaari	none
+◝	oikean yläneljänneksen pyöreä kaari	none
+◞	oikean alaneljänneksen pyöreä kaari	none
+◟	vasemman alaneljänneksen pyöreä kaari	none
 ◠	ylempi puoliympyrä	none
 ◡	alempi puoliympyrä	none
+◢	täytetty alaoikean kolmio	none
+◣	täytetty alavasemman kolmio	none
+◤	täytetty ylävasemman kolmio	none
+◥	täytetty yläoikean kolmio	none
 ◦	ontto luetelmapallo	none
 ◯	suuri tyhjä ympyrä	none
+◳	tyhjä neliö jossa yläoikean neljännes	none
+◷	tyhjä ympyrä jossa yläoikean neljännes	none
+◿	alaoikean kolmio	none
 ♪	kahdeksasosanuotti	none
+⨧	plusmerkki ja alaindeksi kaksi	none
+⨯	vektoriristitulo	none
+⨼	sisätulo	none
+⩣	looginen tai kaksoisalaviiva	none
+⩽	pienempi vino yhteneväisyys	none
+⪍	pienempi kuin, alla vastaava yhtäsuuruus	none
+⪚	kaksoisviivallinen yhtäsuuruus suurempi	none
+⪺	seuraa, jonka alla noin-merkin negaatio	none
 ♭	alennusmerkki	none
 ♯	ylennysmerkki	none
+🥹	kyyneliä pidättelevä naama	none
+🧌	trolli	none
+🩻	röntgen	none
+🩼	kainalosauva	none
+🪩	peilipallo	none
+🪪	henkilökortti	none
+🪫	akku vähissä	none
+🪬	hamsa	none
+🪷	lootus	none
+🪸	koralli	none
+🪹	tyhjä pesä	none
+🪺	munia pesässä	none
+🫃	raskaana oleva mies	none
+🫄	raskaana oleva henkilö	none
+🫅	kruunua kantava henkilö	none
+🫗	nesteen kaataminen	none
+🫘	pavut	none
+🫙	purkki	none
+🫠	sulava naama	none
+🫡	kunnioittava tervehdys	none
+🫢	silmät pyöreinä käsi suun edessä	none
+🫣	kurkistus sormien takaa	none
+🫤	naama suu vinossa	none
+🫥	katkoviivalla piirretty naama	none
+🫦	purra huulta	none
+🫧	kuplat	none
+🫰	etusormi ja peukalo ristissä	none
+🫱	oikealle ojentuva käsi	none
+🫲	vasemmalle ojentuva käsi	none
+🫳	käsi kämmen alaspäin	none
+🫴	käsi kämmen ylöspäin	none
+🫵	etusormi osoittaa katsojaa	none
+🫶	sydänkuvio käsillä	none
+🛝	liukumäki	none
+🛞	rengas	none
+🛟	pelastusrengas	none
+🟰	paksu yhtäsuuruusmerkki	none
 😀	leveä hymy	none
 😃	hymy suu auki	none
 😄	hymyilevät silmät ja suu	none
@@ -221,7 +463,7 @@ symbols:
 ✋	nostettu käsi	none
 🖖	vulkanilaisten tervehdys	none
 👌	ok-sormiele	none
-🤌	käsi supussa	none
+🤌	sormet supussa	none
 🤏	nipistävä käsi	none
 ✌	voitonmerkki	none
 🤞	sormet ristissä	none
@@ -391,7 +633,7 @@ symbols:
 👩‍🍼	vauvaa syöttävä nainen	none
 👨‍🍼	vauvaa syöttävä mies	none
 🧑‍🍼	vauvaa syöttävä henkilö	none
-👼	enkelivauva	none
+👼	vauvaenkeli	none
 🎅	joulupukki	none
 🤶	joulupukin muori	none
 🧑‍🎄	tonttu	none
@@ -1379,6 +1621,7 @@ symbols:
 ↖	nuoli ylävasemmalle	none
 ↕	nuoli ylös ja alas	none
 ↔	nuoli oikealle ja vasemmalle	none
+↮	vasen-oikea vetonuoli	none
 ↩	vasemmalle kääntyvä nuoli	none
 ↪	oikealle kääntyvä nuoli	none
 ⤴	ylös kääntyvä nuoli	none
@@ -1541,13 +1784,85 @@ symbols:
 ₥	milli	none
 ₩	won	none
 €	euro	none
+₰	Saksan penni	none
 ₱	peso	none
 ₳	austral	none
+₶	Toursin livre	none
 ₷	spesmilo	none
 ₹	Intian rupia	none
 ₽	rupla	none
 ₿	bitcoin	none
 ₨	rupia	none
+🫃🏻	raskaana oleva mies vaalea iho	none
+🫃🏼	raskaana oleva mies keskivaalea iho	none
+🫃🏽	raskaana oleva mies tummanvaalea iho	none
+🫃🏾	raskaana oleva mies keskitumma iho	none
+🫃🏿	raskaana oleva mies tumma iho	none
+🫄🏻	raskaana oleva henkilö vaalea iho	none
+🫄🏼	raskaana oleva henkilö keskivaalea iho	none
+🫄🏽	raskaana oleva henkilö tummanvaalea iho	none
+🫄🏾	raskaana oleva henkilö keskitumma iho	none
+🫄🏿	raskaana oleva henkilö tumma iho	none
+🫅🏻	kruunua kantava henkilö vaalea iho	none
+🫅🏼	kruunua kantava henkilö keskivaalea iho	none
+🫅🏽	kruunua kantava henkilö tummanvaalea iho	none
+🫅🏾	kruunua kantava henkilö keskitumma iho	none
+🫅🏿	kruunua kantava henkilö tumma iho	none
+🫰🏻	etusormi ja peukalo ristissä vaalea iho	none
+🫰🏼	etusormi ja peukalo ristissä keskivaalea iho	none
+🫰🏽	etusormi ja peukalo ristissä tummanvaalea iho	none
+🫰🏾	etusormi ja peukalo ristissä keskitumma iho	none
+🫰🏿	etusormi ja peukalo ristissä tumma iho	none
+🫱🏻	oikealle ojentuva käsi vaalea iho	none
+🫱🏼	oikealle ojentuva käsi keskivaalea iho	none
+🫱🏽	oikealle ojentuva käsi tummanvaalea iho	none
+🫱🏾	oikealle ojentuva käsi keskitumma iho	none
+🫱🏿	oikealle ojentuva käsi tumma iho	none
+🫱🏻‍🫲🏼	kädenpuristus vaalea iho, keskivaalea iho	none
+🫱🏻‍🫲🏽	kädenpuristus vaalea iho, tummanvaalea iho	none
+🫱🏻‍🫲🏾	kädenpuristus vaalea iho, keskitumma iho	none
+🫱🏻‍🫲🏿	kädenpuristus vaalea iho, tumma iho	none
+🫱🏼‍🫲🏻	kädenpuristus keskivaalea iho, vaalea iho	none
+🫱🏼‍🫲🏽	kädenpuristus keskivaalea iho, tummanvaalea iho	none
+🫱🏼‍🫲🏾	kädenpuristus keskivaalea iho, keskitumma iho	none
+🫱🏼‍🫲🏿	kädenpuristus keskivaalea iho, tumma iho	none
+🫱🏽‍🫲🏻	kädenpuristus tummanvaalea iho, vaalea iho	none
+🫱🏽‍🫲🏼	kädenpuristus tummanvaalea iho, keskivaalea iho	none
+🫱🏽‍🫲🏾	kädenpuristus tummanvaalea iho, keskitumma iho	none
+🫱🏽‍🫲🏿	kädenpuristus tummanvaalea iho, tumma iho	none
+🫱🏾‍🫲🏻	kädenpuristus keskitumma iho, vaalea iho	none
+🫱🏾‍🫲🏼	kädenpuristus keskitumma iho, keskivaalea iho	none
+🫱🏾‍🫲🏽	kädenpuristus keskitumma iho, tummanvaalea iho	none
+🫱🏾‍🫲🏿	kädenpuristus keskitumma iho, tumma iho	none
+🫱🏿‍🫲🏻	kädenpuristus tumma iho, vaalea iho	none
+🫱🏿‍🫲🏼	kädenpuristus tumma iho, keskivaalea iho	none
+🫱🏿‍🫲🏽	kädenpuristus tumma iho, tummanvaalea iho	none
+🫱🏿‍🫲🏾	kädenpuristus tumma iho, keskitumma iho	none
+🫲🏻	vasemmalle ojentuva käsi vaalea iho	none
+🫲🏼	vasemmalle ojentuva käsi keskivaalea iho	none
+🫲🏽	vasemmalle ojentuva käsi tummanvaalea iho	none
+🫲🏾	vasemmalle ojentuva käsi keskitumma iho	none
+🫲🏿	vasemmalle ojentuva käsi tumma iho	none
+🫳🏻	käsi kämmen alaspäin vaalea iho	none
+🫳🏼	käsi kämmen alaspäin keskivaalea iho	none
+🫳🏽	käsi kämmen alaspäin tummanvaalea iho	none
+🫳🏾	käsi kämmen alaspäin keskitumma iho	none
+🫳🏿	käsi kämmen alaspäin tumma iho	none
+🫴🏻	käsi kämmen ylöspäin vaalea iho	none
+🫴🏼	käsi kämmen ylöspäin keskivaalea iho	none
+🫴🏽	käsi kämmen ylöspäin tummanvaalea iho	none
+🫴🏾	käsi kämmen ylöspäin keskitumma iho	none
+🫴🏿	käsi kämmen ylöspäin tumma iho	none
+🫵🏻	etusormi osoittaa katsojaa vaalea iho	none
+🫵🏼	etusormi osoittaa katsojaa keskivaalea iho	none
+🫵🏽	etusormi osoittaa katsojaa tummanvaalea iho	none
+🫵🏾	etusormi osoittaa katsojaa keskitumma iho	none
+🫵🏿	etusormi osoittaa katsojaa tumma iho	none
+🫶🏻	sydänkuvio käsillä vaalea iho	none
+🫶🏼	sydänkuvio käsillä keskivaalea iho	none
+🫶🏽	sydänkuvio käsillä tummanvaalea iho	none
+🫶🏾	sydänkuvio käsillä keskitumma iho	none
+🫶🏿	sydänkuvio käsillä tumma iho	none
 👋🏻	käden heilautus vaalea iho	none
 👋🏼	käden heilautus keskivaalea iho	none
 👋🏽	käden heilautus tummanvaalea iho	none
@@ -1578,11 +1893,11 @@ symbols:
 👌🏽	ok-sormiele tummanvaalea iho	none
 👌🏾	ok-sormiele keskitumma iho	none
 👌🏿	ok-sormiele tumma iho	none
-🤌🏻	käsi supussa vaalea iho	none
-🤌🏼	käsi supussa keskivaalea iho	none
-🤌🏽	käsi supussa tummanvaalea iho	none
-🤌🏾	käsi supussa keskitumma iho	none
-🤌🏿	käsi supussa tumma iho	none
+🤌🏻	sormet supussa vaalea iho	none
+🤌🏼	sormet supussa keskivaalea iho	none
+🤌🏽	sormet supussa tummanvaalea iho	none
+🤌🏾	sormet supussa keskitumma iho	none
+🤌🏿	sormet supussa tumma iho	none
 🤏🏻	nipistävä käsi vaalea iho	none
 🤏🏼	nipistävä käsi keskivaalea iho	none
 🤏🏽	nipistävä käsi tummanvaalea iho	none
@@ -1693,6 +2008,11 @@ symbols:
 🤲🏽	kämmenet vierekkäin tummanvaalea iho	none
 🤲🏾	kämmenet vierekkäin keskitumma iho	none
 🤲🏿	kämmenet vierekkäin tumma iho	none
+🤝🏻	kädenpuristus vaalea iho	none
+🤝🏼	kädenpuristus keskivaalea iho	none
+🤝🏽	kädenpuristus tummanvaalea iho	none
+🤝🏾	kädenpuristus keskitumma iho	none
+🤝🏿	kädenpuristus tumma iho	none
 🙏🏻	kämmenet yhdessä vaalea iho	none
 🙏🏼	kämmenet yhdessä keskivaalea iho	none
 🙏🏽	kämmenet yhdessä tummanvaalea iho	none
@@ -2630,11 +2950,11 @@ symbols:
 🧑🏽‍🍼	vauvaa syöttävä henkilö tummanvaalea iho	none
 🧑🏾‍🍼	vauvaa syöttävä henkilö keskitumma iho	none
 🧑🏿‍🍼	vauvaa syöttävä henkilö tumma iho	none
-👼🏻	enkelivauva vaalea iho	none
-👼🏼	enkelivauva keskivaalea iho	none
-👼🏽	enkelivauva tummanvaalea iho	none
-👼🏾	enkelivauva keskitumma iho	none
-👼🏿	enkelivauva tumma iho	none
+👼🏻	vauvaenkeli vaalea iho	none
+👼🏼	vauvaenkeli keskivaalea iho	none
+👼🏽	vauvaenkeli tummanvaalea iho	none
+👼🏾	vauvaenkeli keskitumma iho	none
+👼🏿	vauvaenkeli tumma iho	none
 🎅🏻	joulupukki vaalea iho	none
 🎅🏼	joulupukki keskivaalea iho	none
 🎅🏽	joulupukki tummanvaalea iho	none

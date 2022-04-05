@@ -36,32 +36,271 @@ symbols:
 ↱	flecha hacia arriba con punta hacia la derecha	none
 ↲	flecha hacia abajo con punta hacia la izquierda	none
 ↳	flecha hacia abajo con punta hacia la derecha	none
+↴	flecha hacia la derecha con ángulo hacia abajo	none
+↵	flecha hacia abajo con ángulo hacia la izquierda	none
+↶	flecha en semicírculo superior hacia la izquierda	none
+↷	flecha en semicírculo superior hacia la derecha	none
+↸	flecha con barra larga hacia noroeste	none
+↹	flecha a la izquierda con barra sobre flecha a la derecha con barra	none
+↺	círculo abierto con flecha en sentido antihorario	none
+↻	círculo abierto con flecha en sentido horario	none
+↼	arpón hacia la izquierda con flecha por arriba	none
+↽	arpón hacia la izquierda con flecha por debajo	none
+↾	arpón hacia arriba con flecha a la derecha	none
+↿	arpón hacia arriba con flecha a la izquierda	none
+⇀	arpón hacia la derecha con flecha superior	none
+⇁	arpón hacia la derecha con flecha inferior	none
+⇂	arpón hacia abajo con flecha a la derecha	none
+⇃	arpón hacia abajo con flecha a la izquierda	none
+⇄	flecha hacia la derecha sobre flecha hacia la izquierda	none
 ⇅	flechas apuntando arriba y abajo	none
 ⇆	flechas apuntando izquierda sobre derecha	none
+⇇	pareja de flechas hacia la izquierda	none
+⇈	pareja de flechas hacia arriba	none
+⇉	pareja de flechas hacia la derecha	none
+⇊	pareja de flechas hacia abajo	none
+⇋	arpón hacia la izquierda sobre arpón hacia la derecha	none
+⇌	arpón hacia la derecha sobre arpón hacia la izquierda	none
+⇐	flecha doble hacia la izquierda	none
+⇍	flecha doble hacia la izquierda tachada	none
+⇑	flecha doble hacia arriba	none
+⇒	flecha doble hacia la derecha	none
+⇏	flecha doble hacia la derecha tachada	none
+⇓	flecha doble hacia abajo	none
+⇔	flecha doble hacia izquierda y derecha	none
+⇎	flecha doble hacia izquierda y derecha tachada	none
+⇖	flecha doble hacia noroeste	none
+⇗	flecha doble hacia noreste	none
+⇘	flecha doble hacia sureste	none
+⇙	flecha doble hacia suroeste	none
+⇚	flecha triple hacia la izquierda	none
+⇛	flecha triple hacia la derecha	none
+⇜	flecha ondulada hacia la izquierda	none
+⇝	flecha ondulada hacia la derecha	none
+⇞	flecha hacia arriba con doble tachado	none
+⇟	flecha hacia abajo con doble tachado	none
+⇠	flecha con guion hacia la izquierda	none
+⇡	flecha discontinua hacia arriba	none
+⇢	flecha discontinua hacia derecha	none
+⇣	flecha discontinua hacia abajo	none
+⇤	flecha con barra hacia la izquierda	none
+⇥	flecha con barra hacia la derecha	none
+⇦	flecha hueca hacia la izquierda	none
+⇧	flecha hueca hacia arriba	none
+⇨	flecha hueca hacia la derecha	none
+⇩	flecha hueca hacia abajo	none
+⇪	flecha hueca hacia arriba desde barra	none
+⇵	flecha hacia abajo con flecha hacia arriba a la izquierda	none
+∀	para todo	none
+∂	diferencial parcial	none
+∃	existe	none
+∅	conjunto vacío	none
 ∆	incremento	none
 ∇	nabla	none
 ∈	elemento de	none
+∉	no es elemento	none
+∋	contiene como miembro	none
+∎	fin de la prueba	none
+∏	producto n-ario	none
+∑	sumativa n-aria	none
+≮	no menor que	none
 ≠	no igual	none
+≯	no mayor que	none
 −	signo menos	none
 ⁻	menos en superíndice	none
+∓	menos o más	none
+∕	barra de división	none
+∗	operador de asterisco	none
+∘	operador de anillo	none
+∙	operador de bala	none
 √	raíz cuadrada	none
+∝	proporcional	none
 ∞	signo de infinito	none
+∟	ángulo recto	none
+∠	ángulo	none
+∣	divide	none
+∥	paralelo	none
+∧	y lógico	none
 ∩	intersección	none
 ∪	unión	none
+∫	integral	none
+∬	doble integral	none
+∮	integral de contorno	none
+∴	conclusión	none
+∵	porque	none
+∶	ratio	none
+∷	proporción	none
+∼	operador de tilde	none
+∽	tilde inversa	none
+∾	s invertida horizontal	none
+≃	asintóticamente igual a	none
+≅	aproximadamente igual a	none
 ≈	casi igual	none
+≌	todo igual	none
+≒	aproximadamente igual o la imagen de	none
+≖	anillo en igual a	none
 ≡	equivalente a	none
+≣	estrictamente equivalente	none
 ≤	menor que o igual	none
 ≥	mayor que o igual	none
+≦	menor que sobre igual	none
+≧	mayor que sobre igual	none
+≪	mucho menor que	none
+≫	mucho mayor que	none
+≬	entre	none
+≳	equivalente mayor que	none
+≺	precede	none
+≻	sucede	none
+⊁	no sucede	none
 ⊂	subconjunto de	none
+⊃	superconjunto de	none
+⊆	subconjunto igual a	none
+⊇	superconjunto igual a	none
+⊕	más dentro de círculo	none
+⊖	menos dentro de círculo	none
+⊗	por dentro de círculo	none
+⊘	barra de división dentro de círculo	none
+⊙	operador de punto dentro de círculo	none
+⊚	operador de anillo dentro de círculo	none
+⊛	operador de asterisco dentro de círculo	none
+⊞	más dentro de cuadrado	none
+⊟	menos dentro de cuadrado	none
+⊥	tachuela hacia arriba	none
+⊮	no fuerza	none
+⊰	precede en relación	none
+⊱	sucede en relación	none
+⋭	no contiene como subgrupo normal o igual a	none
+⊶	original	none
+⊹	matriz conjugada hermitiana	none
+⊿	triángulo rectángulo	none
+⋁	lógica o n-ario	none
+⋂	intersección n-aria	none
+⋃	unión n-aria	none
+⋅	operador de punto	none
+⋆	operador de estrella	none
+⋈	unión natural	none
+⋒	doble intersección	none
+⋘	mucho mucho menor que	none
+⋙	mucho mucho mayor que	none
+⋮	puntos suspensivos verticales	none
+⋯	puntos suspensivos horizontales	none
+⋰	puntos suspensivos diagonales hacia arriba a la derecha	none
+⋱	puntos suspensivos diagonales hacia abajo a la derecha	none
+■	cuadrado relleno	none
+□	cuadrado hueco	none
+▢	cuadrado hueco con esquinas redondeadas	none
+▣	cuadrado hueco con cuadrado relleno dentro	none
+▤	cuadrado con relleno horizontal	none
+▥	cuadrado con relleno vertical	none
+▦	cuadrado con relleno de cuadrícula ortogonal	none
+▧	cuadrado con relleno desde abajo a la izquierda hacia la derecha	none
+▨	cuadrado con relleno desde abajo a la derecha hacia la izquierda	none
+▩	cuadrado con relleno de cuadrícula en diagonal	none
+▬	rectángulo relleno	none
+▭	rectángulo hueco	none
+▮	rectángulo vertical relleno	none
+▰	paralelogramo relleno	none
 ▲	triángulo relleno apuntando hacia arriba	none
+△	triángulo hueco que apunta hacia arriba	none
+▴	triángulo pequeño relleno que apunta hacia arriba	none
+▵	triángulo pequeño hueco que apunta hacia arriba	none
+▷	triángulo hueco que apunta hacia la derecha	none
+▸	triángulo pequeño relleno que apunta hacia la derecha	none
+▹	triángulo pequeño hueco que apunta hacia la derecha	none
+►	puntero relleno que apunta hacia la derecha	none
+▻	puntero hueco que apunta hacia la derecha	none
 ▼	triángulo relleno apuntando hacia abajo	none
+▽	triángulo hueco que apunta hacia abajo	none
+▾	triángulo relleno pequeño que apunta hacia abajo	none
+▿	triángulo hueco pequeño que apunta hacia abajo	none
+◁	triángulo hueco que apunta a la izquierda	none
+◂	triángulo relleno pequeño que apunta a la izquierda	none
+◃	triángulo hueco pequeño que apunta a la izquierda	none
+◄	puntero relleno que apunta a la izquierda	none
+◅	puntero hueco que apunta a la izquierda	none
+◆	diamante relleno	none
+◇	diamante hueco	none
+◈	diamante hueco con diamante relleno dentro	none
+◉	círculo hueco con círculo relleno dentro	none
 ◊	rombo	none
 ○	círculo hueco	none
+◌	círculo punteado	none
+◍	círculo con relleno vertical	none
+◎	círculos concéntricos	none
 ●	círculo relleno	none
+◐	círculo con la mitad izquierda rellena	none
+◑	círculo con la mitad derecha rellena	none
+◒	círculo con la mitad inferior rellena	none
+◓	círculo con la mitad superior rellena	none
+◔	círculo con el cuadrante superior derecho relleno	none
+◕	círculo relleno excepto cuadrante superior izquierdo	none
+◖	círculo con mitad izquierda rellena	none
+◗	círculo con mitad derecha rellena	none
+◘	viñeta inversa	none
+◙	cuadrado relleno con círculo hueco	none
+◜	arco de cuadrante superior izquierdo de círculo	none
+◝	arco de cuadrante superior derecho de círculo	none
+◞	arco de cuadrante inferior derecho de círculo	none
+◟	arco de cuadrante inferior izquierdo de círculo	none
+◠	semicírculo superior	none
+◡	semicírculo inferior	none
+◢	triángulo inferior relleno hacia la derecha	none
+◣	triángulo inferior relleno hacia la izquierda	none
+◤	triángulo superior relleno hacia la izquierda	none
+◥	triángulo superior relleno hacia la derecha	none
+◦	viñeta hueca	none
 ◯	círculo hueco grande	none
+◳	cuadrante superior derecho en cuadrado hueco	none
+◷	cuadrante superior derecho en círculo hueco	none
+◿	triángulo inferior hacia la derecha	none
 ♪	corchea	none
+⨧	más subíndice dos	none
+⨯	vector o producto cruzado	none
+⨼	producto interior	none
+⩣	lógica o doble barra inferior	none
+⩽	menor que o igual con barra inclinada	none
+⪍	menor que sobre igual o similar	none
+⪚	doble línea sobre mayor que	none
+⪺	sucede por encima del signo no igual	none
 ♭	bemol	none
 ♯	sostenido	none
+🥹	cara aguantándose las lágrimas	none
+🧌	trol	none
+🩻	radiografía	none
+🩼	muleta	none
+🪩	bola de espejos	none
+🪪	carné de identidad	none
+🪫	batería baja	none
+🪬	hamsa	none
+🪷	loto	none
+🪸	coral	none
+🪹	nido vacío	none
+🪺	nido con huevos	none
+🫃	hombre embarazado	none
+🫄	persona embarazada	none
+🫅	persona con corona	none
+🫗	líquido derramándose	none
+🫘	alubias	none
+🫙	tarro	none
+🫠	cara derritiéndose	none
+🫡	cara saludando	none
+🫢	cara con ojos abiertos y boca tapada	none
+🫣	cara tapada con ojo espiando	none
+🫤	cara con boca diagonal	none
+🫥	cara con línea de puntos	none
+🫦	labio mordido	none
+🫧	burbujas	none
+🫰	mano con dedo índice y pulgar cruzados	none
+🫱	mano hacia la derecha	none
+🫲	mano hacia la izquierda	none
+🫳	mano con la palma hacia abajo	none
+🫴	mano con la palma hacia arriba	none
+🫵	dedo índice apuntándote a ti	none
+🫶	manos formando un corazón	none
+🛝	tobogán	none
+🛞	rueda	none
+🛟	salvavidas	none
+🟰	signo igual grueso	none
 😀	cara sonriendo	none
 😃	cara sonriendo con ojos grandes	none
 😄	cara sonriendo con ojos sonrientes	none
@@ -754,7 +993,7 @@ symbols:
 🥠	galleta de la fortuna	none
 🥡	caja para llevar	none
 🦀	cangrejo	none
-🦞	langosta	none
+🦞	bogavante	none
 🦐	gamba	none
 🦑	calamar	none
 🦪	ostra	none
@@ -1539,13 +1778,91 @@ symbols:
 🏳‍🌈	bandera del arcoíris	none
 🏳‍⚧	bandera transgénero	none
 🏴‍☠	bandera pirata	none
+₢	cruceiro	none
+₣	franco francés	none
+₤	lira	none
 ₥	milésimo	none
 ₩	won	none
 €	euro	none
+₰	penique alemán	none
 ₱	peso	none
+₳	austral	none
+₶	libra tornesa	none
+₷	spesmilo	none
 ₹	rupia india	none
 ₽	rublo	none
 ₿	bitcóin	none
+₨	rupia	none
+🫃🏻	hombre embarazado tono de piel claro	none
+🫃🏼	hombre embarazado tono de piel claro medio	none
+🫃🏽	hombre embarazado tono de piel medio	none
+🫃🏾	hombre embarazado tono de piel oscuro medio	none
+🫃🏿	hombre embarazado tono de piel oscuro	none
+🫄🏻	persona embarazada tono de piel claro	none
+🫄🏼	persona embarazada tono de piel claro medio	none
+🫄🏽	persona embarazada tono de piel medio	none
+🫄🏾	persona embarazada tono de piel oscuro medio	none
+🫄🏿	persona embarazada tono de piel oscuro	none
+🫅🏻	persona con corona tono de piel claro	none
+🫅🏼	persona con corona tono de piel claro medio	none
+🫅🏽	persona con corona tono de piel medio	none
+🫅🏾	persona con corona tono de piel oscuro medio	none
+🫅🏿	persona con corona tono de piel oscuro	none
+🫰🏻	mano con dedo índice y pulgar cruzados tono de piel claro	none
+🫰🏼	mano con dedo índice y pulgar cruzados tono de piel claro medio	none
+🫰🏽	mano con dedo índice y pulgar cruzados tono de piel medio	none
+🫰🏾	mano con dedo índice y pulgar cruzados tono de piel oscuro medio	none
+🫰🏿	mano con dedo índice y pulgar cruzados tono de piel oscuro	none
+🫱🏻	mano hacia la derecha tono de piel claro	none
+🫱🏼	mano hacia la derecha tono de piel claro medio	none
+🫱🏽	mano hacia la derecha tono de piel medio	none
+🫱🏾	mano hacia la derecha tono de piel oscuro medio	none
+🫱🏿	mano hacia la derecha tono de piel oscuro	none
+🫱🏻‍🫲🏼	apretón de manos tono de piel claro y tono de piel claro medio	none
+🫱🏻‍🫲🏽	apretón de manos tono de piel claro y tono de piel medio	none
+🫱🏻‍🫲🏾	apretón de manos tono de piel claro y tono de piel oscuro medio	none
+🫱🏻‍🫲🏿	apretón de manos tono de piel claro y tono de piel oscuro	none
+🫱🏼‍🫲🏻	apretón de manos tono de piel claro medio y tono de piel claro	none
+🫱🏼‍🫲🏽	apretón de manos tono de piel claro medio y tono de piel medio	none
+🫱🏼‍🫲🏾	apretón de manos tono de piel claro medio y tono de piel oscuro medio	none
+🫱🏼‍🫲🏿	apretón de manos tono de piel claro medio y tono de piel oscuro	none
+🫱🏽‍🫲🏻	apretón de manos tono de piel medio y tono de piel claro	none
+🫱🏽‍🫲🏼	apretón de manos tono de piel medio y tono de piel claro medio	none
+🫱🏽‍🫲🏾	apretón de manos tono de piel medio y tono de piel oscuro medio	none
+🫱🏽‍🫲🏿	apretón de manos tono de piel medio y tono de piel oscuro	none
+🫱🏾‍🫲🏻	apretón de manos tono de piel oscuro medio y tono de piel claro	none
+🫱🏾‍🫲🏼	apretón de manos tono de piel oscuro medio y tono de piel claro medio	none
+🫱🏾‍🫲🏽	apretón de manos tono de piel oscuro medio y tono de piel medio	none
+🫱🏾‍🫲🏿	apretón de manos tono de piel oscuro medio y tono de piel oscuro	none
+🫱🏿‍🫲🏻	apretón de manos tono de piel oscuro y tono de piel claro	none
+🫱🏿‍🫲🏼	apretón de manos tono de piel oscuro y tono de piel claro medio	none
+🫱🏿‍🫲🏽	apretón de manos tono de piel oscuro y tono de piel medio	none
+🫱🏿‍🫲🏾	apretón de manos tono de piel oscuro y tono de piel oscuro medio	none
+🫲🏻	mano hacia la izquierda tono de piel claro	none
+🫲🏼	mano hacia la izquierda tono de piel claro medio	none
+🫲🏽	mano hacia la izquierda tono de piel medio	none
+🫲🏾	mano hacia la izquierda tono de piel oscuro medio	none
+🫲🏿	mano hacia la izquierda tono de piel oscuro	none
+🫳🏻	mano con la palma hacia abajo tono de piel claro	none
+🫳🏼	mano con la palma hacia abajo tono de piel claro medio	none
+🫳🏽	mano con la palma hacia abajo tono de piel medio	none
+🫳🏾	mano con la palma hacia abajo tono de piel oscuro medio	none
+🫳🏿	mano con la palma hacia abajo tono de piel oscuro	none
+🫴🏻	mano con la palma hacia arriba tono de piel claro	none
+🫴🏼	mano con la palma hacia arriba tono de piel claro medio	none
+🫴🏽	mano con la palma hacia arriba tono de piel medio	none
+🫴🏾	mano con la palma hacia arriba tono de piel oscuro medio	none
+🫴🏿	mano con la palma hacia arriba tono de piel oscuro	none
+🫵🏻	dedo índice apuntándote a ti tono de piel claro	none
+🫵🏼	dedo índice apuntándote a ti tono de piel claro medio	none
+🫵🏽	dedo índice apuntándote a ti tono de piel medio	none
+🫵🏾	dedo índice apuntándote a ti tono de piel oscuro medio	none
+🫵🏿	dedo índice apuntándote a ti tono de piel oscuro	none
+🫶🏻	manos formando un corazón tono de piel claro	none
+🫶🏼	manos formando un corazón tono de piel claro medio	none
+🫶🏽	manos formando un corazón tono de piel medio	none
+🫶🏾	manos formando un corazón tono de piel oscuro medio	none
+🫶🏿	manos formando un corazón tono de piel oscuro	none
 👋🏻	mano saludando tono de piel claro	none
 👋🏼	mano saludando tono de piel claro medio	none
 👋🏽	mano saludando tono de piel medio	none
@@ -1691,6 +2008,11 @@ symbols:
 🤲🏽	palmas hacia arriba juntas tono de piel medio	none
 🤲🏾	palmas hacia arriba juntas tono de piel oscuro medio	none
 🤲🏿	palmas hacia arriba juntas tono de piel oscuro	none
+🤝🏻	apretón de manos tono de piel claro	none
+🤝🏼	apretón de manos tono de piel claro medio	none
+🤝🏽	apretón de manos tono de piel medio	none
+🤝🏾	apretón de manos tono de piel oscuro medio	none
+🤝🏿	apretón de manos tono de piel oscuro	none
 🙏🏻	manos en oración tono de piel claro	none
 🙏🏼	manos en oración tono de piel claro medio	none
 🙏🏽	manos en oración tono de piel medio	none
@@ -3561,7 +3883,7 @@ symbols:
 ₲	guaraní paraguayo	none
 ₴	grivna	none
 ₵	cedi	none
-₸	tenge kazako	none
+₸	tengue kazajo	none
 ₺	lira turca	none
 ₼	manat azerbaiyano	none
 ₾	lari	none

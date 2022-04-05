@@ -92,7 +92,7 @@ symbols:
 ⇪	pataas na arrow na walang laman mula sa bar	none
 ⇵	pababa na arrow sa kaliwa pataas na arrow	none
 ∀	para sa lahat	none
-∂	parsiyal diperensiyal	none
+∂	partial na differential	none
 ∃	mayroon	none
 ∅	walang laman na set	none
 ∆	increment	none
@@ -178,12 +178,12 @@ symbols:
 ⋃	n-ary union	none
 ⋅	tuldok na operator	none
 ⋆	bituin na operator	none
-⋈	natural na sumali	none
+⋈	natural na pagsasama	none
 ⋒	dobleng interseksyon	none
 ⋘	sobrang higit na mas mababa sa	none
 ⋙	sobrang higit na mas higit sa	none
 ⋮	patayong ellipsis	none
-⋯	midline pahalang na ellipsis	none
+⋯	midline na pahalang na ellipsis	none
 ⋰	pataas na kanang diagonal ellipsis	none
 ⋱	pababang kanan na dayagonal ellipsis	none
 ■	punong kuwadrado	none
@@ -258,9 +258,49 @@ symbols:
 ⨯	produkto ng vector cross	none
 ⨼	produkto ng interior	none
 ⩣	lohikal o dobleng underbar	none
-⩽	mas mababa sa nakaslant na equal	none
+⩽	mas mababa sa naka-slant na equal	none
+⪍	mas mababa sa itaas ng similar na equal	none
+⪚	dobleng linya na equal na mas malaki sa	none
+⪺	kasunod sa itaas ng hindi halos katumbas	none
 ♭	flat	none
 ♯	sharp	none
+🥹	mukhang nagpipigil ng luha	none
+🧌	troll	none
+🩻	x-ray	none
+🩼	saklay	none
+🪩	disco ball	none
+🪪	identification card	none
+🪫	paubos ang baterya	none
+🪬	hamsa	none
+🪷	lotus	none
+🪸	korales	none
+🪹	bakanteng pugad	none
+🪺	pugad na may mga itlog	none
+🫃	lalaking buntis	none
+🫄	taong buntis	none
+🫅	taong may korona	none
+🫗	binubuhos na likido	none
+🫘	beans	none
+🫙	garapon	none
+🫠	natutunaw na mukha	none
+🫡	saludo	none
+🫢	mukha na may mga nakabukas na mata at kamay sa bibig	none
+🫣	mukha na may sumisilip na mata	none
+🫤	mukha na may diagonal na bibig	none
+🫥	dotted na linya na mukha	none
+🫦	kagat-labi	none
+🫧	bula	none
+🫰	kamay na magkakrus ang hintuturo at hinlalaki	none
+🫱	pakanang kamay	none
+🫲	pakaliwang kamay	none
+🫳	nakataob na palad	none
+🫴	nakasalong palad	none
+🫵	hintuturong nakaturo sa tumitingin	none
+🫶	nakapusong kamay	none
+🛝	padulas sa playground	none
+🛞	gulong	none
+🛟	salbabida	none
+🟰	madiin na equals sign	none
 😀	mukhang nakangiti	none
 😃	nakangisi na may malaking mga mata	none
 😄	nakangisi kasama ang mga nakangiting mata	none
@@ -390,7 +430,7 @@ symbols:
 💞	umiikot na mga puso	none
 💕	dalawang puso	none
 💟	dekorasyong puso	none
-❣	malaking tandang padamdam na hugis-puso	none
+❣	tandang padamdam na hugis-puso	none
 💔	durog na puso	none
 ❤‍🔥	pusong nasa apoy	none
 ❤‍🩹	pag-ayos sa puso	none
@@ -1645,12 +1685,12 @@ symbols:
 ♀	simbolo ng babae	none
 ♂	simbolo ng lalaki	none
 ⚧	simbolo ng transgender	none
-✖	malaking multiplication x	none
-➕	malaking plus sign	none
-➖	malaking minus sign	none
-➗	malaking division sign	none
+✖	multiply	none
+➕	plus	none
+➖	minus	none
+➗	divide	none
 ♾	infinity	none
-❓	tandang pananong	none
+❓	pulang tandang pananong	none
 ❔	puting tandang pananong	none
 ❕	puting tandang padamdam	none
 ❗	tandang padamdam	none
@@ -1738,13 +1778,91 @@ symbols:
 🏳‍🌈	bahagharing bandila	none
 🏳‍⚧	bandila ng transgender	none
 🏴‍☠	bandila ng pirata	none
+₢	cruzeiro	none
+₣	french franc	none
+₤	lira	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
+₰	german penny	none
 ₱	piso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	indian rupee	none
 ₽	ruble	none
 ₿	bitcoin	none
+₨	rupee	none
+🫃🏻	lalaking buntis light na kulay ng balat	none
+🫃🏼	lalaking buntis katamtamang light na kulay ng balat	none
+🫃🏽	lalaking buntis katamtamang kulay ng balat	none
+🫃🏾	lalaking buntis katamtamang dark na kulay ng balat	none
+🫃🏿	lalaking buntis dark na kulay ng balat	none
+🫄🏻	taong buntis light na kulay ng balat	none
+🫄🏼	taong buntis katamtamang light na kulay ng balat	none
+🫄🏽	taong buntis katamtamang kulay ng balat	none
+🫄🏾	taong buntis katamtamang dark na kulay ng balat	none
+🫄🏿	taong buntis dark na kulay ng balat	none
+🫅🏻	taong may korona light na kulay ng balat	none
+🫅🏼	taong may korona katamtamang light na kulay ng balat	none
+🫅🏽	taong may korona katamtamang kulay ng balat	none
+🫅🏾	taong may korona katamtamang dark na kulay ng balat	none
+🫅🏿	taong may korona dark na kulay ng balat	none
+🫰🏻	kamay na magkakrus ang hintuturo at hinlalaki light na kulay ng balat	none
+🫰🏼	kamay na magkakrus ang hintuturo at hinlalaki katamtamang light na kulay ng balat	none
+🫰🏽	kamay na magkakrus ang hintuturo at hinlalaki katamtamang kulay ng balat	none
+🫰🏾	kamay na magkakrus ang hintuturo at hinlalaki katamtamang dark na kulay ng balat	none
+🫰🏿	kamay na magkakrus ang hintuturo at hinlalaki dark na kulay ng balat	none
+🫱🏻	pakanang kamay light na kulay ng balat	none
+🫱🏼	pakanang kamay katamtamang light na kulay ng balat	none
+🫱🏽	pakanang kamay katamtamang kulay ng balat	none
+🫱🏾	pakanang kamay katamtamang dark na kulay ng balat	none
+🫱🏿	pakanang kamay dark na kulay ng balat	none
+🫱🏻‍🫲🏼	pagkakamay light na kulay ng balat, katamtamang light na kulay ng balat	none
+🫱🏻‍🫲🏽	pagkakamay light na kulay ng balat, katamtamang kulay ng balat	none
+🫱🏻‍🫲🏾	pagkakamay light na kulay ng balat, katamtamang dark na kulay ng balat	none
+🫱🏻‍🫲🏿	pagkakamay light na kulay ng balat, dark na kulay ng balat	none
+🫱🏼‍🫲🏻	pagkakamay katamtamang light na kulay ng balat, light na kulay ng balat	none
+🫱🏼‍🫲🏽	pagkakamay katamtamang light na kulay ng balat, katamtamang kulay ng balat	none
+🫱🏼‍🫲🏾	pagkakamay katamtamang light na kulay ng balat, katamtamang dark na kulay ng balat	none
+🫱🏼‍🫲🏿	pagkakamay katamtamang light na kulay ng balat, dark na kulay ng balat	none
+🫱🏽‍🫲🏻	pagkakamay katamtamang kulay ng balat, light na kulay ng balat	none
+🫱🏽‍🫲🏼	pagkakamay katamtamang kulay ng balat, katamtamang light na kulay ng balat	none
+🫱🏽‍🫲🏾	pagkakamay katamtamang kulay ng balat, katamtamang dark na kulay ng balat	none
+🫱🏽‍🫲🏿	pagkakamay katamtamang kulay ng balat, dark na kulay ng balat	none
+🫱🏾‍🫲🏻	pagkakamay katamtamang dark na kulay ng balat, light na kulay ng balat	none
+🫱🏾‍🫲🏼	pagkakamay katamtamang dark na kulay ng balat, katamtamang light na kulay ng balat	none
+🫱🏾‍🫲🏽	pagkakamay katamtamang dark na kulay ng balat, katamtamang kulay ng balat	none
+🫱🏾‍🫲🏿	pagkakamay katamtamang dark na kulay ng balat, dark na kulay ng balat	none
+🫱🏿‍🫲🏻	pagkakamay dark na kulay ng balat, light na kulay ng balat	none
+🫱🏿‍🫲🏼	pagkakamay dark na kulay ng balat, katamtamang light na kulay ng balat	none
+🫱🏿‍🫲🏽	pagkakamay dark na kulay ng balat, katamtamang kulay ng balat	none
+🫱🏿‍🫲🏾	pagkakamay dark na kulay ng balat, katamtamang dark na kulay ng balat	none
+🫲🏻	pakaliwang kamay light na kulay ng balat	none
+🫲🏼	pakaliwang kamay katamtamang light na kulay ng balat	none
+🫲🏽	pakaliwang kamay katamtamang kulay ng balat	none
+🫲🏾	pakaliwang kamay katamtamang dark na kulay ng balat	none
+🫲🏿	pakaliwang kamay dark na kulay ng balat	none
+🫳🏻	nakataob na palad light na kulay ng balat	none
+🫳🏼	nakataob na palad katamtamang light na kulay ng balat	none
+🫳🏽	nakataob na palad katamtamang kulay ng balat	none
+🫳🏾	nakataob na palad katamtamang dark na kulay ng balat	none
+🫳🏿	nakataob na palad dark na kulay ng balat	none
+🫴🏻	nakasalong palad light na kulay ng balat	none
+🫴🏼	nakasalong palad katamtamang light na kulay ng balat	none
+🫴🏽	nakasalong palad katamtamang kulay ng balat	none
+🫴🏾	nakasalong palad katamtamang dark na kulay ng balat	none
+🫴🏿	nakasalong palad dark na kulay ng balat	none
+🫵🏻	hintuturong nakaturo sa tumitingin light na kulay ng balat	none
+🫵🏼	hintuturong nakaturo sa tumitingin katamtamang light na kulay ng balat	none
+🫵🏽	hintuturong nakaturo sa tumitingin katamtamang kulay ng balat	none
+🫵🏾	hintuturong nakaturo sa tumitingin katamtamang dark na kulay ng balat	none
+🫵🏿	hintuturong nakaturo sa tumitingin dark na kulay ng balat	none
+🫶🏻	nakapusong kamay light na kulay ng balat	none
+🫶🏼	nakapusong kamay katamtamang light na kulay ng balat	none
+🫶🏽	nakapusong kamay katamtamang kulay ng balat	none
+🫶🏾	nakapusong kamay katamtamang dark na kulay ng balat	none
+🫶🏿	nakapusong kamay dark na kulay ng balat	none
 👋🏻	kumakaway na kamay light na kulay ng balat	none
 👋🏼	kumakaway na kamay katamtamang light na kulay ng balat	none
 👋🏽	kumakaway na kamay katamtamang kulay ng balat	none
@@ -1890,6 +2008,11 @@ symbols:
 🤲🏽	nakataas na magkadikit na palad katamtamang kulay ng balat	none
 🤲🏾	nakataas na magkadikit na palad katamtamang dark na kulay ng balat	none
 🤲🏿	nakataas na magkadikit na palad dark na kulay ng balat	none
+🤝🏻	pagkakamay light na kulay ng balat	none
+🤝🏼	pagkakamay katamtamang light na kulay ng balat	none
+🤝🏽	pagkakamay katamtamang kulay ng balat	none
+🤝🏾	pagkakamay katamtamang dark na kulay ng balat	none
+🤝🏿	pagkakamay dark na kulay ng balat	none
 🙏🏻	magkalapat na mga palad light na kulay ng balat	none
 🙏🏼	magkalapat na mga palad katamtamang light na kulay ng balat	none
 🙏🏽	magkalapat na mga palad katamtamang kulay ng balat	none

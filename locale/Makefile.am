@@ -44,6 +44,7 @@ nobase_localedata_DATA = \
 	de/emojis.dic \
 	de_CH/emojis.dic \
 	doi/emojis.dic \
+	dsb/emojis.dic \
 	el/emojis.dic \
 	en/emojis.dic \
 	en_AU/emojis.dic \
@@ -67,9 +68,12 @@ nobase_localedata_DATA = \
 	gl/emojis.dic \
 	gu/emojis.dic \
 	ha/emojis.dic \
+	ha_NE/emojis.dic \
 	he/emojis.dic \
 	hi/emojis.dic \
+	hi_Latn/emojis.dic \
 	hr/emojis.dic \
+	hsb/emojis.dic \
 	hu/emojis.dic \
 	hy/emojis.dic \
 	ia/emojis.dic \
@@ -121,6 +125,7 @@ nobase_localedata_DATA = \
 	ru/emojis.dic \
 	rw/emojis.dic \
 	sa/emojis.dic \
+	sc/emojis.dic \
 	sd/emojis.dic \
 	si/emojis.dic \
 	sk/emojis.dic \
@@ -172,9 +177,11 @@ nobase_localedata_DATA = \
 	el/orca.dic \
 	es/orca.dic \
 	eu/orca.dic \
+	fi/orca.dic \
 	fr/orca.dic \
 	fur/orca.dic \
 	gl/orca.dic \
+	he/orca.dic \
 	hi/orca.dic \
 	hr/orca.dic \
 	hu/orca.dic \
@@ -182,7 +189,9 @@ nobase_localedata_DATA = \
 	it/orca.dic \
 	lt/orca.dic \
 	lv/orca.dic \
+	mk/orca.dic \
 	ml/orca.dic \
+	ms/orca.dic \
 	nb/orca.dic \
 	ne/orca.dic \
 	nl/orca.dic \
@@ -194,6 +203,7 @@ nobase_localedata_DATA = \
 	ro/orca.dic \
 	ru/orca.dic \
 	sk/orca.dic \
+	sl/orca.dic \
 	sr@latin/orca.dic \
 	sr/orca.dic \
 	sv/orca.dic \
@@ -204,6 +214,7 @@ nobase_localedata_DATA = \
 	ug/orca.dic \
 	uk/orca.dic \
 	vi/orca.dic \
+	zh_TW/orca.dic \
 	\
 	an/orca-chars.dic \
 	ar/orca-chars.dic \
@@ -268,6 +279,7 @@ nobase_localedata_DATA = \
 	an/symbols.dic \
 	ar/symbols.dic \
 	bg/symbols.dic \
+	bn/symbols.dic \
 	ca/symbols.dic \
 	ckb/symbols.dic \
 	cs/symbols.dic \

@@ -3,10 +3,18 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+🏻	peau claire	none
 🏼	peau modérément claire	none
+🏽	peau légèrement mate	none
 🏾	peau modérément foncée	none
+🏿	peau foncée	none
+℗	↑↑↑	none
+←	↑↑↑	none
 ↚	flèche vers la gauche barrée	none
+→	↑↑↑	none
 ↛	flèche vers la droite barrée	none
+↑	↑↑↑	none
+↓	↑↑↑	none
 ↜	flèche vers la gauche ondulée	none
 ↝	flèche vers la droite ondulée	none
 ↞	flèche à deux pointes vers la gauche	none
@@ -30,8 +38,8 @@ symbols:
 ↳	flèche vers le bas avec pointe vers la droite	none
 ↴	flèche vers la droite avec pointe vers le bas	none
 ↵	flèche vers le bas avec coin vers la gauche	none
-↶	flèche semi-circulaire sens antihoraire en chef	none
-↷	flèche semi-circulaire sens horaire en chef	none
+↶	flèche semi-circulaire sens antihoraire supérieure	none
+↷	flèche semi-circulaire sens horaire supérieure	none
 ↸	flèche nord-ouest jusqu’à un long taquet	none
 ↹	flèche vers la gauche jusqu’à un taquet sur flèche vers la droite jusqu’à un taquet	none
 ↺	flèche circulaire ouverte sens antihoraire	none
@@ -45,6 +53,8 @@ symbols:
 ⇂	harpon vers le bas avec barbillon vers la droite	none
 ⇃	harpon vers le bas avec barbillon vers la gauche	none
 ⇄	flèche vers la droite sur flèche vers la gauche	none
+⇅	↑↑↑	none
+⇆	↑↑↑	none
 ⇇	paire de flèches vers la gauche	none
 ⇈	paire de flèches vers le haut	none
 ⇉	paire de flèches vers la droite	none
@@ -65,6 +75,8 @@ symbols:
 ⇙	double flèche sud-ouest	none
 ⇚	triple flèche vers la gauche	none
 ⇛	triple flèche vers la droite	none
+⇜	flèche vers la gauche en tire-bouchon	none
+⇝	flèche vers la droite en tire-bouchon	none
 ⇞	flèche vers le haut avec double barre	none
 ⇟	flèche vers le bas avec double barre	none
 ⇠	flèche à traits discontinus vers la gauche	none
@@ -73,14 +85,222 @@ symbols:
 ⇣	flèche à traits discontinus vers le bas	none
 ⇤	flèche vers la gauche jusqu’à un taquet	none
 ⇥	flèche vers la droite jusqu’à un taquet	none
+⇦	↑↑↑	none
+⇧	↑↑↑	none
+⇨	↑↑↑	none
+⇩	↑↑↑	none
 ⇪	flèche creuse d’un taquet vers le haut	none
 ⇵	flèche vers le bas à gauche d’une flèche vers le haut	none
 ∀	pour tous	none
 ∂	dérivée partielle	none
 ∃	il existe	none
+∅	↑↑↑	none
+∆	↑↑↑	none
+∇	↑↑↑	none
+∈	↑↑↑	none
+∉	↑↑↑	none
+∋	contient comme élément	none
+∎	ce qu’il fallait démontrer	none
+∏	↑↑↑	none
+∑	↑↑↑	none
+≮	pas plus petit que	none
 ≠	pas égal	none
+≯	pas plus grand que	none
+−	signe moins	none
+⁻	↑↑↑	none
+∓	moins-ou-plus	none
+∕	↑↑↑	none
+∗	↑↑↑	none
+∘	↑↑↑	none
+∙	↑↑↑	none
+√	↑↑↑	none
+∝	↑↑↑	none
+∞	↑↑↑	none
+∟	↑↑↑	none
+∠	↑↑↑	none
+∣	↑↑↑	none
+∥	↑↑↑	none
+∧	↑↑↑	none
+∩	↑↑↑	none
+∪	↑↑↑	none
+∫	↑↑↑	none
+∬	↑↑↑	none
+∮	↑↑↑	none
+∴	↑↑↑	none
+∵	↑↑↑	none
+∶	↑↑↑	none
+∷	↑↑↑	none
+∼	↑↑↑	none
+∽	↑↑↑	none
+∾	↑↑↑	none
+≃	↑↑↑	none
+≅	↑↑↑	none
+≈	↑↑↑	none
+≌	↑↑↑	none
+≒	↑↑↑	none
+≖	↑↑↑	none
+≡	↑↑↑	none
+≣	↑↑↑	none
 ≤	plus petit ou égal	none
 ≥	plus grand ou égal	none
+≦	Plus petit que par-dessus égal à	none
+≧	plus grand que par-dessus égal à	none
+≪	beaucoup plus petit que	none
+≫	beaucoup plus grand que	none
+≬	↑↑↑	none
+≳	plus grand ou équivalent à	none
+≺	↑↑↑	none
+≻	↑↑↑	none
+⊁	↑↑↑	none
+⊂	↑↑↑	none
+⊃	↑↑↑	none
+⊆	sous-ensemble ou égal à	none
+⊇	sur-ensemble ou égal à	none
+⊕	↑↑↑	none
+⊖	↑↑↑	none
+⊗	↑↑↑	none
+⊘	↑↑↑	none
+⊙	↑↑↑	none
+⊚	↑↑↑	none
+⊛	↑↑↑	none
+⊞	↑↑↑	none
+⊟	↑↑↑	none
+⊥	↑↑↑	none
+⊮	↑↑↑	none
+⊰	↑↑↑	none
+⊱	↑↑↑	none
+⋭	↑↑↑	none
+⊶	↑↑↑	none
+⊹	↑↑↑	none
+⊿	↑↑↑	none
+⋁	↑↑↑	none
+⋂	↑↑↑	none
+⋃	↑↑↑	none
+⋅	↑↑↑	none
+⋆	↑↑↑	none
+⋈	↑↑↑	none
+⋒	↑↑↑	none
+⋘	considérablement plus petit que	none
+⋙	considérablement plus grand que	none
+⋮	↑↑↑	none
+⋯	↑↑↑	none
+⋰	↑↑↑	none
+⋱	↑↑↑	none
+■	↑↑↑	none
+□	↑↑↑	none
+▢	↑↑↑	none
+▣	↑↑↑	none
+▤	↑↑↑	none
+▥	↑↑↑	none
+▦	↑↑↑	none
+▧	carré hachuré du haut à gauche vers le bas à droite en diagonale	none
+▨	carré hachuré du haut à droite vers le bas à gauche	none
+▩	↑↑↑	none
+▬	↑↑↑	none
+▭	↑↑↑	none
+▮	↑↑↑	none
+▰	↑↑↑	none
+▲	↑↑↑	none
+△	↑↑↑	none
+▴	↑↑↑	none
+▵	↑↑↑	none
+▷	↑↑↑	none
+▸	↑↑↑	none
+▹	↑↑↑	none
+►	↑↑↑	none
+▻	↑↑↑	none
+▼	↑↑↑	none
+▽	↑↑↑	none
+▾	↑↑↑	none
+▿	↑↑↑	none
+◁	↑↑↑	none
+◂	↑↑↑	none
+◃	↑↑↑	none
+◄	↑↑↑	none
+◅	↑↑↑	none
+◆	↑↑↑	none
+◇	↑↑↑	none
+◈	↑↑↑	none
+◉	↑↑↑	none
+◊	↑↑↑	none
+○	↑↑↑	none
+◌	↑↑↑	none
+◍	↑↑↑	none
+◎	↑↑↑	none
+●	↑↑↑	none
+◐	↑↑↑	none
+◑	↑↑↑	none
+◒	↑↑↑	none
+◓	↑↑↑	none
+◔	↑↑↑	none
+◕	↑↑↑	none
+◖	↑↑↑	none
+◗	↑↑↑	none
+◘	point en inversion	none
+◙	↑↑↑	none
+◜	↑↑↑	none
+◝	↑↑↑	none
+◞	↑↑↑	none
+◟	↑↑↑	none
+◠	↑↑↑	none
+◡	↑↑↑	none
+◢	↑↑↑	none
+◣	↑↑↑	none
+◤	↑↑↑	none
+◥	↑↑↑	none
+◦	↑↑↑	none
+◯	↑↑↑	none
+◳	↑↑↑	none
+◷	↑↑↑	none
+◿	↑↑↑	none
+♪	croche	none
+⨧	↑↑↑	none
+⨯	↑↑↑	none
+⨼	↑↑↑	none
+⩣	↑↑↑	none
+⩽	↑↑↑	none
+⪍	↑↑↑	none
+⪚	↑↑↑	none
+⪺	↑↑↑	none
+♭	bémol	none
+♯	dièse	none
+🥹	↑↑↑	none
+🧌	↑↑↑	none
+🩻	↑↑↑	none
+🩼	↑↑↑	none
+🪩	↑↑↑	none
+🪪	↑↑↑	none
+🪫	↑↑↑	none
+🪬	↑↑↑	none
+🪷	↑↑↑	none
+🪸	↑↑↑	none
+🪹	↑↑↑	none
+🪺	↑↑↑	none
+🫃	↑↑↑	none
+🫄	↑↑↑	none
+🫅	↑↑↑	none
+🫗	↑↑↑	none
+🫘	fèves	none
+🫙	↑↑↑	none
+🫠	↑↑↑	none
+🫡	↑↑↑	none
+🫢	↑↑↑	none
+🫣	↑↑↑	none
+🫤	↑↑↑	none
+🫥	↑↑↑	none
+🫦	↑↑↑	none
+🫧	↑↑↑	none
+🫰	↑↑↑	none
+🫱	↑↑↑	none
+🫲	↑↑↑	none
+🫳	↑↑↑	none
+🫴	↑↑↑	none
+🫵	↑↑↑	none
+🫶	↑↑↑	none
+🛝	glissade	none
+🛞	↑↑↑	none
+🛟	↑↑↑	none
+🟰	↑↑↑	none
 😀	visage avec large sourire	none
 😃	visage souriant les yeux grands ouverts	none
 😄	visage avec large sourire et yeux rieurs	none
@@ -89,44 +309,227 @@ symbols:
 😅	un visage en sueur avec large sourire	none
 🤣	rire à se rouler par terre	none
 😂	visage pleurant de joie	none
+🙂	visage avec un léger sourire	none
 🙃	visage à l’envers	none
 😉	visage clignant d’un œil	none
 😊	visage souriant les yeux plissés	none
 😇	visage qui sourit avec une auréole	none
+🥰	↑↑↑	none
 😍	visage souriant aux yeux en forme de cœur	none
 🤩	visage aux yeux en forme d’étoiles	none
 😘	visage envoyant un baiser	none
 😗	visage donnant un baiser	none
+☺	visage souriant	none
 😚	visage faisant un baiser les yeux fermés	none
 😙	visage faisant un baiser les yeux rieurs	none
 🥲	visage souriant avec larme	none
 😋	visage savourant	none
+😛	↑↑↑	none
+😜	↑↑↑	none
+🤪	↑↑↑	none
+😝	↑↑↑	none
+🤑	↑↑↑	none
 🤗	visage heureux et câlin	none
+🤭	↑↑↑	none
+🤫	↑↑↑	none
+🤔	↑↑↑	none
+🤐	↑↑↑	none
+🤨	↑↑↑	none
+😐	visage neutre	none
+😑	↑↑↑	none
+😶	visage sans bouche	none
+😶‍🌫	visage dans les nuages	none
 😏	visage au sourire malin	none
 😒	visage désabusé	none
 🙄	visage qui roule des yeux	none
+😬	↑↑↑	none
+😮‍💨	↑↑↑	none
+🤥	↑↑↑	none
+😌	↑↑↑	none
+😔	↑↑↑	none
+😪	↑↑↑	none
+🤤	visage qui bave	none
+😴	↑↑↑	none
+😷	↑↑↑	none
+🤒	↑↑↑	none
 🤕	visage bandé	none
 🤢	visage écœuré	none
+🤮	↑↑↑	none
+🤧	visage qui éternue	none
+🥵	↑↑↑	none
+🥶	↑↑↑	none
 🥴	visage abruti	none
 😵	visage inconscient	none
 😵‍💫	visage avec yeux en spirale	none
+🤯	↑↑↑	none
+🤠	visage avec chapeau de cowboy	none
+🥳	↑↑↑	none
+🥸	visage déguisé	none
 😎	visage souriant avec des lunettes de soleil	none
 🤓	visage de tronche	none
+🧐	↑↑↑	none
+😕	↑↑↑	none
+😟	↑↑↑	none
+🙁	↑↑↑	none
+☹	↑↑↑	none
 😮	visage épaté	none
+😯	↑↑↑	none
+😲	↑↑↑	none
+😳	↑↑↑	none
+🥺	↑↑↑	none
+😦	↑↑↑	none
+😧	↑↑↑	none
+😨	↑↑↑	none
 😰	visage inquiet et en sueur	none
+😥	visage triste mais soulagé	none
+😢	↑↑↑	none
+😭	↑↑↑	none
+😱	↑↑↑	none
+😖	↑↑↑	none
+😣	↑↑↑	none
+😞	↑↑↑	none
 😓	visage triste et en sueur	none
+😩	↑↑↑	none
+😫	↑↑↑	none
+🥱	↑↑↑	none
+😤	↑↑↑	none
+😡	↑↑↑	none
+😠	↑↑↑	none
+🤬	↑↑↑	none
+😈	↑↑↑	none
+👿	visage en colère avec des cornes	none
+💀	↑↑↑	none
+☠	↑↑↑	none
+💩	↑↑↑	none
+🤡	visage de clown	none
+👹	ogre	none
 👺	gobelin	none
+👻	↑↑↑	none
 👽	extraterrestre	none
+👾	↑↑↑	none
+🤖	↑↑↑	none
+😺	↑↑↑	none
+😸	↑↑↑	none
+😹	↑↑↑	none
+😻	↑↑↑	none
+😼	↑↑↑	none
+😽	↑↑↑	none
+🙀	↑↑↑	none
+😿	↑↑↑	none
+😾	↑↑↑	none
+🙈	↑↑↑	none
+🙉	↑↑↑	none
+🙊	↑↑↑	none
+💋	↑↑↑	none
+💌	↑↑↑	none
+💘	↑↑↑	none
+💝	↑↑↑	none
+💖	↑↑↑	none
+💗	↑↑↑	none
+💓	↑↑↑	none
+💞	cœurs qui tournent	none
+💕	deux cœurs	none
+💟	↑↑↑	none
+❣	↑↑↑	none
+💔	↑↑↑	none
 ❤‍🔥	cœur en feu	none
+❤‍🩹	↑↑↑	none
+❤	↑↑↑	none
+🧡	↑↑↑	none
+💛	↑↑↑	none
+💚	↑↑↑	none
+💙	↑↑↑	none
+💜	↑↑↑	none
 🤎	cœur brun	none
+🖤	↑↑↑	none
+🤍	↑↑↑	none
+💯	↑↑↑	none
+💢	↑↑↑	none
+💥	↑↑↑	none
+💫	↑↑↑	none
+💦	↑↑↑	none
+💨	↑↑↑	none
+🕳	↑↑↑	none
+💣	↑↑↑	none
+💬	↑↑↑	none
 👁‍🗨	œil dans une bulle de parole	none
 🗨	bulle de parole à gauche	none
 🗯	bulle de colère à droite	none
+💭	↑↑↑	none
+💤	↑↑↑	none
+👋	↑↑↑	none
+🤚	↑↑↑	none
 🖐	main aux doigts écartés	none
+✋	↑↑↑	none
+🖖	↑↑↑	none
+👌	↑↑↑	none
 🤌	main qui interroge	none
+🤏	↑↑↑	none
+✌	↑↑↑	none
+🤞	↑↑↑	none
+🤟	↑↑↑	none
+🤘	↑↑↑	none
 🤙	appelle-moi	none
+👈	↑↑↑	none
+👉	↑↑↑	none
+👆	↑↑↑	none
+🖕	↑↑↑	none
+👇	↑↑↑	none
+☝	index pointant vers le haut	none
+👍	↑↑↑	none
+👎	↑↑↑	none
+✊	↑↑↑	none
+👊	↑↑↑	none
+🤛	↑↑↑	none
+🤜	↑↑↑	none
+👏	↑↑↑	none
+🙌	↑↑↑	none
+👐	↑↑↑	none
+🤲	↑↑↑	none
+🤝	↑↑↑	none
+🙏	↑↑↑	none
+✍	↑↑↑	none
+💅	↑↑↑	none
 🤳	autophoto	none
+💪	↑↑↑	none
+🦾	↑↑↑	none
+🦿	↑↑↑	none
+🦵	↑↑↑	none
+🦶	↑↑↑	none
+👂	↑↑↑	none
+🦻	↑↑↑	none
+👃	↑↑↑	none
+🧠	↑↑↑	none
+🫀	cœur	none
+🫁	poumons	none
+🦷	↑↑↑	none
+🦴	↑↑↑	none
+👀	↑↑↑	none
+👁	↑↑↑	none
+👅	↑↑↑	none
+👄	↑↑↑	none
+👶	↑↑↑	none
+🧒	↑↑↑	none
+👦	↑↑↑	none
+👧	↑↑↑	none
+🧑	↑↑↑	none
+👱	↑↑↑	none
+👨	↑↑↑	none
+🧔	↑↑↑	none
+🧔‍♂	homme barbu	none
+👱‍♂	↑↑↑	none
+👩	↑↑↑	none
+🧔‍♀	femme barbue	none
+👱‍♀	↑↑↑	none
+🧓	↑↑↑	none
+👴	↑↑↑	none
+👵	↑↑↑	none
 🙍	personne mécontente	none
+🙍‍♂	↑↑↑	none
+🙍‍♀	↑↑↑	none
+🙎	↑↑↑	none
+🙎‍♂	↑↑↑	none
+🙎‍♀	↑↑↑	none
 🙅	Geste de négation	none
 🙅‍♂	homme faisant un geste de négation	none
 🙅‍♀	femme faisant un geste de négation	none
@@ -136,237 +539,1078 @@ symbols:
 💁	personne au guichet	none
 💁‍♂	guichetier	none
 💁‍♀	guichetière	none
+🙋	↑↑↑	none
+🙋‍♂	↑↑↑	none
+🙋‍♀	↑↑↑	none
+🧏	↑↑↑	none
+🧏‍♂	↑↑↑	none
+🧏‍♀	↑↑↑	none
+🙇	personne qui s’incline	none
+🙇‍♂	↑↑↑	none
+🙇‍♀	↑↑↑	none
 🤦	personne avec paume de la main sur le visage	none
 🤦‍♂	homme avec paume de la main sur le visage	none
 🤦‍♀	femme avec paume de la main sur le visage	none
+🤷	personne qui hausse les épaules	none
+🤷‍♂	↑↑↑	none
+🤷‍♀	↑↑↑	none
 🧑‍⚕	professionnel de la santé	none
 👨‍⚕	professionnel de la santé homme	none
+👩‍⚕	↑↑↑	none
 🧑‍🎓	étudiant universitaire	none
+👨‍🎓	↑↑↑	none
+👩‍🎓	↑↑↑	none
 🧑‍🏫	professeur	none
+👨‍🏫	↑↑↑	none
+👩‍🏫	↑↑↑	none
+🧑‍⚖	juge	none
+👨‍⚖	↑↑↑	none
+👩‍⚖	↑↑↑	none
 🧑‍🌾	fermier	none
 👨‍🌾	fermier homme	none
+👩‍🌾	↑↑↑	none
 🧑‍🍳	chef	none
+👨‍🍳	↑↑↑	none
+👩‍🍳	↑↑↑	none
 🧑‍🔧	mécanicien	none
 👨‍🔧	mécanicien homme	none
+👩‍🔧	↑↑↑	none
 🧑‍🏭	travailleur d’usine	none
+👨‍🏭	↑↑↑	none
+👩‍🏭	↑↑↑	none
 🧑‍💼	employé de bureau	none
 👨‍💼	employé de bureau homme	none
+👩‍💼	↑↑↑	none
+🧑‍🔬	scientifique	none
+👨‍🔬	↑↑↑	none
+👩‍🔬	↑↑↑	none
 🧑‍💻	informaticien	none
 👨‍💻	informaticien homme	none
+👩‍💻	↑↑↑	none
 🧑‍🎤	chanteur	none
 👨‍🎤	chanteur homme	none
+👩‍🎤	↑↑↑	none
+🧑‍🎨	artiste	none
+👨‍🎨	↑↑↑	none
+👩‍🎨	↑↑↑	none
+🧑‍✈	pilote	none
+👨‍✈	↑↑↑	none
+👩‍✈	↑↑↑	none
+🧑‍🚀	astronaute	none
+👨‍🚀	↑↑↑	none
+👩‍🚀	↑↑↑	none
+🧑‍🚒	pompier	none
+👨‍🚒	↑↑↑	none
+👩‍🚒	↑↑↑	none
 👮	policier	none
 👮‍♂	policier homme	none
+👮‍♀	↑↑↑	none
+🕵	↑↑↑	none
+🕵‍♂	↑↑↑	none
+🕵‍♀	↑↑↑	none
+💂	↑↑↑	none
+💂‍♂	↑↑↑	none
+💂‍♀	↑↑↑	none
+🥷	ninja	none
+👷	↑↑↑	none
+👷‍♂	↑↑↑	none
+👷‍♀	↑↑↑	none
+🤴	↑↑↑	none
+👸	↑↑↑	none
+👳	↑↑↑	none
+👳‍♂	↑↑↑	none
+👳‍♀	↑↑↑	none
 👲	homme coiffé d’une calotte chinoise	none
+🧕	↑↑↑	none
+🤵	↑↑↑	none
+🤵‍♂	↑↑↑	none
+🤵‍♀	↑↑↑	none
 👰	personne avec voile	none
+👰‍♂	↑↑↑	none
+👰‍♀	↑↑↑	none
+🤰	↑↑↑	none
+🤱	↑↑↑	none
+👩‍🍼	↑↑↑	none
+👨‍🍼	↑↑↑	none
+🧑‍🍼	↑↑↑	none
+👼	↑↑↑	none
+🎅	↑↑↑	none
+🤶	↑↑↑	none
 🧑‍🎄	personnage de Noël	none
 🦸	superhéros	none
 🦸‍♂	super-héros	none
+🦸‍♀	↑↑↑	none
+🦹	↑↑↑	none
+🦹‍♂	↑↑↑	none
+🦹‍♀	↑↑↑	none
+🧙	↑↑↑	none
+🧙‍♂	↑↑↑	none
+🧙‍♀	↑↑↑	none
+🧚	↑↑↑	none
+🧚‍♂	↑↑↑	none
+🧚‍♀	↑↑↑	none
+🧛	↑↑↑	none
+🧛‍♂	↑↑↑	none
+🧛‍♀	↑↑↑	none
+🧜	↑↑↑	none
+🧜‍♂	↑↑↑	none
+🧜‍♀	↑↑↑	none
+🧝	↑↑↑	none
+🧝‍♂	↑↑↑	none
+🧝‍♀	↑↑↑	none
+🧞	↑↑↑	none
+🧞‍♂	↑↑↑	none
+🧞‍♀	↑↑↑	none
+🧟	↑↑↑	none
+🧟‍♂	↑↑↑	none
+🧟‍♀	↑↑↑	none
+💆	↑↑↑	none
+💆‍♂	↑↑↑	none
+💆‍♀	↑↑↑	none
+💇	↑↑↑	none
+💇‍♂	homme qui se fait couper les cheveux	none
+💇‍♀	femme qui se fait couper les cheveux	none
+🚶	↑↑↑	none
+🚶‍♂	↑↑↑	none
+🚶‍♀	↑↑↑	none
+🧍	↑↑↑	none
+🧍‍♂	↑↑↑	none
+🧍‍♀	↑↑↑	none
+🧎	↑↑↑	none
+🧎‍♂	↑↑↑	none
+🧎‍♀	↑↑↑	none
 🧑‍🦯	aveugle avec canne	none
+👨‍🦯	↑↑↑	none
+👩‍🦯	↑↑↑	none
 🧑‍🦼	personne en fauteuil roulant	none
+👨‍🦼	↑↑↑	none
+👩‍🦼	↑↑↑	none
+🧑‍🦽	personne en fauteuil roulant manuel	none
+👨‍🦽	↑↑↑	none
+👩‍🦽	↑↑↑	none
+🏃	personne qui court	none
+🏃‍♂	homme qui court	none
+🏃‍♀	femme qui court	none
+💃	↑↑↑	none
+🕺	↑↑↑	none
+🕴	↑↑↑	none
 👯	personnes qui portent des oreilles de lapin	none
 👯‍♂	hommes qui portent des oreilles de lapin	none
 👯‍♀	femmes qui portent des oreilles de lapin	none
 🧖	personne dans un bain de vapeur	none
 🧖‍♂	homme dans un bain de vapeur	none
 🧖‍♀	femme dans un bain de vapeur	none
+🧗	↑↑↑	none
+🧗‍♂	↑↑↑	none
+🧗‍♀	↑↑↑	none
+🤺	↑↑↑	none
+🏇	↑↑↑	none
+⛷	↑↑↑	none
 🏂	planchiste	none
+🏌	↑↑↑	none
+🏌‍♂	↑↑↑	none
+🏌‍♀	↑↑↑	none
 🏄	personne qui fait du surf	none
+🏄‍♂	↑↑↑	none
+🏄‍♀	↑↑↑	none
 🚣	personne qui rame dans une barque	none
+🚣‍♂	↑↑↑	none
+🚣‍♀	↑↑↑	none
 🏊	personne qui nage	none
+🏊‍♂	↑↑↑	none
+🏊‍♀	↑↑↑	none
 ⛹	personne qui fait rebondir un ballon	none
 ⛹‍♂	homme qui fait rebondir un ballon	none
 ⛹‍♀	femme qui fait rebondir un ballon	none
+🏋	↑↑↑	none
+🏋‍♂	↑↑↑	none
+🏋‍♀	↑↑↑	none
+🚴	↑↑↑	none
+🚴‍♂	↑↑↑	none
+🚴‍♀	↑↑↑	none
 🚵	personne en vélo de montagne	none
 🚵‍♂	homme en vélo de montagne	none
 🚵‍♀	femme en vélo de montagne	none
+🤸	personne faisant la roue	none
+🤸‍♂	↑↑↑	none
+🤸‍♀	↑↑↑	none
+🤼	↑↑↑	none
+🤼‍♂	↑↑↑	none
+🤼‍♀	↑↑↑	none
 🤽	personne qui joue au water-polo	none
+🤽‍♂	↑↑↑	none
+🤽‍♀	↑↑↑	none
 🤾	personne qui joue au handball	none
+🤾‍♂	↑↑↑	none
+🤾‍♀	↑↑↑	none
+🤹	↑↑↑	none
+🤹‍♂	↑↑↑	none
+🤹‍♀	↑↑↑	none
+🧘	↑↑↑	none
+🧘‍♂	↑↑↑	none
+🧘‍♀	↑↑↑	none
+🛀	↑↑↑	none
+🛌	↑↑↑	none
 🧑‍🤝‍🧑	personnes se tenant par la main	none
 👭	deux femmes se tenant par la main	none
 👫	homme et femme se tenant par la main	none
 👬	deux hommes se tenant par la main	none
+💏	↑↑↑	none
+💑	↑↑↑	none
+👪	↑↑↑	none
+🗣	↑↑↑	none
+👤	↑↑↑	none
+👥	↑↑↑	none
 🫂	personnes qui s’étreignent	none
+👣	↑↑↑	none
+🦰	↑↑↑	none
+🦱	↑↑↑	none
+🦳	↑↑↑	none
+🦲	↑↑↑	none
+🐵	↑↑↑	none
+🐒	↑↑↑	none
+🦍	↑↑↑	none
+🦧	↑↑↑	none
+🐶	↑↑↑	none
+🐕	↑↑↑	none
 🦮	chien-guide	none
+🐕‍🦺	↑↑↑	none
+🐩	↑↑↑	none
+🐺	↑↑↑	none
+🦊	↑↑↑	none
+🦝	↑↑↑	none
+🐱	↑↑↑	none
+🐈	↑↑↑	none
+🐈‍⬛	↑↑↑	none
+🦁	↑↑↑	none
+🐯	↑↑↑	none
+🐅	↑↑↑	none
+🐆	↑↑↑	none
+🐴	↑↑↑	none
+🐎	↑↑↑	none
+🦄	↑↑↑	none
+🦓	↑↑↑	none
+🦌	↑↑↑	none
+🦬	bison	none
+🐮	↑↑↑	none
+🐂	↑↑↑	none
+🐃	↑↑↑	none
+🐄	↑↑↑	none
+🐷	↑↑↑	none
+🐖	↑↑↑	none
+🐗	↑↑↑	none
 🐽	nez de cochon	none
+🐏	↑↑↑	none
 🐑	brebis	none
+🐐	↑↑↑	none
+🐪	↑↑↑	none
+🐫	↑↑↑	none
+🦙	↑↑↑	none
+🦒	↑↑↑	none
+🐘	↑↑↑	none
+🦣	mammouth	none
+🦏	↑↑↑	none
+🦛	↑↑↑	none
+🐭	↑↑↑	none
+🐁	↑↑↑	none
+🐀	↑↑↑	none
+🐹	↑↑↑	none
+🐰	↑↑↑	none
+🐇	↑↑↑	none
+🐿	↑↑↑	none
+🦫	castor	none
+🦔	↑↑↑	none
+🦇	↑↑↑	none
+🐻	↑↑↑	none
+🐻‍❄	↑↑↑	none
+🐨	↑↑↑	none
 🐼	tête de panda	none
+🦥	↑↑↑	none
+🦦	↑↑↑	none
+🦨	↑↑↑	none
+🦘	↑↑↑	none
+🦡	↑↑↑	none
+🐾	↑↑↑	none
 🦃	dinde	none
+🐔	↑↑↑	none
+🐓	↑↑↑	none
+🐣	↑↑↑	none
+🐤	↑↑↑	none
+🐥	↑↑↑	none
+🐦	↑↑↑	none
+🐧	↑↑↑	none
+🕊	↑↑↑	none
+🦅	↑↑↑	none
+🦆	↑↑↑	none
+🦢	↑↑↑	none
+🦉	↑↑↑	none
+🦤	dodo	none
+🪶	plume	none
+🦩	↑↑↑	none
+🦚	↑↑↑	none
+🦜	↑↑↑	none
+🐸	↑↑↑	none
+🐊	↑↑↑	none
+🐢	↑↑↑	none
+🦎	↑↑↑	none
+🐍	↑↑↑	none
+🐲	↑↑↑	none
+🐉	↑↑↑	none
+🦕	↑↑↑	none
 🦖	T. rex	none
 🐳	baleine qui expulse de l’eau	none
+🐋	↑↑↑	none
+🐬	↑↑↑	none
+🦭	phoque	none
+🐟	↑↑↑	none
+🐠	↑↑↑	none
 🐡	poisson-globe	none
+🦈	↑↑↑	none
+🐙	↑↑↑	none
+🐚	↑↑↑	none
+🐌	↑↑↑	none
+🦋	↑↑↑	none
+🐛	↑↑↑	none
+🐜	↑↑↑	none
+🐝	↑↑↑	none
+🪲	scarabée	none
+🐞	↑↑↑	none
+🦗	↑↑↑	none
 🪳	coquerelle	none
+🕷	↑↑↑	none
+🕸	↑↑↑	none
+🦂	↑↑↑	none
+🦟	↑↑↑	none
+🪰	mouche	none
 🪱	ver	none
+🦠	↑↑↑	none
+💐	↑↑↑	none
+🌸	↑↑↑	none
+💮	↑↑↑	none
+🏵	↑↑↑	none
+🌹	↑↑↑	none
+🥀	↑↑↑	none
+🌺	↑↑↑	none
+🌻	↑↑↑	none
+🌼	↑↑↑	none
+🌷	↑↑↑	none
+🌱	↑↑↑	none
+🪴	↑↑↑	none
+🌲	↑↑↑	none
+🌳	↑↑↑	none
+🌴	↑↑↑	none
+🌵	↑↑↑	none
+🌾	↑↑↑	none
+🌿	↑↑↑	none
 ☘	trèfle à trois feuilles	none
+🍀	↑↑↑	none
+🍁	↑↑↑	none
+🍂	↑↑↑	none
+🍃	↑↑↑	none
+🍇	↑↑↑	none
+🍈	↑↑↑	none
 🍉	melon d’eau	none
 🍊	tangerine	none
+🍋	↑↑↑	none
+🍌	↑↑↑	none
+🍍	↑↑↑	none
+🥭	↑↑↑	none
+🍎	↑↑↑	none
+🍏	↑↑↑	none
+🍐	↑↑↑	none
+🍑	↑↑↑	none
+🍒	cerises	none
+🍓	↑↑↑	none
 🫐	bleuets	none
+🥝	↑↑↑	none
+🍅	↑↑↑	none
+🫒	olive	none
+🥥	↑↑↑	none
+🥑	↑↑↑	none
+🍆	↑↑↑	none
+🥔	↑↑↑	none
+🥕	↑↑↑	none
+🌽	↑↑↑	none
+🌶	↑↑↑	none
 🫑	poivron rouge	none
+🥒	↑↑↑	none
+🥬	↑↑↑	none
+🥦	brocoli	none
+🧄	↑↑↑	none
+🧅	↑↑↑	none
+🍄	↑↑↑	none
 🥜	arachides	none
+🌰	↑↑↑	none
+🍞	↑↑↑	none
+🥐	↑↑↑	none
+🥖	↑↑↑	none
 🫓	pain plat	none
+🥨	↑↑↑	none
+🥯	↑↑↑	none
 🥞	crêpes	none
+🧇	↑↑↑	none
 🧀	morceau de fromage	none
 🍖	viande sur son os	none
+🍗	↑↑↑	none
+🥩	morceau de viande	none
 🥓	bacon	none
+🍔	↑↑↑	none
+🍟	↑↑↑	none
+🍕	↑↑↑	none
+🌭	↑↑↑	none
+🥪	↑↑↑	none
+🌮	↑↑↑	none
+🌯	↑↑↑	none
+🫔	↑↑↑	none
 🥙	pain plat garni	none
+🧆	↑↑↑	none
+🥚	↑↑↑	none
 🍳	cuisine	none
+🥘	↑↑↑	none
 🍲	bol de nourriture	none
+🫕	fondue	none
+🥣	↑↑↑	none
+🥗	↑↑↑	none
 🍿	popcorn	none
+🧈	↑↑↑	none
+🧂	↑↑↑	none
+🥫	↑↑↑	none
 🍱	boîte à bento	none
 🍘	craquelin de riz	none
+🍙	↑↑↑	none
+🍚	↑↑↑	none
+🍛	↑↑↑	none
+🍜	↑↑↑	none
+🍝	↑↑↑	none
 🍠	patate douce grillée	none
 🍢	oden	none
+🍣	↑↑↑	none
 🍤	crevette frite	none
 🍥	surimi avec décoration	none
+🥮	↑↑↑	none
 🍡	dango	none
 🥟	dumpling	none
+🥠	↑↑↑	none
+🥡	↑↑↑	none
+🦀	↑↑↑	none
+🦞	↑↑↑	none
+🦐	↑↑↑	none
+🦑	↑↑↑	none
+🦪	↑↑↑	none
 🍦	crème glacée molle	none
 🍧	glace pilée	none
 🍨	crème glacée	none
 🍩	beigne	none
 🍪	biscuit	none
 🎂	gâteau de fête	none
+🍰	↑↑↑	none
 🧁	petit gâteau	none
+🥧	↑↑↑	none
 🍫	tablette de chocolat	none
+🍬	↑↑↑	none
 🍭	suçon	none
 🍮	crème caramel	none
+🍯	↑↑↑	none
+🍼	↑↑↑	none
+🥛	↑↑↑	none
+☕	↑↑↑	none
+🫖	théière	none
+🍵	↑↑↑	none
+🍶	↑↑↑	none
+🍾	↑↑↑	none
+🍷	↑↑↑	none
+🍸	↑↑↑	none
+🍹	↑↑↑	none
 🍺	chope de bière	none
 🍻	chopes de bière qui tintent	none
 🥂	verres qui tintent	none
 🥃	verre	none
 🥤	verre avec paille	none
+🧋	thé aux perles	none
+🧃	↑↑↑	none
+🧉	↑↑↑	none
+🧊	↑↑↑	none
+🥢	↑↑↑	none
+🍽	↑↑↑	none
+🍴	↑↑↑	none
+🥄	↑↑↑	none
+🔪	↑↑↑	none
+🏺	↑↑↑	none
 🌍	globe qui montre l’Europe et l’Afrique	none
 🌎	globe qui montre l’Amérique	none
 🌏	globe qui montre l’Asie et l’Australie	none
 🌐	globe qui montre les méridiens	none
+🗺	↑↑↑	none
+🗾	↑↑↑	none
+🧭	↑↑↑	none
+🏔	↑↑↑	none
+⛰	↑↑↑	none
+🌋	↑↑↑	none
+🗻	↑↑↑	none
+🏕	↑↑↑	none
 🏖	plage et parasol	none
+🏜	↑↑↑	none
+🏝	↑↑↑	none
+🏞	↑↑↑	none
+🏟	↑↑↑	none
+🏛	↑↑↑	none
+🏗	↑↑↑	none
+🧱	↑↑↑	none
 🪨	roche	none
+🪵	bois	none
+🛖	hutte	none
+🏘	↑↑↑	none
+🏚	↑↑↑	none
+🏠	↑↑↑	none
+🏡	↑↑↑	none
+🏢	↑↑↑	none
+🏣	↑↑↑	none
+🏤	↑↑↑	none
+🏥	↑↑↑	none
+🏦	↑↑↑	none
+🏨	↑↑↑	none
 🏩	hôtel pour couples	none
 🏪	épicerie	none
+🏫	↑↑↑	none
+🏬	↑↑↑	none
+🏭	↑↑↑	none
+🏯	↑↑↑	none
+🏰	↑↑↑	none
+💒	↑↑↑	none
+🗼	tour de Tokyo	none
+🗽	statue de la Liberté	none
+⛪	↑↑↑	none
+🕌	↑↑↑	none
+🛕	↑↑↑	none
+🕍	↑↑↑	none
+⛩	↑↑↑	none
+🕋	↑↑↑	none
+⛲	↑↑↑	none
+⛺	↑↑↑	none
+🌁	↑↑↑	none
+🌃	↑↑↑	none
 🏙	paysage urbain	none
 🌄	lever de soleil sur les montagnes	none
 🌅	lever de soleil	none
+🌆	↑↑↑	none
+🌇	↑↑↑	none
+🌉	pont de nuit	none
 ♨	sources thermales	none
 🎠	cheval de carrousel	none
+🎡	↑↑↑	none
+🎢	↑↑↑	none
+💈	↑↑↑	none
+🎪	↑↑↑	none
+🚂	↑↑↑	none
+🚃	↑↑↑	none
 🚄	train à grande vitesse	none
 🚅	train superexpress	none
+🚆	↑↑↑	none
+🚇	↑↑↑	none
 🚈	train de banlieue	none
+🚉	↑↑↑	none
+🚊	↑↑↑	none
+🚝	↑↑↑	none
+🚞	↑↑↑	none
+🚋	↑↑↑	none
+🚌	↑↑↑	none
+🚍	↑↑↑	none
+🚎	↑↑↑	none
+🚐	↑↑↑	none
+🚑	↑↑↑	none
+🚒	↑↑↑	none
+🚓	↑↑↑	none
+🚔	↑↑↑	none
+🚕	↑↑↑	none
+🚖	↑↑↑	none
+🚗	↑↑↑	none
+🚘	↑↑↑	none
+🚙	véhicule utilitaire sport	none
 🛻	camionnette	none
+🚚	↑↑↑	none
 🚛	camion semi-remorque	none
+🚜	↑↑↑	none
+🏎	↑↑↑	none
+🏍	↑↑↑	none
+🛵	↑↑↑	none
+🦽	↑↑↑	none
+🦼	↑↑↑	none
+🛺	↑↑↑	none
+🚲	↑↑↑	none
+🛴	↑↑↑	none
+🛹	↑↑↑	none
+🛼	patin à roulettes	none
+🚏	↑↑↑	none
+🛣	↑↑↑	none
+🛤	↑↑↑	none
+🛢	↑↑↑	none
+⛽	↑↑↑	none
+🚨	↑↑↑	none
 🚥	feu de circulation horizontal	none
 🚦	feu de circulation vertical	none
+🛑	↑↑↑	none
+🚧	↑↑↑	none
+⚓	↑↑↑	none
+⛵	↑↑↑	none
+🛶	↑↑↑	none
+🚤	↑↑↑	none
+🛳	↑↑↑	none
 ⛴	traversier	none
+🛥	↑↑↑	none
+🚢	↑↑↑	none
+✈	↑↑↑	none
+🛩	↑↑↑	none
+🛫	avion au décollage	none
 🛬	avion à l’atterissage	none
+🪂	↑↑↑	none
+💺	↑↑↑	none
+🚁	↑↑↑	none
+🚟	↑↑↑	none
 🚠	télécabine	none
 🚡	téléphérique	none
+🛰	↑↑↑	none
+🚀	↑↑↑	none
+🛸	↑↑↑	none
+🛎	↑↑↑	none
+🧳	↑↑↑	none
+⌛	↑↑↑	none
+⏳	↑↑↑	none
+⌚	↑↑↑	none
+⏰	↑↑↑	none
+⏱	↑↑↑	none
 ⏲	minuteur	none
 🕰	pendule de cheminée	none
+🕛	↑↑↑	none
+🕧	↑↑↑	none
+🕐	↑↑↑	none
+🕜	↑↑↑	none
+🕑	↑↑↑	none
+🕝	↑↑↑	none
+🕒	↑↑↑	none
+🕞	↑↑↑	none
+🕓	↑↑↑	none
+🕟	↑↑↑	none
+🕔	↑↑↑	none
+🕠	↑↑↑	none
+🕕	↑↑↑	none
+🕡	↑↑↑	none
+🕖	↑↑↑	none
+🕢	↑↑↑	none
+🕗	↑↑↑	none
+🕣	↑↑↑	none
+🕘	↑↑↑	none
+🕤	↑↑↑	none
+🕙	↑↑↑	none
+🕥	↑↑↑	none
+🕚	↑↑↑	none
+🕦	↑↑↑	none
+🌑	↑↑↑	none
 🌒	premier croissant de lune	none
+🌓	premier quartier de lune	none
+🌔	↑↑↑	none
+🌕	↑↑↑	none
+🌖	↑↑↑	none
 🌗	dernier quartier de lune	none
 🌘	dernier croissant de lune	none
+🌙	↑↑↑	none
+🌚	nouvelle lune avec visage	none
+🌛	premier quartier de lune avec visage	none
+🌜	dernier quartier de lune avec visage	none
+🌡	↑↑↑	none
+☀	↑↑↑	none
+🌝	pleine lune avec visage	none
+🌞	soleil avec visage	none
+🪐	↑↑↑	none
 ⭐	étoile moyenne	none
+🌟	↑↑↑	none
+🌠	↑↑↑	none
+🌌	↑↑↑	none
+☁	↑↑↑	none
 ⛅	soleil derrière un nuage	none
+⛈	nuage avec éclair et pluie	none
+🌤	soleil derrière un petit nuage	none
+🌥	soleil derrière un gros nuage	none
+🌦	soleil derrière un nuage de pluie	none
 🌧	nuage de pluie	none
 🌨	nuage avec de la neige	none
 🌩	nuage avec un éclair	none
+🌪	↑↑↑	none
+🌫	↑↑↑	none
 🌬	visage qui souffle du vent	none
+🌀	cyclone	none
+🌈	↑↑↑	none
+🌂	↑↑↑	none
+☂	↑↑↑	none
+☔	parapluie avec gouttes de pluie	none
+⛱	↑↑↑	none
+⚡	haute tension	none
 ❄	flocon de neige	none
 ☃	bonhomme de neige avec flocons	none
+⛄	↑↑↑	none
+☄	↑↑↑	none
+🔥	↑↑↑	none
+💧	goutte d’eau	none
+🌊	↑↑↑	none
+🎃	↑↑↑	none
+🎄	↑↑↑	none
+🎆	↑↑↑	none
 🎇	feu de Bengale	none
+🧨	↑↑↑	none
+✨	étincelles	none
 🎈	ballon de fête	none
 🎉	cornet à confettis	none
 🎊	boule de confetti	none
 🎋	arbre à prières	none
 🎍	composition florale japonaise	none
+🎎	↑↑↑	none
+🎏	↑↑↑	none
 🎐	carillon à vent	none
 🎑	cérémonie d’observation de la lune	none
+🧧	↑↑↑	none
+🎀	↑↑↑	none
+🎁	↑↑↑	none
 🎗	ruban commémoratif	none
 🎟	billets d’entrée	none
+🎫	↑↑↑	none
+🎖	↑↑↑	none
+🏆	↑↑↑	none
+🏅	↑↑↑	none
+🥇	↑↑↑	none
+🥈	↑↑↑	none
+🥉	↑↑↑	none
 ⚽	ballon de soccer	none
+⚾	↑↑↑	none
 🥎	balle molle	none
 🏀	ballon de basket	none
 🏐	ballon de volley	none
 🏈	ballon de football	none
 🏉	ballon de rugby	none
+🎾	↑↑↑	none
+🥏	disque volant	none
 🎳	jeu de quilles	none
+🏏	↑↑↑	none
+🏑	↑↑↑	none
+🏒	↑↑↑	none
+🥍	↑↑↑	none
 🏓	tennis de table	none
+🏸	↑↑↑	none
+🥊	↑↑↑	none
 🥋	uniforme d’arts martiaux	none
 🥅	filet	none
+⛳	↑↑↑	none
+⛸	↑↑↑	none
+🎣	↑↑↑	none
+🤿	↑↑↑	none
+🎽	maillot de course	none
 🎿	skis	none
+🛷	↑↑↑	none
+🥌	↑↑↑	none
+🎯	↑↑↑	none
+🪀	↑↑↑	none
+🪁	↑↑↑	none
+🎱	↑↑↑	none
+🔮	↑↑↑	none
+🪄	baguette magique	none
+🧿	↑↑↑	none
+🎮	↑↑↑	none
+🕹	↑↑↑	none
+🎰	↑↑↑	none
 🎲	dé	none
 🧩	casse-tête	none
+🧸	↑↑↑	none
+🪅	piñata	none
+🪆	poupées russes	none
+♠	↑↑↑	none
+♥	↑↑↑	none
+♦	↑↑↑	none
 ♣	trèfle	none
 ♟	pion	none
 🃏	joker	none
+🀄	↑↑↑	none
+🎴	jeu des fleurs	none
 🎭	arts du spectacle	none
+🖼	↑↑↑	none
+🎨	↑↑↑	none
+🧵	↑↑↑	none
+🪡	aiguille à coudre	none
+🧶	↑↑↑	none
+🪢	nœud	none
+👓	↑↑↑	none
+🕶	↑↑↑	none
+🥽	↑↑↑	none
+🥼	↑↑↑	none
 🦺	veste de sécurité	none
+👔	↑↑↑	none
+👕	↑↑↑	none
+👖	↑↑↑	none
+🧣	↑↑↑	none
+🧤	↑↑↑	none
+🧥	↑↑↑	none
+🧦	↑↑↑	none
+👗	↑↑↑	none
+👘	↑↑↑	none
+🥻	↑↑↑	none
+🩱	↑↑↑	none
+🩲	↑↑↑	none
+🩳	↑↑↑	none
+👙	↑↑↑	none
+👚	↑↑↑	none
+👛	↑↑↑	none
+👜	↑↑↑	none
+👝	↑↑↑	none
 🛍	sacs de magasinage	none
 🎒	sac d’école	none
 🩴	gougoune	none
+👞	↑↑↑	none
+👟	↑↑↑	none
+🥾	↑↑↑	none
+🥿	↑↑↑	none
+👠	↑↑↑	none
 👡	sandale à talon	none
+🩰	↑↑↑	none
+👢	↑↑↑	none
+👑	↑↑↑	none
+👒	↑↑↑	none
 🎩	haut-de-forme	none
 🎓	chapeau de diplômé	none
 🧢	casquette de baseball	none
+🪖	casque militaire	none
 ⛑	casque avec une croix blanche	none
+📿	↑↑↑	none
+💄	↑↑↑	none
+💍	↑↑↑	none
+💎	↑↑↑	none
 🔇	son coupé	none
 🔈	volume faible	none
 🔉	volume moyen	none
 🔊	volume élevé	none
+📢	↑↑↑	none
+📣	↑↑↑	none
+📯	↑↑↑	none
+🔔	↑↑↑	none
 🔕	cloche barrée	none
+🎼	↑↑↑	none
+🎵	↑↑↑	none
+🎶	↑↑↑	none
+🎙	↑↑↑	none
+🎚	↑↑↑	none
+🎛	↑↑↑	none
+🎤	↑↑↑	none
 🎧	casque d’écoute	none
+📻	↑↑↑	none
+🎷	↑↑↑	none
+🪗	accordéon	none
+🎸	↑↑↑	none
+🎹	↑↑↑	none
+🎺	↑↑↑	none
+🎻	↑↑↑	none
+🪕	↑↑↑	none
 🥁	tambour	none
+🪘	↑↑↑	none
 📱	téléphone cellulaire	none
 📲	téléphone cellulaire précédé par une flèche	none
+☎	↑↑↑	none
 📞	récepteur téléphonique	none
 📟	téléavertisseur	none
 📠	télécopieur	none
+🔋	↑↑↑	none
 🔌	prise électrique	none
+💻	↑↑↑	none
+🖥	↑↑↑	none
+🖨	↑↑↑	none
+⌨	↑↑↑	none
+🖱	↑↑↑	none
+🖲	boule de commande	none
 💽	disque dur	none
+💾	↑↑↑	none
+💿	↑↑↑	none
+📀	↑↑↑	none
+🧮	↑↑↑	none
+🎥	↑↑↑	none
+🎞	↑↑↑	none
+📽	↑↑↑	none
+🎬	↑↑↑	none
+📺	↑↑↑	none
+📷	↑↑↑	none
+📸	↑↑↑	none
+📹	↑↑↑	none
+📼	↑↑↑	none
+🔍	↑↑↑	none
+🔎	↑↑↑	none
+🕯	↑↑↑	none
+💡	↑↑↑	none
 🔦	lampe de poche	none
 🏮	lanterne d’izakaya	none
+🪔	↑↑↑	none
 📔	carnet avec couverture décorative	none
+📕	↑↑↑	none
+📖	↑↑↑	none
+📗	↑↑↑	none
+📘	↑↑↑	none
+📙	↑↑↑	none
+📚	↑↑↑	none
+📓	↑↑↑	none
+📒	carnet de compte	none
+📃	↑↑↑	none
+📜	↑↑↑	none
+📄	↑↑↑	none
+📰	↑↑↑	none
+🗞	↑↑↑	none
 📑	onglets	none
+🔖	↑↑↑	none
+🏷	↑↑↑	none
+💰	↑↑↑	none
 🪙	pièce de monnaie	none
+💴	↑↑↑	none
+💵	↑↑↑	none
+💶	↑↑↑	none
+💷	↑↑↑	none
+💸	↑↑↑	none
 💳	carte de crédit	none
+🧾	↑↑↑	none
 💹	courbe croissante précédée du symbole du yen	none
+✉	↑↑↑	none
 📧	courriel	none
+📨	↑↑↑	none
+📩	↑↑↑	none
+📤	↑↑↑	none
+📥	↑↑↑	none
+📦	↑↑↑	none
 📫	boîte aux lettres fermée avec drapeau levé	none
 📪	boîte aux lettres fermée avec drapeau baissé	none
 📬	boîte aux lettres ouverte avec drapeau levé	none
 📭	boîte aux lettres ouverte avec drapeau baissé	none
+📮	↑↑↑	none
+🗳	↑↑↑	none
+✏	↑↑↑	none
 ✒	plume noire	none
 🖋	stylo-plume	none
+🖊	↑↑↑	none
+🖌	↑↑↑	none
 🖍	crayon de cire	none
+📝	↑↑↑	none
+💼	↑↑↑	none
+📁	↑↑↑	none
+📂	↑↑↑	none
+🗂	↑↑↑	none
+📅	↑↑↑	none
 📆	calendrier à effeuiller	none
+🗒	↑↑↑	none
+🗓	↑↑↑	none
 📇	fiche	none
+📈	↑↑↑	none
+📉	↑↑↑	none
+📊	↑↑↑	none
 📋	presse-papiers	none
 📌	épingle	none
 📍	épingle à tête ronde	none
+📎	↑↑↑	none
 🖇	trombones accrochés	none
+📏	↑↑↑	none
+📐	↑↑↑	none
+✂	↑↑↑	none
+🗃	↑↑↑	none
 🗄	classeur	none
 🗑	corbeille	none
+🔒	↑↑↑	none
+🔓	↑↑↑	none
+🔏	↑↑↑	none
 🔐	cadenas avec clé	none
+🔑	↑↑↑	none
+🗝	↑↑↑	none
+🔨	↑↑↑	none
+🪓	↑↑↑	none
 ⛏	pic	none
 ⚒	marteau et pic	none
+🛠	↑↑↑	none
+🗡	↑↑↑	none
+⚔	↑↑↑	none
+🔫	pistolet à eau	none
+🪃	boomerang	none
+🏹	↑↑↑	none
+🛡	↑↑↑	none
 🪚	scie à bois	none
+🔧	↑↑↑	none
+🪛	tournevis	none
+🔩	↑↑↑	none
 ⚙	engrenage	none
+🗜	serre-joint	none
+⚖	↑↑↑	none
+🦯	↑↑↑	none
+🔗	chaînons	none
+⛓	↑↑↑	none
+🪝	crochet	none
+🧰	↑↑↑	none
+🧲	↑↑↑	none
+🪜	échelle	none
+⚗	↑↑↑	none
+🧪	↑↑↑	none
+🧫	↑↑↑	none
+🧬	↑↑↑	none
+🔬	↑↑↑	none
+🔭	↑↑↑	none
+📡	↑↑↑	none
+💉	↑↑↑	none
+🩸	↑↑↑	none
+💊	↑↑↑	none
+🩹	↑↑↑	none
+🩺	↑↑↑	none
+🚪	↑↑↑	none
+🛗	ascenseur	none
+🪞	miroir	none
+🪟	fenêtre	none
+🛏	↑↑↑	none
 🛋	sofa et lampe	none
+🪑	↑↑↑	none
 🚽	siège de toilette	none
+🪠	ventouse	none
+🚿	↑↑↑	none
+🛁	↑↑↑	none
 🪤	piège à souris	none
+🪒	↑↑↑	none
+🧴	↑↑↑	none
+🧷	↑↑↑	none
+🧹	↑↑↑	none
+🧺	↑↑↑	none
+🧻	↑↑↑	none
+🪣	seau	none
+🧼	↑↑↑	none
+🪥	brosse à dents	none
+🧽	↑↑↑	none
+🧯	↑↑↑	none
 🛒	panier d’épicerie	none
+🚬	↑↑↑	none
+⚰	↑↑↑	none
+🪦	pierre tombale	none
+⚱	↑↑↑	none
 🗿	moaï	none
+🪧	↑↑↑	none
 🏧	guichet automatique bancaire	none
+🚮	↑↑↑	none
+🚰	↑↑↑	none
 ♿	symbole de fauteuil roulant	none
 🚹	toilettes pour hommes	none
 🚺	toilettes pour femmes	none
 🚻	toilettes	none
 🚼	symbole bébé	none
 🚾	symbole Toilettes	none
+🛂	↑↑↑	none
+🛃	↑↑↑	none
+🛄	↑↑↑	none
 🛅	consigne à bagages	none
 ⚠	avertissement	none
 🚸	attention, enfants	none
+⛔	↑↑↑	none
 🚫	interdit	none
+🚳	↑↑↑	none
+🚭	↑↑↑	none
+🚯	↑↑↑	none
+🚱	↑↑↑	none
+🚷	↑↑↑	none
 📵	téléphones cellulaires interdits	none
+🔞	↑↑↑	none
+☢	↑↑↑	none
+☣	↑↑↑	none
 ⬆	flèche pointant vers le haut	none
 ↗	flèche pointant vers le haut à droite	none
 ➡	flèche pointant vers la droite	none
@@ -389,7 +1633,16 @@ symbols:
 🔛	étiquette « ON! » et flèche	none
 🔜	étiquette « SOON » et flèche	none
 🔝	étiquette « TOP » et flèche	none
+🛐	↑↑↑	none
+⚛	↑↑↑	none
+🕉	↑↑↑	none
+✡	↑↑↑	none
+☸	↑↑↑	none
+☯	↑↑↑	none
+✝	↑↑↑	none
+☦	↑↑↑	none
 ☪	étoile et croissant de lune	none
+☮	↑↑↑	none
 🕎	menora	none
 🔯	étoile à 6 branches et point au milieu	none
 ♈	Bélier zodiaque	none
@@ -410,32 +1663,80 @@ symbols:
 🔂	bouton de répétition unique	none
 ▶	bouton de lecture	none
 ⏩	bouton d’avance rapide	none
+⏭	↑↑↑	none
+⏯	↑↑↑	none
 ◀	bouton de retour	none
 ⏪	bouton de retour rapide	none
+⏮	↑↑↑	none
 🔼	bouton vers le haut	none
 ⏫	bouton d’accès rapide vers le haut	none
 🔽	bouton vers le bas	none
 ⏬	bouton d’accès rapide vers le bas	none
+⏸	↑↑↑	none
+⏹	↑↑↑	none
+⏺	↑↑↑	none
+⏏	↑↑↑	none
+🎦	↑↑↑	none
+🔅	↑↑↑	none
+🔆	↑↑↑	none
 📶	barres de signal	none
 📳	mode vibration	none
 📴	téléphone cellulaire éteint	none
+♀	↑↑↑	none
+♂	↑↑↑	none
 ⚧	symbole transgenre	none
 ✖	signe de multiplication	none
 ➕	signe d’addition	none
 ➖	signe de soustraction	none
 ➗	signe de division	none
+♾	↑↑↑	none
+❓	↑↑↑	none
+❔	↑↑↑	none
+❕	↑↑↑	none
+❗	↑↑↑	none
 💱	change	none
 💲	symbole du dollar en gras	none
 ⚕	symbole la médecine	none
 ♻	symbole de recyclage	none
+⚜	↑↑↑	none
+🔱	↑↑↑	none
+📛	↑↑↑	none
 🔰	symbole japonais du débutant	none
+⭕	↑↑↑	none
+✅	↑↑↑	none
+☑	↑↑↑	none
+✔	↑↑↑	none
+❌	croix	none
+❎	↑↑↑	none
+➰	↑↑↑	none
+➿	↑↑↑	none
 ✳	astérique à huit branches	none
 ✴	étoile à huit branches	none
+❇	↑↑↑	none
 ™	marque de commerce	none
+🔠	↑↑↑	none
+🔡	↑↑↑	none
+🔢	↑↑↑	none
+🔣	↑↑↑	none
+🔤	↑↑↑	none
+🅰	↑↑↑	none
+🆎	↑↑↑	none
+🅱	↑↑↑	none
+🆑	↑↑↑	none
+🆒	↑↑↑	none
 🆓	free	none
 ℹ	informations	none
+🆔	↑↑↑	none
+Ⓜ	↑↑↑	none
+🆕	↑↑↑	none
+🆖	↑↑↑	none
+🅾	↑↑↑	none
+🆗	↑↑↑	none
 🅿	icône Stationnement	none
+🆘	↑↑↑	none
 🆙	icône UP!	none
+🆚	↑↑↑	none
+🔴	↑↑↑	none
 🟠	cercle orange	none
 🟡	cercle jaune	none
 🟢	cercle vert	none
@@ -444,15 +1745,124 @@ symbols:
 🟤	cercle brun	none
 ⚫	rond noir	none
 ⚪	rond blanc	none
+🟥	↑↑↑	none
+🟧	↑↑↑	none
+🟨	↑↑↑	none
+🟩	↑↑↑	none
+🟦	↑↑↑	none
+🟪	↑↑↑	none
 🟫	carré brun	none
+⬛	↑↑↑	none
+⬜	↑↑↑	none
 ◼	carré noir de taille moyenne	none
 ◻	carré blanc de taille moyenne	none
 ◾	carré noir de taille intermédiaire	none
 ◽	carré blanc de taille intermédiaire	none
+▪	↑↑↑	none
+▫	↑↑↑	none
+🔶	↑↑↑	none
+🔷	↑↑↑	none
+🔸	↑↑↑	none
+🔹	↑↑↑	none
 🔺	triangle rouge qui pointe vers le haut	none
 🔻	triangle rouge qui pointe vers le bas	none
+💠	↑↑↑	none
+🔘	↑↑↑	none
 🔳	bouton représentant un carré blanc	none
 🔲	bouton représentant un carré noir	none
+🏁	↑↑↑	none
+🚩	↑↑↑	none
+🎌	↑↑↑	none
+🏴	↑↑↑	none
+🏳	↑↑↑	none
+🏳‍🌈	↑↑↑	none
+🏳‍⚧	drapeau transgenre	none
+🏴‍☠	↑↑↑	none
+₢	↑↑↑	none
+₣	↑↑↑	none
+₤	↑↑↑	none
+₥	mill	none
+₩	won	none
+€	↑↑↑	none
+₰	↑↑↑	none
+₱	peso	none
+₳	↑↑↑	none
+₶	↑↑↑	none
+₷	↑↑↑	none
+₹	↑↑↑	none
+₽	↑↑↑	none
+₿	bitcoin	none
+₨	↑↑↑	none
+🫃🏻	homme enceinte  peau claire	none
+🫃🏼	homme enceinte  peau modérément claire	none
+🫃🏽	homme enceinte  peau légèrement mate	none
+🫃🏾	homme enceinte  peau modérément foncée	none
+🫃🏿	homme enceinte  peau foncée	none
+🫄🏻	personne enceinte  peau claire	none
+🫄🏼	personne enceinte  peau modérément claire	none
+🫄🏽	personne enceinte  peau légèrement mate	none
+🫄🏾	personne enceinte  peau modérément foncée	none
+🫄🏿	personne enceinte  peau foncée	none
+🫅🏻	personne avec une couronne  peau claire	none
+🫅🏼	personne avec une couronne  peau modérément claire	none
+🫅🏽	personne avec une couronne  peau légèrement mate	none
+🫅🏾	personne avec une couronne  peau modérément foncée	none
+🫅🏿	personne avec une couronne  peau foncée	none
+🫰🏻	main avec index et pouce croisés  peau claire	none
+🫰🏼	main avec index et pouce croisés  peau modérément claire	none
+🫰🏽	main avec index et pouce croisés  peau légèrement mate	none
+🫰🏾	main avec index et pouce croisés  peau modérément foncée	none
+🫰🏿	main avec index et pouce croisés  peau foncée	none
+🫱🏻	main vers la droite  peau claire	none
+🫱🏼	main vers la droite  peau modérément claire	none
+🫱🏽	main vers la droite  peau légèrement mate	none
+🫱🏾	main vers la droite  peau modérément foncée	none
+🫱🏿	main vers la droite  peau foncée	none
+🫱🏻‍🫲🏼	poignée de main  peau claire et peau modérément claire	none
+🫱🏻‍🫲🏽	poignée de main  peau claire et peau légèrement mate	none
+🫱🏻‍🫲🏾	poignée de main  peau claire et peau modérément foncée	none
+🫱🏻‍🫲🏿	poignée de main  peau claire et peau foncée	none
+🫱🏼‍🫲🏻	poignée de main  peau modérément claire et peau claire	none
+🫱🏼‍🫲🏽	poignée de main  peau modérément claire et peau légèrement mate	none
+🫱🏼‍🫲🏾	poignée de main  peau modérément claire et peau modérément foncée	none
+🫱🏼‍🫲🏿	poignée de main  peau modérément claire et peau foncée	none
+🫱🏽‍🫲🏻	poignée de main  peau légèrement mate et peau claire	none
+🫱🏽‍🫲🏼	poignée de main  peau légèrement mate et peau modérément claire	none
+🫱🏽‍🫲🏾	poignée de main  peau légèrement mate et peau modérément foncée	none
+🫱🏽‍🫲🏿	poignée de main  peau légèrement mate et peau foncée	none
+🫱🏾‍🫲🏻	poignée de main  peau modérément foncée et peau claire	none
+🫱🏾‍🫲🏼	poignée de main  peau modérément foncée et peau modérément claire	none
+🫱🏾‍🫲🏽	poignée de main  peau modérément foncée et peau légèrement mate	none
+🫱🏾‍🫲🏿	poignée de main  peau modérément foncée et peau foncée	none
+🫱🏿‍🫲🏻	poignée de main  peau foncée et peau claire	none
+🫱🏿‍🫲🏼	poignée de main  peau foncée et peau modérément claire	none
+🫱🏿‍🫲🏽	poignée de main  peau foncée et peau légèrement mate	none
+🫱🏿‍🫲🏾	poignée de main  peau foncée et peau modérément foncée	none
+🫲🏻	main vers la gauche  peau claire	none
+🫲🏼	main vers la gauche  peau modérément claire	none
+🫲🏽	main vers la gauche  peau légèrement mate	none
+🫲🏾	main vers la gauche  peau modérément foncée	none
+🫲🏿	main vers la gauche  peau foncée	none
+🫳🏻	main paume vers le bas  peau claire	none
+🫳🏼	main paume vers le bas  peau modérément claire	none
+🫳🏽	main paume vers le bas  peau légèrement mate	none
+🫳🏾	main paume vers le bas  peau modérément foncée	none
+🫳🏿	main paume vers le bas  peau foncée	none
+🫴🏻	main paume vers le haut  peau claire	none
+🫴🏼	main paume vers le haut  peau modérément claire	none
+🫴🏽	main paume vers le haut  peau légèrement mate	none
+🫴🏾	main paume vers le haut  peau modérément foncée	none
+🫴🏿	main paume vers le haut  peau foncée	none
+🫵🏻	index pointant vers l’utilisateur  peau claire	none
+🫵🏼	index pointant vers l’utilisateur  peau modérément claire	none
+🫵🏽	index pointant vers l’utilisateur  peau légèrement mate	none
+🫵🏾	index pointant vers l’utilisateur  peau modérément foncée	none
+🫵🏿	index pointant vers l’utilisateur  peau foncée	none
+🫶🏻	mains qui forment un cœur  peau claire	none
+🫶🏼	mains qui forment un cœur  peau modérément claire	none
+🫶🏽	mains qui forment un cœur  peau légèrement mate	none
+🫶🏾	mains qui forment un cœur  peau modérément foncée	none
+🫶🏿	mains qui forment un cœur  peau foncée	none
 👋🏻	signe de la main  peau claire	none
 👋🏼	signe de la main  peau modérément claire	none
 👋🏽	signe de la main  peau légèrement mate	none
@@ -598,6 +2008,11 @@ symbols:
 🤲🏽	paume contre paume doigts vers le haut  peau légèrement mate	none
 🤲🏾	paume contre paume doigts vers le haut  peau modérément foncée	none
 🤲🏿	paume contre paume doigts vers le haut  peau foncée	none
+🤝🏻	poignée de main  peau claire	none
+🤝🏼	poignée de main  peau modérément claire	none
+🤝🏽	poignée de main  peau légèrement mate	none
+🤝🏾	poignée de main  peau modérément foncée	none
+🤝🏿	poignée de main  peau foncée	none
 🙏🏻	mains en prière  peau claire	none
 🙏🏼	mains en prière  peau modérément claire	none
 🙏🏽	mains en prière  peau légèrement mate	none

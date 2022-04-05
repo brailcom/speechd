@@ -74,30 +74,233 @@ symbols:
 ⇘	panah ganda tenggara	none
 ⇙	panah ganda barat daya	none
 ⇚	panah tripel ke kiri	none
+⇛	panah tripel ke kanan	none
+⇜	panah keriting ke kiri	none
+⇝	panah keriting ke kanan	none
+⇞	panah ke atas coret ganda	none
+⇟	panah ke bawah coret ganda	none
+⇠	panah bergaris putus-putus ke kiri	none
+⇡	panah bergaris putus-putus ke atas	none
+⇢	panah bergaris putus-putus ke kanan	none
+⇣	panah bergaris putus-putus ke bawah	none
+⇤	batang panah ke kiri	none
+⇥	batang panah ke kanan	none
+⇦	panah putih ke kiri	none
+⇧	panah putih ke atas	none
+⇨	panah putih ke kanan	none
+⇩	panah putih ke bawah	none
+⇪	panah putih ke atas dari batang	none
+⇵	panah ke bawah di sebelah kiri panah ke atas	none
+∀	untuk semua	none
+∂	diferensial parsial	none
+∃	di sana ada	none
+∅	himpunan kosong	none
 ∆	pertambahan	none
 ∇	nabla	none
 ∈	anggota	none
+∉	bukan elemen	none
+∋	berisi	none
+∎	pembuktian selesai	none
+∏	produk n-ary	none
+∑	penjumlahan n-ary	none
+≮	tidak kurang dari	none
 ≠	tidak sama dengan	none
+≯	tidak lebih dari	none
 −	tanda minus	none
 ⁻	minus superskrip	none
+∓	minus-atau-plus	none
+∕	garis miring pembagian	none
+∗	operator asterisk	none
+∘	operator cincin	none
+∙	operator bullet	none
 √	akar kuadrat	none
+∝	proporsional	none
 ∞	tanda tak terhingga	none
+∟	sudut kanan	none
+∠	sudut	none
+∣	membagi	none
+∥	paralel	none
+∧	dan logika	none
 ∩	irisan	none
 ∪	gabungan	none
+∫	integral	none
+∬	integral ganda	none
+∮	integral kontur	none
+∴	karena itu	none
+∵	karena	none
+∶	rasio	none
+∷	proporsi	none
+∼	operator tilde	none
+∽	tilde terbalik	none
+∾	lazy s terbalik	none
+≃	sama asimptotis	none
+≅	kira-kira sama	none
 ≈	hampir sama dengan	none
+≌	semua sama	none
+≒	kira-kira sama dengan atau gambaran	none
+≖	cincin di dalam tanda sama dengan	none
 ≡	setara dengan	none
+≣	setara terbatas	none
 ≤	kurang dari atau sama dengan	none
 ≥	lebih dari atau sama dengan	none
+≦	kurang dari di atas sama dengan	none
+≧	lebih dari di atas sama dengan	none
+≪	jauh lebih sedikit dari	none
+≫	jauh lebih besar dari	none
+≬	antara	none
+≳	lebih besar dari atau setara	none
+≺	mendahului	none
+≻	mengikuti	none
+⊁	tidak mengikuti	none
 ⊂	subhimpunan dari	none
+⊃	superset	none
+⊆	subset sama dengan	none
+⊇	superset sama dengan	none
+⊕	plus dilingkari	none
+⊖	minus dilingkari	none
+⊗	tanda perkalian dilingkari	none
+⊘	garis miring pembagian dilingkari	none
+⊙	operator titik dilingkari	none
+⊚	operator cincin dilingkari	none
+⊛	operator asterisk dilingkari	none
+⊞	tanda plus dalam persegi	none
+⊟	tanda minus dalam persegi	none
+⊥	falsum	none
+⊮	tidak memaksa	none
+⊰	mendahului di bawah relasi	none
+⊱	mengikuti di bawah relasi	none
+⋭	tidak mencakup sebagai subgrup normal atau sama dengan	none
+⊶	orisinal	none
+⊹	matriks konjugasi hermitian	none
+⊿	segitiga kanan	none
+⋁	atau logika n-ary	none
+⋂	irisan n-ary	none
+⋃	gabungan n-ary	none
+⋅	operator titik	none
+⋆	operator bintang	none
+⋈	gabungan alami	none
+⋒	irisan ganda	none
+⋘	sangat lebih sedikit dari	none
+⋙	sangat lebih besar dari	none
+⋮	elipsis vertikal	none
+⋯	elipsis horizontal garis tengah	none
+⋰	elipsis diagonal naik ke kanan	none
+⋱	elipsis diagonal turun ke kanan	none
+■	persegi hitam	none
+□	persegi putih	none
+▢	persegi putih dengan sudut lengkung	none
+▣	persegi putih berisi persegi hitam	none
+▤	persegi dengan isian horizontal	none
+▥	persegi dengan isian vertikal	none
+▦	persegi isian garis silang ortogonal	none
+▧	persegi isian garis diagonal turun ke kanan	none
+▨	persegi isian garis diagonal turun ke kiri	none
+▩	persegi isian garis silang diagonal	none
+▬	persegi panjang hitam	none
+▭	persegi panjang putih	none
+▮	persegi panjang vertikal hitam	none
+▰	jajar genjang hitam	none
 ▲	segitiga solid mengarah ke atas	none
+△	segitiga putih menghadap atas	none
+▴	segitiga kecil hitam menghadap atas	none
+▵	segitiga kecil putih menghadap atas	none
+▷	segitiga putih menghadap kanan	none
+▸	segitiga kecil hitam menghadap kanan	none
+▹	segitiga kecil putih menghadap kanan	none
+►	penunjuk hitam menghadap kanan	none
+▻	penunjuk putih menghadap kanan	none
 ▼	segitiga solid mengarah ke bawah	none
+▽	segitiga putih menghadap bawah	none
+▾	segitiga kecil hitam menghadap bawah	none
+▿	segitiga kecil putih menghadap bawah	none
+◁	segitiga putih menghadap kiri	none
+◂	segitiga kecil hitam menghadap kiri	none
+◃	segitiga kecil putih menghadap kiri	none
+◄	penunjuk hitam menghadap kiri	none
+◅	penunjuk putih menghadap kiri	none
+◆	belah ketupat hitam	none
+◇	belah ketupat putih	none
+◈	belah ketupat putih berisi belah ketupat hitam	none
+◉	lingkaran putih berisi lingkaran hitam	none
 ◊	belah ketupat	none
 ○	lingkaran kosong	none
+◌	lingkaran bergaris putus-putus	none
+◍	lingkaran dengan isian vertikal	none
+◎	lingkaran konsentris	none
 ●	lingkaran solid	none
+◐	lingkaran dengan setengah kiri hitam	none
+◑	lingkaran dengan setengah kanan hitam	none
+◒	lingkaran dengan setengah bawah hitam	none
+◓	lingkaran dengan setengah atas hitam	none
+◔	lingkaran dengan kuadran kanan atas hitam	none
+◕	lingkaran hitam kecuali kuadran kiri atas	none
+◖	setengah lingkaran kiri hitam	none
+◗	setengah lingkaran kanan hitam	none
+◘	bullet dalam persegi hitam	none
+◙	persegi hitam berisi lingkaran putih	none
+◜	busur lingkaran kuadran kiri atas	none
+◝	busur lingkaran kuadran kanan atas	none
+◞	busur lingkaran kuadran kanan bawah	none
+◟	busur lingkaran kuadran kiri bawah	none
+◠	setengah lingkaran atas	none
+◡	setengah lingkaran bawah	none
+◢	segitiga kanan bawah hitam	none
+◣	segitiga kiri bawah hitam	none
+◤	segitiga kiri atas hitam	none
+◥	segitiga kanan atas hitam	none
+◦	peluru putih	none
 ◯	lingkaran kosong besar	none
+◳	persegi putih kuadran kanan atas	none
+◷	lingkaran putih dengan kuadran kanan atas	none
+◿	segitiga kanan bawah	none
 ♪	not seperdelapan	none
+⨧	plus dengan subskrip angka dua	none
+⨯	produk vektor	none
+⨼	produk interior	none
+⩣	atau logika dengan dua garis bawah	none
+⩽	kurang dari dengan tanda sama dengan miring	none
+⪍	kurang dari di atas tanda sama dengan atau kira-kira sama dengan	none
+⪚	dua garis sama dengan di atas tanda lebih dari	none
+⪺	mengikuti di atas tanda tidak hampir sama	none
 ♭	nada mol	none
 ♯	nada kres	none
+🥹	wajah menahan air mata	none
+🧌	raksasa	none
+🩻	x-ray	none
+🩼	kruk	none
+🪩	bola disko	none
+🪪	kartu identitas	none
+🪫	baterai lemah	none
+🪬	hamsa	none
+🪷	teratai	none
+🪸	terumbu karang	none
+🪹	sarang burung kosong	none
+🪺	sarang dengan telur	none
+🫃	pria hamil	none
+🫄	orang hamil	none
+🫅	orang mengenakan mahkota	none
+🫗	menuang cairan	none
+🫘	kacang merah	none
+🫙	toples	none
+🫠	wajah meleleh	none
+🫡	wajah memberi hormat	none
+🫢	wajah dengan mata terbuka dan tangan menutupi mulut	none
+🫣	wajah dengan mata mengintip	none
+🫤	wajah dengan mulut diagonal	none
+🫥	wajah dengan garis titik-titik	none
+🫦	menggigit bibir	none
+🫧	gelembung	none
+🫰	tangan dengan jari telunjuk dan ibu jari menyilang	none
+🫱	tangan menghadap kanan	none
+🫲	tangan menghadap kiri	none
+🫳	telapak tangan menghadap ke bawah	none
+🫴	telapak tangan menghadap ke atas	none
+🫵	jari telunjuk menunjuk penonton	none
+🫶	tangan membentuk hati	none
+🛝	perosotan	none
+🛞	roda	none
+🛟	ban pelampung	none
+🟰	tanda sama dengan tebal	none
 😀	wajah gembira	none
 😃	wajah tersenyum lebar	none
 😄	wajah tersenyum lebar dan mata tertutup	none
@@ -1574,13 +1777,91 @@ symbols:
 🏳‍🌈	bendera pelangi	none
 🏳‍⚧	bendera transgender	none
 🏴‍☠	bendera bajak laut	none
+₢	cruzeiro	none
+₣	franc prancis	none
+₤	lira	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
+₰	penny jerman	none
 ₱	peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	rupee india	none
 ₽	ruble	none
 ₿	bitcoin	none
+₨	rupee	none
+🫃🏻	pria hamil warna kulit cerah	none
+🫃🏼	pria hamil warna kulit cerah-sedang	none
+🫃🏽	pria hamil warna kulit sedang	none
+🫃🏾	pria hamil warna kulit gelap-sedang	none
+🫃🏿	pria hamil warna kulit gelap	none
+🫄🏻	orang hamil warna kulit cerah	none
+🫄🏼	orang hamil warna kulit cerah-sedang	none
+🫄🏽	orang hamil warna kulit sedang	none
+🫄🏾	orang hamil warna kulit gelap-sedang	none
+🫄🏿	orang hamil warna kulit gelap	none
+🫅🏻	orang mengenakan mahkota warna kulit cerah	none
+🫅🏼	orang mengenakan mahkota warna kulit cerah-sedang	none
+🫅🏽	orang mengenakan mahkota warna kulit sedang	none
+🫅🏾	orang mengenakan mahkota warna kulit gelap-sedang	none
+🫅🏿	orang mengenakan mahkota warna kulit gelap	none
+🫰🏻	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit cerah	none
+🫰🏼	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit cerah-sedang	none
+🫰🏽	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit sedang	none
+🫰🏾	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit gelap-sedang	none
+🫰🏿	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit gelap	none
+🫱🏻	tangan menghadap kanan warna kulit cerah	none
+🫱🏼	tangan menghadap kanan warna kulit cerah-sedang	none
+🫱🏽	tangan menghadap kanan warna kulit sedang	none
+🫱🏾	tangan menghadap kanan warna kulit gelap-sedang	none
+🫱🏿	tangan menghadap kanan warna kulit gelap	none
+🫱🏻‍🫲🏼	jabat tangan warna kulit cerah, warna kulit cerah-sedang	none
+🫱🏻‍🫲🏽	jabat tangan warna kulit cerah, warna kulit sedang	none
+🫱🏻‍🫲🏾	jabat tangan warna kulit cerah, warna kulit gelap-sedang	none
+🫱🏻‍🫲🏿	jabat tangan warna kulit cerah, warna kulit gelap	none
+🫱🏼‍🫲🏻	jabat tangan warna kulit cerah-sedang, warna kulit cerah	none
+🫱🏼‍🫲🏽	jabat tangan warna kulit cerah-sedang, warna kulit sedang	none
+🫱🏼‍🫲🏾	jabat tangan warna kulit cerah-sedang, warna kulit gelap-sedang	none
+🫱🏼‍🫲🏿	jabat tangan warna kulit cerah-sedang, warna kulit gelap	none
+🫱🏽‍🫲🏻	jabat tangan warna kulit sedang, warna kulit cerah	none
+🫱🏽‍🫲🏼	jabat tangan warna kulit sedang, warna kulit cerah-sedang	none
+🫱🏽‍🫲🏾	jabat tangan warna kulit sedang, warna kulit gelap-sedang	none
+🫱🏽‍🫲🏿	jabat tangan warna kulit sedang, warna kulit gelap	none
+🫱🏾‍🫲🏻	jabat tangan warna kulit gelap-sedang, warna kulit cerah	none
+🫱🏾‍🫲🏼	jabat tangan warna kulit gelap-sedang, warna kulit cerah-sedang	none
+🫱🏾‍🫲🏽	jabat tangan warna kulit gelap-sedang, warna kulit sedang	none
+🫱🏾‍🫲🏿	jabat tangan warna kulit gelap-sedang, warna kulit gelap	none
+🫱🏿‍🫲🏻	jabat tangan warna kulit gelap, warna kulit cerah	none
+🫱🏿‍🫲🏼	jabat tangan warna kulit gelap, warna kulit cerah-sedang	none
+🫱🏿‍🫲🏽	jabat tangan warna kulit gelap, warna kulit sedang	none
+🫱🏿‍🫲🏾	jabat tangan warna kulit gelap, warna kulit gelap-sedang	none
+🫲🏻	tangan menghadap kiri warna kulit cerah	none
+🫲🏼	tangan menghadap kiri warna kulit cerah-sedang	none
+🫲🏽	tangan menghadap kiri warna kulit sedang	none
+🫲🏾	tangan menghadap kiri warna kulit gelap-sedang	none
+🫲🏿	tangan menghadap kiri warna kulit gelap	none
+🫳🏻	telapak tangan menghadap ke bawah warna kulit cerah	none
+🫳🏼	telapak tangan menghadap ke bawah warna kulit cerah-sedang	none
+🫳🏽	telapak tangan menghadap ke bawah warna kulit sedang	none
+🫳🏾	telapak tangan menghadap ke bawah warna kulit gelap-sedang	none
+🫳🏿	telapak tangan menghadap ke bawah warna kulit gelap	none
+🫴🏻	telapak tangan menghadap ke atas warna kulit cerah	none
+🫴🏼	telapak tangan menghadap ke atas warna kulit cerah-sedang	none
+🫴🏽	telapak tangan menghadap ke atas warna kulit sedang	none
+🫴🏾	telapak tangan menghadap ke atas warna kulit gelap-sedang	none
+🫴🏿	telapak tangan menghadap ke atas warna kulit gelap	none
+🫵🏻	jari telunjuk menunjuk penonton warna kulit cerah	none
+🫵🏼	jari telunjuk menunjuk penonton warna kulit cerah-sedang	none
+🫵🏽	jari telunjuk menunjuk penonton warna kulit sedang	none
+🫵🏾	jari telunjuk menunjuk penonton warna kulit gelap-sedang	none
+🫵🏿	jari telunjuk menunjuk penonton warna kulit gelap	none
+🫶🏻	tangan membentuk hati warna kulit cerah	none
+🫶🏼	tangan membentuk hati warna kulit cerah-sedang	none
+🫶🏽	tangan membentuk hati warna kulit sedang	none
+🫶🏾	tangan membentuk hati warna kulit gelap-sedang	none
+🫶🏿	tangan membentuk hati warna kulit gelap	none
 👋🏻	tangan melambai warna kulit cerah	none
 👋🏼	tangan melambai warna kulit cerah-sedang	none
 👋🏽	tangan melambai warna kulit sedang	none
@@ -1726,6 +2007,11 @@ symbols:
 🤲🏽	tangan diangkat dan dirapatkan bersama warna kulit sedang	none
 🤲🏾	tangan diangkat dan dirapatkan bersama warna kulit gelap-sedang	none
 🤲🏿	tangan diangkat dan dirapatkan bersama warna kulit gelap	none
+🤝🏻	jabat tangan warna kulit cerah	none
+🤝🏼	jabat tangan warna kulit cerah-sedang	none
+🤝🏽	jabat tangan warna kulit sedang	none
+🤝🏾	jabat tangan warna kulit gelap-sedang	none
+🤝🏿	jabat tangan warna kulit gelap	none
 🙏🏻	melipat tangan warna kulit cerah	none
 🙏🏼	melipat tangan warna kulit cerah-sedang	none
 🙏🏽	melipat tangan warna kulit sedang	none

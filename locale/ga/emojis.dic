@@ -10,23 +10,40 @@ symbols:
 🏿	ton cnis dorcha	none
 ℗	cóipcheart taifid fuaime	none
 ←	saighead chlé	none
+↚	túlslais saighde ar chlé	none
 →	saighead dheas	none
+↛	túlslais saighde ar dheis	none
 ↑	saighead dhírithe suas	none
 ↓	saighead dhírithe síos	none
 ↜	saighead chorrach ar chlé	none
 ↝	saighead chorrach ar dheis	none
+↞	saighead dhécheannach ar chlé	none
+↟	saighead dhécheannach suas	none
+↠	saighead dhécheannach ar dheis	none
+↡	saighead dhécheannach síos	none
 ↢	saighead eiteach ar chlé	none
 ↣	saighead eiteach ar dheis	none
 ↤	saighead ar chlé as barra	none
 ↥	saighead suas as barra	none
 ↦	saighead ar dheis as barra	none
 ↧	saighead síos as barra	none
+↨	saighead suas síos le bonn	none
 ↫	saighead lúbach ar chlé	none
 ↬	saighead lúbach ar dheis	none
+↭	tonnsaighead chlé dheas	none
 ↯	saighead fhiarlánach síos	none
+↰	saigheas suas barr ar chlé	none
+↱	saighead suas barr ar dheis	none
+↲	saighead síos barr ar chlé	none
+↳	saighead síos barr ar dheis	none
+↴	saighead ar dheis cúinne síos	none
+↵	saighead síos cúinne ar chlé	none
 ↶	saighead thuathal uachtar leathchiorcail	none
 ↷	saighead dheiseal uachtar leathchiorcail	none
 ↸	saighead siar ó thuaidh barra fada	none
+↹	saigheadbharra ar chlé os cionn ceann ar dheis	none
+↺	ciorcalshaighead oscailte tuathalach	none
+↻	ciorcalshaighead oscailte deiseal	none
 ↼	harpún ar chlé friofac thuas	none
 ↽	harpún ar chlé friofac thíos	none
 ↾	harpún suas friofac ar dheis	none
@@ -45,13 +62,36 @@ symbols:
 ⇋	harpún ar chlé os cionn harpúin ar dheis	none
 ⇌	harpún ar dheis os cionn harpúin ar chlé	none
 ⇐	saighead dhúbailte ar chlé	none
+⇍	saigheadstríoc dhúbailte ar chlé	none
 ⇑	saighead dhúbailte suas	none
 ⇒	saighead dhúbailte ar dheis	none
+⇏	saigheadstríoc dhúbailte ar dheis	none
 ⇓	saighead dhúbailte síos	none
+⇔	saighead dhúbailte chlé dheas	none
+⇎	saigheadstríoc dhúbailte chlé dheas	none
 ⇖	saighead dhúbailte siar ó thuaidh	none
 ⇗	saighead dhúbailte soir ó thuaidh	none
 ⇘	saighead dhúbailte soir ó dheas	none
 ⇙	saighead dhúbailte siar ó dheas	none
+⇚	saighead thriarach ar chlé	none
+⇛	saighead thriarach ar dheis	none
+⇜	scríobshaighead ar chlé	none
+⇝	scríobshaighead ar dheis	none
+⇞	saighead suas stríce dúbailte	none
+⇟	saighead síos stríce dúbailte	none
+⇠	saighead bhriste ar chlé	none
+⇡	saighead bhriste suas	none
+⇢	saighead bhriste ar dheis	none
+⇣	saighead bhriste síos	none
+⇤	saigheadbharra ar chlé	none
+⇥	saigheadbharra ar dheis	none
+⇦	saighead tholl ar chlé	none
+⇧	saighead tholl suas	none
+⇨	saighead tholl ar dheis	none
+⇩	saighead tholl síos	none
+⇪	saighead tholl suas ó bharra	none
+⇵	saighead síos saighead suas ar chlé	none
+∀	gach rud	none
 ∂	páirtdifreálach	none
 ∃	is ann do	none
 ∅	tacar folamh	none
@@ -59,39 +99,125 @@ symbols:
 ∇	nabla	none
 ∈	ball de	none
 ∉	ní ball de	none
+∋	ann mar bhall	none
+∎	cruthú deiridh	none
+∏	toradh n-ary	none
+∑	suimiú n-ary	none
+≮	nach bhfuil níos lú ná	none
 ≠	míchothrom	none
+≯	nach bhfuil níos mó ná	none
 −	comhartha lúide	none
 ⁻	lúide forscríofa	none
 ∓	lúide nó móide	none
+∕	slais roinnte	none
+∗	oibritheoir réiltín	none
+∘	oibritheoir fáinne	none
+∙	oibritheoir urchair	none
 √	fréamh chearnach	none
+∝	comhréireach	none
 ∞	comhartha éigríche	none
 ∟	dronuillinn	none
 ∠	uillinn	none
+∣	roinneann	none
 ∥	línte comhthreomhara	none
+∧	loighciúil agus	none
 ∩	idirmhír	none
 ∪	aontas	none
 ∫	suimeálaí	none
 ∬	suimeálaí dúbailte	none
 ∮	cuarshuimeálaí	none
+∴	mar sin	none
+∵	mar	none
 ∶	cóimheas	none
 ∷	comhréir	none
+∼	oibritheoir tilde	none
+∽	tilde aisiompaithe	none
+∾	s aisiompaithe ar a taobh	none
+≃	cothrom le go hasamtóiteach	none
+≅	beagnach cothrom lena chéile	none
 ≈	beagnach cothrom le	none
+≌	gach rud cothrom lena chéile	none
+≒	beagnach cothrom leis an íomhá	none
+≖	fáinne i gcothrom lena chéile	none
 ≡	comhionann le	none
+≣	ceartchothrom	none
 ≤	níos lú ná nó cothrom le	none
 ≥	níos mó ná nó cothrom le	none
+≦	níos lú ná os cionn cothrom lena chéile	none
+≧	níos mó ná os cionn cothrom lena chéile	none
+≪	i bhfad níos lú ná	none
+≫	i bhfad níos mó ná	none
 ≬	idir	none
+≳	níos mó ná cothrom le	none
+≺	tagann sé roimh	none
+≻	tagann sé i ndiaidh	none
+⊁	ní thagann sé i ndiaidh	none
 ⊂	fo-thacar de chuid	none
 ⊃	forthacar	none
+⊆	cothrom lena chéile fothacair	none
+⊇	cothrom lena chéile forthacair	none
+⊕	móide i gciorcal	none
+⊖	lúide i gciorcal	none
+⊗	comhartha iolraithe i gciorcal	none
+⊘	slais roinnte i gciorcal	none
+⊙	ponc-oibritheoir i gciorcal	none
+⊚	oibritheoir fáinne i gciorcal	none
+⊛	oibritheoir réiltín i gciorcal	none
+⊞	móide i gcearnóg	none
+⊟	lúide i gcearnóg	none
+⊥	tacóid suas	none
+⊮	ní úsáideann sé fórsa	none
+⊰	tagann sé roimhe faoi choibhneas	none
+⊱	tagann sé i ndiaidh faoi choibhneas	none
+⋭	níl mar bhall de mar cothrom le gnách foghrúpa	none
+⊶	buncheann	none
 ⊹	maitrís chomhchuingeach Hermite	none
 ⊿	triantán dronuilleach	none
+⋁	or loighciúil n-ary	none
+⋂	idirmhír n-ary	none
+⋃	aontas n-ary	none
+⋅	ponc-oibritheoir	none
+⋆	oibritheoir réalta	none
+⋈	ceangal nádúrtha	none
+⋒	idirmhír dhúbailte	none
+⋘	i bhfad bhfad níos nú ná	none
+⋙	i bhfad bhfad níos mó ná	none
+⋮	comhartha focalbhá ingearach	none
+⋯	comhartha focalbhá meánlíne	none
+⋰	focalbhá trasnánach suas ar dheis	none
+⋱	comhartha focalbhá trasnánach síos ar dheis	none
 ■	cearnóg líonta	none
 □	cearnóg tholl	none
+▢	cearnóg tholl le cúinní cruinne	none
+▣	cearnóg tholl ina bhfuil cearnóg líonta	none
+▤	cearnóg le líonadh cothrománach	none
+▥	cearnóg le líonadh ingearach	none
+▦	cearnóg líonadh ortagánach tras-haitseála	none
+▧	cearnóg líonadh ón uachtar clé go híochtar deas	none
+▨	cearnóg líonadh ón uachtar deas go híochtar clé	none
+▩	cearnóg líonadh trasnánach tras-haitseála	none
 ▬	dronuilleog líonta	none
 ▭	dronuilleog tholl	none
 ▮	dronuilleog ingearach líonta	none
 ▰	comhthreomharán líonta	none
 ▲	triantán líonta lena rinn suas	none
+△	triantán toll lena rinn suas	none
+▴	triantán beag líonta lena rinn suas	none
+▵	triantán beag toll lena rinn suas	none
+▷	triantán toll lena rinn ar dheis	none
+▸	triantán beag líonta lena rinn ar dheis	none
+▹	triantán beag toll lena rinn ar dheis	none
+►	pointeoir líonta lena rinn ar dheis	none
+▻	pointeoir toll lena rinn ar dheis	none
 ▼	triantán líonta lena rinn síos	none
+▽	triantán síos toll	none
+▾	triantán síos beag líonta	none
+▿	triantán síos beag toll	none
+◁	triantán toll lena rinn ar chlé	none
+◂	triantán beag líonta lena rinn ar chlé	none
+◃	triantán beag toll lena rinn ar chlé	none
+◄	pointeoir líonta lena rinn ar chlé	none
+◅	pointeoir toll lena rinn ar chlé	none
 ◆	muileata líonta	none
 ◇	muileata toll	none
 ◈	muileata toll a bhfuil muileata líonta istigh ann	none
@@ -99,8 +225,15 @@ symbols:
 ◊	muileata	none
 ○	ciorcal toll	none
 ◌	ciorcal poncanna	none
+◍	ciorcal le líonadh ingearach	none
 ◎	súil sprice	none
 ●	ciorcal líonta	none
+◐	ciorcal leathlíonta ar chlé	none
+◑	ciorcal leathlíonta ar dheis	none
+◒	ciorcal leathlíonta ar bun	none
+◓	ciorcal leathlíonta ar barr	none
+◔	ciorcal ceathrú uachtair ar dheis líonta	none
+◕	ciorcal ceathrú uachtair ar dheis toll	none
 ◖	leathchiorcal clé líonta	none
 ◗	leathchiorcal deis líonta	none
 ◦	urchar toll	none
@@ -108,6 +241,43 @@ symbols:
 ♪	nóta ochtach	none
 ♭	nóta maol	none
 ♯	géar	none
+🥹	straoiseog ag coinneáil siar na deora	none
+🧌	troll	none
+🩻	x-gha	none
+🩼	maide croise	none
+🪩	liathróid scátháin	none
+🪪	cárta aitheantais	none
+🪫	cadhnra íseal	none
+🪬	hamsa	none
+🪷	loiteog	none
+🪸	coiréal	none
+🪹	nead fholamh	none
+🪺	nead le huibheacha	none
+🫃	fear torrach	none
+🫄	duine torrach	none
+🫅	duine le coróin air	none
+🫗	leacht a dhoirteadh	none
+🫘	pónairí	none
+🫙	crúsca	none
+🫠	straoiseog atá ag leá	none
+🫡	straoiseog ag déanamh cúirtéise	none
+🫢	straoiseog le súile oscailte agus lámh ar an mbéal	none
+🫣	straoiseog le súil ag píceáil	none
+🫤	straoiseog le béal fiarthrasna	none
+🫥	straoiseog le líne phoncaithe	none
+🫦	ag baint greim as an liopa	none
+🫧	boilgeoga	none
+🫰	lámh a bhfuil a corrmhéar agus a ordóg trasna ar a chéile	none
+🫱	lámh ar dheis	none
+🫲	lámh ar chlé	none
+🫳	lámh le bos faoi	none
+🫴	lámh le bos suas	none
+🫵	corrmhéar ag díriú ar an mbreathnóir	none
+🫶	lámha croí	none
+🛝	sleamhnán súgartha	none
+🛞	roth	none
+🛟	baoi fáinneach	none
+🟰	comhartha cothrom le	none
 😀	straoiseog ghealgháireach	none
 😃	straoiseog ag gáire le súile móra	none
 😄	straoiseog ag gáire le súile gealgháireacha uirthi	none
@@ -1428,6 +1598,7 @@ symbols:
 ↖	saighead suas ar chlé	none
 ↕	saighead suas-síos	none
 ↔	saighead chlé-dheas	none
+↮	túlslais saighde ar chlé ar dheis	none
 ↩	saighead dheas ag dul ar chlé	none
 ↪	saighead chlé ag dul ar dheis	none
 ⤴	saighead dheas ag dul suas	none
@@ -1494,7 +1665,7 @@ symbols:
 ✖	comhartha iolrúcháin	none
 ➕	móide	none
 ➖	lúide	none
-➗	roinnte	none
+➗	roinn	none
 ♾	éigríoch	none
 ❓	comhartha ceiste dearg	none
 ❔	comhartha ceiste bán	none
@@ -1593,11 +1764,82 @@ symbols:
 ₰	pingin na Gearmáine	none
 ₱	peso	none
 ₳	austral	none
+₶	livre tournois	none
 ₷	spesmilo	none
 ₹	rúipí na hIndia	none
 ₽	rúbal	none
 ₿	bonn giotáin	none
 ₨	rúipí	none
+🫃🏻	fear torrach ton cnis geal	none
+🫃🏼	fear torrach ton cnis mheánach-gheal	none
+🫃🏽	fear torrach ton cnis meánach	none
+🫃🏾	fear torrach ton cnis meándorcha	none
+🫃🏿	fear torrach ton cnis dorcha	none
+🫄🏻	duine torrach ton cnis geal	none
+🫄🏼	duine torrach ton cnis mheánach-gheal	none
+🫄🏽	duine torrach ton cnis meánach	none
+🫄🏾	duine torrach ton cnis meándorcha	none
+🫄🏿	duine torrach ton cnis dorcha	none
+🫅🏻	duine le coróin air ton cnis geal	none
+🫅🏼	duine le coróin air ton cnis mheánach-gheal	none
+🫅🏽	duine le coróin air ton cnis meánach	none
+🫅🏾	duine le coróin air ton cnis meándorcha	none
+🫅🏿	duine le coróin air ton cnis dorcha	none
+🫰🏻	lámh a bhfuil a corrmhéar agus a ordóg trasna ar a chéile ton cnis geal	none
+🫰🏼	lámh a bhfuil a corrmhéar agus a ordóg trasna ar a chéile ton cnis mheánach-gheal	none
+🫰🏽	lámh a bhfuil a corrmhéar agus a ordóg trasna ar a chéile ton cnis meánach	none
+🫰🏾	lámh a bhfuil a corrmhéar agus a ordóg trasna ar a chéile ton cnis meándorcha	none
+🫰🏿	lámh a bhfuil a corrmhéar agus a ordóg trasna ar a chéile ton cnis dorcha	none
+🫱🏻	lámh ar dheis ton cnis geal	none
+🫱🏼	lámh ar dheis ton cnis mheánach-gheal	none
+🫱🏽	lámh ar dheis ton cnis meánach	none
+🫱🏾	lámh ar dheis ton cnis meándorcha	none
+🫱🏿	lámh ar dheis ton cnis dorcha	none
+🫱🏻‍🫲🏼	croitheadh lámh ton cnis geal, ton cnis mheánach-gheal	none
+🫱🏻‍🫲🏽	croitheadh lámh ton cnis geal, ton cnis meánach	none
+🫱🏻‍🫲🏾	croitheadh lámh ton cnis geal, ton cnis meándorcha	none
+🫱🏻‍🫲🏿	croitheadh lámh ton cnis geal, ton cnis dorcha	none
+🫱🏼‍🫲🏻	croitheadh lámh ton cnis mheánach-gheal, ton cnis geal	none
+🫱🏼‍🫲🏽	croitheadh lámh ton cnis mheánach-gheal, ton cnis meánach	none
+🫱🏼‍🫲🏾	croitheadh lámh ton cnis mheánach-gheal, ton cnis meándorcha	none
+🫱🏼‍🫲🏿	croitheadh lámh ton cnis mheánach-gheal, ton cnis dorcha	none
+🫱🏽‍🫲🏻	croitheadh lámh ton cnis meánach, ton cnis geal	none
+🫱🏽‍🫲🏼	croitheadh lámh ton cnis meánach, ton cnis mheánach-gheal	none
+🫱🏽‍🫲🏾	croitheadh lámh ton cnis meánach, ton cnis meándorcha	none
+🫱🏽‍🫲🏿	croitheadh lámh ton cnis meánach, ton cnis dorcha	none
+🫱🏾‍🫲🏻	croitheadh lámh ton cnis meándorcha, ton cnis geal	none
+🫱🏾‍🫲🏼	croitheadh lámh ton cnis meándorcha, ton cnis mheánach-gheal	none
+🫱🏾‍🫲🏽	croitheadh lámh ton cnis meándorcha, ton cnis meánach	none
+🫱🏾‍🫲🏿	croitheadh lámh ton cnis meándorcha, ton cnis dorcha	none
+🫱🏿‍🫲🏻	croitheadh lámh ton cnis dorcha, ton cnis geal	none
+🫱🏿‍🫲🏼	croitheadh lámh ton cnis dorcha, ton cnis mheánach-gheal	none
+🫱🏿‍🫲🏽	croitheadh lámh ton cnis dorcha, ton cnis meánach	none
+🫱🏿‍🫲🏾	croitheadh lámh ton cnis dorcha, ton cnis meándorcha	none
+🫲🏻	lámh ar chlé ton cnis geal	none
+🫲🏼	lámh ar chlé ton cnis mheánach-gheal	none
+🫲🏽	lámh ar chlé ton cnis meánach	none
+🫲🏾	lámh ar chlé ton cnis meándorcha	none
+🫲🏿	lámh ar chlé ton cnis dorcha	none
+🫳🏻	lámh le bos faoi ton cnis geal	none
+🫳🏼	lámh le bos faoi ton cnis mheánach-gheal	none
+🫳🏽	lámh le bos faoi ton cnis meánach	none
+🫳🏾	lámh le bos faoi ton cnis meándorcha	none
+🫳🏿	lámh le bos faoi ton cnis dorcha	none
+🫴🏻	lámh le bos suas ton cnis geal	none
+🫴🏼	lámh le bos suas ton cnis mheánach-gheal	none
+🫴🏽	lámh le bos suas ton cnis meánach	none
+🫴🏾	lámh le bos suas ton cnis meándorcha	none
+🫴🏿	lámh le bos suas ton cnis dorcha	none
+🫵🏻	corrmhéar ag díriú ar an mbreathnóir ton cnis geal	none
+🫵🏼	corrmhéar ag díriú ar an mbreathnóir ton cnis mheánach-gheal	none
+🫵🏽	corrmhéar ag díriú ar an mbreathnóir ton cnis meánach	none
+🫵🏾	corrmhéar ag díriú ar an mbreathnóir ton cnis meándorcha	none
+🫵🏿	corrmhéar ag díriú ar an mbreathnóir ton cnis dorcha	none
+🫶🏻	lámha croí ton cnis geal	none
+🫶🏼	lámha croí ton cnis mheánach-gheal	none
+🫶🏽	lámha croí ton cnis meánach	none
+🫶🏾	lámha croí ton cnis meándorcha	none
+🫶🏿	lámha croí ton cnis dorcha	none
 👋🏻	lámh ag croitheadh ton cnis geal	none
 👋🏼	lámh ag croitheadh ton cnis mheánach-gheal	none
 👋🏽	lámh ag croitheadh ton cnis meánach	none
@@ -1743,6 +1985,11 @@ symbols:
 🤲🏽	bosa le chéile ton cnis meánach	none
 🤲🏾	bosa le chéile ton cnis meándorcha	none
 🤲🏿	bosa le chéile ton cnis dorcha	none
+🤝🏻	croitheadh lámh ton cnis geal	none
+🤝🏼	croitheadh lámh ton cnis mheánach-gheal	none
+🤝🏽	croitheadh lámh ton cnis meánach	none
+🤝🏾	croitheadh lámh ton cnis meándorcha	none
+🤝🏿	croitheadh lámh ton cnis dorcha	none
 🙏🏻	lámha le chéile ton cnis geal	none
 🙏🏼	lámha le chéile ton cnis mheánach-gheal	none
 🙏🏽	lámha le chéile ton cnis meánach	none
@@ -3351,7 +3598,7 @@ symbols:
 🇦🇱	bratach an Albáin	none
 🇦🇲	bratach an Airméin	none
 🇦🇴	bratach Angóla	none
-🇦🇶	bratach an Antartaice	none
+🇦🇶	bratach Antartaice	none
 🇦🇷	bratach an Airgintín	none
 🇦🇸	bratach Samó Mheiriceá	none
 🇦🇹	bratach an Ostair	none
@@ -3384,7 +3631,7 @@ symbols:
 🇨🇨	bratach Oileáin Cocos (Keeling)	none
 🇨🇩	bratach Poblacht Dhaonlathach an Chongó	none
 🇨🇫	bratach Poblacht na hAfraice Láir	none
-🇨🇬	bratach an Congó	none
+🇨🇬	bratach Congó-Brazzaville	none
 🇨🇭	bratach an Eilvéis	none
 🇨🇮	bratach an Cósta Eabhair	none
 🇨🇰	bratach Oileáin Cook	none
@@ -3396,7 +3643,7 @@ symbols:
 🇨🇷	bratach Cósta Ríce	none
 🇨🇺	bratach Cúba	none
 🇨🇻	bratach Rinn Verde	none
-🇨🇼	bratach Curaçao	none
+🇨🇼	bratach Cúrasó	none
 🇨🇽	bratach Oileán na Nollag	none
 🇨🇾	bratach an Chipir	none
 🇨🇿	bratach an tSeicia	none
@@ -3441,7 +3688,7 @@ symbols:
 🇬🇺	bratach Guam	none
 🇬🇼	bratach Guine Bissau	none
 🇬🇾	bratach an Ghuáin	none
-🇭🇰	bratach S.R.R. na Síne Hong Cong	none
+🇭🇰	bratach Sainréigiún Riaracháin Hong Cong, Daonphoblacht na Síne	none
 🇭🇲	bratach Oileán Heard agus Oileáin McDonald	none
 🇭🇳	bratach Hondúras	none
 🇭🇷	bratach an Chróit	none
@@ -3465,7 +3712,7 @@ symbols:
 🇰🇪	bratach an Chéinia	none
 🇰🇬	bratach an Chirgeastáin	none
 🇰🇭	bratach an Chambóid	none
-🇰🇮	bratach Cireabaití	none
+🇰🇮	bratach Ciribeas	none
 🇰🇲	bratach Oileáin Chomóra	none
 🇰🇳	bratach San Críostóir-Nimheas	none
 🇰🇵	bratach an Chóiré Thuaidh	none
@@ -3495,7 +3742,7 @@ symbols:
 🇲🇱	bratach Mailí	none
 🇲🇲	bratach Maenmar (Burma)	none
 🇲🇳	bratach an Mhongóil	none
-🇲🇴	bratach S.R.R. na Síne Macao	none
+🇲🇴	bratach Sainréigiún Riaracháin Macao, Daonphoblacht na Síne	none
 🇲🇵	bratach na hOileáin Mháirianacha Thuaidh	none
 🇲🇶	bratach Martinique	none
 🇲🇷	bratach an Mháratáin	none
@@ -3535,13 +3782,13 @@ symbols:
 🇵🇼	bratach Oileáin Palau	none
 🇵🇾	bratach Paragua	none
 🇶🇦	bratach Catar	none
-🇷🇪	bratach Réunion	none
+🇷🇪	bratach La Réunion	none
 🇷🇴	bratach an Rómáin	none
 🇷🇸	bratach an tSeirbia	none
 🇷🇺	bratach an Rúis	none
 🇷🇼	bratach Ruanda	none
 🇸🇦	bratach an Araib Shádach	none
-🇸🇧	bratach Oileáin Sholomón	none
+🇸🇧	bratach Oileáin Sholaimh	none
 🇸🇨	bratach na Séiséil	none
 🇸🇩	bratach an tSúdáin	none
 🇸🇪	bratach an tSualainn	none
@@ -3575,7 +3822,7 @@ symbols:
 🇹🇴	bratach Tonga	none
 🇹🇷	bratach an Tuirc	none
 🇹🇹	bratach Oileán na Tríonóide agus Tobága	none
-🇹🇻	bratach Tuvalu	none
+🇹🇻	bratach Túvalú	none
 🇹🇼	bratach an Téaváin	none
 🇹🇿	bratach an Tansáin	none
 🇺🇦	bratach an Úcráin	none

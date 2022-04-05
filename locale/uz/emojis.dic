@@ -39,6 +39,43 @@ symbols:
 ♪	sakkizinchi nota	none
 ♭	bemol	none
 ♯	diyez	none
+🥹	koʻz yoshi oqayotgan yuz	none
+🧌	troll	none
+🩻	rentgen	none
+🩼	qoʻltiqtayoq	none
+🪩	oyna toʻp	none
+🪪	ID karta	none
+🪫	batareya kam	none
+🪬	xamsa	none
+🪷	nilufar gul	none
+🪸	marjon	none
+🪹	empty nest	none
+🪺	tuxumlar bor in	none
+🫃	homilador erkak	none
+🫄	homilador odam	none
+🫅	tojli odam	none
+🫗	to‘kilayotgan suyuqlik	none
+🫘	loviya	none
+🫙	banka	none
+🫠	erib ketayotgan yuz	none
+🫡	salomlashayotgan yuz	none
+🫢	ogʻzini qoʻli bilan yopgan yuz	none
+🫣	moʻralayotgan yuz	none
+🫤	diagonal ogʻizli yuz	none
+🫥	nuqta chiziqli yuz	none
+🫦	tishlangan lab	none
+🫧	pufak	none
+🫰	bosh va koʻrsatkich barmoqlar kesishgan qoʻl	none
+🫱	oʻng qoʻl	none
+🫲	chap qoʻl	none
+🫳	kafti pastga qaragan qoʻl	none
+🫴	kafti yuqoriga qaragan qoʻl	none
+🫵	tomoshabinga qaragan koʻrsatkich barmoq	none
+🫶	qoʻlda yurak	none
+🛝	bolalar maydonchasidagi sirpanchiq	none
+🛞	gʻildirak	none
+🛟	qutqaruv chambaragi	none
+🟰	tenglik belgisi	none
 😀	tirjaygan yuz	none
 😃	og‘zini katta ochib kulayotgan yuz	none
 😄	tabassum, og‘iz ochiq, ko‘zlar qisilgan	none
@@ -616,7 +653,7 @@ symbols:
 🦗	qora chigirtka	none
 🪳	suvarak	none
 🕷	o‘rgimchak	none
-🕸	o‘rgimchak turi	none
+🕸	o‘rgimchak to‘ri	none
 🦂	chayon	none
 🦟	chivin	none
 🪰	pashsha	none
@@ -678,7 +715,7 @@ symbols:
 🧅	piyoz	none
 🍄	qo‘ziqorin	none
 🥜	yeryong‘oq	none
-🌰	kashtan yong‘oq	none
+🌰	kashtan yong‘og‘i	none
 🍞	non	none
 🥐	kruassan	none
 🥖	baget	none
@@ -718,19 +755,19 @@ symbols:
 🍙	yumaloqlangan guruch	none
 🍚	pishirilgan guruch	none
 🍛	guruchli karri	none
-🍜	issiq lag‘mon	none
+🍜	qaynoq lag‘mon	none
 🍝	spagetti	none
 🍠	jigarli batat	none
 🍢	sixdagi dengiz taomi	none
 🍣	sushi	none
-🍤	qovurilgan qisqichbaqa	none
+🍤	qovurilgan mayda qisqichbaqa	none
 🍥	girdob ko‘rinishidagi baliqli tort	none
 🥮	oyli pirog	none
 🍡	dango	none
 🥟	chuchvara	none
 🥠	taqdir pechenyesi	none
 🥡	taom olib ketish uchun quti	none
-🦀	dengiz qisqichbaqasi	none
+🦀	qisqichbaqa	none
 🦞	omar	none
 🦐	mayda qisqichbaqa	none
 🦑	kalmar	none
@@ -747,11 +784,11 @@ symbols:
 🍫	shokolad bo‘lagi	none
 🍬	konfet	none
 🍭	obakidandon	none
-🍮	krem	none
+🍮	shirin krem	none
 🍯	asal idishi	none
 🍼	chaqaloqlar idishi	none
 🥛	bir stakan sut	none
-☕	issiq ichimlik	none
+☕	qaynoq ichimlik	none
 🫖	choynak	none
 🍵	piyola	none
 🍶	ko‘za va piyola	none
@@ -759,10 +796,10 @@ symbols:
 🍷	vino qadahi	none
 🍸	kokteyl qadahi	none
 🍹	tropik ichimlik	none
-🍺	pivo stakani	none
-🍻	to‘qnashtirilayotgan pivo stakanlari	none
+🍺	pivo krujkasi	none
+🍻	urishtirilayotgan pivo krujkalari	none
 🥂	qadah urishtirish	none
-🥃	vino uchun stakan	none
+🥃	viski qadahi	none
 🥤	stakan bilan cho‘p	none
 🧋	koʻpikli choy	none
 🧃	ichimlik qutisi	none
@@ -1383,11 +1420,11 @@ symbols:
 🕎	yadaim	none
 🔯	nuqtali olti qirrali yulduz	none
 ♈	qo‘y burji	none
-♉	buzoq burji	none
+♉	sigir burji	none
 ♊	egizaklar burji	none
 ♋	qisqichbaqa burji	none
 ♌	arslon burji	none
-♍	parizod burji	none
+♍	sunbula burji	none
 ♎	tarozi burji	none
 ♏	chayon burji	none
 ♐	o‘qotar burji	none
@@ -1426,7 +1463,7 @@ symbols:
 ➕	qoʻshuv	none
 ➖	ayiruv	none
 ➗	boʻluv	none
-♾	cheksizilik	none
+♾	cheksizlik	none
 ❓	qizil soʻroq belgisi	none
 ❔	oq soʻroq belgisi	none
 ❕	oq undov belgisi	none
@@ -1522,6 +1559,76 @@ symbols:
 ₹	hind rupiysi	none
 ₽	rubl	none
 ₿	bitkoin	none
+🫃🏻	homilador erkak 1–2-teri turi	none
+🫃🏼	homilador erkak 3-teri turi	none
+🫃🏽	homilador erkak 4-teri turi	none
+🫃🏾	homilador erkak 5-teri turi	none
+🫃🏿	homilador erkak 6-teri turi	none
+🫄🏻	homilador odam 1–2-teri turi	none
+🫄🏼	homilador odam 3-teri turi	none
+🫄🏽	homilador odam 4-teri turi	none
+🫄🏾	homilador odam 5-teri turi	none
+🫄🏿	homilador odam 6-teri turi	none
+🫅🏻	tojli odam 1–2-teri turi	none
+🫅🏼	tojli odam 3-teri turi	none
+🫅🏽	tojli odam 4-teri turi	none
+🫅🏾	tojli odam 5-teri turi	none
+🫅🏿	tojli odam 6-teri turi	none
+🫰🏻	bosh va koʻrsatkich barmoqlar kesishgan qoʻl 1–2-teri turi	none
+🫰🏼	bosh va koʻrsatkich barmoqlar kesishgan qoʻl 3-teri turi	none
+🫰🏽	bosh va koʻrsatkich barmoqlar kesishgan qoʻl 4-teri turi	none
+🫰🏾	bosh va koʻrsatkich barmoqlar kesishgan qoʻl 5-teri turi	none
+🫰🏿	bosh va koʻrsatkich barmoqlar kesishgan qoʻl 6-teri turi	none
+🫱🏻	oʻng qoʻl 1–2-teri turi	none
+🫱🏼	oʻng qoʻl 3-teri turi	none
+🫱🏽	oʻng qoʻl 4-teri turi	none
+🫱🏾	oʻng qoʻl 5-teri turi	none
+🫱🏿	oʻng qoʻl 6-teri turi	none
+🫱🏻‍🫲🏼	qo‘l siqish 1–2-teri turi 3-teri turi	none
+🫱🏻‍🫲🏽	qo‘l siqish 1–2-teri turi 4-teri turi	none
+🫱🏻‍🫲🏾	qo‘l siqish 1–2-teri turi 5-teri turi	none
+🫱🏻‍🫲🏿	qo‘l siqish 1–2-teri turi 6-teri turi	none
+🫱🏼‍🫲🏻	qo‘l siqish 3-teri turi 1–2-teri turi	none
+🫱🏼‍🫲🏽	qo‘l siqish 3-teri turi 4-teri turi	none
+🫱🏼‍🫲🏾	qo‘l siqish 3-teri turi 5-teri turi	none
+🫱🏼‍🫲🏿	qo‘l siqish 3-teri turi 6-teri turi	none
+🫱🏽‍🫲🏻	qo‘l siqish 4-teri turi 1–2-teri turi	none
+🫱🏽‍🫲🏼	qo‘l siqish 4-teri turi 3-teri turi	none
+🫱🏽‍🫲🏾	qo‘l siqish 4-teri turi 5-teri turi	none
+🫱🏽‍🫲🏿	qo‘l siqish 4-teri turi 6-teri turi	none
+🫱🏾‍🫲🏻	qo‘l siqish 5-teri turi 1–2-teri turi	none
+🫱🏾‍🫲🏼	qo‘l siqish 5-teri turi 3-teri turi	none
+🫱🏾‍🫲🏽	qo‘l siqish 5-teri turi 4-teri turi	none
+🫱🏾‍🫲🏿	qo‘l siqish 5-teri turi 6-teri turi	none
+🫱🏿‍🫲🏻	qo‘l siqish 6-teri turi 1–2-teri turi	none
+🫱🏿‍🫲🏼	qo‘l siqish 6-teri turi 3-teri turi	none
+🫱🏿‍🫲🏽	qo‘l siqish 6-teri turi 4-teri turi	none
+🫱🏿‍🫲🏾	qo‘l siqish 6-teri turi 5-teri turi	none
+🫲🏻	chap qoʻl 1–2-teri turi	none
+🫲🏼	chap qoʻl 3-teri turi	none
+🫲🏽	chap qoʻl 4-teri turi	none
+🫲🏾	chap qoʻl 5-teri turi	none
+🫲🏿	chap qoʻl 6-teri turi	none
+🫳🏻	kafti pastga qaragan qoʻl 1–2-teri turi	none
+🫳🏼	kafti pastga qaragan qoʻl 3-teri turi	none
+🫳🏽	kafti pastga qaragan qoʻl 4-teri turi	none
+🫳🏾	kafti pastga qaragan qoʻl 5-teri turi	none
+🫳🏿	kafti pastga qaragan qoʻl 6-teri turi	none
+🫴🏻	kafti yuqoriga qaragan qoʻl 1–2-teri turi	none
+🫴🏼	kafti yuqoriga qaragan qoʻl 3-teri turi	none
+🫴🏽	kafti yuqoriga qaragan qoʻl 4-teri turi	none
+🫴🏾	kafti yuqoriga qaragan qoʻl 5-teri turi	none
+🫴🏿	kafti yuqoriga qaragan qoʻl 6-teri turi	none
+🫵🏻	tomoshabinga qaragan koʻrsatkich barmoq 1–2-teri turi	none
+🫵🏼	tomoshabinga qaragan koʻrsatkich barmoq 3-teri turi	none
+🫵🏽	tomoshabinga qaragan koʻrsatkich barmoq 4-teri turi	none
+🫵🏾	tomoshabinga qaragan koʻrsatkich barmoq 5-teri turi	none
+🫵🏿	tomoshabinga qaragan koʻrsatkich barmoq 6-teri turi	none
+🫶🏻	qoʻlda yurak 1–2-teri turi	none
+🫶🏼	qoʻlda yurak 3-teri turi	none
+🫶🏽	qoʻlda yurak 4-teri turi	none
+🫶🏾	qoʻlda yurak 5-teri turi	none
+🫶🏿	qoʻlda yurak 6-teri turi	none
 👋🏻	shapaloq 1–2-teri turi	none
 👋🏼	shapaloq 3-teri turi	none
 👋🏽	shapaloq 4-teri turi	none
@@ -1667,6 +1774,11 @@ symbols:
 🤲🏽	kaftlar ochiq 4-teri turi	none
 🤲🏾	kaftlar ochiq 5-teri turi	none
 🤲🏿	kaftlar ochiq 6-teri turi	none
+🤝🏻	qo‘l siqish 1–2-teri turi	none
+🤝🏼	qo‘l siqish 3-teri turi	none
+🤝🏽	qo‘l siqish 4-teri turi	none
+🤝🏾	qo‘l siqish 5-teri turi	none
+🤝🏿	qo‘l siqish 6-teri turi	none
 🙏🏻	qovushtirilgan qo‘llar 1–2-teri turi	none
 🙏🏼	qovushtirilgan qo‘llar 3-teri turi	none
 🙏🏽	qovushtirilgan qo‘llar 4-teri turi	none

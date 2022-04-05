@@ -27,32 +27,280 @@ symbols:
 ↥	flecha com barra para cima	none
 ↦	flecha com barra para a direita	none
 ↧	flecha com barra para baixo	none
+↨	seta para cima e para baixo com base	none
+↫	seta para a esquerda com laço	none
+↬	seta para a direita com laço	none
+↭	seta ondulada bidirecional	none
+↯	seta em zigue-zague para baixo	none
+↰	seta para cima com ponta para esquerda	none
+↱	seta para cima com ponta para direita	none
+↲	seta para baixo com ponta para esquerda	none
+↳	seta para baixo com ponta para direita	none
+↴	seta para direita com ponta para baixo	none
+↵	seta para baixo com curva para esquerda	none
+↶	seta de semicírculo superior no sentido anti-horário	none
+↷	seta de semicírculo superior no sentido horário	none
+↸	seta noroeste para barra longa	none
+↹	seta para a esquerda da barra sobre seta para a direita da barra	none
+↺	seta de círculo aberto no sentido anti-horário	none
+↻	seta de círculo aberto no sentido horário	none
+↼	arpão para a esquerda com farpa para cima	none
+↽	arpão para a esquerda com farpa para baixo	none
+↾	arpão para cima com farpa para a direita	none
+↿	arpão para cima com farpa para a esquerda	none
+⇀	arpão para a direita com farpa para cima	none
+⇁	arpão para a direita com farpa para baixo	none
+⇂	arpão para baixo com farpa para a direita	none
+⇃	arpão para baixo com farpa para a esquerda	none
+⇄	seta para a direita sobre seta para a esquerda	none
 ⇅	setas apontando para cima e para baixo	none
 ⇆	setas apontando para a esquerda e para a direita	none
+⇇	setas paralelas para a esquerda	none
+⇈	setas paralelas para cima	none
+⇉	setas paralelas para a direita	none
+⇊	setas paralelas para baixo	none
+⇋	arpão para a esquerda sobre arpão para a direita	none
+⇌	arpão para a direita sobre arpão para a esquerda	none
+⇐	seta dupla para a esquerda	none
+⇍	seta dupla para a esquerda com traço	none
+⇑	seta dupla para cima	none
+⇒	seta dupla para a direita	none
+⇏	seta dupla para a direita com traço	none
+⇓	seta dupla para baixo	none
+⇔	seta dupla bidirecional	none
+⇎	seta dupla bidirecional com traço	none
+⇖	seta dupla para noroeste	none
+⇗	seta dupla para nordeste	none
+⇘	seta dupla para sudeste	none
+⇙	seta dupla para sudoeste	none
+⇚	seta tripla para a esquerda	none
+⇛	seta tripla para a direita	none
+⇜	seta de rabisco para a esquerda	none
+⇝	seta de rabisco para a direita	none
+⇞	seta para cima com traço duplo	none
+⇟	seta para baixo com traço duplo	none
+⇠	seta tracejada para a esquerda	none
+⇡	seta tracejada para cima	none
+⇢	seta tracejada para a direita	none
+⇣	seta tracejada para baixo	none
+⇤	seta para a esquerda para barra	none
+⇥	seta para a direita para barra	none
+⇦	seta branca para a esquerda	none
+⇧	seta branca para cima	none
+⇨	seta branca para a direita	none
+⇩	seta branca para baixo	none
+⇪	seta branca para cima da barra	none
+⇵	seta para baixo à esquerda da seta para cima	none
+∀	para todos	none
+∂	diferencial parcial	none
+∃	existe	none
+∅	conjunto vazio	none
 ∆	delta	none
 ∇	nabla	none
 ∈	elemento de	none
+∉	não pertence	none
+∋	contém como membro	none
+∎	fim da prova	none
+∏	produto n-ário	none
+∑	somatório n-ário	none
+≮	não menor que	none
 ≠	desigual	none
+≯	não maior que	none
 −	sinal de menos	none
 ⁻	menos sobrescrito	none
+∓	menos ou mais	none
+∕	barra de divisão	none
+∗	operador de asterisco	none
+∘	operador de anel	none
+∙	operador de marca de lista	none
 √	raiz quadrada	none
+∝	proporcional a	none
 ∞	sinal de infinito	none
+∟	ângulo direito	none
+∠	ângulo	none
+∣	divide	none
+∥	paralelo	none
+∧	e lógico	none
 ∩	interseção	none
 ∪	união	none
+∫	integral	none
+∬	integral duplo	none
+∮	integral de contorno	none
+∴	então	none
+∵	porque	none
+∶	razão	none
+∷	proporção	none
+∼	operador de til	none
+∽	til invertido	none
+∾	s preguiçoso invertido	none
+≃	assintoticamente igual	none
+≅	aproximadamente igual	none
 ≈	quase igual	none
+≌	tudo igual	none
+≒	aproximadamente igual à imagem	none
+≖	anel em igual	none
 ≡	igual a	none
+≣	estritamente equivalente	none
 ≤	menor que ou igual a	none
 ≥	maior que ou igual	none
+≦	menor que sobre igual	none
+≧	maior que sobre igual	none
+≪	muito menor que	none
+≫	muito maior que	none
+≬	entre	none
+≳	maior que ou equivalente	none
+≺	precede	none
+≻	sucede	none
+⊁	não sucede	none
 ⊂	subconjunto de	none
+⊃	superconjunto	none
+⊆	subconjunto de ou igual	none
+⊇	superconjunto de ou igual	none
+⊕	mais em círculo	none
+⊖	menos em círculo	none
+⊗	vezes em círculo	none
+⊘	barra de divisão em círculo	none
+⊙	operador de ponto em círculo	none
+⊚	operador de anel em círculo	none
+⊛	operador de asterisco em círculo	none
+⊞	mais em quadrado	none
+⊟	menos em quadrado	none
+⊥	torniquete para cima	none
+⊮	não força	none
+⊰	precede em relação	none
+⊱	sucede em relação	none
+⋭	não contém como subgrupo normal ou igual	none
+⊶	original	none
+⊹	matriz conjugada hermitiana	none
+⊿	matemática	none
+⋁	ou lógico n-ário	none
+⋂	interseção n-ária	none
+⋃	união n-ária	none
+⋅	operador de ponto	none
+⋆	operador de estrela	none
+⋈	junção natural	none
+⋒	interseção dupla	none
+⋘	muitíssimo menor que	none
+⋙	muitíssimo maior que	none
+⋮	reticências verticais	none
+⋯	reticências horizontais a meio da linha	none
+⋰	reticências diagonais direitas para cima	none
+⋱	reticências diagonais direitas para baixo	none
+■	quadrado preenchido	none
+□	quadrado vazio	none
+▢	quadrado vazio com cantos arredondados	none
+▣	quadrado vazio com quadrado preenchido	none
+▤	quadrado com linhas horizontais	none
+▥	quadrado com linhas verticais	none
+▦	quadrado com linhas cruzadas ortogonais	none
+▧	quadrado com linhas do canto superior esquerdo para o canto inferior direito	none
+▨	quadrado com linhas do canto superior direito para o canto inferior esquerdo	none
+▩	quadrado com linhas cruzadas diagonais	none
+▬	retângulo preenchido	none
+▭	retângulo vazio	none
+▮	retângulo vertical preenchido	none
+▰	paralelogramo preenchido	none
 ▲	triângulo preenchido apontando para cima	none
+△	triângulo vazio apontando para cima	none
+▴	triângulo pequeno preenchido apontando para cima	none
+▵	triângulo pequeno vazio apontando para cima	none
+▷	triângulo vazio apontando para a direita	none
+▸	triângulo pequeno preenchido apontando para a direita	none
+▹	triângulo pequeno vazio apontando para a direita	none
+►	ponteiro preenchido apontando para a direita	none
+▻	ponteiro vazio apontando para a direita	none
 ▼	triângulo preenchido apontando para baixo	none
+▽	triângulo vazio apontando para baixo	none
+▾	triângulo pequeno preenchido apontando para baixo	none
+▿	triângulo pequeno vazio apontando para baixo	none
+◁	triângulo vazio apontando para a esquerda	none
+◂	triângulo pequeno preenchido apontando para a esquerda	none
+◃	triângulo pequeno vazio apontando para a esquerda	none
+◄	ponteiro preenchido apontando para a esquerda	none
+◅	ponteiro vazio apontando para a esquerda	none
+◆	diamante preenchido	none
+◇	diamante vazio	none
+◈	diamante vazio com diamante preenchido	none
+◉	círculo vazio com círculo preenchido	none
 ◊	losango	none
 ○	círculo vazio	none
+◌	círculo pontilhado	none
+◍	círculo com linhas verticais	none
+◎	círculos concêntricos	none
 ●	círculo preenchido	none
+◐	círculo com a metade esquerda preenchida	none
+◑	círculo com a metade direita preenchida	none
+◒	círculo com a metade inferior preenchida	none
+◓	círculo com a metade superior preenchida	none
+◔	círculo com quadrante superior direito preenchido	none
+◕	círculo preenchido exceto o quadrante superior esquerdo	none
+◖	metade esquerda do círculo preenchida	none
+◗	metade direita do círculo preenchida	none
+◘	marca de lista invertida	none
+◙	quadrado preenchido com círculo vazio	none
+◜	quarto de círculo superior esquerdo	none
+◝	quarto de círculo superior direito	none
+◞	quarto de círculo inferior direito	none
+◟	quarto de círculo inferior esquerdo	none
+◠	meio círculo superior	none
+◡	meio círculo inferior	none
+◢	triângulo inferior direito preenchido	none
+◣	triângulo inferior esquerdo preenchido	none
+◤	triângulo superior esquerdo preenchido	none
+◥	triângulo superior direito preenchido	none
+◦	marca de ponto vazia	none
 ◯	círculo vazio grande	none
+◳	quadrado vazio com quadrante superior direito	none
+◷	círculo vazio com quadrante superior direito	none
+◿	triângulo inferior esquerdo	none
 ♪	colcheia	none
+⨧	mais com dois subscrito	none
+⨯	produto vetorial	none
+⨼	produto interior	none
+⩣	ou lógico com duas barras subscritas	none
+⩽	menor que ou igual inclinado	none
+⪍	menor que acima de similar ou igual	none
+⪚	igual de duas linhas ou maior que	none
+⪺	sucede acima de não quase igual	none
 ♭	bemol	none
 ♯	sustenido	none
+🥹	rosto segurando as lágrimas	none
+🧌	troll	none
+🩻	raio x	none
+🩼	muleta	none
+🪩	globo de espelhos	none
+🪪	cartão de identificação	none
+🪫	pouca bateria	none
+🪬	hamsá	none
+🪷	lótus	none
+🪸	coral	none
+🪹	ninho vazio	none
+🪺	ninho com ovos	none
+🫃	homem grávido	none
+🫄	pessoa grávida	none
+🫅	pessoa com coroa	none
+🫗	derramando líquido	none
+🫘	feijões	none
+🫙	jarro	none
+🫠	rosto derretendo	none
+🫡	rosto saudando	none
+🫢	rosto com olhos abertos e mão sobre a boca	none
+🫣	rosto com olho espiando	none
+🫤	rosto com boca diagonal	none
+🫥	rosto com linha pontilhada	none
+🫦	mordendo o lábio	none
+🫧	bolhas	none
+🫰	mão com dedo indicador e polegar cruzados	none
+🫱	mão para a direita	none
+🫲	mão para a esquerda	none
+🫳	mão com a palma para baixo	none
+🫴	mão com a palma para cima	none
+🫵	indicador apontando para o visualizador	none
+🫶	mãos de coração	none
+🛝	escorregador	none
+🛞	roda	none
+🛟	boia	none
+🟰	sinal de igual	none
 😀	rosto risonho	none
 😃	rosto risonho com olhos bem abertos	none
 😄	rosto risonho com olhos sorridentes	none
@@ -377,7 +625,7 @@ symbols:
 🤵	pessoa de smoking	none
 🤵‍♂	homem de smoking	none
 🤵‍♀	mulher de smoking	none
-👰	noiva	none
+👰	pessoa com véu	none
 👰‍♂	noivo com véu	none
 👰‍♀	noiva com véu	none
 🤰	grávida	none
@@ -1530,13 +1778,91 @@ symbols:
 🏳‍🌈	bandeira do arco-íris	none
 🏳‍⚧	bandeira transgênero	none
 🏴‍☠	bandeira de pirata	none
+₢	cruzeiros	none
+₣	franco francês	none
+₤	lira	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
+₰	centavo alemão	none
 ₱	peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	rupia indiana	none
 ₽	rublo	none
 ₿	bitcoin	none
+₨	rupia	none
+🫃🏻	homem grávido pele clara	none
+🫃🏼	homem grávido pele morena clara	none
+🫃🏽	homem grávido pele morena	none
+🫃🏾	homem grávido pele morena escura	none
+🫃🏿	homem grávido pele escura	none
+🫄🏻	pessoa grávida pele clara	none
+🫄🏼	pessoa grávida pele morena clara	none
+🫄🏽	pessoa grávida pele morena	none
+🫄🏾	pessoa grávida pele morena escura	none
+🫄🏿	pessoa grávida pele escura	none
+🫅🏻	pessoa com coroa pele clara	none
+🫅🏼	pessoa com coroa pele morena clara	none
+🫅🏽	pessoa com coroa pele morena	none
+🫅🏾	pessoa com coroa pele morena escura	none
+🫅🏿	pessoa com coroa pele escura	none
+🫰🏻	mão com dedo indicador e polegar cruzados pele clara	none
+🫰🏼	mão com dedo indicador e polegar cruzados pele morena clara	none
+🫰🏽	mão com dedo indicador e polegar cruzados pele morena	none
+🫰🏾	mão com dedo indicador e polegar cruzados pele morena escura	none
+🫰🏿	mão com dedo indicador e polegar cruzados pele escura	none
+🫱🏻	mão para a direita pele clara	none
+🫱🏼	mão para a direita pele morena clara	none
+🫱🏽	mão para a direita pele morena	none
+🫱🏾	mão para a direita pele morena escura	none
+🫱🏿	mão para a direita pele escura	none
+🫱🏻‍🫲🏼	aperto de mãos pele clara e pele morena clara	none
+🫱🏻‍🫲🏽	aperto de mãos pele clara e pele morena	none
+🫱🏻‍🫲🏾	aperto de mãos pele clara e pele morena escura	none
+🫱🏻‍🫲🏿	aperto de mãos pele clara e pele escura	none
+🫱🏼‍🫲🏻	aperto de mãos pele morena clara e pele clara	none
+🫱🏼‍🫲🏽	aperto de mãos pele morena clara e pele morena	none
+🫱🏼‍🫲🏾	aperto de mãos pele morena clara e pele morena escura	none
+🫱🏼‍🫲🏿	aperto de mãos pele morena clara e pele escura	none
+🫱🏽‍🫲🏻	aperto de mãos pele morena e pele clara	none
+🫱🏽‍🫲🏼	aperto de mãos pele morena e pele morena clara	none
+🫱🏽‍🫲🏾	aperto de mãos pele morena e pele morena escura	none
+🫱🏽‍🫲🏿	aperto de mãos pele morena e pele escura	none
+🫱🏾‍🫲🏻	aperto de mãos pele morena escura e pele clara	none
+🫱🏾‍🫲🏼	aperto de mãos pele morena escura e pele morena clara	none
+🫱🏾‍🫲🏽	aperto de mãos pele morena escura e pele morena	none
+🫱🏾‍🫲🏿	aperto de mãos pele morena escura e pele escura	none
+🫱🏿‍🫲🏻	aperto de mãos pele escura e pele clara	none
+🫱🏿‍🫲🏼	aperto de mãos pele escura e pele morena clara	none
+🫱🏿‍🫲🏽	aperto de mãos pele escura e pele morena	none
+🫱🏿‍🫲🏾	aperto de mãos pele escura e pele morena escura	none
+🫲🏻	mão para a esquerda pele clara	none
+🫲🏼	mão para a esquerda pele morena clara	none
+🫲🏽	mão para a esquerda pele morena	none
+🫲🏾	mão para a esquerda pele morena escura	none
+🫲🏿	mão para a esquerda pele escura	none
+🫳🏻	mão com a palma para baixo pele clara	none
+🫳🏼	mão com a palma para baixo pele morena clara	none
+🫳🏽	mão com a palma para baixo pele morena	none
+🫳🏾	mão com a palma para baixo pele morena escura	none
+🫳🏿	mão com a palma para baixo pele escura	none
+🫴🏻	mão com a palma para cima pele clara	none
+🫴🏼	mão com a palma para cima pele morena clara	none
+🫴🏽	mão com a palma para cima pele morena	none
+🫴🏾	mão com a palma para cima pele morena escura	none
+🫴🏿	mão com a palma para cima pele escura	none
+🫵🏻	indicador apontando para o visualizador pele clara	none
+🫵🏼	indicador apontando para o visualizador pele morena clara	none
+🫵🏽	indicador apontando para o visualizador pele morena	none
+🫵🏾	indicador apontando para o visualizador pele morena escura	none
+🫵🏿	indicador apontando para o visualizador pele escura	none
+🫶🏻	mãos de coração pele clara	none
+🫶🏼	mãos de coração pele morena clara	none
+🫶🏽	mãos de coração pele morena	none
+🫶🏾	mãos de coração pele morena escura	none
+🫶🏿	mãos de coração pele escura	none
 👋🏻	mão acenando pele clara	none
 👋🏼	mão acenando pele morena clara	none
 👋🏽	mão acenando pele morena	none
@@ -1682,6 +2008,11 @@ symbols:
 🤲🏽	palmas unidas para cima pele morena	none
 🤲🏾	palmas unidas para cima pele morena escura	none
 🤲🏿	palmas unidas para cima pele escura	none
+🤝🏻	aperto de mãos pele clara	none
+🤝🏼	aperto de mãos pele morena clara	none
+🤝🏽	aperto de mãos pele morena	none
+🤝🏾	aperto de mãos pele morena escura	none
+🤝🏿	aperto de mãos pele escura	none
 🙏🏻	mãos juntas pele clara	none
 🙏🏼	mãos juntas pele morena clara	none
 🙏🏽	mãos juntas pele morena	none
@@ -2579,11 +2910,11 @@ symbols:
 🤵🏽‍♀	mulher de smoking pele morena	none
 🤵🏾‍♀	mulher de smoking pele morena escura	none
 🤵🏿‍♀	mulher de smoking pele escura	none
-👰🏻	noiva pele clara	none
-👰🏼	noiva pele morena clara	none
-👰🏽	noiva pele morena	none
-👰🏾	noiva pele morena escura	none
-👰🏿	noiva pele escura	none
+👰🏻	pessoa com véu pele clara	none
+👰🏼	pessoa com véu pele morena clara	none
+👰🏽	pessoa com véu pele morena	none
+👰🏾	pessoa com véu pele morena escura	none
+👰🏿	pessoa com véu pele escura	none
 👰🏻‍♂	noivo com véu pele clara	none
 👰🏼‍♂	noivo com véu pele morena clara	none
 👰🏽‍♂	noivo com véu pele morena	none

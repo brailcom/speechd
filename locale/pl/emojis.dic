@@ -36,32 +36,271 @@ symbols:
 ↱	strzałka w górę z grotem skierowanym w prawo	none
 ↲	strzałka w dół z grotem skierowanym w lewo	none
 ↳	strzałka w dół z grotem skierowanym w prawo	none
+↴	strzałka w prawo z narożnikiem w dół	none
+↵	strzałka w dół skręcająca w lewo	none
+↶	górna półkolista strzałka w lewo	none
+↷	górna półkolista strzałka w prawo	none
+↸	strzałka na północny zachód z długą kreską	none
+↹	strzałka z kreską w lewo nad strzałką z kreską w prawo	none
+↺	otwarta kolista strzałka w lewo	none
+↻	otwarta kolista strzałka w prawo	none
+↼	harpun w lewo z kolcem w górę	none
+↽	harpun w lewo z kolcem w dół	none
+↾	harpun w górę z kolcem w prawo	none
+↿	harpun w górę z kolcem w lewo	none
+⇀	harpun w prawo z kolcem w górę	none
+⇁	harpun w prawo z kolcem w dół	none
+⇂	harpun w dół z kolcem w prawo	none
+⇃	harpun w dół z kolcem w lewo	none
+⇄	strzałka w prawo nad strzałką w lewo	none
 ⇅	strzałki skierowane w górę i w dół	none
 ⇆	strzałka w lewo nad strzałką w prawo	none
+⇇	para strzałek w lewo	none
+⇈	para strzałek w górę	none
+⇉	para strzałek w prawo	none
+⇊	para strzałek w dół	none
+⇋	harpun w lewo nad harpunem w prawo	none
+⇌	harpun w prawo nad harpunem w lewo	none
+⇐	podwójna strzałka w lewo	none
+⇍	przekreślona podwójna strzałka w lewo	none
+⇑	podwójna strzałka w górę	none
+⇒	podwójna strzałka w prawo	none
+⇏	przekreślona podwójna strzałka w prawo	none
+⇓	podwójna strzałka w dół	none
+⇔	podwójna strzałka w lewo i w prawo	none
+⇎	przekreślona podwójna strzałka w lewo i w prawo	none
+⇖	podwójna strzałka na północny zachód	none
+⇗	podwójna strzałka na północny wschód	none
+⇘	podwójna strzałka na południowy wschód	none
+⇙	podwójna strzałka na południowy zachód	none
+⇚	potrójna strzałka w lewo	none
+⇛	potrójna strzałka w prawo	none
+⇜	zygzakowata strzałka w lewo	none
+⇝	zygzakowata strzałka w prawo	none
+⇞	podwójnie przekreślona strzałka w górę	none
+⇟	podwójnie przekreślona strzałka w dół	none
+⇠	przerywana strzałka w lewo	none
+⇡	przerywana strzałka w górę	none
+⇢	przerywana strzałka w prawo	none
+⇣	przerywana strzałka w dół	none
+⇤	strzałka z kreską w lewo	none
+⇥	strzałka z kreską w prawo	none
+⇦	pusta strzałka w lewo	none
+⇧	pusta strzałka w górę	none
+⇨	pusta strzałka w prawo	none
+⇩	pusta strzałka w dół	none
+⇪	pusta strzałka w górę z kreski	none
+⇵	strzałka w dół po lewej strzałka w górę	none
+∀	dla wszystkich	none
+∂	pochodna cząstkowa	none
+∃	kwantyfikator egzystencjalny	none
+∅	zbiór pusty	none
 ∆	delta	none
 ∇	nabla	none
 ∈	należy do	none
+∉	nie jest elementem	none
+∋	zawiera w sobie element	none
+∎	znak końca dowodu	none
+∏	iloczyn n czynników	none
+∑	suma n składników	none
+≮	nie mniejsze niż	none
 ≠	różne	none
+≯	nie większe niż	none
 −	minus	none
 ⁻	minus w indeksie górnym	none
+∓	plus lub minus	none
+∕	ukośnik dzielenia	none
+∗	operator asterysk	none
+∘	operator składania	none
+∙	operator punktor	none
 √	pierwiastek kwadratowy	none
+∝	proporcjonalne	none
 ∞	znak nieskończoności	none
+∟	kąt prosty	none
+∠	kąt	none
+∣	dzieli	none
+∥	równoległe	none
+∧	koniunkcja	none
 ∩	iloczyn zbiorów	none
 ∪	suma zbiorów	none
+∫	całka	none
+∬	całka podwójna	none
+∮	całka konturowa	none
+∴	dlatego	none
+∵	ponieważ	none
+∶	stosunek	none
+∷	proporcja	none
+∼	operator tylda	none
+∽	odwrócona tylda	none
+∾	odwrócone leniwe s	none
+≃	asymptotycznie równe	none
+≅	w przybliżeniu równe	none
 ≈	prawie równe	none
+≌	wszystkie równe	none
+≒	w przybliżeniu równe obrazowi	none
+≖	pierścień w znaku równości	none
 ≡	tożsamy z	none
+≣	ściśle równoważne	none
 ≤	mniejsze niż lub równe	none
 ≥	większe niż lub równe	none
+≦	znak mniejszości nad znakiem równości	none
+≧	znak większości nad znakiem równości	none
+≪	dużo mniejsze niż	none
+≫	dużo większe niż	none
+≬	pomiędzy	none
+≳	większe niż lub równoważne	none
+≺	poprzedza	none
+≻	następuje po	none
+⊁	nie następuje po	none
 ⊂	jest zawarty w	none
+⊃	nadzbiór	none
+⊆	podzbiór równy	none
+⊇	nadzbiór równy	none
+⊕	zakreślony znak dodawania	none
+⊖	zakreślony znak odejmowania	none
+⊗	zakreślony znak mnożenia	none
+⊘	zakreślony ukośnik dzielenia	none
+⊙	zakreślony operator kropka środkowa	none
+⊚	zakreślony operator składania	none
+⊛	zakreślony operator asterysk	none
+⊞	znak dodawania w kwadracie	none
+⊟	znak odejmowania w kwadracie	none
+⊥	znak sprzeczności	none
+⊮	nie wymusza	none
+⊰	poprzedza w relacji	none
+⊱	następuje w relacji	none
+⋭	nie zawiera jako normalnej podgrupy równej	none
+⊶	pochodzący z	none
+⊹	sprzężenie hermitowskie macierzy	none
+⊿	trójkąt prostokątny	none
+⋁	suma logiczna	none
+⋂	iloczyn mnogościowy	none
+⋃	suma n-argumentowa	none
+⋅	operator kropka środkowa	none
+⋆	operator gwiazdka	none
+⋈	naturalne połączenie	none
+⋒	podwójna część wspólna	none
+⋘	bardzo dużo mniejsze niż	none
+⋙	bardzo dużo większe niż	none
+⋮	wielokropek pionowy	none
+⋯	wielokropek poziomy w linii środkowej	none
+⋰	wielokropek ukośny wznoszący się w prawo	none
+⋱	wielokropek ukośny opadający w prawo	none
+■	wypełniony kwadrat	none
+□	pusty kwadrat	none
+▢	pusty kwadrat z zaokrąglonymi rogami	none
+▣	pusty kwadrat zawierający wypełniony kwadrat	none
+▤	kwadrat z poziomymi kreskami	none
+▥	kwadrat z pionowymi kreskami	none
+▦	kwadrat z prostą kratką w środku	none
+▧	kwadrat z kreskami biegnącymi od lewego górnego rogu do prawego dolnego rogu	none
+▨	kwadrat z kreskami biegnącymi od prawego górnego rogu do lewego dolnego rogu	none
+▩	kwadrat z ukośną kratką w środku	none
+▬	wypełniony prostokąt	none
+▭	pusty prostokąt	none
+▮	wypełniony pionowy prostokąt	none
+▰	wypełniony równoległobok	none
 ▲	wypełniony trójkąt skierowany w górę	none
+△	pusty trójkąt z wierzchołkiem skierowanym w górę	none
+▴	wypełniony mały trójkąt z wierzchołkiem skierowanym w górę	none
+▵	pusty mały trójkąt z wierzchołkiem skierowanym w górę	none
+▷	pusty trójkąt z wierzchołkiem skierowanym w prawo	none
+▸	wypełniony mały trójkąt z wierzchołkiem skierowanym w prawo	none
+▹	pusty mały trójkąt z wierzchołkiem skierowanym w prawo	none
+►	wypełniony wskaźnik wskazujący w prawo	none
+▻	pusty wskaźnik wskazujący w prawo	none
 ▼	wypełniony trójkąt skierowany w dół	none
+▽	pusty trójkąt z wierzchołkiem skierowanym w dół	none
+▾	wypełniony mały trójkąt z wierzchołkiem skierowanym w dół	none
+▿	pusty mały trójkąt z wierzchołkiem skierowanym w dół	none
+◁	pusty trójkąt z wierzchołkiem skierowanym w lewo	none
+◂	wypełniony mały trójkąt z wierzchołkiem skierowanym w lewo	none
+◃	pusty mały trójkąt z wierzchołkiem skierowanym w lewo	none
+◄	wypełniony wskaźnik wskazujący w lewo	none
+◅	pusty wskaźnik wskazujący w lewo	none
+◆	wypełniony romb	none
+◇	pusty romb	none
+◈	pusty romb zawierający wypełniony romb	none
+◉	pusty okrąg zawierający wypełniony okrąg	none
 ◊	romb	none
 ○	okrąg	none
+◌	kropkowany okrąg	none
+◍	okrąg z pionowymi kreskami	none
+◎	okręgi koncentryczne	none
 ●	koło	none
+◐	okrąg z wypełnioną lewą połową	none
+◑	okrąg z wypełnioną prawą połową	none
+◒	okrąg z wypełnioną dolną połową	none
+◓	okrąg z wypełnioną górną połową	none
+◔	okrąg z wypełnioną prawą górną ćwiartką	none
+◕	okrąg z niewypełnioną lewą górną ćwiartką	none
+◖	wypełniona lewa połowa okręgu	none
+◗	wypełniona prawa połowa okręgu	none
+◘	odwrócony punktor	none
+◙	wypełniony kwadrat zawierający pusty okrąg	none
+◜	łuk w lewej górnej ćwiartce	none
+◝	łuk w prawej górnej ćwiartce	none
+◞	łuk w prawej dolnej ćwiartce	none
+◟	łuk w lewej dolnej ćwiartce	none
+◠	górna połowa okręgu	none
+◡	dolna połowa okręgu	none
+◢	wypełniony trójkąt w prawym dolnym rogu	none
+◣	wypełniony trójkąt w lewym dolnym rogu	none
+◤	wypełniony trójkąt w lewym górnym rogu	none
+◥	wypełniony trójkąt w prawym górnym rogu	none
+◦	pusty punktor	none
 ◯	duży okrąg	none
+◳	pusty kwadrat w prawej górnej ćwiartce	none
+◷	pusty okrąg z prawą górną ćwiartką	none
+◿	trójkąt w prawym dolnym rogu	none
 ♪	ósemka	none
+⨧	plus z dwójką w indeksie dolnym	none
+⨯	iloczyn wektorowy	none
+⨼	iloczyn wewnętrzny	none
+⩣	alternatywa z podwójnym podkreśleniem	none
+⩽	znak mniejszości z ukośnym znakiem równości	none
+⪍	znak mniejszości nad znakiem asymptotycznej równości	none
+⪚	znak równości nad znakiem większości	none
+⪺	następuje nad nie prawie równe	none
 ♭	bemol	none
 ♯	krzyżyk	none
+🥹	twarz powstrzymująca łzy	none
+🧌	troll	none
+🩻	zdjęcie rentgenowskie	none
+🩼	kula	none
+🪩	kula dyskotekowa	none
+🪪	dowód tożsamości	none
+🪫	słaba bateria	none
+🪬	chamsa	none
+🪷	lotos	none
+🪸	koralowiec	none
+🪹	puste gniazdo	none
+🪺	gniazdo z jajkami	none
+🫃	mężczyzna w ciąży	none
+🫄	osoba w ciąży	none
+🫅	osoba w koronie	none
+🫗	nalewanie płynu	none
+🫘	fasola	none
+🫙	słoik	none
+🫠	roztapiająca się twarz	none
+🫡	salutująca twarz	none
+🫢	twarz z otwartymi oczami i ręką na ustach	none
+🫣	twarz z podglądającym okiem	none
+🫤	twarz z ukośnymi ustami	none
+🫥	twarz otoczona linią przerywaną	none
+🫦	przygryzanie wargi	none
+🫧	bąbelki	none
+🫰	dłoń ze skrzyżowanym palcem wskazującym i kciukiem	none
+🫱	dłoń skierowana w prawo	none
+🫲	dłoń skierowana w lewo	none
+🫳	dłoń skierowana w dół	none
+🫴	dłoń skierowana w górę	none
+🫵	palec wskazujący skierowany na patrzącego	none
+🫶	dłonie tworzące serce	none
+🛝	zjeżdżalnia	none
+🛞	koło pojazdu	none
+🛟	koło ratunkowe	none
+🟰	gruby znak równości	none
 😀	szeroko uśmiechnięta twarz	none
 😃	uśmiechnięta twarz z otwartymi ustami	none
 😄	uśmiechnięta twarz z otwartymi ustami i roześmianymi oczami	none
@@ -1539,13 +1778,91 @@ symbols:
 🏳‍🌈	tęczowa flaga	none
 🏳‍⚧	flaga osób transpłciowych	none
 🏴‍☠	piracka flaga	none
+₢	cruzeiro	none
+₣	frank francuski	none
+₤	lira	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
+₰	niemiecki fenig	none
 ₱	peso	none
+₳	austral	none
+₶	funt turoński	none
+₷	spesmilo	none
 ₹	rupia indyjska	none
 ₽	rubel	none
 ₿	bitcoin	none
+₨	rupia	none
+🫃🏻	mężczyzna w ciąży karnacja jasna	none
+🫃🏼	mężczyzna w ciąży karnacja średnio jasna	none
+🫃🏽	mężczyzna w ciąży karnacja średnia	none
+🫃🏾	mężczyzna w ciąży karnacja średnio ciemna	none
+🫃🏿	mężczyzna w ciąży karnacja ciemna	none
+🫄🏻	osoba w ciąży karnacja jasna	none
+🫄🏼	osoba w ciąży karnacja średnio jasna	none
+🫄🏽	osoba w ciąży karnacja średnia	none
+🫄🏾	osoba w ciąży karnacja średnio ciemna	none
+🫄🏿	osoba w ciąży karnacja ciemna	none
+🫅🏻	osoba w koronie karnacja jasna	none
+🫅🏼	osoba w koronie karnacja średnio jasna	none
+🫅🏽	osoba w koronie karnacja średnia	none
+🫅🏾	osoba w koronie karnacja średnio ciemna	none
+🫅🏿	osoba w koronie karnacja ciemna	none
+🫰🏻	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja jasna	none
+🫰🏼	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja średnio jasna	none
+🫰🏽	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja średnia	none
+🫰🏾	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja średnio ciemna	none
+🫰🏿	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja ciemna	none
+🫱🏻	dłoń skierowana w prawo karnacja jasna	none
+🫱🏼	dłoń skierowana w prawo karnacja średnio jasna	none
+🫱🏽	dłoń skierowana w prawo karnacja średnia	none
+🫱🏾	dłoń skierowana w prawo karnacja średnio ciemna	none
+🫱🏿	dłoń skierowana w prawo karnacja ciemna	none
+🫱🏻‍🫲🏼	uścisk dłoni karnacja jasna i karnacja średnio jasna	none
+🫱🏻‍🫲🏽	uścisk dłoni karnacja jasna i karnacja średnia	none
+🫱🏻‍🫲🏾	uścisk dłoni karnacja jasna i karnacja średnio ciemna	none
+🫱🏻‍🫲🏿	uścisk dłoni karnacja jasna i karnacja ciemna	none
+🫱🏼‍🫲🏻	uścisk dłoni karnacja średnio jasna i karnacja jasna	none
+🫱🏼‍🫲🏽	uścisk dłoni karnacja średnio jasna i karnacja średnia	none
+🫱🏼‍🫲🏾	uścisk dłoni karnacja średnio jasna i karnacja średnio ciemna	none
+🫱🏼‍🫲🏿	uścisk dłoni karnacja średnio jasna i karnacja ciemna	none
+🫱🏽‍🫲🏻	uścisk dłoni karnacja średnia i karnacja jasna	none
+🫱🏽‍🫲🏼	uścisk dłoni karnacja średnia i karnacja średnio jasna	none
+🫱🏽‍🫲🏾	uścisk dłoni karnacja średnia i karnacja średnio ciemna	none
+🫱🏽‍🫲🏿	uścisk dłoni karnacja średnia i karnacja ciemna	none
+🫱🏾‍🫲🏻	uścisk dłoni karnacja średnio ciemna i karnacja jasna	none
+🫱🏾‍🫲🏼	uścisk dłoni karnacja średnio ciemna i karnacja średnio jasna	none
+🫱🏾‍🫲🏽	uścisk dłoni karnacja średnio ciemna i karnacja średnia	none
+🫱🏾‍🫲🏿	uścisk dłoni karnacja średnio ciemna i karnacja ciemna	none
+🫱🏿‍🫲🏻	uścisk dłoni karnacja ciemna i karnacja jasna	none
+🫱🏿‍🫲🏼	uścisk dłoni karnacja ciemna i karnacja średnio jasna	none
+🫱🏿‍🫲🏽	uścisk dłoni karnacja ciemna i karnacja średnia	none
+🫱🏿‍🫲🏾	uścisk dłoni karnacja ciemna i karnacja średnio ciemna	none
+🫲🏻	dłoń skierowana w lewo karnacja jasna	none
+🫲🏼	dłoń skierowana w lewo karnacja średnio jasna	none
+🫲🏽	dłoń skierowana w lewo karnacja średnia	none
+🫲🏾	dłoń skierowana w lewo karnacja średnio ciemna	none
+🫲🏿	dłoń skierowana w lewo karnacja ciemna	none
+🫳🏻	dłoń skierowana w dół karnacja jasna	none
+🫳🏼	dłoń skierowana w dół karnacja średnio jasna	none
+🫳🏽	dłoń skierowana w dół karnacja średnia	none
+🫳🏾	dłoń skierowana w dół karnacja średnio ciemna	none
+🫳🏿	dłoń skierowana w dół karnacja ciemna	none
+🫴🏻	dłoń skierowana w górę karnacja jasna	none
+🫴🏼	dłoń skierowana w górę karnacja średnio jasna	none
+🫴🏽	dłoń skierowana w górę karnacja średnia	none
+🫴🏾	dłoń skierowana w górę karnacja średnio ciemna	none
+🫴🏿	dłoń skierowana w górę karnacja ciemna	none
+🫵🏻	palec wskazujący skierowany na patrzącego karnacja jasna	none
+🫵🏼	palec wskazujący skierowany na patrzącego karnacja średnio jasna	none
+🫵🏽	palec wskazujący skierowany na patrzącego karnacja średnia	none
+🫵🏾	palec wskazujący skierowany na patrzącego karnacja średnio ciemna	none
+🫵🏿	palec wskazujący skierowany na patrzącego karnacja ciemna	none
+🫶🏻	dłonie tworzące serce karnacja jasna	none
+🫶🏼	dłonie tworzące serce karnacja średnio jasna	none
+🫶🏽	dłonie tworzące serce karnacja średnia	none
+🫶🏾	dłonie tworzące serce karnacja średnio ciemna	none
+🫶🏿	dłonie tworzące serce karnacja ciemna	none
 👋🏻	machająca dłoń karnacja jasna	none
 👋🏼	machająca dłoń karnacja średnio jasna	none
 👋🏽	machająca dłoń karnacja średnia	none
@@ -1691,6 +2008,11 @@ symbols:
 🤲🏽	dłonie do góry razem karnacja średnia	none
 🤲🏾	dłonie do góry razem karnacja średnio ciemna	none
 🤲🏿	dłonie do góry razem karnacja ciemna	none
+🤝🏻	uścisk dłoni karnacja jasna	none
+🤝🏼	uścisk dłoni karnacja średnio jasna	none
+🤝🏽	uścisk dłoni karnacja średnia	none
+🤝🏾	uścisk dłoni karnacja średnio ciemna	none
+🤝🏿	uścisk dłoni karnacja ciemna	none
 🙏🏻	złożone ręce karnacja jasna	none
 🙏🏼	złożone ręce karnacja średnio jasna	none
 🙏🏽	złożone ręce karnacja średnia	none

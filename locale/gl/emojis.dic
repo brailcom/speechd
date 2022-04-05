@@ -70,30 +70,237 @@ symbols:
 ⇔	frecha dobre cara á esquerda e cara á dereita	none
 ⇎	frecha dobre cara á esquerda e cara á dereita con trazo	none
 ⇖	frecha dobre cara o noroeste	none
+⇗	frecha dobre cara o nordeste	none
+⇘	frecha dobre cara o sueste	none
+⇙	frecha dobre cara o suroeste	none
+⇚	frecha tripla cara á esquerda	none
+⇛	frecha tripla cara á dereita	none
+⇜	frecha garabateada cara á esquerda	none
+⇝	frecha garabateada cara á dereita	none
+⇞	frecha cara arriba con trazo dobre	none
+⇟	frecha cara abaixo con trazo dobre	none
+⇠	frecha descontinua cara á esquerda	none
+⇡	frecha descontinua cara arriba	none
+⇢	frecha descontinua cara á dereita	none
+⇣	frecha descontinua cara abaixo	none
+⇤	frecha cara á esquerda con barra vertical	none
+⇥	frecha cara á dereita con barra vertical	none
+⇦	frecha baleira cara á esquerda	none
+⇧	frecha baleira cara arriba	none
+⇨	frecha baleira cara á dereita	none
+⇩	frecha baleira cara abaixo	none
+⇪	frecha baleira cara arriba desde barra	none
+⇵	frecha cara abaixo xunto a frecha cara arriba	none
+∀	para todo	none
+∂	diferencial parcial	none
+∃	existe	none
+∅	conxunto baleiro	none
 ∆	incremento	none
 ∇	nabla	none
 ∈	elemento de	none
+∉	non é un elemento	none
+∋	contén como membro	none
+∎	fin da demostración	none
+∏	produto n-ario	none
+∑	sumatorio n-ario	none
+≮	non menor que	none
 ≠	non igual	none
+≯	non maior que	none
 −	signo menos	none
 ⁻	menos en superíndice	none
+∓	menos ou máis	none
+∕	barra de división	none
+∗	operador asterisco	none
+∘	operador anel	none
+∙	operador de viñeta	none
 √	raíz cadrada	none
+∝	proporcional	none
 ∞	signo do infinito	none
+∟	ángulo recto	none
+∠	ángulo	none
+∣	divide	none
+∥	paralelo	none
+∧	e lóxica	none
 ∩	intersección	none
 ∪	unión	none
+∫	integral	none
+∬	integral dobre	none
+∮	integral de contorno	none
+∴	entón	none
+∵	porque	none
+∶	razón	none
+∷	proporción	none
+∼	operador til	none
+∽	til invertido	none
+∾	s deitada invertida	none
+≃	asintoticamente igual	none
+≅	aproximadamente igual	none
 ≈	case igual	none
+≌	todo igual	none
+≒	aproximadamente igual á imaxe	none
+≖	círculo en igual	none
 ≡	idéntico a	none
+≣	estritamente equivalente	none
 ≤	menor ou igual a	none
 ≥	maior ou igual a	none
+≦	menor sobre igual	none
+≧	maior sobre igual	none
+≪	moito menor que	none
+≫	moito maior que	none
+≬	entre	none
+≳	maior que ou equivalente	none
+≺	precede	none
+≻	sucede	none
+⊁	non sucede	none
 ⊂	subconxunto de	none
+⊃	superconxunto	none
+⊆	subconxunto igual a	none
+⊇	superconxunto igual a	none
+⊕	máis nun círculo	none
+⊖	menos nun círculo	none
+⊗	multiplicación nun círculo	none
+⊘	división nun círculo	none
+⊙	operador punto nun círculo	none
+⊚	operador anel nun círculo	none
+⊛	operador asterisco nun círculo	none
+⊞	máis nun cadrado	none
+⊟	menos nun cadrado	none
+⊥	chatola cara arriba	none
+⊮	non forza	none
+⊰	precede baixo relación	none
+⊱	sucede baixo relación	none
+⋭	non contén como subgrupo normal igual a	none
+⊶	orixinal	none
+⊹	matriz hermitiana conxugada	none
+⊿	triángulo rectángulo	none
+⋁	ou lóxico n-ario	none
+⋂	intersección n-aria	none
+⋃	unión n-aria	none
+⋅	operador punto	none
+⋆	operador estrela	none
+⋈	unión natural	none
+⋒	dobre intersección	none
+⋘	considerablemente menor que	none
+⋙	considerablemente maior que	none
+⋮	elipse vertical	none
+⋯	elipse horizontal centrada	none
+⋰	elipse diagonal da dereita cara a arriba	none
+⋱	elipse diagonal da dereita cara a abaixo	none
+■	cadrado enchido	none
+□	cadrado baleiro	none
+▢	cadrado baleiro con cantos arrendodados	none
+▣	cadrado baleiro cun cadrado enchido dentro	none
+▤	cadrado con enchemento horizontal	none
+▥	cadrado con enchemento vertical	none
+▦	cadrado con enchemento ortogonal cruzado	none
+▧	cadrado con enchemento desde o canto superior esquerdo ao inferior dereito	none
+▨	cadrado con enchemento desde o canto superior dereito ao inferior esquerdo	none
+▩	cadrado con enchemento diagonal cruzado	none
+▬	rectángulo enchido	none
+▭	rectángulo baleiro	none
+▮	rectángulo vertical enchido	none
+▰	paralelogramo enchido	none
 ▲	triángulo enchido apuntando cara arriba	none
+△	triángulo baleiro apuntando cara arriba	none
+▴	triángulo pequeno enchido apuntando cara arriba	none
+▵	triángulo pequeno baleiro apuntando cara arriba	none
+▷	triángulo baleiro apuntando cara á dereita	none
+▸	triángulo pequeno enchido apuntando cara á dereita	none
+▹	triángulo pequeno baleiro apuntando cara á dereita	none
+►	punteiro enchido apuntando cara á dereita	none
+▻	punteiro baleiro apuntando cara á dereita	none
 ▼	triángulo enchido apuntando cara abaixo	none
+▽	triángulo baleiro apuntando cara abaixo	none
+▾	triángulo pequeno enchido apuntando cara abaixo	none
+▿	triángulo pequeno baleiro apuntando cara abaixo	none
+◁	triángulo baleiro apuntando cara á esquerda	none
+◂	triángulo pequeno enchido apuntando cara á esquerda	none
+◃	triángulo pequeno baleiro apuntando cara á esquerda	none
+◄	punteiro enchido apuntando cara á esquerda	none
+◅	punteiro baleiro apuntando cara á esquerda	none
+◆	rombo enchido	none
+◇	rombo baleiro	none
+◈	rombo baleiro cun rombo enchido dentro	none
+◉	círculo baleiro cun círculo enchido dentro	none
 ◊	losanxe	none
 ○	círculo baleiro	none
+◌	círculo punteado	none
+◍	círculo con enchemento vertical	none
+◎	círculos concéntricos	none
 ●	círculo enchido	none
+◐	círculo coa metade esquerda enchida	none
+◑	círculo coa metade dereita enchida	none
+◒	círculo coa metade inferior enchida	none
+◓	círculo coa metade superior enchida	none
+◔	círculo co cuadrante superior dereito enchido	none
+◕	círculo con todos os cuadrantes enchidos menos o superior esquerdo	none
+◖	metade esquerda dun círculo enchida	none
+◗	metade dereita dun círculo enchida	none
+◘	viñeta inversa	none
+◙	cadrado enchido cun círculo baleiro dentro	none
+◜	arco circular de cuadrante superior esquerdo	none
+◝	arco circular de cuadrante superior dereito	none
+◞	arco circular de cuadrante inferior dereito	none
+◟	arco circular de cuadrante inferior esquerdo	none
+◠	arco superior dun semicírculo	none
+◡	arco inferior dun semicírculo	none
+◢	triángulo rectángulo enchido apoiado no canto inferior dereito	none
+◣	triángulo rectángulo enchido apoiado no canto inferior esquerdo	none
+◤	triángulo rectángulo enchido apoiado no canto superior esquerdo	none
+◥	triángulo rectángulo enchido apoiado no canto superior dereito	none
+◦	viñeta baleira	none
 ◯	círculo grande baleiro	none
+◳	cadrado baleiro con cuadrante superior dereito	none
+◷	círculo baleiro con cuadrante superior dereito	none
+◿	triángulo apoiado no canto inferior dereito	none
 ♪	corchea	none
+⨧	máis cun dous en subíndice	none
+⨯	produto cruzado de vectores	none
+⨼	produto interior	none
+⩣	ou lóxico con barra inferior dobre	none
+⩽	menor que ou igual inclinado	none
+⪍	menor que sobre similar ou igual	none
+⪚	igual de línea dobre ou maior que	none
+⪺	sucede sobre non case igual a	none
 ♭	bemol	none
 ♯	díese	none
+🥹	cara contendo as bágoas	none
+🧌	troll	none
+🩻	radiografía	none
+🩼	muleta	none
+🪩	bola de discoteca	none
+🪪	tarxeta de identidade	none
+🪫	batería baixa	none
+🪬	jamsa	none
+🪷	loto	none
+🪸	coral	none
+🪹	niño baleiro	none
+🪺	niño con ovos	none
+🫃	home embarazado	none
+🫄	persoa embarazada	none
+🫅	home con coroa	none
+🫗	derramamento de líquido	none
+🫘	fabas	none
+🫙	tarro	none
+🫠	cara derreténdose	none
+🫡	cara saudando	none
+🫢	cara cos ollos abertos e a man na boca	none
+🫣	cara cun ollo asomando	none
+🫤	cara coa boca en diagonal	none
+🫥	cara de liñas punteadas	none
+🫦	mordedura de beizo	none
+🫧	burbullas	none
+🫰	man cos dedos índice e polgar cruzados	none
+🫱	man cara á dereita	none
+🫲	man cara á esquerda	none
+🫳	man coa palma cara abaixo	none
+🫴	man coa palma cara arriba	none
+🫵	dedo índice apuntando ao usuario	none
+🫶	mans facendo un corazón	none
+🛝	esvaradoiro	none
+🛞	roda	none
+🛟	salvavidas	none
+🟰	signo igual groso	none
 😀	cara moi riseira	none
 😃	cara moi riseira con ollos grandes	none
 😄	cara moi riseira cos ollos alegres	none
@@ -707,7 +914,7 @@ symbols:
 🍋	limón	none
 🍌	plátano	none
 🍍	piña	none
-🥭	mango	none
+🥭	manga	none
 🍎	mazá vermella	none
 🍏	mazá verde	none
 🍐	pera	none
@@ -1571,13 +1778,91 @@ symbols:
 🏳‍🌈	bandeira do arco da vella	none
 🏳‍⚧	bandeira transxénero	none
 🏴‍☠	bandeira pirata	none
+₢	cruzeiro	none
+₣	franco francés	none
+₤	lira	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
+₰	penique alemán	none
 ₱	peso	none
+₳	austral	none
+₶	libra tornesa	none
+₷	spesmilo	none
 ₹	rupia india	none
 ₽	rublo	none
 ₿	bitcoin	none
+₨	rupia	none
+🫃🏻	home embarazado ton de pel moi claro	none
+🫃🏼	home embarazado ton de pel claro	none
+🫃🏽	home embarazado ton de pel medio	none
+🫃🏾	home embarazado ton de pel escuro	none
+🫃🏿	home embarazado ton de pel moi escuro	none
+🫄🏻	persoa embarazada ton de pel moi claro	none
+🫄🏼	persoa embarazada ton de pel claro	none
+🫄🏽	persoa embarazada ton de pel medio	none
+🫄🏾	persoa embarazada ton de pel escuro	none
+🫄🏿	persoa embarazada ton de pel moi escuro	none
+🫅🏻	home con coroa ton de pel moi claro	none
+🫅🏼	home con coroa ton de pel claro	none
+🫅🏽	home con coroa ton de pel medio	none
+🫅🏾	home con coroa ton de pel escuro	none
+🫅🏿	home con coroa ton de pel moi escuro	none
+🫰🏻	man cos dedos índice e polgar cruzados ton de pel moi claro	none
+🫰🏼	man cos dedos índice e polgar cruzados ton de pel claro	none
+🫰🏽	man cos dedos índice e polgar cruzados ton de pel medio	none
+🫰🏾	man cos dedos índice e polgar cruzados ton de pel escuro	none
+🫰🏿	man cos dedos índice e polgar cruzados ton de pel moi escuro	none
+🫱🏻	man cara á dereita ton de pel moi claro	none
+🫱🏼	man cara á dereita ton de pel claro	none
+🫱🏽	man cara á dereita ton de pel medio	none
+🫱🏾	man cara á dereita ton de pel escuro	none
+🫱🏿	man cara á dereita ton de pel moi escuro	none
+🫱🏻‍🫲🏼	aperta de mans ton de pel moi claro, ton de pel claro	none
+🫱🏻‍🫲🏽	aperta de mans ton de pel moi claro, ton de pel medio	none
+🫱🏻‍🫲🏾	aperta de mans ton de pel moi claro, ton de pel escuro	none
+🫱🏻‍🫲🏿	aperta de mans ton de pel moi claro, ton de pel moi escuro	none
+🫱🏼‍🫲🏻	aperta de mans ton de pel claro, ton de pel moi claro	none
+🫱🏼‍🫲🏽	aperta de mans ton de pel claro, ton de pel medio	none
+🫱🏼‍🫲🏾	aperta de mans ton de pel claro, ton de pel escuro	none
+🫱🏼‍🫲🏿	aperta de mans ton de pel claro, ton de pel moi escuro	none
+🫱🏽‍🫲🏻	aperta de mans ton de pel medio, ton de pel moi claro	none
+🫱🏽‍🫲🏼	aperta de mans ton de pel medio, ton de pel claro	none
+🫱🏽‍🫲🏾	aperta de mans ton de pel medio, ton de pel escuro	none
+🫱🏽‍🫲🏿	aperta de mans ton de pel medio, ton de pel moi escuro	none
+🫱🏾‍🫲🏻	aperta de mans ton de pel escuro, ton de pel moi claro	none
+🫱🏾‍🫲🏼	aperta de mans ton de pel escuro, ton de pel claro	none
+🫱🏾‍🫲🏽	aperta de mans ton de pel escuro, ton de pel medio	none
+🫱🏾‍🫲🏿	aperta de mans ton de pel escuro, ton de pel moi escuro	none
+🫱🏿‍🫲🏻	aperta de mans ton de pel moi escuro, ton de pel moi claro	none
+🫱🏿‍🫲🏼	aperta de mans ton de pel moi escuro, ton de pel claro	none
+🫱🏿‍🫲🏽	aperta de mans ton de pel moi escuro, ton de pel medio	none
+🫱🏿‍🫲🏾	aperta de mans ton de pel moi escuro, ton de pel escuro	none
+🫲🏻	man cara á esquerda ton de pel moi claro	none
+🫲🏼	man cara á esquerda ton de pel claro	none
+🫲🏽	man cara á esquerda ton de pel medio	none
+🫲🏾	man cara á esquerda ton de pel escuro	none
+🫲🏿	man cara á esquerda ton de pel moi escuro	none
+🫳🏻	man coa palma cara abaixo ton de pel moi claro	none
+🫳🏼	man coa palma cara abaixo ton de pel claro	none
+🫳🏽	man coa palma cara abaixo ton de pel medio	none
+🫳🏾	man coa palma cara abaixo ton de pel escuro	none
+🫳🏿	man coa palma cara abaixo ton de pel moi escuro	none
+🫴🏻	man coa palma cara arriba ton de pel moi claro	none
+🫴🏼	man coa palma cara arriba ton de pel claro	none
+🫴🏽	man coa palma cara arriba ton de pel medio	none
+🫴🏾	man coa palma cara arriba ton de pel escuro	none
+🫴🏿	man coa palma cara arriba ton de pel moi escuro	none
+🫵🏻	dedo índice apuntando ao usuario ton de pel moi claro	none
+🫵🏼	dedo índice apuntando ao usuario ton de pel claro	none
+🫵🏽	dedo índice apuntando ao usuario ton de pel medio	none
+🫵🏾	dedo índice apuntando ao usuario ton de pel escuro	none
+🫵🏿	dedo índice apuntando ao usuario ton de pel moi escuro	none
+🫶🏻	mans facendo un corazón ton de pel moi claro	none
+🫶🏼	mans facendo un corazón ton de pel claro	none
+🫶🏽	mans facendo un corazón ton de pel medio	none
+🫶🏾	mans facendo un corazón ton de pel escuro	none
+🫶🏿	mans facendo un corazón ton de pel moi escuro	none
 👋🏻	man saudando ton de pel moi claro	none
 👋🏼	man saudando ton de pel claro	none
 👋🏽	man saudando ton de pel medio	none
@@ -1723,6 +2008,11 @@ symbols:
 🤲🏽	palmas xuntas ton de pel medio	none
 🤲🏾	palmas xuntas ton de pel escuro	none
 🤲🏿	palmas xuntas ton de pel moi escuro	none
+🤝🏻	aperta de mans ton de pel moi claro	none
+🤝🏼	aperta de mans ton de pel claro	none
+🤝🏽	aperta de mans ton de pel medio	none
+🤝🏾	aperta de mans ton de pel escuro	none
+🤝🏿	aperta de mans ton de pel moi escuro	none
 🙏🏻	mans en oración ton de pel moi claro	none
 🙏🏼	mans en oración ton de pel claro	none
 🙏🏽	mans en oración ton de pel medio	none

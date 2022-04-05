@@ -110,24 +110,197 @@ symbols:
 ⁻	mínuszjel felső indexben	none
 ∓	mínusz vagy plusz	none
 ∕	osztási perjel	none
+∗	aszteriszk műveleti jel	none
+∘	gyűrű műveleti jel	none
+∙	listajel műveleti jel	none
 √	négyzetgyök	none
+∝	arányos	none
 ∞	végtelen szimbólum	none
+∟	derékszög	none
+∠	szög	none
+∣	oszt	none
+∥	párhuzamos	none
+∧	logikai és	none
 ∩	metszet	none
 ∪	unió	none
+∫	integrál	none
+∬	dupla integrál	none
+∮	vonalintegrál	none
+∴	tehát	none
+∵	mert	none
+∶	arány	none
+∷	arányzat	none
+∼	hasonlóság műveleti jel	none
+∽	fordított hasonlóságjel	none
+∾	fordított s betű	none
+≃	aszimptotikusan egyenlő	none
+≅	megközelítőleg egyenlő	none
 ≈	közelítőleg egyenlő	none
+≌	mind egyenlő	none
+≒	megközelítőleg egyezik a képpel	none
+≖	gyűrű egyenlőségjelben	none
 ≡	egyenlőségjel	none
+≣	szigorúan egyenlő	none
 ≤	kisebb vagy egyenlő	none
 ≥	nagyobb vagy egyenlő	none
+≦	kisebb jel egyenlőségjel felett	none
+≧	nagyobb jel egyenlőségjel felett	none
+≪	sokkal kevesebb, mint	none
+≫	sokkal nagyobb, mint	none
+≬	között	none
+≳	nagyobb vagy azonos	none
+≺	megelőzi	none
+≻	követi	none
+⊁	nem követi	none
 ⊂	valódi részhalmaza	none
+⊃	szuperhalmaz	none
+⊆	részhalmaz egyenlő	none
+⊇	szuperhalmaz egyenlő	none
+⊕	pluszjel körben	none
+⊖	mínuszjel körben	none
+⊗	szorzásjel körben	none
+⊘	osztásjel körben	none
+⊙	pont műveleti jel körben	none
+⊚	gyűrű műveleti jel körben	none
+⊛	csillag műveleti jel körben	none
+⊞	bekeretezett pluszjel	none
+⊟	bekeretezett mínuszjel	none
+⊥	felfelé mutató merőleges	none
+⊮	nem kényszeríti	none
+⊰	reláció szerint megelőzi	none
+⊱	reláció szerint követi	none
+⋭	nem tartalmazza normál alcsoport-megfelelőként	none
+⊶	eredeti	none
+⊹	hermitikus konjugált mátrix	none
+⊿	derékszögű háromszög	none
+⋁	n-áris logikai vagy	none
+⋂	n-áris keresztmetszet	none
+⋃	n-áris unió	none
+⋅	pont műveleti jel	none
+⋆	csillag műveleti jel	none
+⋈	természetes kapcsolás	none
+⋒	kettős keresztmetszet	none
+⋘	sokkal többel kevesebb, mint	none
+⋙	sokkal többel nagyobb, mint	none
+⋮	függőleges hármaspont	none
+⋯	középső vízszintes hármaspont	none
+⋰	felfelé és jobbra mutató átlós hármaspont	none
+⋱	lefelé és jobbra mutató átlós hármaspont	none
+■	kitöltött négyzet	none
+□	üres négyzet	none
+▢	lekerekített élű üres négyzet	none
+▣	kitöltött négyzetet tartalmazó üres négyzet	none
+▤	vízszintesen kitöltött négyzet	none
+▥	függőlegesen kitöltött négyzet	none
+▦	merőleges keresztmintával kitöltött négyzet	none
+▧	bal felső és jobb alsó irányban kitöltött négyzet	none
+▨	jobb felső és bal alsó irányban kitöltött négyzet	none
+▩	átlós keresztmintával kitöltött négyzet	none
+▬	kitöltött téglalap	none
+▭	üres téglalap	none
+▮	kitöltött álló téglalap	none
+▰	kitöltött paralelogramma	none
 ▲	kitöltött felfelé mutató háromszög	none
+△	felfelé mutató üres háromszög	none
+▴	kicsi, felfelé mutató kitöltött háromszög	none
+▵	kicsi, felfelé mutató üres háromszög	none
+▷	jobbra mutató üres háromszög	none
+▸	kicsi, jobbra mutató kitöltött háromszög	none
+▹	kicsi, jobbra mutató üres háromszög	none
+►	jobbra néző kitöltött mutató	none
+▻	jobbra néző üres mutató	none
 ▼	kitöltött lefelé mutató háromszög	none
+▽	lefelé mutató üres háromszög	none
+▾	kicsi, lefelé mutató kitöltött háromszög	none
+▿	kicsi, lefelé mutató üres háromszög	none
+◁	balra mutató üres háromszög	none
+◂	kicsi, balra mutató kitöltött háromszög	none
+◃	kicsi, balra mutató üres háromszög	none
+◄	balra néző kitöltött mutató	none
+◅	balra néző üres mutató	none
+◆	kitöltött rombusz	none
+◇	üres rombusz	none
+◈	kitöltött rombusz üres rombuszban	none
+◉	kitöltött kör üres körben	none
 ◊	rombusz	none
 ○	üres kör	none
+◌	pontozott kör	none
+◍	függőlegesen kitöltött kör	none
+◎	koncentrikus körök	none
 ●	kitöltött kör	none
+◐	bal felén kitöltött kör	none
+◑	jobb felén kitöltött kör	none
+◒	alsó felén kitöltött kör	none
+◓	felső felén kitöltött kör	none
+◔	jobb felső negyedében kitöltött kör	none
+◕	bal felső negyedében üres kör	none
+◖	bal oldalán kitöltött kör	none
+◗	jobb oldalán kitöltött kör	none
+◘	inverz listajel	none
+◙	üres kör kitöltött négyzetben	none
+◜	bal felső negyedes körív	none
+◝	jobb felső negyedes körív	none
+◞	jobb alsó negyedes körív	none
+◟	bal alsó negyedes körív	none
+◠	felső félkör	none
+◡	alsó félkör	none
+◢	jobb alsó kitöltött háromszög	none
+◣	bal alsó kitöltött háromszög	none
+◤	bal felső kitöltött háromszög	none
+◥	jobb felső kitöltött háromszög	none
+◦	üres listajel	none
 ◯	nagy üres kör	none
+◳	üres négyzet jobb felső negyeddel	none
+◷	üres kör jobb felső negyeddel	none
+◿	jobb alsó háromszög	none
 ♪	nyolcad	none
+⨧	pluszjel alsó indexben kettessel	none
+⨯	vektoriális keresztszorzat	none
+⨼	belső szorzat	none
+⩣	logikai vagy kettős alulvonás	none
+⩽	kisebb jel döntött egyenlőségjellel	none
+⪍	kisebb jel hasonlóság- és egyenlőségjel felett	none
+⪚	kétvonalas egyenlőségjel nagyobb jellel	none
+⪺	követi jel alatta nem majdnem egyenlő jellel	none
 ♭	bé	none
 ♯	kereszt	none
+🥹	könnyeivel küszködő arc	none
+🧌	troll	none
+🩻	röntgen	none
+🩼	mankó	none
+🪩	tükörgömb	none
+🪪	személyi igazolvány	none
+🪫	alacsony töltöttség	none
+🪬	hamsza	none
+🪷	lótusz	none
+🪸	korall	none
+🪹	üres fészek	none
+🪺	fészek tojásokkal	none
+🫃	terhes férfi	none
+🫄	terhes személy	none
+🫅	koronás személy	none
+🫗	ömlő folyadék	none
+🫘	bab	none
+🫙	befőttesüveg	none
+🫠	elolvadó arc	none
+🫡	tisztelgő arc	none
+🫢	nyitott szemű, száját takaró arc	none
+🫣	kémlelő szemű arc	none
+🫤	átlós szájú arc	none
+🫥	pontozott vonalas arc	none
+🫦	ajkába harapó száj	none
+🫧	buborékok	none
+🫰	keresztezett mutató- és hüvelykujjú kéz	none
+🫱	jobbra néző kéz	none
+🫲	balra néző kéz	none
+🫳	lefelé néző kéz	none
+🫴	felfelé néző kéz	none
+🫵	felhasználóra mutató ujj	none
+🫶	szívet formázó kezek	none
+🛝	játszótéri csúszda	none
+🛞	kerék	none
+🛟	mentőöv	none
+🟰	vastag egyenlőségjel	none
 😀	nevető arc	none
 😃	nagyra nyílt szemmel mosolygó arc	none
 😄	nevető arc mosolygó szemmel	none
@@ -1605,13 +1778,91 @@ symbols:
 🏳‍🌈	szivárványszínű zászló	none
 🏳‍⚧	transznemű zászló	none
 🏴‍☠	kalózzászló	none
+₢	cruzeiro	none
+₣	francia frank	none
+₤	líra	none
 ₥	mill	none
 ₩	von	none
 €	euró	none
+₰	német pfennig	none
 ₱	peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	indiai rúpia	none
 ₽	rubel	none
 ₿	bitcoin	none
+₨	rúpia	none
+🫃🏻	terhes férfi világos bőrtónus	none
+🫃🏼	terhes férfi közepesen világos bőrtónus	none
+🫃🏽	terhes férfi közepes bőrtónus	none
+🫃🏾	terhes férfi közepesen sötét bőrtónus	none
+🫃🏿	terhes férfi sötét bőrtónus	none
+🫄🏻	terhes személy világos bőrtónus	none
+🫄🏼	terhes személy közepesen világos bőrtónus	none
+🫄🏽	terhes személy közepes bőrtónus	none
+🫄🏾	terhes személy közepesen sötét bőrtónus	none
+🫄🏿	terhes személy sötét bőrtónus	none
+🫅🏻	koronás személy világos bőrtónus	none
+🫅🏼	koronás személy közepesen világos bőrtónus	none
+🫅🏽	koronás személy közepes bőrtónus	none
+🫅🏾	koronás személy közepesen sötét bőrtónus	none
+🫅🏿	koronás személy sötét bőrtónus	none
+🫰🏻	keresztezett mutató- és hüvelykujjú kéz világos bőrtónus	none
+🫰🏼	keresztezett mutató- és hüvelykujjú kéz közepesen világos bőrtónus	none
+🫰🏽	keresztezett mutató- és hüvelykujjú kéz közepes bőrtónus	none
+🫰🏾	keresztezett mutató- és hüvelykujjú kéz közepesen sötét bőrtónus	none
+🫰🏿	keresztezett mutató- és hüvelykujjú kéz sötét bőrtónus	none
+🫱🏻	jobbra néző kéz világos bőrtónus	none
+🫱🏼	jobbra néző kéz közepesen világos bőrtónus	none
+🫱🏽	jobbra néző kéz közepes bőrtónus	none
+🫱🏾	jobbra néző kéz közepesen sötét bőrtónus	none
+🫱🏿	jobbra néző kéz sötét bőrtónus	none
+🫱🏻‍🫲🏼	kézfogás világos bőrtónus és közepesen világos bőrtónus	none
+🫱🏻‍🫲🏽	kézfogás világos bőrtónus és közepes bőrtónus	none
+🫱🏻‍🫲🏾	kézfogás világos bőrtónus és közepesen sötét bőrtónus	none
+🫱🏻‍🫲🏿	kézfogás világos bőrtónus és sötét bőrtónus	none
+🫱🏼‍🫲🏻	kézfogás közepesen világos bőrtónus és világos bőrtónus	none
+🫱🏼‍🫲🏽	kézfogás közepesen világos bőrtónus és közepes bőrtónus	none
+🫱🏼‍🫲🏾	kézfogás közepesen világos bőrtónus és közepesen sötét bőrtónus	none
+🫱🏼‍🫲🏿	kézfogás közepesen világos bőrtónus és sötét bőrtónus	none
+🫱🏽‍🫲🏻	kézfogás közepes bőrtónus és világos bőrtónus	none
+🫱🏽‍🫲🏼	kézfogás közepes bőrtónus és közepesen világos bőrtónus	none
+🫱🏽‍🫲🏾	kézfogás közepes bőrtónus és közepesen sötét bőrtónus	none
+🫱🏽‍🫲🏿	kézfogás közepes bőrtónus és sötét bőrtónus	none
+🫱🏾‍🫲🏻	kézfogás közepesen sötét bőrtónus és világos bőrtónus	none
+🫱🏾‍🫲🏼	kézfogás közepesen sötét bőrtónus és közepesen világos bőrtónus	none
+🫱🏾‍🫲🏽	kézfogás közepesen sötét bőrtónus és közepes bőrtónus	none
+🫱🏾‍🫲🏿	kézfogás közepesen sötét bőrtónus és sötét bőrtónus	none
+🫱🏿‍🫲🏻	kézfogás sötét bőrtónus és világos bőrtónus	none
+🫱🏿‍🫲🏼	kézfogás sötét bőrtónus és közepesen világos bőrtónus	none
+🫱🏿‍🫲🏽	kézfogás sötét bőrtónus és közepes bőrtónus	none
+🫱🏿‍🫲🏾	kézfogás sötét bőrtónus és közepesen sötét bőrtónus	none
+🫲🏻	balra néző kéz világos bőrtónus	none
+🫲🏼	balra néző kéz közepesen világos bőrtónus	none
+🫲🏽	balra néző kéz közepes bőrtónus	none
+🫲🏾	balra néző kéz közepesen sötét bőrtónus	none
+🫲🏿	balra néző kéz sötét bőrtónus	none
+🫳🏻	lefelé néző kéz világos bőrtónus	none
+🫳🏼	lefelé néző kéz közepesen világos bőrtónus	none
+🫳🏽	lefelé néző kéz közepes bőrtónus	none
+🫳🏾	lefelé néző kéz közepesen sötét bőrtónus	none
+🫳🏿	lefelé néző kéz sötét bőrtónus	none
+🫴🏻	felfelé néző kéz világos bőrtónus	none
+🫴🏼	felfelé néző kéz közepesen világos bőrtónus	none
+🫴🏽	felfelé néző kéz közepes bőrtónus	none
+🫴🏾	felfelé néző kéz közepesen sötét bőrtónus	none
+🫴🏿	felfelé néző kéz sötét bőrtónus	none
+🫵🏻	felhasználóra mutató ujj világos bőrtónus	none
+🫵🏼	felhasználóra mutató ujj közepesen világos bőrtónus	none
+🫵🏽	felhasználóra mutató ujj közepes bőrtónus	none
+🫵🏾	felhasználóra mutató ujj közepesen sötét bőrtónus	none
+🫵🏿	felhasználóra mutató ujj sötét bőrtónus	none
+🫶🏻	szívet formázó kezek világos bőrtónus	none
+🫶🏼	szívet formázó kezek közepesen világos bőrtónus	none
+🫶🏽	szívet formázó kezek közepes bőrtónus	none
+🫶🏾	szívet formázó kezek közepesen sötét bőrtónus	none
+🫶🏿	szívet formázó kezek sötét bőrtónus	none
 👋🏻	integető kéz világos bőrtónus	none
 👋🏼	integető kéz közepesen világos bőrtónus	none
 👋🏽	integető kéz közepes bőrtónus	none
@@ -1757,6 +2008,11 @@ symbols:
 🤲🏽	felfelé fordított tenyerek közepes bőrtónus	none
 🤲🏾	felfelé fordított tenyerek közepesen sötét bőrtónus	none
 🤲🏿	felfelé fordított tenyerek sötét bőrtónus	none
+🤝🏻	kézfogás világos bőrtónus	none
+🤝🏼	kézfogás közepesen világos bőrtónus	none
+🤝🏽	kézfogás közepes bőrtónus	none
+🤝🏾	kézfogás közepesen sötét bőrtónus	none
+🤝🏿	kézfogás sötét bőrtónus	none
 🙏🏻	összetett kéz világos bőrtónus	none
 🙏🏼	összetett kéz közepesen világos bőrtónus	none
 🙏🏽	összetett kéz közepes bőrtónus	none

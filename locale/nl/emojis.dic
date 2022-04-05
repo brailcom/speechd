@@ -10,13 +10,13 @@ symbols:
 🏿	donkere huidskleur	none
 ℗	copyright geluidsopname	none
 ←	naar links wijzende pijl	none
-↚	schuine streep met pijl naar links	none
+↚	streep met pijl naar links	none
 →	naar rechts wijzende pijl	none
-↛	schuine streep met pijl naar rechts	none
+↛	streep met pijl naar rechts	none
 ↑	omhoog wijzende pijl	none
 ↓	omlaag wijzende pijl	none
-↜	schuine streep met golvende pijl naar links	none
-↝	schuine streep met golvende pijl naar rechts	none
+↜	golvende pijl naar links	none
+↝	golvende pijl naar rechts	none
 ↞	pijl met twee koppen naar links	none
 ↟	pijl met twee koppen omhoog	none
 ↠	pijl met twee koppen naar rechts	none
@@ -112,6 +112,7 @@ symbols:
 ∕	deelstreep	none
 ∗	asterisk-teken	none
 ∘	operator samenstelling	none
+∙	puntteken	none
 √	vierkantswortel	none
 ∝	evenredig	none
 ∞	oneindig teken	none
@@ -136,19 +137,170 @@ symbols:
 ≅	ongeveer gelijk	none
 ≈	ongeveerteken	none
 ≌	alles gelijk	none
+≒	ongeveer gelijk aan de afbeelding	none
+≖	ring in gelijk	none
 ≡	is gelijk aan	none
+≣	strict gelijk	none
 ≤	kleiner dan of gelijk aan	none
 ≥	groter dan of gelijk aan	none
+≦	is minder dan of gelijk aan	none
+≧	groter dan boven gelijk aan	none
+≪	veel minder dan	none
+≫	veel groter dan	none
+≬	tussen	none
+≳	groter of gelijk dan	none
+≺	komt voor	none
+≻	komt na	none
+⊁	komt niet na	none
 ⊂	deelverzameling van	none
+⊃	verzameling	none
+⊆	deelverzameling gelijk aan	none
+⊇	verzameling gelijk aan	none
+⊕	plusteken in cirkel	none
+⊖	minteken in cirkel	none
+⊗	vermenigvuldigingsteken in cirkel	none
+⊘	schuine streep voorwaarts in cirkel	none
+⊙	operator met punt in cirkel	none
+⊚	operator met ring in cirkel	none
+⊛	operator met asterisk in cirkel	none
+⊞	plusteken in vierkant	none
+⊟	minteken in vierkant	none
+⊥	falsum	none
+⊮	forceert niet	none
+⊰	komt voor onder relatie	none
+⊱	komt na onder relatie	none
+⋭	is gelijk aan bevat geen normale deelverzameling	none
+⊶	origineel	none
+⊹	geconjugeerde hermitische matrix	none
+⊿	driehoek rechts	none
+⋁	n-ary logisch of	none
+⋂	n-ary doorsnede	none
+⋃	n-ary vereniging	none
+⋅	puntoperator	none
+⋆	steroperator	none
+⋈	natuurlijk samenvoegen	none
+⋒	dubbele doorsnede	none
+⋘	heel veel minder dan	none
+⋙	heel veel groter dan	none
+⋮	verticale ellips	none
+⋯	horizontale ellips op middellijn	none
+⋰	ellips diagonaal rechts omhoog	none
+⋱	ellips diagonaal rechts omlaag	none
+■	ingevuld vakje	none
+□	leeg vakje	none
+▢	leeg vakje met afgeronde hoeken	none
+▣	leeg vakje met ingevuld vakje	none
+▤	vakje met horizontale invulling	none
+▥	vakje met verticale invulling	none
+▦	vakje met invulling met orthogonale dubbele arcering	none
+▧	vakje met invulling linksboven/rechtsonder	none
+▨	vakje met invulling linksonder/rechtsboven	none
+▩	vakje met invulling met diagonale dubbele arcering	none
+▬	rechthoek met invulling	none
+▭	holle rechthoek	none
+▮	ingevulde verticale rechthoek	none
+▰	ingevuld parallellogram	none
 ▲	gevulde, omhoog wijzende driehoek	none
+△	holle driehoek die naar boven wijst	none
+▴	ingevulde kleine driehoek die naar boven wijst	none
+▵	holle kleine driehoek die naar boven wijst	none
+▷	holle driehoek die naar rechts wijst	none
+▸	ingevulde kleine driehoek die naar rechts wijst	none
+▹	holle kleine driehoek die naar rechts wijst	none
+►	ingevulde pijl die naar rechts wijst	none
+▻	holle pijl die naar rechts wijst	none
 ▼	gevulde, omlaag wijzende driehoek	none
+▽	holle pijl die omlaag wijst	none
+▾	ingevulde kleine driehoek die omlaag wijst	none
+▿	holle kleine driehoek die omlaag wijst	none
+◁	holle driehoek die naar links wijst	none
+◂	ingevulde kleine driehoek die naar links wijst	none
+◃	holle kleine driehoek die naar links wijst	none
+◄	ingevulde pijl die naar links wijst	none
+◅	holle pijl die naar links wijst	none
+◆	ingevulde ruit	none
+◇	holle ruit	none
+◈	holle ruit met ingevulde ruit	none
+◉	holle cirkel met ingevulde cirkel	none
 ◊	ruit	none
 ○	holle cirkel	none
+◌	gestippelde cirkel	none
+◍	cirkel met verticale invulling	none
+◎	concentrische cirkels	none
 ●	gevulde cirkel	none
+◐	cirkel met ingevulde linker helft	none
+◑	cirkel met ingevulde rechter helft	none
+◒	cirkel met ingevulde onderste helft	none
+◓	cirkel met ingevulde bovenste helft	none
+◔	cirkel met bovenste kwadrant rechts ingevuld	none
+◕	cirkel met alles ingevuld behalve linker kwadrant	none
+◖	cirkel met linker helft ingevuld	none
+◗	cirkel met rechter helft ingevuld	none
+◘	omgekeerd opsommingsteken	none
+◙	ingevuld vakje met holle cirkel	none
+◜	ronde boog kwadrant linksboven	none
+◝	ronde boog kwadrant rechtsboven	none
+◞	ronde boog kwadrant rechtsonder	none
+◟	ronde boog kwadrant linksonder	none
+◠	bovenste halve cirkel	none
+◡	onderste halve cirkel	none
+◢	ingevulde driehoek rechtsonder	none
+◣	ingevulde driehoek linksonder	none
+◤	ingevulde driehoek linksboven	none
+◥	ingevulde driehoek rechtsboven	none
+◦	hol opsommingsteken	none
 ◯	grote holle cirkel	none
+◳	hol vakje kwadrant rechtsboven	none
+◷	holle cirkel met kwadrant rechtsboven	none
+◿	driehoek rechtsonder	none
 ♪	achtste noot	none
+⨧	plus subscript twee	none
+⨯	vectorkruisproduct	none
+⨼	inwendig product	none
+⩣	logische of dubbele onderbalk	none
+⩽	minder dan of gelijk aan	none
+⪍	minder dan boven soortgelijk aan	none
+⪚	dubbele lijn soortgelijk aan groter dan	none
+⪺	komt na boven niet bijna gelijk aan	none
 ♭	mol	none
 ♯	kruis	none
+🥹	gezicht dat tranen tegenhoudt	none
+🧌	trol	none
+🩻	röntgenfoto	none
+🩼	kruk	none
+🪩	spiegelbal	none
+🪪	legitimatiebewijs	none
+🪫	batterij bijna leeg	none
+🪬	hamsa	none
+🪷	lotus	none
+🪸	koraal	none
+🪹	leeg nest	none
+🪺	nest met eieren	none
+🫃	zwangere man	none
+🫄	zwanger persoon	none
+🫅	persoon met kroon	none
+🫗	vloeistof uitgieten	none
+🫘	bonen	none
+🫙	pot	none
+🫠	smeltend gezicht	none
+🫡	saluerend gezicht	none
+🫢	gezicht met open ogen en hand over de mond	none
+🫣	gezicht met glurend oog	none
+🫤	gezicht met schuine mond	none
+🫥	gezicht in stippellijn	none
+🫦	mond die op lip bijt	none
+🫧	zeepbellen	none
+🫰	hand met wijsvinger en duim gekruist	none
+🫱	hand naar rechts	none
+🫲	hand naar links	none
+🫳	handpalm omlaag	none
+🫴	handpalm omhoog	none
+🫵	wijsvinger die naar de kijker wijst	none
+🫶	handen in de vorm van een hart	none
+🛝	glijbaan	none
+🛞	wiel	none
+🛟	reddingsboei	none
+🟰	vetgedrukt gelijkteken	none
 😀	grijnzend gezicht	none
 😃	grijnzend gezicht met grote ogen	none
 😄	grijnzend gezicht met lachende ogen	none
@@ -250,7 +402,7 @@ symbols:
 ☠	doodshoofd met gekruiste beenderen	none
 💩	drol	none
 🤡	clownsgezicht	none
-👹	trol	none
+👹	boeman	none
 👺	kobold	none
 👻	spook	none
 👽	buitenaards wezen	none
@@ -1469,7 +1621,7 @@ symbols:
 ↖	pijl linksomhoog	none
 ↕	pijl omhoog en omlaag	none
 ↔	pijl naar links en rechts	none
-↮	schuine streep met pijl naar links/rechts	none
+↮	streep met pijl naar links/rechts	none
 ↩	pijl naar rechts die naar links draait	none
 ↪	pijl naar links die naar rechts draait	none
 ⤴	pijl naar rechts die omhoog draait	none
@@ -1543,7 +1695,7 @@ symbols:
 ❕	wit uitroepteken	none
 ❗	rood uitroepteken	none
 💱	geld wisselen	none
-💲	dollarteken	none
+💲	vetgedrukt dollarteken	none
 ⚕	esculaap	none
 ♻	recycling-symbool	none
 ⚜	fleur de lis	none
@@ -1626,13 +1778,91 @@ symbols:
 🏳‍🌈	regenboogvlag	none
 🏳‍⚧	transgendervlag	none
 🏴‍☠	piratenvlag	none
+₢	cruzeiro	none
+₣	Franse franc	none
+₤	lira	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
+₰	Duitse pfennig	none
 ₱	peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	Indiase roepie	none
 ₽	roebel	none
 ₿	bitcoin	none
+₨	roepie	none
+🫃🏻	zwangere man lichte huidskleur	none
+🫃🏼	zwangere man lichtgetinte huidskleur	none
+🫃🏽	zwangere man getinte huidskleur	none
+🫃🏾	zwangere man donkergetinte huidskleur	none
+🫃🏿	zwangere man donkere huidskleur	none
+🫄🏻	zwanger persoon lichte huidskleur	none
+🫄🏼	zwanger persoon lichtgetinte huidskleur	none
+🫄🏽	zwanger persoon getinte huidskleur	none
+🫄🏾	zwanger persoon donkergetinte huidskleur	none
+🫄🏿	zwanger persoon donkere huidskleur	none
+🫅🏻	persoon met kroon lichte huidskleur	none
+🫅🏼	persoon met kroon lichtgetinte huidskleur	none
+🫅🏽	persoon met kroon getinte huidskleur	none
+🫅🏾	persoon met kroon donkergetinte huidskleur	none
+🫅🏿	persoon met kroon donkere huidskleur	none
+🫰🏻	hand met wijsvinger en duim gekruist lichte huidskleur	none
+🫰🏼	hand met wijsvinger en duim gekruist lichtgetinte huidskleur	none
+🫰🏽	hand met wijsvinger en duim gekruist getinte huidskleur	none
+🫰🏾	hand met wijsvinger en duim gekruist donkergetinte huidskleur	none
+🫰🏿	hand met wijsvinger en duim gekruist donkere huidskleur	none
+🫱🏻	hand naar rechts lichte huidskleur	none
+🫱🏼	hand naar rechts lichtgetinte huidskleur	none
+🫱🏽	hand naar rechts getinte huidskleur	none
+🫱🏾	hand naar rechts donkergetinte huidskleur	none
+🫱🏿	hand naar rechts donkere huidskleur	none
+🫱🏻‍🫲🏼	handdruk lichte huidskleur, lichtgetinte huidskleur	none
+🫱🏻‍🫲🏽	handdruk lichte huidskleur, getinte huidskleur	none
+🫱🏻‍🫲🏾	handdruk lichte huidskleur, donkergetinte huidskleur	none
+🫱🏻‍🫲🏿	handdruk lichte huidskleur, donkere huidskleur	none
+🫱🏼‍🫲🏻	handdruk lichtgetinte huidskleur, lichte huidskleur	none
+🫱🏼‍🫲🏽	handdruk lichtgetinte huidskleur, getinte huidskleur	none
+🫱🏼‍🫲🏾	handdruk lichtgetinte huidskleur, donkergetinte huidskleur	none
+🫱🏼‍🫲🏿	handdruk lichtgetinte huidskleur, donkere huidskleur	none
+🫱🏽‍🫲🏻	handdruk getinte huidskleur, lichte huidskleur	none
+🫱🏽‍🫲🏼	handdruk getinte huidskleur, lichtgetinte huidskleur	none
+🫱🏽‍🫲🏾	handdruk getinte huidskleur, donkergetinte huidskleur	none
+🫱🏽‍🫲🏿	handdruk getinte huidskleur, donkere huidskleur	none
+🫱🏾‍🫲🏻	handdruk donkergetinte huidskleur, lichte huidskleur	none
+🫱🏾‍🫲🏼	handdruk donkergetinte huidskleur, lichtgetinte huidskleur	none
+🫱🏾‍🫲🏽	handdruk donkergetinte huidskleur, getinte huidskleur	none
+🫱🏾‍🫲🏿	handdruk donkergetinte huidskleur, donkere huidskleur	none
+🫱🏿‍🫲🏻	handdruk donkere huidskleur, lichte huidskleur	none
+🫱🏿‍🫲🏼	handdruk donkere huidskleur, lichtgetinte huidskleur	none
+🫱🏿‍🫲🏽	handdruk donkere huidskleur, getinte huidskleur	none
+🫱🏿‍🫲🏾	handdruk donkere huidskleur, donkergetinte huidskleur	none
+🫲🏻	hand naar links lichte huidskleur	none
+🫲🏼	hand naar links lichtgetinte huidskleur	none
+🫲🏽	hand naar links getinte huidskleur	none
+🫲🏾	hand naar links donkergetinte huidskleur	none
+🫲🏿	hand naar links donkere huidskleur	none
+🫳🏻	handpalm omlaag lichte huidskleur	none
+🫳🏼	handpalm omlaag lichtgetinte huidskleur	none
+🫳🏽	handpalm omlaag getinte huidskleur	none
+🫳🏾	handpalm omlaag donkergetinte huidskleur	none
+🫳🏿	handpalm omlaag donkere huidskleur	none
+🫴🏻	handpalm omhoog lichte huidskleur	none
+🫴🏼	handpalm omhoog lichtgetinte huidskleur	none
+🫴🏽	handpalm omhoog getinte huidskleur	none
+🫴🏾	handpalm omhoog donkergetinte huidskleur	none
+🫴🏿	handpalm omhoog donkere huidskleur	none
+🫵🏻	wijsvinger die naar de kijker wijst lichte huidskleur	none
+🫵🏼	wijsvinger die naar de kijker wijst lichtgetinte huidskleur	none
+🫵🏽	wijsvinger die naar de kijker wijst getinte huidskleur	none
+🫵🏾	wijsvinger die naar de kijker wijst donkergetinte huidskleur	none
+🫵🏿	wijsvinger die naar de kijker wijst donkere huidskleur	none
+🫶🏻	handen in de vorm van een hart lichte huidskleur	none
+🫶🏼	handen in de vorm van een hart lichtgetinte huidskleur	none
+🫶🏽	handen in de vorm van een hart getinte huidskleur	none
+🫶🏾	handen in de vorm van een hart donkergetinte huidskleur	none
+🫶🏿	handen in de vorm van een hart donkere huidskleur	none
 👋🏻	zwaaiende hand lichte huidskleur	none
 👋🏼	zwaaiende hand lichtgetinte huidskleur	none
 👋🏽	zwaaiende hand getinte huidskleur	none
@@ -1778,6 +2008,11 @@ symbols:
 🤲🏽	beide handpalmen omhoog getinte huidskleur	none
 🤲🏾	beide handpalmen omhoog donkergetinte huidskleur	none
 🤲🏿	beide handpalmen omhoog donkere huidskleur	none
+🤝🏻	handdruk lichte huidskleur	none
+🤝🏼	handdruk lichtgetinte huidskleur	none
+🤝🏽	handdruk getinte huidskleur	none
+🤝🏾	handdruk donkergetinte huidskleur	none
+🤝🏿	handdruk donkere huidskleur	none
 🙏🏻	gevouwen handen lichte huidskleur	none
 🙏🏼	gevouwen handen lichtgetinte huidskleur	none
 🙏🏽	gevouwen handen getinte huidskleur	none
