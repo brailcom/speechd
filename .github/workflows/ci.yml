@@ -27,35 +27,37 @@ jobs:
 
           - sanitizer: "address"
             deps: ""
-            configflags: 'ac_cv_func_malloc_0_nonnull=yes ac_cv_func_realloc_0_nonnull=yes CFLAGS="-fsanitize=address -g -Og" CXXFLAGS="-fsanitize=address -g -Og"'
+            configenv: 'ac_cv_func_malloc_0_nonnull=yes ac_cv_func_realloc_0_nonnull=yes'
+            configflags: '-fsanitize=address -g -Og'
             config: ""
             build_env: ""
             check_env: "ASAN_OPTIONS=detect_leaks=0"
 
           - sanitizer: "leak"
             deps: ""
-            configflags: 'ac_cv_func_malloc_0_nonnull=yes ac_cv_func_realloc_0_nonnull=yes CFLAGS="-fsanitize=leak -g -Og" CXXFLAGS="-fsanitize=leak -g -Og"'
+            configenv: 'ac_cv_func_malloc_0_nonnull=yes ac_cv_func_realloc_0_nonnull=yes'
+            configflags: '-fsanitize=leak -g -Og'
             config: ""
             build_env: ""
             check_env: "ASAN_OPTIONS=fast_unwind_on_malloc=0 LSAN_OPTIONS=malloc_context_size=24"
 
           - sanitizer: "thread"
             deps: ""
-            configflags: 'CFLAGS="-fsanitize=thread -g -Og" CXXFLAGS="-fsanitize=thread -g -Og"'
+            configflags: '-fsanitize=thread -g -Og'
             config: ""
             build_env: ""
             check_env: ""
 
           - sanitizer: "undefined"
             deps: ""
-            configflags: 'CFLAGS="-fsanitize=undefined -g -Og" CXXFLAGS="-fsanitize=undefined -g -Og"'
+            configflags: '-fsanitize=undefined -g -Og'
             config: ""
             build_env: ""
             check_env: "UBSAN_OPTIONS=halt_on_error=1"
 
           - sanitizer: "valgrind"
             deps: "libtool-bin valgrind"
-            configflags: 'CFLAGS="-g -Og" CXXFLAGS="-g -Og"'
+            configflags: '-g -Og'
             config: ""
             build_env: ""
             check_env: ""
@@ -75,7 +77,10 @@ jobs:
     - name: autoconf
       run: ./build.sh
     - name: configure
-      run: ${{ matrix.configflags }} ./configure --prefix=/tmp/foobar ${{ matrix.config }}
+      run: ${{ matrix.configenv }}
+           CFLAGS="${{ matrix.configflags }}"
+           CXXFLAGS="${{ matrix.configflags }}"
+           ./configure --prefix=/tmp/foobar ${{ matrix.config }}
     - name: Store the config
       if: ${{ always() }}
       uses: actions/upload-artifact@v2
