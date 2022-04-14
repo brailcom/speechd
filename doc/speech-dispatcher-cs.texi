@@ -52,8 +52,12 @@ pøilo¾ena v sekci nazvané ,,GNU Free Documentation License''.
 
 @end titlepage
 
+@shortcontents
+@contents
+
 @ifnottex
 @node Top, Úvod, (dir), (dir)
+@top Speech Dispatcher
 
 Tento manuál se vzathuje ke Speech Dispatcher, verze @value{VERSION}.  Jedná se
 v¹ak pouze o u¾ivatelskou èást dokumentace a upozoròujeme, ¾e tento pøeklad ji¾

@@ -58,8 +58,12 @@ General Public License''
 
 @end titlepage
 
+@summarycontents
+@contents
+
 @ifnottex
 @node Top, Introduction, (dir), (dir)
+@top Speech Dispatcher
 
 This manual documents Speech Dispatcher, version @value{VERSION}.
 
