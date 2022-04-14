@@ -14,6 +14,7 @@
 
 <link href="#Top" rel="start" title="Top">
 <link href="#Index-of-Concepts" rel="index" title="Index of Concepts">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
 <link href="#g_t_00davod" rel="next" title="Úvod">
 <link href="dir.html#Top" rel="prev" title="(dir)">
@@ -48,11 +49,13 @@ ul.no-bullet {list-style: none}
 
 
 
-<span id="Top"></span><div class="header">
+
+<div class="top" id="Top">
+<div class="header">
 <p>
-Next: <a href="#g_t_00davod" accesskey="n" rel="next">Úvod</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#g_t_00davod" accesskey="n" rel="next">Úvod</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="node-heading">Top</h1>
+<span id="Speech-Dispatcher"></span><h1 class="top">Speech Dispatcher</h1>
 
 <p>Tento manuál se vzathuje ke Speech Dispatcher, verze 0.11.1.99.  Jedná se
 v¹ak pouze o u¾ivatelskou èást dokumentace a upozoròujeme, ¾e tento pøeklad ji¾
@@ -75,11 +78,83 @@ pøilo¾ena v sekci nazvané ,,GNU Free Documentation License&rdquo;.
 <span id="Menu"></span><h3 class="heading">Menu</h3>
 
 
+<div class="Contents_element" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-Uvod" href="#g_t_00davod">1 Úvod</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Motivace-1" href="#Motivace">1.1 Motivace</a></li>
+    <li><a id="toc-Zakladni-design" href="#Z_00e1kladn_00ed-design">1.2 Základní design</a></li>
+    <li><a id="toc-Prehled-zakladnich-rysu" href="#P_0159ehled-z_00e1kladn_00edch-rys_016f">1.3 Pøehled základních rysù</a></li>
+    <li><a id="toc-Soucasny-stav" href="#Sou_010dasn_00fd-stav">1.4 Souèasný stav</a></li>
+  </ul></li>
+  <li><a id="toc-Uzivatelska-dokumentace" href="#U_017eivatelsk_00e1-dokumentace">2 U¾ivatelská dokumentace</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Zakladni-funkce" href="#Z_00e1kladn_00ed-funkce">2.1 Základní funkce</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Model-priorit-zprav" href="#Model-priorit-zpr_00e1v">2.1.1 Model priorit zpráv</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Priority-Categories" href="#Typy-priorit">2.1.1.1 Priority Categories</a></li>
+        <li><a id="toc-Diagram-priorit-1" href="#Diagram-priorit">2.1.1.2 Diagram priorit</a></li>
+        <li><a id="toc-Priklady-vyuziti-priorit" href="#P_0159_00edklady-vyu_017eit_00ed-priorit">2.1.1.3 Pøíklady vyu¾ití priorit</a></li>
+      </ul></li>
+      <li><a id="toc-Historie-zprav" href="#Historie-zpr_00e1v">2.1.2 Historie zpráv</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Access-Rights" href="#P_0159_00edstupov_00e1-pr_00e1va">2.1.2.1 Access Rights</a></li>
+      </ul></li>
+      <li><a id="toc-Vice-vystupnich-modulu" href="#V_00edce-v_00fdstupn_00edch-modul_016f">2.1.3 Více výstupních modulù</a></li>
+      <li><a id="toc-Autentifikace-uzivatelu" href="#Autentifikace-u_017eivatel_016f">2.1.4 Autentifikace u¾ivatelù</a></li>
+    </ul></li>
+    <li><a id="toc-Invoking" href="#Spou_0161t_011bn_00ed">2.2 Invoking</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Potrebna-privilegia" href="#Potrebna-privilegia">2.2.1 Potøebná privilegia</a></li>
+      <li><a id="toc-Volby-prikazove-radky" href="#Volby-prikazove-radky">2.2.2 Volby pøíkazové øádky</a></li>
+    </ul></li>
+    <li><a id="toc-konfigurace" href="#Konfigurace">2.3 konfigurace</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Syntaxe-konfiguracniho-souboru" href="#Syntaxe-konfigura_010dn_00edho-souboru">2.3.1 Syntaxe konfiguraèního souboru</a></li>
+      <li><a id="toc-Configuration-options" href="#Volby-v-konfiguraci">2.3.2 Configuration options</a></li>
+      <li><a id="toc-Output-Modules-Configuration" href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f">2.3.3 Output Modules Configuration</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Natahovani-modulu-ve-speechd_002econf" href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf">2.3.3.1 Natahování modulù ve speechd.conf</a></li>
+        <li><a id="toc-Konfiguracni-soubory-vystupnich-modulu" href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f">2.3.3.2 Konfiguraèní soubory výstupních modulù</a></li>
+        <li><a id="toc-Konfigurace-generickeho-vystupniho-modulu" href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">2.3.3.3 Konfigurace generického výstupního modulu</a></li>
+      </ul></li>
+      <li><a id="toc-Urovne-logovani" href="#g_t_00darovn_011b-logov_00e1n_00ed">2.3.4 Úrovnì logování</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Standardni-hlasy" href="#Standardni-hlasy">Appendix A Standardní hlasy</a></li>
+  <li><a id="toc-GNU-General-Public-License-1" href="#GNU-General-Public-License">Appendix B GNU General Public License</a></li>
+  <li><a id="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix C GNU Free Documentation License</a>
+  <ul class="no-bullet">
+    <li><a id="toc-ADDENDUM_003a-How-to-use-this-License-for-your-documents" href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents">C.1 ADDENDUM: How to use this License for your documents</a></li>
+  </ul></li>
+  <li><a id="toc-Index-of-Concepts-1" href="#Index-of-Concepts" rel="index">Index of Concepts</a></li>
+</ul>
+</div>
+</div>
+<div class="Overview_element" id="SEC_Overview">
+<h2 class="shortcontents-heading">Short Table of Contents</h2>
+
+<div class="shortcontents">
+<ul class="no-bullet">
+<li><a id="stoc-Uvod" href="#toc-Uvod">1 Úvod</a></li>
+<li><a id="stoc-Uzivatelska-dokumentace" href="#toc-Uzivatelska-dokumentace">2 U¾ivatelská dokumentace</a></li>
+<li><a id="stoc-Standardni-hlasy" href="#toc-Standardni-hlasy">Appendix A Standardní hlasy</a></li>
+<li><a id="stoc-GNU-General-Public-License-1" href="#toc-GNU-General-Public-License-1">Appendix B GNU General Public License</a></li>
+<li><a id="stoc-GNU-Free-Documentation-License-1" href="#toc-GNU-Free-Documentation-License-1">Appendix C GNU Free Documentation License</a></li>
+<li><a id="stoc-Index-of-Concepts-1" href="#toc-Index-of-Concepts-1" rel="index">Index of Concepts</a></li>
+</ul>
+</div>
+</div>
 <hr>
 <div class="chapter" id="g_t_00davod">
 <div class="header">
 <p>
-Next: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="n" rel="next">U¾ivatelská dokumentace</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="n" rel="next">U¾ivatelská dokumentace</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Speech Dispatcher</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Uvod"></span><h2 class="chapter">1 Úvod</h2>
 
@@ -94,7 +169,7 @@ Next: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="n" rel="next">U¾ivat
 <div class="section" id="Motivace">
 <div class="header">
 <p>
-Next: <a href="#Z_00e1kladn_00ed-design" accesskey="n" rel="next">Základní design</a>, Previous: <a href="#g_t_00davod" accesskey="p" rel="prev">Úvod</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Z_00e1kladn_00ed-design" accesskey="n" rel="next">Základní design</a>, Previous: <a href="#g_t_00davod" accesskey="p" rel="prev">Úvod</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Motivace-1"></span><h3 class="section">1.1 Motivace</h3>
 <span id="index-Hlavni-myslenky_002c-Motivace"></span>
@@ -146,7 +221,7 @@ krùèky...
 <div class="section" id="Z_00e1kladn_00ed-design">
 <div class="header">
 <p>
-Next: <a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" accesskey="n" rel="next">Pøehled základních rysù</a>, Previous: <a href="#Motivace" accesskey="p" rel="prev">Motivace</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" accesskey="n" rel="next">Pøehled základních rysù</a>, Previous: <a href="#Motivace" accesskey="p" rel="prev">Motivace</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Zakladni-design"></span><h3 class="section">1.2 Základní design</h3>
 <span id="index-Design"></span>
@@ -182,7 +257,7 @@ manuálu.
 <div class="section" id="P_0159ehled-z_00e1kladn_00edch-rys_016f">
 <div class="header">
 <p>
-Next: <a href="#Sou_010dasn_00fd-stav" accesskey="n" rel="next">Souèasný stav</a>, Previous: <a href="#Z_00e1kladn_00ed-design" accesskey="p" rel="prev">Základní design</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Sou_010dasn_00fd-stav" accesskey="n" rel="next">Souèasný stav</a>, Previous: <a href="#Z_00e1kladn_00ed-design" accesskey="p" rel="prev">Základní design</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Prehled-zakladnich-rysu"></span><h3 class="section">1.3 Pøehled základních rysù</h3>
 
@@ -209,7 +284,7 @@ Next: <a href="#Sou_010dasn_00fd-stav" accesskey="n" rel="next">Souèasný stav</a
 <div class="section" id="Sou_010dasn_00fd-stav">
 <div class="header">
 <p>
-Previous: <a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" accesskey="p" rel="prev">Pøehled základních rysù</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" accesskey="p" rel="prev">Pøehled základních rysù</a>, Up: <a href="#g_t_00davod" accesskey="u" rel="up">Úvod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Soucasny-stav"></span><h3 class="section">1.4 Souèasný stav</h3>
 <span id="index-Syntetizery"></span>
@@ -223,7 +298,7 @@ Previous: <a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" accesskey="p" rel="
 <div class="chapter" id="U_017eivatelsk_00e1-dokumentace">
 <div class="header">
 <p>
-Next: <a href="#GNU-General-Public-License" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#g_t_00davod" accesskey="p" rel="prev">Úvod</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#GNU-General-Public-License" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#g_t_00davod" accesskey="p" rel="prev">Úvod</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Uzivatelska-dokumentace"></span><h2 class="chapter">2 U¾ivatelská dokumentace</h2>
 
@@ -237,7 +312,7 @@ Next: <a href="#GNU-General-Public-License" accesskey="n" rel="next">GNU General
 <div class="section" id="Z_00e1kladn_00ed-funkce">
 <div class="header">
 <p>
-Next: <a href="#Spou_0161t_011bn_00ed" accesskey="n" rel="next">Invoking</a>, Previous: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="p" rel="prev">U¾ivatelská dokumentace</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">U¾ivatelská dokumentace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Spou_0161t_011bn_00ed" accesskey="n" rel="next">Invoking</a>, Previous: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="p" rel="prev">U¾ivatelská dokumentace</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">U¾ivatelská dokumentace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Zakladni-funkce"></span><h3 class="section">2.1 Základní funkce</h3>
 
@@ -254,7 +329,7 @@ Next: <a href="#Spou_0161t_011bn_00ed" accesskey="n" rel="next">Invoking</a>, Pr
 <div class="subsection" id="Model-priorit-zpr_00e1v">
 <div class="header">
 <p>
-Next: <a href="#Historie-zpr_00e1v" accesskey="n" rel="next">Historie zpráv</a>, Previous: <a href="#Z_00e1kladn_00ed-funkce" accesskey="p" rel="prev">Základní funkce</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Historie-zpr_00e1v" accesskey="n" rel="next">Historie zpráv</a>, Previous: <a href="#Z_00e1kladn_00ed-funkce" accesskey="p" rel="prev">Základní funkce</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Model-priorit-zprav"></span><h4 class="subsection">2.1.1 Model priorit zpráv</h4>
 <span id="index-priority"></span>
@@ -281,7 +356,7 @@ Dispatcheru.
 <div class="subsubsection" id="Typy-priorit">
 <div class="header">
 <p>
-Next: <a href="#Diagram-priorit" accesskey="n" rel="next">Diagram priorit</a>, Previous: <a href="#Model-priorit-zpr_00e1v" accesskey="p" rel="prev">Model priorit zpráv</a>, Up: <a href="#Model-priorit-zpr_00e1v" accesskey="u" rel="up">Model priorit zpráv</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Diagram-priorit" accesskey="n" rel="next">Diagram priorit</a>, Previous: <a href="#Model-priorit-zpr_00e1v" accesskey="p" rel="prev">Model priorit zpráv</a>, Up: <a href="#Model-priorit-zpr_00e1v" accesskey="u" rel="up">Model priorit zpráv</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Priority-Categories"></span><h4 class="subsubsection">2.1.1.1 Priority Categories</h4>
                   
@@ -365,7 +440,7 @@ pøeøíkána, je její pøeøíkání vynuceno s prioritou <code>message</code>.
 <div class="subsubsection" id="Diagram-priorit">
 <div class="header">
 <p>
-Next: <a href="#P_0159_00edklady-vyu_017eit_00ed-priorit" accesskey="n" rel="next">Pøíklady vyu¾ití priorit</a>, Previous: <a href="#Typy-priorit" accesskey="p" rel="prev">Priority Categories</a>, Up: <a href="#Model-priorit-zpr_00e1v" accesskey="u" rel="up">Model priorit zpráv</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#P_0159_00edklady-vyu_017eit_00ed-priorit" accesskey="n" rel="next">Pøíklady vyu¾ití priorit</a>, Previous: <a href="#Typy-priorit" accesskey="p" rel="prev">Priority Categories</a>, Up: <a href="#Model-priorit-zpr_00e1v" accesskey="u" rel="up">Model priorit zpráv</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Diagram-priorit-1"></span><h4 class="subsubsection">2.1.1.2 Diagram priorit</h4>
 
@@ -376,7 +451,7 @@ Next: <a href="#P_0159_00edklady-vyu_017eit_00ed-priorit" accesskey="n" rel="nex
 <div class="subsubsection" id="P_0159_00edklady-vyu_017eit_00ed-priorit">
 <div class="header">
 <p>
-Previous: <a href="#Diagram-priorit" accesskey="p" rel="prev">Diagram priorit</a>, Up: <a href="#Model-priorit-zpr_00e1v" accesskey="u" rel="up">Model priorit zpráv</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Diagram-priorit" accesskey="p" rel="prev">Diagram priorit</a>, Up: <a href="#Model-priorit-zpr_00e1v" accesskey="u" rel="up">Model priorit zpráv</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Priklady-vyuziti-priorit"></span><h4 class="subsubsection">2.1.1.3 Pøíklady vyu¾ití priorit</h4>
 
@@ -427,7 +502,7 @@ Previous: <a href="#Diagram-priorit" accesskey="p" rel="prev">Diagram priorit</a
 <div class="subsection" id="Historie-zpr_00e1v">
 <div class="header">
 <p>
-Next: <a href="#V_00edce-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Více výstupních modulù</a>, Previous: <a href="#Model-priorit-zpr_00e1v" accesskey="p" rel="prev">Model priorit zpráv</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#V_00edce-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Více výstupních modulù</a>, Previous: <a href="#Model-priorit-zpr_00e1v" accesskey="p" rel="prev">Model priorit zpráv</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Historie-zprav"></span><h4 class="subsection">2.1.2 Historie zpráv</h4>
 <span id="index-history"></span>
@@ -450,7 +525,7 @@ mohl u¾ivatel podívat, zda mu neu¹lo nìco dùle¾itého.
 <div class="subsubsection" id="P_0159_00edstupov_00e1-pr_00e1va">
 <div class="header">
 <p>
-Previous: <a href="#Historie-zpr_00e1v" accesskey="p" rel="prev">Historie zpráv</a>, Up: <a href="#Historie-zpr_00e1v" accesskey="u" rel="up">Historie zpráv</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Historie-zpr_00e1v" accesskey="p" rel="prev">Historie zpráv</a>, Up: <a href="#Historie-zpr_00e1v" accesskey="u" rel="up">Historie zpráv</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Access-Rights"></span><h4 class="subsubsection">2.1.2.1 Access Rights</h4>
 <span id="index-access-rights"></span>
@@ -485,7 +560,7 @@ pøipojení nebo døíve pøipojení u¾ivatelé.
 <div class="subsection" id="V_00edce-v_00fdstupn_00edch-modul_016f">
 <div class="header">
 <p>
-Next: <a href="#Autentifikace-u_017eivatel_016f" accesskey="n" rel="next">Autentifikace u¾ivatelù</a>, Previous: <a href="#Historie-zpr_00e1v" accesskey="p" rel="prev">Historie zpráv</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Autentifikace-u_017eivatel_016f" accesskey="n" rel="next">Autentifikace u¾ivatelù</a>, Previous: <a href="#Historie-zpr_00e1v" accesskey="p" rel="prev">Historie zpráv</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Vice-vystupnich-modulu"></span><h4 class="subsection">2.1.3 Více výstupních modulù</h4>
 <span id="index-vystupni-modul"></span>
@@ -504,7 +579,7 @@ ovlivnìna v konfiguraèním souboru <samp>speechd.conf</samp>.
 <div class="subsection" id="Autentifikace-u_017eivatel_016f">
 <div class="header">
 <p>
-Previous: <a href="#V_00edce-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Více výstupních modulù</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#V_00edce-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Více výstupních modulù</a>, Up: <a href="#Z_00e1kladn_00ed-funkce" accesskey="u" rel="up">Základní funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Autentifikace-uzivatelu"></span><h4 class="subsection">2.1.4 Autentifikace u¾ivatelù</h4>
 <span id="index-Identification-Protocol"></span>
@@ -529,7 +604,7 @@ jejich <a href="#Historie-zpr_00e1v">Historie zpráv</a>).
 <div class="section" id="Spou_0161t_011bn_00ed">
 <div class="header">
 <p>
-Next: <a href="#Konfigurace" accesskey="n" rel="next">konfigurace</a>, Previous: <a href="#Z_00e1kladn_00ed-funkce" accesskey="p" rel="prev">Základní funkce</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">U¾ivatelská dokumentace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Konfigurace" accesskey="n" rel="next">konfigurace</a>, Previous: <a href="#Z_00e1kladn_00ed-funkce" accesskey="p" rel="prev">Základní funkce</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">U¾ivatelská dokumentace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Invoking"></span><h3 class="section">2.2 Invoking</h3>
 
@@ -609,7 +684,7 @@ a emailovou adresu pro zasílání oznámení o chybách.
 <div class="section" id="Konfigurace">
 <div class="header">
 <p>
-Previous: <a href="#Spou_0161t_011bn_00ed" accesskey="p" rel="prev">Invoking</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">U¾ivatelská dokumentace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Spou_0161t_011bn_00ed" accesskey="p" rel="prev">Invoking</a>, Up: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="u" rel="up">U¾ivatelská dokumentace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="konfigurace"></span><h3 class="section">2.3 konfigurace</h3>
 <span id="index-konfigurace"></span>
@@ -636,7 +711,7 @@ konfiguraèní soubor.
 <div class="subsection" id="Syntaxe-konfigura_010dn_00edho-souboru">
 <div class="header">
 <p>
-Next: <a href="#Volby-v-konfiguraci" accesskey="n" rel="next">Configuration options</a>, Previous: <a href="#Konfigurace" accesskey="p" rel="prev">konfigurace</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Volby-v-konfiguraci" accesskey="n" rel="next">Configuration options</a>, Previous: <a href="#Konfigurace" accesskey="p" rel="prev">konfigurace</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Syntaxe-konfiguracniho-souboru"></span><h4 class="subsection">2.3.1 Syntaxe konfiguraèního souboru</h4>
 
@@ -675,7 +750,7 @@ po¾adovanou hodnotu.
 <div class="subsection" id="Volby-v-konfiguraci">
 <div class="header">
 <p>
-Next: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Output Modules Configuration</a>, Previous: <a href="#Syntaxe-konfigura_010dn_00edho-souboru" accesskey="p" rel="prev">Syntaxe konfiguraèního souboru</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Output Modules Configuration</a>, Previous: <a href="#Syntaxe-konfigura_010dn_00edho-souboru" accesskey="p" rel="prev">Syntaxe konfiguraèního souboru</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Configuration-options"></span><h4 class="subsection">2.3.2 Configuration options</h4>
 
@@ -689,7 +764,7 @@ smazat symbol komentáøe <code>#</code>.
 <div class="subsection" id="Nastaven_00ed-v_00fdstupn_00edch-modul_016f">
 <div class="header">
 <p>
-Next: <a href="#g_t_00darovn_011b-logov_00e1n_00ed" accesskey="n" rel="next">Úrovnì logování</a>, Previous: <a href="#Volby-v-konfiguraci" accesskey="p" rel="prev">Configuration options</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#g_t_00darovn_011b-logov_00e1n_00ed" accesskey="n" rel="next">Úrovnì logování</a>, Previous: <a href="#Volby-v-konfiguraci" accesskey="p" rel="prev">Configuration options</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Output-Modules-Configuration"></span><h4 class="subsection">2.3.3 Output Modules Configuration</h4>
 
@@ -713,7 +788,7 @@ pøiøazen vlastní konfiguraèní soubor.
 <div class="subsubsection" id="Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf">
 <div class="header">
 <p>
-Next: <a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Konfiguraèní soubory výstupních modulù</a>, Previous: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" accesskey="n" rel="next">Konfiguraèní soubory výstupních modulù</a>, Previous: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Natahovani-modulu-ve-speechd_002econf"></span><h4 class="subsubsection">2.3.3.1 Natahování modulù ve speechd.conf</h4>
 
@@ -742,7 +817,7 @@ Tento parametr je volitelný (není tøeba jej uvádìt).
 <div class="subsubsection" id="Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f">
 <div class="header">
 <p>
-Next: <a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu" accesskey="n" rel="next">Konfigurace generického výstupního modulu</a>, Previous: <a href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf" accesskey="p" rel="prev">Natahování modulù ve speechd.conf</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu" accesskey="n" rel="next">Konfigurace generického výstupního modulu</a>, Previous: <a href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf" accesskey="p" rel="prev">Natahování modulù ve speechd.conf</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Konfiguracni-soubory-vystupnich-modulu"></span><h4 class="subsubsection">2.3.3.2 Konfiguraèní soubory výstupních modulù</h4>
 
@@ -823,7 +898,7 @@ fell.&rdquo;  by rozdìlena byla (to je mimochodem velmi zajímavá vìta).
 <div class="subsubsection" id="Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">
 <div class="header">
 <p>
-Previous: <a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Konfiguraèní soubory výstupních modulù</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Konfiguraèní soubory výstupních modulù</a>, Up: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Konfigurace-generickeho-vystupniho-modulu"></span><h4 class="subsubsection">2.3.3.3 Konfigurace generického výstupního modulu</h4>
 
@@ -925,7 +1000,7 @@ DotConfu nepodporuje desetinná èísla.  Mù¾ete tedy psát 0.85 jako 85 atd.)
 <div class="subsection" id="g_t_00darovn_011b-logov_00e1n_00ed">
 <div class="header">
 <p>
-Previous: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Urovne-logovani"></span><h4 class="subsection">2.3.4 Úrovnì logování</h4>
 
@@ -1000,7 +1075,7 @@ mapován na jiný hlas výstupním modulem.
 <div class="appendix" id="GNU-General-Public-License">
 <div class="header">
 <p>
-Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="p" rel="prev">U¾ivatelská dokumentace</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#U_017eivatelsk_00e1-dokumentace" accesskey="p" rel="prev">U¾ivatelská dokumentace</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="GNU-General-Public-License-1"></span><h2 class="appendix">Appendix B GNU General Public License</h2>
 <div align="center">Version 2, June 1991
@@ -1364,7 +1439,7 @@ Public License instead of this License.
 <div class="appendix" id="GNU-Free-Documentation-License">
 <div class="header">
 <p>
-Next: <a href="#Index-of-Concepts" accesskey="n" rel="next">Index of Concepts</a>, Previous: <a href="#GNU-General-Public-License" accesskey="p" rel="prev">GNU General Public License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Index-of-Concepts" accesskey="n" rel="next">Index of Concepts</a>, Previous: <a href="#GNU-General-Public-License" accesskey="p" rel="prev">GNU General Public License</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="GNU-Free-Documentation-License-1"></span><h2 class="appendix">Appendix C GNU Free Documentation License</h2>
 <div align="center">Version 1.2, November 2002
@@ -1792,7 +1867,7 @@ to permit their use in free software.
 <div class="unnumbered" id="Index-of-Concepts">
 <div class="header">
 <p>
-Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Index-of-Concepts-1"></span><h2 class="unnumbered">Index of Concepts</h2>
 
@@ -1919,6 +1994,7 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
  &nbsp; 
 </td></tr></table>
 
+</div>
 </div>
 
 

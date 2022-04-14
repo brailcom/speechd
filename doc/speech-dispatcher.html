@@ -14,6 +14,7 @@
 
 <link href="#Top" rel="start" title="Top">
 <link href="#Index-of-Concepts" rel="index" title="Index of Concepts">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
 <link href="#Introduction" rel="next" title="Introduction">
 <link href="dir.html#Top" rel="prev" title="(dir)">
@@ -48,11 +49,13 @@ ul.no-bullet {list-style: none}
 
 
 
-<span id="Top"></span><div class="header">
+
+<div class="top" id="Top">
+<div class="header">
 <p>
-Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<h1 class="node-heading">Top</h1>
+<span id="Speech-Dispatcher"></span><h1 class="top">Speech Dispatcher</h1>
 
 <p>This manual documents Speech Dispatcher, version 0.11.1.99.
 </p>
@@ -84,11 +87,157 @@ General Public License&rdquo;
 <span id="Menu"></span><h3 class="heading">Menu</h3>
 
 
+<div class="Contents_element" id="SEC_Contents">
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a id="toc-Introduction-1" href="#Introduction">1 Introduction</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Motivation-1" href="#Motivation">1.1 Motivation</a></li>
+    <li><a id="toc-Design" href="#Basic-Design">1.2 Design</a></li>
+    <li><a id="toc-Features-Overview-1" href="#Features-Overview">1.3 Features Overview</a></li>
+    <li><a id="toc-Current-State-1" href="#Current-State">1.4 Current State</a></li>
+  </ul></li>
+  <li><a id="toc-User_0027s-Documentation-1" href="#User_0027s-Documentation">2 User&rsquo;s Documentation</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Installation-1" href="#Installation">2.1 Installation</a>
+    <ul class="no-bullet">
+      <li><a id="toc-The-requirements" href="#The-requirements">2.1.1 The requirements</a></li>
+      <li><a id="toc-Recommended-installation-procedure" href="#Recommended-installation-procedure">2.1.2 Recommended installation procedure</a></li>
+      <li><a id="toc-How-to-use-eSpeak-NG-or-eSpeak-with-MBROLA" href="#How-to-use-eSpeak-NG-or-eSpeak-with-MBROLA">2.1.3 How to use eSpeak NG or eSpeak with MBROLA</a></li>
+    </ul></li>
+    <li><a id="toc-Running-1" href="#Running">2.2 Running</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Running-Under-Ordinary-Users-1" href="#Running-Under-Ordinary-Users">2.2.1 Running Under Ordinary Users</a></li>
+      <li><a id="toc-Running-in-a-Custom-Setup-1" href="#Running-in-a-Custom-Setup">2.2.2 Running in a Custom Setup</a></li>
+      <li><a id="toc-Setting-Communication-Method-1" href="#Setting-Communication-Method">2.2.3 Setting Communication Method</a></li>
+    </ul></li>
+    <li><a id="toc-Troubleshooting-1" href="#Troubleshooting">2.3 Troubleshooting</a></li>
+    <li><a id="toc-Configuration-1" href="#Configuration">2.4 Configuration</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Configuration-file-syntax-1" href="#Configuration-file-syntax">2.4.1 Configuration file syntax</a></li>
+      <li><a id="toc-Configuration-options-1" href="#Configuration-options">2.4.2 Configuration options</a></li>
+      <li><a id="toc-Audio-Output-Configuration-1" href="#Audio-Output-Configuration">2.4.3 Audio Output Configuration</a></li>
+      <li><a id="toc-Client-Specific-Configuration-1" href="#Client-Specific-Configuration">2.4.4 Client Specific Configuration</a></li>
+      <li><a id="toc-Output-Modules-Configuration-1" href="#Output-Modules-Configuration">2.4.5 Output Modules Configuration</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Loading-Modules-in-speechd_002econf-1" href="#Loading-Modules-in-speechd_002econf">2.4.5.1 Loading Modules in speechd.conf</a></li>
+        <li><a id="toc-Configuration-Files-of-Output-Modules" href="#Configuration-files-of-output-modules">2.4.5.2 Configuration Files of Output Modules</a></li>
+        <li><a id="toc-Configuration-files-of-the-Generic-Output-Module" href="#Configuration-of-the-Generic-Output-Module">2.4.5.3 Configuration files of the Generic Output Module</a></li>
+      </ul></li>
+      <li><a id="toc-Log-Levels-1" href="#Log-Levels">2.4.6 Log Levels</a></li>
+    </ul></li>
+    <li><a id="toc-Tools-1" href="#Tools">2.5 Tools</a>
+    <ul class="no-bullet">
+      <li><a id="toc-spd_002dsay-1" href="#spd_002dsay">2.5.1 spd-say</a></li>
+      <li><a id="toc-spd_002dconf-1" href="#spd_002dconf">2.5.2 spd-conf</a></li>
+      <li><a id="toc-spd_002dsend-1" href="#spd_002dsend">2.5.3 spd-send</a></li>
+    </ul></li>
+    <li><a id="toc-Synthesis-Output-Modules-1" href="#Synthesis-Output-Modules">2.6 Synthesis Output Modules</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Provided-functionality" href="#Provided-Functionality">2.6.1 Provided functionality</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Supported-Modules-1" href="#Supported-Modules">2.6.1.1 Supported Modules</a></li>
+      </ul></li>
+    </ul></li>
+    <li><a id="toc-Security-1" href="#Security">2.7 Security</a></li>
+  </ul></li>
+  <li><a id="toc-Technical-Specifications-1" href="#Technical-Specifications">3 Technical Specifications</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Communication-mechanisms-1" href="#Communication-mechanisms">3.1 Communication mechanisms</a></li>
+    <li><a id="toc-Address-specification-1" href="#Address-specification">3.2 Address specification</a></li>
+    <li><a id="toc-Actions-performed-on-startup-1" href="#Actions-performed-on-startup">3.3 Actions performed on startup</a></li>
+    <li><a id="toc-Accepted-signals-1" href="#Accepted-signals">3.4 Accepted signals</a></li>
+  </ul></li>
+  <li><a id="toc-Client-Programming-1" href="#Client-Programming">4 Client Programming</a>
+  <ul class="no-bullet">
+    <li><a id="toc-C-API-1" href="#C-API">4.1 C API</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Initializing-and-Terminating" href="#Initializing-and-Terminating-in-C">4.1.1 Initializing and Terminating</a></li>
+      <li><a id="toc-Speech-Synthesis-Commands" href="#Speech-Synthesis-Commands-in-C">4.1.2 Speech Synthesis Commands</a></li>
+      <li><a id="toc-Speech-Output-Control-Commands" href="#Speech-output-control-commands-in-C">4.1.3 Speech Output Control Commands</a></li>
+      <li><a id="toc-Characters-and-Keys" href="#Characters-and-Keys-in-C">4.1.4 Characters and Keys</a></li>
+      <li><a id="toc-Sound-Icons" href="#Sound-Icons-in-C">4.1.5 Sound Icons</a></li>
+      <li><a id="toc-Parameter-Settings-Commands" href="#Parameter-Setting-Commands-in-C">4.1.6 Parameter Settings Commands</a></li>
+      <li><a id="toc-Other-Functions" href="#Other-Functions-in-C">4.1.7 Other Functions</a></li>
+      <li><a id="toc-Information-Retrieval-Commands" href="#Information-Retrieval-Commands-in-C">4.1.8 Information Retrieval Commands</a></li>
+      <li><a id="toc-Event-Notification-and-Index-Marking-in-C-1" href="#Event-Notification-and-Index-Marking-in-C">4.1.9 Event Notification and Index Marking in C</a></li>
+      <li><a id="toc-History-Commands" href="#History-Commands-in-C">4.1.10 History Commands</a></li>
+      <li><a id="toc-Direct-SSIP-Communication-in-C-1" href="#Direct-SSIP-Communication-in-C">4.1.11 Direct SSIP Communication in C</a></li>
+    </ul></li>
+    <li><a id="toc-Python-API-1" href="#Python-API">4.2 Python API</a></li>
+    <li><a id="toc-Guile-API-1" href="#Guile-API">4.3 Guile API</a></li>
+    <li><a id="toc-Common-Lisp-API-1" href="#Common-Lisp-API">4.4 Common Lisp API</a></li>
+    <li><a id="toc-Golang-API-1" href="#Golang-API">4.5 Golang API</a></li>
+    <li><a id="toc-Autospawning-1" href="#Autospawning">4.6 Autospawning</a></li>
+  </ul></li>
+  <li><a id="toc-Server-Programming-1" href="#Server-Programming">5 Server Programming</a>
+  <ul class="no-bullet">
+    <li><a id="toc-Server-Core-1" href="#Server-Core">5.1 Server Core</a></li>
+    <li><a id="toc-Output-Modules-1" href="#Output-Modules">5.2 Output Modules</a>
+    <ul class="no-bullet">
+      <li><a id="toc-Basic-Structure-1" href="#Basic-Structure">5.2.1 Basic Structure</a></li>
+      <li><a id="toc-Communication-Protocol-for-Output-Modules-1" href="#Communication-Protocol-for-Output-Modules">5.2.2 Communication Protocol for Output Modules</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Events-notification-and-index-marking-1" href="#Events-notification-and-index-marking-1">5.2.2.1 Events notification and index marking</a></li>
+      </ul></li>
+      <li><a id="toc-How-to-Write-New-Output-Module-1" href="#How-to-Write-New-Output-Module">5.2.3 How to Write New Output Module</a></li>
+      <li><a id="toc-The-Skeleton-of-a-Bare-Output-Module-1" href="#The-Skeleton-of-a-Bare-Output-Module">5.2.4 The Skeleton of a Bare Output Module</a></li>
+      <li><a id="toc-The-Skeleton-of-an-Output-Module-1" href="#The-Skeleton-of-an-Output-Module">5.2.5 The Skeleton of an Output Module</a></li>
+      <li><a id="toc-Output-Module-Functions-1" href="#Output-Module-Functions">5.2.6 Output Module Functions</a></li>
+      <li><a id="toc-Module-Utils-Functions-and-Macros-1" href="#Module-Utils-Functions-and-Macros">5.2.7 Module Utils Functions and Macros</a>
+      <ul class="no-bullet">
+        <li><a id="toc-Initialization-Macros-and-Functions-1" href="#Initialization-Macros-and-Functions">5.2.7.1 Initialization Macros and Functions</a></li>
+        <li><a id="toc-Debugging-Macros" href="#Debugging-Macros">5.2.7.2 Debugging Macros</a></li>
+        <li><a id="toc-Generic-Macros-and-Functions-1" href="#Generic-Macros-and-Functions">5.2.7.3 Generic Macros and Functions</a></li>
+        <li><a id="toc-Functions-used-by-module_005fmain_002ec-1" href="#Functions-used-by-module_005fmain_002ec">5.2.7.4 Functions used by <samp>module_main.c</samp></a></li>
+        <li><a id="toc-Functions-for-use-when-talking-to-synthesizer-1" href="#Functions-for-use-when-talking-to-synthesizer">5.2.7.5 Functions for use when talking to synthesizer</a></li>
+        <li><a id="toc-Multi_002dprocess-output-modules-1" href="#Multi_002dprocess-output-modules">5.2.7.6 Multi-process output modules</a></li>
+        <li><a id="toc-Memory-Handling-Functions-1" href="#Memory-Handling-Functions">5.2.7.7 Memory Handling Functions</a></li>
+      </ul></li>
+      <li><a id="toc-Index-Marks-in-Output-Modules-1" href="#Index-Marks-in-Output-Modules">5.2.8 Index Marks in Output Modules</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a id="toc-Download" href="#Download-and-Contact">6 Download</a></li>
+  <li><a id="toc-Reporting-Bugs-1" href="#Reporting-Bugs">7 Reporting Bugs</a></li>
+  <li><a id="toc-How-You-Can-Help-1" href="#How-You-Can-Help">8 How You Can Help</a></li>
+  <li><a id="toc-Appendices-1" href="#Appendices">Appendix A Appendices</a></li>
+  <li><a id="toc-GNU-General-Public-License-1" href="#GNU-General-Public-License">Appendix B GNU General Public License</a></li>
+  <li><a id="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix C GNU Free Documentation License</a>
+  <ul class="no-bullet">
+    <li><a id="toc-ADDENDUM_003a-How-to-use-this-License-for-your-documents" href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents">C.1 ADDENDUM: How to use this License for your documents</a></li>
+  </ul></li>
+  <li><a id="toc-Index-of-Concepts-1" href="#Index-of-Concepts" rel="index">Index of Concepts</a></li>
+</ul>
+</div>
+</div>
+<div class="Overview_element" id="SEC_Overview">
+<h2 class="shortcontents-heading">Short Table of Contents</h2>
+
+<div class="shortcontents">
+<ul class="no-bullet">
+<li><a id="stoc-Introduction-1" href="#toc-Introduction-1">1 Introduction</a></li>
+<li><a id="stoc-User_0027s-Documentation-1" href="#toc-User_0027s-Documentation-1">2 User&rsquo;s Documentation</a></li>
+<li><a id="stoc-Technical-Specifications-1" href="#toc-Technical-Specifications-1">3 Technical Specifications</a></li>
+<li><a id="stoc-Client-Programming-1" href="#toc-Client-Programming-1">4 Client Programming</a></li>
+<li><a id="stoc-Server-Programming-1" href="#toc-Server-Programming-1">5 Server Programming</a></li>
+<li><a id="stoc-Download" href="#toc-Download">6 Download</a></li>
+<li><a id="stoc-Reporting-Bugs-1" href="#toc-Reporting-Bugs-1">7 Reporting Bugs</a></li>
+<li><a id="stoc-How-You-Can-Help-1" href="#toc-How-You-Can-Help-1">8 How You Can Help</a></li>
+<li><a id="stoc-Appendices-1" href="#toc-Appendices-1">Appendix A Appendices</a></li>
+<li><a id="stoc-GNU-General-Public-License-1" href="#toc-GNU-General-Public-License-1">Appendix B GNU General Public License</a></li>
+<li><a id="stoc-GNU-Free-Documentation-License-1" href="#toc-GNU-Free-Documentation-License-1">Appendix C GNU Free Documentation License</a></li>
+<li><a id="stoc-Index-of-Concepts-1" href="#toc-Index-of-Concepts-1" rel="index">Index of Concepts</a></li>
+</ul>
+</div>
+</div>
 <hr>
 <div class="chapter" id="Introduction">
 <div class="header">
 <p>
-Next: <a href="#User_0027s-Documentation" accesskey="n" rel="next">User&rsquo;s Documentation</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#User_0027s-Documentation" accesskey="n" rel="next">User&rsquo;s Documentation</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Speech Dispatcher</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
 
@@ -103,7 +252,7 @@ Next: <a href="#User_0027s-Documentation" accesskey="n" rel="next">User&rsquo;s 
 <div class="section" id="Motivation">
 <div class="header">
 <p>
-Next: <a href="#Basic-Design" accesskey="n" rel="next">Design</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Basic-Design" accesskey="n" rel="next">Design</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Motivation-1"></span><h3 class="section">1.1 Motivation</h3>
 <span id="index-Basic-ideas_002c-Motivation"></span>
@@ -147,7 +296,7 @@ the audio subsystem.
 <div class="section" id="Basic-Design">
 <div class="header">
 <p>
-Next: <a href="#Features-Overview" accesskey="n" rel="next">Features Overview</a>, Previous: <a href="#Motivation" accesskey="p" rel="prev">Motivation</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Features-Overview" accesskey="n" rel="next">Features Overview</a>, Previous: <a href="#Motivation" accesskey="p" rel="prev">Motivation</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Design"></span><h3 class="section">1.2 Design</h3>
 <span id="index-Design"></span>
@@ -231,7 +380,7 @@ imagine Message Dispatcher in the future.
 <div class="section" id="Features-Overview">
 <div class="header">
 <p>
-Next: <a href="#Current-State" accesskey="n" rel="next">Current State</a>, Previous: <a href="#Basic-Design" accesskey="p" rel="prev">Design</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Current-State" accesskey="n" rel="next">Current State</a>, Previous: <a href="#Basic-Design" accesskey="p" rel="prev">Design</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Features-Overview-1"></span><h3 class="section">1.3 Features Overview</h3>
 <p>Speech Dispatcher from user&rsquo;s point of view:
@@ -256,7 +405,7 @@ Next: <a href="#Current-State" accesskey="n" rel="next">Current State</a>, Previ
 <div class="section" id="Current-State">
 <div class="header">
 <p>
-Previous: <a href="#Features-Overview" accesskey="p" rel="prev">Features Overview</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Features-Overview" accesskey="p" rel="prev">Features Overview</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Current-State-1"></span><h3 class="section">1.4 Current State</h3>
 <span id="index-Synthesizers"></span>
@@ -304,7 +453,7 @@ great example.
 <div class="chapter" id="User_0027s-Documentation">
 <div class="header">
 <p>
-Next: <a href="#Technical-Specifications" accesskey="n" rel="next">Technical Specifications</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Technical-Specifications" accesskey="n" rel="next">Technical Specifications</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="User_0027s-Documentation-1"></span><h2 class="chapter">2 User&rsquo;s Documentation</h2>
 
@@ -322,7 +471,7 @@ Next: <a href="#Technical-Specifications" accesskey="n" rel="next">Technical Spe
 <div class="section" id="Installation">
 <div class="header">
 <p>
-Next: <a href="#Running" accesskey="n" rel="next">Running</a>, Previous: <a href="#User_0027s-Documentation" accesskey="p" rel="prev">User&rsquo;s Documentation</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Running" accesskey="n" rel="next">Running</a>, Previous: <a href="#User_0027s-Documentation" accesskey="p" rel="prev">User&rsquo;s Documentation</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Installation-1"></span><h3 class="section">2.1 Installation</h3>
 
@@ -469,7 +618,7 @@ output module, or test it with the following command
 <div class="section" id="Running">
 <div class="header">
 <p>
-Next: <a href="#Troubleshooting" accesskey="n" rel="next">Troubleshooting</a>, Previous: <a href="#Installation" accesskey="p" rel="prev">Installation</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Troubleshooting" accesskey="n" rel="next">Troubleshooting</a>, Previous: <a href="#Installation" accesskey="p" rel="prev">Installation</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Running-1"></span><h3 class="section">2.2 Running</h3>
 
@@ -490,7 +639,7 @@ this mode of execution is strongly discouraged.
 <div class="subsection" id="Running-Under-Ordinary-Users">
 <div class="header">
 <p>
-Next: <a href="#Running-in-a-Custom-Setup" accesskey="n" rel="next">Running in a Custom Setup</a>, Previous: <a href="#Running" accesskey="p" rel="prev">Running</a>, Up: <a href="#Running" accesskey="u" rel="up">Running</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Running-in-a-Custom-Setup" accesskey="n" rel="next">Running in a Custom Setup</a>, Previous: <a href="#Running" accesskey="p" rel="prev">Running</a>, Up: <a href="#Running" accesskey="u" rel="up">Running</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Running-Under-Ordinary-Users-1"></span><h4 class="subsection">2.2.1 Running Under Ordinary Users</h4>
 
@@ -517,7 +666,7 @@ system wide configuration file (e.g. in
 <div class="subsection" id="Running-in-a-Custom-Setup">
 <div class="header">
 <p>
-Next: <a href="#Setting-Communication-Method" accesskey="n" rel="next">Setting Communication Method</a>, Previous: <a href="#Running-Under-Ordinary-Users" accesskey="p" rel="prev">Running Under Ordinary Users</a>, Up: <a href="#Running" accesskey="u" rel="up">Running</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Setting-Communication-Method" accesskey="n" rel="next">Setting Communication Method</a>, Previous: <a href="#Running-Under-Ordinary-Users" accesskey="p" rel="prev">Running Under Ordinary Users</a>, Up: <a href="#Running" accesskey="u" rel="up">Running</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Running-in-a-Custom-Setup-1"></span><h4 class="subsection">2.2.2 Running in a Custom Setup</h4>
 
@@ -535,7 +684,7 @@ service from /etc/init.d/ , although this approach is now discouraged.
 <div class="subsection" id="Setting-Communication-Method">
 <div class="header">
 <p>
-Previous: <a href="#Running-in-a-Custom-Setup" accesskey="p" rel="prev">Running in a Custom Setup</a>, Up: <a href="#Running" accesskey="u" rel="up">Running</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Running-in-a-Custom-Setup" accesskey="p" rel="prev">Running in a Custom Setup</a>, Up: <a href="#Running" accesskey="u" rel="up">Running</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Setting-Communication-Method-1"></span><h4 class="subsection">2.2.3 Setting Communication Method</h4>
 
@@ -584,7 +733,7 @@ SPEECHD_ADDRESS=unix_socket:/tmp/my.sock spd-say &quot;test&quot;
 <div class="section" id="Troubleshooting">
 <div class="header">
 <p>
-Next: <a href="#Configuration" accesskey="n" rel="next">Configuration</a>, Previous: <a href="#Running" accesskey="p" rel="prev">Running</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Configuration" accesskey="n" rel="next">Configuration</a>, Previous: <a href="#Running" accesskey="p" rel="prev">Running</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Troubleshooting-1"></span><h3 class="section">2.3 Troubleshooting</h3>
 
@@ -645,7 +794,7 @@ localhost 1314</code>). If you are not rejected, it works.
 <div class="section" id="Configuration">
 <div class="header">
 <p>
-Next: <a href="#Tools" accesskey="n" rel="next">Tools</a>, Previous: <a href="#Troubleshooting" accesskey="p" rel="prev">Troubleshooting</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Tools" accesskey="n" rel="next">Tools</a>, Previous: <a href="#Troubleshooting" accesskey="p" rel="prev">Troubleshooting</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Configuration-1"></span><h3 class="section">2.4 Configuration</h3>
 <span id="index-configuration"></span>
@@ -676,7 +825,7 @@ application for details about application specific configuration.
 <div class="subsection" id="Configuration-file-syntax">
 <div class="header">
 <p>
-Next: <a href="#Configuration-options" accesskey="n" rel="next">Configuration options</a>, Previous: <a href="#Configuration" accesskey="p" rel="prev">Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Configuration-options" accesskey="n" rel="next">Configuration options</a>, Previous: <a href="#Configuration" accesskey="p" rel="prev">Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Configuration-file-syntax-1"></span><h4 class="subsection">2.4.1 Configuration file syntax</h4>
 
@@ -716,7 +865,7 @@ character and set it to the desired value.
 <div class="subsection" id="Configuration-options">
 <div class="header">
 <p>
-Next: <a href="#Audio-Output-Configuration" accesskey="n" rel="next">Audio Output Configuration</a>, Previous: <a href="#Configuration-file-syntax" accesskey="p" rel="prev">Configuration file syntax</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Audio-Output-Configuration" accesskey="n" rel="next">Audio Output Configuration</a>, Previous: <a href="#Configuration-file-syntax" accesskey="p" rel="prev">Configuration file syntax</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Configuration-options-1"></span><h4 class="subsection">2.4.2 Configuration options</h4>
 
@@ -730,7 +879,7 @@ remove the comment symbol <code>#</code>.
 <div class="subsection" id="Audio-Output-Configuration">
 <div class="header">
 <p>
-Next: <a href="#Client-Specific-Configuration" accesskey="n" rel="next">Client Specific Configuration</a>, Previous: <a href="#Configuration-options" accesskey="p" rel="prev">Configuration options</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Client-Specific-Configuration" accesskey="n" rel="next">Client Specific Configuration</a>, Previous: <a href="#Configuration-options" accesskey="p" rel="prev">Configuration options</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Audio-Output-Configuration-1"></span><h4 class="subsection">2.4.3 Audio Output Configuration</h4>
 
@@ -765,7 +914,7 @@ directory the audio modules should be loaded from.
 <div class="subsection" id="Client-Specific-Configuration">
 <div class="header">
 <p>
-Next: <a href="#Output-Modules-Configuration" accesskey="n" rel="next">Output Modules Configuration</a>, Previous: <a href="#Audio-Output-Configuration" accesskey="p" rel="prev">Audio Output Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Output-Modules-Configuration" accesskey="n" rel="next">Output Modules Configuration</a>, Previous: <a href="#Audio-Output-Configuration" accesskey="p" rel="prev">Audio Output Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Client-Specific-Configuration-1"></span><h4 class="subsection">2.4.4 Client Specific Configuration</h4>
 
@@ -801,7 +950,7 @@ use more connections for different purposes).
 <div class="subsection" id="Output-Modules-Configuration">
 <div class="header">
 <p>
-Next: <a href="#Log-Levels" accesskey="n" rel="next">Log Levels</a>, Previous: <a href="#Client-Specific-Configuration" accesskey="p" rel="prev">Client Specific Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Log-Levels" accesskey="n" rel="next">Log Levels</a>, Previous: <a href="#Client-Specific-Configuration" accesskey="p" rel="prev">Client Specific Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Output-Modules-Configuration-1"></span><h4 class="subsection">2.4.5 Output Modules Configuration</h4>
 
@@ -831,7 +980,7 @@ configuration files in <code>~/.config/speech-dispatcher/modules/</code>.
 <div class="subsubsection" id="Loading-Modules-in-speechd_002econf">
 <div class="header">
 <p>
-Next: <a href="#Configuration-files-of-output-modules" accesskey="n" rel="next">Configuration Files of Output Modules</a>, Previous: <a href="#Output-Modules-Configuration" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Configuration-files-of-output-modules" accesskey="n" rel="next">Configuration Files of Output Modules</a>, Previous: <a href="#Output-Modules-Configuration" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Loading-Modules-in-speechd_002econf-1"></span><h4 class="subsubsection">2.4.5.1 Loading Modules in speechd.conf</h4>
 
@@ -860,7 +1009,7 @@ to <samp>etc/speech-dispatcher/modules/</samp>. This parameter is optional.
 <div class="subsubsection" id="Configuration-files-of-output-modules">
 <div class="header">
 <p>
-Next: <a href="#Configuration-of-the-Generic-Output-Module" accesskey="n" rel="next">Configuration files of the Generic Output Module</a>, Previous: <a href="#Loading-Modules-in-speechd_002econf" accesskey="p" rel="prev">Loading Modules in speechd.conf</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Configuration-of-the-Generic-Output-Module" accesskey="n" rel="next">Configuration files of the Generic Output Module</a>, Previous: <a href="#Loading-Modules-in-speechd_002econf" accesskey="p" rel="prev">Loading Modules in speechd.conf</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Configuration-Files-of-Output-Modules"></span><h4 class="subsubsection">2.4.5.2 Configuration Files of Output Modules</h4>
 
@@ -958,7 +1107,7 @@ would be. (This is an interesting sentence, by the way.)
 <div class="subsubsection" id="Configuration-of-the-Generic-Output-Module">
 <div class="header">
 <p>
-Previous: <a href="#Configuration-files-of-output-modules" accesskey="p" rel="prev">Configuration Files of Output Modules</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Configuration-files-of-output-modules" accesskey="p" rel="prev">Configuration Files of Output Modules</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Configuration-files-of-the-Generic-Output-Module"></span><h4 class="subsubsection">2.4.5.3 Configuration files of the Generic Output Module</h4>
 
@@ -1071,7 +1220,7 @@ so on.)
 <div class="subsection" id="Log-Levels">
 <div class="header">
 <p>
-Previous: <a href="#Output-Modules-Configuration" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Output-Modules-Configuration" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Log-Levels-1"></span><h4 class="subsection">2.4.6 Log Levels</h4>
 
@@ -1127,7 +1276,7 @@ of data. Use with caution.)
 <div class="section" id="Tools">
 <div class="header">
 <p>
-Next: <a href="#Synthesis-Output-Modules" accesskey="n" rel="next">Synthesis Output Modules</a>, Previous: <a href="#Configuration" accesskey="p" rel="prev">Configuration</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Synthesis-Output-Modules" accesskey="n" rel="next">Synthesis Output Modules</a>, Previous: <a href="#Configuration" accesskey="p" rel="prev">Configuration</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Tools-1"></span><h3 class="section">2.5 Tools</h3>
 
@@ -1146,7 +1295,7 @@ speech from other applications.
 <div class="subsection" id="spd_002dsay">
 <div class="header">
 <p>
-Next: <a href="#spd_002dconf" accesskey="n" rel="next">spd-conf</a>, Previous: <a href="#Tools" accesskey="p" rel="prev">Tools</a>, Up: <a href="#Tools" accesskey="u" rel="up">Tools</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#spd_002dconf" accesskey="n" rel="next">spd-conf</a>, Previous: <a href="#Tools" accesskey="p" rel="prev">Tools</a>, Up: <a href="#Tools" accesskey="u" rel="up">Tools</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="spd_002dsay-1"></span><h4 class="subsection">2.5.1 spd-say</h4>
 
@@ -1158,7 +1307,7 @@ Documentation</a></cite>.
 <div class="subsection" id="spd_002dconf">
 <div class="header">
 <p>
-Next: <a href="#spd_002dsend" accesskey="n" rel="next">spd-send</a>, Previous: <a href="#spd_002dsay" accesskey="p" rel="prev">spd-say</a>, Up: <a href="#Tools" accesskey="u" rel="up">Tools</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#spd_002dsend" accesskey="n" rel="next">spd-send</a>, Previous: <a href="#spd_002dsay" accesskey="p" rel="prev">spd-say</a>, Up: <a href="#Tools" accesskey="u" rel="up">Tools</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="spd_002dconf-1"></span><h4 class="subsection">2.5.2 spd-conf</h4>
 
@@ -1191,7 +1340,7 @@ Run debugging and offer to send a request for help to the developers.
 <div class="subsection" id="spd_002dsend">
 <div class="header">
 <p>
-Previous: <a href="#spd_002dconf" accesskey="p" rel="prev">spd-conf</a>, Up: <a href="#Tools" accesskey="u" rel="up">Tools</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#spd_002dconf" accesskey="p" rel="prev">spd-conf</a>, Up: <a href="#Tools" accesskey="u" rel="up">Tools</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="spd_002dsend-1"></span><h4 class="subsection">2.5.3 spd-send</h4>
 
@@ -1208,7 +1357,7 @@ Dispatcher&rsquo;s source tree for more information.
 <div class="section" id="Synthesis-Output-Modules">
 <div class="header">
 <p>
-Next: <a href="#Security" accesskey="n" rel="next">Security</a>, Previous: <a href="#Tools" accesskey="p" rel="prev">Tools</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Security" accesskey="n" rel="next">Security</a>, Previous: <a href="#Tools" accesskey="p" rel="prev">Tools</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Synthesis-Output-Modules-1"></span><h3 class="section">2.6 Synthesis Output Modules</h3>
 <span id="index-output-module"></span>
@@ -1231,7 +1380,7 @@ selection of an output module can be influenced through the configuration file
 <div class="subsection" id="Provided-Functionality">
 <div class="header">
 <p>
-Previous: <a href="#Synthesis-Output-Modules" accesskey="p" rel="prev">Synthesis Output Modules</a>, Up: <a href="#Synthesis-Output-Modules" accesskey="u" rel="up">Synthesis Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Synthesis-Output-Modules" accesskey="p" rel="prev">Synthesis Output Modules</a>, Up: <a href="#Synthesis-Output-Modules" accesskey="u" rel="up">Synthesis Output Modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Provided-functionality"></span><h4 class="subsection">2.6.1 Provided functionality</h4>
 
@@ -1253,7 +1402,7 @@ done with eSpeak.
 <div class="subsubsection" id="Supported-Modules">
 <div class="header">
 <p>
-Previous: <a href="#Provided-Functionality" accesskey="p" rel="prev">Provided functionality</a>, Up: <a href="#Provided-Functionality" accesskey="u" rel="up">Provided functionality</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Provided-Functionality" accesskey="p" rel="prev">Provided functionality</a>, Up: <a href="#Provided-Functionality" accesskey="u" rel="up">Provided functionality</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Supported-Modules-1"></span><h4 class="subsubsection">2.6.1.1 Supported Modules</h4>
 
@@ -1309,7 +1458,7 @@ It includes three manuals:
 <div class="section" id="Security">
 <div class="header">
 <p>
-Previous: <a href="#Synthesis-Output-Modules" accesskey="p" rel="prev">Synthesis Output Modules</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Synthesis-Output-Modules" accesskey="p" rel="prev">Synthesis Output Modules</a>, Up: <a href="#User_0027s-Documentation" accesskey="u" rel="up">User&rsquo;s Documentation</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Security-1"></span><h3 class="section">2.7 Security</h3>
 
@@ -1335,7 +1484,7 @@ from the outside network using a firewall or similar mechanism.
 <div class="chapter" id="Technical-Specifications">
 <div class="header">
 <p>
-Next: <a href="#Client-Programming" accesskey="n" rel="next">Client Programming</a>, Previous: <a href="#User_0027s-Documentation" accesskey="p" rel="prev">User&rsquo;s Documentation</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Client-Programming" accesskey="n" rel="next">Client Programming</a>, Previous: <a href="#User_0027s-Documentation" accesskey="p" rel="prev">User&rsquo;s Documentation</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Technical-Specifications-1"></span><h2 class="chapter">3 Technical Specifications</h2>
 
@@ -1351,7 +1500,7 @@ Next: <a href="#Client-Programming" accesskey="n" rel="next">Client Programming<
 <div class="section" id="Communication-mechanisms">
 <div class="header">
 <p>
-Next: <a href="#Address-specification" accesskey="n" rel="next">Address specification</a>, Previous: <a href="#Technical-Specifications" accesskey="p" rel="prev">Technical Specifications</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Address-specification" accesskey="n" rel="next">Address specification</a>, Previous: <a href="#Technical-Specifications" accesskey="p" rel="prev">Technical Specifications</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Communication-mechanisms-1"></span><h3 class="section">3.1 Communication mechanisms</h3>
 
@@ -1406,7 +1555,7 @@ and the default pair (localhost, 6560).
 <div class="section" id="Address-specification">
 <div class="header">
 <p>
-Next: <a href="#Actions-performed-on-startup" accesskey="n" rel="next">Actions performed on startup</a>, Previous: <a href="#Communication-mechanisms" accesskey="p" rel="prev">Communication mechanisms</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Actions-performed-on-startup" accesskey="n" rel="next">Actions performed on startup</a>, Previous: <a href="#Communication-mechanisms" accesskey="p" rel="prev">Communication mechanisms</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Address-specification-1"></span><h3 class="section">3.2 Address specification</h3>
 
@@ -1462,7 +1611,7 @@ environment variable or their specific configuration is set.
 <div class="section" id="Actions-performed-on-startup">
 <div class="header">
 <p>
-Next: <a href="#Accepted-signals" accesskey="n" rel="next">Accepted signals</a>, Previous: <a href="#Address-specification" accesskey="p" rel="prev">Address specification</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Accepted-signals" accesskey="n" rel="next">Accepted signals</a>, Previous: <a href="#Address-specification" accesskey="p" rel="prev">Address specification</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Actions-performed-on-startup-1"></span><h3 class="section">3.3 Actions performed on startup</h3>
 
@@ -1545,7 +1694,7 @@ in a loop.
 <div class="section" id="Accepted-signals">
 <div class="header">
 <p>
-Previous: <a href="#Actions-performed-on-startup" accesskey="p" rel="prev">Actions performed on startup</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Actions-performed-on-startup" accesskey="p" rel="prev">Actions performed on startup</a>, Up: <a href="#Technical-Specifications" accesskey="u" rel="up">Technical Specifications</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Accepted-signals-1"></span><h3 class="section">3.4 Accepted signals</h3>
 
@@ -1575,7 +1724,7 @@ crashed during runtime and marked as dead)
 <div class="chapter" id="Client-Programming">
 <div class="header">
 <p>
-Next: <a href="#Server-Programming" accesskey="n" rel="next">Server Programming</a>, Previous: <a href="#Technical-Specifications" accesskey="p" rel="prev">Technical Specifications</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Server-Programming" accesskey="n" rel="next">Server Programming</a>, Previous: <a href="#Technical-Specifications" accesskey="p" rel="prev">Technical Specifications</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Client-Programming-1"></span><h2 class="chapter">4 Client Programming</h2>
 
@@ -1605,7 +1754,7 @@ about current external client libraries.
 <div class="section" id="C-API">
 <div class="header">
 <p>
-Next: <a href="#Python-API" accesskey="n" rel="next">Python API</a>, Previous: <a href="#Client-Programming" accesskey="p" rel="prev">Client Programming</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Python-API" accesskey="n" rel="next">Python API</a>, Previous: <a href="#Client-Programming" accesskey="p" rel="prev">Client Programming</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="C-API-1"></span><h3 class="section">4.1 C API</h3>
 
@@ -1627,7 +1776,7 @@ Next: <a href="#Python-API" accesskey="n" rel="next">Python API</a>, Previous: <
 <div class="subsection" id="Initializing-and-Terminating-in-C">
 <div class="header">
 <p>
-Next: <a href="#Speech-Synthesis-Commands-in-C" accesskey="n" rel="next">Speech Synthesis Commands</a>, Previous: <a href="#C-API" accesskey="p" rel="prev">C API</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Speech-Synthesis-Commands-in-C" accesskey="n" rel="next">Speech Synthesis Commands</a>, Previous: <a href="#C-API" accesskey="p" rel="prev">C API</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Initializing-and-Terminating"></span><h4 class="subsection">4.1.1 Initializing and Terminating</h4>
 
@@ -1750,7 +1899,7 @@ program.
 <div class="subsection" id="Speech-Synthesis-Commands-in-C">
 <div class="header">
 <p>
-Next: <a href="#Speech-output-control-commands-in-C" accesskey="n" rel="next">Speech Output Control Commands</a>, Previous: <a href="#Initializing-and-Terminating-in-C" accesskey="p" rel="prev">Initializing and Terminating</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Speech-output-control-commands-in-C" accesskey="n" rel="next">Speech Output Control Commands</a>, Previous: <a href="#Initializing-and-Terminating-in-C" accesskey="p" rel="prev">Initializing and Terminating</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Speech-Synthesis-Commands"></span><h4 class="subsection">4.1.2 Speech Synthesis Commands</h4>
 
@@ -1844,7 +1993,7 @@ event notification callbacks or history handling.
 <div class="subsection" id="Speech-output-control-commands-in-C">
 <div class="header">
 <p>
-Next: <a href="#Characters-and-Keys-in-C" accesskey="n" rel="next">Characters and Keys</a>, Previous: <a href="#Speech-Synthesis-Commands-in-C" accesskey="p" rel="prev">Speech Synthesis Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Characters-and-Keys-in-C" accesskey="n" rel="next">Characters and Keys</a>, Previous: <a href="#Speech-Synthesis-Commands-in-C" accesskey="p" rel="prev">Speech Synthesis Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Speech-Output-Control-Commands"></span><h4 class="subsection">4.1.3 Speech Output Control Commands</h4>
 
@@ -2019,7 +2168,7 @@ See <a href="#History-Commands-in-C">History Commands</a>.
 <div class="subsection" id="Characters-and-Keys-in-C">
 <div class="header">
 <p>
-Next: <a href="#Sound-Icons-in-C" accesskey="n" rel="next">Sound Icons</a>, Previous: <a href="#Speech-output-control-commands-in-C" accesskey="p" rel="prev">Speech Output Control Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Sound-Icons-in-C" accesskey="n" rel="next">Sound Icons</a>, Previous: <a href="#Speech-output-control-commands-in-C" accesskey="p" rel="prev">Speech Output Control Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Characters-and-Keys"></span><h4 class="subsection">4.1.4 Characters and Keys</h4>
 
@@ -2074,7 +2223,7 @@ of the format of <code>key_name</code>
 <div class="subsection" id="Sound-Icons-in-C">
 <div class="header">
 <p>
-Next: <a href="#Parameter-Setting-Commands-in-C" accesskey="n" rel="next">Parameter Settings Commands</a>, Previous: <a href="#Characters-and-Keys-in-C" accesskey="p" rel="prev">Characters and Keys</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Parameter-Setting-Commands-in-C" accesskey="n" rel="next">Parameter Settings Commands</a>, Previous: <a href="#Characters-and-Keys-in-C" accesskey="p" rel="prev">Characters and Keys</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Sound-Icons"></span><h4 class="subsection">4.1.5 Sound Icons</h4>
 
@@ -2102,7 +2251,7 @@ are considered internal and shouldn&rsquo;t be used.
 <div class="subsection" id="Parameter-Setting-Commands-in-C">
 <div class="header">
 <p>
-Next: <a href="#Other-Functions-in-C" accesskey="n" rel="next">Other Functions</a>, Previous: <a href="#Sound-Icons-in-C" accesskey="p" rel="prev">Sound Icons</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Other-Functions-in-C" accesskey="n" rel="next">Other Functions</a>, Previous: <a href="#Sound-Icons-in-C" accesskey="p" rel="prev">Sound Icons</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Parameter-Settings-Commands"></span><h4 class="subsection">4.1.6 Parameter Settings Commands</h4>
 
@@ -2340,7 +2489,7 @@ modules.
 <div class="subsection" id="Other-Functions-in-C">
 <div class="header">
 <p>
-Next: <a href="#Information-Retrieval-Commands-in-C" accesskey="n" rel="next">Information Retrieval Commands</a>, Previous: <a href="#Parameter-Setting-Commands-in-C" accesskey="p" rel="prev">Parameter Settings Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Information-Retrieval-Commands-in-C" accesskey="n" rel="next">Information Retrieval Commands</a>, Previous: <a href="#Parameter-Setting-Commands-in-C" accesskey="p" rel="prev">Parameter Settings Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Other-Functions"></span><h4 class="subsection">4.1.7 Other Functions</h4>
 
@@ -2349,7 +2498,7 @@ Next: <a href="#Information-Retrieval-Commands-in-C" accesskey="n" rel="next">In
 <div class="subsection" id="Information-Retrieval-Commands-in-C">
 <div class="header">
 <p>
-Next: <a href="#Event-Notification-and-Index-Marking-in-C" accesskey="n" rel="next">Event Notification and Index Marking in C</a>, Previous: <a href="#Other-Functions-in-C" accesskey="p" rel="prev">Other Functions</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Event-Notification-and-Index-Marking-in-C" accesskey="n" rel="next">Event Notification and Index Marking in C</a>, Previous: <a href="#Other-Functions-in-C" accesskey="p" rel="prev">Other Functions</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Information-Retrieval-Commands"></span><h4 class="subsection">4.1.8 Information Retrieval Commands</h4>
 
@@ -2428,7 +2577,7 @@ names which are independent of the synthesizer in use, See <a href="#spd_005flis
 <div class="subsection" id="Event-Notification-and-Index-Marking-in-C">
 <div class="header">
 <p>
-Next: <a href="#History-Commands-in-C" accesskey="n" rel="next">History Commands</a>, Previous: <a href="#Information-Retrieval-Commands-in-C" accesskey="p" rel="prev">Information Retrieval Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#History-Commands-in-C" accesskey="n" rel="next">History Commands</a>, Previous: <a href="#Information-Retrieval-Commands-in-C" accesskey="p" rel="prev">Information Retrieval Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Event-Notification-and-Index-Marking-in-C-1"></span><h4 class="subsection">4.1.9 Event Notification and Index Marking in C</h4>
 
@@ -2598,7 +2747,7 @@ main(int argc, char **argv)
 <div class="subsection" id="History-Commands-in-C">
 <div class="header">
 <p>
-Next: <a href="#Direct-SSIP-Communication-in-C" accesskey="n" rel="next">Direct SSIP Communication in C</a>, Previous: <a href="#Event-Notification-and-Index-Marking-in-C" accesskey="p" rel="prev">Event Notification and Index Marking in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Direct-SSIP-Communication-in-C" accesskey="n" rel="next">Direct SSIP Communication in C</a>, Previous: <a href="#Event-Notification-and-Index-Marking-in-C" accesskey="p" rel="prev">Event Notification and Index Marking in C</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="History-Commands"></span><h4 class="subsection">4.1.10 History Commands</h4>
 <span id="index-spd_005fhistory_005fselect_005fclient_0028_0029"></span>
@@ -2610,7 +2759,7 @@ Next: <a href="#Direct-SSIP-Communication-in-C" accesskey="n" rel="next">Direct 
 <div class="subsection" id="Direct-SSIP-Communication-in-C">
 <div class="header">
 <p>
-Previous: <a href="#History-Commands-in-C" accesskey="p" rel="prev">History Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#History-Commands-in-C" accesskey="p" rel="prev">History Commands</a>, Up: <a href="#C-API" accesskey="u" rel="up">C API</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Direct-SSIP-Communication-in-C-1"></span><h4 class="subsection">4.1.11 Direct SSIP Communication in C</h4>
 
@@ -2688,7 +2837,7 @@ sequence <code>\r\n.\r\n</code> of the multi-line command.
 <div class="section" id="Python-API">
 <div class="header">
 <p>
-Next: <a href="#Guile-API" accesskey="n" rel="next">Guile API</a>, Previous: <a href="#C-API" accesskey="p" rel="prev">C API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Guile-API" accesskey="n" rel="next">Guile API</a>, Previous: <a href="#C-API" accesskey="p" rel="prev">C API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Python-API-1"></span><h3 class="section">4.2 Python API</h3>
 
@@ -2775,7 +2924,7 @@ deadlocks in SSIP communication.
 <div class="section" id="Guile-API">
 <div class="header">
 <p>
-Next: <a href="#Common-Lisp-API" accesskey="n" rel="next">Common Lisp API</a>, Previous: <a href="#Python-API" accesskey="p" rel="prev">Python API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Common-Lisp-API" accesskey="n" rel="next">Common Lisp API</a>, Previous: <a href="#Python-API" accesskey="p" rel="prev">Python API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Guile-API-1"></span><h3 class="section">4.3 Guile API</h3>
 
@@ -2788,7 +2937,7 @@ at the experimental stage. Please read <samp>src/guile/README</samp>.
 <div class="section" id="Common-Lisp-API">
 <div class="header">
 <p>
-Next: <a href="#Golang-API" accesskey="n" rel="next">Golang API</a>, Previous: <a href="#Guile-API" accesskey="p" rel="prev">Guile API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Golang-API" accesskey="n" rel="next">Golang API</a>, Previous: <a href="#Guile-API" accesskey="p" rel="prev">Guile API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Common-Lisp-API-1"></span><h3 class="section">4.4 Common Lisp API</h3>
 
@@ -2801,7 +2950,7 @@ at the experimental stage. Please read <samp>src/cl/README</samp>.
 <div class="section" id="Golang-API">
 <div class="header">
 <p>
-Next: <a href="#Autospawning" accesskey="n" rel="next">Autospawning</a>, Previous: <a href="#Common-Lisp-API" accesskey="p" rel="prev">Common Lisp API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Autospawning" accesskey="n" rel="next">Autospawning</a>, Previous: <a href="#Common-Lisp-API" accesskey="p" rel="prev">Common Lisp API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Golang-API-1"></span><h3 class="section">4.5 Golang API</h3>
 
@@ -2813,7 +2962,7 @@ Next: <a href="#Autospawning" accesskey="n" rel="next">Autospawning</a>, Previou
 <div class="section" id="Autospawning">
 <div class="header">
 <p>
-Previous: <a href="#Common-Lisp-API" accesskey="p" rel="prev">Common Lisp API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Common-Lisp-API" accesskey="p" rel="prev">Common Lisp API</a>, Up: <a href="#Client-Programming" accesskey="u" rel="up">Client Programming</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Autospawning-1"></span><h3 class="section">4.6 Autospawning</h3>
 
@@ -2863,7 +3012,7 @@ API for an example.
 <div class="chapter" id="Server-Programming">
 <div class="header">
 <p>
-Next: <a href="#Download-and-Contact" accesskey="n" rel="next">Download</a>, Previous: <a href="#Client-Programming" accesskey="p" rel="prev">Client Programming</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Download-and-Contact" accesskey="n" rel="next">Download</a>, Previous: <a href="#Client-Programming" accesskey="p" rel="prev">Client Programming</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Server-Programming-1"></span><h2 class="chapter">5 Server Programming</h2>
 
@@ -2876,7 +3025,7 @@ Next: <a href="#Download-and-Contact" accesskey="n" rel="next">Download</a>, Pre
 <div class="section" id="Server-Core">
 <div class="header">
 <p>
-Next: <a href="#Output-Modules" accesskey="n" rel="next">Output Modules</a>, Previous: <a href="#Server-Programming" accesskey="p" rel="prev">Server Programming</a>, Up: <a href="#Server-Programming" accesskey="u" rel="up">Server Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Output-Modules" accesskey="n" rel="next">Output Modules</a>, Previous: <a href="#Server-Programming" accesskey="p" rel="prev">Server Programming</a>, Up: <a href="#Server-Programming" accesskey="u" rel="up">Server Programming</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Server-Core-1"></span><h3 class="section">5.1 Server Core</h3>
 
@@ -2950,7 +3099,7 @@ interface defined in <samp>src/server/output.c</samp>.
 <div class="section" id="Output-Modules">
 <div class="header">
 <p>
-Previous: <a href="#Server-Core" accesskey="p" rel="prev">Server Core</a>, Up: <a href="#Server-Programming" accesskey="u" rel="up">Server Programming</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Server-Core" accesskey="p" rel="prev">Server Core</a>, Up: <a href="#Server-Programming" accesskey="u" rel="up">Server Programming</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Output-Modules-1"></span><h3 class="section">5.2 Output Modules</h3>
 
@@ -2969,7 +3118,7 @@ Previous: <a href="#Server-Core" accesskey="p" rel="prev">Server Core</a>, Up: <
 <div class="subsection" id="Basic-Structure">
 <div class="header">
 <p>
-Next: <a href="#Communication-Protocol-for-Output-Modules" accesskey="n" rel="next">Communication Protocol for Output Modules</a>, Previous: <a href="#Output-Modules" accesskey="p" rel="prev">Output Modules</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Communication-Protocol-for-Output-Modules" accesskey="n" rel="next">Communication Protocol for Output Modules</a>, Previous: <a href="#Output-Modules" accesskey="p" rel="prev">Output Modules</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Basic-Structure-1"></span><h4 class="subsection">5.2.1 Basic Structure</h4>
 
@@ -3007,7 +3156,7 @@ file that the output module should parse.
 <div class="subsection" id="Communication-Protocol-for-Output-Modules">
 <div class="header">
 <p>
-Next: <a href="#How-to-Write-New-Output-Module" accesskey="n" rel="next">How to Write New Output Module</a>, Previous: <a href="#Basic-Structure" accesskey="p" rel="prev">Basic Structure</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#How-to-Write-New-Output-Module" accesskey="n" rel="next">How to Write New Output Module</a>, Previous: <a href="#Basic-Structure" accesskey="p" rel="prev">Basic Structure</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Communication-Protocol-for-Output-Modules-1"></span><h4 class="subsection">5.2.2 Communication Protocol for Output Modules</h4>
 
@@ -3376,7 +3525,7 @@ the server. It is preceeded by the code <code>706</code> and takes the form
 <div class="subsection" id="How-to-Write-New-Output-Module">
 <div class="header">
 <p>
-Next: <a href="#The-Skeleton-of-an-Output-Module" accesskey="n" rel="next">The Skeleton of an Output Module</a>, Previous: <a href="#Communication-Protocol-for-Output-Modules" accesskey="p" rel="prev">Communication Protocol for Output Modules</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#The-Skeleton-of-an-Output-Module" accesskey="n" rel="next">The Skeleton of an Output Module</a>, Previous: <a href="#Communication-Protocol-for-Output-Modules" accesskey="p" rel="prev">Communication Protocol for Output Modules</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="How-to-Write-New-Output-Module-1"></span><h4 class="subsection">5.2.3 How to Write New Output Module</h4>
 
@@ -3429,7 +3578,7 @@ in order for us to be in a better legal position against possible intruders.
 <div class="subsection" id="The-Skeleton-of-a-Bare-Output-Module">
 <div class="header">
 <p>
-Next: <a href="#The-Skeleton-of-an-Output-Module" accesskey="n" rel="next">The Skeleton of an Output Module</a>, Previous: <a href="#How-to-Write-New-Output-Module" accesskey="p" rel="prev">How to Write New Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#The-Skeleton-of-an-Output-Module" accesskey="n" rel="next">The Skeleton of an Output Module</a>, Previous: <a href="#How-to-Write-New-Output-Module" accesskey="p" rel="prev">How to Write New Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="The-Skeleton-of-a-Bare-Output-Module-1"></span><h4 class="subsection">5.2.4 The Skeleton of a Bare Output Module</h4>
 
@@ -3502,7 +3651,7 @@ accordingly.
 <div class="subsection" id="The-Skeleton-of-an-Output-Module">
 <div class="header">
 <p>
-Next: <a href="#Output-Module-Functions" accesskey="n" rel="next">Output Module Functions</a>, Previous: <a href="#How-to-Write-New-Output-Module" accesskey="p" rel="prev">How to Write New Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Output-Module-Functions" accesskey="n" rel="next">Output Module Functions</a>, Previous: <a href="#How-to-Write-New-Output-Module" accesskey="p" rel="prev">How to Write New Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="The-Skeleton-of-an-Output-Module-1"></span><h4 class="subsection">5.2.5 The Skeleton of an Output Module</h4>
 
@@ -3720,7 +3869,7 @@ wrong, fix it and then warn others in this manual.
 <div class="subsection" id="Output-Module-Functions">
 <div class="header">
 <p>
-Next: <a href="#Module-Utils-Functions-and-Macros" accesskey="n" rel="next">Module Utils Functions and Macros</a>, Previous: <a href="#The-Skeleton-of-an-Output-Module" accesskey="p" rel="prev">The Skeleton of an Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Module-Utils-Functions-and-Macros" accesskey="n" rel="next">Module Utils Functions and Macros</a>, Previous: <a href="#The-Skeleton-of-an-Output-Module" accesskey="p" rel="prev">The Skeleton of an Output Module</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Output-Module-Functions-1"></span><h4 class="subsection">5.2.6 Output Module Functions</h4>
 
@@ -3864,7 +4013,7 @@ index mark.
 <div class="subsection" id="Module-Utils-Functions-and-Macros">
 <div class="header">
 <p>
-Next: <a href="#Index-Marks-in-Output-Modules" accesskey="n" rel="next">Index Marks in Output Modules</a>, Previous: <a href="#Output-Module-Functions" accesskey="p" rel="prev">Output Module Functions</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Index-Marks-in-Output-Modules" accesskey="n" rel="next">Index Marks in Output Modules</a>, Previous: <a href="#Output-Module-Functions" accesskey="p" rel="prev">Output Module Functions</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Module-Utils-Functions-and-Macros-1"></span><h4 class="subsection">5.2.7 Module Utils Functions and Macros</h4>
 
@@ -3888,7 +4037,7 @@ everything from scratch.
 <div class="subsubsection" id="Initialization-Macros-and-Functions">
 <div class="header">
 <p>
-Next: <a href="#Generic-Macros-and-Functions" accesskey="n" rel="next">Generic Macros and Functions</a>, Previous: <a href="#Module-Utils-Functions-and-Macros" accesskey="p" rel="prev">Module Utils Functions and Macros</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Generic-Macros-and-Functions" accesskey="n" rel="next">Generic Macros and Functions</a>, Previous: <a href="#Module-Utils-Functions-and-Macros" accesskey="p" rel="prev">Module Utils Functions and Macros</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Initialization-Macros-and-Functions-1"></span><h4 class="subsubsection">5.2.7.1 Initialization Macros and Functions</h4>
 
@@ -3932,7 +4081,7 @@ resources other than those that will be freed by the system.
 <div class="subsubsection" id="Generic-Macros-and-Functions">
 <div class="header">
 <p>
-Next: <a href="#Functions-used-by-module_005fmain_002ec" accesskey="n" rel="next">Functions used by <samp>module_main.c</samp></a>, Previous: <a href="#Initialization-Macros-and-Functions" accesskey="p" rel="prev">Initialization Macros and Functions</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Functions-used-by-module_005fmain_002ec" accesskey="n" rel="next">Functions used by <samp>module_main.c</samp></a>, Previous: <a href="#Initialization-Macros-and-Functions" accesskey="p" rel="prev">Initialization Macros and Functions</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Generic-Macros-and-Functions-1"></span><h4 class="subsubsection">5.2.7.3 Generic Macros and Functions</h4>
 
@@ -3987,7 +4136,7 @@ parameters with a string value.
 <div class="subsubsection" id="Functions-used-by-module_005fmain_002ec">
 <div class="header">
 <p>
-Next: <a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="n" rel="next">Functions for use when talking to synthesizer</a>, Previous: <a href="#Generic-Macros-and-Functions" accesskey="p" rel="prev">Generic Macros and Functions</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="n" rel="next">Functions for use when talking to synthesizer</a>, Previous: <a href="#Generic-Macros-and-Functions" accesskey="p" rel="prev">Generic Macros and Functions</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Functions-used-by-module_005fmain_002ec-1"></span><h4 class="subsubsection">5.2.7.4 Functions used by <samp>module_main.c</samp></h4>
 
@@ -4052,7 +4201,7 @@ to the protocol. Then it calls <code>module_close()</code>.
 <div class="subsubsection" id="Functions-for-use-when-talking-to-synthesizer">
 <div class="header">
 <p>
-Next: <a href="#Multi_002dprocess-output-modules" accesskey="n" rel="next">Multi-process output modules</a>, Previous: <a href="#Functions-used-by-module_005fmain_002ec" accesskey="p" rel="prev">Functions used by <samp>module_main.c</samp></a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Multi_002dprocess-output-modules" accesskey="n" rel="next">Multi-process output modules</a>, Previous: <a href="#Functions-used-by-module_005fmain_002ec" accesskey="p" rel="prev">Functions used by <samp>module_main.c</samp></a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Functions-for-use-when-talking-to-synthesizer-1"></span><h4 class="subsubsection">5.2.7.5 Functions for use when talking to synthesizer</h4>
 
@@ -4124,7 +4273,7 @@ in the middle of its run.
 <div class="subsubsection" id="Multi_002dprocess-output-modules">
 <div class="header">
 <p>
-Next: <a href="#Memory-Handling-Functions" accesskey="n" rel="next">Memory Handling Functions</a>, Previous: <a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="p" rel="prev">Functions for use when talking to synthesizer</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Memory-Handling-Functions" accesskey="n" rel="next">Memory Handling Functions</a>, Previous: <a href="#Functions-for-use-when-talking-to-synthesizer" accesskey="p" rel="prev">Functions for use when talking to synthesizer</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Multi_002dprocess-output-modules-1"></span><h4 class="subsubsection">5.2.7.6 Multi-process output modules</h4>
 
@@ -4259,7 +4408,7 @@ parent.
 <div class="subsubsection" id="Memory-Handling-Functions">
 <div class="header">
 <p>
-Previous: <a href="#Multi_002dprocess-output-modules" accesskey="p" rel="prev">Multi-process output modules</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Multi_002dprocess-output-modules" accesskey="p" rel="prev">Multi-process output modules</a>, Up: <a href="#Module-Utils-Functions-and-Macros" accesskey="u" rel="up">Module Utils Functions and Macros</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Memory-Handling-Functions-1"></span><h4 class="subsubsection">5.2.7.7 Memory Handling Functions</h4>
 
@@ -4290,7 +4439,7 @@ if data isn&rsquo;t NULL before calling <code>free()</code>.
 <div class="subsection" id="Index-Marks-in-Output-Modules">
 <div class="header">
 <p>
-Previous: <a href="#Module-Utils-Functions-and-Macros" accesskey="p" rel="prev">Module Utils Functions and Macros</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Module-Utils-Functions-and-Macros" accesskey="p" rel="prev">Module Utils Functions and Macros</a>, Up: <a href="#Output-Modules" accesskey="u" rel="up">Output Modules</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Index-Marks-in-Output-Modules-1"></span><h4 class="subsection">5.2.8 Index Marks in Output Modules</h4>
 
@@ -4334,7 +4483,7 @@ some place close by and report the last index mark).
 <div class="chapter" id="Download-and-Contact">
 <div class="header">
 <p>
-Next: <a href="#Reporting-Bugs" accesskey="n" rel="next">Reporting Bugs</a>, Previous: <a href="#Server-Programming" accesskey="p" rel="prev">Server Programming</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Reporting-Bugs" accesskey="n" rel="next">Reporting Bugs</a>, Previous: <a href="#Server-Programming" accesskey="p" rel="prev">Server Programming</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Download"></span><h2 class="chapter">6 Download</h2>
 
@@ -4358,7 +4507,7 @@ or use the email <a href="mailto:users@lists.freebsoft.org">users@lists.freebsof
 <div class="chapter" id="Reporting-Bugs">
 <div class="header">
 <p>
-Next: <a href="#How-You-Can-Help" accesskey="n" rel="next">How You Can Help</a>, Previous: <a href="#Download-and-Contact" accesskey="p" rel="prev">Download</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#How-You-Can-Help" accesskey="n" rel="next">How You Can Help</a>, Previous: <a href="#Download-and-Contact" accesskey="p" rel="prev">Download</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Reporting-Bugs-1"></span><h2 class="chapter">7 Reporting Bugs</h2>
 
@@ -4422,7 +4571,7 @@ information instead, please do so.
 <div class="chapter" id="How-You-Can-Help">
 <div class="header">
 <p>
-Next: <a href="#Appendices" accesskey="n" rel="next">Appendices</a>, Previous: <a href="#Reporting-Bugs" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Appendices" accesskey="n" rel="next">Appendices</a>, Previous: <a href="#Reporting-Bugs" accesskey="p" rel="prev">Reporting Bugs</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="How-You-Can-Help-1"></span><h2 class="chapter">8 How You Can Help</h2>
 
@@ -4499,7 +4648,7 @@ and Free Software.
 <div class="appendix" id="Appendices">
 <div class="header">
 <p>
-Next: <a href="#GNU-General-Public-License" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#How-You-Can-Help" accesskey="p" rel="prev">How You Can Help</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#GNU-General-Public-License" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#How-You-Can-Help" accesskey="p" rel="prev">How You Can Help</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Appendices-1"></span><h2 class="appendix">Appendix A Appendices</h2>
 
@@ -4508,7 +4657,7 @@ Next: <a href="#GNU-General-Public-License" accesskey="n" rel="next">GNU General
 <div class="appendix" id="GNU-General-Public-License">
 <div class="header">
 <p>
-Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Appendices" accesskey="p" rel="prev">Appendices</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Appendices" accesskey="p" rel="prev">Appendices</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="GNU-General-Public-License-1"></span><h2 class="appendix">Appendix B GNU General Public License</h2>
 <div align="center">Version 2, June 1991
@@ -4871,7 +5020,7 @@ Public License instead of this License.
 <div class="appendix" id="GNU-Free-Documentation-License">
 <div class="header">
 <p>
-Next: <a href="#Index-of-Concepts" accesskey="n" rel="next">Index of Concepts</a>, Previous: <a href="#GNU-General-Public-License" accesskey="p" rel="prev">GNU General Public License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Index-of-Concepts" accesskey="n" rel="next">Index of Concepts</a>, Previous: <a href="#GNU-General-Public-License" accesskey="p" rel="prev">GNU General Public License</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="GNU-Free-Documentation-License-1"></span><h2 class="appendix">Appendix C GNU Free Documentation License</h2>
 <div align="center">Version 1.2, November 2002
@@ -5299,7 +5448,7 @@ to permit their use in free software.
 <div class="unnumbered" id="Index-of-Concepts">
 <div class="header">
 <p>
-Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <span id="Index-of-Concepts-1"></span><h2 class="unnumbered">Index of Concepts</h2>
 
@@ -5590,6 +5739,7 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
  &nbsp; 
 </td></tr></table>
 
+</div>
 </div>
 
 
