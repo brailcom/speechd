@@ -810,6 +810,11 @@ void module_load_requested_modules(void)
 		requested_modules =
 		    g_list_delete_link(requested_modules, requested_modules);
 	}
+
+	if (output_modules) {
+		OutputModule *first_module = output_modules->data;
+		GlobalFDSet.output_module = first_module->name;
+	}
 }
 
 /*
