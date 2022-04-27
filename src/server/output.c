@@ -1467,7 +1467,6 @@ char *escape_dot(char *otext)
 		ret = otext;
 	} else {
 		g_string_append(ntext, otext);
-		g_free(ootext);
 		ret = ntext->str;
 		g_string_free(ntext, 0);
 	}
