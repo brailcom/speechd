@@ -138,7 +138,7 @@ extern pthread_mutex_t module_stdout_mutex;
 
 /* This should be called by module_speak_sync to confirm the data is ok before
  * actually synthesizing. From this point the server may send stop requests, so
- * reseting the stop state must be done before calling this. */
+ * resetting the stop state must be done before calling this. */
 void module_speak_ok(void);
 
 /* This should be called by module_speak_sync to notify that the data is not ok,
@@ -165,7 +165,7 @@ void module_report_icon(const char *icon);
  * - called with block set to 1, in which case it will only return when the
  * server sends QUIT, i.e. it acts as the main loop for the module,
  * - or called with block set to 0, in which case it will only process what was
- * already sent by the server and not wait for any further requets.
+ * already sent by the server and not wait for any further requests.
  *
  * typically be called periodically by the module, to let the server
  * tell if it should stop.

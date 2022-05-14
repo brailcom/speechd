@@ -4,7 +4,7 @@ Available tests:
 
 * long_message:
         Tests the ability of Speech Dispatcher to handle long messages
-        and special characters (the seccond message is a source code).
+        and special characters (the second message is a source code).
         (it uses libspeechd.c)
 
 * multiple_messages:
@@ -19,7 +19,7 @@ Available tests:
         A simple program that reads the given script-file (*.test)
         and executes the SSIP commands inside it. It also outputs
         the comments from the file on the screen and waits where
-        requested. If an aditional parameter "fast" is specified, that
+        requested. If an additional parameter "fast" is specified, that
         means execute everything without the specified delays.
 
 		You may find it convenient to redirect the output to some

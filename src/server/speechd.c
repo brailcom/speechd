@@ -1065,7 +1065,7 @@ int main(int argc, char *argv[])
 	int spawn_port = 0;
 	char *spawn_socket_path = NULL;
 
-	/* Strip all permisions for 'others' from the files created */
+	/* Strip all permissions for 'others' from the files created */
 	umask(007);
 
 	/* Initialize logging */

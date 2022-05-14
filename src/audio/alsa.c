@@ -771,7 +771,7 @@ static int alsa_drain_left(AudioID * id, snd_pcm_uframes_t left)
 	}
 
 	/* When ALSA is going through Pulseaudio, wait_for_poll returns too
-	   early because the file descriptor is always availble for writing
+	   early because the file descriptor is always available for writing
 	   :/ */
 	while (!alsa_id->stop_requested)
 	{
@@ -926,7 +926,7 @@ static int alsa_end(AudioID * id)
 /* Play the track _track_ (see spd_audio.h) using the id->alsa_pcm device and
  id-hw_params parameters. This is a blocking function, however, it's possible
  to interrupt playing from a different thread with alsa_stop(). alsa_play
- returns after and immediatelly after the whole sound was played on the
+ returns after and immediately after the whole sound was played on the
  speakers.
 
  The idea is that we get the ALSA file descriptors and we will poll() to see

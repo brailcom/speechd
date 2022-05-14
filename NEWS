@@ -186,7 +186,7 @@ Version 0.7.1
    why was it not possible to autostart the server, what has the
    server reported etc.)  Clients can directly show this information
    to the user and the user doesn't have to search them in logfiles.
- * Improvements in memmory usage
+ * Improvements in memory usage
  * Cleanup of priorities of messages in logging output
  * Various bugfixes, cleanups and fine-tunnings
 
@@ -211,7 +211,7 @@ Version 0.7
  * Updated documentation
 
 Version 0.6.7
- * Central settings for prefered audio output method
+ * Central settings for preferred audio output method
  * Dummy output module gives a pre-recorded message whenever
    no other output module works   
  * Possibility to switch on verbose logging over SSIP

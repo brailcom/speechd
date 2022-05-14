@@ -290,7 +290,7 @@ static int oss_play(AudioID * id, AudioTrack track)
 	while (num_bytes > 0) {
 
 		/* OSS doesn't support non-blocking write, so lets check how much data
-		   can we write so that write() returns immediatelly */
+		   can we write so that write() returns immediately */
 		re = ioctl(oss_id->fd, SNDCTL_DSP_GETOSPACE, &info);
 		if (re == -1) {
 			perror("OSS ERROR: GETOSPACE");
@@ -329,7 +329,7 @@ static int oss_play(AudioID * id, AudioTrack track)
 		MSG(4, "%d bytes written to OSS, %d remaining", ret, num_bytes);
 
 		/* If there is some more data that is less than a
-		   full fragment, we need to write it immediatelly so
+		   full fragment, we need to write it immediately so
 		   that it doesn't cause buffer underruns later. */
 		if ((num_bytes > 0)
 		    && (num_bytes < info.fragsize)
@@ -465,7 +465,7 @@ static int oss_close(AudioID * id)
 {
 	spd_oss_id_t *oss_id = (spd_oss_id_t *) id;
 
-	/* Does nothing because the device is being automatically openned and
+	/* Does nothing because the device is being automatically opened and
 	   closed in oss_play before and after playing each sample. */
 
 	g_free(oss_id->device_name);

@@ -437,7 +437,7 @@ Comments:
    In case of /dev/dsp, it's not possible to set volume for
    the particular flow. For that reason, the value 0 means
    the volume the track was recorded on and each smaller value
-   means less volume (since this works by deviding the samples
+   means less volume (since this works by dividing the samples
    in the track by a constant).
 */
 int spd_audio_set_volume(AudioID * id, int volume)

@@ -898,7 +898,7 @@ static void output_queue_event(speak_queue_entry *entry)
 	pthread_mutex_unlock(&playback_events_mutex);
 	ret = write(speaking_module->pipe_speak[1], &c, 1);
 	if (ret != 1)
-		MSG(1, "Warning: couln't write to pipe_speak: %d returned, (errno = %d, %s)\n", ret, errno, strerror(errno));
+		MSG(1, "Warning: couldn't write to pipe_speak: %d returned, (errno = %d, %s)\n", ret, errno, strerror(errno));
 }
 
 static void output_queue_new_event(speak_queue_entry_type type)
@@ -1260,7 +1260,7 @@ int output_is_speaking(char **index_mark)
 	/* Wait for next event */
 	ret = read(output->pipe_speak[0], &c, 1);
 	if (ret != 1)
-		MSG(1, "Warning: couln't read from pipe_speak: %d returned, (errno = %d, %s)\n", ret, errno, strerror(errno));
+		MSG(1, "Warning: couldn't read from pipe_speak: %d returned, (errno = %d, %s)\n", ret, errno, strerror(errno));
 
 	pthread_mutex_lock(&playback_events_mutex);
 	entry = playback_events->data;
@@ -1419,7 +1419,7 @@ int output_check_module(OutputModule * output)
 				MSG(2,
 				    "Output device not working. For software devices, this can mean"
 				    "that they are not running or they are not accessible due to wrong"
-				    "acces permissions.");
+				    "access permissions.");
 			}
 			if (err > 2)
 				MSG(2,

@@ -324,7 +324,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	printf("Message successfuly canceled.\n");
+	printf("Message successfully canceled.\n");
 
 	printf("Speech-dispatcher: connection closed.\n");
 

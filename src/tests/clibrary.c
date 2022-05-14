@@ -38,17 +38,17 @@ int main()
 
 	printf("Start of the test of the test.\n");
 
-	printf("Trying to initialize Speech Deamon...\n");
+	printf("Trying to initialize Speech Daemon...\n");
 	conn = spd_open("say", NULL, NULL, SPD_MODE_SINGLE);
 	if (conn == 0) {
-		printf("Speech Deamon failed.\n");
+		printf("Speech Daemon failed.\n");
 		exit(1);
 	}
 	printf("OK\n");
 
 	printf("Say inviting message\n");
 	ret =
-	    spd_say(conn, SPD_MESSAGE, "Hello, how are you? I'm Speech Deamon");
+	    spd_say(conn, SPD_MESSAGE, "Hello, how are you? I'm Speech Daemon");
 	if (ret == -1) {
 		printf("spd_say failed\n");
 		exit(1);
@@ -113,7 +113,7 @@ int main()
 	printf("\n");
 	printf("Keep this pitch, set higher rate and let's test priorities.\n"
 	       "Priority progress should choose some messages\n"
-	       "to report the progrees and it should allways say\n"
+	       "to report the progrees and it should always say\n"
 	       "the last message.\n");
 
 	sleep(10);
