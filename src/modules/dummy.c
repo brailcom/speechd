@@ -260,7 +260,7 @@ void _dummy_child()
 	ret = system(try1);
 	DBG("Executed shell command '%s' returned with %d", try1, ret);
 	if ((ret != 0)) {
-		DBG("Execution failed, trying seccond command");
+		DBG("Execution failed, trying second command");
 		ret = system(try2);
 		DBG("Executed shell command '%s' returned with %d", try1, ret);
 		if ((ret != 0)) {

@@ -193,7 +193,7 @@ any later version. Please see COPYING for more details.\n\n""") % \
     def festival_connect(self, host="localhost", port=1314):
         """
         Try to connect to festival and determine whether it is possible.
-        On success self.festival_socket is initialized with the openned socket.
+        On success self.festival_socket is initialized with the opened socket.
         """
         self.festival_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         try:

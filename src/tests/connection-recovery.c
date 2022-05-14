@@ -40,7 +40,7 @@ SPDConnection *try_to_reconnect(void)
 		usleep(1000);
 		conn = spd_open("test", NULL, NULL, SPD_MODE_THREADED);
 		if (conn != NULL) {
-			spd_say(conn, SPD_MESSAGE, "Reconnect succesful");
+			spd_say(conn, SPD_MESSAGE, "Reconnect successful");
 			printf("Reconnect successful\n");
 			return conn;
 		}
@@ -56,7 +56,7 @@ int main(void)
 
 	conn = spd_open("test", NULL, NULL, SPD_MODE_THREADED);
 	if (conn == 0) {
-		printf("Speech Deamon failed\n");
+		printf("Speech Daemon failed\n");
 		exit(1);
 	}
 

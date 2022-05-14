@@ -69,7 +69,7 @@ int main()
 
 	printf("Start of the test.\n");
 
-	printf("Trying to initialize Speech Deamon...\n");
+	printf("Trying to initialize Speech Daemon...\n");
 	conn = spd_open("say", NULL, NULL,
 #ifdef THOROUGH
 			SPD_MODE_THREADED
@@ -78,7 +78,7 @@ int main()
 #endif
 			);
 	if (conn == 0) {
-		printf("Speech Deamon failed\n");
+		printf("Speech Daemon failed\n");
 		exit(1);
 	}
 	printf("OK\n");

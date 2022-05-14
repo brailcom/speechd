@@ -338,7 +338,7 @@ char *string_replace(char *string, const char *token, const char *data)
 
 	mstring = g_strdup(string);
 	while (1) {
-		/* Split the string in two parts, ommit the token */
+		/* Split the string in two parts, omit the token */
 		p = strstr(mstring, token);
 		if (p == NULL) {
 			return mstring;

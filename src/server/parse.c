@@ -138,7 +138,7 @@ char *parse(const char *buf, const int bytes, const int fd)
 		return g_strdup(ERR_INVALID_COMMAND);
 
 		/* The other case is that we are in awaiting_data mode and
-		 * we are waiting for text that is comming through the chanel */
+		 * we are waiting for text that is coming through the chanel */
 	} else {
 enddata:
 		/* In the end of the data flow we got a "\r\n." NEWLINE command. */
@@ -265,7 +265,7 @@ enddata:
 	CHECK_PARAM(name);
 
 /* Tests if cmd is the same as str AND deallocates cmd if
-   the test is succesful */
+   the test is successful */
 #define TEST_CMD(cmd, str) \
 	(!strcmp(cmd, str) ? g_free(cmd), 1 : 0 )
 

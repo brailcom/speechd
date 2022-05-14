@@ -132,7 +132,7 @@ queue_message(TSpeechDMessage * new, int fd, int history_flag,
 	/* If desired, put the message also into history */
 	/* NOTE: This should be before we put it into queues() to
 	   avoid conflicts with the other thread (it could delete
-	   the message before we woud copy it) */
+	   the message before we would copy it) */
 	//    if (history_flag){
 	if (0) {
 		pthread_mutex_lock(&element_free_mutex);

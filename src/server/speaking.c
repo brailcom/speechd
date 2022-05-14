@@ -153,7 +153,7 @@ void *speak(void *data)
 					    (MessagePausedList, (void *)NULL,
 					     message_nto_speak);
 					MSG(5,
-					    "Message insterted back to the queues!");
+					    "Message inserted back to the queues!");
 					MessagePausedList =
 					    g_list_remove_link
 					    (MessagePausedList, gl);

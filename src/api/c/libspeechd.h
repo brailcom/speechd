@@ -1,5 +1,5 @@
 /*
- * libspeechd.h - Shared library for easy acces to Speech Dispatcher functions (header)
+ * libspeechd.h - Shared library for easy access to Speech Dispatcher functions (header)
  *
  * Copyright (C) 2001, 2002, 2003, 2004 Brailcom, o.p.s.
  *

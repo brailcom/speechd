@@ -1,5 +1,5 @@
 /*
-  libspeechd.c - Shared library for easy acces to Speech Dispatcher functions
+  libspeechd.c - Shared library for easy access to Speech Dispatcher functions
  *
  * Copyright (C) 2001, 2002, 2003, 2006, 2007, 2008 Brailcom, o.p.s.
  *
@@ -241,7 +241,7 @@ static void _init_debug(void)
 	if (!spd_debug) {
 		spd_debug = fopen("/tmp/libspeechd.log", "w");
 		if (spd_debug == NULL)
-			SPD_FATAL("COULDN'T ACCES FILE INTENDED FOR DEBUG");
+			SPD_FATAL("COULDN'T ACCESS FILE INTENDED FOR DEBUG");
 
 		SPD_DBG("Debugging started");
 	}
@@ -720,7 +720,7 @@ int spd_say(SPDConnection * connection, SPDPriority priority, const char *text)
 	return msg_id;
 }
 
-/* The same as spd_say, accepts also formated strings */
+/* The same as spd_say, accepts also formatted strings */
 int
 spd_sayf(SPDConnection * connection, SPDPriority priority, const char *format,
 	 ...)

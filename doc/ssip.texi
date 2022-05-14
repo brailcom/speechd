@@ -141,7 +141,7 @@ and conflicts between different clients' needs in a central place in
 the system. Through the priority system, the central Speech Server
 that implements SSIP can decide which messages are considered the most
 important at any particular time and say them, while possibly
-supressing others.
+suppressing others.
 
 @node Protocol Philosophy, Higher Level API, Purpose, Introduction
 @section Protocol Philosophy
@@ -970,7 +970,7 @@ is determined by the @code{DefaultSpelling} setting in the
 Set capital letters recognition mode. @code{none} switches this
 feature off. @code{spell} causes capital letters to be spelled
 in the speech using the table set as @code{CAP_LET_RECOGN_TABLE}.
-With parameter @code{icon}, each capital letter will be preceeded
+With parameter @code{icon}, each capital letter will be preceded
 by a sound icon (either sound or textual) specified by the user
 in his configuration.
 The default for the Speech Dispatcher implementation of SSIP
@@ -1229,7 +1229,7 @@ The event @code{RESUME} means that a message that was paused
 while being spoken, just started to continue and again produces
 sound in the speakers.
 
-@code{RESUME} is always preceeded by the event @code{PAUSE}, and can
+@code{RESUME} is always preceded by the event @code{PAUSE}, and can
 be followed by either the event @code{END} or @code{CANCEL}.
 
 @item INDEX_MARK

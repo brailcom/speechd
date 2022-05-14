@@ -102,7 +102,7 @@ with this default setting a voice available with these characteristics (voice
 type, language, synthesizer) will be chosen if available.
 
 
-The default values of theses voices parameters can also be set at the system
+The default values of these voice parameters can also be set at the system
 level customized at the user level: rate, pitch, pitch range and volume.
 
 It is also possible to make the synthesizer depend on the language used.
