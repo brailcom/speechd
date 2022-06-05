@@ -184,7 +184,7 @@ static int oss_play(AudioID * id, AudioTrack track)
 	int ret, ret2;
 	struct timeval now;
 	struct timespec timeout;
-	float lenght;
+	float length;
 	int r = 0;
 	int format, oformat, channels, speed;
 	int bytes_per_sample;
@@ -362,17 +362,17 @@ static int oss_play(AudioID * id, AudioTrack track)
 		 */
 		MSG(4, "Now we will try to wait");
 		pthread_mutex_lock(&oss_id->pt_mutex);
-		lenght = (((float)(ret) / 2) / (float)track.sample_rate);
+		length = (((float)(ret) / 2) / (float)track.sample_rate);
 		if (!delay) {
-			delay = lenght > DELAY ? DELAY : lenght;
-			lenght -= delay;
+			delay = length > DELAY ? DELAY : length;
+			length -= delay;
 		}
-		MSG(4, "Wait for %f secs (begin: %f, delay: %f)", lenght,
-		    lenght + delay, delay)
+		MSG(4, "Wait for %f secs (begin: %f, delay: %f)", length,
+		    length + delay, delay)
 		    gettimeofday(&now, NULL);
-		timeout.tv_sec = now.tv_sec + (int)lenght;
+		timeout.tv_sec = now.tv_sec + (int)length;
 		timeout.tv_nsec =
-		    now.tv_usec * 1000 + (lenght - (int)lenght) * 1000000000;
+		    now.tv_usec * 1000 + (length - (int)length) * 1000000000;
 		//MSG("5, waiting till %d:%d (%d:%d | %d:%d)", timeout.tv_sec, timeout.tv_nsec,
 		//    now.tv_sec, now.tv_usec*1000, timeout.tv_sec - now.tv_sec, timeout.tv_nsec-now.tv_usec*1000);
 
