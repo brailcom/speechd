@@ -129,7 +129,7 @@ static int nas_play(AudioID * id, AudioTrack track)
 	char *buf;
 	Sound s;
 	AuEventHandlerRec *event_handler;
-	float lenght;
+	float length;
 	struct timeval now;
 	struct timespec timeout;
 	spd_nas_id_t *nas_id = (spd_nas_id_t *) id;
@@ -168,11 +168,11 @@ static int nas_play(AudioID * id, AudioTrack track)
 
 	/* Another timing magic */
 	pthread_mutex_lock(&nas_id->pt_mutex);
-	lenght = (((float)track.num_samples) / (float)track.sample_rate);
+	length = (((float)track.num_samples) / (float)track.sample_rate);
 	gettimeofday(&now, NULL);
-	timeout.tv_sec = now.tv_sec + (int)lenght;
+	timeout.tv_sec = now.tv_sec + (int)length;
 	timeout.tv_nsec =
-	    now.tv_usec * 1000 + (lenght - (int)lenght) * 1000000000;
+	    now.tv_usec * 1000 + (length - (int)length) * 1000000000;
 	pthread_cond_timedwait(&nas_id->pt_cond, &nas_id->pt_mutex, &timeout);
 	pthread_mutex_unlock(&nas_id->pt_mutex);
 
