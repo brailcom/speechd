@@ -468,10 +468,12 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	}
 
 	/* Setting speech parameters. */
+	/* Set language first, since that sets the voice */
+	UPDATE_STRING_PARAMETER(voice.language, pico_set_language);
 
+	/* Then set the voice if needed */
 	UPDATE_STRING_PARAMETER(voice.name, pico_set_synthesis_voice);
 	/*      UPDATE_PARAMETER(voice_type, pico_set_voice); */
-	UPDATE_STRING_PARAMETER(voice.language, pico_set_language);
 
 	picoInp = (pico_Char *) module_strip_ssml(data);
 
