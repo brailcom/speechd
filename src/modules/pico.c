@@ -169,7 +169,7 @@ static int pico_process_tts(void)
 
 	text_remaining = strlen((const char *)buf) + 1;
 
-	DBG(MODULE_NAME " Text: %s\n", picoInp);
+	DBG(MODULE_NAME ": Text: %s\n", picoInp);
 
 	/* synthesis loop   */
 	while (text_remaining) {
@@ -181,11 +181,11 @@ static int pico_process_tts(void)
 					    &bytes_sent))) {
 			pico_getSystemStatusMessage(picoSystem, ret,
 						    outMessage);
-			DBG(MODULE_NAME "Cannot put Text (%i): %s\n", ret,
+			DBG(MODULE_NAME ": Cannot put Text (%i): %s\n", ret,
 			    outMessage);
 			return -1;
 		}
-		DBG(MODULE_NAME " Sent %d bytes\n", bytes_sent);
+		DBG(MODULE_NAME ": Sent %d bytes\n", bytes_sent);
 
 		text_remaining -= bytes_sent;
 		buf += bytes_sent;
@@ -204,7 +204,7 @@ static int pico_process_tts(void)
 				pico_getSystemStatusMessage(picoSystem,
 							    getstatus,
 							    outMessage);
-				DBG(MODULE_NAME "Cannot get Data (%i): %s\n",
+				DBG(MODULE_NAME ": Cannot get Data (%i): %s\n",
 				    getstatus, outMessage);
 				return -1;
 			}
@@ -268,7 +268,7 @@ int pico_init_voice(int voice_index)
 	     pico_loadResource(picoSystem, picoTaFileName, &picoTaResource))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot load TA Lingware resource file (%i): %s\n", ret,
+		    ": Cannot load TA Lingware resource file (%i): %s\n", ret,
 		    outMessage);
 		return -1;
 	}
@@ -281,7 +281,7 @@ int pico_init_voice(int voice_index)
 	     pico_loadResource(picoSystem, picoSgFileName, &picoSgResource))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot load SG Lingware resource file (%i): %s\n", ret,
+		    ": Cannot load SG Lingware resource file (%i): %s\n", ret,
 		    outMessage);
 		return -1;
 	}
@@ -291,7 +291,7 @@ int pico_init_voice(int voice_index)
 					picoTaResourceName))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot get TA resource name (%i): %s\n", ret, outMessage);
+		    ": Cannot get TA resource name (%i): %s\n", ret, outMessage);
 		return -1;
 	}
 
@@ -300,7 +300,7 @@ int pico_init_voice(int voice_index)
 					picoSgResourceName))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot get SG resource name (%i): %s\n", ret, outMessage);
+		    ": Cannot get SG resource name (%i): %s\n", ret, outMessage);
 		return -1;
 	}
 
@@ -309,7 +309,7 @@ int pico_init_voice(int voice_index)
 					      pico_voices[voice_index].name))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot create voice definition (%i): %s\n", ret,
+		    ": Cannot create voice definition (%i): %s\n", ret,
 		    outMessage);
 		return -1;
 	}
@@ -323,7 +323,7 @@ int pico_init_voice(int voice_index)
 						     picoTaResourceName))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot add TA resource to the voice (%i): %s\n",
+		    ": Cannot add TA resource to the voice (%i): %s\n",
 		    ret, outMessage);
 		return -1;
 	}
@@ -337,7 +337,7 @@ int pico_init_voice(int voice_index)
 						     picoSgResourceName))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot add SG resource to the voice (%i): %s\n",
+		    ": Cannot add SG resource to the voice (%i): %s\n",
 		    ret, outMessage);
 		return -1;
 	}
@@ -405,7 +405,7 @@ void pico_set_synthesis_voice(char *voice_name)
 	if ((ret = pico_disposeEngine(picoSystem, &picoEngine))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot dispose pico engine (%i): %s\n", ret, outMessage);
+		    ": Cannot dispose pico engine (%i): %s\n", ret, outMessage);
 		return;
 	}
 
@@ -414,7 +414,7 @@ void pico_set_synthesis_voice(char *voice_name)
 				  &picoEngine))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot create a new pico engine (%i): %s\n", ret,
+		    ": Cannot create a new pico engine (%i): %s\n", ret,
 		    outMessage);
 		/* Try to fallback to english */
 		if ((ret = pico_newEngine(picoSystem,
@@ -422,7 +422,7 @@ void pico_set_synthesis_voice(char *voice_name)
 					  &picoEngine))) {
 			pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 			DBG(MODULE_NAME
-			    "Cannot create default english pico engine (%i): %s\n", ret,
+			    ": Cannot create default english pico engine (%i): %s\n", ret,
 			    outMessage);
 			return;
 		}
@@ -436,7 +436,7 @@ void pico_set_synthesis_voice(char *voice_name)
 static void pico_set_language(char *lang)
 {
 	int i;
-	DBG(MODULE_NAME "setting language %s", lang);
+	DBG(MODULE_NAME ": setting language %s", lang);
 
 	/* get voice name based on language */
 	for (i = 0; i < sizeof(pico_voices) / sizeof(SPDVoice); i++) {
@@ -546,7 +546,7 @@ int module_stop(void)
 	if ((ret = pico_resetEngine(picoEngine, PICO_RESET_SOFT))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot reset pico engine (%i): %s\n", ret, outMessage);
+		    ": Cannot reset pico engine (%i): %s\n", ret, outMessage);
 		return -1;
 	}
 
@@ -569,7 +569,7 @@ size_t module_pause(void)
 	if ((ret = pico_resetEngine(picoEngine, PICO_RESET_SOFT))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
-		    "Cannot reset pico engine (%i): %s\n", ret, outMessage);
+		    ": Cannot reset pico engine (%i): %s\n", ret, outMessage);
 		return -1;
 	}
 
