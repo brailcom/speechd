@@ -63,11 +63,11 @@ end-words xces	(?<=[^\W_][uU])[xX]?[.·•‧⋅‐‑-][cC][eE][.·•‧⋅‐
 end-words xce	(?<=[^\W_][uU])[xX]?[.·•‧⋅‐‑-][cC][eE](?=\b)
 
 # légers·ères
-end-words ères	(?<=[^\W_][eE][rR])[sS]?[.·•‧⋅‐‑-][èÈE][rR][eE][.·•‧⋅‐‑-]?[sS](?=\b)
+end-words ères	(?<=[^\W_][eEèÈE][rR])[sS]?[.·•‧⋅‐‑-][èÈE]?[rR]?[eE][.·•‧⋅‐‑-]?[sS](?=\b)
 # léger·ère
-end-words ère	(?<=[^\W_][eE][rR])[.·•‧⋅‐‑-][èÈE][rR][eE](?=\b)
+end-words ère	(?<=[^\W_][eEèÈE][rR])[.·•‧⋅‐‑-][èÈE]?[rR]?[eE](?=\b)
 # léger·e
-end-words ere	(?<=[^\W_][eE][rR])[.·•‧⋅‐‑-][eE](?=\b)
+end-words ere	(?<=[^\W_][eEèÈE][rR])[.·•‧⋅‐‑-][eE](?=\b)
 
 # neufs·ves
 end-words ives	(?<=[^\W_][fF])[sS]?[.·•‧⋅‐‑-][iI]?[vV][eE][.·•‧⋅‐‑-]?[sS](?=\b)
