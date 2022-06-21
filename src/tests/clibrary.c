@@ -33,6 +33,8 @@
 
 int main()
 {
+	printf("Major: %d, Minor: %d, Micro: %4.2f \n", LIBSPEECHD_MAJOR_VERSION, LIBSPEECHD_MINOR_VERSION, LIBSPEECHD_MICRO_VERSION);
+	
 	SPDConnection *conn;
 	int i, ret;
 
