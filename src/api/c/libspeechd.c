@@ -879,6 +879,7 @@ spd_wchar(SPDConnection * connection, SPDPriority priority, wchar_t wcharacter)
 
 	pthread_mutex_lock(&connection->ssip_mutex);
 
+	memset(character, 0, sizeof(character));
 	ret = wcrtomb(character, wcharacter, NULL);
 	if (ret <= 0)
 		RET(-1);
