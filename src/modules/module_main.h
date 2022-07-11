@@ -32,6 +32,8 @@
 #include <speechd_types.h>
 #include <spd_audio.h>
 
+#include <pthread.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
