@@ -22,14 +22,14 @@ dist_moduleconf_DATA = cicero.conf espeak.conf espeak-ng.conf espeak-ng-mbrola.c
                        epos-generic.conf \
                        espeak-ng-mbrola-generic.conf espeak-mbrola-generic.conf \
                        llia_phon-generic.conf \
-                       swift-generic.conf mary-generic.conf
+                       swift-generic.conf mary-generic.conf mimic3-generic.conf
 
 dist_moduleconforig_DATA = cicero.conf espeak.conf festival.conf espeak-ng.conf espeak-ng-mbrola.conf
 	                   flite.conf dtk-generic.conf \
                            epos-generic.conf \
                            espeak-ng-mbrola-generic.conf espeak-mbrola-generic.conf \
                            llia_phon-generic.conf \
-                           swift-generic.conf mary-generic.conf
+                           swift-generic.conf mary-generic.conf mimic3-generic.conf
 
 if ivona_support
 dist_moduleconf_DATA += ivona.conf
