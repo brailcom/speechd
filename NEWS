@@ -1,6 +1,9 @@
+Version 0.11.3
+* Add mimic3 configuration file.
+
 Version 0.11.2
 * Fix loading xx-yy locales.
-* Various memory leaks fixes
+* Various memory leaks fixes.
 
 Version 0.11.1
 * Add SPEECHD_PLUGIN_DIR environment variable.
