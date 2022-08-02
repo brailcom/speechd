@@ -280,7 +280,7 @@ details of the various synthesizers.
 <p>The absence of such a common and standardized interface and thus the
 difficulty for programmers to use software speech synthesis has
 been a major reason why the potential of speech synthesis technology
-is still not fully expoited.
+is still not fully exploited.
 </p>
 <p>Ideally, there would be little distinction for applications whether
 they output messages on the screen or via speech. Speech Dispatcher
@@ -346,13 +346,13 @@ accessibility tools should send the same message twice for these two
 different kinds of output used by blind people (often simultaneously).
 Outside the world of accessibility, applications also want to either
 have full control over the sound (bypass prioritisation) or to only
-retrieve the synthesized data, but not play them immediatelly.
+retrieve the synthesized data, but not play them immediately.
 </p>
 <p>We want to eventually split Speech Dispatcher into two independent
 components: one providing a low-level interface to speech synthesis
 drivers, which we now call TTS API Provider and is already largely
 implemented in the Free(b)Soft project, and the second doing message
-managemenet, called Message Dispatcher. This will allow Message
+management, called Message Dispatcher. This will allow Message
 Dispatcher to also output on Braille as well as to use the TTS API
 Provider separately.
 </p>
@@ -366,7 +366,7 @@ inner design of the new components is much better.
 </p>
 <p>While a good API and its implementation for Braille are already
 existent in the form of BrlAPI, the API for speech is now under
-developement. Please see another architecture diagram showing how we
+development. Please see another architecture diagram showing how we
 imagine Message Dispatcher in the future.
 </p>
 <img src="figures/architecture-future.png" alt="Speech Dispatcher architecture">
@@ -761,7 +761,7 @@ suggested solution can be found in the log file.
 <pre class="example">spd-conf -D
 </pre></div>
 
-<p>Which will genereate a very detailed logfile archive
+<p>Which will generate a very detailed logfile archive
 which you can examine yourself or send to us with
 a request for help.
 </p>
@@ -890,7 +890,7 @@ options labeled as <code>AudioALSA...</code> or <code>AudioPulse...</code> provi
 a more detailed configuration of the given audio output method.
 </p>
 <p>It is possible to use a list of preferred audio output methods,
-in which case each output module attempts to use the first availble
+in which case each output module attempts to use the first available
 in the given order.
 </p>
 <p>The example below prefers Pulse Audio, but will use ALSA if unable
@@ -1088,7 +1088,7 @@ sentence.
 <p>The same applies to <code>MaxChunkLength</code>, it&rsquo;s better
 to set higher values for faster computers.
 </p>
-<p>For example, curently the default for Flite is
+<p>For example, currently the default for Flite is
 </p>
 <div class="example">
 <pre class="example">    FestivalMaxChunkLength  500
@@ -1474,7 +1474,7 @@ connect to Speech Dispatcher on a specified port, theoretically
 everyone could connect to it. The access is by default restricted only
 for connections originating on the same machine, which can be changed
 via the LocalhostAccessOnly option in the server configuration
-file. In such a case, the user is reponsible to set appropriate
+file. In such a case, the user is responsible to set appropriate
 security restrictions on the access to the given port on his machine
 from the outside network using a firewall or similar mechanism.
 </p>
@@ -1505,7 +1505,7 @@ Next: <a href="#Address-specification" accesskey="n" rel="next">Address specific
 <span id="Communication-mechanisms-1"></span><h3 class="section">3.1 Communication mechanisms</h3>
 
 <p>Speech Dispatcher supports two communication mechanisms: UNIX-style
-and Inet sockets, which are refered as &rsquo;unix-socket&rsquo; and &rsquo;inet-socket&rsquo;
+and Inet sockets, which are referred as &rsquo;unix-socket&rsquo; and &rsquo;inet-socket&rsquo;
 respectively. The communication mechanism is decided on startup and
 cannot be changed at runtime. Unix sockets are now the default and
 preferred variant for local communication, Inet sockets are necessary
@@ -1559,12 +1559,12 @@ Next: <a href="#Actions-performed-on-startup" accesskey="n" rel="next">Actions p
 </div>
 <span id="Address-specification-1"></span><h3 class="section">3.2 Address specification</h3>
 
-<p>Speech Dispatcher provies several methods of communication and can be
+<p>Speech Dispatcher provides several methods of communication and can be
 used both locally and over network. See <a href="#Communication-mechanisms">Communication mechanisms</a>. Client applications and interface libraries need to
 recognize an address, which specifies how and where to contact the
 appropriate server.
 </p>
-<p>Address specification consits from the method and one or more of its
+<p>Address specification consists from the method and one or more of its
 parameters, each item separated by a colon:
 </p>
 <div class="example">
@@ -1594,7 +1594,7 @@ inet_socket:192.168.0.34:6563
 <p>Clients implement different mechanisms how the user can set the
 address. Clients should respect the <var>SPEECHD_ADDRESS</var> environment
 variable See <a href="#Setting-Communication-Method">Setting Communication Method</a>, unless the user
-ovverrides its value by settins in the client application
+overrides its value by settings in the client application
 itself. Clients should fallback to the default address, if neither the
 environment variable or their specific configuration is set.
 </p>
@@ -2898,7 +2898,7 @@ class CallbackExample(object):
             elif callback_type == speechd.CallbackType.END:
                 print &quot;Speech completed:&quot;, text
             elif callback_type == speechd.CallbackType.CANCEL:
-                print &quot;Speech interupted:&quot;, text
+                print &quot;Speech interrupted:&quot;, text
         self._client.speak(text, callback=callback,
                            event_types=(speechd.CallbackType.BEGIN,
                                         speechd.CallbackType.CANCEL,
@@ -3358,7 +3358,7 @@ punctuation_some=NULL
 </dd>
 <dt><span><code>AUDIO</code></span></dt>
 <dd><p>Audio has exactly the same structure as <code>SET</code>, but is transmitted
-only once immediatelly after <code>INIT</code> to transmit the requested audio
+only once immediately after <code>INIT</code> to transmit the requested audio
 parameters and tell the output module to open the audio device.
 </p>
 </dd>
@@ -3424,7 +3424,7 @@ given message because it reached its end. If this is not possible, it
 can issue this event when it is ready to receive a new message after
 speaking the previous message.
 </p>
-<p>Each <code>END</code> must always be preceeded (possibly not directly) by a
+<p>Each <code>END</code> must always be preceded (possibly not directly) by a
 <code>BEGIN</code>.
 </p>
 <p>It is prepended by the code <code>702</code> and takes the form
@@ -3442,7 +3442,7 @@ receiving the STOP command or because of some error) not because of
 a <code>PAUSE</code> command. When the synthesizer in use doesn&rsquo;t allow
 the module to decide, the event <code>END</code> can be used instead.
 </p>
-<p>Each <code>STOP</code> must always be preceeded (possibly not directly) by a
+<p>Each <code>STOP</code> must always be preceded (possibly not directly) by a
 <code>BEGIN</code>.
 </p>
 <p>It is prepended by the code <code>703</code> and takes the form
@@ -3458,7 +3458,7 @@ the module to decide, the event <code>END</code> can be used instead.
 the given message without reaching its end because of receiving the
 <code>PAUSE</code> command.
 </p>
-<p>Each <code>PAUSE</code> must always be preceeded (possibly not directly) by a
+<p>Each <code>PAUSE</code> must always be preceded (possibly not directly) by a
 <code>BEGIN</code>.
 </p>
 <p>It is prepended by the code <code>704</code> and takes the form
@@ -3472,7 +3472,7 @@ the given message without reaching its end because of receiving the
 <dd>
 <p>This event should be issued by the output module (if supported)
 whenever an index mark (SSML tag <code>&lt;mark/&gt;</code>) is passed while speaking
-a message. It is preceeded by the code <code>700</code> and takes the form
+a message. It is preceded by the code <code>700</code> and takes the form
 </p>
 <div class="example">
 <pre class="example">700-name
@@ -3486,7 +3486,7 @@ the tag <code>&lt;mark/&gt;</code>.
 <dt><span><code>AUDIO</code></span></dt>
 <dd>
 <p>This event should be issued by the output module to produce audio through the
-server. It is preceeded by the code <code>705</code> and takes the form
+server. It is preceded by the code <code>705</code> and takes the form
 </p>
 <div class="example">
 <pre class="example">705-bits=16
@@ -3507,7 +3507,7 @@ the data, its 5th bit is inverted and it is prefixed with <code>0x7D</code>.
 <dt><span><code>ICON</code></span></dt>
 <dd>
 <p>This event should be issued by the output module to emit a sound icon through
-the server. It is preceeded by the code <code>706</code> and takes the form
+the server. It is preceded by the code <code>706</code> and takes the form
 </p>
 <div class="example">
 <pre class="example">706-name
@@ -3914,7 +3914,7 @@ UPDATE_STRING_PARAMETER() macros. See <a href="#Module-Utils-Functions-and-Macro
 
 <p>Once this function has checked that everything is OK, it must call
 <code>module_speak_ok()</code> to let the server know that the speak was
-accepted. From then on, the server may send stop requests, so reseting the stop
+accepted. From then on, the server may send stop requests, so resetting the stop
 state must be done before calling this.
 On errors, <code>module_speak_error()</code> has to be called instead.
 </p>
@@ -4303,7 +4303,7 @@ for synthesis.
 </p>
 <p><code>msgtype</code> is  the type of the message for synthesis.
 </p>
-<p><code>maxlen</code> is the maximum number of bytes that should be transfered
+<p><code>maxlen</code> is the maximum number of bytes that should be transferred
 over the pipe.
 </p>
 <p><code>dividers</code> is a NULL-terminated string containing the punctuation characters
@@ -4459,7 +4459,7 @@ the text it sends to its output modules. They have the form:
 </pre></div>
 
 <p><code>id</code> is the identifier associated with each index
-mark. Within a <code>module_speak()</code> message, each identifer is unique.
+mark. Within a <code>module_speak()</code> message, each identifier is unique.
 It consists of the string <code>__spd_</code> and a counter number.  Numbers
 begin from zero for each message.  For example, the fourth index mark
 within a message looks like
