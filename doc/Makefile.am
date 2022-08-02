@@ -15,7 +15,9 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+if BUILD_HTML_DOC
 all: html
+endif
 
 MAKEINFOHTML = $(MAKEINFO) --html --no-split
 
