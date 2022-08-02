@@ -521,6 +521,8 @@ if test "x$with_systemdsystemunitdir" != xno; then
 fi
 AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$with_systemdsystemunitdir" -a "x$with_systemdsystemunitdir" != xno ])
 
+AM_CONDITIONAL(BUILD_HTML_DOC, [test "$EMAIL" = samuel.thibault@ens-lyon.org])
+
 AC_CONFIG_FILES([Makefile
 		 run-speechd
                  speech-dispatcher.pc
