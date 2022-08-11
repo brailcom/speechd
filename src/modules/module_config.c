@@ -20,7 +20,9 @@
  */
 
 #include <dotconf.h>
+#ifndef USE_DLOPEN
 #include <ltdl.h>
+#endif
 
 #include "module_main.h"
 #include "module_utils.h"
@@ -28,8 +30,10 @@
 int module_config(const char *configfilename) {
 	int ret;
 
+#ifndef USE_DLOPEN
 	/* Initialize ltdl's list of preloaded audio backends. */
 	LTDL_SET_PRELOADED_SYMBOLS();
+#endif
 
 	module_num_dc_options = 0;
 	module_audio_id = 0;
