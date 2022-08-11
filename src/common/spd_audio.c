@@ -47,9 +47,16 @@
 #include <pthread.h>
 
 #include <glib.h>
+#ifdef USE_DLOPEN
+#include <dlfcn.h>
+#else
 #include <ltdl.h>
+#endif
 
 static int spd_audio_log_level;
+#ifdef USE_DLOPEN
+static void *dlhandle;
+#else
 static lt_dlhandle lt_h;
 
 /* Dynamically load a library with RTLD_GLOBAL set.
@@ -72,6 +79,7 @@ static lt_dlhandle my_dlopenextglobal(const char *filename)
 	lt_dladvise_destroy(&advise);
 	return handle;
 }
+#endif
 
 /* Open the audio device.
 
@@ -95,8 +103,9 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 	spd_audio_plugin_t const *p;
 	spd_audio_plugin_t *(*fn) (void);
 	gchar *libname;
-	int ret;
 	char *plugin_dir;
+#ifndef USE_DLOPEN
+	int ret;
 
 	/* now check whether dynamic plugin is available */
 	ret = lt_dlinit();
@@ -104,11 +113,26 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 		*error = (char *)g_strdup_printf("lt_dlinit() failed");
 		return (AudioID *) NULL;
 	}
+#endif
 
 	plugin_dir = getenv("SPEECHD_PLUGIN_DIR");
 	if (!plugin_dir)
 		plugin_dir = PLUGIN_DIR;
 
+#ifdef USE_DLOPEN
+	libname = g_strdup_printf("%s/" SPD_AUDIO_LIB_PREFIX "%s", plugin_dir, name);
+	dlhandle = dlopen(libname, RTLD_NOW | RTLD_GLOBAL);
+
+	g_free(libname);
+	if (NULL == dlhandle) {
+		*error =
+			(char *)g_strdup_printf("Cannot open plugin %s. error: %s",
+						name, dlerror());
+		return (AudioID *) NULL;
+	}
+
+	fn = dlsym(dlhandle, SPD_AUDIO_PLUGIN_ENTRY_STR);
+#else
 	ret = lt_dlsetsearchpath(plugin_dir);
 	if (ret != 0) {
 		*error = (char *)g_strdup_printf("lt_dlsetsearchpath() failed");
@@ -126,6 +150,7 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 	}
 
 	fn = lt_dlsym(lt_h, SPD_AUDIO_PLUGIN_ENTRY_STR);
+#endif
 	if (NULL == fn) {
 		*error = (char *)g_strdup_printf("Cannot find symbol %s",
 						 SPD_AUDIO_PLUGIN_ENTRY_STR);
@@ -409,11 +434,18 @@ int spd_audio_close(AudioID * id)
 		ret = (id->function->close(id));
 	}
 
+#ifdef USE_DLOPEN
+	if (NULL != dlhandle) {
+		dlclose(dlhandle);
+		dlhandle = NULL;
+	}
+#else
 	if (NULL != lt_h) {
 		lt_dlclose(lt_h);
 		lt_h = NULL;
 		lt_dlexit();
 	}
+#endif
 
 	return ret;
 }
