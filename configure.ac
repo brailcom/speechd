@@ -32,7 +32,7 @@
 AC_PREREQ([2.63])
 m4_define([MAJOR_VERSION], [0])
 m4_define([MINOR_VERSION], [11])
-m4_define([MICRO_VERSION], [1.99])
+m4_define([MICRO_VERSION], [2])
 m4_define([AC_PACKAGE_VERSION],[MAJOR_VERSION.MINOR_VERSION.MICRO_VERSION])
 AC_INIT([speech-dispatcher], [AC_PACKAGE_VERSION], [speechd-discuss@nongnu.org])
 AC_CONFIG_MACRO_DIRS([m4])
