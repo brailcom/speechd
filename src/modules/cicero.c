@@ -240,7 +240,12 @@ int module_init(char **status_info)
 
 SPDVoice **module_list_voices(void)
 {
-	return NULL;
+	static SPDVoice voice = {
+		.name = "cicero",
+		.language = "fr",
+	};
+	static SPDVoice *voices[] = { &voice, NULL };
+	return voices;
 }
 
 int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)

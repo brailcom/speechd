@@ -444,7 +444,7 @@ static void free_voice(gpointer data)
 	}
 }
 
-static SPDVoice **output_get_voices(OutputModule * module)
+SPDVoice **output_get_voices(OutputModule * module)
 {
 	SPDVoice **voice_dscr;
 	SPDVoice *voice;

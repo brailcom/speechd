@@ -223,6 +223,10 @@ int module_init(char **status_info)
 		DBG(DBG_MODNAME " Failed to set punctuation list.");
 
 	espeak_voice_list = espeak_list_synthesis_voices();
+	if (espeak_voice_list == NULL) {
+		*status_info = g_strdup(DBG_MODNAME " has no voice.");
+		return FATAL_ERROR;
+	}
 
 	initialized = TRUE;
 	*status_info = g_strdup(DBG_MODNAME " Initialized successfully.");
@@ -842,6 +846,14 @@ static SPDVoice **espeak_list_synthesis_voices()
 
 	numvoices = g_queue_get_length(voice_list);
 	DBG(DBG_MODNAME " %d voices total.", numvoices);
+#ifdef ESPEAK_NG_INCLUDE
+	if (!EspeakMbrola)
+#endif
+	{
+		if (numvoices == 0) {
+			return NULL;
+		}
+	}
 
 	memset(&voice_spec, 0, sizeof(voice_spec));
 	voice_spec.languages = "variant";
@@ -929,6 +941,15 @@ static SPDVoice **espeak_list_synthesis_voices()
 #endif
 
 	totalvoices = (numvoices * (numvariants + 1)) + nummbrola;
+
+	if (totalvoices == 0) {
+		if (voice_list != NULL)
+			g_queue_free(voice_list);
+		if (variant_list != NULL)
+			g_queue_free_full(variant_list, (GDestroyNotify)g_free);
+		return NULL;
+	}
+
 	result = g_new0(SPDVoice *, totalvoices + 1);
 	voice_list_iter = g_queue_peek_head_link(voice_list);
 

@@ -269,6 +269,9 @@ int module_init(char **status_info)
 
 	/* Get festival voice list */
 	festival_voice_list = festivalGetVoices(festival_info);
+	if (!festival_voice_list) {
+		ABORT("No voice list");
+	}
 
 	cache_init();
 
