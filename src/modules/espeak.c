@@ -251,22 +251,21 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 	    (unsigned long)bytes);
 
 	/* Setting speech parameters. */
-	UPDATE_STRING_PARAMETER(voice.language, espeak_set_language);
-	UPDATE_PARAMETER(voice_type, espeak_set_voice);
-	UPDATE_STRING_PARAMETER(voice.name, espeak_set_synthesis_voice);
-
-	if (msg_settings_old.voice.name && strstr(msg_settings_old.voice.name , "mbrola"))
+#ifdef ESPEAK_NG_INCLUDE
+	if (EspeakMbrola)
 	{
-		if (msgtype == SPD_MSGTYPE_TEXT)
-		{
-			/* espeak has troubles with setting mbrola voices in SSML mode
-			 * https://github.com/espeak-ng/espeak-ng/issues/1011 */
-			DBG(DBG_MODNAME " mbrola voice, stripping SSML.");
-			msg = module_strip_ssml(data);
-			data = msg;
-		}
-
-		flags &= ~espeakSSML;
+		/* espeak has troubles with setting mbrola voices in SSML mode
+		 * https://github.com/espeak-ng/espeak-ng/issues/1011 */
+		espeak_set_language(msg_settings.voice.language);
+		espeak_set_voice(msg_settings.voice_type);
+		espeak_set_synthesis_voice(msg_settings.voice.name);
+	}
+	else
+#endif
+	{
+		UPDATE_STRING_PARAMETER(voice.language, espeak_set_language);
+		UPDATE_PARAMETER(voice_type, espeak_set_voice);
+		UPDATE_STRING_PARAMETER(voice.name, espeak_set_synthesis_voice);
 	}
 
 	UPDATE_PARAMETER(rate, espeak_set_rate);
