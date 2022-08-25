@@ -2,6 +2,7 @@ Version 0.11.2
 * Fix loading xx-yy locales.
 * Various memory leaks fixes.
 * Add mimic3 configuration file.
+* pico: Fix setting language vs voice.
 * Make sure that modules report a list of voices.
 
 Version 0.11.1
