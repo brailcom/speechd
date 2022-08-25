@@ -73,8 +73,30 @@ AC_SEARCH_LIBS([sqrt], [m], [],
 	[AC_MSG_FAILURE([Math library missing])])
 AC_SEARCH_LIBS([pthread_create], [pthread], [],
 	[AC_MSG_FAILURE([Threads library missing])])
-AC_SEARCH_LIBS([lt_dlopen], [ltdl], [],
-	[AC_MSG_FAILURE([ltdl library missing])])
+AC_ARG_ENABLE([ltdl],
+	[AS_HELP_STRING([--disable-ltdl], [do not use ltdl for modules])],
+	[],
+	[enable_ltdl=check])
+
+if test x$enable_ltdl != xno;
+then
+	AC_SEARCH_LIBS([lt_dlopen], [ltdl], [use_ltdl=yes], [use_ltdl=no])
+	if test x$use_ltdl = xno ;
+	then
+		if test x$enable_ltdl = xyes ;
+		then
+			AC_MSG_FAILURE([ltdl requested but missing])
+		fi
+		enable_ltdl=no
+	fi
+fi
+
+if test x$enable_ltdl = xno;
+then
+	AC_DEFINE(USE_DLOPEN, [1], [Use dlopen rather than lt_dlopen])
+	AC_SEARCH_LIBS([dlopen], [dl], [],
+		[AC_MSG_FAILURE([dlopen missing])])
+fi
 
 PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.36])
 AC_SUBST([GLIB_CFLAGS])

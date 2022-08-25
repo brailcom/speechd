@@ -113,3 +113,34 @@ jobs:
     - name: make distcheck
       run: make distcheck
       if: matrix.sanitizer == 'no'
+
+  build-noltdl:
+    runs-on: ubuntu-latest
+
+    name: Build with no ltdl
+    steps:
+    - uses: actions/checkout@v2
+    - name: dependencies
+      run: sudo apt-get update ; sudo apt-get install autopoint
+                        python3 python3-xdg
+                        flite1-dev flite
+                        libespeak-dev libespeak-ng-dev
+                        libttspico-dev
+                        libao-dev libasound2-dev libaudio-dev libpulse-dev libxau-dev libsndfile1-dev
+                        libdotconf-dev libglib2.0-dev libltdl-dev- systemd
+                        gettext help2man texinfo texlive texlive-plain-generic
+                        pulseaudio
+    - name: autoconf
+      run: ./build.sh
+    - name: configure
+      run: ./configure
+    - name: Store the config
+      if: ${{ always() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: config-${{ matrix.sanitizer }}.log
+        path: config.log
+    - name: make
+      run: ${{ matrix.build_env }} make
+    - name: make check
+      run: ${{ matrix.check_env }} make check
