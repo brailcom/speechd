@@ -181,9 +181,9 @@ int module_init(char **status_info)
 	ret = spd_pthread_create(&generic_speak_thread, NULL, _generic_speak, NULL);
 	if (ret != 0) {
 		DBG("Generic: thread failed\n");
-		*status_info = g_strdup("The module couldn't initialize threads"
-					"This can be either an internal problem or an"
-					"architecture problem. If you are sure your architecture"
+		*status_info = g_strdup("The module couldn't initialize threads "
+					"This can be either an internal problem or an "
+					"architecture problem. If you are sure your architecture "
 					"supports threads, please report a bug.");
 		return -1;
 	}
