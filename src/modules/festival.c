@@ -410,7 +410,7 @@ static SPDVoice **festivalGetVoices(FT_Info * info)
 			continue;
 		else {
 			result[j] = g_malloc(sizeof(SPDVoice));
-			result[j]->name = voices[i];
+			result[j]->name = strdup(voices[i]);
 			lang = voices[i + 1];
 			if (lang && !strcmp(lang, "nil"))
 				lang = NULL;
