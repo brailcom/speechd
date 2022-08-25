@@ -19,6 +19,7 @@
  * $Id: module_main_loop.c,v 1.17 2008-10-15 17:05:37 hanke Exp $
  */
 
+#include "config.h"
 #include <dotconf.h>
 #ifndef USE_DLOPEN
 #include <ltdl.h>
