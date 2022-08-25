@@ -4,6 +4,7 @@ Version 0.11.2
 * Add mimic3 configuration file.
 * pico: Fix setting language vs voice.
 * Make sure that modules report a list of voices.
+* Update CLDR to version 41, symbols from NVDA and orca.
 
 Version 0.11.1
 * Add SPEECHD_PLUGIN_DIR environment variable.
