@@ -6,6 +6,7 @@ Version 0.11.2
 * Make sure that modules report a list of voices.
 * Update CLDR to version 41, symbols from NVDA and orca.
 * Allow building without ltdl.
+* Re-enable SSML in espeak-ng-mbrola module.
 
 Version 0.11.1
 * Add SPEECHD_PLUGIN_DIR environment variable.
