@@ -1526,7 +1526,7 @@ gboolean alloc_voice_list()
 	int nLanguages = MAX_NB_OF_LANGUAGES;
 	int i = 0;
 
-	if (eciGetAvailableLanguages(aLanguage, &nLanguages))
+	if (eciGetAvailableLanguages(aLanguage, &nLanguages) || nLanguages == 0)
 		return FALSE;
 
 	speechd_voice = g_malloc((nLanguages + 1) * sizeof(SPDVoice *));

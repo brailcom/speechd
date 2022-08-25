@@ -160,6 +160,13 @@ int module_init(char **status_info)
 
 	*status_info = NULL;
 
+	if (module_list_registered_voices() == NULL)
+	{
+		*status_info = g_strdup("The module does not have any voice configured, "
+					"please add them in the configuration file, "
+					"or install the required files");
+		return -1;
+	}
 	DBG("GenericMaxChunkLength = %d\n", GenericMaxChunkLength);
 	DBG("GenericDelimiters = %s\n", GenericDelimiters);
 	DBG("GenericExecuteSynth = %s\n", GenericExecuteSynth);

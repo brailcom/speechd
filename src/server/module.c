@@ -350,6 +350,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	char s;
 	GString *reply;
 	struct stat fileinfo;
+	int i;
 
 	if (mod_name == NULL)
 		return NULL;
@@ -591,6 +592,27 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 		destroy_module(module);
 		return NULL;
 	}
+
+	/* Try to get the list of voices */
+	SPDVoice **voices = output_get_voices(module);
+	if (!voices) {
+		/* No list of voices, that would surprise clients, let's give up
+		 * on this module */
+		MSG(1,
+		    "ERROR: Can't get a list of voices from the output module.");
+		module->working = 0;
+		kill(module->pid, 9);
+		waitpid(module->pid, NULL, WNOHANG);
+		destroy_module(module);
+		return NULL;
+	}
+	for (i = 0; voices[i]; i++) {
+		g_free(voices[i]->name);
+		g_free(voices[i]->language);
+		g_free(voices[i]->variant);
+		g_free(voices[i]);
+	}
+	g_free(voices);
 
 	return module;
 }

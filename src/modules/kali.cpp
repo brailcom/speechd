@@ -100,6 +100,10 @@ int module_init(char **status_info)
 	SetVolumeKali(KaliNormalVolume);
 	SetHauteurKali(KaliNormalPitch);
 	kali_voice_list = kali_get_voices();
+	if (!kali_voice_list) {
+		*status_info = g_strdup("Kali has no voice installed");
+		return -1;
+	}
 	kali_set_voice(KaliVoiceParameters);
 
 	DBG("KaliMaxChunkLength = %d\n", KaliMaxChunkLength);
@@ -353,6 +357,8 @@ static SPDVoice **kali_get_voices()
 	static char language[128];
 
 	num_voices = GetNbVoixKali();
+	if (num_voices == 0)
+		return NULL;
 	DBG("Kali: %d voices total.", num_voices);
 	result = g_new0(SPDVoice *, num_voices+1);
 
