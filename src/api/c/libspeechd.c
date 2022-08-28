@@ -620,7 +620,9 @@ void spd_close(SPDConnection * connection)
 	}
 
 	/* close the socket */
-	fclose(connection->stream);
+	if (connection->stream != NULL)
+		fclose(connection->stream);
+	connection->stream = NULL;
 
 	pthread_mutex_unlock(&connection->ssip_mutex);
 
