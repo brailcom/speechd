@@ -24,7 +24,7 @@ BUILT_SOURCES = $(top_srcdir)/.version
 
 SUBDIRS= include locale src config doc po
 
-EXTRA_DIST= config.rpath COPYING.LGPL COPYING.GPL-2 COPYING.GPL-3 ANNOUNCE BUGS FAQ README.md README.packagers README.translators README.overview.md README.style.md build.sh speech-dispatcherd.service.in po/Makevars.in po/README
+EXTRA_DIST= config.rpath COPYING.LGPL COPYING.GPL-2 COPYING.GPL-3 ANNOUNCE BUGS FAQ README.md README.packagers README.translators README.overview.md README.style.md build.sh speech-dispatcherd.service.in speech-dispatcher.socket speech-dispatcher.service.in po/Makevars.in po/README
 
 CLEANFILES=
 DISTCLEANFILES=
@@ -35,8 +35,10 @@ AM_DISTCHECK_CONFIGURE_FLAGS=--without-systemdsystemunitdir
 
 nodist_systemdsystemunit_DATA = \
 	speech-dispatcherd.service
+nodist_systemduserunit_DATA = \
+	speech-dispatcher.service speech-dispatcher.socket
 CLEANFILES += \
-	speech-dispatcherd.service
+	speech-dispatcherd.service speech-dispatcher.service
 DISTCLEANFILES += \
 	po/Makevars
 %.service: %.service.in

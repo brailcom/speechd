@@ -29,7 +29,8 @@ speech_dispatcher_SOURCES = speechd.c speechd.h server.c server.h \
 	index_marking.c index_marking.h symbols.c symbols.h
 speech_dispatcher_CFLAGS = $(ERROR_CFLAGS)
 speech_dispatcher_CPPFLAGS = $(inc_local) $(DOTCONF_CFLAGS) $(GLIB_CFLAGS) \
-	$(GMODULE_CFLAGS) $(GTHREAD_CFLAGS) -DSYS_CONF=\"$(spdconfdir)\" \
+	$(GMODULE_CFLAGS) $(GTHREAD_CFLAGS) $(LIBSYSTEMD_CFLAGS) \
+	-DSYS_CONF=\"$(spdconfdir)\" \
 	-DSND_DATA=\"$(snddatadir)\" \
 	-DMODULEBINDIR=\"$(modulebindir)\" \
 	-DOLDMODULEBINDIR=\"$(oldmodulebindir)\" \
@@ -37,7 +38,8 @@ speech_dispatcher_CPPFLAGS = $(inc_local) $(DOTCONF_CFLAGS) $(GLIB_CFLAGS) \
 	-D_GNU_SOURCE -DDEFAULT_AUDIO_METHOD=\"$(default_audio_method)\"
 speech_dispatcher_LDFLAGS = $(RDYNAMIC)
 speech_dispatcher_LDADD = $(lib_common) $(DOTCONF_LIBS) $(GLIB_LIBS) \
-	$(SNDFILE_LIBS) $(GMODULE_LIBS) $(GTHREAD_LIBS) $(EXTRA_SOCKET_LIBS)
+	$(SNDFILE_LIBS) $(GMODULE_LIBS) $(GTHREAD_LIBS) $(EXTRA_SOCKET_LIBS) \
+	$(LIBSYSTEMD_LIBS)
 
 if HAVE_HELP2MAN
 speech-dispatcher.1: speech-dispatcher$(EXEEXT)
