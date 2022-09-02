@@ -1,0 +1,8 @@
+[Unit]
+Description=Speech Dispatcher Socket
+
+[Socket]
+ListenStream=%t/speech-dispatcher/speechd.sock
+
+[Install]
+WantedBy=sockets.target
