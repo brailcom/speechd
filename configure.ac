@@ -118,6 +118,10 @@ PKG_CHECK_MODULES([SNDFILE], [sndfile >= 1.0.2])
 AC_SUBST([SNDFILE_CFLAGS])
 AC_SUBST([SNDFILE_LIBS])
 
+PKG_CHECK_MODULES([LIBSYSTEMD], [libsystemd])
+AC_SUBST([LIBSYSTEMD_CFLAGS])
+AC_SUBST([LIBSYSTEMD_LIBS])
+
 # Checks for header files.
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h langinfo.h limits.h netdb.h])
 AC_CHECK_HEADERS([netinet/in.h stddef.h stdlib.h string.h sys/filio.h])
@@ -542,6 +546,13 @@ if test "x$with_systemdsystemunitdir" != xno; then
         AC_SUBST([systemdsystemunitdir], [$with_systemdsystemunitdir])
 fi
 AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$with_systemdsystemunitdir" -a "x$with_systemdsystemunitdir" != xno ])
+AC_ARG_WITH([systemduserunitdir],
+        AS_HELP_STRING([--with-systemduserunitdir=DIR], [Directory for systemd user service files]),
+        [], [with_systemduserunitdir=$($PKG_CONFIG --variable=systemduserunitdir systemd)])
+if test "x$with_systemduserunitdir" != xno; then
+        AC_SUBST([systemduserunitdir], [$with_systemduserunitdir])
+fi
+AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$with_systemduserunitdir" -a "x$with_systemduserunitdir" != xno ])
 
 AM_CONDITIONAL(BUILD_HTML_DOC, [test "$EMAIL" = samuel.thibault@ens-lyon.org])
 

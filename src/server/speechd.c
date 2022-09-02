@@ -29,6 +29,9 @@
 #include <sys/stat.h>
 #include <sys/socket.h>
 #include <sys/un.h>
+#ifdef HAVE_SYSTEMD
+#include <systemd/sd-daemon.h>
+#endif
 
 #ifdef HAVE_SYS_FILIO_H
 #include <sys/filio.h>	/* Needed for FIONREAD on Solaris */
@@ -1283,6 +1286,12 @@ int main(int argc, char *argv[])
 		g_free(spawn_socket_path);
 	}
 
+#ifdef HAVE_SYSTEMD
+	if (sd_listen_fds(0) >= 1) {
+		/* Daemon launched via Systemd socket activation */
+		server_socket = SD_LISTEN_FDS_START;
+	} else
+#endif
 	if (!strcmp(SpeechdOptions.communication_method, "inet_socket")) {
 		MSG(4, "Speech Dispatcher will use inet port %d",
 		    SpeechdOptions.port);
