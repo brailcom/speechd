@@ -401,6 +401,7 @@ void pico_set_synthesis_voice(char *voice_name)
 	int ret;
 	pico_Retstring outMessage;
 
+	DBG(MODULE_NAME ": setting voice %s", voice_name);
 	/* Create a new Pico engine, english default */
 	if ((ret = pico_disposeEngine(picoSystem, &picoEngine))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
