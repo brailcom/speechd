@@ -833,7 +833,7 @@ void module_load_requested_modules(void)
 		    g_list_delete_link(requested_modules, requested_modules);
 	}
 
-	if (output_modules) {
+	if (output_modules && !GlobalFDSet.output_module) {
 		OutputModule *first_module = output_modules->data;
 		GlobalFDSet.output_module = first_module->name;
 	}
