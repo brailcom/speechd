@@ -1,7 +1,7 @@
 /*
  * skeleton0.c - Trivial module example
  *
- * Copyright (C) 2020-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2020-2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -91,12 +91,12 @@ SPDVoice **module_list_voices(void)
 	SPDVoice **ret = malloc(3*sizeof(*ret));
 
 	ret[0] = malloc(sizeof(*(ret[0])));
-	ret[0]->name = strdup("English_(America)");
+	ret[0]->name = strdup("English (America)");
 	ret[0]->language = strdup("en");
 	ret[0]->variant = NULL;
 
 	ret[1] = malloc(sizeof(*(ret[0])));
-	ret[1]->name = strdup("French_(France)");
+	ret[1]->name = strdup("French (France)");
 	ret[1]->language = strdup("fr");
 	ret[1]->variant = NULL;
 
