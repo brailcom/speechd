@@ -128,7 +128,7 @@ jobs:
                         libespeak-dev libespeak-ng-dev
                         libttspico-dev
                         libao-dev libasound2-dev libaudio-dev libpulse-dev libxau-dev libsndfile1-dev
-                        libdotconf-dev libglib2.0-dev libltdl-dev- systemd
+                        libdotconf-dev libglib2.0-dev libltdl-dev- libsystemd-dev systemd
                         gettext help2man texinfo texlive texlive-plain-generic
                         pulseaudio
     - name: autoconf
