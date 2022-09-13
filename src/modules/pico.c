@@ -396,42 +396,31 @@ SPDVoice **module_list_voices(void)
 	return (SPDVoice **)pico_voices_list;
 }
 
-void pico_set_synthesis_voice(char *voice_name)
+int pico_set_synthesis_voice(char *voice_name)
 {
 	int ret;
 	pico_Retstring outMessage;
 
 	DBG(MODULE_NAME ": setting voice %s", voice_name);
-	/* Create a new Pico engine, english default */
-	if ((ret = pico_disposeEngine(picoSystem, &picoEngine))) {
+
+	if (picoEngine && (ret = pico_disposeEngine(picoSystem, &picoEngine))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
 		    ": Cannot dispose pico engine (%i): %s\n", ret, outMessage);
-		return;
+		return 0;
 	}
 
-	/* Create a new Pico engine, english default */
+	/* Create a new Pico engine */
 	if ((ret = pico_newEngine(picoSystem, (const pico_Char *)voice_name,
 				  &picoEngine))) {
 		pico_getSystemStatusMessage(picoSystem, ret, outMessage);
 		DBG(MODULE_NAME
 		    ": Cannot create a new pico engine (%i): %s\n", ret,
 		    outMessage);
-		/* Try to fallback to english */
-		if ((ret = pico_newEngine(picoSystem,
-					  (const pico_Char *)pico_voices[0].name,
-					  &picoEngine))) {
-			pico_getSystemStatusMessage(picoSystem, ret, outMessage);
-			DBG(MODULE_NAME
-			    ": Cannot create default english pico engine (%i): %s\n", ret,
-			    outMessage);
-			return;
-		}
-
-		return;
+		return 0;
 	}
 
-	return;
+	return 1;
 }
 
 static void pico_set_language(char *lang)
@@ -442,18 +431,28 @@ static void pico_set_language(char *lang)
 	/* get voice name based on language */
 	for (i = 0; i < sizeof(pico_voices) / sizeof(SPDVoice); i++) {
 		if (!strcasecmp(pico_voices[i].language, lang)) {
-			pico_set_synthesis_voice(pico_voices[i].name);
-			return;
+			if (pico_set_synthesis_voice(pico_voices[i].name))
+				return;
 		}
 	}
 	/* get voice name based on main part of language */
 	for (i = 0; i < sizeof(pico_voices) / sizeof(SPDVoice); i++) {
 		if (!strncasecmp(pico_voices[i].language, lang, 2)) {
-			pico_set_synthesis_voice(pico_voices[i].name);
-			return;
+			if (pico_set_synthesis_voice(pico_voices[i].name))
+				return;
 		}
 	}
+
+	/* Try to fallback to english */
+	pico_set_synthesis_voice(pico_voices[0].name);
 	return;
+}
+
+void pico_set_synthesis_voice_fallback(char *voice_name)
+{
+	if (!pico_set_synthesis_voice(voice_name))
+		/* Try to fallback to language */
+		pico_set_language(msg_settings.voice.language);
 }
 
 void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
@@ -473,7 +472,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_STRING_PARAMETER(voice.language, pico_set_language);
 
 	/* Then set the voice if needed */
-	UPDATE_STRING_PARAMETER(voice.name, pico_set_synthesis_voice);
+	UPDATE_STRING_PARAMETER(voice.name, pico_set_synthesis_voice_fallback);
 	/*      UPDATE_PARAMETER(voice_type, pico_set_voice); */
 
 	picoInp = (pico_Char *) module_strip_ssml(data);
