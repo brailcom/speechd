@@ -233,8 +233,10 @@ static void set_voice(void)
 		if (voicetype) {
 			if (!strncmp(voicetype, "male", 4)) {
 				voice_select.gender = 1;
+				voice_select.variant = atoi(voicetype+4) - 1;
 			} else if (!strncmp(voicetype, "female", 6)) {
 				voice_select.gender = 2;
+				voice_select.variant = atoi(voicetype+6) - 1;
 			} else if (!strncmp(voicetype, "child_male", 10)) {
 				voice_select.gender = 1;
 				voice_select.age = 10;
