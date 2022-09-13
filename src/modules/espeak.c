@@ -543,54 +543,52 @@ static void espeak_set_language_and_voice(char *lang, SPDVoiceType voice_code)
 	DBG(DBG_MODNAME " set_language_and_voice %s %d", lang, voice_code);
 	espeak_ERROR ret;
 
-	unsigned char overlay = 0;
+	espeak_VOICE voice_select;
+	memset(&voice_select, 0, sizeof(voice_select));
+	voice_select.languages = lang;
+
 	switch (voice_code) {
 	case SPD_MALE1:
-		overlay = 0;
+		voice_select.gender = 1;
 		break;
 	case SPD_MALE2:
-		overlay = 1;
+		voice_select.gender = 1;
+		voice_select.variant = 1;
 		break;
 	case SPD_MALE3:
-		overlay = 2;
+		voice_select.gender = 1;
+		voice_select.variant = 2;
 		break;
 	case SPD_FEMALE1:
-		overlay = 11;
+		voice_select.gender = 2;
 		break;
 	case SPD_FEMALE2:
-		overlay = 12;
+		voice_select.gender = 2;
+		voice_select.variant = 1;
 		break;
 	case SPD_FEMALE3:
-		overlay = 13;
+		voice_select.gender = 2;
+		voice_select.variant = 2;
 		break;
 	case SPD_CHILD_MALE:
-		overlay = 4;
+		voice_select.gender = 1;
+		voice_select.age = 10;
 		break;
 	case SPD_CHILD_FEMALE:
-		overlay = 14;
+		voice_select.gender = 2;
+		voice_select.age = 10;
 		break;
 	default:
-		overlay = 0;
 		break;
 	}
 
-	char *name = g_strdup_printf("%s+%d", lang, overlay);
-	DBG(DBG_MODNAME " set_language_and_voice name=%s", name);
-	ret = espeak_SetVoiceByName(name);
+	ret = espeak_SetVoiceByProperties(&voice_select);
 
 	if (ret != EE_OK) {
-		espeak_VOICE voice_select;
-		memset(&voice_select, 0, sizeof(voice_select));
-		voice_select.languages = name;
-		ret = espeak_SetVoiceByProperties(&voice_select);
-	}
-
-	if (ret != EE_OK) {
-		DBG(DBG_MODNAME " Error selecting language %s", name);
+		DBG(DBG_MODNAME " Error selecting language %s", lang);
 	} else {
-		DBG(DBG_MODNAME " Successfully set voice to \"%s\"", name);
+		DBG(DBG_MODNAME " Successfully set voice to \"%s\"", lang);
 	}
-	g_free(name);
 }
 
 static void espeak_set_voice(SPDVoiceType voice)
