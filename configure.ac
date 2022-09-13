@@ -118,9 +118,11 @@ PKG_CHECK_MODULES([SNDFILE], [sndfile >= 1.0.2])
 AC_SUBST([SNDFILE_CFLAGS])
 AC_SUBST([SNDFILE_LIBS])
 
-PKG_CHECK_MODULES([LIBSYSTEMD], [libsystemd])
-AC_SUBST([LIBSYSTEMD_CFLAGS])
-AC_SUBST([LIBSYSTEMD_LIBS])
+PKG_CHECK_MODULES([LIBSYSTEMD], [libsystemd], [have_systemd="yes"], [have_systemd="no"])
+if test x$have_systemd = xyes; then
+    AC_DEFINE([HAVE_SYSTEMD], [1], [Define to 1 if you have the systemd library])
+fi
+AM_CONDITIONAL(HAVE_SYSTEMD, [test x$have_systemd = xyes])
 
 # Checks for header files.
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h langinfo.h limits.h netdb.h])

@@ -35,8 +35,10 @@ AM_DISTCHECK_CONFIGURE_FLAGS=--without-systemdsystemunitdir
 
 nodist_systemdsystemunit_DATA = \
 	speech-dispatcherd.service
+if HAVE_SYSTEMD
 nodist_systemduserunit_DATA = \
 	speech-dispatcher.service speech-dispatcher.socket
+endif
 CLEANFILES += \
 	speech-dispatcherd.service speech-dispatcher.service
 DISTCLEANFILES += \
