@@ -220,7 +220,7 @@ int module_loop(void)
 	return ret;
 }
 
-static int set_voice(void)
+static void set_voice(void)
 {
 	espeak_ng_STATUS result;
 
@@ -249,23 +249,17 @@ static int set_voice(void)
 		}
 
 		result = espeak_ng_SetVoiceByProperties(&voice_select);
-		if (result != ENS_OK) {
+		if (result != ENS_OK)
 			espeak_ng_PrintStatusCodeMessage(result, stderr, NULL);
-			return 0;
-		}
 	}
 
 	if (voicename && strcmp(voicename, "NULL") != 0) {
 		fprintf(stderr, "setting voice name %s\n", voicename);
 
 		result = espeak_ng_SetVoiceByName(voicename);
-		if (result != ENS_OK) {
+		if (result != ENS_OK)
 			espeak_ng_PrintStatusCodeMessage(result, stderr, NULL);
-			return 0;
-		}
 	}
-
-	return 1;
 }
 
 /* Synchronous version, when the synthesis doesn't implement asynchronous
@@ -274,10 +268,8 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 {
 	stop_requested = 0;
 
-	if (!set_voice()) {
-		module_speak_error();
-		return;
-	}
+	set_voice();
+
 	module_speak_ok();
 
 	fprintf(stderr, "speaking '%s'\n", data);

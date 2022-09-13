@@ -224,7 +224,7 @@ int module_loop(void)
 	return ret;
 }
 
-static int set_voice(void)
+static void set_voice(void)
 {
 	espeak_ng_STATUS result;
 
@@ -253,23 +253,17 @@ static int set_voice(void)
 		}
 
 		result = espeak_ng_SetVoiceByProperties(&voice_select);
-		if (result != ENS_OK) {
+		if (result != ENS_OK)
 			espeak_ng_PrintStatusCodeMessage(result, stderr, NULL);
-			return 0;
-		}
 	}
 
 	if (voicename && strcmp(voicename, "NULL") != 0) {
 		fprintf(stderr, "setting voice name %s\n", voicename);
 
 		result = espeak_ng_SetVoiceByName(voicename);
-		if (result != ENS_OK) {
+		if (result != ENS_OK)
 			espeak_ng_PrintStatusCodeMessage(result, stderr, NULL);
-			return 0;
-		}
 	}
-
-	return 1;
 }
 
 static int began;
@@ -277,8 +271,7 @@ static int began;
  * processing in another thread. */
 int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 {
-	if (!set_voice())
-		return 0;
+	set_voice();
 
 	/* Speak the provided data asynchronously in another thread */
 	fprintf(stderr, "speaking '%s'\n", data);
