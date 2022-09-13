@@ -1,3 +1,8 @@
+Version 0.11.3
+* Fix back DefaultModule configuration.
+* pico: Avoid falling to english when passed a bogus voice name.
+* espeak: Fix setting voice type.
+
 Version 0.11.2
 * Fix loading xx-yy locales.
 * Various memory leaks fixes.

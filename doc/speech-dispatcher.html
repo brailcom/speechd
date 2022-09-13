@@ -3597,8 +3597,39 @@ module, though with very limited support.
 <code>module_set</code>, when <code>var</code> is <code>voice</code>, <code>synthesis_voice</code>, or
 <code>language</code>, select a voice according to <code>val</code>.
 </p>
-<p>This stage of development is examplified in <samp>src/modules/skeleton0_espeak-ng0.c</samp>.
+<p>This stage of development is examplified in <samp>src/modules/skeleton0_espeak-ng-sync.c</samp>.
 </p>
+<p>The following testcase examples should then be working:
+</p>
+<div class="example">
+<pre class="example"># lists all voices
+spd-say -o $mymodule -L
+
+spd-say -w -o $mymodule -l en-US Hello
+# Should pronounce Bonjour in french
+spd-say -w -o $mymodule -l fr-FR Bonjour
+
+spd-say -w -o $mymodule -l en-US Hello
+# Should pronounce Bonjour with the specified french voice, as named in the -L output
+spd-say -w -o $mymodule -y &quot;$afrenchvoice&quot; Bonjour
+
+spd-say -w -o $mymodule -l en-US Hello
+# Should pronounce Bonjour in french with the specified french voice
+spd-say -w -o $mymodule -l fr-FR -y &quot;$afrenchvoice&quot; Bonjour
+
+spd-say -w -o $mymodule -l en-US Hello
+# Should pronounce Bonjour in french with a female voice (if available)
+spd-say -w -o $mymodule -l fr-FR -t female1 Bonjour
+
+spd-say -w -o $mymodule -l en-US Hello
+# Should pronounce Bonjour in french with a different female voice (if available)
+spd-say -w -o $mymodule -l fr-FR -t female2 Bonjour
+
+spd-say -w -o $mymodule -l en-US Hello
+# Should pronounce Bonjour in french even we passed a bogus voice name
+spd-say -w -o $mymodule -l fr-FR -y bleaaaarg Bonjour
+</pre></div>
+
 <p>A most useful next step is to support stopping the synthesis. This can be
 supported two ways. Either the synthesis can call a callback from times to
 times, in which case you can call <code>module_process(STDIN_FILE, 0)</code> to poll
