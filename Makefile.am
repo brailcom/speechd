@@ -31,7 +31,7 @@ DISTCLEANFILES=
 
 MAINTAINERCLEANFILES=configure
 
-AM_DISTCHECK_CONFIGURE_FLAGS=--without-systemdsystemunitdir
+AM_DISTCHECK_CONFIGURE_FLAGS=--without-systemdsystemunitdir --without-systemduserunitdir
 
 nodist_systemdsystemunit_DATA = \
 	speech-dispatcherd.service
