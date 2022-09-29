@@ -62,6 +62,12 @@ repository from:
 
     https://github.com/brailcom/speechd.git
 
+Rust bindings are currently developed separately. You can use the [GitLab web
+interface](https://gitlab.com/ndarilek/speech-dispatcher-rs) or clone the
+repository from:
+
+    https://gitlab.com/ndarilek/speech-dispatcher-rs.git
+
 A Java library is currently developed separately. You can use the [GitHub web
 interface](https://github.com/brailcom/speechd-java) or clone the repository
 from:
@@ -103,7 +109,7 @@ License
 -------
 
 Copyright (C) 2001-2009 Brailcom, o.p.s
-Copyright (C) 2018-2020 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2020, 2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Didier Spaier <didier@slint.fr>
 
 This program is free software; you can redistribute it and/or modify it under
