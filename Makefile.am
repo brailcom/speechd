@@ -35,7 +35,7 @@ AM_DISTCHECK_CONFIGURE_FLAGS=--without-systemdsystemunitdir --without-systemduse
 
 nodist_systemdsystemunit_DATA = \
 	speech-dispatcherd.service
-if HAVE_SYSTEMD
+if USE_LIBSYSTEMD
 nodist_systemduserunit_DATA = \
 	speech-dispatcher.service speech-dispatcher.socket
 endif
