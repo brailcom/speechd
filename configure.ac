@@ -118,11 +118,7 @@ PKG_CHECK_MODULES([SNDFILE], [sndfile >= 1.0.2])
 AC_SUBST([SNDFILE_CFLAGS])
 AC_SUBST([SNDFILE_LIBS])
 
-PKG_CHECK_MODULES([LIBSYSTEMD], [libsystemd], [have_systemd="yes"], [have_systemd="no"])
-if test x$have_systemd = xyes; then
-    AC_DEFINE([HAVE_SYSTEMD], [1], [Define to 1 if you have the systemd library])
-fi
-AM_CONDITIONAL(HAVE_SYSTEMD, [test x$have_systemd = xyes])
+PKG_CHECK_MODULES([LIBSYSTEMD], [libsystemd], [have_libsystemd=yes], [:])
 
 # Checks for header files.
 AC_CHECK_HEADERS([arpa/inet.h fcntl.h langinfo.h limits.h netdb.h])
@@ -551,10 +547,12 @@ AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$with_systemdsystemunitdir" -a "x$with_sy
 AC_ARG_WITH([systemduserunitdir],
         AS_HELP_STRING([--with-systemduserunitdir=DIR], [Directory for systemd user service files]),
         [], [with_systemduserunitdir=$($PKG_CONFIG --variable=systemduserunitdir systemd)])
-if test "x$with_systemduserunitdir" != xno; then
+if test -n "$have_libsystemd" -a -n "$with_systemduserunitdir" -a "x$with_systemduserunitdir" != xno ; then
+        use_libsystemd=yes
         AC_SUBST([systemduserunitdir], [$with_systemduserunitdir])
+        AC_DEFINE([USE_LIBSYSTEMD], [1], [Used for activation via socket])
 fi
-AM_CONDITIONAL(HAVE_SYSTEMD, [test -n "$with_systemduserunitdir" -a "x$with_systemduserunitdir" != xno ])
+AM_CONDITIONAL([USE_LIBSYSTEMD], [test "x$use_libsystemd" = "xyes"])
 
 AM_CONDITIONAL(BUILD_HTML_DOC, [test "$EMAIL" = samuel.thibault@ens-lyon.org])
 
