@@ -29,7 +29,7 @@
 #include <sys/stat.h>
 #include <sys/socket.h>
 #include <sys/un.h>
-#ifdef HAVE_SYSTEMD
+#ifdef USE_LIBSYSTEMD
 #include <systemd/sd-daemon.h>
 #endif
 
@@ -1286,7 +1286,7 @@ int main(int argc, char *argv[])
 		g_free(spawn_socket_path);
 	}
 
-#ifdef HAVE_SYSTEMD
+#ifdef USE_LIBSYSTEMD
 	if (sd_listen_fds(0) >= 1) {
 		/* Daemon launched via Systemd socket activation */
 		server_socket = SD_LISTEN_FDS_START;
