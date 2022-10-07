@@ -1529,7 +1529,7 @@ char **spd_execute_command_with_list_reply(SPDConnection * connection,
 	int i;
 
 	spd_execute_command_with_reply(connection, command, &reply);
-	if (!ret_ok(reply)) {
+	if (ret_ok(reply) <= 0) {
 		if (reply != NULL)
 			free(reply);
 		return NULL;
