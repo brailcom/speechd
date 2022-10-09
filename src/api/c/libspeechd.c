@@ -1711,24 +1711,25 @@ char *spd_send_data_wo_mutex(SPDConnection * connection, const char *message,
 			SPD_DBG
 			    ("Reading the reply in spd_send_data_wo_mutex threaded mode");
 			/* Read the reply */
+			pthread_mutex_lock(&connection->td->mutex_reply_ack);
 			if (connection->reply != NULL) {
 				reply = connection->reply;
 				connection->reply = NULL;
 			} else {
 				SPD_DBG
 				    ("Error: Can't read reply, broken socket in spd_send_data.");
+				pthread_mutex_unlock(&connection->td->mutex_reply_ack);
 				return NULL;
 			}
+			/* Signal the reply has been read */
+			pthread_cond_signal(&connection->td->cond_reply_ack);
+			pthread_mutex_unlock(&connection->td->mutex_reply_ack);
 			bytes = strlen(reply);
 			if (bytes == 0) {
 				free(reply);
 				SPD_DBG("Error: Empty reply, broken socket.");
 				return NULL;
 			}
-			/* Signal the reply has been read */
-			pthread_mutex_lock(&connection->td->mutex_reply_ack);
-			pthread_cond_signal(&connection->td->cond_reply_ack);
-			pthread_mutex_unlock(&connection->td->mutex_reply_ack);
 		} else {
 			reply = get_reply(connection);
 		}
@@ -1939,9 +1940,10 @@ static void *spd_events_handler(void *conn)
 			pthread_cond_signal(&connection->td->cond_reply_ready);
 			pthread_mutex_lock(&connection->td->mutex_reply_ack);
 			pthread_mutex_unlock(&connection->td->mutex_reply_ready);
-			/* Wait until it has bean read */
-			pthread_cond_wait(&connection->td->cond_reply_ack,
-					  &connection->td->mutex_reply_ack);
+			/* Wait until it has been read */
+			while (connection->reply)
+				pthread_cond_wait(&connection->td->cond_reply_ack,
+						  &connection->td->mutex_reply_ack);
 			pthread_mutex_unlock(&connection->td->mutex_reply_ack);
 			/* Continue */
 		}
