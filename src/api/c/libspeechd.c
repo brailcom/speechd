@@ -568,6 +568,7 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			connection = NULL;
 			goto out;
 		}
+		connection->reply = NULL;
 	}
 
 	/* By now, the connection is created and operational */
