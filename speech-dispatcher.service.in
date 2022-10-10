@@ -1,4 +1,4 @@
-# Copyright (C) 2018 Samuel Thibault <samuel.thibault@ens-lyon.org>
+# Copyright (C) 2018, 2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
 #
 # This program is free software; you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -19,5 +19,5 @@ Requires=speech-dispatcher.socket
 
 [Service]
 Type=simple
-ExecStart=@bindir@/speech-dispatcher
+ExecStart=@bindir@/speech-dispatcher -t 0
 ExecReload=/bin/kill -HUP $MAINPID
