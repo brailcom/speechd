@@ -385,12 +385,53 @@ class _SSIP_Connection(object):
         self._callback = callback
 
 class _CallbackHandler(object):
-    """Internal object which handles callbacks."""
+    """Internal object which handles callbacks.
+
+    As we allow separate callbacks for each message, we need to record the
+    message ID associated with each callback.  Unfortunately, we can only know
+    the message ID after the request that will generate events has been sent,
+    and we could already be getting events right away -- before we have a
+    chance to actually register the callback with the correct message ID.
+    To work around this issue, a caller will call 'begin_add_callback()' before
+    issuing the SSIP call that will start generating events, and, when it has
+    the proper message ID, call 'end_add_callback()' with that message ID and
+    information about the callback to actually call.  This allows us to queue
+    all events before we actually know whether they match an interesting
+    message ID, and dispatch them manually if we actually received any before
+    the 'end_add_callback()' call.  We also discard any that were not used if
+    there are no other add pending.
+
+    The caller will start an add request by issuing a 'begin_add_callback()'
+    call. A matching call to either 'cancel_add_callback()' (e.g. if an error
+    occurred sending the SSIP message to watch for) or 'end_add_callback()'
+    MUST be issued afterward.
+
+    Typical use will look like so:
+        handler.begin_add_callback()
+        try:
+            connection.send_command('SPEAK')
+            result = connection.send_data(data)
+            msg_id = int(result[2][0])
+        except:
+            handler.cancel_add_callback()
+            raise
+        else:
+            handler.end_add_callback(msg_id, callback, event_types)
+    """
 
     def __init__(self, client_id):
         self._client_id = client_id
         self._callbacks = {}
         self._lock = threading.Lock()
+        self._pending_adds = 0
+        self._pending_events = {}
+
+    def _handle_event(self, callback, event_types, type, kwargs):
+        """ Calls 'callback(type, **kwargs)' if event_types matches 'type'.
+        Returns whether that event was the final event of its sequence. """
+        if event_types is None or type in event_types:
+            callback(type, **kwargs)
+        return type in (CallbackType.END, CallbackType.CANCEL)
 
     def __call__(self, msg_id, client_id, type, **kwargs):
         if client_id != self._client_id:
@@ -401,21 +442,58 @@ class _CallbackHandler(object):
             try:
                 callback, event_types = self._callbacks[msg_id]
             except KeyError:
-                pass
+                # if we don't have a handler for that message but we have
+                # pending requests, queue the message for possible later use
+                if self._pending_adds:
+                    if msg_id not in self._pending_events:
+                        self._pending_events[msg_id] = []
+                    self._pending_events[msg_id].append((type, kwargs))
             else:
-                if event_types is None or type in event_types:
-                    callback(type, **kwargs)
-                if type in (CallbackType.END, CallbackType.CANCEL):
+                if self._handle_event(callback, event_types, type, kwargs):
                     del self._callbacks[msg_id]
         finally:
             self._lock.release()
 
-    def add_callback(self, msg_id,  callback, event_types):
-        self._lock.acquire()
-        try:
-            self._callbacks[msg_id] = (callback, event_types)
-        finally:
-            self._lock.release()
+    def begin_add_callback(self):
+        with self._lock:
+            self._pending_adds += 1
+
+    def _add_request_finished(self):
+        """ cleans up when an add request has been dealt with.
+        @warning 'self._lock' MUST be held by the caller. """
+        assert self._pending_adds > 0
+        self._pending_adds -= 1
+
+        # if there are no more pending callbacks, drop all possibly saved
+        # pending events, as they were actually not interesting
+        if self._pending_adds <= 0:
+            self._pending_events = {}
+
+    def cancel_add_callback(self):
+        with self._lock:
+            self._add_request_finished()
+
+    def end_add_callback(self, msg_id, callback, event_types):
+        with self._lock:
+            # dispatch any pending events that occurred before the callback
+            # actually got added (i.e. between the begin_add_callback() call
+            # and here).  Note that this means the callbacks will be run from
+            # the current thread, but given the usual restrictions it has it's
+            # likely to be OK.
+            skip_registration = False
+            try:
+                if msg_id in self._pending_events:
+                    for type, kwargs in self._pending_events[msg_id]:
+                        if self._handle_event(callback, event_types, type, kwargs):
+                            skip_registration = True
+                    del self._pending_events[msg_id]
+            finally:
+                self._add_request_finished()
+
+            # if not all events have already been seen, register the callback
+            # normally for pending events
+            if not skip_registration:
+                self._callbacks[msg_id] = (callback, event_types)
 
 class Scope(object):
     """An enumeration of valid SSIP command scopes.
@@ -745,14 +823,20 @@ class SSIPClient(object):
         message is queued on the server and the method returns immediately.
 
         """
-        self._conn.send_command('SPEAK')
-        result = self._conn.send_data(text)
         if callback:
-            msg_id = int(result[2][0])
-            # TODO: Here we risk, that the callback arrives earlier, than we
-            # add the item to `self._callback_handler'.  Such a situation will
-            # lead to the callback being ignored.
-            self._callback_handler.add_callback(msg_id, callback, event_types)
+            self._callback_handler.begin_add_callback()
+        try:
+            self._conn.send_command('SPEAK')
+            result = self._conn.send_data(text)
+            if callback:
+                msg_id = int(result[2][0])
+        except:
+            if callback:
+                self._callback_handler.cancel_add_callback()
+            raise
+        else:
+            if callback:
+                self._callback_handler.end_add_callback(msg_id, callback, event_types)
         return result
 
     def char(self, char):
