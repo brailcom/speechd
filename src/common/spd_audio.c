@@ -120,7 +120,7 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 		plugin_dir = PLUGIN_DIR;
 
 #ifdef USE_DLOPEN
-	libname = g_strdup_printf("%s/" SPD_AUDIO_LIB_PREFIX "%s", plugin_dir, name);
+	libname = g_strdup_printf("%s/" SPD_AUDIO_LIB_PREFIX "%s.so", plugin_dir, name);
 	dlhandle = dlopen(libname, RTLD_NOW | RTLD_GLOBAL);
 
 	g_free(libname);
