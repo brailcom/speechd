@@ -32,7 +32,11 @@
 
 #include <pthread.h>
 
+#ifdef USE_DLOPEN
+#define SPD_AUDIO_PLUGIN_ENTRY spd_audio_plugin_get
+#else
 #define SPD_AUDIO_PLUGIN_ENTRY spd_nas_LTX_spd_audio_plugin_get
+#endif
 #include <spd_audio_plugin.h>
 
 typedef struct {
