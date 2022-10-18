@@ -380,4 +380,3 @@ uninstall-hook:
 	done
 
 -include $(top_srcdir)/git.mk
-GITIGNOREFILES = symbolsrc
