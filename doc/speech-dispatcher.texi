@@ -2851,6 +2851,16 @@ Audio has exactly the same structure as @code{SET}, but is transmitted
 only once immediately after @code{INIT} to transmit the requested audio
 parameters and tell the output module to open the audio device.
 
+Here is an example:
+@example
+AUDIO
+207 OK RECEIVING AUDIO SETTINGS
+audio_output_method=pulse
+audio_pulse_device=default
+.
+203 OK AUDIO INITIALIZED
+@end example
+
 @item QUIT
 Terminates the output module. It should send the response, deallocate
 all the resources, close all descriptors, terminate all child
