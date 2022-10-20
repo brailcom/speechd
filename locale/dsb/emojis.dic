@@ -39,43 +39,6 @@ symbols:
 ♪	wósymkowa nota	none
 ♭	pśedznamuško b	none
 ♯	pśedznamuško kśicka	none
-🥹	łdzy zaźaržujuce woblico	none
-🧌	kobołt	none
-🩻	roentgenowy wobraz	none
-🩼	zepěra	none
-🪩	glědałkowa kula	none
-🪪	wupokaz	none
-🪫	słaba baterija	none
-🪬	hamsa	none
-🪷	lotusowa kwiśonka	none
-🪸	korala	none
-🪹	prozne gnězdo	none
-🪺	gnězdo z jajkoma	none
-🫃	samodrugi muski	none
-🫄	samodruga wósoba	none
-🫅	wósoba z kronu	none
-🫗	kapalinu wulaś	none
-🫘	boby	none
-🫙	sudobje	none
-🫠	rozbězěce woblico	none
-🫡	salutěrujuce woblico	none
-🫢	woblico z wócynjonyma wócyma a ruku na gubje	none
-🫣	woblico z kukajucym wóckom	none
-🫤	woblico z diagonalneju gubu	none
-🫥	woblico z dypkowaneju smužku	none
-🫦	guba, kenž se do spódneje guby kusnjo	none
-🫧	puchorje	none
-🫰	ruka, z pśekśicowanym pokazowarjom a palcom	none
-🫱	ruka napšawo	none
-🫲	ruka nalěwo	none
-🫳	dłoń pokazujo dołoj	none
-🫴	dłoń pokazujo górjej	none
-🫵	pokazowaŕ, wusměrjony na glědajucego	none
-🫶	ruce twóritej formu wutšoby	none
-🛝	suwadło na grajkanišću	none
-🛞	kólaso	none
-🛟	wumožaŕska boja	none
-🟰	tłuste znamje jo rowno	none
 😀	se zubjece woblico	none
 😃	se zubjece woblico z wjelikima wócyma	none
 😄	se zubjece woblico ze se smjejucyma wócyma	none
@@ -86,6 +49,7 @@ symbols:
 😂	woblico ze łdzami wjasela	none
 🙂	tšošku se smjejuce woblico	none
 🙃	znak stojece woblico	none
+🫠	rozbězěce woblico	none
 😉	mykotajuce woblico	none
 😊	smjejuce woblico ze se smjejucyma wócyma	none
 😇	se smjejkotajuce woblico ze swětym swětłom	none
@@ -106,13 +70,17 @@ symbols:
 🤑	woblico z dolarowymi znamuškami	none
 🤗	woblico z wobejmjecyma rukoma	none
 🤭	woblico z ruku pśed gubu	none
+🫢	woblico z wócynjonyma wócyma a ruku na gubje	none
+🫣	woblico z kukajucym wóckom	none
 🤫	napominajuce woblico	none
 🤔	rozmyslowate woblico	none
+🫡	salutěrujuce woblico	none
 🤐	woblico ze zasuwałkowateju gubu	none
 🤨	woblico z natśěgnjonyma wobwócyma	none
 😐	neutralne woblico	none
 😑	njewurazne woblico	none
 😶	woblico bźez guby	none
+🫥	woblico z dypkowaneju smužku	none
 😶‍🌫	woblico w mrokawach	none
 😏	sebjespódobnje se zubjece woblico	none
 😒	wobuzne woblico	none
@@ -120,6 +88,7 @@ symbols:
 😬	grimasu śěgujuce woblico	none
 😮‍💨	wudychajuce woblico	none
 🤥	łdgajuce woblico	none
+🫨	tśěskotate woblico	none
 😌	wólažcone woblico	none
 😔	wjelgin rozmyslowate woblico	none
 😪	zaspane woblico	none
@@ -144,6 +113,7 @@ symbols:
 🤓	woblico procowarja	none
 🧐	woblico z monokelom	none
 😕	zacwiblowane woblico	none
+🫤	woblico z diagonalneju gubu	none
 😟	starosćiwe woblico	none
 🙁	wobtužne woblico	none
 ☹	póchmurne woblico	none
@@ -152,6 +122,7 @@ symbols:
 😲	wjelgin zacwiblowane woblico	none
 😳	zacerwjenjone woblico z wjelikima wócyma	none
 🥺	pšosece woblico	none
+🥹	łdzy zaźaržujuce woblico	none
 😦	wuźěsone woblico	none
 😧	drěcowane woblico	none
 😨	tšašywe woblico	none
@@ -195,7 +166,6 @@ symbols:
 🙈	se wócy zaźaržujuca nałpa	none
 🙉	se wušy zaźaržujuca nałpa	none
 🙊	se gubu zaźaržujuca nałpa	none
-💋	wótśišć póška	none
 💌	lubosćinski list	none
 💘	wutšobka ze šypu	none
 💝	wutšobka ze šlejfku	none
@@ -210,14 +180,18 @@ symbols:
 ❤‍🔥	wutšobka se pali	none
 ❤‍🩹	wutšobu gójś	none
 ❤	cerwjena wutšobka	none
+🩷	rožojta wutšoba	none
 🧡	oranžojta wutšoba	none
 💛	žołta wutšobka	none
 💚	zelena wutšobka	none
 💙	módra wutšobka	none
+🩵	swětłomódra wutšoba	none
 💜	lylowa wutšobka	none
 🤎	bruna wutšobka	none
 🖤	carna wutšobka	none
+🩶	šera wutšoba	none
 🤍	běła wutšobka	none
+💋	wótśišć póška	none
 💯	100 dypkow	none
 💢	górjenje	none
 💥	kolizija	none
@@ -225,7 +199,6 @@ symbols:
 💦	chrapki znoja	none
 💨	prochowa mrokawa	none
 🕳	źěra	none
-💣	bomba	none
 💬	powědański puchor z tśimi dykami	none
 👁‍🗨	wócko w powědańskem puchorje	none
 🗨	powědański puchor nalěwo	none
@@ -237,11 +210,18 @@ symbols:
 🖐	ruka z rozpśestrětymi palcami	none
 ✋	pózwignjona ruka	none
 🖖	wulkaniske póstrowjenje	none
+🫱	ruka napšawo	none
+🫲	ruka nalěwo	none
+🫳	dłoń pokazujo dołoj	none
+🫴	dłoń pokazujo górjej	none
+🫷	ruka, ak tłocy nalěwo	none
+🫸	ruka, ak tłocy napšawo	none
 👌	ok-gesta	none
 🤌	gromadu stłocone palce	none
 🤏	mało-gesta	none
 ✌	dobyśaŕska gesta	none
 🤞	ruka z pśekśicnjonyma palcoma	none
+🫰	ruka, z pśekśicowanym pokazowarjom a palcom	none
 🤟	gesta "ja śi lubujom"	none
 🤘	cartowe póstrowjenje	none
 🤙	gesta "zawołaj na mnjo"	none
@@ -251,6 +231,7 @@ symbols:
 🖕	wósrědny palc	none
 👇	dołoj pokazujucy drugi palc	none
 ☝	górjej pokazujucy drugi palc wót prědka	none
+🫵	pokazowaŕ, wusměrjony na glědajucego	none
 👍	tłusty palc górjej	none
 👎	tłusty palc dołoj	none
 ✊	pózwignjona pěsć	none
@@ -259,6 +240,7 @@ symbols:
 🤜	pěsć napšawo	none
 👏	pśiklaskujuce ruki	none
 🙌	pózwignjonej ruce	none
+🫶	ruce twóritej formu wutšoby	none
 👐	wótwórjonej ruce	none
 🤲	dłoni górjej	none
 🤝	pódaśe ruki	none
@@ -283,6 +265,7 @@ symbols:
 👁	woko	none
 👅	jězyk	none
 👄	guba	none
+🫦	guba, kenž se do spódneje guby kusnjo	none
 👶	góletko	none
 🧒	góle	none
 👦	gólc	none
@@ -390,6 +373,7 @@ symbols:
 👷	twaŕski źěłaśeŕ/ka	none
 👷‍♂	twaŕski źěłaśeŕ	none
 👷‍♀	twaŕska źěłaśeŕka	none
+🫅	wósoba z kronu	none
 🤴	princ	none
 👸	princesna	none
 👳	wósoba z turbanom	none
@@ -404,6 +388,8 @@ symbols:
 👰‍♂	muski ze šlewjerjom	none
 👰‍♀	žeńska ze šlewjerjom	none
 🤰	samodruga	none
+🫃	samodrugi muski	none
+🫄	samodruga wósoba	none
 🤱	seśiś	none
 👩‍🍼	seśeca žeńska	none
 👨‍🍼	góletkoju mloko dawajucy muski	none
@@ -439,6 +425,7 @@ symbols:
 🧟	combie	none
 🧟‍♂	muskecy combie	none
 🧟‍♀	žeńskcy combie	none
+🧌	kobołt	none
 💆	wósoba, kenž dostanjo masažu głowy	none
 💆‍♂	muski, kenž dostanjo masažu głowy	none
 💆‍♀	žeńska, kenž dostanjo masažu głowy	none
@@ -562,6 +549,8 @@ symbols:
 🐅	tiger	none
 🐆	leopard	none
 🐴	głowa kónja	none
+🫎	głowa łosa	none
+🫏	wósolik	none
 🐎	kóń	none
 🦄	jadnorogac	none
 🦓	cebra	none
@@ -624,6 +613,8 @@ symbols:
 🦩	flamingo	none
 🦚	paw	none
 🦜	papagaj	none
+🪽	kśidło	none
+🪿	gus	none
 🐸	žaba	none
 🐊	krokodil	none
 🐢	nopawa	none
@@ -643,6 +634,8 @@ symbols:
 🦈	žrawik	none
 🐙	oktopus	none
 🐚	slinikowy konk	none
+🪸	korala	none
+🪼	kwala	none
 🐌	slinik	none
 🦋	mjatel	none
 🐛	gusenica	none
@@ -662,6 +655,7 @@ symbols:
 💐	strus	none
 🌸	kwiśonka wišnje	none
 💮	běła kwiśonka	none
+🪷	lotusowa kwiśonka	none
 🏵	roseta	none
 🌹	roža	none
 🥀	woprěta kwětka	none
@@ -669,6 +663,7 @@ symbols:
 🌻	słyńca	none
 🌼	kwiśonka	none
 🌷	tulpa	none
+🪻	hyacinta	none
 🌱	pšut	none
 🪴	rostlina w gjarnyšku	none
 🌲	jeglina	none
@@ -682,6 +677,9 @@ symbols:
 🍁	łopjeno jawora	none
 🍂	list	none
 🍃	łopjena we wětšu	none
+🪹	prozne gnězdo	none
+🪺	gnězdo z jajkoma	none
+🍄	muchoradło	none
 🍇	winowa granka	none
 🍈	mjodowa melona	none
 🍉	wódna melona	none
@@ -713,9 +711,11 @@ symbols:
 🥦	brokoli	none
 🧄	kobołk	none
 🧅	cybula	none
-🍄	muchoradło	none
 🥜	zemski wórjech	none
+🫘	boby	none
 🌰	kastanija	none
+🫚	ingwer	none
+🫛	tšuka grocha	none
 🍞	klěb	none
 🥐	croissant	none
 🥖	baguett	none
@@ -800,6 +800,7 @@ symbols:
 🍻	piwowe kružki	none
 🥂	sektowe głažki	none
 🥃	k piśeju głažk	none
+🫗	kapalinu wulaś	none
 🥤	głažk ze spłom	none
 🧋	bubble tea	none
 🧃	piśe w pakśiku	none
@@ -810,6 +811,7 @@ symbols:
 🍴	widlicki a nož	none
 🥄	łžyca	none
 🔪	hapka	none
+🫙	sudobje	none
 🏺	amfora	none
 🌍	globus z Europu a Afriku	none
 🌎	globus z Ameriku	none
@@ -872,6 +874,7 @@ symbols:
 🌉	móst w nocy	none
 ♨	góruce žrědła	none
 🎠	karaselowy kónik	none
+🛝	suwadło na grajkanišću	none
 🎡	wjelicke kólaso	none
 🎢	padata zeleznicka	none
 💈	frizerski słup	none
@@ -920,12 +923,14 @@ symbols:
 🛤	zeleznicowe kóleje	none
 🛢	wólejowy sud	none
 ⛽	tankowański słup	none
+🛞	kólaso	none
 🚨	policajske swětło	none
 🚥	wódorowna ampla	none
 🚦	padorowna ampla	none
 🛑	sopowe znamje	none
 🚧	twarnišćowa tofla	none
 ⚓	kokula	none
+🛟	wumožaŕska boja	none
 ⛵	płachtak	none
 🛶	kanu	none
 🚤	spěšna łoź	none
@@ -1083,10 +1088,10 @@ symbols:
 🎯	darts	none
 🪀	jojo	none
 🪁	plon za pušćanje	none
+🔫	pistola	none
 🎱	billardowa kula	none
 🔮	kristalowa kula	none
 🪄	guslowaŕski kij	none
-🧿	nazar-amulet	none
 🎮	gamepad	none
 🕹	joystick	none
 🎰	grajny awtomat	none
@@ -1094,6 +1099,7 @@ symbols:
 🧩	źěl puzzla	none
 🧸	tedij	none
 🪅	pinjata	none
+🪩	glědałkowa kula	none
 🪆	matrjoška	none
 ♠	pik	none
 ♥	wutšoby	none
@@ -1130,6 +1136,7 @@ symbols:
 🩳	shortse	none
 👙	bikini	none
 👚	bluza	none
+🪭	machawka za pśewětšenje	none
 👛	móšynka	none
 👜	rucna tobołka	none
 👝	pódpažna tobołka	none
@@ -1144,6 +1151,7 @@ symbols:
 👡	žeńskeca sandala	none
 🩰	baletowe crjeje	none
 👢	žeńskece škórnje	none
+🪮	spinka za włose	none
 👑	krona	none
 👒	žeńskecy kłobyk	none
 🎩	cylinder	none
@@ -1182,6 +1190,8 @@ symbols:
 🪕	banjo	none
 🥁	bubon	none
 🪘	afrikański bubon	none
+🪇	maracasy	none
+🪈	pišćałka	none
 📱	mobilny telefon	none
 📲	mobilny telefon ze šypu	none
 ☎	telefon	none
@@ -1189,6 +1199,7 @@ symbols:
 📟	pager	none
 📠	faks	none
 🔋	baterija	none
+🪫	słaba baterija	none
 🔌	tykack	none
 💻	laptop	none
 🖥	desktopowy kompjuter	none
@@ -1300,7 +1311,7 @@ symbols:
 🛠	klapac a šrubowy kluc	none
 🗡	kałak	none
 ⚔	pśekśicnjonej mjaca	none
-🔫	pistola	none
+💣	bomba	none
 🪃	bumerang	none
 🏹	šypa a pšužyna	none
 🛡	šćit	none
@@ -1329,7 +1340,9 @@ symbols:
 🩸	chrapka kšwě	none
 💊	kapsla	none
 🩹	pśilipny flastaŕ	none
+🩼	zepěra	none
 🩺	stetoskop	none
+🩻	roentgenowy wobraz	none
 🚪	źurja	none
 🛗	lift	none
 🪞	glědałko	none
@@ -1350,6 +1363,7 @@ symbols:
 🧻	rulka kuchnineje papjery	none
 🪣	zbórk	none
 🧼	mydło	none
+🫧	puchorje	none
 🪥	zubny šćotka	none
 🧽	gubiba	none
 🧯	wogeńgasak	none
@@ -1358,8 +1372,11 @@ symbols:
 ⚰	kašć	none
 🪦	narowny kamjeń	none
 ⚱	popjelnica	none
+🧿	nazar-amulet	none
+🪬	hamsa	none
 🗿	statuwa	none
 🪧	plakat	none
+🪪	wupokaz	none
 🏧	symbol "pjenjezny awtomat"	none
 🚮	symbol "papjernik"	none
 🚰	symbol "pitna wóda"	none
@@ -1419,6 +1436,7 @@ symbols:
 ☮	symbol měra	none
 🕎	menora	none
 🔯	heksagram z dypkom	none
+🪯	khanda	none
 ♈	Baran (gwězdne znamje)	none
 ♉	Byk (gwězdne znamje)	none
 ♊	Dwójnika (gwězdne znamje)	none
@@ -1454,6 +1472,7 @@ symbols:
 🔅	tasta "śamnej"	none
 🔆	tasta "swětlej"	none
 📶	mócnosć signala	none
+🛜	bźez kabla	none
 📳	tasta "wibraciski modus"	none
 📴	tasta "wušaltuj handy"	none
 ♀	symbol za žeńskecy rod	none
@@ -1463,6 +1482,7 @@ symbols:
 ➕	znamuško plus	none
 ➖	znamuško minus	none
 ➗	znamuško diwizije	none
+🟰	tłuste znamje jo rowno	none
 ♾	njeskóńcnosć	none
 ❓	cerwjeny pšašak	none
 ❔	běły pšašak	none
@@ -1559,26 +1579,31 @@ symbols:
 ₹	symbol za indisku rupiju	none
 ₽	symbol za rubel	none
 ₿	symbol za bitcoin	none
-🫃🏻	samodrugi muski swětła barwa kóže	none
-🫃🏼	samodrugi muski srjejźnoswětła barwa kóže	none
-🫃🏽	samodrugi muski wósrědna barwa kóže	none
-🫃🏾	samodrugi muski srjejźnośamna barwa kóže	none
-🫃🏿	samodrugi muski śamna barwa kóže	none
-🫄🏻	samodruga wósoba swětła barwa kóže	none
-🫄🏼	samodruga wósoba srjejźnoswětła barwa kóže	none
-🫄🏽	samodruga wósoba wósrědna barwa kóže	none
-🫄🏾	samodruga wósoba srjejźnośamna barwa kóže	none
-🫄🏿	samodruga wósoba śamna barwa kóže	none
-🫅🏻	wósoba z kronu swětła barwa kóže	none
-🫅🏼	wósoba z kronu srjejźnoswětła barwa kóže	none
-🫅🏽	wósoba z kronu wósrědna barwa kóže	none
-🫅🏾	wósoba z kronu srjejźnośamna barwa kóže	none
-🫅🏿	wósoba z kronu śamna barwa kóže	none
-🫰🏻	ruka, z pśekśicowanym pokazowarjom a palcom swětła barwa kóže	none
-🫰🏼	ruka, z pśekśicowanym pokazowarjom a palcom srjejźnoswětła barwa kóže	none
-🫰🏽	ruka, z pśekśicowanym pokazowarjom a palcom wósrědna barwa kóže	none
-🫰🏾	ruka, z pśekśicowanym pokazowarjom a palcom srjejźnośamna barwa kóže	none
-🫰🏿	ruka, z pśekśicowanym pokazowarjom a palcom śamna barwa kóže	none
+👋🏻	kiwajuca ruka swětła barwa kóže	none
+👋🏼	kiwajuca ruka srjejźnoswětła barwa kóže	none
+👋🏽	kiwajuca ruka wósrědna barwa kóže	none
+👋🏾	kiwajuca ruka srjejźnośamna barwa kóže	none
+👋🏿	kiwajuca ruka śamna barwa kóže	none
+🤚🏻	pózwignjona ruka wót slědka swětła barwa kóže	none
+🤚🏼	pózwignjona ruka wót slědka srjejźnoswětła barwa kóže	none
+🤚🏽	pózwignjona ruka wót slědka wósrědna barwa kóže	none
+🤚🏾	pózwignjona ruka wót slědka srjejźnośamna barwa kóže	none
+🤚🏿	pózwignjona ruka wót slědka śamna barwa kóže	none
+🖐🏻	ruka z rozpśestrětymi palcami swětła barwa kóže	none
+🖐🏼	ruka z rozpśestrětymi palcami srjejźnoswětła barwa kóže	none
+🖐🏽	ruka z rozpśestrětymi palcami wósrědna barwa kóže	none
+🖐🏾	ruka z rozpśestrětymi palcami srjejźnośamna barwa kóže	none
+🖐🏿	ruka z rozpśestrětymi palcami śamna barwa kóže	none
+✋🏻	pózwignjona ruka swětła barwa kóže	none
+✋🏼	pózwignjona ruka srjejźnoswětła barwa kóže	none
+✋🏽	pózwignjona ruka wósrědna barwa kóže	none
+✋🏾	pózwignjona ruka srjejźnośamna barwa kóže	none
+✋🏿	pózwignjona ruka śamna barwa kóže	none
+🖖🏻	wulkaniske póstrowjenje swětła barwa kóže	none
+🖖🏼	wulkaniske póstrowjenje srjejźnoswětła barwa kóže	none
+🖖🏽	wulkaniske póstrowjenje wósrědna barwa kóže	none
+🖖🏾	wulkaniske póstrowjenje srjejźnośamna barwa kóže	none
+🖖🏿	wulkaniske póstrowjenje śamna barwa kóže	none
 🫱🏻	ruka napšawo swětła barwa kóže	none
 🫱🏼	ruka napšawo srjejźnoswětła barwa kóže	none
 🫱🏽	ruka napšawo wósrědna barwa kóže	none
@@ -1619,41 +1644,16 @@ symbols:
 🫴🏽	dłoń pokazujo górjej wósrědna barwa kóže	none
 🫴🏾	dłoń pokazujo górjej srjejźnośamna barwa kóže	none
 🫴🏿	dłoń pokazujo górjej śamna barwa kóže	none
-🫵🏻	pokazowaŕ, wusměrjony na glědajucego swětła barwa kóže	none
-🫵🏼	pokazowaŕ, wusměrjony na glědajucego srjejźnoswětła barwa kóže	none
-🫵🏽	pokazowaŕ, wusměrjony na glědajucego wósrědna barwa kóže	none
-🫵🏾	pokazowaŕ, wusměrjony na glědajucego srjejźnośamna barwa kóže	none
-🫵🏿	pokazowaŕ, wusměrjony na glědajucego śamna barwa kóže	none
-🫶🏻	ruce twóritej formu wutšoby swětła barwa kóže	none
-🫶🏼	ruce twóritej formu wutšoby srjejźnoswětła barwa kóže	none
-🫶🏽	ruce twóritej formu wutšoby wósrědna barwa kóže	none
-🫶🏾	ruce twóritej formu wutšoby srjejźnośamna barwa kóže	none
-🫶🏿	ruce twóritej formu wutšoby śamna barwa kóže	none
-👋🏻	kiwajuca ruka swětła barwa kóže	none
-👋🏼	kiwajuca ruka srjejźnoswětła barwa kóže	none
-👋🏽	kiwajuca ruka wósrědna barwa kóže	none
-👋🏾	kiwajuca ruka srjejźnośamna barwa kóže	none
-👋🏿	kiwajuca ruka śamna barwa kóže	none
-🤚🏻	pózwignjona ruka wót slědka swětła barwa kóže	none
-🤚🏼	pózwignjona ruka wót slědka srjejźnoswětła barwa kóže	none
-🤚🏽	pózwignjona ruka wót slědka wósrědna barwa kóže	none
-🤚🏾	pózwignjona ruka wót slědka srjejźnośamna barwa kóže	none
-🤚🏿	pózwignjona ruka wót slědka śamna barwa kóže	none
-🖐🏻	ruka z rozpśestrětymi palcami swětła barwa kóže	none
-🖐🏼	ruka z rozpśestrětymi palcami srjejźnoswětła barwa kóže	none
-🖐🏽	ruka z rozpśestrětymi palcami wósrědna barwa kóže	none
-🖐🏾	ruka z rozpśestrětymi palcami srjejźnośamna barwa kóže	none
-🖐🏿	ruka z rozpśestrětymi palcami śamna barwa kóže	none
-✋🏻	pózwignjona ruka swětła barwa kóže	none
-✋🏼	pózwignjona ruka srjejźnoswětła barwa kóže	none
-✋🏽	pózwignjona ruka wósrědna barwa kóže	none
-✋🏾	pózwignjona ruka srjejźnośamna barwa kóže	none
-✋🏿	pózwignjona ruka śamna barwa kóže	none
-🖖🏻	wulkaniske póstrowjenje swětła barwa kóže	none
-🖖🏼	wulkaniske póstrowjenje srjejźnoswětła barwa kóže	none
-🖖🏽	wulkaniske póstrowjenje wósrědna barwa kóže	none
-🖖🏾	wulkaniske póstrowjenje srjejźnośamna barwa kóže	none
-🖖🏿	wulkaniske póstrowjenje śamna barwa kóže	none
+🫷🏻	ruka, ak tłocy nalěwo swětła barwa kóže	none
+🫷🏼	ruka, ak tłocy nalěwo srjejźnoswětła barwa kóže	none
+🫷🏽	ruka, ak tłocy nalěwo wósrědna barwa kóže	none
+🫷🏾	ruka, ak tłocy nalěwo srjejźnośamna barwa kóže	none
+🫷🏿	ruka, ak tłocy nalěwo śamna barwa kóže	none
+🫸🏻	ruka, ak tłocy napšawo swětła barwa kóže	none
+🫸🏼	ruka, ak tłocy napšawo srjejźnoswětła barwa kóže	none
+🫸🏽	ruka, ak tłocy napšawo wósrědna barwa kóže	none
+🫸🏾	ruka, ak tłocy napšawo srjejźnośamna barwa kóže	none
+🫸🏿	ruka, ak tłocy napšawo śamna barwa kóže	none
 👌🏻	ok-gesta swětła barwa kóže	none
 👌🏼	ok-gesta srjejźnoswětła barwa kóže	none
 👌🏽	ok-gesta wósrědna barwa kóže	none
@@ -1679,6 +1679,11 @@ symbols:
 🤞🏽	ruka z pśekśicnjonyma palcoma wósrědna barwa kóže	none
 🤞🏾	ruka z pśekśicnjonyma palcoma srjejźnośamna barwa kóže	none
 🤞🏿	ruka z pśekśicnjonyma palcoma śamna barwa kóže	none
+🫰🏻	ruka, z pśekśicowanym pokazowarjom a palcom swětła barwa kóže	none
+🫰🏼	ruka, z pśekśicowanym pokazowarjom a palcom srjejźnoswětła barwa kóže	none
+🫰🏽	ruka, z pśekśicowanym pokazowarjom a palcom wósrědna barwa kóže	none
+🫰🏾	ruka, z pśekśicowanym pokazowarjom a palcom srjejźnośamna barwa kóže	none
+🫰🏿	ruka, z pśekśicowanym pokazowarjom a palcom śamna barwa kóže	none
 🤟🏻	gesta "ja śi lubujom" swětła barwa kóže	none
 🤟🏼	gesta "ja śi lubujom" srjejźnoswětła barwa kóže	none
 🤟🏽	gesta "ja śi lubujom" wósrědna barwa kóže	none
@@ -1724,6 +1729,11 @@ symbols:
 ☝🏽	górjej pokazujucy drugi palc wót prědka wósrědna barwa kóže	none
 ☝🏾	górjej pokazujucy drugi palc wót prědka srjejźnośamna barwa kóže	none
 ☝🏿	górjej pokazujucy drugi palc wót prědka śamna barwa kóže	none
+🫵🏻	pokazowaŕ, wusměrjony na glědajucego swětła barwa kóže	none
+🫵🏼	pokazowaŕ, wusměrjony na glědajucego srjejźnoswětła barwa kóže	none
+🫵🏽	pokazowaŕ, wusměrjony na glědajucego wósrědna barwa kóže	none
+🫵🏾	pokazowaŕ, wusměrjony na glědajucego srjejźnośamna barwa kóže	none
+🫵🏿	pokazowaŕ, wusměrjony na glědajucego śamna barwa kóže	none
 👍🏻	tłusty palc górjej swětła barwa kóže	none
 👍🏼	tłusty palc górjej srjejźnoswětła barwa kóže	none
 👍🏽	tłusty palc górjej wósrědna barwa kóže	none
@@ -1764,6 +1774,11 @@ symbols:
 🙌🏽	pózwignjonej ruce wósrědna barwa kóže	none
 🙌🏾	pózwignjonej ruce srjejźnośamna barwa kóže	none
 🙌🏿	pózwignjonej ruce śamna barwa kóže	none
+🫶🏻	ruce twóritej formu wutšoby swětła barwa kóže	none
+🫶🏼	ruce twóritej formu wutšoby srjejźnoswětła barwa kóže	none
+🫶🏽	ruce twóritej formu wutšoby wósrědna barwa kóže	none
+🫶🏾	ruce twóritej formu wutšoby srjejźnośamna barwa kóže	none
+🫶🏿	ruce twóritej formu wutšoby śamna barwa kóže	none
 👐🏻	wótwórjonej ruce swětła barwa kóže	none
 👐🏼	wótwórjonej ruce srjejźnoswětła barwa kóže	none
 👐🏽	wótwórjonej ruce wósrědna barwa kóže	none
@@ -2326,6 +2341,11 @@ symbols:
 🧑🏽‍⚕	gójc/gójcowka wósrědna barwa kóže	none
 🧑🏾‍⚕	gójc/gójcowka srjejźnośamna barwa kóže	none
 🧑🏿‍⚕	gójc/gójcowka śamna barwa kóže	none
+👨🏻‍⚕	doktor swětła barwa kóže	none
+👨🏼‍⚕	doktor srjejźnoswětła barwa kóže	none
+👨🏽‍⚕	doktor wósrědna barwa kóže	none
+👨🏾‍⚕	doktor srjejźnośamna barwa kóže	none
+👨🏿‍⚕	doktor śamna barwa kóže	none
 👩🏻‍⚕	gójcowka swětła barwa kóže	none
 👩🏼‍⚕	gójcowka srjejźnoswětła barwa kóže	none
 👩🏽‍⚕	gójcowka wósrědna barwa kóže	none
@@ -2621,6 +2641,11 @@ symbols:
 👷🏽‍♀	twaŕska źěłaśeŕka wósrědna barwa kóže	none
 👷🏾‍♀	twaŕska źěłaśeŕka srjejźnośamna barwa kóže	none
 👷🏿‍♀	twaŕska źěłaśeŕka śamna barwa kóže	none
+🫅🏻	wósoba z kronu swětła barwa kóže	none
+🫅🏼	wósoba z kronu srjejźnoswětła barwa kóže	none
+🫅🏽	wósoba z kronu wósrědna barwa kóže	none
+🫅🏾	wósoba z kronu srjejźnośamna barwa kóže	none
+🫅🏿	wósoba z kronu śamna barwa kóže	none
 🤴🏻	princ swětła barwa kóže	none
 🤴🏼	princ srjejźnoswětła barwa kóže	none
 🤴🏽	princ wósrědna barwa kóže	none
@@ -2691,6 +2716,16 @@ symbols:
 🤰🏽	samodruga wósrědna barwa kóže	none
 🤰🏾	samodruga srjejźnośamna barwa kóže	none
 🤰🏿	samodruga śamna barwa kóže	none
+🫃🏻	samodrugi muski swětła barwa kóže	none
+🫃🏼	samodrugi muski srjejźnoswětła barwa kóže	none
+🫃🏽	samodrugi muski wósrědna barwa kóže	none
+🫃🏾	samodrugi muski srjejźnośamna barwa kóže	none
+🫃🏿	samodrugi muski śamna barwa kóže	none
+🫄🏻	samodruga wósoba swětła barwa kóže	none
+🫄🏼	samodruga wósoba srjejźnoswětła barwa kóže	none
+🫄🏽	samodruga wósoba wósrědna barwa kóže	none
+🫄🏾	samodruga wósoba srjejźnośamna barwa kóže	none
+🫄🏿	samodruga wósoba śamna barwa kóže	none
 🤱🏻	seśiś swětła barwa kóže	none
 🤱🏼	seśiś srjejźnoswětła barwa kóže	none
 🤱🏽	seśiś wósrědna barwa kóže	none

@@ -264,43 +264,6 @@ symbols:
 ⪺	a’ leantainn air gun a bhith cha mhòr co-ionnann	none
 ♭	maol	none
 ♯	geur	none
-🥹	aodann le deòir na sùil	none
-🧌	trobha	none
-🩻	gath-òmair	none
-🩼	cruidse	none
-🪩	ball-sgàthain	none
-🪪	cairt-aithneachaidh	none
-🪫	bataraidh fann	none
-🪬	hamsa	none
-🪷	lòtas	none
-🪸	coireal	none
-🪹	nead falamh	none
-🪺	nead le uighean	none
-🫃	fireannach trom	none
-🫄	neach trom	none
-🫅	neach le crùn air	none
-🫗	a’ dòrtadh deoch	none
-🫘	pònairean	none
-🫙	crogan	none
-🫠	aodann a’ leaghadh	none
-🫡	aodann ag altachadh	none
-🫢	aodann le sùilean fosgailte ⁊ làmh air beul	none
-🫣	aodann le sùil a’ dìdeadh	none
-🫤	aodann le beul trastanach	none
-🫥	aodann le loidhne dhotagach	none
-🫦	bile ga bìdeach	none
-🫧	builgean	none
-🫰	làmh le a colgag is òrdag ri chèile	none
-🫱	làmh ris an taobh deas	none
-🫲	làmh ris an taobh chlì	none
-🫳	làmh le a bas sìos	none
-🫴	làmh le a bas suas	none
-🫵	colgag a’ tomhadh ort	none
-🫶	dà làimh ann an cumadh cridhe	none
-🛝	sleamhnag	none
-🛞	cuibhle	none
-🛟	fleodrainn-teasairginn	none
-🟰	samhla co-ionnannachd trom	none
 😀	aodann le gàire	none
 😃	aodann le gàire is sùilean fosgailte	none
 😄	aodann le gàire na shùilean	none
@@ -311,6 +274,7 @@ symbols:
 😂	aodann le deòir shona	none
 🙂	aodann le fiamh gàire beag	none
 🙃	aodann bun os cionn	none
+🫠	aodann a’ leaghadh	none
 😉	aodann le sùil bheag	none
 😊	aodann le gàire agus sùilean toilichte	none
 😇	aodann le gàire agus riomball	none
@@ -331,13 +295,17 @@ symbols:
 🤑	aodann le sùilean is teanga airgid	none
 🤗	aodann a’ pasgadh gàirdeanan timcheall	none
 🤭	aodann le làmh air a beul	none
+🫢	aodann le sùilean fosgailte ⁊ làmh air beul	none
+🫣	aodann le sùil a’ dìdeadh	none
 🤫	aodann “Ist!”	none
 🤔	aodann ri smaoineachadh	none
+🫡	aodann ag altachadh	none
 🤐	aodann le bilean seulaichte	none
 🤨	aodann le mala togta	none
 😐	aodann gun fhiamh	none
 😑	aodann gun fhaireachdainn	none
 😶	aodann gun bheul	none
+🫥	aodann le loidhne dhotagach	none
 😶‍🌫	aodan sna neòil	none
 😏	aodann le plìonas	none
 😒	aodann nuair nach eil e èibhinn	none
@@ -345,6 +313,7 @@ symbols:
 😬	aodann le drèin air	none
 😮‍💨	aodan a’ leigeil anail	none
 🤥	aodann nam breug	none
+🫨	aodann le crathadh air	none
 😌	aodann a fhuair faochadh	none
 😔	aodann fo throm-smuain	none
 😪	aodann cadalach	none
@@ -369,6 +338,7 @@ symbols:
 🤓	aodann gìog	none
 🧐	aodann le leth-speuclair	none
 😕	aodann tro chèile	none
+🫤	aodann le beul trastanach	none
 😟	aodann fo dhragh	none
 🙁	aodann le fiamh drèin beag	none
 ☹	aodann le fiamh drèin	none
@@ -377,6 +347,7 @@ symbols:
 😲	aodann a ghabh mòr-iongnadh	none
 😳	aodann air ruadhadh	none
 🥺	aodann tagrach	none
+🥹	aodann le deòir na sùil	none
 😦	aodann le drèin is beul fosgailte	none
 😧	aodann àmhghair	none
 😨	aodann fo eagal	none
@@ -420,7 +391,6 @@ symbols:
 🙈	muncaidh nach fhaic olc	none
 🙉	muncaidh nach cluinn olc	none
 🙊	muncaidh nach can olc	none
-💋	làrach pòige	none
 💌	litir gaoil	none
 💘	cridhe le saighead	none
 💝	cridhe le ribean	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	cridhe air theine	none
 ❤‍🩹	slànachadh cridhe	none
 ❤	cridhe dearg	none
+🩷	crithe pinc	none
 🧡	cridhe orains	none
 💛	cridhe buidhe	none
 💚	cridhe uaine	none
 💙	cridhe gorm	none
+🩵	cridhe solleir-ghorm	none
 💜	cridhe purpaidh	none
 🤎	cridhe donn	none
 🖤	cridhe dubh	none
+🩶	cridhe glas	none
 🤍	cridhe geal	none
+💋	làrach pòige	none
 💯	ceud puing	none
 💢	samhla feirge	none
 💥	bualadh ri chèile	none
@@ -450,7 +424,6 @@ symbols:
 💦	boinneagan fallais	none
 💨	a’ falbh nad dheann	none
 🕳	toll	none
-💣	boma	none
 💬	builgean còmhraidh	none
 👁‍🗨	sùil ann am builgean còmhraidh	none
 🗨	builgean còmhraidh dhan taobh chlì	none
@@ -462,11 +435,18 @@ symbols:
 🖐	làmh air a togail le corragan sìnte	none
 ✋	làmh air a togail	none
 🖖	beannachd muinntir Vulcan	none
+🫱	làmh ris an taobh deas	none
+🫲	làmh ris an taobh chlì	none
+🫳	làmh le a bas sìos	none
+🫴	làmh le a bas suas	none
+🫷	làmh a’ putadh dhan taobh chlì	none
+🫸	làmh a’ putadh dhan taobh dheas	none
 👌	samhla làimhe OK	none
 🤌	crudhagan	none
 🤏	làmh le sradag	none
 ✌	làmh a thug buaidh	none
 🤞	beò an dòchas	none
+🫰	làmh le a colgag is òrdag ri chèile	none
 🤟	gluasad “Tha gaol agam ort”	none
 🤘	samhla nan adharc	none
 🤙	làmh a’ comharradh “Cuir fòn thugam”	none
@@ -476,6 +456,7 @@ symbols:
 🖕	Fionnlagh Fada / Màiri Fhada	none
 👇	druim na làimhe, colgag a’ tomhadh sìos	none
 ☝	colgag a’ tomhadh suas	none
+🫵	colgag a’ tomhadh ort	none
 👍	math fhèin	none
 👎	mo chreach	none
 ✊	dòrn air a thogail	none
@@ -484,6 +465,7 @@ symbols:
 🤜	dòrn ris an taobh deas	none
 👏	bualadh bhasan	none
 🙌	a’ togail làmhan	none
+🫶	dà làimh ann an cumadh cridhe	none
 👐	làmhan fosgailte	none
 🤲	an dà bhois suas còmhla	none
 🤝	crathadh-làimhe	none
@@ -508,6 +490,7 @@ symbols:
 👁	sùil	none
 👅	teanga	none
 👄	beul	none
+🫦	bile ga bìdeach	none
 👶	naoidhean	none
 🧒	duine-cloinne	none
 👦	gille	none
@@ -615,6 +598,7 @@ symbols:
 👷	neach-togail	none
 👷‍♂	fear-togail	none
 👷‍♀	neach-togail boireann	none
+🫅	neach le crùn air	none
 🤴	prionnsa	none
 👸	bana-phrionnsa	none
 👳	neach le turban air	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	duine le brat-gnùise	none
 👰‍♀	boireannach le brat-gnùise	none
 🤰	boireannach leatromach	none
+🫃	fireannach trom	none
+🫄	neach trom	none
 🤱	toirt cìoch	none
 👩‍🍼	boireannach ag altram naoidhein	none
 👨‍🍼	duine ag altram naoidhein	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombie	none
 🧟‍♂	zombie fireann	none
 🧟‍♀	zombie boireann	none
+🧌	trobha	none
 💆	neach a’ faighinn massage	none
 💆‍♂	duine a’ faighinn massage	none
 💆‍♀	boireannach a’ faighinn massage	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tìgear	none
 🐆	liopard	none
 🐴	aodann eich	none
+🫎	lon	none
+🫏	asal	none
 🐎	each	none
 🦄	aon-adharcach	none
 🦓	sìobra	none
@@ -849,6 +838,9 @@ symbols:
 🦩	flamingo	none
 🦚	peucag	none
 🦜	pearraid	none
+🪽	sgiath	none
+🐦‍⬛	eun-dubh	none
+🪿	gèadh	none
 🐸	losgann	none
 🐊	crogall	none
 🐢	turtar	none
@@ -868,6 +860,8 @@ symbols:
 🦈	cearban	none
 🐙	ochd-chasach	none
 🐚	slige shnìomhanach	none
+🪸	coireal	none
+🪼	muir-tèachd	none
 🐌	seilcheag	none
 🦋	dealan-dè	none
 🐛	biastag	none
@@ -887,6 +881,7 @@ symbols:
 💐	bad fhlùraichean	none
 🌸	blàth siris	none
 💮	flùr geal	none
+🪷	lòtas	none
 🏵	ròsag	none
 🌹	ròs	none
 🥀	flùr seacte	none
@@ -894,6 +889,7 @@ symbols:
 🌻	neòinean-grèine	none
 🌼	blàth	none
 🌷	tuiliop	none
+🪻	camais	none
 🌱	sìolag	none
 🪴	lus ann am poit	none
 🌲	craobh sìor-uaine	none
@@ -907,6 +903,9 @@ symbols:
 🍁	duilleag o chraobh-mhalpais	none
 🍂	duilleagan an fhoghair	none
 🍃	duilleag a’ falbh leis a’ ghaoith	none
+🪹	nead falamh	none
+🪺	nead le uighean	none
+🍄	balgan-buachrach	none
 🍇	fìon-dhearcan	none
 🍈	meal-bhuc	none
 🍉	meal-bhuc uisge	none
@@ -938,9 +937,11 @@ symbols:
 🥦	brocail	none
 🧄	creamh	none
 🧅	uinnean	none
-🍄	balgan-buachrach	none
 🥜	cnòthan-talmhainn	none
+🫘	pònairean	none
 🌰	geanm-chnò	none
+🫚	dinnsear	none
+🫛	builgean-peasrach	none
 🍞	aran	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1025,6 +1026,7 @@ symbols:
 🍻	mugaichean beòir a’ gliongadaich	none
 🥂	glaineachan a’ gliongadaich	none
 🥃	tumblair	none
+🫗	a’ dòrtadh deoch	none
 🥤	cupa le stràbh	none
 🧋	tì builgein	none
 🧃	carton dighe	none
@@ -1035,6 +1037,7 @@ symbols:
 🍴	forc is sgian	none
 🥄	spàin	none
 🔪	sgian cidsin	none
+🫙	crogan	none
 🏺	amfora	none
 🌍	cruinne leis an Roinn-Eòrpa ’s Afraga	none
 🌎	cruinne le Aimeireaga	none
@@ -1097,6 +1100,7 @@ symbols:
 🌉	drochaid air an oidhche	none
 ♨	fuaran teth	none
 🎠	each-timcheallain	none
+🛝	sleamhnag	none
 🎡	roth-mòr	none
 🎢	rolair-còrsair	none
 💈	pòla barbair	none
@@ -1145,12 +1149,14 @@ symbols:
 🛤	slighe-iarainn	none
 🛢	druma ola	none
 ⛽	pumpa-connaidh	none
+🛞	cuibhle	none
 🚨	solas càr poileis	none
 🚥	solais-thrafaig chòmhnard	none
 🚦	solais-thrafaig inghearach	none
 🛑	sanas “Stad”	none
 🚧	togail	none
 ⚓	acair	none
+🛟	fleodrainn-teasairginn	none
 ⛵	bàta-seòlaidh	none
 🛶	canù	none
 🚤	luath-bhàta	none
@@ -1308,10 +1314,10 @@ symbols:
 🎯	san teis-mheadhan	none
 🪀	yo-yo	none
 🪁	itealag	none
+🔫	daga	none
 🎱	bàla a h-ochd	none
 🔮	ball criostail	none
 🪄	slatan-draoidheachd	none
-🧿	ortha-sùla	none
 🎮	geama video	none
 🕹	bioran-smachd	none
 🎰	inneal shlotaichean	none
@@ -1319,6 +1325,7 @@ symbols:
 🧩	mìrean-measgaichte	none
 🧸	teadaidh	none
 🪅	piñata	none
+🪩	ball-sgàthain	none
 🪆	doileagan matryoshka	none
 ♠	dath speura	none
 ♥	dath cridhe	none
@@ -1355,6 +1362,7 @@ symbols:
 🩳	briogais-ghlùine	none
 👙	bikini	none
 👚	aodach boireannaich	none
+🪭	gaotharan-làimhe	none
 👛	sporan	none
 👜	baga-làimhe	none
 👝	clutch bag	none
@@ -1369,6 +1377,7 @@ symbols:
 👡	cuaran boireannaich	none
 🩰	brògan ballet	none
 👢	bòtann boireannaich	none
+🪮	cìr bheag	none
 👑	crùn	none
 👒	ad boireannaich	none
 🎩	ad àrd	none
@@ -1407,6 +1416,8 @@ symbols:
 🪕	bainsio	none
 🥁	druma	none
 🪘	druma fada	none
+🪇	maracas	none
+🪈	duiseal	none
 📱	fòn-làimhe	none
 📲	fòn-làimhe le saighead	none
 ☎	fòn	none
@@ -1414,6 +1425,7 @@ symbols:
 📟	pèidsear	none
 📠	inneal facs	none
 🔋	bataraidh	none
+🪫	bataraidh fann	none
 🔌	pluga dealain	none
 💻	laptop	none
 🖥	coimpiutair deasg	none
@@ -1525,10 +1537,10 @@ symbols:
 🛠	òrd is toinnear	none
 🗡	biodag	none
 ⚔	claidheamhan tarsainn a chèile	none
-🔫	daga	none
+💣	boma	none
 🪃	bùmarang	none
 🏹	bogha agus saighead	none
-🛡	sgiath	none
+🛡	sgiath-dìon	none
 🪚	sàbh saorsainneachd	none
 🔧	toinnear	none
 🪛	sgriubhaire	none
@@ -1554,7 +1566,9 @@ symbols:
 🩸	boinne fala	none
 💊	pile	none
 🩹	bann-araid	none
+🩼	cruidse	none
 🩺	steatasgop	none
+🩻	gath-òmair	none
 🚪	doras	none
 🛗	àrdaichear	none
 🪞	sgàthan	none
@@ -1575,6 +1589,7 @@ symbols:
 🧻	rola pàipeir	none
 🪣	bucaid	none
 🧼	siabann	none
+🫧	builgean	none
 🪥	bruis-fhiaclan	none
 🧽	spong	none
 🧯	inneal-smàlaidh	none
@@ -1583,8 +1598,11 @@ symbols:
 ⚰	ciste-laighe	none
 🪦	leac-lighe	none
 ⚱	poit-tasgaidh	none
+🧿	ortha-sùla	none
+🪬	hamsa	none
 🗿	mo‘ai	none
 🪧	sanas	none
+🪪	cairt-aithneachaidh	none
 🏧	sanas ATM	none
 🚮	samhla “Sgudal dhan bhiona”	none
 🚰	uisge so-òlta	none
@@ -1645,6 +1663,7 @@ symbols:
 ☮	samhla sìthe	none
 🕎	menorah	none
 🔯	rionnag shia-rinneach dhotagach	none
+🪯	khanda	none
 ♈	An Reithe	none
 ♉	An Tarbh	none
 ♊	Na Leth-aonan	none
@@ -1680,6 +1699,7 @@ symbols:
 🔅	putan doilleireachaidh	none
 🔆	putan soilleireachaidh	none
 📶	iadhaire le bàraichean	none
+🛜	uèirleas	none
 📳	caismeachd crithe	none
 📴	fòn-làimhe dheth	none
 ♀	samhla boireann	none
@@ -1689,6 +1709,7 @@ symbols:
 ➕	cuir ris	none
 ➖	thoir air falbh	none
 ➗	roinn	none
+🟰	samhla co-ionnannachd trom	none
 ♾	neo-chrìochnachd	none
 ❓	comharra-ceiste dearg	none
 ❔	comharra-ceiste geal	none
@@ -1793,26 +1814,31 @@ symbols:
 ₽	rùbal	none
 ₿	bitcoin	none
 ₨	rupee	none
-🫃🏻	fireannach trom tòna soilleir a’ chraicinn	none
-🫃🏼	fireannach trom tòna meadhanach soilleir a’ chraicinn	none
-🫃🏽	fireannach trom tòna meadhanach a’ chraicinn	none
-🫃🏾	fireannach trom tòna meadhanach doilleir a’ chraicinn	none
-🫃🏿	fireannach trom tòna doilleir a’ chraicinn	none
-🫄🏻	neach trom tòna soilleir a’ chraicinn	none
-🫄🏼	neach trom tòna meadhanach soilleir a’ chraicinn	none
-🫄🏽	neach trom tòna meadhanach a’ chraicinn	none
-🫄🏾	neach trom tòna meadhanach doilleir a’ chraicinn	none
-🫄🏿	neach trom tòna doilleir a’ chraicinn	none
-🫅🏻	neach le crùn air tòna soilleir a’ chraicinn	none
-🫅🏼	neach le crùn air tòna meadhanach soilleir a’ chraicinn	none
-🫅🏽	neach le crùn air tòna meadhanach a’ chraicinn	none
-🫅🏾	neach le crùn air tòna meadhanach doilleir a’ chraicinn	none
-🫅🏿	neach le crùn air tòna doilleir a’ chraicinn	none
-🫰🏻	làmh le a colgag is òrdag ri chèile tòna soilleir a’ chraicinn	none
-🫰🏼	làmh le a colgag is òrdag ri chèile tòna meadhanach soilleir a’ chraicinn	none
-🫰🏽	làmh le a colgag is òrdag ri chèile tòna meadhanach a’ chraicinn	none
-🫰🏾	làmh le a colgag is òrdag ri chèile tòna meadhanach doilleir a’ chraicinn	none
-🫰🏿	làmh le a colgag is òrdag ri chèile tòna doilleir a’ chraicinn	none
+👋🏻	làmh a’ smèideadh tòna soilleir a’ chraicinn	none
+👋🏼	làmh a’ smèideadh tòna meadhanach soilleir a’ chraicinn	none
+👋🏽	làmh a’ smèideadh tòna meadhanach a’ chraicinn	none
+👋🏾	làmh a’ smèideadh tòna meadhanach doilleir a’ chraicinn	none
+👋🏿	làmh a’ smèideadh tòna doilleir a’ chraicinn	none
+🤚🏻	cùl làimhe air a thogail tòna soilleir a’ chraicinn	none
+🤚🏼	cùl làimhe air a thogail tòna meadhanach soilleir a’ chraicinn	none
+🤚🏽	cùl làimhe air a thogail tòna meadhanach a’ chraicinn	none
+🤚🏾	cùl làimhe air a thogail tòna meadhanach doilleir a’ chraicinn	none
+🤚🏿	cùl làimhe air a thogail tòna doilleir a’ chraicinn	none
+🖐🏻	làmh air a togail le corragan sìnte tòna soilleir a’ chraicinn	none
+🖐🏼	làmh air a togail le corragan sìnte tòna meadhanach soilleir a’ chraicinn	none
+🖐🏽	làmh air a togail le corragan sìnte tòna meadhanach a’ chraicinn	none
+🖐🏾	làmh air a togail le corragan sìnte tòna meadhanach doilleir a’ chraicinn	none
+🖐🏿	làmh air a togail le corragan sìnte tòna doilleir a’ chraicinn	none
+✋🏻	làmh air a togail tòna soilleir a’ chraicinn	none
+✋🏼	làmh air a togail tòna meadhanach soilleir a’ chraicinn	none
+✋🏽	làmh air a togail tòna meadhanach a’ chraicinn	none
+✋🏾	làmh air a togail tòna meadhanach doilleir a’ chraicinn	none
+✋🏿	làmh air a togail tòna doilleir a’ chraicinn	none
+🖖🏻	beannachd muinntir Vulcan tòna soilleir a’ chraicinn	none
+🖖🏼	beannachd muinntir Vulcan tòna meadhanach soilleir a’ chraicinn	none
+🖖🏽	beannachd muinntir Vulcan tòna meadhanach a’ chraicinn	none
+🖖🏾	beannachd muinntir Vulcan tòna meadhanach doilleir a’ chraicinn	none
+🖖🏿	beannachd muinntir Vulcan tòna doilleir a’ chraicinn	none
 🫱🏻	làmh ris an taobh deas tòna soilleir a’ chraicinn	none
 🫱🏼	làmh ris an taobh deas tòna meadhanach soilleir a’ chraicinn	none
 🫱🏽	làmh ris an taobh deas tòna meadhanach a’ chraicinn	none
@@ -1853,41 +1879,16 @@ symbols:
 🫴🏽	làmh le a bas suas tòna meadhanach a’ chraicinn	none
 🫴🏾	làmh le a bas suas tòna meadhanach doilleir a’ chraicinn	none
 🫴🏿	làmh le a bas suas tòna doilleir a’ chraicinn	none
-🫵🏻	colgag a’ tomhadh ort tòna soilleir a’ chraicinn	none
-🫵🏼	colgag a’ tomhadh ort tòna meadhanach soilleir a’ chraicinn	none
-🫵🏽	colgag a’ tomhadh ort tòna meadhanach a’ chraicinn	none
-🫵🏾	colgag a’ tomhadh ort tòna meadhanach doilleir a’ chraicinn	none
-🫵🏿	colgag a’ tomhadh ort tòna doilleir a’ chraicinn	none
-🫶🏻	dà làimh ann an cumadh cridhe tòna soilleir a’ chraicinn	none
-🫶🏼	dà làimh ann an cumadh cridhe tòna meadhanach soilleir a’ chraicinn	none
-🫶🏽	dà làimh ann an cumadh cridhe tòna meadhanach a’ chraicinn	none
-🫶🏾	dà làimh ann an cumadh cridhe tòna meadhanach doilleir a’ chraicinn	none
-🫶🏿	dà làimh ann an cumadh cridhe tòna doilleir a’ chraicinn	none
-👋🏻	làmh a’ smèideadh tòna soilleir a’ chraicinn	none
-👋🏼	làmh a’ smèideadh tòna meadhanach soilleir a’ chraicinn	none
-👋🏽	làmh a’ smèideadh tòna meadhanach a’ chraicinn	none
-👋🏾	làmh a’ smèideadh tòna meadhanach doilleir a’ chraicinn	none
-👋🏿	làmh a’ smèideadh tòna doilleir a’ chraicinn	none
-🤚🏻	cùl làimhe air a thogail tòna soilleir a’ chraicinn	none
-🤚🏼	cùl làimhe air a thogail tòna meadhanach soilleir a’ chraicinn	none
-🤚🏽	cùl làimhe air a thogail tòna meadhanach a’ chraicinn	none
-🤚🏾	cùl làimhe air a thogail tòna meadhanach doilleir a’ chraicinn	none
-🤚🏿	cùl làimhe air a thogail tòna doilleir a’ chraicinn	none
-🖐🏻	làmh air a togail le corragan sìnte tòna soilleir a’ chraicinn	none
-🖐🏼	làmh air a togail le corragan sìnte tòna meadhanach soilleir a’ chraicinn	none
-🖐🏽	làmh air a togail le corragan sìnte tòna meadhanach a’ chraicinn	none
-🖐🏾	làmh air a togail le corragan sìnte tòna meadhanach doilleir a’ chraicinn	none
-🖐🏿	làmh air a togail le corragan sìnte tòna doilleir a’ chraicinn	none
-✋🏻	làmh air a togail tòna soilleir a’ chraicinn	none
-✋🏼	làmh air a togail tòna meadhanach soilleir a’ chraicinn	none
-✋🏽	làmh air a togail tòna meadhanach a’ chraicinn	none
-✋🏾	làmh air a togail tòna meadhanach doilleir a’ chraicinn	none
-✋🏿	làmh air a togail tòna doilleir a’ chraicinn	none
-🖖🏻	beannachd muinntir Vulcan tòna soilleir a’ chraicinn	none
-🖖🏼	beannachd muinntir Vulcan tòna meadhanach soilleir a’ chraicinn	none
-🖖🏽	beannachd muinntir Vulcan tòna meadhanach a’ chraicinn	none
-🖖🏾	beannachd muinntir Vulcan tòna meadhanach doilleir a’ chraicinn	none
-🖖🏿	beannachd muinntir Vulcan tòna doilleir a’ chraicinn	none
+🫷🏻	làmh a’ putadh dhan taobh chlì tòna soilleir a’ chraicinn	none
+🫷🏼	làmh a’ putadh dhan taobh chlì tòna meadhanach soilleir a’ chraicinn	none
+🫷🏽	làmh a’ putadh dhan taobh chlì tòna meadhanach a’ chraicinn	none
+🫷🏾	làmh a’ putadh dhan taobh chlì tòna meadhanach doilleir a’ chraicinn	none
+🫷🏿	làmh a’ putadh dhan taobh chlì tòna doilleir a’ chraicinn	none
+🫸🏻	làmh a’ putadh dhan taobh dheas tòna soilleir a’ chraicinn	none
+🫸🏼	làmh a’ putadh dhan taobh dheas tòna meadhanach soilleir a’ chraicinn	none
+🫸🏽	làmh a’ putadh dhan taobh dheas tòna meadhanach a’ chraicinn	none
+🫸🏾	làmh a’ putadh dhan taobh dheas tòna meadhanach doilleir a’ chraicinn	none
+🫸🏿	làmh a’ putadh dhan taobh dheas tòna doilleir a’ chraicinn	none
 👌🏻	samhla làimhe OK tòna soilleir a’ chraicinn	none
 👌🏼	samhla làimhe OK tòna meadhanach soilleir a’ chraicinn	none
 👌🏽	samhla làimhe OK tòna meadhanach a’ chraicinn	none
@@ -1913,6 +1914,11 @@ symbols:
 🤞🏽	beò an dòchas tòna meadhanach a’ chraicinn	none
 🤞🏾	beò an dòchas tòna meadhanach doilleir a’ chraicinn	none
 🤞🏿	beò an dòchas tòna doilleir a’ chraicinn	none
+🫰🏻	làmh le a colgag is òrdag ri chèile tòna soilleir a’ chraicinn	none
+🫰🏼	làmh le a colgag is òrdag ri chèile tòna meadhanach soilleir a’ chraicinn	none
+🫰🏽	làmh le a colgag is òrdag ri chèile tòna meadhanach a’ chraicinn	none
+🫰🏾	làmh le a colgag is òrdag ri chèile tòna meadhanach doilleir a’ chraicinn	none
+🫰🏿	làmh le a colgag is òrdag ri chèile tòna doilleir a’ chraicinn	none
 🤟🏻	gluasad “Tha gaol agam ort” tòna soilleir a’ chraicinn	none
 🤟🏼	gluasad “Tha gaol agam ort” tòna meadhanach soilleir a’ chraicinn	none
 🤟🏽	gluasad “Tha gaol agam ort” tòna meadhanach a’ chraicinn	none
@@ -1958,6 +1964,11 @@ symbols:
 ☝🏽	colgag a’ tomhadh suas tòna meadhanach a’ chraicinn	none
 ☝🏾	colgag a’ tomhadh suas tòna meadhanach doilleir a’ chraicinn	none
 ☝🏿	colgag a’ tomhadh suas tòna doilleir a’ chraicinn	none
+🫵🏻	colgag a’ tomhadh ort tòna soilleir a’ chraicinn	none
+🫵🏼	colgag a’ tomhadh ort tòna meadhanach soilleir a’ chraicinn	none
+🫵🏽	colgag a’ tomhadh ort tòna meadhanach a’ chraicinn	none
+🫵🏾	colgag a’ tomhadh ort tòna meadhanach doilleir a’ chraicinn	none
+🫵🏿	colgag a’ tomhadh ort tòna doilleir a’ chraicinn	none
 👍🏻	math fhèin tòna soilleir a’ chraicinn	none
 👍🏼	math fhèin tòna meadhanach soilleir a’ chraicinn	none
 👍🏽	math fhèin tòna meadhanach a’ chraicinn	none
@@ -1998,6 +2009,11 @@ symbols:
 🙌🏽	a’ togail làmhan tòna meadhanach a’ chraicinn	none
 🙌🏾	a’ togail làmhan tòna meadhanach doilleir a’ chraicinn	none
 🙌🏿	a’ togail làmhan tòna doilleir a’ chraicinn	none
+🫶🏻	dà làimh ann an cumadh cridhe tòna soilleir a’ chraicinn	none
+🫶🏼	dà làimh ann an cumadh cridhe tòna meadhanach soilleir a’ chraicinn	none
+🫶🏽	dà làimh ann an cumadh cridhe tòna meadhanach a’ chraicinn	none
+🫶🏾	dà làimh ann an cumadh cridhe tòna meadhanach doilleir a’ chraicinn	none
+🫶🏿	dà làimh ann an cumadh cridhe tòna doilleir a’ chraicinn	none
 👐🏻	làmhan fosgailte tòna soilleir a’ chraicinn	none
 👐🏼	làmhan fosgailte tòna meadhanach soilleir a’ chraicinn	none
 👐🏽	làmhan fosgailte tòna meadhanach a’ chraicinn	none
@@ -2860,6 +2876,11 @@ symbols:
 👷🏽‍♀	neach-togail boireann tòna meadhanach a’ chraicinn	none
 👷🏾‍♀	neach-togail boireann tòna meadhanach doilleir a’ chraicinn	none
 👷🏿‍♀	neach-togail boireann tòna doilleir a’ chraicinn	none
+🫅🏻	neach le crùn air tòna soilleir a’ chraicinn	none
+🫅🏼	neach le crùn air tòna meadhanach soilleir a’ chraicinn	none
+🫅🏽	neach le crùn air tòna meadhanach a’ chraicinn	none
+🫅🏾	neach le crùn air tòna meadhanach doilleir a’ chraicinn	none
+🫅🏿	neach le crùn air tòna doilleir a’ chraicinn	none
 🤴🏻	prionnsa tòna soilleir a’ chraicinn	none
 🤴🏼	prionnsa tòna meadhanach soilleir a’ chraicinn	none
 🤴🏽	prionnsa tòna meadhanach a’ chraicinn	none
@@ -2930,6 +2951,16 @@ symbols:
 🤰🏽	boireannach leatromach tòna meadhanach a’ chraicinn	none
 🤰🏾	boireannach leatromach tòna meadhanach doilleir a’ chraicinn	none
 🤰🏿	boireannach leatromach tòna doilleir a’ chraicinn	none
+🫃🏻	fireannach trom tòna soilleir a’ chraicinn	none
+🫃🏼	fireannach trom tòna meadhanach soilleir a’ chraicinn	none
+🫃🏽	fireannach trom tòna meadhanach a’ chraicinn	none
+🫃🏾	fireannach trom tòna meadhanach doilleir a’ chraicinn	none
+🫃🏿	fireannach trom tòna doilleir a’ chraicinn	none
+🫄🏻	neach trom tòna soilleir a’ chraicinn	none
+🫄🏼	neach trom tòna meadhanach soilleir a’ chraicinn	none
+🫄🏽	neach trom tòna meadhanach a’ chraicinn	none
+🫄🏾	neach trom tòna meadhanach doilleir a’ chraicinn	none
+🫄🏿	neach trom tòna doilleir a’ chraicinn	none
 🤱🏻	toirt cìoch tòna soilleir a’ chraicinn	none
 🤱🏼	toirt cìoch tòna meadhanach soilleir a’ chraicinn	none
 🤱🏽	toirt cìoch tòna meadhanach a’ chraicinn	none

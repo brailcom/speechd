@@ -264,43 +264,6 @@ symbols:
 ⪺	segue sopra non quasi uguale	none
 ♭	bemolle	none
 ♯	diesis	none
-🥹	faccina che trattiene le lacrime	none
-🧌	troll	none
-🩻	radiografia	none
-🩼	stampella	none
-🪩	palla da discoteca	none
-🪪	carta d’identità	none
-🪫	batteria scarica	none
-🪬	mano di Fatima	none
-🪷	loto	none
-🪸	corallo	none
-🪹	nido vuoto	none
-🪺	nido con uova	none
-🫃	uomo incinto	none
-🫄	persona incinta	none
-🫅	persona con corona	none
-🫗	liquido versato	none
-🫘	fagioli	none
-🫙	barattolo	none
-🫠	faccina che si scioglie	none
-🫡	faccina che fa il saluto	none
-🫢	faccina con occhi aperti e mano sulla bocca	none
-🫣	faccina che sbircia tra le dita	none
-🫤	faccina perplessa	none
-🫥	faccina tratteggiata	none
-🫦	bocca che morde il labbro	none
-🫧	bolle	none
-🫰	mano con indice e pollice incrociati	none
-🫱	mano rivolta a destra	none
-🫲	mano rivolta a sinistra	none
-🫳	mano con il palmo verso il basso	none
-🫴	mano con il palmo verso l’alto	none
-🫵	indice verso l’osservatore	none
-🫶	mani a cuore	none
-🛝	scivolo	none
-🛞	ruota	none
-🛟	salvagente	none
-🟰	segno di uguaglianza	none
 😀	faccina con un gran sorriso	none
 😃	faccina con un gran sorriso e occhi spalancati	none
 😄	faccina con sorriso e occhi sorridenti	none
@@ -311,6 +274,7 @@ symbols:
 😂	faccina con lacrime di gioia	none
 🙂	faccina con sorriso accennato	none
 🙃	faccina sottosopra	none
+🫠	faccina che si scioglie	none
 😉	faccina che fa l’occhiolino	none
 😊	faccina con occhi sorridenti	none
 😇	faccina con sorriso e aureola	none
@@ -331,13 +295,17 @@ symbols:
 🤑	faccina avida di denaro	none
 🤗	faccina che abbraccia	none
 🤭	faccina con mano sulla bocca	none
+🫢	faccina con occhi aperti e mano sulla bocca	none
+🫣	faccina che sbircia tra le dita	none
 🤫	faccina che zittisce	none
 🤔	faccina concentrata	none
+🫡	faccina che fa il saluto	none
 🤐	faccina con bocca con cerniera	none
 🤨	faccia con sopracciglia alzate	none
 😐	faccina neutra	none
 😑	faccina inespressiva	none
 😶	faccina senza bocca	none
+🫥	faccina tratteggiata	none
 😶‍🌫	testa tra le nuvole	none
 😏	faccina con sorrisetto	none
 😒	faccina contrariata	none
@@ -345,6 +313,7 @@ symbols:
 😬	faccina con smorfia	none
 😮‍💨	faccina che espira	none
 🤥	faccina bugiarda	none
+🫨	faccina tremante	none
 😌	faccina sollevata	none
 😔	faccina pensierosa	none
 😪	faccina assonnata	none
@@ -369,6 +338,7 @@ symbols:
 🤓	faccina nerd	none
 🧐	faccina con monocolo	none
 😕	faccina confusa	none
+🫤	faccina perplessa	none
 😟	faccina preoccupata	none
 🙁	faccina leggermente imbronciata	none
 ☹	faccina imbronciata	none
@@ -377,6 +347,7 @@ symbols:
 😲	faccina stupita	none
 😳	faccina imbarazzata	none
 🥺	faccina supplichevole	none
+🥹	faccina che trattiene le lacrime	none
 😦	faccina imbronciata con bocca aperta	none
 😧	faccina angosciata	none
 😨	faccina impaurita	none
@@ -420,7 +391,6 @@ symbols:
 🙈	non vedo	none
 🙉	non sento	none
 🙊	non parlo	none
-💋	impronta della bocca	none
 💌	lettera d’amore	none
 💘	cuore con freccia	none
 💝	cuore con fiocco	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	cuore in fiamme	none
 ❤‍🩹	cuore guarito	none
 ❤	cuore rosso	none
+🩷	cuore rosa	none
 🧡	cuore arancione	none
 💛	cuore giallo	none
 💚	cuore verde	none
-💙	cuore azzurro	none
+💙	cuore blu	none
+🩵	cuore azzurro	none
 💜	cuore viola	none
 🤎	cuore marrone	none
 🖤	cuore nero	none
+🩶	cuore grigio	none
 🤍	cuore bianco	none
+💋	impronta della bocca	none
 💯	100 punti	none
 💢	rabbia	none
 💥	collisione	none
@@ -450,7 +424,6 @@ symbols:
 💦	gocce di sudore	none
 💨	nuvola di polvere	none
 🕳	buco	none
-💣	bomba	none
 💬	fumetto	none
 👁‍🗨	occhio nel fumetto	none
 🗨	nuvoletta nera	none
@@ -462,11 +435,18 @@ symbols:
 🖐	mano aperta	none
 ✋	mano alzata	none
 🖖	saluto vulcaniano	none
+🫱	mano rivolta a destra	none
+🫲	mano rivolta a sinistra	none
+🫳	mano con il palmo verso il basso	none
+🫴	mano con il palmo verso l’alto	none
+🫷	mano che spinge a sinistra	none
+🫸	mano che spinge a destra	none
 👌	mano che fa OK	none
 🤌	mano a pigna	none
 🤏	mano che fa il gesto del pizzico	none
 ✌	vittoria	none
 🤞	dita incrociate	none
+🫰	mano con indice e pollice incrociati	none
 🤟	gesto ti amo	none
 🤘	segno delle corna	none
 🤙	mano con gesto di chiamata	none
@@ -476,6 +456,7 @@ symbols:
 🖕	dito medio	none
 👇	indice abbassato	none
 ☝	indice verso l’alto	none
+🫵	indice verso l’osservatore	none
 👍	pollice in su	none
 👎	pollice verso	none
 ✊	pugno	none
@@ -484,6 +465,7 @@ symbols:
 🤜	pugno a destra	none
 👏	mani che applaudono	none
 🙌	mani alzate	none
+🫶	mani a cuore	none
 👐	mani aperte	none
 🤲	mani unite in alto	none
 🤝	stretta di mano	none
@@ -508,6 +490,7 @@ symbols:
 👁	occhio	none
 👅	lingua	none
 👄	bocca	none
+🫦	bocca che morde il labbro	none
 👶	neonato	none
 🧒	bimbo	none
 👦	bambino	none
@@ -615,6 +598,7 @@ symbols:
 👷	operaio edile	none
 👷‍♂	operaio edile uomo	none
 👷‍♀	operaia edile	none
+🫅	persona con corona	none
 🤴	principe	none
 👸	principessa	none
 👳	persona con turbante	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	sposo con velo	none
 👰‍♀	sposa con velo	none
 🤰	donna incinta	none
+🫃	uomo incinto	none
+🫄	persona incinta	none
 🤱	allattare	none
 👩‍🍼	donna che allatta	none
 👨‍🍼	uomo che allatta	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombie	none
 🧟‍♂	zombie uomo	none
 🧟‍♀	zombie donna	none
+🧌	troll	none
 💆	persona che riceve un massaggio	none
 💆‍♂	uomo che riceve un massaggio	none
 💆‍♀	donna che riceve un massaggio	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tigre	none
 🐆	leopardo	none
 🐴	muso di cavallo	none
+🫎	alce	none
+🫏	asino	none
 🐎	cavallo	none
 🦄	unicorno	none
 🦓	zebra	none
@@ -849,6 +838,8 @@ symbols:
 🦩	fenicottero	none
 🦚	pavone	none
 🦜	pappagallo	none
+🪽	ala	none
+🪿	oca	none
 🐸	rana	none
 🐊	coccodrillo	none
 🐢	tartaruga	none
@@ -868,6 +859,8 @@ symbols:
 🦈	squalo	none
 🐙	polpo	none
 🐚	conchiglia	none
+🪸	corallo	none
+🪼	medusa	none
 🐌	lumaca	none
 🦋	farfalla	none
 🐛	insetto	none
@@ -887,6 +880,7 @@ symbols:
 💐	mazzo di fiori	none
 🌸	fiore di ciliegio	none
 💮	fiore bianco	none
+🪷	loto	none
 🏵	rosetta	none
 🌹	rosa	none
 🥀	fiore appassito	none
@@ -894,6 +888,7 @@ symbols:
 🌻	girasole	none
 🌼	fiore	none
 🌷	tulipano	none
+🪻	giacinto	none
 🌱	germoglio	none
 🪴	pianta in vaso	none
 🌲	albero sempreverde	none
@@ -907,6 +902,9 @@ symbols:
 🍁	foglia d’acero	none
 🍂	foglia caduta	none
 🍃	foglia al vento	none
+🪹	nido vuoto	none
+🪺	nido con uova	none
+🍄	fungo	none
 🍇	uva	none
 🍈	melone	none
 🍉	anguria	none
@@ -938,9 +936,11 @@ symbols:
 🥦	broccoli	none
 🧄	aglio	none
 🧅	cipolla	none
-🍄	fungo	none
 🥜	arachidi	none
+🫘	fagioli	none
 🌰	castagna	none
+🫚	radice di zenzero	none
+🫛	baccello di piselli	none
 🍞	pane in cassetta	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	boccali di birra	none
 🥂	brindisi	none
 🥃	bicchiere tumbler	none
+🫗	liquido versato	none
 🥤	bicchiere con cannuccia	none
 🧋	bubble tea	none
 🧃	bevanda monodose	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	forchetta e coltello	none
 🥄	cucchiaio	none
 🔪	coltello da cucina	none
+🫙	barattolo	none
 🏺	anfora	none
 🌍	Europa e Africa	none
 🌎	America	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	ponte di notte	none
 ♨	sorgenti termali	none
 🎠	cavallo da giostra	none
+🛝	scivolo	none
 🎡	ruota panoramica	none
 🎢	montagne russe	none
 💈	barbiere	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	binari	none
 🛢	barile di petrolio	none
 ⛽	stazione di servizio	none
+🛞	ruota	none
 🚨	lampeggiante	none
 🚥	semaforo orizzontale	none
 🚦	semaforo verticale	none
 🛑	segnale di stop	none
 🚧	area cantiere	none
 ⚓	ancora	none
+🛟	salvagente	none
 ⛵	barca a vela	none
 🛶	canoa	none
 🚤	motoscafo	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	bersaglio	none
 🪀	yo-yo	none
 🪁	aquilone	none
+🔫	pistola ad acqua	none
 🎱	palla da biliardo	none
 🔮	sfera di cristallo	none
 🪄	bacchetta magica	none
-🧿	occhio di Allah	none
 🎮	gamepad	none
 🕹	joystick	none
 🎰	slot machine	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	pezzo di puzzle	none
 🧸	orsetto	none
 🪅	pentolaccia	none
+🪩	palla da discoteca	none
 🪆	matrioska	none
 ♠	picche	none
 ♥	cuori	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	pantaloncini	none
 👙	bikini	none
 👚	maglietta da donna	none
+🪭	ventaglio	none
 👛	borsellino	none
 👜	borsa	none
 👝	pochette	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	sandalo da donna	none
 🩰	scarpette da ballerina	none
 👢	stivale da donna	none
+🪮	pettine afro	none
 👑	corona	none
 👒	cappello da donna	none
 🎩	cilindro	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banjo	none
 🥁	tamburo	none
 🪘	tamburo lungo	none
+🪇	maracas	none
+🪈	flauto	none
 📱	telefono cellulare	none
 📲	telefono cellulare con freccia	none
 ☎	telefono fisso	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	cercapersone	none
 📠	fax	none
 🔋	batteria	none
+🪫	batteria scarica	none
 🔌	spina elettrica	none
 💻	computer portatile	none
 🖥	computer fisso	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	martello e chiave inglese	none
 🗡	pugnale	none
 ⚔	spade incrociate	none
-🔫	pistola ad acqua	none
+💣	bomba	none
 🪃	boomerang	none
 🏹	arco e freccia	none
 🛡	scudo	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	goccia di sangue	none
 💊	pillola	none
 🩹	cerotto	none
+🩼	stampella	none
 🩺	stetoscopio	none
+🩻	radiografia	none
 🚪	porta	none
 🛗	ascensore	none
 🪞	specchio	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	rotolo di carta igienica	none
 🪣	secchio	none
 🧼	sapone	none
+🫧	bolle	none
 🪥	spazzolino da denti	none
 🧽	spugna	none
 🧯	estintore	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	bara	none
 🪦	lapide	none
 ⚱	urna funeraria	none
+🧿	occhio di Allah	none
+🪬	mano di Fatima	none
 🗿	Moai	none
 🪧	cartello	none
+🪪	carta d’identità	none
 🏧	simbolo dello sportello bancomat	none
 🚮	simbolo per la raccolta dei rifiuti	none
 🚰	acqua potabile	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	simbolo della pace	none
 🕎	Menorah	none
 🔯	stella a sei punte	none
+🪯	khanda	none
 ♈	Segno zodiacale dell’Ariete	none
 ♉	Segno zodiacale del Toro	none
 ♊	Segno zodiacale dei Gemelli	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	luminosità bassa	none
 🔆	luminosità elevata	none
 📶	segnale cellulare	none
+🛜	wireless	none
 📳	modalità vibrazione	none
 📴	cellulare spento	none
 ♀	simbolo genere femminile	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	addizione	none
 ➖	sottrazione	none
 ➗	divisione	none
+🟰	segno di uguaglianza	none
 ♾	simbolo dell’infinito	none
 ❓	punto interrogativo rosso	none
 ❔	punto interrogativo bianco	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	simbolo del rublo	none
 ₿	bitcoin	none
 ₨	rupia	none
-🫃🏻	uomo incinto carnagione chiara	none
-🫃🏼	uomo incinto carnagione abbastanza chiara	none
-🫃🏽	uomo incinto carnagione olivastra	none
-🫃🏾	uomo incinto carnagione abbastanza scura	none
-🫃🏿	uomo incinto carnagione scura	none
-🫄🏻	persona incinta carnagione chiara	none
-🫄🏼	persona incinta carnagione abbastanza chiara	none
-🫄🏽	persona incinta carnagione olivastra	none
-🫄🏾	persona incinta carnagione abbastanza scura	none
-🫄🏿	persona incinta carnagione scura	none
-🫅🏻	persona con corona carnagione chiara	none
-🫅🏼	persona con corona carnagione abbastanza chiara	none
-🫅🏽	persona con corona carnagione olivastra	none
-🫅🏾	persona con corona carnagione abbastanza scura	none
-🫅🏿	persona con corona carnagione scura	none
-🫰🏻	mano con indice e pollice incrociati carnagione chiara	none
-🫰🏼	mano con indice e pollice incrociati carnagione abbastanza chiara	none
-🫰🏽	mano con indice e pollice incrociati carnagione olivastra	none
-🫰🏾	mano con indice e pollice incrociati carnagione abbastanza scura	none
-🫰🏿	mano con indice e pollice incrociati carnagione scura	none
+👋🏻	mano che saluta carnagione chiara	none
+👋🏼	mano che saluta carnagione abbastanza chiara	none
+👋🏽	mano che saluta carnagione olivastra	none
+👋🏾	mano che saluta carnagione abbastanza scura	none
+👋🏿	mano che saluta carnagione scura	none
+🤚🏻	dorso mano alzata carnagione chiara	none
+🤚🏼	dorso mano alzata carnagione abbastanza chiara	none
+🤚🏽	dorso mano alzata carnagione olivastra	none
+🤚🏾	dorso mano alzata carnagione abbastanza scura	none
+🤚🏿	dorso mano alzata carnagione scura	none
+🖐🏻	mano aperta carnagione chiara	none
+🖐🏼	mano aperta carnagione abbastanza chiara	none
+🖐🏽	mano aperta carnagione olivastra	none
+🖐🏾	mano aperta carnagione abbastanza scura	none
+🖐🏿	mano aperta carnagione scura	none
+✋🏻	mano alzata carnagione chiara	none
+✋🏼	mano alzata carnagione abbastanza chiara	none
+✋🏽	mano alzata carnagione olivastra	none
+✋🏾	mano alzata carnagione abbastanza scura	none
+✋🏿	mano alzata carnagione scura	none
+🖖🏻	saluto vulcaniano carnagione chiara	none
+🖖🏼	saluto vulcaniano carnagione abbastanza chiara	none
+🖖🏽	saluto vulcaniano carnagione olivastra	none
+🖖🏾	saluto vulcaniano carnagione abbastanza scura	none
+🖖🏿	saluto vulcaniano carnagione scura	none
 🫱🏻	mano rivolta a destra carnagione chiara	none
 🫱🏼	mano rivolta a destra carnagione abbastanza chiara	none
 🫱🏽	mano rivolta a destra carnagione olivastra	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	mano con il palmo verso l’alto carnagione olivastra	none
 🫴🏾	mano con il palmo verso l’alto carnagione abbastanza scura	none
 🫴🏿	mano con il palmo verso l’alto carnagione scura	none
-🫵🏻	indice verso l’osservatore carnagione chiara	none
-🫵🏼	indice verso l’osservatore carnagione abbastanza chiara	none
-🫵🏽	indice verso l’osservatore carnagione olivastra	none
-🫵🏾	indice verso l’osservatore carnagione abbastanza scura	none
-🫵🏿	indice verso l’osservatore carnagione scura	none
-🫶🏻	mani a cuore carnagione chiara	none
-🫶🏼	mani a cuore carnagione abbastanza chiara	none
-🫶🏽	mani a cuore carnagione olivastra	none
-🫶🏾	mani a cuore carnagione abbastanza scura	none
-🫶🏿	mani a cuore carnagione scura	none
-👋🏻	mano che saluta carnagione chiara	none
-👋🏼	mano che saluta carnagione abbastanza chiara	none
-👋🏽	mano che saluta carnagione olivastra	none
-👋🏾	mano che saluta carnagione abbastanza scura	none
-👋🏿	mano che saluta carnagione scura	none
-🤚🏻	dorso mano alzata carnagione chiara	none
-🤚🏼	dorso mano alzata carnagione abbastanza chiara	none
-🤚🏽	dorso mano alzata carnagione olivastra	none
-🤚🏾	dorso mano alzata carnagione abbastanza scura	none
-🤚🏿	dorso mano alzata carnagione scura	none
-🖐🏻	mano aperta carnagione chiara	none
-🖐🏼	mano aperta carnagione abbastanza chiara	none
-🖐🏽	mano aperta carnagione olivastra	none
-🖐🏾	mano aperta carnagione abbastanza scura	none
-🖐🏿	mano aperta carnagione scura	none
-✋🏻	mano alzata carnagione chiara	none
-✋🏼	mano alzata carnagione abbastanza chiara	none
-✋🏽	mano alzata carnagione olivastra	none
-✋🏾	mano alzata carnagione abbastanza scura	none
-✋🏿	mano alzata carnagione scura	none
-🖖🏻	saluto vulcaniano carnagione chiara	none
-🖖🏼	saluto vulcaniano carnagione abbastanza chiara	none
-🖖🏽	saluto vulcaniano carnagione olivastra	none
-🖖🏾	saluto vulcaniano carnagione abbastanza scura	none
-🖖🏿	saluto vulcaniano carnagione scura	none
+🫷🏻	mano che spinge a sinistra carnagione chiara	none
+🫷🏼	mano che spinge a sinistra carnagione abbastanza chiara	none
+🫷🏽	mano che spinge a sinistra carnagione olivastra	none
+🫷🏾	mano che spinge a sinistra carnagione abbastanza scura	none
+🫷🏿	mano che spinge a sinistra carnagione scura	none
+🫸🏻	mano che spinge a destra carnagione chiara	none
+🫸🏼	mano che spinge a destra carnagione abbastanza chiara	none
+🫸🏽	mano che spinge a destra carnagione olivastra	none
+🫸🏾	mano che spinge a destra carnagione abbastanza scura	none
+🫸🏿	mano che spinge a destra carnagione scura	none
 👌🏻	mano che fa OK carnagione chiara	none
 👌🏼	mano che fa OK carnagione abbastanza chiara	none
 👌🏽	mano che fa OK carnagione olivastra	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	dita incrociate carnagione olivastra	none
 🤞🏾	dita incrociate carnagione abbastanza scura	none
 🤞🏿	dita incrociate carnagione scura	none
+🫰🏻	mano con indice e pollice incrociati carnagione chiara	none
+🫰🏼	mano con indice e pollice incrociati carnagione abbastanza chiara	none
+🫰🏽	mano con indice e pollice incrociati carnagione olivastra	none
+🫰🏾	mano con indice e pollice incrociati carnagione abbastanza scura	none
+🫰🏿	mano con indice e pollice incrociati carnagione scura	none
 🤟🏻	gesto ti amo carnagione chiara	none
 🤟🏼	gesto ti amo carnagione abbastanza chiara	none
 🤟🏽	gesto ti amo carnagione olivastra	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	indice verso l’alto carnagione olivastra	none
 ☝🏾	indice verso l’alto carnagione abbastanza scura	none
 ☝🏿	indice verso l’alto carnagione scura	none
+🫵🏻	indice verso l’osservatore carnagione chiara	none
+🫵🏼	indice verso l’osservatore carnagione abbastanza chiara	none
+🫵🏽	indice verso l’osservatore carnagione olivastra	none
+🫵🏾	indice verso l’osservatore carnagione abbastanza scura	none
+🫵🏿	indice verso l’osservatore carnagione scura	none
 👍🏻	pollice in su carnagione chiara	none
 👍🏼	pollice in su carnagione abbastanza chiara	none
 👍🏽	pollice in su carnagione olivastra	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	mani alzate carnagione olivastra	none
 🙌🏾	mani alzate carnagione abbastanza scura	none
 🙌🏿	mani alzate carnagione scura	none
+🫶🏻	mani a cuore carnagione chiara	none
+🫶🏼	mani a cuore carnagione abbastanza chiara	none
+🫶🏽	mani a cuore carnagione olivastra	none
+🫶🏾	mani a cuore carnagione abbastanza scura	none
+🫶🏿	mani a cuore carnagione scura	none
 👐🏻	mani aperte carnagione chiara	none
 👐🏼	mani aperte carnagione abbastanza chiara	none
 👐🏽	mani aperte carnagione olivastra	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	operaia edile carnagione olivastra	none
 👷🏾‍♀	operaia edile carnagione abbastanza scura	none
 👷🏿‍♀	operaia edile carnagione scura	none
+🫅🏻	persona con corona carnagione chiara	none
+🫅🏼	persona con corona carnagione abbastanza chiara	none
+🫅🏽	persona con corona carnagione olivastra	none
+🫅🏾	persona con corona carnagione abbastanza scura	none
+🫅🏿	persona con corona carnagione scura	none
 🤴🏻	principe carnagione chiara	none
 🤴🏼	principe carnagione abbastanza chiara	none
 🤴🏽	principe carnagione olivastra	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	donna incinta carnagione olivastra	none
 🤰🏾	donna incinta carnagione abbastanza scura	none
 🤰🏿	donna incinta carnagione scura	none
+🫃🏻	uomo incinto carnagione chiara	none
+🫃🏼	uomo incinto carnagione abbastanza chiara	none
+🫃🏽	uomo incinto carnagione olivastra	none
+🫃🏾	uomo incinto carnagione abbastanza scura	none
+🫃🏿	uomo incinto carnagione scura	none
+🫄🏻	persona incinta carnagione chiara	none
+🫄🏼	persona incinta carnagione abbastanza chiara	none
+🫄🏽	persona incinta carnagione olivastra	none
+🫄🏾	persona incinta carnagione abbastanza scura	none
+🫄🏿	persona incinta carnagione scura	none
 🤱🏻	allattare carnagione chiara	none
 🤱🏼	allattare carnagione abbastanza chiara	none
 🤱🏽	allattare carnagione olivastra	none
@@ -3696,7 +3726,7 @@ symbols:
 🇬🇧	bandiera Regno Unito	none
 🇬🇩	bandiera Grenada	none
 🇬🇪	bandiera Georgia	none
-🇬🇫	bandiera Guyana francese	none
+🇬🇫	bandiera Guyana Francese	none
 🇬🇬	bandiera Guernsey	none
 🇬🇭	bandiera Ghana	none
 🇬🇮	bandiera Gibilterra	none
@@ -3706,7 +3736,7 @@ symbols:
 🇬🇵	bandiera Guadalupa	none
 🇬🇶	bandiera Guinea Equatoriale	none
 🇬🇷	bandiera Grecia	none
-🇬🇸	bandiera Georgia del Sud e Sandwich australi	none
+🇬🇸	bandiera Georgia del Sud e Sandwich Australi	none
 🇬🇹	bandiera Guatemala	none
 🇬🇺	bandiera Guam	none
 🇬🇼	bandiera Guinea-Bissau	none
@@ -3790,7 +3820,7 @@ symbols:
 🇳🇺	bandiera Niue	none
 🇳🇿	bandiera Nuova Zelanda	none
 🇴🇲	bandiera Oman	none
-🇵🇦	bandiera Panamá	none
+🇵🇦	bandiera Panama	none
 🇵🇪	bandiera Perù	none
 🇵🇫	bandiera Polinesia francese	none
 🇵🇬	bandiera Papua Nuova Guinea	none
@@ -3830,7 +3860,7 @@ symbols:
 🇸🇻	bandiera El Salvador	none
 🇸🇽	bandiera Sint Maarten	none
 🇸🇾	bandiera Siria	none
-🇸🇿	bandiera Swaziland	none
+🇸🇿	bandiera eSwatini	none
 🇹🇦	bandiera Tristan da Cunha	none
 🇹🇨	bandiera Isole Turks e Caicos	none
 🇹🇩	bandiera Ciad	none
@@ -3850,7 +3880,7 @@ symbols:
 🇹🇿	bandiera Tanzania	none
 🇺🇦	bandiera Ucraina	none
 🇺🇬	bandiera Uganda	none
-🇺🇲	bandiera Altre isole americane del Pacifico	none
+🇺🇲	bandiera Isole Minori Esterne degli Stati Uniti	none
 🇺🇳	bandiera Nazioni Unite	none
 🇺🇸	bandiera Stati Uniti	none
 🇺🇾	bandiera Uruguay	none

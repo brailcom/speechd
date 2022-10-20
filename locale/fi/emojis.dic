@@ -264,43 +264,6 @@ symbols:
 ⪺	seuraa, jonka alla noin-merkin negaatio	none
 ♭	alennusmerkki	none
 ♯	ylennysmerkki	none
-🥹	kyyneliä pidättelevä naama	none
-🧌	trolli	none
-🩻	röntgen	none
-🩼	kainalosauva	none
-🪩	peilipallo	none
-🪪	henkilökortti	none
-🪫	akku vähissä	none
-🪬	hamsa	none
-🪷	lootus	none
-🪸	koralli	none
-🪹	tyhjä pesä	none
-🪺	munia pesässä	none
-🫃	raskaana oleva mies	none
-🫄	raskaana oleva henkilö	none
-🫅	kruunua kantava henkilö	none
-🫗	nesteen kaataminen	none
-🫘	pavut	none
-🫙	purkki	none
-🫠	sulava naama	none
-🫡	kunnioittava tervehdys	none
-🫢	silmät pyöreinä käsi suun edessä	none
-🫣	kurkistus sormien takaa	none
-🫤	naama suu vinossa	none
-🫥	katkoviivalla piirretty naama	none
-🫦	purra huulta	none
-🫧	kuplat	none
-🫰	etusormi ja peukalo ristissä	none
-🫱	oikealle ojentuva käsi	none
-🫲	vasemmalle ojentuva käsi	none
-🫳	käsi kämmen alaspäin	none
-🫴	käsi kämmen ylöspäin	none
-🫵	etusormi osoittaa katsojaa	none
-🫶	sydänkuvio käsillä	none
-🛝	liukumäki	none
-🛞	rengas	none
-🛟	pelastusrengas	none
-🟰	paksu yhtäsuuruusmerkki	none
 😀	leveä hymy	none
 😃	hymy suu auki	none
 😄	hymyilevät silmät ja suu	none
@@ -311,6 +274,7 @@ symbols:
 😂	kasvot naurunkyynelissä	none
 🙂	pieni hymy	none
 🙃	ylösalainen naama	none
+🫠	sulava naama	none
 😉	silmänisku	none
 😊	punastunut hymy	none
 😇	hymy ja sädekehä	none
@@ -331,13 +295,17 @@ symbols:
 🤑	dollarisilmät ja rahasuu	none
 🤗	halaava naama	none
 🤭	käsi suun edessä	none
+🫢	silmät pyöreinä käsi suun edessä	none
+🫣	kurkistus sormien takaa	none
 🤫	hyssyttelevä	none
 🤔	mietteliäs	none
+🫡	kunnioittava tervehdys	none
 🤐	vetoketjusuu	none
 🤨	kohotetut kulmakarvat	none
 😐	naama peruslukemilla	none
 😑	ilmeetön	none
 😶	naama ilman suuta	none
+🫥	katkoviivalla piirretty naama	none
 😶‍🌫	naama pilvissä	none
 😏	virnistys	none
 😒	ei naurata	none
@@ -345,6 +313,7 @@ symbols:
 😬	irvistävä	none
 😮‍💨	hämmästynyt	none
 🤥	valehteleva	none
+🫨	tärisevä	none
 😌	helpottunut	none
 😔	pohdiskeleva	none
 😪	unelias	none
@@ -369,6 +338,7 @@ symbols:
 🤓	nörtti	none
 🧐	monokkeli silmässä	none
 😕	hämmentynyt	none
+🫤	naama suu vinossa	none
 😟	huolestunut	none
 🙁	hieman surullinen	none
 ☹	surullinen	none
@@ -377,6 +347,7 @@ symbols:
 😲	ällistynyt	none
 😳	punastunut naama	none
 🥺	anova	none
+🥹	kyyneliä pidättelevä naama	none
 😦	surullinen ja suu auki	none
 😧	ahdistunut	none
 😨	pelokas	none
@@ -420,7 +391,6 @@ symbols:
 🙈	en näe pahaa	none
 🙉	en kuule pahaa	none
 🙊	en puhu pahaa	none
-💋	huulipunajälki	none
 💌	rakkauskirje	none
 💘	sydän ja nuoli	none
 💝	sydän ja lahjanauha	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	palava sydän	none
 ❤‍🩹	parantuva sydän	none
 ❤	punainen sydän	none
+🩷	pinkki sydän	none
 🧡	oranssi sydän	none
 💛	keltainen sydän	none
 💚	vihreä sydän	none
 💙	sininen sydän	none
+🩵	vaaleansininen sydän	none
 💜	violetti sydän	none
 🤎	ruskea sydän	none
 🖤	musta sydän	none
+🩶	harmaa sydän	none
 🤍	valkoinen sydän	none
+💋	huulipunajälki	none
 💯	sata pistettä	none
 💢	viha	none
 💥	törmäys	none
@@ -450,7 +424,6 @@ symbols:
 💦	hikipisarat	none
 💨	pikalähtö	none
 🕳	musta aukko	none
-💣	pommi	none
 💬	puhekupla	none
 👁‍🗨	puhekuplasilmä	none
 🗨	vasen puhekupla	none
@@ -462,11 +435,18 @@ symbols:
 🖐	nostettu käsi ja sormet erillään	none
 ✋	nostettu käsi	none
 🖖	vulkanilaisten tervehdys	none
+🫱	oikealle ojentuva käsi	none
+🫲	vasemmalle ojentuva käsi	none
+🫳	käsi kämmen alaspäin	none
+🫴	käsi kämmen ylöspäin	none
+🫷	vasemmalle työntävä käsi	none
+🫸	oikealle työntävä käsi	none
 👌	ok-sormiele	none
 🤌	sormet supussa	none
 🤏	nipistävä käsi	none
 ✌	voitonmerkki	none
 🤞	sormet ristissä	none
+🫰	etusormi ja peukalo ristissä	none
 🤟	rakastan sinua -ele	none
 🤘	sarviele	none
 🤙	soita minulle	none
@@ -476,6 +456,7 @@ symbols:
 🖕	keskisormi	none
 👇	alas osoittava etusormi kämmenselkä katsojaan päin	none
 ☝	ylös osoittava etusormi	none
+🫵	etusormi osoittaa katsojaa	none
 👍	peukalo ylös	none
 👎	peukalo alas	none
 ✊	nostettu nyrkki	none
@@ -484,6 +465,7 @@ symbols:
 🤜	nyrkki oikealle	none
 👏	käsien taputus	none
 🙌	nousevat kädet	none
+🫶	sydänkuvio käsillä	none
 👐	avoimet kädet	none
 🤲	kämmenet vierekkäin	none
 🤝	kädenpuristus	none
@@ -508,6 +490,7 @@ symbols:
 👁	silmä	none
 👅	kieli	none
 👄	suu	none
+🫦	purra huulta	none
 👶	vauva	none
 🧒	lapsi	none
 👦	poika	none
@@ -615,6 +598,7 @@ symbols:
 👷	rakennustyöläinen	none
 👷‍♂	rakennusmies	none
 👷‍♀	rakennusnainen	none
+🫅	kruunua kantava henkilö	none
 🤴	prinssi	none
 👸	prinsessa	none
 👳	turbaanipäinen henkilö	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	huntupäinen mies	none
 👰‍♀	huntupäinen nainen	none
 🤰	raskaana oleva nainen	none
+🫃	raskaana oleva mies	none
+🫄	raskaana oleva henkilö	none
 🤱	imetys	none
 👩‍🍼	vauvaa syöttävä nainen	none
 👨‍🍼	vauvaa syöttävä mies	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombi	none
 🧟‍♂	mieszombi	none
 🧟‍♀	naiszombi	none
+🧌	trolli	none
 💆	hieronta	none
 💆‍♂	hieronnassa oleva mies	none
 💆‍♀	hieronnassa oleva nainen	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tiikeri	none
 🐆	leopardi	none
 🐴	hevosen naama	none
+🫎	hirvi	none
+🫏	aasi	none
 🐎	hevonen	none
 🦄	yksisarvinen	none
 🦓	seepra	none
@@ -849,6 +838,9 @@ symbols:
 🦩	flamingo	none
 🦚	riikinkukko	none
 🦜	papukaija	none
+🪽	siipi	none
+🐦‍⬛	mustarastas	none
+🪿	hanhi	none
 🐸	sammakko	none
 🐊	krokotiili	none
 🐢	kilpikonna	none
@@ -868,6 +860,8 @@ symbols:
 🦈	hai	none
 🐙	mustekala	none
 🐚	kotilo	none
+🪸	koralli	none
+🪼	meduusa	none
 🐌	etana	none
 🦋	perhonen	none
 🐛	ötökkä	none
@@ -887,6 +881,7 @@ symbols:
 💐	kukkakimppu	none
 🌸	kirsikankukka	none
 💮	valkoinen kukka	none
+🪷	lootus	none
 🏵	ruusuke	none
 🌹	ruusu	none
 🥀	nuutunut kukka	none
@@ -894,6 +889,7 @@ symbols:
 🌻	auringonkukka	none
 🌼	kukinta	none
 🌷	tulppaani	none
+🪻	hyasintti	none
 🌱	taimi	none
 🪴	ruukkukasvi	none
 🌲	ikivihreä	none
@@ -907,6 +903,9 @@ symbols:
 🍁	vaahteranlehti	none
 🍂	pudonnut lehti	none
 🍃	lehti tuulessa	none
+🪹	tyhjä pesä	none
+🪺	munia pesässä	none
+🍄	sieni	none
 🍇	viinirypäleet	none
 🍈	meloni	none
 🍉	vesimeloni	none
@@ -938,9 +937,11 @@ symbols:
 🥦	parsakaali	none
 🧄	valkosipuli	none
 🧅	sipuli	none
-🍄	sieni	none
 🥜	maapähkinä	none
+🫘	pavut	none
 🌰	kastanja	none
+🫚	inkivääri	none
+🫛	herneenpalko	none
 🍞	leipä	none
 🥐	voisarvi	none
 🥖	patonki	none
@@ -1025,6 +1026,7 @@ symbols:
 🍻	kilisevät oluttuopit	none
 🥂	kilisevät lasit	none
 🥃	juomalasi	none
+🫗	nesteen kaataminen	none
 🥤	lasi ja pilli	none
 🧋	kuplatee	none
 🧃	juomatetra	none
@@ -1035,6 +1037,7 @@ symbols:
 🍴	haarukka ja veitsi	none
 🥄	lusikka	none
 🔪	keittiöveitsi	none
+🫙	purkki	none
 🏺	amfora	none
 🌍	maapallo jossa näkyy Eurooppa ja Afrikka	none
 🌎	maapallo jossa näkyy Amerikka	none
@@ -1097,6 +1100,7 @@ symbols:
 🌉	silta yöllä	none
 ♨	kuumat lähteet	none
 🎠	karusellihevonen	none
+🛝	liukumäki	none
 🎡	maailmanpyörä	none
 🎢	vuoristorata	none
 💈	punasiniraitainen pylväs	none
@@ -1145,12 +1149,14 @@ symbols:
 🛤	junaraide	none
 🛢	öljytynnyri	none
 ⛽	bensapumppu	none
+🛞	rengas	none
 🚨	poliisiauton valo	none
 🚥	vaakasuuntaiset liikennevalot	none
 🚦	pystysuuntaiset liikennevalot	none
 🛑	pysähtymismerkki	none
 🚧	rakennustyömaan merkki	none
 ⚓	ankkuri	none
+🛟	pelastusrengas	none
 ⛵	purjevene	none
 🛶	kanootti	none
 🚤	pikavene	none
@@ -1308,10 +1314,10 @@ symbols:
 🎯	napakymppi	none
 🪀	jojo	none
 🪁	leija	none
+🔫	vesipyssy	none
 🎱	biljardi	none
 🔮	kristallipallo	none
 🪄	taikasauva	none
-🧿	nazar-amuletti	none
 🎮	videopeli	none
 🕹	joystick	none
 🎰	pelikone	none
@@ -1319,6 +1325,7 @@ symbols:
 🧩	palapeli	none
 🧸	nalle	none
 🪅	piñata	none
+🪩	peilipallo	none
 🪆	maatuskanuket	none
 ♠	pata	none
 ♥	hertta	none
@@ -1355,6 +1362,7 @@ symbols:
 🩳	uimashortsit	none
 👙	bikinit	none
 👚	naistenvaatteet	none
+🪭	taittuva käsiviuhka	none
 👛	rahakukkaro	none
 👜	käsilaukku	none
 👝	kirjekuorilaukku	none
@@ -1369,6 +1377,7 @@ symbols:
 👡	naisen sandaali	none
 🩰	balettitossut	none
 👢	naisen saapas	none
+🪮	selvityskampa	none
 👑	kruunu	none
 👒	naisen hattu	none
 🎩	silinteri	none
@@ -1407,6 +1416,8 @@ symbols:
 🪕	banjo	none
 🥁	rumpu	none
 🪘	congarumpu	none
+🪇	marakassit	none
+🪈	huilu	none
 📱	kännykkä	none
 📲	kännykkä ja nuoli	none
 ☎	puhelin	none
@@ -1414,6 +1425,7 @@ symbols:
 📟	hakulaite	none
 📠	faksi	none
 🔋	akku	none
+🪫	akku vähissä	none
 🔌	pistoke	none
 💻	kannettava tietokone	none
 🖥	pöytäkone	none
@@ -1525,7 +1537,7 @@ symbols:
 🛠	jakoavain ja vasara	none
 🗡	tikari	none
 ⚔	miekat ristissä	none
-🔫	vesipyssy	none
+💣	pommi	none
 🪃	bumerangi	none
 🏹	jousi ja nuoli	none
 🛡	kilpi	none
@@ -1554,7 +1566,9 @@ symbols:
 🩸	veripisara	none
 💊	pilleri	none
 🩹	laastari	none
+🩼	kainalosauva	none
 🩺	stetoskooppi	none
+🩻	röntgen	none
 🚪	ovi	none
 🛗	hissi	none
 🪞	peili	none
@@ -1575,6 +1589,7 @@ symbols:
 🧻	paperirulla	none
 🪣	ämpäri	none
 🧼	saippua	none
+🫧	kuplat	none
 🪥	hammasharja	none
 🧽	pesusieni	none
 🧯	sammutin	none
@@ -1583,8 +1598,11 @@ symbols:
 ⚰	arkku	none
 🪦	hautakivi	none
 ⚱	tuhkauurna	none
+🧿	nazar-amuletti	none
+🪬	hamsa	none
 🗿	moai	none
 🪧	kyltti	none
+🪪	henkilökortti	none
 🏧	pankkiautomaatti	none
 🚮	roskat-merkki	none
 🚰	juomakelpoista vettä	none
@@ -1645,6 +1663,7 @@ symbols:
 ☮	rauhansymboli	none
 🕎	menora	none
 🔯	kuusisakarainen tähti pisteellä	none
+🪯	khanda	none
 ♈	oinas-merkki	none
 ♉	härkä-merkki	none
 ♊	kaksonen-merkki	none
@@ -1680,6 +1699,7 @@ symbols:
 🔅	himmennä	none
 🔆	kirkasta	none
 📶	kuuluvuuspalkit	none
+🛜	langaton	none
 📳	värinätila	none
 📴	matkapuhelin suljettava	none
 ♀	Venus-symboli	none
@@ -1689,6 +1709,7 @@ symbols:
 ➕	plusmerkki	none
 ➖	miinusmerkki	none
 ➗	jakomerkki	none
+🟰	paksu yhtäsuuruusmerkki	none
 ♾	äärettömyys	none
 ❓	kysymysmerkki	none
 ❔	valkoinen kysymysmerkki	none
@@ -1793,26 +1814,31 @@ symbols:
 ₽	rupla	none
 ₿	bitcoin	none
 ₨	rupia	none
-🫃🏻	raskaana oleva mies vaalea iho	none
-🫃🏼	raskaana oleva mies keskivaalea iho	none
-🫃🏽	raskaana oleva mies tummanvaalea iho	none
-🫃🏾	raskaana oleva mies keskitumma iho	none
-🫃🏿	raskaana oleva mies tumma iho	none
-🫄🏻	raskaana oleva henkilö vaalea iho	none
-🫄🏼	raskaana oleva henkilö keskivaalea iho	none
-🫄🏽	raskaana oleva henkilö tummanvaalea iho	none
-🫄🏾	raskaana oleva henkilö keskitumma iho	none
-🫄🏿	raskaana oleva henkilö tumma iho	none
-🫅🏻	kruunua kantava henkilö vaalea iho	none
-🫅🏼	kruunua kantava henkilö keskivaalea iho	none
-🫅🏽	kruunua kantava henkilö tummanvaalea iho	none
-🫅🏾	kruunua kantava henkilö keskitumma iho	none
-🫅🏿	kruunua kantava henkilö tumma iho	none
-🫰🏻	etusormi ja peukalo ristissä vaalea iho	none
-🫰🏼	etusormi ja peukalo ristissä keskivaalea iho	none
-🫰🏽	etusormi ja peukalo ristissä tummanvaalea iho	none
-🫰🏾	etusormi ja peukalo ristissä keskitumma iho	none
-🫰🏿	etusormi ja peukalo ristissä tumma iho	none
+👋🏻	käden heilautus vaalea iho	none
+👋🏼	käden heilautus keskivaalea iho	none
+👋🏽	käden heilautus tummanvaalea iho	none
+👋🏾	käden heilautus keskitumma iho	none
+👋🏿	käden heilautus tumma iho	none
+🤚🏻	kämmenselkä koholla vaalea iho	none
+🤚🏼	kämmenselkä koholla keskivaalea iho	none
+🤚🏽	kämmenselkä koholla tummanvaalea iho	none
+🤚🏾	kämmenselkä koholla keskitumma iho	none
+🤚🏿	kämmenselkä koholla tumma iho	none
+🖐🏻	nostettu käsi ja sormet erillään vaalea iho	none
+🖐🏼	nostettu käsi ja sormet erillään keskivaalea iho	none
+🖐🏽	nostettu käsi ja sormet erillään tummanvaalea iho	none
+🖐🏾	nostettu käsi ja sormet erillään keskitumma iho	none
+🖐🏿	nostettu käsi ja sormet erillään tumma iho	none
+✋🏻	nostettu käsi vaalea iho	none
+✋🏼	nostettu käsi keskivaalea iho	none
+✋🏽	nostettu käsi tummanvaalea iho	none
+✋🏾	nostettu käsi keskitumma iho	none
+✋🏿	nostettu käsi tumma iho	none
+🖖🏻	vulkanilaisten tervehdys vaalea iho	none
+🖖🏼	vulkanilaisten tervehdys keskivaalea iho	none
+🖖🏽	vulkanilaisten tervehdys tummanvaalea iho	none
+🖖🏾	vulkanilaisten tervehdys keskitumma iho	none
+🖖🏿	vulkanilaisten tervehdys tumma iho	none
 🫱🏻	oikealle ojentuva käsi vaalea iho	none
 🫱🏼	oikealle ojentuva käsi keskivaalea iho	none
 🫱🏽	oikealle ojentuva käsi tummanvaalea iho	none
@@ -1853,41 +1879,16 @@ symbols:
 🫴🏽	käsi kämmen ylöspäin tummanvaalea iho	none
 🫴🏾	käsi kämmen ylöspäin keskitumma iho	none
 🫴🏿	käsi kämmen ylöspäin tumma iho	none
-🫵🏻	etusormi osoittaa katsojaa vaalea iho	none
-🫵🏼	etusormi osoittaa katsojaa keskivaalea iho	none
-🫵🏽	etusormi osoittaa katsojaa tummanvaalea iho	none
-🫵🏾	etusormi osoittaa katsojaa keskitumma iho	none
-🫵🏿	etusormi osoittaa katsojaa tumma iho	none
-🫶🏻	sydänkuvio käsillä vaalea iho	none
-🫶🏼	sydänkuvio käsillä keskivaalea iho	none
-🫶🏽	sydänkuvio käsillä tummanvaalea iho	none
-🫶🏾	sydänkuvio käsillä keskitumma iho	none
-🫶🏿	sydänkuvio käsillä tumma iho	none
-👋🏻	käden heilautus vaalea iho	none
-👋🏼	käden heilautus keskivaalea iho	none
-👋🏽	käden heilautus tummanvaalea iho	none
-👋🏾	käden heilautus keskitumma iho	none
-👋🏿	käden heilautus tumma iho	none
-🤚🏻	kämmenselkä koholla vaalea iho	none
-🤚🏼	kämmenselkä koholla keskivaalea iho	none
-🤚🏽	kämmenselkä koholla tummanvaalea iho	none
-🤚🏾	kämmenselkä koholla keskitumma iho	none
-🤚🏿	kämmenselkä koholla tumma iho	none
-🖐🏻	nostettu käsi ja sormet erillään vaalea iho	none
-🖐🏼	nostettu käsi ja sormet erillään keskivaalea iho	none
-🖐🏽	nostettu käsi ja sormet erillään tummanvaalea iho	none
-🖐🏾	nostettu käsi ja sormet erillään keskitumma iho	none
-🖐🏿	nostettu käsi ja sormet erillään tumma iho	none
-✋🏻	nostettu käsi vaalea iho	none
-✋🏼	nostettu käsi keskivaalea iho	none
-✋🏽	nostettu käsi tummanvaalea iho	none
-✋🏾	nostettu käsi keskitumma iho	none
-✋🏿	nostettu käsi tumma iho	none
-🖖🏻	vulkanilaisten tervehdys vaalea iho	none
-🖖🏼	vulkanilaisten tervehdys keskivaalea iho	none
-🖖🏽	vulkanilaisten tervehdys tummanvaalea iho	none
-🖖🏾	vulkanilaisten tervehdys keskitumma iho	none
-🖖🏿	vulkanilaisten tervehdys tumma iho	none
+🫷🏻	vasemmalle työntävä käsi vaalea iho	none
+🫷🏼	vasemmalle työntävä käsi keskivaalea iho	none
+🫷🏽	vasemmalle työntävä käsi tummanvaalea iho	none
+🫷🏾	vasemmalle työntävä käsi keskitumma iho	none
+🫷🏿	vasemmalle työntävä käsi tumma iho	none
+🫸🏻	oikealle työntävä käsi vaalea iho	none
+🫸🏼	oikealle työntävä käsi keskivaalea iho	none
+🫸🏽	oikealle työntävä käsi tummanvaalea iho	none
+🫸🏾	oikealle työntävä käsi keskitumma iho	none
+🫸🏿	oikealle työntävä käsi tumma iho	none
 👌🏻	ok-sormiele vaalea iho	none
 👌🏼	ok-sormiele keskivaalea iho	none
 👌🏽	ok-sormiele tummanvaalea iho	none
@@ -1913,6 +1914,11 @@ symbols:
 🤞🏽	sormet ristissä tummanvaalea iho	none
 🤞🏾	sormet ristissä keskitumma iho	none
 🤞🏿	sormet ristissä tumma iho	none
+🫰🏻	etusormi ja peukalo ristissä vaalea iho	none
+🫰🏼	etusormi ja peukalo ristissä keskivaalea iho	none
+🫰🏽	etusormi ja peukalo ristissä tummanvaalea iho	none
+🫰🏾	etusormi ja peukalo ristissä keskitumma iho	none
+🫰🏿	etusormi ja peukalo ristissä tumma iho	none
 🤟🏻	rakastan sinua -ele vaalea iho	none
 🤟🏼	rakastan sinua -ele keskivaalea iho	none
 🤟🏽	rakastan sinua -ele tummanvaalea iho	none
@@ -1958,6 +1964,11 @@ symbols:
 ☝🏽	ylös osoittava etusormi tummanvaalea iho	none
 ☝🏾	ylös osoittava etusormi keskitumma iho	none
 ☝🏿	ylös osoittava etusormi tumma iho	none
+🫵🏻	etusormi osoittaa katsojaa vaalea iho	none
+🫵🏼	etusormi osoittaa katsojaa keskivaalea iho	none
+🫵🏽	etusormi osoittaa katsojaa tummanvaalea iho	none
+🫵🏾	etusormi osoittaa katsojaa keskitumma iho	none
+🫵🏿	etusormi osoittaa katsojaa tumma iho	none
 👍🏻	peukalo ylös vaalea iho	none
 👍🏼	peukalo ylös keskivaalea iho	none
 👍🏽	peukalo ylös tummanvaalea iho	none
@@ -1998,6 +2009,11 @@ symbols:
 🙌🏽	nousevat kädet tummanvaalea iho	none
 🙌🏾	nousevat kädet keskitumma iho	none
 🙌🏿	nousevat kädet tumma iho	none
+🫶🏻	sydänkuvio käsillä vaalea iho	none
+🫶🏼	sydänkuvio käsillä keskivaalea iho	none
+🫶🏽	sydänkuvio käsillä tummanvaalea iho	none
+🫶🏾	sydänkuvio käsillä keskitumma iho	none
+🫶🏿	sydänkuvio käsillä tumma iho	none
 👐🏻	avoimet kädet vaalea iho	none
 👐🏼	avoimet kädet keskivaalea iho	none
 👐🏽	avoimet kädet tummanvaalea iho	none
@@ -2860,6 +2876,11 @@ symbols:
 👷🏽‍♀	rakennusnainen tummanvaalea iho	none
 👷🏾‍♀	rakennusnainen keskitumma iho	none
 👷🏿‍♀	rakennusnainen tumma iho	none
+🫅🏻	kruunua kantava henkilö vaalea iho	none
+🫅🏼	kruunua kantava henkilö keskivaalea iho	none
+🫅🏽	kruunua kantava henkilö tummanvaalea iho	none
+🫅🏾	kruunua kantava henkilö keskitumma iho	none
+🫅🏿	kruunua kantava henkilö tumma iho	none
 🤴🏻	prinssi vaalea iho	none
 🤴🏼	prinssi keskivaalea iho	none
 🤴🏽	prinssi tummanvaalea iho	none
@@ -2930,6 +2951,16 @@ symbols:
 🤰🏽	raskaana oleva nainen tummanvaalea iho	none
 🤰🏾	raskaana oleva nainen keskitumma iho	none
 🤰🏿	raskaana oleva nainen tumma iho	none
+🫃🏻	raskaana oleva mies vaalea iho	none
+🫃🏼	raskaana oleva mies keskivaalea iho	none
+🫃🏽	raskaana oleva mies tummanvaalea iho	none
+🫃🏾	raskaana oleva mies keskitumma iho	none
+🫃🏿	raskaana oleva mies tumma iho	none
+🫄🏻	raskaana oleva henkilö vaalea iho	none
+🫄🏼	raskaana oleva henkilö keskivaalea iho	none
+🫄🏽	raskaana oleva henkilö tummanvaalea iho	none
+🫄🏾	raskaana oleva henkilö keskitumma iho	none
+🫄🏿	raskaana oleva henkilö tumma iho	none
 🤱🏻	imetys vaalea iho	none
 🤱🏼	imetys keskivaalea iho	none
 🤱🏽	imetys tummanvaalea iho	none

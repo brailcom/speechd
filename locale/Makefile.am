@@ -58,6 +58,8 @@ nobase_localedata_DATA = \
 	et/emojis.dic \
 	eu/emojis.dic \
 	fa/emojis.dic \
+	ff/emojis.dic \
+	ff_Adlm/emojis.dic \
 	fi/emojis.dic \
 	fil/emojis.dic \
 	fo/emojis.dic \
@@ -111,6 +113,7 @@ nobase_localedata_DATA = \
 	nl/emojis.dic \
 	nn/emojis.dic \
 	no/emojis.dic \
+	oc/emojis.dic \
 	or/emojis.dic \
 	pa/emojis.dic \
 	pa_Arab/emojis.dic \
@@ -125,6 +128,7 @@ nobase_localedata_DATA = \
 	ru/emojis.dic \
 	rw/emojis.dic \
 	sa/emojis.dic \
+	sat/emojis.dic \
 	sc/emojis.dic \
 	sd/emojis.dic \
 	si/emojis.dic \

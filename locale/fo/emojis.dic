@@ -127,7 +127,6 @@ symbols:
 🙈	apuandlit við hondunum yvir eygunum	none
 🙉	apuandlit við hondunum yvir oyrunum	none
 🙊	apuandlit við hondunum yvir munninum	none
-💋	muss merki	none
 💌	kærleiksbræv	none
 💘	pílur ígjøgnum hjarta	none
 💝	hjarta við bandi	none
@@ -150,6 +149,7 @@ symbols:
 🤎	brúnt hjarta	none
 🖤	svart hjarta	none
 🤍	hvítt hjarta	none
+💋	muss merki	none
 💯	hundrað stig	none
 💢	vreiði tekin	none
 💥	samanstoytur	none
@@ -157,7 +157,6 @@ symbols:
 💦	dropar	none
 💨	fok	none
 🕳	hol	none
-💣	bumba	none
 💬	talubløðra	none
 👁‍🗨	eyga í talubløðru	none
 🗨	svørt talubløðra	none
@@ -610,6 +609,7 @@ symbols:
 🍁	ahornsblað	none
 🍂	fallið blað	none
 🍃	flagsandi bløð	none
+🍄	soppur	none
 🍇	víndrúvur	none
 🍈	melón	none
 🍉	vatnmelón	none
@@ -641,7 +641,6 @@ symbols:
 🥦	brokkoli	none
 🧄	hvítleykur	none
 🧅	leykur	none
-🍄	soppur	none
 🥜	jarðnøtur	none
 🌰	kastanja	none
 🍞	breyð	none
@@ -1011,10 +1010,10 @@ symbols:
 🎯	dart	none
 🪀	jojo	none
 🪁	flúgvandi dreki	none
+🔫	pistólur	none
 🎱	pul	none
 🔮	krystalkúla	none
 🪄	gandastavur	none
-🧿	nasaramulett	none
 🎮	kontrollari	none
 🕹	stýripinnur	none
 🎰	spæliautomat	none
@@ -1228,7 +1227,7 @@ symbols:
 🛠	hamari og skrúvulykil	none
 🗡	stutt svørð	none
 ⚔	krossa svørð	none
-🔫	pistólur	none
+💣	bumba	none
 🪃	boomerang	none
 🏹	bogi of pílur	none
 🛡	skjøldur	none
@@ -1286,6 +1285,7 @@ symbols:
 ⚰	líkkista	none
 🪦	gravsteinur	none
 ⚱	øskukrukka	none
+🧿	nasaramulett	none
 🗿	moai	none
 🪧	skelti	none
 🏧	sjálvtøkuskeltið	none
@@ -1480,26 +1480,6 @@ symbols:
 🏳‍🌈	ælaboga flagg	none
 🏳‍⚧	tvørkynd flagg	none
 🏴‍☠	sjórænaraflagg	none
-🫱🏻‍🫲🏼	lógvatak ljósur húðarlitur, miðalljósur húðarlitur	none
-🫱🏻‍🫲🏽	lógvatak ljósur húðarlitur, miðal húðarlitur	none
-🫱🏻‍🫲🏾	lógvatak ljósur húðarlitur, miðalmyrkur húðarlitur	none
-🫱🏻‍🫲🏿	lógvatak ljósur húðarlitur, myrkur húðarlitur	none
-🫱🏼‍🫲🏻	lógvatak miðalljósur húðarlitur, ljósur húðarlitur	none
-🫱🏼‍🫲🏽	lógvatak miðalljósur húðarlitur, miðal húðarlitur	none
-🫱🏼‍🫲🏾	lógvatak miðalljósur húðarlitur, miðalmyrkur húðarlitur	none
-🫱🏼‍🫲🏿	lógvatak miðalljósur húðarlitur, myrkur húðarlitur	none
-🫱🏽‍🫲🏻	lógvatak miðal húðarlitur, ljósur húðarlitur	none
-🫱🏽‍🫲🏼	lógvatak miðal húðarlitur, miðalljósur húðarlitur	none
-🫱🏽‍🫲🏾	lógvatak miðal húðarlitur, miðalmyrkur húðarlitur	none
-🫱🏽‍🫲🏿	lógvatak miðal húðarlitur, myrkur húðarlitur	none
-🫱🏾‍🫲🏻	lógvatak miðalmyrkur húðarlitur, ljósur húðarlitur	none
-🫱🏾‍🫲🏼	lógvatak miðalmyrkur húðarlitur, miðalljósur húðarlitur	none
-🫱🏾‍🫲🏽	lógvatak miðalmyrkur húðarlitur, miðal húðarlitur	none
-🫱🏾‍🫲🏿	lógvatak miðalmyrkur húðarlitur, myrkur húðarlitur	none
-🫱🏿‍🫲🏻	lógvatak myrkur húðarlitur, ljósur húðarlitur	none
-🫱🏿‍🫲🏼	lógvatak myrkur húðarlitur, miðalljósur húðarlitur	none
-🫱🏿‍🫲🏽	lógvatak myrkur húðarlitur, miðal húðarlitur	none
-🫱🏿‍🫲🏾	lógvatak myrkur húðarlitur, miðalmyrkur húðarlitur	none
 👋🏻	veitrandi hond ljósur húðarlitur	none
 👋🏼	veitrandi hond miðalljósur húðarlitur	none
 👋🏽	veitrandi hond miðal húðarlitur	none
@@ -1525,6 +1505,26 @@ symbols:
 🖖🏽	vulkan heilsan miðal húðarlitur	none
 🖖🏾	vulkan heilsan miðalmyrkur húðarlitur	none
 🖖🏿	vulkan heilsan myrkur húðarlitur	none
+🫱🏻‍🫲🏼	lógvatak ljósur húðarlitur, miðalljósur húðarlitur	none
+🫱🏻‍🫲🏽	lógvatak ljósur húðarlitur, miðal húðarlitur	none
+🫱🏻‍🫲🏾	lógvatak ljósur húðarlitur, miðalmyrkur húðarlitur	none
+🫱🏻‍🫲🏿	lógvatak ljósur húðarlitur, myrkur húðarlitur	none
+🫱🏼‍🫲🏻	lógvatak miðalljósur húðarlitur, ljósur húðarlitur	none
+🫱🏼‍🫲🏽	lógvatak miðalljósur húðarlitur, miðal húðarlitur	none
+🫱🏼‍🫲🏾	lógvatak miðalljósur húðarlitur, miðalmyrkur húðarlitur	none
+🫱🏼‍🫲🏿	lógvatak miðalljósur húðarlitur, myrkur húðarlitur	none
+🫱🏽‍🫲🏻	lógvatak miðal húðarlitur, ljósur húðarlitur	none
+🫱🏽‍🫲🏼	lógvatak miðal húðarlitur, miðalljósur húðarlitur	none
+🫱🏽‍🫲🏾	lógvatak miðal húðarlitur, miðalmyrkur húðarlitur	none
+🫱🏽‍🫲🏿	lógvatak miðal húðarlitur, myrkur húðarlitur	none
+🫱🏾‍🫲🏻	lógvatak miðalmyrkur húðarlitur, ljósur húðarlitur	none
+🫱🏾‍🫲🏼	lógvatak miðalmyrkur húðarlitur, miðalljósur húðarlitur	none
+🫱🏾‍🫲🏽	lógvatak miðalmyrkur húðarlitur, miðal húðarlitur	none
+🫱🏾‍🫲🏿	lógvatak miðalmyrkur húðarlitur, myrkur húðarlitur	none
+🫱🏿‍🫲🏻	lógvatak myrkur húðarlitur, ljósur húðarlitur	none
+🫱🏿‍🫲🏼	lógvatak myrkur húðarlitur, miðalljósur húðarlitur	none
+🫱🏿‍🫲🏽	lógvatak myrkur húðarlitur, miðal húðarlitur	none
+🫱🏿‍🫲🏾	lógvatak myrkur húðarlitur, miðalmyrkur húðarlitur	none
 👌🏻	ok tekin ljósur húðarlitur	none
 👌🏼	ok tekin miðalljósur húðarlitur	none
 👌🏽	ok tekin miðal húðarlitur	none
