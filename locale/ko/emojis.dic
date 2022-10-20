@@ -264,43 +264,6 @@ symbols:
 ⪺	거의 같지 않음 위의 후속	none
 ♭	내림표	none
 ♯	올림표	none
-🥹	눈물을 참는 얼굴	none
-🧌	트롤	none
-🩻	엑스레이	none
-🩼	목발	none
-🪩	미러볼	none
-🪪	신분증	none
-🪫	배터리 부족	none
-🪬	함사	none
-🪷	연꽃	none
-🪸	산호초	none
-🪹	빈 둥지	none
-🪺	알이 들어 있는 둥지	none
-🫃	임신한 남자	none
-🫄	임신한 사람	none
-🫅	왕관을 쓴 사람	none
-🫗	쏟아져 나오는 액체	none
-🫘	콩	none
-🫙	작은 병	none
-🫠	녹아 내리는 얼굴	none
-🫡	경례하는 얼굴	none
-🫢	눈을 뜨고 손으로 입을 가린 얼굴	none
-🫣	한쪽 눈을 가리고 훔쳐보는 얼굴	none
-🫤	입이 한쪽으로 올라간 얼굴	none
-🫥	테두리가 점선으로 된 얼굴	none
-🫦	입술을 깨물고 있는 입	none
-🫧	거품	none
-🫰	엄지와 중지를 교차한 손	none
-🫱	오른쪽으로 향하는 손등	none
-🫲	왼쪽으로 향하는 손바닥	none
-🫳	손바닥을 아래로 향한 손	none
-🫴	손바닥을 위로 향한 손	none
-🫵	보는 사람을 가리키는 검지	none
-🫶	손 하트	none
-🛝	미끄럼틀	none
-🛞	휠	none
-🛟	구명부환	none
-🟰	등호 기호	none
 😀	활짝 웃는 얼굴	none
 😃	눈을 크게 뜨고 웃는 얼굴	none
 😄	미소 짓는 눈으로 활짝 웃는 얼굴	none
@@ -311,6 +274,7 @@ symbols:
 😂	기쁨의 눈물을 흘리는 얼굴	none
 🙂	살짝 미소 짓는 얼굴	none
 🙃	거꾸로 된 얼굴	none
+🫠	녹아 내리는 얼굴	none
 😉	윙크하는 얼굴	none
 😊	미소 짓는 눈으로 살짝 웃는 얼굴	none
 😇	후광이 비치는 웃는 얼굴	none
@@ -331,13 +295,17 @@ symbols:
 🤑	돈 모양의 입이 있는 얼굴	none
 🤗	포옹하고 있는 얼굴	none
 🤭	손으로 입을 가린 얼굴	none
+🫢	눈을 뜨고 손으로 입을 가린 얼굴	none
+🫣	한쪽 눈을 가리고 훔쳐보는 얼굴	none
 🤫	쉿 하는 얼굴	none
 🤔	생각하는 얼굴	none
+🫡	경례하는 얼굴	none
 🤐	지퍼로 입을 잠근 얼굴	none
 🤨	눈썹을 치켜올린 얼굴	none
 😐	덤덤한 얼굴	none
 😑	무표정한 얼굴	none
 😶	입이 없는 얼굴	none
+🫥	테두리가 점선으로 된 얼굴	none
 😶‍🌫	공상에 잠긴 얼굴	none
 😏	히죽거리는 얼굴	none
 😒	지루해하는 얼굴	none
@@ -345,6 +313,7 @@ symbols:
 😬	찌푸린 얼굴	none
 😮‍💨	날숨 쉬는 얼굴	none
 🤥	거짓말하는 얼굴	none
+🫨	요동치는 얼굴	none
 😌	안심한 얼굴	none
 😔	수심 어린 얼굴	none
 😪	졸린 얼굴	none
@@ -369,6 +338,7 @@ symbols:
 🤓	모범생 얼굴	none
 🧐	단안경을 쓴 얼굴	none
 😕	혼란스러워하는 얼굴	none
+🫤	입이 한쪽으로 올라간 얼굴	none
 😟	걱정스러운 얼굴	none
 🙁	살짝 찡그린 얼굴	none
 ☹	찡그린 얼굴	none
@@ -377,6 +347,7 @@ symbols:
 😲	깜짝 놀란 얼굴	none
 😳	상기된 얼굴	none
 🥺	애원하는 얼굴	none
+🥹	눈물을 참는 얼굴	none
 😦	입 벌리고 찌푸린 얼굴	none
 😧	괴로워하는 얼굴	none
 😨	두려워하는 얼굴	none
@@ -420,7 +391,6 @@ symbols:
 🙈	눈을 가리고 있는 원숭이	none
 🙉	귀를 막고 있는 원숭이	none
 🙊	입을 막고 있는 원숭이	none
-💋	입술	none
 💌	러브레터	none
 💘	화살이 꽂힌 하트	none
 💝	리본 달린 하트	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	불 난 하트	none
 ❤‍🩹	낫고 있는 하트	none
 ❤	빨간색 하트	none
+🩷	분홍색 하트	none
 🧡	주황색 하트	none
 💛	노란색 하트	none
 💚	초록색 하트	none
 💙	파란색 하트	none
+🩵	밝은 파란색 하트	none
 💜	보라색 하트	none
 🤎	갈색 하트	none
 🖤	검은색 하트	none
+🩶	회색 하트	none
 🤍	흰색 하트	none
+💋	입술	none
 💯	백점	none
 💢	화남	none
 💥	충돌	none
@@ -450,7 +424,6 @@ symbols:
 💦	땀	none
 💨	달려나감	none
 🕳	구멍	none
-💣	폭탄	none
 💬	말풍선	none
 👁‍🗨	말풍선 속 눈	none
 🗨	왼쪽 말풍선	none
@@ -462,11 +435,18 @@ symbols:
 🖐	쫙 편 손바닥	none
 ✋	손바닥	none
 🖖	벌칸식 인사	none
+🫱	오른쪽으로 향하는 손등	none
+🫲	왼쪽으로 향하는 손바닥	none
+🫳	손바닥을 아래로 향한 손	none
+🫴	손바닥을 위로 향한 손	none
+🫷	왼쪽으로 밀치는 손	none
+🫸	오른쪽으로 밀치는 손	none
 👌	오케이를 표시한 손	none
 🤌	꼬집는 손가락	none
 🤏	꼬집는 손	none
 ✌	브이 표시	none
 🤞	검지와 중지 크로스	none
+🫰	엄지와 중지를 교차한 손	none
 🤟	사랑을 표시하는 손	none
 🤘	뿔 모양 손짓	none
 🤙	전화를 걸라는 손 모양	none
@@ -476,6 +456,7 @@ symbols:
 🖕	중지	none
 👇	아래쪽을 가리키는 손등	none
 ☝	위쪽을 가리키는 손	none
+🫵	보는 사람을 가리키는 검지	none
 👍	올린 엄지	none
 👎	내린 엄지	none
 ✊	주먹	none
@@ -484,6 +465,7 @@ symbols:
 🤜	오른쪽을 향하는 주먹	none
 👏	손뼉	none
 🙌	만세	none
+🫶	손 하트	none
 👐	양손을 모아서 벌린 모양	none
 🤲	내민 두 손	none
 🤝	악수	none
@@ -508,6 +490,7 @@ symbols:
 👁	눈	none
 👅	혀	none
 👄	입	none
+🫦	입술을 깨물고 있는 입	none
 👶	아기	none
 🧒	어린이	none
 👦	남자 아이	none
@@ -615,6 +598,7 @@ symbols:
 👷	건설 노동자	none
 👷‍♂	건설 현장 남자 노동자	none
 👷‍♀	건설 현장 여자 노동자	none
+🫅	왕관을 쓴 사람	none
 🤴	왕자	none
 👸	공주	none
 👳	터번을 쓰고 있는 사람	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	면사포를 쓴 남자	none
 👰‍♀	면사포를 쓴 여자	none
 🤰	임산부	none
+🫃	임신한 남자	none
+🫄	임신한 사람	none
 🤱	모유 수유	none
 👩‍🍼	수유 중인 여자	none
 👨‍🍼	수유 중인 남자	none
@@ -664,6 +650,7 @@ symbols:
 🧟	좀비	none
 🧟‍♂	남자 좀비	none
 🧟‍♀	여자 좀비	none
+🧌	트롤	none
 💆	마사지 받는 사람	none
 💆‍♂	마사지 받는 남자	none
 💆‍♀	마사지 받는 여자	none
@@ -787,6 +774,8 @@ symbols:
 🐅	호랑이	none
 🐆	표범	none
 🐴	말 얼굴	none
+🫎	무스	none
+🫏	당나귀	none
 🐎	말	none
 🦄	유니콘 얼굴	none
 🦓	얼룩말	none
@@ -849,6 +838,8 @@ symbols:
 🦩	홍학	none
 🦚	공작	none
 🦜	앵무새	none
+🪽	날개	none
+🪿	거위	none
 🐸	개구리 얼굴	none
 🐊	악어	none
 🐢	거북이	none
@@ -868,6 +859,8 @@ symbols:
 🦈	상어	none
 🐙	문어	none
 🐚	달팽이집	none
+🪸	산호초	none
+🪼	해파리	none
 🐌	달팽이	none
 🦋	나비	none
 🐛	송충이	none
@@ -887,6 +880,7 @@ symbols:
 💐	꽃다발	none
 🌸	벚꽃	none
 💮	흰 꽃	none
+🪷	연꽃	none
 🏵	장미	none
 🌹	장미꽃	none
 🥀	시든 꽃	none
@@ -894,6 +888,7 @@ symbols:
 🌻	해바라기	none
 🌼	꽃송이	none
 🌷	튤립	none
+🪻	히아신스	none
 🌱	새싹	none
 🪴	분재	none
 🌲	소나무	none
@@ -907,6 +902,9 @@ symbols:
 🍁	단풍잎	none
 🍂	낙엽	none
 🍃	바람에 흔들리는 나뭇잎	none
+🪹	빈 둥지	none
+🪺	알이 들어 있는 둥지	none
+🍄	버섯	none
 🍇	포도	none
 🍈	멜론	none
 🍉	수박	none
@@ -938,9 +936,11 @@ symbols:
 🥦	브로콜리	none
 🧄	마늘	none
 🧅	양파	none
-🍄	버섯	none
 🥜	땅콩	none
+🫘	콩	none
 🌰	밤	none
+🫚	생강 뿌리	none
+🫛	완두콩 꼬투리	none
 🍞	빵	none
 🥐	크루아상	none
 🥖	바게트	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	맥주	none
 🥂	건배하는 샴페인 잔	none
 🥃	양주잔	none
+🫗	쏟아져 나오는 액체	none
 🥤	빨대와 컵	none
 🧋	버블티	none
 🧃	음료 팩	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	포크와 나이프	none
 🥄	숟가락	none
 🔪	식칼	none
+🫙	작은 병	none
 🏺	암포라	none
 🌍	유럽과 아프리카가 보이는 지구	none
 🌎	미대륙이 보이는 지구	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	밤하늘을 배경으로 하는 다리	none
 ♨	온천	none
 🎠	회전 목마	none
+🛝	미끄럼틀	none
 🎡	관람차	none
 🎢	롤러코스터	none
 💈	이발소	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	철도 선로	none
 🛢	기름통	none
 ⛽	주유소	none
+🛞	휠	none
 🚨	사이렌	none
 🚥	가로 신호등	none
 🚦	세로 신호등	none
 🛑	멈춤 표시	none
 🚧	공사 중	none
 ⚓	닻	none
+🛟	구명부환	none
 ⛵	돛단배	none
 🛶	카누	none
 🚤	쾌속정	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	과녁 명중	none
 🪀	요요	none
 🪁	연	none
+🔫	물총	none
 🎱	당구	none
 🔮	수정 구슬	none
 🪄	마술 지팡이	none
-🧿	악마의 눈	none
 🎮	비디오 게임	none
 🕹	조이스틱	none
 🎰	슬롯 머신	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	퍼즐	none
 🧸	테디 베어	none
 🪅	피냐타	none
+🪩	미러볼	none
 🪆	네스팅 인형	none
 ♠	스페이드	none
 ♥	하트	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	반바지	none
 👙	비키니	none
 👚	여성복	none
+🪭	접이식 손 부채	none
 👛	지갑	none
 👜	핸드백	none
 👝	파우치	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	샌들	none
 🩰	발레 슈즈	none
 👢	부츠	none
+🪮	머리 빗	none
 👑	왕관	none
 👒	여성용 모자	none
 🎩	마술사 모자	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	밴조	none
 🥁	드럼	none
 🪘	긴 북	none
+🪇	마라카스	none
+🪈	플루트	none
 📱	휴대전화	none
 📲	왼쪽에 화살표가 있는 휴대전화	none
 ☎	전화기	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	삐삐	none
 📠	팩스	none
 🔋	배터리	none
+🪫	배터리 부족	none
 🔌	전기 플러그	none
 💻	노트북	none
 🖥	데스크톱 컴퓨터	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	망치와 렌치	none
 🗡	단검	none
 ⚔	쌍검	none
-🔫	물총	none
+💣	폭탄	none
 🪃	부메랑	none
 🏹	활과 화살	none
 🛡	방패	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	핏방울	none
 💊	알약	none
 🩹	반창고	none
+🩼	목발	none
 🩺	청진기	none
+🩻	엑스레이	none
 🚪	문	none
 🛗	엘리베이터	none
 🪞	거울	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	두루마리	none
 🪣	양동이	none
 🧼	비누	none
+🫧	거품	none
 🪥	칫솔	none
 🧽	스펀지	none
 🧯	소화기	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	관	none
 🪦	묘비	none
 ⚱	납골 단지	none
+🧿	악마의 눈	none
+🪬	함사	none
 🗿	모아이	none
 🪧	플래카드	none
+🪪	신분증	none
 🏧	에이티엠	none
 🚮	쓰레기는 쓰레기통에	none
 🚰	음수대	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	평화 기호	none
 🕎	메노라	none
 🔯	육각 별	none
+🪯	칸다	none
 ♈	양자리	none
 ♉	황소자리	none
 ♊	쌍둥이 자리	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	밝기 낮음	none
 🔆	밝기 높음	none
 📶	안테나 신호	none
+🛜	무선	none
 📳	진동 모드	none
 📴	휴대전화 끄기	none
 ♀	여성 기호	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	더하기	none
 ➖	빼기	none
 ➗	나누기	none
+🟰	등호 기호	none
 ♾	무한	none
 ❓	빨간색 물음표	none
 ❔	하얀색 물음표	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	러시아 루블	none
 ₿	비트코인	none
 ₨	루피	none
-🫃🏻	임신한 남자 하얀 피부	none
-🫃🏼	임신한 남자 연한 갈색 피부	none
-🫃🏽	임신한 남자 갈색 피부	none
-🫃🏾	임신한 남자 진한 갈색 피부	none
-🫃🏿	임신한 남자 검은색 피부	none
-🫄🏻	임신한 사람 하얀 피부	none
-🫄🏼	임신한 사람 연한 갈색 피부	none
-🫄🏽	임신한 사람 갈색 피부	none
-🫄🏾	임신한 사람 진한 갈색 피부	none
-🫄🏿	임신한 사람 검은색 피부	none
-🫅🏻	왕관을 쓴 사람 하얀 피부	none
-🫅🏼	왕관을 쓴 사람 연한 갈색 피부	none
-🫅🏽	왕관을 쓴 사람 갈색 피부	none
-🫅🏾	왕관을 쓴 사람 진한 갈색 피부	none
-🫅🏿	왕관을 쓴 사람 검은색 피부	none
-🫰🏻	엄지와 중지를 교차한 손 하얀 피부	none
-🫰🏼	엄지와 중지를 교차한 손 연한 갈색 피부	none
-🫰🏽	엄지와 중지를 교차한 손 갈색 피부	none
-🫰🏾	엄지와 중지를 교차한 손 진한 갈색 피부	none
-🫰🏿	엄지와 중지를 교차한 손 검은색 피부	none
+👋🏻	흔드는 손 하얀 피부	none
+👋🏼	흔드는 손 연한 갈색 피부	none
+👋🏽	흔드는 손 갈색 피부	none
+👋🏾	흔드는 손 진한 갈색 피부	none
+👋🏿	흔드는 손 검은색 피부	none
+🤚🏻	손등 하얀 피부	none
+🤚🏼	손등 연한 갈색 피부	none
+🤚🏽	손등 갈색 피부	none
+🤚🏾	손등 진한 갈색 피부	none
+🤚🏿	손등 검은색 피부	none
+🖐🏻	쫙 편 손바닥 하얀 피부	none
+🖐🏼	쫙 편 손바닥 연한 갈색 피부	none
+🖐🏽	쫙 편 손바닥 갈색 피부	none
+🖐🏾	쫙 편 손바닥 진한 갈색 피부	none
+🖐🏿	쫙 편 손바닥 검은색 피부	none
+✋🏻	손바닥 하얀 피부	none
+✋🏼	손바닥 연한 갈색 피부	none
+✋🏽	손바닥 갈색 피부	none
+✋🏾	손바닥 진한 갈색 피부	none
+✋🏿	손바닥 검은색 피부	none
+🖖🏻	벌칸식 인사 하얀 피부	none
+🖖🏼	벌칸식 인사 연한 갈색 피부	none
+🖖🏽	벌칸식 인사 갈색 피부	none
+🖖🏾	벌칸식 인사 진한 갈색 피부	none
+🖖🏿	벌칸식 인사 검은색 피부	none
 🫱🏻	오른쪽으로 향하는 손등 하얀 피부	none
 🫱🏼	오른쪽으로 향하는 손등 연한 갈색 피부	none
 🫱🏽	오른쪽으로 향하는 손등 갈색 피부	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	손바닥을 위로 향한 손 갈색 피부	none
 🫴🏾	손바닥을 위로 향한 손 진한 갈색 피부	none
 🫴🏿	손바닥을 위로 향한 손 검은색 피부	none
-🫵🏻	보는 사람을 가리키는 검지 하얀 피부	none
-🫵🏼	보는 사람을 가리키는 검지 연한 갈색 피부	none
-🫵🏽	보는 사람을 가리키는 검지 갈색 피부	none
-🫵🏾	보는 사람을 가리키는 검지 진한 갈색 피부	none
-🫵🏿	보는 사람을 가리키는 검지 검은색 피부	none
-🫶🏻	손 하트 하얀 피부	none
-🫶🏼	손 하트 연한 갈색 피부	none
-🫶🏽	손 하트 갈색 피부	none
-🫶🏾	손 하트 진한 갈색 피부	none
-🫶🏿	손 하트 검은색 피부	none
-👋🏻	흔드는 손 하얀 피부	none
-👋🏼	흔드는 손 연한 갈색 피부	none
-👋🏽	흔드는 손 갈색 피부	none
-👋🏾	흔드는 손 진한 갈색 피부	none
-👋🏿	흔드는 손 검은색 피부	none
-🤚🏻	손등 하얀 피부	none
-🤚🏼	손등 연한 갈색 피부	none
-🤚🏽	손등 갈색 피부	none
-🤚🏾	손등 진한 갈색 피부	none
-🤚🏿	손등 검은색 피부	none
-🖐🏻	쫙 편 손바닥 하얀 피부	none
-🖐🏼	쫙 편 손바닥 연한 갈색 피부	none
-🖐🏽	쫙 편 손바닥 갈색 피부	none
-🖐🏾	쫙 편 손바닥 진한 갈색 피부	none
-🖐🏿	쫙 편 손바닥 검은색 피부	none
-✋🏻	손바닥 하얀 피부	none
-✋🏼	손바닥 연한 갈색 피부	none
-✋🏽	손바닥 갈색 피부	none
-✋🏾	손바닥 진한 갈색 피부	none
-✋🏿	손바닥 검은색 피부	none
-🖖🏻	벌칸식 인사 하얀 피부	none
-🖖🏼	벌칸식 인사 연한 갈색 피부	none
-🖖🏽	벌칸식 인사 갈색 피부	none
-🖖🏾	벌칸식 인사 진한 갈색 피부	none
-🖖🏿	벌칸식 인사 검은색 피부	none
+🫷🏻	왼쪽으로 밀치는 손 하얀 피부	none
+🫷🏼	왼쪽으로 밀치는 손 연한 갈색 피부	none
+🫷🏽	왼쪽으로 밀치는 손 갈색 피부	none
+🫷🏾	왼쪽으로 밀치는 손 진한 갈색 피부	none
+🫷🏿	왼쪽으로 밀치는 손 검은색 피부	none
+🫸🏻	오른쪽으로 밀치는 손 하얀 피부	none
+🫸🏼	오른쪽으로 밀치는 손 연한 갈색 피부	none
+🫸🏽	오른쪽으로 밀치는 손 갈색 피부	none
+🫸🏾	오른쪽으로 밀치는 손 진한 갈색 피부	none
+🫸🏿	오른쪽으로 밀치는 손 검은색 피부	none
 👌🏻	오케이를 표시한 손 하얀 피부	none
 👌🏼	오케이를 표시한 손 연한 갈색 피부	none
 👌🏽	오케이를 표시한 손 갈색 피부	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	검지와 중지 크로스 갈색 피부	none
 🤞🏾	검지와 중지 크로스 진한 갈색 피부	none
 🤞🏿	검지와 중지 크로스 검은색 피부	none
+🫰🏻	엄지와 중지를 교차한 손 하얀 피부	none
+🫰🏼	엄지와 중지를 교차한 손 연한 갈색 피부	none
+🫰🏽	엄지와 중지를 교차한 손 갈색 피부	none
+🫰🏾	엄지와 중지를 교차한 손 진한 갈색 피부	none
+🫰🏿	엄지와 중지를 교차한 손 검은색 피부	none
 🤟🏻	사랑을 표시하는 손 하얀 피부	none
 🤟🏼	사랑을 표시하는 손 연한 갈색 피부	none
 🤟🏽	사랑을 표시하는 손 갈색 피부	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	위쪽을 가리키는 손 갈색 피부	none
 ☝🏾	위쪽을 가리키는 손 진한 갈색 피부	none
 ☝🏿	위쪽을 가리키는 손 검은색 피부	none
+🫵🏻	보는 사람을 가리키는 검지 하얀 피부	none
+🫵🏼	보는 사람을 가리키는 검지 연한 갈색 피부	none
+🫵🏽	보는 사람을 가리키는 검지 갈색 피부	none
+🫵🏾	보는 사람을 가리키는 검지 진한 갈색 피부	none
+🫵🏿	보는 사람을 가리키는 검지 검은색 피부	none
 👍🏻	올린 엄지 하얀 피부	none
 👍🏼	올린 엄지 연한 갈색 피부	none
 👍🏽	올린 엄지 갈색 피부	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	만세 갈색 피부	none
 🙌🏾	만세 진한 갈색 피부	none
 🙌🏿	만세 검은색 피부	none
+🫶🏻	손 하트 하얀 피부	none
+🫶🏼	손 하트 연한 갈색 피부	none
+🫶🏽	손 하트 갈색 피부	none
+🫶🏾	손 하트 진한 갈색 피부	none
+🫶🏿	손 하트 검은색 피부	none
 👐🏻	양손을 모아서 벌린 모양 하얀 피부	none
 👐🏼	양손을 모아서 벌린 모양 연한 갈색 피부	none
 👐🏽	양손을 모아서 벌린 모양 갈색 피부	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	건설 현장 여자 노동자 갈색 피부	none
 👷🏾‍♀	건설 현장 여자 노동자 진한 갈색 피부	none
 👷🏿‍♀	건설 현장 여자 노동자 검은색 피부	none
+🫅🏻	왕관을 쓴 사람 하얀 피부	none
+🫅🏼	왕관을 쓴 사람 연한 갈색 피부	none
+🫅🏽	왕관을 쓴 사람 갈색 피부	none
+🫅🏾	왕관을 쓴 사람 진한 갈색 피부	none
+🫅🏿	왕관을 쓴 사람 검은색 피부	none
 🤴🏻	왕자 하얀 피부	none
 🤴🏼	왕자 연한 갈색 피부	none
 🤴🏽	왕자 갈색 피부	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	임산부 갈색 피부	none
 🤰🏾	임산부 진한 갈색 피부	none
 🤰🏿	임산부 검은색 피부	none
+🫃🏻	임신한 남자 하얀 피부	none
+🫃🏼	임신한 남자 연한 갈색 피부	none
+🫃🏽	임신한 남자 갈색 피부	none
+🫃🏾	임신한 남자 진한 갈색 피부	none
+🫃🏿	임신한 남자 검은색 피부	none
+🫄🏻	임신한 사람 하얀 피부	none
+🫄🏼	임신한 사람 연한 갈색 피부	none
+🫄🏽	임신한 사람 갈색 피부	none
+🫄🏾	임신한 사람 진한 갈색 피부	none
+🫄🏿	임신한 사람 검은색 피부	none
 🤱🏻	모유 수유 하얀 피부	none
 🤱🏼	모유 수유 연한 갈색 피부	none
 🤱🏽	모유 수유 갈색 피부	none
@@ -3834,7 +3864,7 @@ symbols:
 🇹🇦	깃발 트리스탄다쿠나	none
 🇹🇨	깃발 터크스 케이커스 제도	none
 🇹🇩	깃발 차드	none
-🇹🇫	깃발 프랑스 남부 지방	none
+🇹🇫	깃발 프랑스령 남방 지역	none
 🇹🇬	깃발 토고	none
 🇹🇭	깃발 태국	none
 🇹🇯	깃발 타지키스탄	none
@@ -3874,7 +3904,7 @@ symbols:
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	깃발 스코틀랜드	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	깃발 웨일즈	none
 ₡	코스타리카 콜론	none
-₦	니제르 나이라	none
+₦	나이지리아 나이라	none
 ₧	스페인 페세타	none
 ₪	이스라엘 신권 세켈	none
 ₫	베트남 동	none
@@ -3882,8 +3912,8 @@ symbols:
 ₮	몽골 투그릭	none
 ₲	파라과이 과라니	none
 ₴	우크라이나 그리브나	none
-₵	가나 시디	none
-₸	카자흐스탄 텐게	none
-₺	신 터키 리라	none
+₵	가나 세디	none
+₸	카자흐스탄 텡게	none
+₺	터키 리라	none
 ₼	아제르바이잔 마나트	none
 ₾	조지아 라리	none

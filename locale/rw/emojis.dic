@@ -115,7 +115,6 @@ symbols:
 🙈	inkende itareba	none
 🙉	inkende itumva	none
 🙊	inkende itavuga	none
-💋	ikimenyetso cyo gusomana	none
 💌	ibahasha y’urukundo	none
 💘	umutima n’akambi	none
 💝	umutima uriho riba	none
@@ -134,6 +133,7 @@ symbols:
 💙	umutima w’ubururu	none
 💜	umutima wa move	none
 🖤	imitima yirabura	none
+💋	ikimenyetso cyo gusomana	none
 💯	amanota ijana	none
 💢	ikimenyetso cy’uburakari	none
 💥	igongana	none
@@ -141,7 +141,6 @@ symbols:
 💦	udutonyanga tw’ibyuya	none
 💨	ikimenyetso cy’ibinyaruka	none
 🕳	umwobo	none
-💣	ibombe	none
 💬	igipurizomvugo	none
 👁‍🗨	ijisho riri mu kabaruni	none
 🗨	ikiganiro cy’akabaruni k’ibumoso	none
@@ -500,6 +499,7 @@ symbols:
 🍁	ikibabi cy’igiti cya maple	none
 🍂	ikibabi cyaguye	none
 🍃	ikibabi gihuhwa n’umuyaga	none
+🍄	igihumyo	none
 🍇	imizabibu	none
 🍈	melo	none
 🍉	pasiteke	none
@@ -524,7 +524,6 @@ symbols:
 🌶	urusenda	none
 🥒	kokombure	none
 🥦	udushu	none
-🍄	igihumyo	none
 🥜	urunyobwa	none
 🌰	igiti cya shatenye	none
 🍞	umugati	none
@@ -854,6 +853,7 @@ symbols:
 🛷	agatebe kanyerera ku rubuga	none
 🥌	ibuye rya curling	none
 🎯	gukubita ako kanya	none
+🔫	masotera	none
 🎱	umupira wa biyari wa nomero 8	none
 🔮	ikibumbe cy’urubura	none
 🎮	videwo y’umukino	none
@@ -1040,7 +1040,7 @@ symbols:
 🛠	inyundo na kasuku	none
 🗡	daga	none
 ⚔	inkota zisobekeranye	none
-🔫	masotera	none
+💣	ibombe	none
 🏹	umuheto n’umwambi	none
 🛡	ingabo	none
 🔧	gushikuza	none
@@ -1243,26 +1243,6 @@ symbols:
 🏴	ibendera ry’umukara	none
 🏳	ibendera ryera	none
 🏳‍🌈	ibendera ry’amabara y’umukororombya	none
-🫱🏻‍🫲🏼	gusuhuzanya ibara ry’uruhu rwera, ibara ry’uruhu rwera gahoro	none
-🫱🏻‍🫲🏽	gusuhuzanya ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe	none
-🫱🏻‍🫲🏾	gusuhuzanya ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe yirabura	none
-🫱🏻‍🫲🏿	gusuhuzanya ibara ry’uruhu rwera, ibara ry’uruhu rwirabura	none
-🫱🏼‍🫲🏻	gusuhuzanya ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwera	none
-🫱🏼‍🫲🏽	gusuhuzanya ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe	none
-🫱🏼‍🫲🏾	gusuhuzanya ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe yirabura	none
-🫱🏼‍🫲🏿	gusuhuzanya ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwirabura	none
-🫱🏽‍🫲🏻	gusuhuzanya ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera	none
-🫱🏽‍🫲🏼	gusuhuzanya ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera gahoro	none
-🫱🏽‍🫲🏾	gusuhuzanya ibara ry’uruhu rw’inzobe, ibara ry’uruhu rw’inzobe yirabura	none
-🫱🏽‍🫲🏿	gusuhuzanya ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwirabura	none
-🫱🏾‍🫲🏻	gusuhuzanya ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera	none
-🫱🏾‍🫲🏼	gusuhuzanya ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera gahoro	none
-🫱🏾‍🫲🏽	gusuhuzanya ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rw’inzobe	none
-🫱🏾‍🫲🏿	gusuhuzanya ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwirabura	none
-🫱🏿‍🫲🏻	gusuhuzanya ibara ry’uruhu rwirabura, ibara ry’uruhu rwera	none
-🫱🏿‍🫲🏼	gusuhuzanya ibara ry’uruhu rwirabura, ibara ry’uruhu rwera gahoro	none
-🫱🏿‍🫲🏽	gusuhuzanya ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe	none
-🫱🏿‍🫲🏾	gusuhuzanya ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura	none
 👋🏻	ikiganza gipepera ibara ry’uruhu rwera	none
 👋🏼	ikiganza gipepera ibara ry’uruhu rwera gahoro	none
 👋🏽	ikiganza gipepera ibara ry’uruhu rw’inzobe	none
@@ -1288,6 +1268,26 @@ symbols:
 🖖🏽	indamukanyo ya vulcan ibara ry’uruhu rw’inzobe	none
 🖖🏾	indamukanyo ya vulcan ibara ry’uruhu rw’inzobe yirabura	none
 🖖🏿	indamukanyo ya vulcan ibara ry’uruhu rwirabura	none
+🫱🏻‍🫲🏼	gusuhuzanya ibara ry’uruhu rwera, ibara ry’uruhu rwera gahoro	none
+🫱🏻‍🫲🏽	gusuhuzanya ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe	none
+🫱🏻‍🫲🏾	gusuhuzanya ibara ry’uruhu rwera, ibara ry’uruhu rw’inzobe yirabura	none
+🫱🏻‍🫲🏿	gusuhuzanya ibara ry’uruhu rwera, ibara ry’uruhu rwirabura	none
+🫱🏼‍🫲🏻	gusuhuzanya ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwera	none
+🫱🏼‍🫲🏽	gusuhuzanya ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe	none
+🫱🏼‍🫲🏾	gusuhuzanya ibara ry’uruhu rwera gahoro, ibara ry’uruhu rw’inzobe yirabura	none
+🫱🏼‍🫲🏿	gusuhuzanya ibara ry’uruhu rwera gahoro, ibara ry’uruhu rwirabura	none
+🫱🏽‍🫲🏻	gusuhuzanya ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera	none
+🫱🏽‍🫲🏼	gusuhuzanya ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwera gahoro	none
+🫱🏽‍🫲🏾	gusuhuzanya ibara ry’uruhu rw’inzobe, ibara ry’uruhu rw’inzobe yirabura	none
+🫱🏽‍🫲🏿	gusuhuzanya ibara ry’uruhu rw’inzobe, ibara ry’uruhu rwirabura	none
+🫱🏾‍🫲🏻	gusuhuzanya ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera	none
+🫱🏾‍🫲🏼	gusuhuzanya ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwera gahoro	none
+🫱🏾‍🫲🏽	gusuhuzanya ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rw’inzobe	none
+🫱🏾‍🫲🏿	gusuhuzanya ibara ry’uruhu rw’inzobe yirabura, ibara ry’uruhu rwirabura	none
+🫱🏿‍🫲🏻	gusuhuzanya ibara ry’uruhu rwirabura, ibara ry’uruhu rwera	none
+🫱🏿‍🫲🏼	gusuhuzanya ibara ry’uruhu rwirabura, ibara ry’uruhu rwera gahoro	none
+🫱🏿‍🫲🏽	gusuhuzanya ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe	none
+🫱🏿‍🫲🏾	gusuhuzanya ibara ry’uruhu rwirabura, ibara ry’uruhu rw’inzobe yirabura	none
 👌🏻	ikiganza cyemeza ibara ry’uruhu rwera	none
 👌🏼	ikiganza cyemeza ibara ry’uruhu rwera gahoro	none
 👌🏽	ikiganza cyemeza ibara ry’uruhu rw’inzobe	none

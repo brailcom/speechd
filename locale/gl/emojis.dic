@@ -264,43 +264,6 @@ symbols:
 ⪺	sucede sobre non case igual a	none
 ♭	bemol	none
 ♯	díese	none
-🥹	cara contendo as bágoas	none
-🧌	troll	none
-🩻	radiografía	none
-🩼	muleta	none
-🪩	bola de discoteca	none
-🪪	tarxeta de identidade	none
-🪫	batería baixa	none
-🪬	jamsa	none
-🪷	loto	none
-🪸	coral	none
-🪹	niño baleiro	none
-🪺	niño con ovos	none
-🫃	home embarazado	none
-🫄	persoa embarazada	none
-🫅	home con coroa	none
-🫗	derramamento de líquido	none
-🫘	fabas	none
-🫙	tarro	none
-🫠	cara derreténdose	none
-🫡	cara saudando	none
-🫢	cara cos ollos abertos e a man na boca	none
-🫣	cara cun ollo asomando	none
-🫤	cara coa boca en diagonal	none
-🫥	cara de liñas punteadas	none
-🫦	mordedura de beizo	none
-🫧	burbullas	none
-🫰	man cos dedos índice e polgar cruzados	none
-🫱	man cara á dereita	none
-🫲	man cara á esquerda	none
-🫳	man coa palma cara abaixo	none
-🫴	man coa palma cara arriba	none
-🫵	dedo índice apuntando ao usuario	none
-🫶	mans facendo un corazón	none
-🛝	esvaradoiro	none
-🛞	roda	none
-🛟	salvavidas	none
-🟰	signo igual groso	none
 😀	cara moi riseira	none
 😃	cara moi riseira con ollos grandes	none
 😄	cara moi riseira cos ollos alegres	none
@@ -311,6 +274,7 @@ symbols:
 😂	cara chorando de risa	none
 🙂	cara cun leve sorriso	none
 🙃	cara ao revés	none
+🫠	cara derreténdose	none
 😉	cara chiscando un ollo	none
 😊	cara alegre con ollos riseiros	none
 😇	cara riseira con auréola	none
@@ -331,13 +295,17 @@ symbols:
 🤑	cara de pensar en cartos	none
 🤗	cara dando un abrazo	none
 🤭	cara rindo disimuladamente	none
+🫢	cara cos ollos abertos e a man na boca	none
+🫣	cara cun ollo asomando	none
 🤫	cara de mandar calar	none
 🤔	cara pensativa	none
+🫡	cara saudando	none
 🤐	cara coa boca pechada cunha cremalleira	none
 🤨	cara cunha cella levantada	none
 😐	cara neutra	none
 😑	cara inexpresiva	none
 😶	cara sen boca	none
+🫥	cara de liñas punteadas	none
 😶‍🌫	cara nas nubes	none
 😏	cara con sorriso malicioso	none
 😒	cara de que non ten graza	none
@@ -345,6 +313,7 @@ symbols:
 😬	cara apertando os dentes	none
 😮‍💨	cara exhalando	none
 🤥	cara de mentirán	none
+🫨	cara tremente	none
 😌	cara de alivio	none
 😔	cara desanimada	none
 😪	cara de sono	none
@@ -369,6 +338,7 @@ symbols:
 🤓	cara de chapón	none
 🧐	cara con monóculo	none
 😕	cara confusa	none
+🫤	cara coa boca en diagonal	none
 😟	cara de preocupación	none
 🙁	cara triste	none
 ☹	cara moi triste	none
@@ -377,6 +347,7 @@ symbols:
 😲	cara abraiada	none
 😳	cara arroibada	none
 🥺	cara de súplica	none
+🥹	cara contendo as bágoas	none
 😦	cara triste coa boca aberta	none
 😧	cara de angustia	none
 😨	cara de medo	none
@@ -420,7 +391,6 @@ symbols:
 🙈	mono cos ollos tapados	none
 🙉	mono coas orellas tapadas	none
 🙊	mono coa boca tapada	none
-💋	marca de bico	none
 💌	carta de amor	none
 💘	corazón con frecha	none
 💝	corazón cun lazo	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	corazón en chamas	none
 ❤‍🩹	corazón curándose	none
 ❤	corazón	none
+🩷	corazón rosa	none
 🧡	corazón laranxa	none
 💛	corazón amarelo	none
 💚	corazón verde	none
 💙	corazón azul	none
+🩵	corazón azul claro	none
 💜	corazón violeta	none
 🤎	corazón marrón	none
 🖤	corazón negro	none
+🩶	corazón gris	none
 🤍	corazón branco	none
+💋	marca de bico	none
 💯	100 puntos	none
 💢	símbolo de enfado	none
 💥	explosión	none
@@ -450,7 +424,6 @@ symbols:
 💦	pingas de suor	none
 💨	símbolo de saír correndo	none
 🕳	burato	none
-💣	bomba	none
 💬	globo de diálogo á esquerda	none
 👁‍🗨	globo de diálogo en forma de ollo	none
 🗨	globo de diálogo á dereita	none
@@ -462,11 +435,18 @@ symbols:
 🖐	man aberta	none
 ✋	man levantada	none
 🖖	saúdo vulcaniano	none
+🫱	man cara á dereita	none
+🫲	man cara á esquerda	none
+🫳	man coa palma cara abaixo	none
+🫴	man coa palma cara arriba	none
+🫷	man empuxando cara á esquerda	none
+🫸	man empuxando cara á dereita	none
 👌	xesto de “OK”	none
 🤌	xesto de "ateigado"	none
 🤏	xesto de "un chisco"	none
 ✌	xesto de vitoria	none
 🤞	dedos cruzados	none
+🫰	man cos dedos índice e polgar cruzados	none
 🤟	xesto das iniciais de "I Love You"	none
 🤘	man facendo os cornos	none
 🤙	xesto de chamar por teléfono	none
@@ -476,6 +456,7 @@ symbols:
 🖕	dedo do medio levantado	none
 👇	dedo apuntando cara abaixo	none
 ☝	índice apuntando cara arriba	none
+🫵	dedo índice apuntando de fronte	none
 👍	polgar cara arriba	none
 👎	polgar cara abaixo	none
 ✊	puño en alto	none
@@ -484,6 +465,7 @@ symbols:
 🤜	puño cara á dereita	none
 👏	mans aplaudindo	none
 🙌	mans levantadas	none
+🫶	mans facendo un corazón	none
 👐	mans abertas	none
 🤲	palmas xuntas	none
 🤝	aperta de mans	none
@@ -508,6 +490,7 @@ symbols:
 👁	ollo	none
 👅	lingua	none
 👄	boca	none
+🫦	mordedura de beizo	none
 👶	bebé	none
 🧒	criatura	none
 👦	neno	none
@@ -615,6 +598,7 @@ symbols:
 👷	traballador da construción	none
 👷‍♂	obreiro	none
 👷‍♀	obreira	none
+🫅	persoa con coroa	none
 🤴	príncipe	none
 👸	princesa	none
 👳	persoa con turbante	none
@@ -629,7 +613,9 @@ symbols:
 👰‍♂	home con veo	none
 👰‍♀	muller con veo	none
 🤰	muller embarazada	none
-🤱	muller dando o peito	none
+🫃	home embarazado	none
+🫄	persoa embarazada	none
+🤱	dar o peito	none
 👩‍🍼	muller alimentando bebé	none
 👨‍🍼	home alimentando bebé	none
 🧑‍🍼	persoa alimentando bebé	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombi	none
 🧟‍♂	zombi de sexo masculino	none
 🧟‍♀	zombi de sexo feminino	none
+🧌	troll	none
 💆	masaxe facial	none
 💆‍♂	masaxe facial a home	none
 💆‍♀	masaxe facial a muller	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tigre	none
 🐆	leopardo	none
 🐴	cara de cabalo	none
+🫎	alce	none
+🫏	burro	none
 🐎	cabalo	none
 🦄	unicornio	none
 🦓	cebra	none
@@ -849,6 +838,8 @@ symbols:
 🦩	flamengo	none
 🦚	pavón	none
 🦜	loro	none
+🪽	á	none
+🪿	ganso	none
 🐸	ra	none
 🐊	crocodilo	none
 🐢	tartaruga	none
@@ -868,6 +859,8 @@ symbols:
 🦈	tiburón	none
 🐙	polbo	none
 🐚	bucina mariña	none
+🪸	coral	none
+🪼	medusa	none
 🐌	caracol	none
 🦋	bolboreta	none
 🐛	cempés	none
@@ -887,6 +880,7 @@ symbols:
 💐	ramo de flores	none
 🌸	flor de cerdeira	none
 💮	flor branca	none
+🪷	loto	none
 🏵	roseta	none
 🌹	rosa	none
 🥀	flor murcha	none
@@ -894,6 +888,7 @@ symbols:
 🌻	xirasol	none
 🌼	flor	none
 🌷	tulipán	none
+🪻	xacinto	none
 🌱	plántula	none
 🪴	planta en testo	none
 🌲	árbore de folla perenne	none
@@ -907,6 +902,9 @@ symbols:
 🍁	folla de pradairo	none
 🍂	folla seca	none
 🍃	folla ao vento	none
+🪹	niño baleiro	none
+🪺	niño con ovos	none
+🍄	cogomelo	none
 🍇	uvas	none
 🍈	melón	none
 🍉	sandía	none
@@ -938,9 +936,11 @@ symbols:
 🥦	brócoli	none
 🧄	allo	none
 🧅	cebola	none
-🍄	cogomelo	none
 🥜	cacahuete	none
+🫘	fabas	none
 🌰	castaña	none
+🫚	xenxibre	none
+🫛	vaíña	none
 🍞	pan de molde	none
 🥐	croissant	none
 🥖	barra de pan	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	brinde de cervexas	none
 🥂	brinde	none
 🥃	vaso con xeo	none
+🫗	derramamento de líquido	none
 🥤	vaso con palla	none
 🧋	té de burbullas	none
 🧃	brik	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	garfo e coitelo	none
 🥄	culler	none
 🔪	coitelo de cociña	none
+🫙	tarro	none
 🏺	ánfora	none
 🌍	globo terráqueo Europa-África	none
 🌎	globo terráqueo América	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	ponte de noite	none
 ♨	augas termais	none
 🎠	cabaliño de carrusel	none
+🛝	esvaradoiro	none
 🎡	nora	none
 🎢	montaña rusa	none
 💈	poste de barbeiro	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	vía do tren	none
 🛢	barril de petróleo	none
 ⛽	gasolineira	none
+🛞	roda	none
 🚨	sirena de policía	none
 🚥	semáforo horizontal	none
 🚦	semáforo	none
 🛑	sinal de stop	none
 🚧	en construción	none
 ⚓	áncora	none
+🛟	salvavidas	none
 ⛵	veleiro	none
 🛶	canoa	none
 🚤	lancha motora	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	diana	none
 🪀	ioió	none
 🪁	papaventos	none
+🔫	pistola de auga	none
 🎱	billar	none
 🔮	bola de cristal	none
 🪄	variña máxica	none
-🧿	ollo turco	none
 🎮	videoxogo	none
 🕹	panca de control	none
 🎰	máquina comecartos	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	crebacabezas	none
 🧸	osiño	none
 🪅	piñata	none
+🪩	bola de discoteca	none
 🪆	bonecas rusas	none
 ♠	picas	none
 ♥	corazóns	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	pantalón curto	none
 👙	bikini	none
 👚	roupa de muller	none
+🪭	abano	none
 👛	moedeiro	none
 👜	bolso	none
 👝	bolso de man	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	sandalia de muller	none
 🩰	bailarinas	none
 👢	botas de muller	none
+🪮	peite de pelo rizado	none
 👑	coroa	none
 👒	sombreiro de muller	none
 🎩	sombreiro de copa	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banxo	none
 🥁	tambor	none
 🪘	tambor alto	none
+🪇	maracas	none
+🪈	frauta	none
 📱	teléfono móbil	none
 📲	teléfono móbil con frecha	none
 ☎	teléfono	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	buscapersoas	none
 📠	fax	none
 🔋	pila	none
+🪫	batería baixa	none
 🔌	enchufe	none
 💻	ordenador portátil	none
 🖥	ordenador de escritorio	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	martelo e chave inglesa	none
 🗡	daga	none
 ⚔	espadas cruzadas	none
-🔫	pistola de auga	none
+💣	bomba	none
 🪃	búmerang	none
 🏹	arco e frecha	none
 🛡	escudo	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	pinga de sangue	none
 💊	pílula	none
 🩹	apósito	none
+🩼	muleta	none
 🩺	estetoscopio	none
+🩻	radiografía	none
 🚪	porta	none
 🛗	ascensor	none
 🪞	espello	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	rolo de papel	none
 🪣	caldeiro	none
 🧼	xabón	none
+🫧	burbullas	none
 🪥	cepillo de dentes	none
 🧽	esponxa	none
 🧯	extintor	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	ataúde	none
 🪦	lápida	none
 ⚱	urna funeraria	none
+🧿	ollo turco	none
+🪬	jamsa	none
 🗿	estatua da illa de Pascua	none
 🪧	pancarta	none
+🪪	tarxeta de identidade	none
 🏧	sinal de caixeiro automático	none
 🚮	sinal de tirar lixo na papeleira	none
 🚰	sinal de auga potable	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	símbolo da paz	none
 🕎	menorá	none
 🔯	estrela de seis puntas con punto	none
+🪯	khanda	none
 ♈	Aries	none
 ♉	Tauro	none
 ♊	Xémini	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	botón de diminuír o brillo	none
 🔆	botón de aumentar o brillo	none
 📶	sinal de cobertura	none
+🛜	wifi	none
 📳	modo vibración	none
 📴	teléfono móbil apagado	none
 ♀	símbolo da muller	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	suma	none
 ➖	resta	none
 ➗	división	none
+🟰	signo igual groso	none
 ♾	infinito	none
 ❓	signo de interrogación vermello	none
 ❔	signo de interrogación branco	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	rublo	none
 ₿	bitcoin	none
 ₨	rupia	none
-🫃🏻	home embarazado ton de pel moi claro	none
-🫃🏼	home embarazado ton de pel claro	none
-🫃🏽	home embarazado ton de pel medio	none
-🫃🏾	home embarazado ton de pel escuro	none
-🫃🏿	home embarazado ton de pel moi escuro	none
-🫄🏻	persoa embarazada ton de pel moi claro	none
-🫄🏼	persoa embarazada ton de pel claro	none
-🫄🏽	persoa embarazada ton de pel medio	none
-🫄🏾	persoa embarazada ton de pel escuro	none
-🫄🏿	persoa embarazada ton de pel moi escuro	none
-🫅🏻	home con coroa ton de pel moi claro	none
-🫅🏼	home con coroa ton de pel claro	none
-🫅🏽	home con coroa ton de pel medio	none
-🫅🏾	home con coroa ton de pel escuro	none
-🫅🏿	home con coroa ton de pel moi escuro	none
-🫰🏻	man cos dedos índice e polgar cruzados ton de pel moi claro	none
-🫰🏼	man cos dedos índice e polgar cruzados ton de pel claro	none
-🫰🏽	man cos dedos índice e polgar cruzados ton de pel medio	none
-🫰🏾	man cos dedos índice e polgar cruzados ton de pel escuro	none
-🫰🏿	man cos dedos índice e polgar cruzados ton de pel moi escuro	none
+👋🏻	man saudando ton de pel moi claro	none
+👋🏼	man saudando ton de pel claro	none
+👋🏽	man saudando ton de pel medio	none
+👋🏾	man saudando ton de pel escuro	none
+👋🏿	man saudando ton de pel moi escuro	none
+🤚🏻	palma da man ton de pel moi claro	none
+🤚🏼	palma da man ton de pel claro	none
+🤚🏽	palma da man ton de pel medio	none
+🤚🏾	palma da man ton de pel escuro	none
+🤚🏿	palma da man ton de pel moi escuro	none
+🖐🏻	man aberta ton de pel moi claro	none
+🖐🏼	man aberta ton de pel claro	none
+🖐🏽	man aberta ton de pel medio	none
+🖐🏾	man aberta ton de pel escuro	none
+🖐🏿	man aberta ton de pel moi escuro	none
+✋🏻	man levantada ton de pel moi claro	none
+✋🏼	man levantada ton de pel claro	none
+✋🏽	man levantada ton de pel medio	none
+✋🏾	man levantada ton de pel escuro	none
+✋🏿	man levantada ton de pel moi escuro	none
+🖖🏻	saúdo vulcaniano ton de pel moi claro	none
+🖖🏼	saúdo vulcaniano ton de pel claro	none
+🖖🏽	saúdo vulcaniano ton de pel medio	none
+🖖🏾	saúdo vulcaniano ton de pel escuro	none
+🖖🏿	saúdo vulcaniano ton de pel moi escuro	none
 🫱🏻	man cara á dereita ton de pel moi claro	none
 🫱🏼	man cara á dereita ton de pel claro	none
 🫱🏽	man cara á dereita ton de pel medio	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	man coa palma cara arriba ton de pel medio	none
 🫴🏾	man coa palma cara arriba ton de pel escuro	none
 🫴🏿	man coa palma cara arriba ton de pel moi escuro	none
-🫵🏻	dedo índice apuntando ao usuario ton de pel moi claro	none
-🫵🏼	dedo índice apuntando ao usuario ton de pel claro	none
-🫵🏽	dedo índice apuntando ao usuario ton de pel medio	none
-🫵🏾	dedo índice apuntando ao usuario ton de pel escuro	none
-🫵🏿	dedo índice apuntando ao usuario ton de pel moi escuro	none
-🫶🏻	mans facendo un corazón ton de pel moi claro	none
-🫶🏼	mans facendo un corazón ton de pel claro	none
-🫶🏽	mans facendo un corazón ton de pel medio	none
-🫶🏾	mans facendo un corazón ton de pel escuro	none
-🫶🏿	mans facendo un corazón ton de pel moi escuro	none
-👋🏻	man saudando ton de pel moi claro	none
-👋🏼	man saudando ton de pel claro	none
-👋🏽	man saudando ton de pel medio	none
-👋🏾	man saudando ton de pel escuro	none
-👋🏿	man saudando ton de pel moi escuro	none
-🤚🏻	palma da man ton de pel moi claro	none
-🤚🏼	palma da man ton de pel claro	none
-🤚🏽	palma da man ton de pel medio	none
-🤚🏾	palma da man ton de pel escuro	none
-🤚🏿	palma da man ton de pel moi escuro	none
-🖐🏻	man aberta ton de pel moi claro	none
-🖐🏼	man aberta ton de pel claro	none
-🖐🏽	man aberta ton de pel medio	none
-🖐🏾	man aberta ton de pel escuro	none
-🖐🏿	man aberta ton de pel moi escuro	none
-✋🏻	man levantada ton de pel moi claro	none
-✋🏼	man levantada ton de pel claro	none
-✋🏽	man levantada ton de pel medio	none
-✋🏾	man levantada ton de pel escuro	none
-✋🏿	man levantada ton de pel moi escuro	none
-🖖🏻	saúdo vulcaniano ton de pel moi claro	none
-🖖🏼	saúdo vulcaniano ton de pel claro	none
-🖖🏽	saúdo vulcaniano ton de pel medio	none
-🖖🏾	saúdo vulcaniano ton de pel escuro	none
-🖖🏿	saúdo vulcaniano ton de pel moi escuro	none
+🫷🏻	man empuxando cara á esquerda ton de pel moi claro	none
+🫷🏼	man empuxando cara á esquerda ton de pel claro	none
+🫷🏽	man empuxando cara á esquerda ton de pel medio	none
+🫷🏾	man empuxando cara á esquerda ton de pel escuro	none
+🫷🏿	man empuxando cara á esquerda ton de pel moi escuro	none
+🫸🏻	man empuxando cara á dereita ton de pel moi claro	none
+🫸🏼	man empuxando cara á dereita ton de pel claro	none
+🫸🏽	man empuxando cara á dereita ton de pel medio	none
+🫸🏾	man empuxando cara á dereita ton de pel escuro	none
+🫸🏿	man empuxando cara á dereita ton de pel moi escuro	none
 👌🏻	xesto de “OK” ton de pel moi claro	none
 👌🏼	xesto de “OK” ton de pel claro	none
 👌🏽	xesto de “OK” ton de pel medio	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	dedos cruzados ton de pel medio	none
 🤞🏾	dedos cruzados ton de pel escuro	none
 🤞🏿	dedos cruzados ton de pel moi escuro	none
+🫰🏻	man cos dedos índice e polgar cruzados ton de pel moi claro	none
+🫰🏼	man cos dedos índice e polgar cruzados ton de pel claro	none
+🫰🏽	man cos dedos índice e polgar cruzados ton de pel medio	none
+🫰🏾	man cos dedos índice e polgar cruzados ton de pel escuro	none
+🫰🏿	man cos dedos índice e polgar cruzados ton de pel moi escuro	none
 🤟🏻	xesto das iniciais de "I Love You" ton de pel moi claro	none
 🤟🏼	xesto das iniciais de "I Love You" ton de pel claro	none
 🤟🏽	xesto das iniciais de "I Love You" ton de pel medio	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	índice apuntando cara arriba ton de pel medio	none
 ☝🏾	índice apuntando cara arriba ton de pel escuro	none
 ☝🏿	índice apuntando cara arriba ton de pel moi escuro	none
+🫵🏻	dedo índice apuntando de fronte ton de pel moi claro	none
+🫵🏼	dedo índice apuntando de fronte ton de pel claro	none
+🫵🏽	dedo índice apuntando de fronte ton de pel medio	none
+🫵🏾	dedo índice apuntando de fronte ton de pel escuro	none
+🫵🏿	dedo índice apuntando de fronte ton de pel moi escuro	none
 👍🏻	polgar cara arriba ton de pel moi claro	none
 👍🏼	polgar cara arriba ton de pel claro	none
 👍🏽	polgar cara arriba ton de pel medio	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	mans levantadas ton de pel medio	none
 🙌🏾	mans levantadas ton de pel escuro	none
 🙌🏿	mans levantadas ton de pel moi escuro	none
+🫶🏻	mans facendo un corazón ton de pel moi claro	none
+🫶🏼	mans facendo un corazón ton de pel claro	none
+🫶🏽	mans facendo un corazón ton de pel medio	none
+🫶🏾	mans facendo un corazón ton de pel escuro	none
+🫶🏿	mans facendo un corazón ton de pel moi escuro	none
 👐🏻	mans abertas ton de pel moi claro	none
 👐🏼	mans abertas ton de pel claro	none
 👐🏽	mans abertas ton de pel medio	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	obreira ton de pel medio	none
 👷🏾‍♀	obreira ton de pel escuro	none
 👷🏿‍♀	obreira ton de pel moi escuro	none
+🫅🏻	persoa con coroa ton de pel moi claro	none
+🫅🏼	persoa con coroa ton de pel claro	none
+🫅🏽	persoa con coroa ton de pel medio	none
+🫅🏾	persoa con coroa ton de pel escuro	none
+🫅🏿	persoa con coroa ton de pel moi escuro	none
 🤴🏻	príncipe ton de pel moi claro	none
 🤴🏼	príncipe ton de pel claro	none
 🤴🏽	príncipe ton de pel medio	none
@@ -2930,11 +2950,21 @@ symbols:
 🤰🏽	muller embarazada ton de pel medio	none
 🤰🏾	muller embarazada ton de pel escuro	none
 🤰🏿	muller embarazada ton de pel moi escuro	none
-🤱🏻	muller dando o peito ton de pel moi claro	none
-🤱🏼	muller dando o peito ton de pel claro	none
-🤱🏽	muller dando o peito ton de pel medio	none
-🤱🏾	muller dando o peito ton de pel escuro	none
-🤱🏿	muller dando o peito ton de pel moi escuro	none
+🫃🏻	home embarazado ton de pel moi claro	none
+🫃🏼	home embarazado ton de pel claro	none
+🫃🏽	home embarazado ton de pel medio	none
+🫃🏾	home embarazado ton de pel escuro	none
+🫃🏿	home embarazado ton de pel moi escuro	none
+🫄🏻	persoa embarazada ton de pel moi claro	none
+🫄🏼	persoa embarazada ton de pel claro	none
+🫄🏽	persoa embarazada ton de pel medio	none
+🫄🏾	persoa embarazada ton de pel escuro	none
+🫄🏿	persoa embarazada ton de pel moi escuro	none
+🤱🏻	dar o peito ton de pel moi claro	none
+🤱🏼	dar o peito ton de pel claro	none
+🤱🏽	dar o peito ton de pel medio	none
+🤱🏾	dar o peito ton de pel escuro	none
+🤱🏿	dar o peito ton de pel moi escuro	none
 👩🏻‍🍼	muller alimentando bebé ton de pel moi claro	none
 👩🏼‍🍼	muller alimentando bebé ton de pel claro	none
 👩🏽‍🍼	muller alimentando bebé ton de pel medio	none

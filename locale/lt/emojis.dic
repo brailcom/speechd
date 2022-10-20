@@ -264,43 +264,6 @@ symbols:
 ⪺	eina po virš ne beveik lygu	none
 ♭	bemolis	none
 ♯	diezas	none
-🥹	ašaras tramdantis veidas	none
-🧌	trolis	none
-🩻	rentgenas	none
-🩼	ramentas	none
-🪩	veidrodinis rutulys	none
-🪪	tapatybės kortelė	none
-🪫	išeikvota baterija	none
-🪬	hamsa	none
-🪷	lotusas	none
-🪸	koralas	none
-🪹	tuščias lizdas	none
-🪺	lizdas su kiaušiniais	none
-🫃	nėščias vyras	none
-🫄	nėščias asmuo	none
-🫅	asmuo su karūna	none
-🫗	pilamas skystis	none
-🫘	pupelės	none
-🫙	stiklainis	none
-🫠	tirpstantis veidas	none
-🫡	pagarbą atiduodantis veidas	none
-🫢	veidas atmerktomis akimis ir ranka uždengta burna	none
-🫣	veidas su stebinčia akimi	none
-🫤	veidas įstriža burna	none
-🫥	punktyrinis veidas	none
-🫦	prikąsta lūpa	none
-🫧	burbulai	none
-🫰	ranka sukryžiuotu smiliumi ir nykščiu	none
-🫱	į dešinę rodanti ranka	none
-🫲	į kairę rodanti ranka	none
-🫳	ranka delnu žemyn	none
-🫴	ranka delnu į viršų	none
-🫵	į žiūrovą rodantis smilius	none
-🫶	širdelė iš rankų	none
-🛝	čiuožykla	none
-🛞	ratas	none
-🛟	gelbėjimo ratas	none
-🟰	paryškintas lygybės ženklas	none
 😀	išsišiepęs veidas	none
 😃	besišypsantis išsižiojęs veidas	none
 😄	besišypsantis išsižiojęs veidas besišypsančiomis akimis	none
@@ -311,6 +274,7 @@ symbols:
 😂	veidas su džiaugsmo ašaromis	none
 🙂	šiek tiek besišypsantis veidas	none
 🙃	apverstas veidas	none
+🫠	tirpstantis veidas	none
 😉	mirksintis veidas	none
 😊	besišypsantis veidas su besišypsančiomis akimis	none
 😇	besišypsantis veidas su aureole	none
@@ -331,13 +295,17 @@ symbols:
 🤑	veidas su pinigu vietoje liežuvio	none
 🤗	apkabinantis veidas	none
 🤭	veidas su ranka ant burnos	none
+🫢	veidas atmerktomis akimis ir ranka uždengta burna	none
+🫣	veidas su stebinčia akimi	none
 🤫	tildantis veidas	none
 🤔	mąstantis veidas	none
+🫡	pagarbą atiduodantis veidas	none
 🤐	veidas su užtrauktuku vietoje burnos	none
 🤨	veidas su pakeltais antakiais	none
 😐	neutralus veidas	none
 😑	veidas be jokios išraiškos	none
 😶	veidas be burnos	none
+🫥	punktyrinis veidas	none
 😶‍🌫	veidas debesyse	none
 😏	iš pasitenkinimo besišypsantis veidas	none
 😒	nelinksmas veidas	none
@@ -345,6 +313,7 @@ symbols:
 😬	besivaipantis veidas	none
 😮‍💨	veidas su garu	none
 🤥	meluojantis veidas	none
+🫨	besikratantis veidukas	none
 😌	veidas su palengvėjimu	none
 😔	susimąstęs veidas	none
 😪	mieguistas veidas	none
@@ -369,6 +338,7 @@ symbols:
 🤓	moksliuko veidas	none
 🧐	veidas su monokliu	none
 😕	sutrikęs veidas	none
+🫤	veidas įstriža burna	none
 😟	susirūpinęs veidas	none
 🙁	šiek tiek paniuręs veidas	none
 ☹	paniuręs veidas	none
@@ -377,6 +347,7 @@ symbols:
 😲	apstulbęs veidas	none
 😳	nuraudęs veidas	none
 🥺	maldaujantis veidas	none
+🥹	ašaras tramdantis veidas	none
 😦	paniuręs išsižiojęs veidas	none
 😧	kenčiantis veidas	none
 😨	baimės pilnas veidas	none
@@ -420,7 +391,6 @@ symbols:
 🙈	užsidengusi akis beždžionė	none
 🙉	užsidengusi ausis beždžionė	none
 🙊	užsidengusi burną beždžionė	none
-💋	bučinio žymė	none
 💌	meilės laiškas	none
 💘	širdelė su strėle	none
 💝	širdelė su kaspinu	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	deganti širdis	none
 ❤‍🩹	gydytina širdis	none
 ❤	raudona širdelė	none
+🩷	rožinė širdelė	none
 🧡	oranžinė širdelė	none
 💛	geltona širdelė	none
 💚	žalia širdelė	none
 💙	mėlyna širdelė	none
+🩵	šviesiai mėlyna širdelė	none
 💜	purpurinė širdelė	none
 🤎	ruda širdelė	none
 🖤	juoda širdis	none
+🩶	pilka širdelė	none
 🤍	balta širdelė	none
+💋	bučinio žymė	none
 💯	šimtas taškų	none
 💢	pykčio simbolis	none
 💥	susidūrimas	none
@@ -450,7 +424,6 @@ symbols:
 💦	prakaito lašeliai	none
 💨	sukeltos dulkės	none
 🕳	duobė	none
-💣	bomba	none
 💬	kalbos debesėlis	none
 👁‍🗨	akis kalbėjimo burbule	none
 🗨	kairysis kalbos debesėlis	none
@@ -462,11 +435,18 @@ symbols:
 🖐	iškelta ranka su išskėstais pirštais	none
 ✋	iškelta ranka	none
 🖖	vulkanų rasės pasisveikinimo ženklas	none
+🫱	į dešinę rodanti ranka	none
+🫲	į kairę rodanti ranka	none
+🫳	ranka delnu žemyn	none
+🫴	ranka delnu į viršų	none
+🫷	į kairę stumianti ranka	none
+🫸	į dešinę stumianti ranka	none
 👌	GERAI ženklas rankomis	none
 🤌	suspausti pirštai	none
 🤏	žnybianti ranka	none
 ✌	pergalės ženklą rodanti ranka	none
 🤞	sukryžiuoti pirštai	none
+🫰	ranka sukryžiuotu smiliumi ir nykščiu	none
 🤟	„myliu tave“ gestas	none
 🤘	ragų ženklas	none
 🤙	gestas paskambink man	none
@@ -476,6 +456,7 @@ symbols:
 🖕	vidurinis pirštas	none
 👇	delnu nusukta žemyn pirštu rodanti ranka	none
 ☝	delnu atsukta aukštyn pirštu rodanti ranka	none
+🫵	į žiūrovą rodantis smilius	none
 👍	nykštys į viršų	none
 👎	nykštys į apačią	none
 ✊	iškeltas kumštis	none
@@ -484,6 +465,7 @@ symbols:
 🤜	į dešinę nukreiptas kumštis	none
 👏	plojančios rankos	none
 🙌	žmogus, iškėlęs rankas	none
+🫶	širdelė iš rankų	none
 👐	atviros rankos	none
 🤲	delnai suglausti	none
 🤝	rankos paspaudimas	none
@@ -508,6 +490,7 @@ symbols:
 👁	akis	none
 👅	liežuvis	none
 👄	burna	none
+🫦	prikąsta lūpa	none
 👶	kūdikis	none
 🧒	vaikas	none
 👦	berniukas	none
@@ -615,6 +598,7 @@ symbols:
 👷	statybininkas	none
 👷‍♂	vyras statybininkas	none
 👷‍♀	statybininkė	none
+🫅	asmuo su karūna	none
 🤴	princas	none
 👸	princesė	none
 👳	vyras su turbanu	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	vyras su veliumu	none
 👰‍♀	moteris su veliumu	none
 🤰	nėščia moteris	none
+🫃	nėščias vyras	none
+🫄	nėščias asmuo	none
 🤱	maitinimas krūtimi	none
 👩‍🍼	kūdikį maitinanti moteris	none
 👨‍🍼	kūdikį maitinantis vyras	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombis	none
 🧟‍♂	zombis vyras	none
 🧟‍♀	zombė	none
+🧌	trolis	none
 💆	veido masažas	none
 💆‍♂	masažuojama vyro galva	none
 💆‍♀	masažuojama moters galva	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tigras	none
 🐆	leopardas	none
 🐴	arklio snukis	none
+🫎	briedis	none
+🫏	asilas	none
 🐎	arklys	none
 🦄	vienaragio snukis	none
 🦓	zebras	none
@@ -849,6 +838,8 @@ symbols:
 🦩	flamingas	none
 🦚	povas	none
 🦜	papūga	none
+🪽	sparnas	none
+🪿	žąsis	none
 🐸	varlės snukutis	none
 🐊	krokodilas	none
 🐢	vėžlys	none
@@ -868,6 +859,8 @@ symbols:
 🦈	ryklys	none
 🐙	aštuonkojis	none
 🐚	susisukusi kriauklė	none
+🪸	koralas	none
+🪼	medūza	none
 🐌	sraigė	none
 🦋	drugelis	none
 🐛	vabalas	none
@@ -887,6 +880,7 @@ symbols:
 💐	puokštė	none
 🌸	vyšnios žiedas	none
 💮	balta gėlė	none
+🪷	lotusas	none
 🏵	rozetė	none
 🌹	rožė	none
 🥀	gležna gėlė	none
@@ -894,6 +888,7 @@ symbols:
 🌻	saulėgrąža	none
 🌼	gėlės žiedas	none
 🌷	tulpė	none
+🪻	hiacintas	none
 🌱	daigas	none
 🪴	pasodintas augalas	none
 🌲	amžinai žaliuojantis medis	none
@@ -907,6 +902,9 @@ symbols:
 🍁	klevo lapas	none
 🍂	nukritęs lapas	none
 🍃	lapas vėjyje	none
+🪹	tuščias lizdas	none
+🪺	lizdas su kiaušiniais	none
+🍄	grybas	none
 🍇	vynuogės	none
 🍈	melionas	none
 🍉	arbūzas	none
@@ -938,9 +936,11 @@ symbols:
 🥦	brokolis	none
 🧄	česnakas	none
 🧅	svogūnas	none
-🍄	grybas	none
 🥜	žemės riešutas	none
+🫘	pupelės	none
 🌰	lazdyno riešutas	none
+🫚	imbiero šaknis	none
+🫛	žirnių ankštis	none
 🍞	duona	none
 🥐	raguolis	none
 🥖	ilgas batonas	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	susidaužiantys alaus bokalai	none
 🥂	sudaužtos taurės	none
 🥃	stiklinė	none
+🫗	pilamas skystis	none
 🥤	puodelis su šiaudeliu	none
 🧋	burbulinė arbata	none
 🧃	gėrimo pakelis	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	šakutė ir peilis	none
 🥄	šaukštas	none
 🔪	virtuvinis peilis	none
+🫙	stiklainis	none
 🏺	senovinė vaza	none
 🌍	žemės rutulys su Europos ir Afrikos žemynais	none
 🌎	žemės rutulys su Šiaurės ir Pietų Amerikos žemynais	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	tiltas naktį	none
 ♨	karštosios versmės	none
 🎠	karuselės arkliukas	none
+🛝	čiuožykla	none
 🎡	apžvalgos ratas	none
 🎢	linksmieji kalneliai	none
 💈	kirpėjo suktukas	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	geležinkelio bėgiai	none
 🛢	degalų statinė	none
 ⛽	degalų siurblys	none
+🛞	ratas	none
 🚨	policijos automobilio lempa	none
 🚥	horizontalus šviesoforas	none
 🚦	vertikalus šviesoforas	none
 🛑	sustojimo ženklas	none
 🚧	statybos	none
 ⚓	inkaras	none
+🛟	gelbėjimo ratas	none
 ⛵	burlaivis	none
 🛶	kanoja	none
 🚤	motorinis kateris	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	smūgis tiesiai į taikinį	none
 🪀	jo-jo	none
 🪁	aitvaras	none
+🔫	vandens šautuvas	none
 🎱	biliardo kamuoliukas	none
 🔮	krištolinis rutulys	none
 🪄	stebuklinga lazdelė	none
-🧿	amuletas akis	none
 🎮	vaizdo žaidimas	none
 🕹	valdymo svirtis	none
 🎰	žaidimų automatas	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	dėlionė	none
 🧸	meškiukas	none
 🪅	pinjata	none
+🪩	veidrodinis rutulys	none
 🪆	matrioškos	none
 ♠	pikai	none
 ♥	širdys	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	šortai	none
 👙	bikinis	none
 👚	moteriški drabužiai	none
+🪭	sulankstoma vėduoklė	none
 👛	piniginė	none
 👜	rankinė	none
 👝	maišelis	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	moteriška basutė	none
 🩰	baleto bateliai	none
 👢	moteriškas batas	none
+🪮	plaukų šukutės	none
 👑	karūna	none
 👒	moteriška skrybėlė	none
 🎩	cilindras	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	bandža	none
 🥁	būgnas	none
 🪘	ilgas būgnas	none
+🪇	marakasai	none
+🪈	fleita	none
 📱	mobilusis telefonas	none
 📲	mobilusis telefonas su rodykle	none
 ☎	telefonas	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	gaviklis	none
 📠	fakso aparatas	none
 🔋	baterija	none
+🪫	išeikvota baterija	none
 🔌	elektros kištukas	none
 💻	skreitinis kompiuteris	none
 🖥	stalinis kompiuteris	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	plaktukas ir veržliaraktis	none
 🗡	durklas	none
 ⚔	sukryžiuoti kardai	none
-🔫	vandens šautuvas	none
+💣	bomba	none
 🪃	bumerangas	none
 🏹	lankas ir strėlė	none
 🛡	skydas	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	kraujo lašas	none
 💊	piliulė	none
 🩹	pleistras	none
+🩼	ramentas	none
 🩺	stetoskopas	none
+🩻	rentgenas	none
 🚪	durys	none
 🛗	elevatorius	none
 🪞	veidrodis	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	popieriaus ritinys	none
 🪣	kibiras	none
 🧼	muilas	none
+🫧	burbulai	none
 🪥	dantų šepetėlis	none
 🧽	kempinė	none
 🧯	gesintuvas	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	karstas	none
 🪦	paminklas	none
 ⚱	laidojimo urna	none
+🧿	amuletas akis	none
+🪬	hamsa	none
 🗿	moai	none
 🪧	plakatas	none
+🪪	tapatybės kortelė	none
 🏧	bankomato ženklas	none
 🚮	šiukšlių metimo į šiukšliadėžes ženklas	none
 🚰	geriamasis vanduo	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	taikos simbolis	none
 🕎	menora	none
 🔯	šešiakampė žvaigždė su tašku	none
+🪯	khanda	none
 ♈	avinas	none
 ♉	tauras	none
 ♊	dvyniai	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	užtemdymo mygtukas	none
 🔆	ryškumo mygtukas	none
 📶	antenos juostos	none
+🛜	belaidis ryšys	none
 📳	vibravimo režimas	none
 📴	išjungti mobilųjį telefoną	none
 ♀	moteriškos lyties ženklas	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	paryškintas pliusas	none
 ➖	paryškintas minusas	none
 ➗	paryškintas dalybos ženklas	none
+🟰	paryškintas lygybės ženklas	none
 ♾	begalybė	none
 ❓	raudonas klaustukas	none
 ❔	baltas klaustukas	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	rublis	none
 ₿	bitkoino ženklas	none
 ₨	rupija	none
-🫃🏻	nėščias vyras šviesios odos	none
-🫃🏼	nėščias vyras vidutinio gymio	none
-🫃🏽	nėščias vyras rusvos odos	none
-🫃🏾	nėščias vyras tamsios odos	none
-🫃🏿	nėščias vyras itin tamsios odos	none
-🫄🏻	nėščias asmuo šviesios odos	none
-🫄🏼	nėščias asmuo vidutinio gymio	none
-🫄🏽	nėščias asmuo rusvos odos	none
-🫄🏾	nėščias asmuo tamsios odos	none
-🫄🏿	nėščias asmuo itin tamsios odos	none
-🫅🏻	asmuo su karūna šviesios odos	none
-🫅🏼	asmuo su karūna vidutinio gymio	none
-🫅🏽	asmuo su karūna rusvos odos	none
-🫅🏾	asmuo su karūna tamsios odos	none
-🫅🏿	asmuo su karūna itin tamsios odos	none
-🫰🏻	ranka sukryžiuotu smiliumi ir nykščiu šviesios odos	none
-🫰🏼	ranka sukryžiuotu smiliumi ir nykščiu vidutinio gymio	none
-🫰🏽	ranka sukryžiuotu smiliumi ir nykščiu rusvos odos	none
-🫰🏾	ranka sukryžiuotu smiliumi ir nykščiu tamsios odos	none
-🫰🏿	ranka sukryžiuotu smiliumi ir nykščiu itin tamsios odos	none
+👋🏻	mojuojanti ranka šviesios odos	none
+👋🏼	mojuojanti ranka vidutinio gymio	none
+👋🏽	mojuojanti ranka rusvos odos	none
+👋🏾	mojuojanti ranka tamsios odos	none
+👋🏿	mojuojanti ranka itin tamsios odos	none
+🤚🏻	pakelta viršutinė plaštakos pusė šviesios odos	none
+🤚🏼	pakelta viršutinė plaštakos pusė vidutinio gymio	none
+🤚🏽	pakelta viršutinė plaštakos pusė rusvos odos	none
+🤚🏾	pakelta viršutinė plaštakos pusė tamsios odos	none
+🤚🏿	pakelta viršutinė plaštakos pusė itin tamsios odos	none
+🖐🏻	iškelta ranka su išskėstais pirštais šviesios odos	none
+🖐🏼	iškelta ranka su išskėstais pirštais vidutinio gymio	none
+🖐🏽	iškelta ranka su išskėstais pirštais rusvos odos	none
+🖐🏾	iškelta ranka su išskėstais pirštais tamsios odos	none
+🖐🏿	iškelta ranka su išskėstais pirštais itin tamsios odos	none
+✋🏻	iškelta ranka šviesios odos	none
+✋🏼	iškelta ranka vidutinio gymio	none
+✋🏽	iškelta ranka rusvos odos	none
+✋🏾	iškelta ranka tamsios odos	none
+✋🏿	iškelta ranka itin tamsios odos	none
+🖖🏻	vulkanų rasės pasisveikinimo ženklas šviesios odos	none
+🖖🏼	vulkanų rasės pasisveikinimo ženklas vidutinio gymio	none
+🖖🏽	vulkanų rasės pasisveikinimo ženklas rusvos odos	none
+🖖🏾	vulkanų rasės pasisveikinimo ženklas tamsios odos	none
+🖖🏿	vulkanų rasės pasisveikinimo ženklas itin tamsios odos	none
 🫱🏻	į dešinę rodanti ranka šviesios odos	none
 🫱🏼	į dešinę rodanti ranka vidutinio gymio	none
 🫱🏽	į dešinę rodanti ranka rusvos odos	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	ranka delnu į viršų rusvos odos	none
 🫴🏾	ranka delnu į viršų tamsios odos	none
 🫴🏿	ranka delnu į viršų itin tamsios odos	none
-🫵🏻	į žiūrovą rodantis smilius šviesios odos	none
-🫵🏼	į žiūrovą rodantis smilius vidutinio gymio	none
-🫵🏽	į žiūrovą rodantis smilius rusvos odos	none
-🫵🏾	į žiūrovą rodantis smilius tamsios odos	none
-🫵🏿	į žiūrovą rodantis smilius itin tamsios odos	none
-🫶🏻	širdelė iš rankų šviesios odos	none
-🫶🏼	širdelė iš rankų vidutinio gymio	none
-🫶🏽	širdelė iš rankų rusvos odos	none
-🫶🏾	širdelė iš rankų tamsios odos	none
-🫶🏿	širdelė iš rankų itin tamsios odos	none
-👋🏻	mojuojanti ranka šviesios odos	none
-👋🏼	mojuojanti ranka vidutinio gymio	none
-👋🏽	mojuojanti ranka rusvos odos	none
-👋🏾	mojuojanti ranka tamsios odos	none
-👋🏿	mojuojanti ranka itin tamsios odos	none
-🤚🏻	pakelta viršutinė plaštakos pusė šviesios odos	none
-🤚🏼	pakelta viršutinė plaštakos pusė vidutinio gymio	none
-🤚🏽	pakelta viršutinė plaštakos pusė rusvos odos	none
-🤚🏾	pakelta viršutinė plaštakos pusė tamsios odos	none
-🤚🏿	pakelta viršutinė plaštakos pusė itin tamsios odos	none
-🖐🏻	iškelta ranka su išskėstais pirštais šviesios odos	none
-🖐🏼	iškelta ranka su išskėstais pirštais vidutinio gymio	none
-🖐🏽	iškelta ranka su išskėstais pirštais rusvos odos	none
-🖐🏾	iškelta ranka su išskėstais pirštais tamsios odos	none
-🖐🏿	iškelta ranka su išskėstais pirštais itin tamsios odos	none
-✋🏻	iškelta ranka šviesios odos	none
-✋🏼	iškelta ranka vidutinio gymio	none
-✋🏽	iškelta ranka rusvos odos	none
-✋🏾	iškelta ranka tamsios odos	none
-✋🏿	iškelta ranka itin tamsios odos	none
-🖖🏻	vulkanų rasės pasisveikinimo ženklas šviesios odos	none
-🖖🏼	vulkanų rasės pasisveikinimo ženklas vidutinio gymio	none
-🖖🏽	vulkanų rasės pasisveikinimo ženklas rusvos odos	none
-🖖🏾	vulkanų rasės pasisveikinimo ženklas tamsios odos	none
-🖖🏿	vulkanų rasės pasisveikinimo ženklas itin tamsios odos	none
+🫷🏻	į kairę stumianti ranka šviesios odos	none
+🫷🏼	į kairę stumianti ranka vidutinio gymio	none
+🫷🏽	į kairę stumianti ranka rusvos odos	none
+🫷🏾	į kairę stumianti ranka tamsios odos	none
+🫷🏿	į kairę stumianti ranka itin tamsios odos	none
+🫸🏻	į dešinę stumianti ranka šviesios odos	none
+🫸🏼	į dešinę stumianti ranka vidutinio gymio	none
+🫸🏽	į dešinę stumianti ranka rusvos odos	none
+🫸🏾	į dešinę stumianti ranka tamsios odos	none
+🫸🏿	į dešinę stumianti ranka itin tamsios odos	none
 👌🏻	GERAI ženklas rankomis šviesios odos	none
 👌🏼	GERAI ženklas rankomis vidutinio gymio	none
 👌🏽	GERAI ženklas rankomis rusvos odos	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	sukryžiuoti pirštai rusvos odos	none
 🤞🏾	sukryžiuoti pirštai tamsios odos	none
 🤞🏿	sukryžiuoti pirštai itin tamsios odos	none
+🫰🏻	ranka sukryžiuotu smiliumi ir nykščiu šviesios odos	none
+🫰🏼	ranka sukryžiuotu smiliumi ir nykščiu vidutinio gymio	none
+🫰🏽	ranka sukryžiuotu smiliumi ir nykščiu rusvos odos	none
+🫰🏾	ranka sukryžiuotu smiliumi ir nykščiu tamsios odos	none
+🫰🏿	ranka sukryžiuotu smiliumi ir nykščiu itin tamsios odos	none
 🤟🏻	„myliu tave“ gestas šviesios odos	none
 🤟🏼	„myliu tave“ gestas vidutinio gymio	none
 🤟🏽	„myliu tave“ gestas rusvos odos	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	delnu atsukta aukštyn pirštu rodanti ranka rusvos odos	none
 ☝🏾	delnu atsukta aukštyn pirštu rodanti ranka tamsios odos	none
 ☝🏿	delnu atsukta aukštyn pirštu rodanti ranka itin tamsios odos	none
+🫵🏻	į žiūrovą rodantis smilius šviesios odos	none
+🫵🏼	į žiūrovą rodantis smilius vidutinio gymio	none
+🫵🏽	į žiūrovą rodantis smilius rusvos odos	none
+🫵🏾	į žiūrovą rodantis smilius tamsios odos	none
+🫵🏿	į žiūrovą rodantis smilius itin tamsios odos	none
 👍🏻	nykštys į viršų šviesios odos	none
 👍🏼	nykštys į viršų vidutinio gymio	none
 👍🏽	nykštys į viršų rusvos odos	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	žmogus, iškėlęs rankas rusvos odos	none
 🙌🏾	žmogus, iškėlęs rankas tamsios odos	none
 🙌🏿	žmogus, iškėlęs rankas itin tamsios odos	none
+🫶🏻	širdelė iš rankų šviesios odos	none
+🫶🏼	širdelė iš rankų vidutinio gymio	none
+🫶🏽	širdelė iš rankų rusvos odos	none
+🫶🏾	širdelė iš rankų tamsios odos	none
+🫶🏿	širdelė iš rankų itin tamsios odos	none
 👐🏻	atviros rankos šviesios odos	none
 👐🏼	atviros rankos vidutinio gymio	none
 👐🏽	atviros rankos rusvos odos	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	statybininkė rusvos odos	none
 👷🏾‍♀	statybininkė tamsios odos	none
 👷🏿‍♀	statybininkė itin tamsios odos	none
+🫅🏻	asmuo su karūna šviesios odos	none
+🫅🏼	asmuo su karūna vidutinio gymio	none
+🫅🏽	asmuo su karūna rusvos odos	none
+🫅🏾	asmuo su karūna tamsios odos	none
+🫅🏿	asmuo su karūna itin tamsios odos	none
 🤴🏻	princas šviesios odos	none
 🤴🏼	princas vidutinio gymio	none
 🤴🏽	princas rusvos odos	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	nėščia moteris rusvos odos	none
 🤰🏾	nėščia moteris tamsios odos	none
 🤰🏿	nėščia moteris itin tamsios odos	none
+🫃🏻	nėščias vyras šviesios odos	none
+🫃🏼	nėščias vyras vidutinio gymio	none
+🫃🏽	nėščias vyras rusvos odos	none
+🫃🏾	nėščias vyras tamsios odos	none
+🫃🏿	nėščias vyras itin tamsios odos	none
+🫄🏻	nėščias asmuo šviesios odos	none
+🫄🏼	nėščias asmuo vidutinio gymio	none
+🫄🏽	nėščias asmuo rusvos odos	none
+🫄🏾	nėščias asmuo tamsios odos	none
+🫄🏿	nėščias asmuo itin tamsios odos	none
 🤱🏻	maitinimas krūtimi šviesios odos	none
 🤱🏼	maitinimas krūtimi vidutinio gymio	none
 🤱🏽	maitinimas krūtimi rusvos odos	none

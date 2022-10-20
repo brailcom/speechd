@@ -264,43 +264,6 @@ symbols:
 ⪺	następuje nad nie prawie równe	none
 ♭	bemol	none
 ♯	krzyżyk	none
-🥹	twarz powstrzymująca łzy	none
-🧌	troll	none
-🩻	zdjęcie rentgenowskie	none
-🩼	kula	none
-🪩	kula dyskotekowa	none
-🪪	dowód tożsamości	none
-🪫	słaba bateria	none
-🪬	chamsa	none
-🪷	lotos	none
-🪸	koralowiec	none
-🪹	puste gniazdo	none
-🪺	gniazdo z jajkami	none
-🫃	mężczyzna w ciąży	none
-🫄	osoba w ciąży	none
-🫅	osoba w koronie	none
-🫗	nalewanie płynu	none
-🫘	fasola	none
-🫙	słoik	none
-🫠	roztapiająca się twarz	none
-🫡	salutująca twarz	none
-🫢	twarz z otwartymi oczami i ręką na ustach	none
-🫣	twarz z podglądającym okiem	none
-🫤	twarz z ukośnymi ustami	none
-🫥	twarz otoczona linią przerywaną	none
-🫦	przygryzanie wargi	none
-🫧	bąbelki	none
-🫰	dłoń ze skrzyżowanym palcem wskazującym i kciukiem	none
-🫱	dłoń skierowana w prawo	none
-🫲	dłoń skierowana w lewo	none
-🫳	dłoń skierowana w dół	none
-🫴	dłoń skierowana w górę	none
-🫵	palec wskazujący skierowany na patrzącego	none
-🫶	dłonie tworzące serce	none
-🛝	zjeżdżalnia	none
-🛞	koło pojazdu	none
-🛟	koło ratunkowe	none
-🟰	gruby znak równości	none
 😀	szeroko uśmiechnięta twarz	none
 😃	uśmiechnięta twarz z otwartymi ustami	none
 😄	uśmiechnięta twarz z otwartymi ustami i roześmianymi oczami	none
@@ -311,6 +274,7 @@ symbols:
 😂	twarz ze łzami radości	none
 🙂	lekko uśmiechnięta twarz	none
 🙃	odwrócona twarz	none
+🫠	roztapiająca się twarz	none
 😉	twarz puszczająca oko	none
 😊	uśmiechnięta twarz o roześmianych oczach	none
 😇	uśmiechnięta twarz z aureolą	none
@@ -331,13 +295,17 @@ symbols:
 🤑	twarz z pieniędzmi na ustach	none
 🤗	twarz z gestem przytulania	none
 🤭	twarz z ręką na ustach	none
+🫢	twarz z otwartymi oczami i ręką na ustach	none
+🫣	twarz z podglądającym okiem	none
 🤫	uciszająca twarz	none
 🤔	myśląca twarz	none
+🫡	salutująca twarz	none
 🤐	twarz z zamkiem błyskawicznym na ustach	none
 🤨	twarz z podniesioną brwią	none
 😐	neutralna twarz	none
 😑	twarz bez wyrazu	none
 😶	twarz bez ust	none
+🫥	twarz otoczona linią przerywaną	none
 😶‍🌫	twarz w chmurach	none
 😏	twarz z uśmieszkiem	none
 😒	niezadowolona twarz	none
@@ -345,6 +313,7 @@ symbols:
 😬	twarz z grymasem	none
 😮‍💨	twarz wypuszczająca powietrze	none
 🤥	twarz kłamcy	none
+🫨	wstrząśnięta twarz	none
 😌	twarz z wyrazem ulgi	none
 😔	zamyślona twarz	none
 😪	senna twarz	none
@@ -369,6 +338,7 @@ symbols:
 🤓	kujon	none
 🧐	twarz z monoklem	none
 😕	zdezorientowana twarz	none
+🫤	twarz z ukośnymi ustami	none
 😟	zmartwiona twarz	none
 🙁	lekko zachmurzona twarz	none
 ☹	zachmurzona twarz	none
@@ -377,6 +347,7 @@ symbols:
 😲	zadziwiona twarz	none
 😳	twarz z rumieńcami	none
 🥺	błagająca twarz	none
+🥹	twarz powstrzymująca łzy	none
 😦	zachmurzona twarz z otwartymi ustami	none
 😧	udręczona twarz	none
 😨	przestraszona twarz	none
@@ -420,7 +391,6 @@ symbols:
 🙈	małpa zasłaniająca oczy	none
 🙉	małpa zasłaniająca uszy	none
 🙊	małpa zasłaniająca pyszczek	none
-💋	ślad po pocałunku	none
 💌	list miłosny	none
 💘	serce przebite strzałą	none
 💝	serce ze wstążką	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	serce w płomieniach	none
 ❤‍🩹	uleczone serce	none
 ❤	czerwone serce	none
+🩷	różowe serce	none
 🧡	pomarańczowe serce	none
 💛	żółte serce	none
 💚	zielone serce	none
 💙	niebieskie serce	none
+🩵	jasnoniebieskie serce	none
 💜	purpurowe serce	none
 🤎	brązowe serce	none
 🖤	czarne serce	none
+🩶	szare serce	none
 🤍	białe serce	none
+💋	ślad po pocałunku	none
 💯	sto punktów	none
 💢	symbol gniewu	none
 💥	kolizja	none
@@ -450,7 +424,6 @@ symbols:
 💦	krople potu	none
 💨	szybkie poruszanie się	none
 🕳	otwór	none
-💣	bomba	none
 💬	dymek	none
 👁‍🗨	oko w dymku	none
 🗨	lewostronny dymek	none
@@ -462,11 +435,18 @@ symbols:
 🖐	uniesiona otwarta dłoń	none
 ✋	wzniesiona dłoń	none
 🖖	salut wolkański	none
+🫱	dłoń skierowana w prawo	none
+🫲	dłoń skierowana w lewo	none
+🫳	dłoń skierowana w dół	none
+🫴	dłoń skierowana w górę	none
+🫷	dłoń pchająca w lewo	none
+🫸	dłoń pchająca w prawo	none
 👌	dłoń z gestem OK	none
 🤌	złączone palce	none
 🤏	dłoń z gestem „trochę”	none
 ✌	gest V	none
 🤞	skrzyżowane palce	none
+🫰	dłoń ze skrzyżowanym palcem wskazującym i kciukiem	none
 🤟	gest Kocham cię	none
 🤘	gest rogów	none
 🤙	dłoń w geście „Zadzwoń do mnie”	none
@@ -476,6 +456,7 @@ symbols:
 🖕	środkowy palec	none
 👇	dłoń z palcem wskazującym w dół	none
 ☝	palec wskazujący w górę	none
+🫵	palec wskazujący skierowany na patrzącego	none
 👍	kciuk w górę	none
 👎	kciuk w dół	none
 ✊	wzniesiona pięść	none
@@ -484,6 +465,7 @@ symbols:
 🤜	pięść skierowana w prawo	none
 👏	klaskanie	none
 🙌	wzniesione ręce	none
+🫶	dłonie tworzące serce	none
 👐	otwarte dłonie	none
 🤲	dłonie do góry razem	none
 🤝	uścisk dłoni	none
@@ -508,6 +490,7 @@ symbols:
 👁	oko	none
 👅	język	none
 👄	usta	none
+🫦	przygryzanie wargi	none
 👶	niemowlę	none
 🧒	dziecko	none
 👦	chłopiec	none
@@ -615,6 +598,7 @@ symbols:
 👷	budowlaniec	none
 👷‍♂	mężczyzna budowlaniec	none
 👷‍♀	kobieta budowlaniec	none
+🫅	osoba w koronie	none
 🤴	książę	none
 👸	księżniczka	none
 👳	osoba w turbanie	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	mężczyzna w welonie	none
 👰‍♀	kobieta w welonie	none
 🤰	kobieta w ciąży	none
+🫃	mężczyzna w ciąży	none
+🫄	osoba w ciąży	none
 🤱	karmienie piersią	none
 👩‍🍼	kobieta karmiąca niemowlę	none
 👨‍🍼	mężczyzna karmiący niemowlę	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombie	none
 🧟‍♂	mężczyzna zombie	none
 🧟‍♀	kobieta zombie	none
+🧌	troll	none
 💆	osoba podczas masażu	none
 💆‍♂	mężczyzna podczas masażu	none
 💆‍♀	kobieta podczas masażu	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tygrys	none
 🐆	lampart	none
 🐴	głowa konia	none
+🫎	łoś	none
+🫏	osioł	none
 🐎	koń	none
 🦄	głowa jednorożca	none
 🦓	zebra	none
@@ -849,6 +838,8 @@ symbols:
 🦩	flaming	none
 🦚	paw	none
 🦜	papuga	none
+🪽	skrzydło	none
+🪿	gęś	none
 🐸	głowa żaby	none
 🐊	krokodyl	none
 🐢	żółw	none
@@ -868,6 +859,8 @@ symbols:
 🦈	rekin	none
 🐙	ośmiornica	none
 🐚	muszla spiralna	none
+🪸	koralowiec	none
+🪼	meduza	none
 🐌	ślimak	none
 🦋	motyl	none
 🐛	gąsienica	none
@@ -887,6 +880,7 @@ symbols:
 💐	bukiet kwiatów	none
 🌸	kwiat wiśni	none
 💮	biały kwiat	none
+🪷	lotos	none
 🏵	rozeta	none
 🌹	róża	none
 🥀	zwiędły kwiat	none
@@ -894,6 +888,7 @@ symbols:
 🌻	słonecznik	none
 🌼	kwiat	none
 🌷	tulipan	none
+🪻	hiacynt	none
 🌱	sadzonka	none
 🪴	roślina doniczkowa	none
 🌲	wiecznie zielone drzewo	none
@@ -907,6 +902,9 @@ symbols:
 🍁	liść klonowy	none
 🍂	spadające liście	none
 🍃	liście na wietrze	none
+🪹	puste gniazdo	none
+🪺	gniazdo z jajkami	none
+🍄	grzyb	none
 🍇	winogrona	none
 🍈	melon	none
 🍉	arbuz	none
@@ -938,9 +936,11 @@ symbols:
 🥦	brokuł	none
 🧄	czosnek	none
 🧅	cebula	none
-🍄	grzyb	none
 🥜	orzeszki ziemne	none
+🫘	fasola	none
 🌰	kasztan	none
+🫚	korzeń imbiru	none
+🫛	strąk grochu	none
 🍞	chleb	none
 🥐	rogalik	none
 🥖	bagietka	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	stukające się kufle piwa	none
 🥂	stukające się kieliszki	none
 🥃	szklanka z grubym dnem	none
+🫗	nalewanie płynu	none
 🥤	szklanka ze słomką	none
 🧋	napój bubble tea	none
 🧃	napój w kartoniku	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	widelec i nóż	none
 🥄	łyżka	none
 🔪	nóż kuchenny	none
+🫙	słoik	none
 🏺	amfora	none
 🌍	kula ziemska przedstawiająca Europę i Afrykę	none
 🌎	kula ziemska przedstawiająca Ameryki	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	most nocą	none
 ♨	gorące źródła	none
 🎠	koń z karuzeli	none
+🛝	zjeżdżalnia	none
 🎡	diabelski młyn	none
 🎢	kolejka górska	none
 💈	słup fryzjerski	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	tor kolejowy	none
 🛢	beczka oleju	none
 ⛽	dystrybutor paliwa	none
+🛞	koło pojazdu	none
 🚨	kogut policyjny	none
 🚥	pozioma sygnalizacja uliczna	none
 🚦	pionowa sygnalizacja uliczna	none
 🛑	znak stopu	none
 🚧	prace drogowe	none
 ⚓	kotwica	none
+🛟	koło ratunkowe	none
 ⛵	żaglówka	none
 🛶	kajak	none
 🚤	ścigacz wodny	none
@@ -1246,7 +1251,7 @@ symbols:
 ⚡	wysokie napięcie	none
 ❄	płatek śniegu	none
 ☃	bałwanek i płatki śniegu	none
-⛄	bałwan bez śniegu	none
+⛄	bałwanek bez śniegu	none
 ☄	kometa	none
 🔥	ogień	none
 💧	kropla	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	strzał w 10	none
 🪀	jojo	none
 🪁	latawiec	none
+🔫	pistolet na wodę	none
 🎱	bila 8	none
 🔮	kryształowa kula	none
 🪄	czarodziejska różdżka	none
-🧿	amulet nazar	none
 🎮	gra wideo	none
 🕹	dżojstik	none
 🎰	automat do gier	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	element układanki	none
 🧸	miś pluszowy	none
 🪅	piniata	none
+🪩	kula dyskotekowa	none
 🪆	matrioszki	none
 ♠	pik	none
 ♥	kier	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	szorty	none
 👙	bikini	none
 👚	ubranie damskie	none
+🪭	wachlarz	none
 👛	portmonetka	none
 👜	torebka	none
 👝	saszetka	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	sandał damski	none
 🩰	baletki	none
 👢	kozak damski	none
+🪮	grzebień fryzjerski	none
 👑	korona	none
 👒	kapelusz damski	none
 🎩	cylinder	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banjo	none
 🥁	bęben	none
 🪘	konga	none
+🪇	marakasy	none
+🪈	flet	none
 📱	telefon komórkowy	none
 📲	telefon komórkowy ze strzałką	none
 ☎	telefon	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	pager	none
 📠	faks	none
 🔋	bateria	none
+🪫	słaba bateria	none
 🔌	wtyczka elektryczna	none
 💻	laptop	none
 🖥	komputer	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	młot i klucz	none
 🗡	sztylet	none
 ⚔	skrzyżowane miecze	none
-🔫	pistolet na wodę	none
+💣	bomba	none
 🪃	bumerang	none
 🏹	łuk i strzała	none
 🛡	tarcza	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	kropla krwi	none
 💊	kapsułka	none
 🩹	plaster	none
+🩼	kula	none
 🩺	stetoskop	none
+🩻	zdjęcie rentgenowskie	none
 🚪	drzwi	none
 🛗	winda	none
 🪞	lustro	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	rolka papieru	none
 🪣	wiadro	none
 🧼	mydło	none
+🫧	bąbelki	none
 🪥	szczoteczka do zębów	none
 🧽	gąbka	none
 🧯	gaśnica	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	trumna	none
 🪦	nagrobek	none
 ⚱	urna na prochy	none
+🧿	amulet nazar	none
+🪬	chamsa	none
 🗿	moai	none
 🪧	tabliczka	none
+🪪	dowód tożsamości	none
 🏧	znak bankomatu	none
 🚮	znak kosza na śmieci	none
 🚰	woda pitna	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	symbol pokoju	none
 🕎	menora	none
 🔯	gwiazda sześcioramienna z kropką	none
+🪯	khanda	none
 ♈	Baran	none
 ♉	Byk	none
 ♊	Bliźnięta	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	przycisk małej jasności	none
 🔆	przycisk dużej jasności	none
 📶	siła sygnału	none
+🛜	bezprzewodowy	none
 📳	tryb wibracji	none
 📴	wyłączony telefon komórkowy	none
 ♀	znak kobiety	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	znak plus	none
 ➖	znak minus	none
 ➗	znak dzielenia	none
+🟰	gruby znak równości	none
 ♾	nieskończoność	none
 ❓	czerwony znak zapytania	none
 ❔	biały znak zapytania	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	rubel	none
 ₿	bitcoin	none
 ₨	rupia	none
-🫃🏻	mężczyzna w ciąży karnacja jasna	none
-🫃🏼	mężczyzna w ciąży karnacja średnio jasna	none
-🫃🏽	mężczyzna w ciąży karnacja średnia	none
-🫃🏾	mężczyzna w ciąży karnacja średnio ciemna	none
-🫃🏿	mężczyzna w ciąży karnacja ciemna	none
-🫄🏻	osoba w ciąży karnacja jasna	none
-🫄🏼	osoba w ciąży karnacja średnio jasna	none
-🫄🏽	osoba w ciąży karnacja średnia	none
-🫄🏾	osoba w ciąży karnacja średnio ciemna	none
-🫄🏿	osoba w ciąży karnacja ciemna	none
-🫅🏻	osoba w koronie karnacja jasna	none
-🫅🏼	osoba w koronie karnacja średnio jasna	none
-🫅🏽	osoba w koronie karnacja średnia	none
-🫅🏾	osoba w koronie karnacja średnio ciemna	none
-🫅🏿	osoba w koronie karnacja ciemna	none
-🫰🏻	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja jasna	none
-🫰🏼	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja średnio jasna	none
-🫰🏽	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja średnia	none
-🫰🏾	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja średnio ciemna	none
-🫰🏿	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja ciemna	none
+👋🏻	machająca dłoń karnacja jasna	none
+👋🏼	machająca dłoń karnacja średnio jasna	none
+👋🏽	machająca dłoń karnacja średnia	none
+👋🏾	machająca dłoń karnacja średnio ciemna	none
+👋🏿	machająca dłoń karnacja ciemna	none
+🤚🏻	wzniesiony grzbiet dłoni karnacja jasna	none
+🤚🏼	wzniesiony grzbiet dłoni karnacja średnio jasna	none
+🤚🏽	wzniesiony grzbiet dłoni karnacja średnia	none
+🤚🏾	wzniesiony grzbiet dłoni karnacja średnio ciemna	none
+🤚🏿	wzniesiony grzbiet dłoni karnacja ciemna	none
+🖐🏻	uniesiona otwarta dłoń karnacja jasna	none
+🖐🏼	uniesiona otwarta dłoń karnacja średnio jasna	none
+🖐🏽	uniesiona otwarta dłoń karnacja średnia	none
+🖐🏾	uniesiona otwarta dłoń karnacja średnio ciemna	none
+🖐🏿	uniesiona otwarta dłoń karnacja ciemna	none
+✋🏻	wzniesiona dłoń karnacja jasna	none
+✋🏼	wzniesiona dłoń karnacja średnio jasna	none
+✋🏽	wzniesiona dłoń karnacja średnia	none
+✋🏾	wzniesiona dłoń karnacja średnio ciemna	none
+✋🏿	wzniesiona dłoń karnacja ciemna	none
+🖖🏻	salut wolkański karnacja jasna	none
+🖖🏼	salut wolkański karnacja średnio jasna	none
+🖖🏽	salut wolkański karnacja średnia	none
+🖖🏾	salut wolkański karnacja średnio ciemna	none
+🖖🏿	salut wolkański karnacja ciemna	none
 🫱🏻	dłoń skierowana w prawo karnacja jasna	none
 🫱🏼	dłoń skierowana w prawo karnacja średnio jasna	none
 🫱🏽	dłoń skierowana w prawo karnacja średnia	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	dłoń skierowana w górę karnacja średnia	none
 🫴🏾	dłoń skierowana w górę karnacja średnio ciemna	none
 🫴🏿	dłoń skierowana w górę karnacja ciemna	none
-🫵🏻	palec wskazujący skierowany na patrzącego karnacja jasna	none
-🫵🏼	palec wskazujący skierowany na patrzącego karnacja średnio jasna	none
-🫵🏽	palec wskazujący skierowany na patrzącego karnacja średnia	none
-🫵🏾	palec wskazujący skierowany na patrzącego karnacja średnio ciemna	none
-🫵🏿	palec wskazujący skierowany na patrzącego karnacja ciemna	none
-🫶🏻	dłonie tworzące serce karnacja jasna	none
-🫶🏼	dłonie tworzące serce karnacja średnio jasna	none
-🫶🏽	dłonie tworzące serce karnacja średnia	none
-🫶🏾	dłonie tworzące serce karnacja średnio ciemna	none
-🫶🏿	dłonie tworzące serce karnacja ciemna	none
-👋🏻	machająca dłoń karnacja jasna	none
-👋🏼	machająca dłoń karnacja średnio jasna	none
-👋🏽	machająca dłoń karnacja średnia	none
-👋🏾	machająca dłoń karnacja średnio ciemna	none
-👋🏿	machająca dłoń karnacja ciemna	none
-🤚🏻	wzniesiony grzbiet dłoni karnacja jasna	none
-🤚🏼	wzniesiony grzbiet dłoni karnacja średnio jasna	none
-🤚🏽	wzniesiony grzbiet dłoni karnacja średnia	none
-🤚🏾	wzniesiony grzbiet dłoni karnacja średnio ciemna	none
-🤚🏿	wzniesiony grzbiet dłoni karnacja ciemna	none
-🖐🏻	uniesiona otwarta dłoń karnacja jasna	none
-🖐🏼	uniesiona otwarta dłoń karnacja średnio jasna	none
-🖐🏽	uniesiona otwarta dłoń karnacja średnia	none
-🖐🏾	uniesiona otwarta dłoń karnacja średnio ciemna	none
-🖐🏿	uniesiona otwarta dłoń karnacja ciemna	none
-✋🏻	wzniesiona dłoń karnacja jasna	none
-✋🏼	wzniesiona dłoń karnacja średnio jasna	none
-✋🏽	wzniesiona dłoń karnacja średnia	none
-✋🏾	wzniesiona dłoń karnacja średnio ciemna	none
-✋🏿	wzniesiona dłoń karnacja ciemna	none
-🖖🏻	salut wolkański karnacja jasna	none
-🖖🏼	salut wolkański karnacja średnio jasna	none
-🖖🏽	salut wolkański karnacja średnia	none
-🖖🏾	salut wolkański karnacja średnio ciemna	none
-🖖🏿	salut wolkański karnacja ciemna	none
+🫷🏻	dłoń pchająca w lewo karnacja jasna	none
+🫷🏼	dłoń pchająca w lewo karnacja średnio jasna	none
+🫷🏽	dłoń pchająca w lewo karnacja średnia	none
+🫷🏾	dłoń pchająca w lewo karnacja średnio ciemna	none
+🫷🏿	dłoń pchająca w lewo karnacja ciemna	none
+🫸🏻	dłoń pchająca w prawo karnacja jasna	none
+🫸🏼	dłoń pchająca w prawo karnacja średnio jasna	none
+🫸🏽	dłoń pchająca w prawo karnacja średnia	none
+🫸🏾	dłoń pchająca w prawo karnacja średnio ciemna	none
+🫸🏿	dłoń pchająca w prawo karnacja ciemna	none
 👌🏻	dłoń z gestem OK karnacja jasna	none
 👌🏼	dłoń z gestem OK karnacja średnio jasna	none
 👌🏽	dłoń z gestem OK karnacja średnia	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	skrzyżowane palce karnacja średnia	none
 🤞🏾	skrzyżowane palce karnacja średnio ciemna	none
 🤞🏿	skrzyżowane palce karnacja ciemna	none
+🫰🏻	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja jasna	none
+🫰🏼	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja średnio jasna	none
+🫰🏽	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja średnia	none
+🫰🏾	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja średnio ciemna	none
+🫰🏿	dłoń ze skrzyżowanym palcem wskazującym i kciukiem karnacja ciemna	none
 🤟🏻	gest Kocham cię karnacja jasna	none
 🤟🏼	gest Kocham cię karnacja średnio jasna	none
 🤟🏽	gest Kocham cię karnacja średnia	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	palec wskazujący w górę karnacja średnia	none
 ☝🏾	palec wskazujący w górę karnacja średnio ciemna	none
 ☝🏿	palec wskazujący w górę karnacja ciemna	none
+🫵🏻	palec wskazujący skierowany na patrzącego karnacja jasna	none
+🫵🏼	palec wskazujący skierowany na patrzącego karnacja średnio jasna	none
+🫵🏽	palec wskazujący skierowany na patrzącego karnacja średnia	none
+🫵🏾	palec wskazujący skierowany na patrzącego karnacja średnio ciemna	none
+🫵🏿	palec wskazujący skierowany na patrzącego karnacja ciemna	none
 👍🏻	kciuk w górę karnacja jasna	none
 👍🏼	kciuk w górę karnacja średnio jasna	none
 👍🏽	kciuk w górę karnacja średnia	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	wzniesione ręce karnacja średnia	none
 🙌🏾	wzniesione ręce karnacja średnio ciemna	none
 🙌🏿	wzniesione ręce karnacja ciemna	none
+🫶🏻	dłonie tworzące serce karnacja jasna	none
+🫶🏼	dłonie tworzące serce karnacja średnio jasna	none
+🫶🏽	dłonie tworzące serce karnacja średnia	none
+🫶🏾	dłonie tworzące serce karnacja średnio ciemna	none
+🫶🏿	dłonie tworzące serce karnacja ciemna	none
 👐🏻	otwarte dłonie karnacja jasna	none
 👐🏼	otwarte dłonie karnacja średnio jasna	none
 👐🏽	otwarte dłonie karnacja średnia	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	kobieta budowlaniec karnacja średnia	none
 👷🏾‍♀	kobieta budowlaniec karnacja średnio ciemna	none
 👷🏿‍♀	kobieta budowlaniec karnacja ciemna	none
+🫅🏻	osoba w koronie karnacja jasna	none
+🫅🏼	osoba w koronie karnacja średnio jasna	none
+🫅🏽	osoba w koronie karnacja średnia	none
+🫅🏾	osoba w koronie karnacja średnio ciemna	none
+🫅🏿	osoba w koronie karnacja ciemna	none
 🤴🏻	książę karnacja jasna	none
 🤴🏼	książę karnacja średnio jasna	none
 🤴🏽	książę karnacja średnia	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	kobieta w ciąży karnacja średnia	none
 🤰🏾	kobieta w ciąży karnacja średnio ciemna	none
 🤰🏿	kobieta w ciąży karnacja ciemna	none
+🫃🏻	mężczyzna w ciąży karnacja jasna	none
+🫃🏼	mężczyzna w ciąży karnacja średnio jasna	none
+🫃🏽	mężczyzna w ciąży karnacja średnia	none
+🫃🏾	mężczyzna w ciąży karnacja średnio ciemna	none
+🫃🏿	mężczyzna w ciąży karnacja ciemna	none
+🫄🏻	osoba w ciąży karnacja jasna	none
+🫄🏼	osoba w ciąży karnacja średnio jasna	none
+🫄🏽	osoba w ciąży karnacja średnia	none
+🫄🏾	osoba w ciąży karnacja średnio ciemna	none
+🫄🏿	osoba w ciąży karnacja ciemna	none
 🤱🏻	karmienie piersią karnacja jasna	none
 🤱🏼	karmienie piersią karnacja średnio jasna	none
 🤱🏽	karmienie piersią karnacja średnia	none

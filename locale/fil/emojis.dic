@@ -264,43 +264,6 @@ symbols:
 ⪺	kasunod sa itaas ng hindi halos katumbas	none
 ♭	flat	none
 ♯	sharp	none
-🥹	mukhang nagpipigil ng luha	none
-🧌	troll	none
-🩻	x-ray	none
-🩼	saklay	none
-🪩	disco ball	none
-🪪	identification card	none
-🪫	paubos ang baterya	none
-🪬	hamsa	none
-🪷	lotus	none
-🪸	korales	none
-🪹	bakanteng pugad	none
-🪺	pugad na may mga itlog	none
-🫃	lalaking buntis	none
-🫄	taong buntis	none
-🫅	taong may korona	none
-🫗	binubuhos na likido	none
-🫘	beans	none
-🫙	garapon	none
-🫠	natutunaw na mukha	none
-🫡	saludo	none
-🫢	mukha na may mga nakabukas na mata at kamay sa bibig	none
-🫣	mukha na may sumisilip na mata	none
-🫤	mukha na may diagonal na bibig	none
-🫥	dotted na linya na mukha	none
-🫦	kagat-labi	none
-🫧	bula	none
-🫰	kamay na magkakrus ang hintuturo at hinlalaki	none
-🫱	pakanang kamay	none
-🫲	pakaliwang kamay	none
-🫳	nakataob na palad	none
-🫴	nakasalong palad	none
-🫵	hintuturong nakaturo sa tumitingin	none
-🫶	nakapusong kamay	none
-🛝	padulas sa playground	none
-🛞	gulong	none
-🛟	salbabida	none
-🟰	madiin na equals sign	none
 😀	mukhang nakangiti	none
 😃	nakangisi na may malaking mga mata	none
 😄	nakangisi kasama ang mga nakangiting mata	none
@@ -311,6 +274,7 @@ symbols:
 😂	mukhang naiiyak sa tuwa	none
 🙂	medyo nakangiti	none
 🙃	baligtad na mukha	none
+🫠	natutunaw na mukha	none
 😉	kumikindat	none
 😊	nakangiti kasama ang mga mata	none
 😇	nakangiti nang may halo	none
@@ -331,13 +295,17 @@ symbols:
 🤑	mukhang pera	none
 🤗	nangyayakap	none
 🤭	mukha na nakatakip ang kamay sa bibig	none
+🫢	mukha na may mga nakabukas na mata at kamay sa bibig	none
+🫣	mukha na may sumisilip na mata	none
 🤫	mukha na nagpapatahimik	none
 🤔	nag-iisip	none
+🫡	saludo	none
 🤐	naka-zipper ang bibig	none
 🤨	mukhang nakataas ang kilay	none
 😐	walang reaksyon	none
 😑	walang ekspresyon	none
 😶	mukhang walang bibig	none
+🫥	dotted na linya na mukha	none
 😶‍🌫	mukhang nasa ulap	none
 😏	nakangisi	none
 😒	hindi natutuwa	none
@@ -345,6 +313,7 @@ symbols:
 😬	nakangiwi	none
 😮‍💨	mukhang humihinga palabas	none
 🤥	nagsisinungaling	none
+🫨	nanginginig na mukha	none
 😌	nakahinga nang maluwag	none
 😔	malungkot na nag-iisip	none
 😪	inaantok na mukha	none
@@ -369,6 +338,7 @@ symbols:
 🤓	nerd	none
 🧐	mukha na may monocle	none
 😕	nalilito	none
+🫤	mukha na may diagonal na bibig	none
 😟	nag-aalala	none
 🙁	medyo nakasimangot	none
 ☹	nakasimangot	none
@@ -377,6 +347,7 @@ symbols:
 😲	gulat na gulat	none
 😳	namumula	none
 🥺	nagsusumamo na mukha	none
+🥹	mukhang nagpipigil ng luha	none
 😦	nakasimangot nang nakanganga	none
 😧	nagdurusa	none
 😨	natatakot	none
@@ -420,7 +391,6 @@ symbols:
 🙈	huwag tumingin sa masama	none
 🙉	huwag makinig sa masama	none
 🙊	huwag magsalita nang masama	none
-💋	marka ng halik	none
 💌	liham ng pag-ibig	none
 💘	pusong may palaso	none
 💝	pusong may ribbon	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	pusong nasa apoy	none
 ❤‍🩹	pag-ayos sa puso	none
 ❤	pulang puso	none
+🩷	pink na puso	none
 🧡	pusong dalandan	none
 💛	dilaw na puso	none
 💚	berdeng puso	none
 💙	asul na puso	none
+🩵	light blue na puso	none
 💜	purple na puso	none
 🤎	kayumangging puso	none
 🖤	itim na puso	none
+🩶	grey na puso	none
 🤍	puting puso	none
+💋	marka ng halik	none
 💯	sandaang puntos	none
 💢	simbolo ng galit	none
 💥	banggaan	none
@@ -450,7 +424,6 @@ symbols:
 💦	mga patak ng pawis	none
 💨	nagmamadali	none
 🕳	butas	none
-💣	bomba	none
 💬	speech balloon	none
 👁‍🗨	mata sa speech bubble	none
 🗨	kaliwang speech bubble	none
@@ -462,11 +435,18 @@ symbols:
 🖐	nakataas na nakabukas na kamay	none
 ✋	nakataas na kamay	none
 🖖	vulcan salute	none
+🫱	pakanang kamay	none
+🫲	pakaliwang kamay	none
+🫳	nakataob na palad	none
+🫴	nakasalong palad	none
+🫷	pakaliwang tumutulak na kamay	none
+🫸	pakanang tumutulak na kamay	none
 👌	kamay na nagpapahiwatig ng ok	none
 🤌	pakurot na daliri	none
 🤏	kamay na kumukurot	none
 ✌	peace sign	none
 🤞	naka-cross na mga daliri	none
+🫰	kamay na magkakrus ang hintuturo at hinlalaki	none
 🤟	love-you gesture	none
 🤘	rock ’n’ roll	none
 🤙	tawagan mo ko	none
@@ -476,6 +456,7 @@ symbols:
 🖕	hinlalato	none
 👇	backhand ng hintuturo na nakaturo sa ibaba	none
 ☝	hintuturo na nakaturo sa itaas	none
+🫵	hintuturong nakaturo sa tumitingin	none
 👍	thumbs up	none
 👎	thumbs down	none
 ✊	nakataas na kamao	none
@@ -484,6 +465,7 @@ symbols:
 🤜	pakanang kamao	none
 👏	pumapalakpak	none
 🙌	nakataas na mga kamay	none
+🫶	nakapusong kamay	none
 👐	bukas-palad	none
 🤲	nakataas na magkadikit na palad	none
 🤝	pagkakamay	none
@@ -508,6 +490,7 @@ symbols:
 👁	mata	none
 👅	dila	none
 👄	bibig	none
+🫦	kagat-labi	none
 👶	sanggol	none
 🧒	bata	none
 👦	batang lalaki	none
@@ -615,6 +598,7 @@ symbols:
 👷	construction worker	none
 👷‍♂	lalaking trabahador sa konstruksyon	none
 👷‍♀	babaeng trabahador sa konstruksyon	none
+🫅	taong may korona	none
 🤴	prinsipe	none
 👸	prinsesa	none
 👳	lalaking may suot na turban	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	lalaking nakabelo	none
 👰‍♀	babaeng nakabelo	none
 🤰	buntis	none
+🫃	lalaking buntis	none
+🫄	taong buntis	none
 🤱	breast-feeding	none
 👩‍🍼	babaeng nagpapadede ng sanggol	none
 👨‍🍼	lalaking nagpapadede ng sanggol	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombie	none
 🧟‍♂	lalaking zombie	none
 🧟‍♀	babaeng zombie	none
+🧌	troll	none
 💆	pagpapamasahe ng mukha	none
 💆‍♂	lalaking nagpapamasahe ng mukha	none
 💆‍♀	babaeng nagpapamasahe ng mukha	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tigre	none
 🐆	leopard	none
 🐴	mukha ng kabayo	none
+🫎	moose	none
+🫏	asno	none
 🐎	kabayo	none
 🦄	unicorn	none
 🦓	zebra	none
@@ -849,6 +838,8 @@ symbols:
 🦩	flamingo	none
 🦚	peacock	none
 🦜	loro	none
+🪽	pakpak	none
+🪿	gansa	none
 🐸	palaka	none
 🐊	buwaya	none
 🐢	pagong	none
@@ -868,6 +859,8 @@ symbols:
 🦈	pating	none
 🐙	pugita	none
 🐚	pilipit na kabibe	none
+🪸	korales	none
+🪼	dikya	none
 🐌	kuhol	none
 🦋	paru-paro	none
 🐛	insekto	none
@@ -887,6 +880,7 @@ symbols:
 💐	bungkos ng mga bulaklak	none
 🌸	cherry blossom	none
 💮	white flower	none
+🪷	lotus	none
 🏵	rosette	none
 🌹	rosas	none
 🥀	nalantang bulaklak	none
@@ -894,6 +888,7 @@ symbols:
 🌻	mirasol	none
 🌼	bulaklak	none
 🌷	tulip	none
+🪻	hyacinth	none
 🌱	binhi	none
 🪴	nakapasong halaman	none
 🌲	evergreen	none
@@ -907,6 +902,9 @@ symbols:
 🍁	dahon ng maple	none
 🍂	nalagas na dahon	none
 🍃	dahong nililipad ng hangin	none
+🪹	bakanteng pugad	none
+🪺	pugad na may mga itlog	none
+🍄	kabute	none
 🍇	ubas	none
 🍈	melon	none
 🍉	pakwan	none
@@ -938,9 +936,11 @@ symbols:
 🥦	broccoli	none
 🧄	bawang	none
 🧅	sibuyas	none
-🍄	kabute	none
 🥜	mani	none
+🫘	beans	none
 🌰	kastanyas	none
+🫚	luya	none
+🫛	gisante	none
 🍞	tinapay	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	pagtagay sa mga beer mug	none
 🥂	toast	none
 🥃	tumbler glass	none
+🫗	binubuhos na likido	none
 🥤	baso na may straw	none
 🧋	bubble tea	none
 🧃	kahon ng inumin	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	tinidor at kutsilyo	none
 🥄	kutsara	none
 🔪	kutsilyo	none
+🫙	garapon	none
 🏺	amphora	none
 🌍	globong nagpapakita sa europe at africa	none
 🌎	globong nagpapakita sa America	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	tulay sa gabi	none
 ♨	hot springs	none
 🎠	kabayo sa carousel	none
+🛝	padulas sa playground	none
 🎡	ferris wheel	none
 🎢	roller coaster	none
 💈	barber pole	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	riles ng tren	none
 🛢	drum ng langis	none
 ⛽	fuel pump	none
+🛞	gulong	none
 🚨	ilaw ng police car	none
 🚥	pahalang na traffic light	none
 🚦	patayong traffic light	none
 🛑	stop sign	none
 🚧	construction	none
 ⚓	angkla	none
+🛟	salbabida	none
 ⛵	bangkang may layag	none
 🛶	canoe	none
 🚤	speedboat	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	bullseye	none
 🪀	yoyo	none
 🪁	saranggola	none
+🔫	water gun	none
 🎱	billiards	none
 🔮	bolang kristal	none
 🪄	magic wand	none
-🧿	nazar amulet	none
 🎮	video game	none
 🕹	joystick	none
 🎰	slot machine	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	jigsaw	none
 🧸	teddy bear	none
 🪅	piñata	none
+🪩	disco ball	none
 🪆	manikang matryoshka	none
 ♠	spade	none
 ♥	heart	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	shorts	none
 👙	bikini	none
 👚	mga damit na pambabae	none
+🪭	de-tiklop na pamaypay	none
 👛	pitaka	none
 👜	handbag	none
 👝	clutch bag	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	pambabaeng sandals	none
 🩰	sapatos pang-ballet	none
 👢	pambabaeng boots	none
+🪮	pampili ng buhok	none
 👑	korona	none
 👒	sumbrerong pambabae	none
 🎩	top hat	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banjo	none
 🥁	drum	none
 🪘	mahabang drum	none
+🪇	maracas	none
+🪈	plawta	none
 📱	mobile phone	none
 📲	mobile phone na may arrow	none
 ☎	telepono	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	pager	none
 📠	fax machine	none
 🔋	baterya	none
+🪫	paubos ang baterya	none
 🔌	electric plug	none
 💻	laptop computer	none
 🖥	desktop computer	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	martilyo at liyabe	none
 🗡	patalim	none
 ⚔	magkakrus na espada	none
-🔫	water gun	none
+💣	bomba	none
 🪃	boomerang	none
 🏹	pana	none
 🛡	kalasag	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	patak ng dugo	none
 💊	pill	none
 🩹	adhesive na bandaid	none
+🩼	saklay	none
 🩺	stethoscope	none
+🩻	x-ray	none
 🚪	pinto	none
 🛗	elevator	none
 🪞	salamin	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	rolyo ng tisyu	none
 🪣	timba	none
 🧼	sabon	none
+🫧	bula	none
 🪥	sipilyo	none
 🧽	espongha	none
 🧯	pamatay apoy	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	kabaong	none
 🪦	lapida	none
 ⚱	sisidlan ng abo	none
+🧿	nazar amulet	none
+🪬	hamsa	none
 🗿	moai	none
 🪧	karatula	none
+🪪	identification card	none
 🏧	tanda ng ATM	none
 🚮	tanda na magtapon sa basurahan	none
 🚰	naiinom na tubig	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	simbolo ng kapayapaan	none
 🕎	menorah	none
 🔯	six-pointed star na may tuldok	none
+🪯	khanda	none
 ♈	Aries	none
 ♉	Taurus	none
 ♊	Gemini	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	button na diliman	none
 🔆	button na liwanagan	none
 📶	mga antenna bar	none
+🛜	wireless	none
 📳	vibration mode	none
 📴	i-off ang mobile phone	none
 ♀	simbolo ng babae	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	plus	none
 ➖	minus	none
 ➗	divide	none
+🟰	madiin na equals sign	none
 ♾	infinity	none
 ❓	pulang tandang pananong	none
 ❔	puting tandang pananong	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	ruble	none
 ₿	bitcoin	none
 ₨	rupee	none
-🫃🏻	lalaking buntis light na kulay ng balat	none
-🫃🏼	lalaking buntis katamtamang light na kulay ng balat	none
-🫃🏽	lalaking buntis katamtamang kulay ng balat	none
-🫃🏾	lalaking buntis katamtamang dark na kulay ng balat	none
-🫃🏿	lalaking buntis dark na kulay ng balat	none
-🫄🏻	taong buntis light na kulay ng balat	none
-🫄🏼	taong buntis katamtamang light na kulay ng balat	none
-🫄🏽	taong buntis katamtamang kulay ng balat	none
-🫄🏾	taong buntis katamtamang dark na kulay ng balat	none
-🫄🏿	taong buntis dark na kulay ng balat	none
-🫅🏻	taong may korona light na kulay ng balat	none
-🫅🏼	taong may korona katamtamang light na kulay ng balat	none
-🫅🏽	taong may korona katamtamang kulay ng balat	none
-🫅🏾	taong may korona katamtamang dark na kulay ng balat	none
-🫅🏿	taong may korona dark na kulay ng balat	none
-🫰🏻	kamay na magkakrus ang hintuturo at hinlalaki light na kulay ng balat	none
-🫰🏼	kamay na magkakrus ang hintuturo at hinlalaki katamtamang light na kulay ng balat	none
-🫰🏽	kamay na magkakrus ang hintuturo at hinlalaki katamtamang kulay ng balat	none
-🫰🏾	kamay na magkakrus ang hintuturo at hinlalaki katamtamang dark na kulay ng balat	none
-🫰🏿	kamay na magkakrus ang hintuturo at hinlalaki dark na kulay ng balat	none
+👋🏻	kumakaway na kamay light na kulay ng balat	none
+👋🏼	kumakaway na kamay katamtamang light na kulay ng balat	none
+👋🏽	kumakaway na kamay katamtamang kulay ng balat	none
+👋🏾	kumakaway na kamay katamtamang dark na kulay ng balat	none
+👋🏿	kumakaway na kamay dark na kulay ng balat	none
+🤚🏻	nakataas na baliktad na kamay light na kulay ng balat	none
+🤚🏼	nakataas na baliktad na kamay katamtamang light na kulay ng balat	none
+🤚🏽	nakataas na baliktad na kamay katamtamang kulay ng balat	none
+🤚🏾	nakataas na baliktad na kamay katamtamang dark na kulay ng balat	none
+🤚🏿	nakataas na baliktad na kamay dark na kulay ng balat	none
+🖐🏻	nakataas na nakabukas na kamay light na kulay ng balat	none
+🖐🏼	nakataas na nakabukas na kamay katamtamang light na kulay ng balat	none
+🖐🏽	nakataas na nakabukas na kamay katamtamang kulay ng balat	none
+🖐🏾	nakataas na nakabukas na kamay katamtamang dark na kulay ng balat	none
+🖐🏿	nakataas na nakabukas na kamay dark na kulay ng balat	none
+✋🏻	nakataas na kamay light na kulay ng balat	none
+✋🏼	nakataas na kamay katamtamang light na kulay ng balat	none
+✋🏽	nakataas na kamay katamtamang kulay ng balat	none
+✋🏾	nakataas na kamay katamtamang dark na kulay ng balat	none
+✋🏿	nakataas na kamay dark na kulay ng balat	none
+🖖🏻	vulcan salute light na kulay ng balat	none
+🖖🏼	vulcan salute katamtamang light na kulay ng balat	none
+🖖🏽	vulcan salute katamtamang kulay ng balat	none
+🖖🏾	vulcan salute katamtamang dark na kulay ng balat	none
+🖖🏿	vulcan salute dark na kulay ng balat	none
 🫱🏻	pakanang kamay light na kulay ng balat	none
 🫱🏼	pakanang kamay katamtamang light na kulay ng balat	none
 🫱🏽	pakanang kamay katamtamang kulay ng balat	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	nakasalong palad katamtamang kulay ng balat	none
 🫴🏾	nakasalong palad katamtamang dark na kulay ng balat	none
 🫴🏿	nakasalong palad dark na kulay ng balat	none
-🫵🏻	hintuturong nakaturo sa tumitingin light na kulay ng balat	none
-🫵🏼	hintuturong nakaturo sa tumitingin katamtamang light na kulay ng balat	none
-🫵🏽	hintuturong nakaturo sa tumitingin katamtamang kulay ng balat	none
-🫵🏾	hintuturong nakaturo sa tumitingin katamtamang dark na kulay ng balat	none
-🫵🏿	hintuturong nakaturo sa tumitingin dark na kulay ng balat	none
-🫶🏻	nakapusong kamay light na kulay ng balat	none
-🫶🏼	nakapusong kamay katamtamang light na kulay ng balat	none
-🫶🏽	nakapusong kamay katamtamang kulay ng balat	none
-🫶🏾	nakapusong kamay katamtamang dark na kulay ng balat	none
-🫶🏿	nakapusong kamay dark na kulay ng balat	none
-👋🏻	kumakaway na kamay light na kulay ng balat	none
-👋🏼	kumakaway na kamay katamtamang light na kulay ng balat	none
-👋🏽	kumakaway na kamay katamtamang kulay ng balat	none
-👋🏾	kumakaway na kamay katamtamang dark na kulay ng balat	none
-👋🏿	kumakaway na kamay dark na kulay ng balat	none
-🤚🏻	nakataas na baliktad na kamay light na kulay ng balat	none
-🤚🏼	nakataas na baliktad na kamay katamtamang light na kulay ng balat	none
-🤚🏽	nakataas na baliktad na kamay katamtamang kulay ng balat	none
-🤚🏾	nakataas na baliktad na kamay katamtamang dark na kulay ng balat	none
-🤚🏿	nakataas na baliktad na kamay dark na kulay ng balat	none
-🖐🏻	nakataas na nakabukas na kamay light na kulay ng balat	none
-🖐🏼	nakataas na nakabukas na kamay katamtamang light na kulay ng balat	none
-🖐🏽	nakataas na nakabukas na kamay katamtamang kulay ng balat	none
-🖐🏾	nakataas na nakabukas na kamay katamtamang dark na kulay ng balat	none
-🖐🏿	nakataas na nakabukas na kamay dark na kulay ng balat	none
-✋🏻	nakataas na kamay light na kulay ng balat	none
-✋🏼	nakataas na kamay katamtamang light na kulay ng balat	none
-✋🏽	nakataas na kamay katamtamang kulay ng balat	none
-✋🏾	nakataas na kamay katamtamang dark na kulay ng balat	none
-✋🏿	nakataas na kamay dark na kulay ng balat	none
-🖖🏻	vulcan salute light na kulay ng balat	none
-🖖🏼	vulcan salute katamtamang light na kulay ng balat	none
-🖖🏽	vulcan salute katamtamang kulay ng balat	none
-🖖🏾	vulcan salute katamtamang dark na kulay ng balat	none
-🖖🏿	vulcan salute dark na kulay ng balat	none
+🫷🏻	pakaliwang tumutulak na kamay light na kulay ng balat	none
+🫷🏼	pakaliwang tumutulak na kamay katamtamang light na kulay ng balat	none
+🫷🏽	pakaliwang tumutulak na kamay katamtamang kulay ng balat	none
+🫷🏾	pakaliwang tumutulak na kamay katamtamang dark na kulay ng balat	none
+🫷🏿	pakaliwang tumutulak na kamay dark na kulay ng balat	none
+🫸🏻	pakanang tumutulak na kamay light na kulay ng balat	none
+🫸🏼	pakanang tumutulak na kamay katamtamang light na kulay ng balat	none
+🫸🏽	pakanang tumutulak na kamay katamtamang kulay ng balat	none
+🫸🏾	pakanang tumutulak na kamay katamtamang dark na kulay ng balat	none
+🫸🏿	pakanang tumutulak na kamay dark na kulay ng balat	none
 👌🏻	kamay na nagpapahiwatig ng ok light na kulay ng balat	none
 👌🏼	kamay na nagpapahiwatig ng ok katamtamang light na kulay ng balat	none
 👌🏽	kamay na nagpapahiwatig ng ok katamtamang kulay ng balat	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	naka-cross na mga daliri katamtamang kulay ng balat	none
 🤞🏾	naka-cross na mga daliri katamtamang dark na kulay ng balat	none
 🤞🏿	naka-cross na mga daliri dark na kulay ng balat	none
+🫰🏻	kamay na magkakrus ang hintuturo at hinlalaki light na kulay ng balat	none
+🫰🏼	kamay na magkakrus ang hintuturo at hinlalaki katamtamang light na kulay ng balat	none
+🫰🏽	kamay na magkakrus ang hintuturo at hinlalaki katamtamang kulay ng balat	none
+🫰🏾	kamay na magkakrus ang hintuturo at hinlalaki katamtamang dark na kulay ng balat	none
+🫰🏿	kamay na magkakrus ang hintuturo at hinlalaki dark na kulay ng balat	none
 🤟🏻	love-you gesture light na kulay ng balat	none
 🤟🏼	love-you gesture katamtamang light na kulay ng balat	none
 🤟🏽	love-you gesture katamtamang kulay ng balat	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	hintuturo na nakaturo sa itaas katamtamang kulay ng balat	none
 ☝🏾	hintuturo na nakaturo sa itaas katamtamang dark na kulay ng balat	none
 ☝🏿	hintuturo na nakaturo sa itaas dark na kulay ng balat	none
+🫵🏻	hintuturong nakaturo sa tumitingin light na kulay ng balat	none
+🫵🏼	hintuturong nakaturo sa tumitingin katamtamang light na kulay ng balat	none
+🫵🏽	hintuturong nakaturo sa tumitingin katamtamang kulay ng balat	none
+🫵🏾	hintuturong nakaturo sa tumitingin katamtamang dark na kulay ng balat	none
+🫵🏿	hintuturong nakaturo sa tumitingin dark na kulay ng balat	none
 👍🏻	thumbs up light na kulay ng balat	none
 👍🏼	thumbs up katamtamang light na kulay ng balat	none
 👍🏽	thumbs up katamtamang kulay ng balat	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	nakataas na mga kamay katamtamang kulay ng balat	none
 🙌🏾	nakataas na mga kamay katamtamang dark na kulay ng balat	none
 🙌🏿	nakataas na mga kamay dark na kulay ng balat	none
+🫶🏻	nakapusong kamay light na kulay ng balat	none
+🫶🏼	nakapusong kamay katamtamang light na kulay ng balat	none
+🫶🏽	nakapusong kamay katamtamang kulay ng balat	none
+🫶🏾	nakapusong kamay katamtamang dark na kulay ng balat	none
+🫶🏿	nakapusong kamay dark na kulay ng balat	none
 👐🏻	bukas-palad light na kulay ng balat	none
 👐🏼	bukas-palad katamtamang light na kulay ng balat	none
 👐🏽	bukas-palad katamtamang kulay ng balat	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	babaeng trabahador sa konstruksyon katamtamang kulay ng balat	none
 👷🏾‍♀	babaeng trabahador sa konstruksyon katamtamang dark na kulay ng balat	none
 👷🏿‍♀	babaeng trabahador sa konstruksyon dark na kulay ng balat	none
+🫅🏻	taong may korona light na kulay ng balat	none
+🫅🏼	taong may korona katamtamang light na kulay ng balat	none
+🫅🏽	taong may korona katamtamang kulay ng balat	none
+🫅🏾	taong may korona katamtamang dark na kulay ng balat	none
+🫅🏿	taong may korona dark na kulay ng balat	none
 🤴🏻	prinsipe light na kulay ng balat	none
 🤴🏼	prinsipe katamtamang light na kulay ng balat	none
 🤴🏽	prinsipe katamtamang kulay ng balat	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	buntis katamtamang kulay ng balat	none
 🤰🏾	buntis katamtamang dark na kulay ng balat	none
 🤰🏿	buntis dark na kulay ng balat	none
+🫃🏻	lalaking buntis light na kulay ng balat	none
+🫃🏼	lalaking buntis katamtamang light na kulay ng balat	none
+🫃🏽	lalaking buntis katamtamang kulay ng balat	none
+🫃🏾	lalaking buntis katamtamang dark na kulay ng balat	none
+🫃🏿	lalaking buntis dark na kulay ng balat	none
+🫄🏻	taong buntis light na kulay ng balat	none
+🫄🏼	taong buntis katamtamang light na kulay ng balat	none
+🫄🏽	taong buntis katamtamang kulay ng balat	none
+🫄🏾	taong buntis katamtamang dark na kulay ng balat	none
+🫄🏿	taong buntis dark na kulay ng balat	none
 🤱🏻	breast-feeding light na kulay ng balat	none
 🤱🏼	breast-feeding katamtamang light na kulay ng balat	none
 🤱🏽	breast-feeding katamtamang kulay ng balat	none
@@ -3875,12 +3905,12 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandila Wales	none
 ₡	Colón ng Costa Rica	none
 ₦	Nigerian Naira	none
-₪	Israeli New Sheqel	none
+₪	New Shekel ng Israel	none
 ₫	Vietnamese Dong	none
 ₭	Laotian Kip	none
 ₮	Mongolian Tugrik	none
 ₲	Paraguayan Guarani	none
-₴	Ukrainian Hryvnia	none
+₴	Hryvnia ng Ukraine	none
 ₵	Ghanaian Cedi	none
 ₸	Kazakhstani Tenge	none
 ₺	Turkish Lira	none

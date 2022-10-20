@@ -8,30 +8,18 @@ symbols:
 🏽	medium skin	none
 🏾	medium-dark skin	none
 🏿	dark skin	none
-℗	sound recording copyright	none
-←	left-pointing arrow	none
 ↚	leftwards arrow stroke	none
-→	right-pointing arrow	none
 ↛	rightwards arrow stroke	none
-↑	up-pointing arrow	none
-↓	down-pointing arrow	none
-↜	leftwards wave arrow	none
-↝	rightwards wave arrow	none
 ↞	leftwards two headed arrow	none
 ↟	upwards two headed arrow	none
 ↠	rightwards two headed arrow	none
 ↡	downwards two headed arrow	none
 ↢	leftwards arrow tail	none
 ↣	rightwards arrow tail	none
-↤	leftwards arrow from bar	none
-↥	upwards arrow from bar	none
-↦	rightwards arrow from bar	none
-↧	downwards arrow from bar	none
 ↨	base ke saath up down arrow	none
 ↫	leftwards arrow loop	none
 ↬	rightwards arrow loop	none
 ↭	left right wave arrow	none
-↯	downwards zigzag arrow	none
 ↰	upwards arrow tip leftwards	none
 ↱	upwards arrow tip rightwards	none
 ↲	downwards arrow tip leftwards	none
@@ -41,7 +29,6 @@ symbols:
 ↶	anticlockwise top semicircle arrow	none
 ↷	clockwise top semicircle arrow	none
 ↸	north west arrow long bar	none
-↹	leftwards over rightwards arrow bars	none
 ↺	anticlockwise open circle arrow	none
 ↻	clockwise open circle arrow	none
 ↼	leftwards harpoon barb upwards	none
@@ -52,96 +39,36 @@ symbols:
 ⇁	rightwards harpoon barb downwards	none
 ⇂	downwards harpoon barb rightwards	none
 ⇃	downwards harpoon barb leftwards	none
-⇄	rightwards arrow over leftwards arrow	none
-⇅	up-pointing and down-pointing arrows	none
-⇆	left-pointing over right-pointing arrows	none
-⇇	leftwards paired arrows	none
-⇈	upwards paired arrows	none
-⇉	rightwards paired arrows	none
-⇊	downwards paired arrows	none
-⇋	leftwards harpoon over rightwards harpoon	none
-⇌	rightwards harpoon over leftwards harpoon	none
-⇐	leftwards double arrow	none
 ⇍	leftwards double arrow stroke	none
-⇑	upwards double arrow	none
-⇒	rightwards double arrow	none
 ⇏	rightwards double arrow stroke	none
-⇓	downwards double arrow	none
 ⇔	left right double arrow	none
 ⇎	left right double arrow stroke	none
 ⇖	north west double arrow	none
 ⇗	north east double arrow	none
 ⇘	south east double arrow	none
 ⇙	south west double arrow	none
-⇚	leftwards triple arrow	none
-⇛	rightwards triple arrow	none
-⇜	leftwards squiggle arrow	none
-⇝	rightwards squiggle arrow	none
 ⇞	upwards arrow double stroke	none
 ⇟	downwards arrow double stroke	none
-⇠	leftwards dashed arrow	none
-⇡	upwards dashed arrow	none
-⇢	rightwards dashed arrow	none
-⇣	downwards dashed arrow	none
 ⇤	leftwards arrow bar	none
 ⇥	rightwards arrow bar	none
-⇦	leftwards hollow arrow	none
-⇧	upwards hollow arrow	none
-⇨	rightwards hollow arrow	none
-⇩	downwards hollow arrow	none
-⇪	upwards hollow arrow from bar	none
 ⇵	downwards arrow leftwards upwards arrow	none
 ∀	sabhi ke liye	none
-∂	partial differential	none
-∃	there exists	none
-∅	empty set	none
-∆	increment	none
-∇	nabla	none
 ∈	iska element	none
 ∉	koi element nahi	none
 ∋	member ke taur par rakhta hai	none
 ∎	end proof	none
-∏	n-ary product	none
-∑	n-ary summation	none
 ≮	isse kam nahi	none
 ≠	baraabar nahi	none
 ≯	isse bada nahi	none
-−	minus sign	none
-⁻	superscript minus	none
-∓	minus-or-plus	none
-∕	division slash	none
-∗	asterisk operator	none
-∘	ring operator	none
-∙	bullet operator	none
-√	square root	none
 ∝	proportional	none
-∞	infinity sign	none
-∟	right angle	none
-∠	angle	none
-∣	divides	none
 ∥	parallel	none
-∧	logical and	none
-∩	intersection	none
-∪	union	none
-∫	integral	none
-∬	double integral	none
-∮	contour integral	none
 ∴	isliye	none
 ∵	kyonki	none
-∶	ratio	none
-∷	proportion	none
-∼	tilde operator	none
-∽	reversed tilde	none
-∾	inverted lazy s	none
 ≃	asymptotically equal	none
 ≅	approximately equal	none
-≈	almost equal	none
 ≌	sabhi baraabar	none
-≒	approximately equal the image	none
-≖	ring in equal	none
-≡	identical to	none
 ≣	strictly equivalent	none
-≤	less-than or equal	none
+≤	isse chhota yaa baraabar	none
 ≥	isse bada yaa baraabar	none
 ≦	baraabar hone par isse kam	none
 ≧	baraabar hone par isse zyaada	none
@@ -156,368 +83,128 @@ symbols:
 ⊃	superset	none
 ⊆	subset baraabar	none
 ⊇	superset baraabar	none
-⊕	circled plus	none
-⊖	circled minus	none
-⊗	circled times	none
-⊘	circled division slash	none
-⊙	circled dot operator	none
-⊚	circled ring operator	none
-⊛	circled asterisk operator	none
-⊞	squared plus	none
-⊟	squared minus	none
-⊥	up tack	none
-⊮	does not force	none
-⊰	precedes under relation	none
-⊱	succeeds under relation	none
 ⋭	normal subgroup equal ke taur par shaamil nahi karta	none
 ⊶	original	none
-⊹	hermitian conjugate matrix	none
-⊿	right triangle	none
-⋁	n-ary logical or	none
-⋂	n-ary intersection	none
-⋃	n-ary union	none
-⋅	dot operator	none
-⋆	star operator	none
-⋈	natural join	none
-⋒	double intersection	none
-⋮	vertical ellipsis	none
-⋯	midline horizontal ellipsis	none
 ⋰	up right diagonal ellipsis	none
 ⋱	down right diagonal ellipsis	none
-■	filled square	none
-□	hollow square	none
-▢	hollow square with rounded corners	none
-▣	hollow square containing filled square	none
 ▤	horizontal fill wala square	none
 ▥	vertical fill wala square	none
 ▦	square orthogonal crosshatch fill	none
 ▧	square upper left lower right fill	none
 ▨	square upper right lower left fill	none
 ▩	square diagonal crosshatch fill	none
-▬	filled rectangle	none
-▭	hollow rectangle	none
-▮	filled vertical rectangle	none
-▰	filled parallelogram	none
-▲	filled up-pointing triangle	none
-△	hollow up-pointing triangle	none
-▴	filled up-pointing small triangle	none
-▵	hollow up-pointing small triangle	none
-▷	hollow right-pointing triangle	none
-▸	filled right-pointing small triangle	none
-▹	hollow right-pointing small triangle	none
-►	filled right-pointing pointer	none
-▻	hollow right-pointing pointer	none
-▼	filled down-pointing triangle	none
-▽	hollow down-pointing triangle	none
-▾	filled down-pointing small triangle	none
-▿	hollow down-pointing small triangle	none
-◁	hollow left-pointing triangle	none
-◂	filled left-pointing small triangle	none
-◃	hollow left-pointing small triangle	none
-◄	filled left-pointing pointer	none
-◅	hollow left-pointing pointer	none
-◆	filled diamond	none
-◇	hollow diamond	none
+▲	Oopar point karta hua filled triangle	none
+▼	neeche point karta hua filled triangle	none
 ◈	filled diamond wala hollow diamond	none
 ◉	filled circle wala hollow circle	none
-◊	lozenge	none
-○	hollow circle	none
-◌	dotted circle	none
 ◍	vertical fill wala circle	none
-◎	concentric circles	none
-●	filled circle	none
 ◐	left se half filled circle	none
 ◑	right se half filled circle	none
 ◒	neeche se half filled circle	none
 ◓	oopar se half filled circle	none
 ◔	Circle kaa filled upper right quadrant	none
 ◕	circle all but upper left quadrant filled	none
-◘	inverse bullet	none
 ◙	hollow circle wala filled square	none
 ◜	upper left quadrant circular arc	none
 ◝	upper right quadrant circular arc	none
 ◞	lower right quadrant circular arc	none
 ◟	lower left quadrant circular arc	none
-◠	upper half circle	none
-◡	lower half circle	none
 ◢	filled lower right triangle	none
 ◣	filled lower left triangle	none
 ◤	filled upper left triangle	none
 ◥	filled upper right triangle	none
-◦	hollow bullet	none
-◯	large hollow circle	none
 ◳	hollow square upper right quadrant	none
 ◷	hollow circle with upper right quadrant	none
 ◿	lower right triangle	none
 ♪	eighth note	none
 ⨧	plus subscript two	none
 ⨯	vector cross product	none
-⨼	interior product	none
 ⩣	logical or double underbar	none
 ⩽	less-than slanted equal	none
 ⪍	less-than above similar equal	none
 ⪚	double-line equal greater-than	none
-⪺	succeeds above not almost equal	none
-♭	flat	none
-♯	sharp	none
-🥹	Aansoon rokta face	none
-🧌	troll	none
-🩻	x-ray	none
-🩼	crutch	none
-🪩	mirror ball	none
-🪪	identification card	none
-🪫	low battery	none
-🪬	hamsa	none
-🪷	lotus	none
-🪸	coral	none
-🪹	Khaali nest	none
-🪺	eggs wala nest	none
-🫃	pregnant man	none
-🫄	pregnant person	none
-🫅	crown wala vyakti	none
-🫗	pouring liquid	none
-🫘	beans	none
-🫙	jar	none
-🫠	melting face	none
-🫡	saluting face	none
-🫢	khuli aankhein aur mouth par haath wala face	none
-🫣	fingers ke beech se jhaankta face	none
-🫤	diagonal mouth wala face	none
-🫥	dotted line face	none
-🫦	biting lip	none
-🫧	bubbles	none
-🫰	hand with index finger and thumb crossed	none
-🫱	rightwards hand	none
-🫲	leftwards hand	none
-🫳	palm down hand	none
-🫴	palm up hand	none
-🫵	viewer ki taraf pont karti index finger	none
-🫶	haathon se bana heart	none
-🛝	playground slide	none
-🛞	wheel	none
-🛟	ring buoy	none
-🟰	heavy equals sign	none
-😀	grinning face	none
 😃	badi aankhon wala grinning face	none
 😄	smile karti aankhon wala grinning face	none
 😁	smile karti aankhon wala beaming face	none
-😆	grinning squinting face	none
 😅	sweating wala grinning face	none
-🤣	rolling on the floor laughing	none
 😂	face	none
-🙂	slightly smiling face	none
-🙃	upside-down face	none
-😉	winking face	none
 😊	smiling eyes wala smiling face	none
-😇	smiling face with halo	none
 🥰	hearts wala smiling face	none
 😍	heart-eyes wala smiling face	none
-🤩	star-struck	none
-😘	face blowing a kiss	none
-😗	kissing face	none
-☺	smiling face	none
+😘	kiss deta face	none
 😚	closed eyes wala kissing face	none
 😙	smiling eyes wala kissing face	none
-🥲	aansoon wala smiling face	none
+🥲	aansoo wala smiling face	none
 😋	food enjoy karta face	none
 😛	tongue dikhaata face	none
 😜	tongue dikhaata winking face	none
-🤪	zany face	none
 😝	tongue nikaalta squinting face	none
-🤑	money-mouth face	none
 🤗	hug karta smiling face	none
 🤭	mouth par haath wala face	none
-🤫	shushing face	none
-🤔	thinking face	none
-🤐	zipper-mouth face	none
+🫢	khuli aankhein aur munh par haath	none
+🫣	fingers ke beech se jhaankta face	none
 🤨	raised eyebrow wala face	none
-😐	neutral face	none
-😑	expressionless face	none
 😶	bina mouth wala face	none
 😶‍🌫	baadlon mein face	none
-😏	smirking face	none
-😒	unamused face	none
 🙄	rolling eyes wala face	none
-😬	grimacing face	none
-😮‍💨	face exhaling	none
-🤥	lying face	none
-😌	relieved face	none
-😔	pensive face	none
-😪	sleepy face	none
-🤤	drooling face	none
-😴	sleeping face	none
 😷	medical mask wala face	none
 🤒	thermometer wala face	none
 🤕	head-bandage wala face	none
-🤢	nauseated face	none
-🤮	face vomiting	none
-🤧	sneezing face	none
-🥵	hot face	none
-🥶	cold face	none
-🥴	woozy face	none
 😵	crossed-out eyes wala face	none
 😵‍💫	spiral eyes wala face	none
-🤯	exploding head	none
-🤠	cowboy hat face	none
-🥳	partying face	none
-🥸	disguised face	none
 😎	sunglasses wala face	none
-🤓	nerd face	none
-🧐	face with monocle	none
-😕	confused face	none
-😟	worried face	none
-🙁	slightly frowning face	none
-☹	frowning face	none
+🫤	diagonal mouth wala face	none
 😮	open mouth wala face	none
-😯	hushed face	none
-😲	astonished face	none
-😳	flushed face	none
-🥺	pleading face	none
+🥹	Aansoo rokta face	none
 😦	open mouth wala frowning face	none
 😧	dukhi face	none
-😨	fearful face	none
 😰	sweating wala anxious face	none
 😥	sad lekin relieved face	none
-😢	crying face	none
 😭	loudly rone wala face	none
 😱	dar se scream karta face	none
 😖	Hairaan face	none
-😣	persevering face	none
-😞	disappointed face	none
 😓	sweating wala udaas face	none
-🥱	yawning face	none
-😤	nose se steam nkalti dikhaane wala face	none
-😡	enraged face	none
-😠	angry face	none
+😤	nose se steam nikalti dikhaane wala face	none
 🤬	mouth par symbols wala face	none
 😈	horns wala smiling face	none
 👿	horns wala angry face	none
-💀	skull	none
 ☠	skull aur crossbones	none
-💩	pile of poo	none
-🤡	clown face	none
-👹	ogre	none
-👺	goblin	none
-👻	ghost	none
-👽	alien	none
-👾	alien monster	none
-🤖	robot	none
-😺	grinning cat	none
 😸	smiling eyes wali grinning cat	none
-😹	khushi ke aansoon bahaati cat kaa face	none
+😹	khushi ke aansoo bahaati cat kaa face	none
 😻	heart-eyes wali smiling cat	none
-😼	wry smile wali cat	none
-😽	kissing cat	none
-🙀	weary cat	none
-😿	crying cat	none
-😾	pouting cat	none
-🙈	see-no-evil monkey	none
-🙉	hear-no-evil monkey	none
-🙊	speak-no-evil monkey	none
-💋	kiss mark	none
-💌	love letter	none
+😼	Dissapointment ke saath smile karti cat	none
+🙈	Bura na dekhne wala monkey	none
+🙉	bura na sunne wala monkey	none
+🙊	bura na bolne wala monkey	none
 💘	arrow wala heart	none
 💝	ribbon wala heart	none
-💖	sparkling heart	none
 💗	grow karta hua heart	none
-💓	beating heart	none
-💞	revolving hearts	none
 💕	do hearts	none
 💟	heart ki decoration	none
 ❣	exclamation sign wala heart	none
-💔	broken heart	none
-❤‍🔥	heart on fire	none
-❤‍🩹	mending heart	none
-❤	red heart	none
-🧡	orange heart	none
-💛	yellow heart	none
-💚	green heart	none
-💙	blue heart	none
-💜	purple heart	none
-🤎	brown heart	none
-🖤	black heart	none
-🤍	white heart	none
-💯	hundred points	none
-💢	anger symbol	none
-💥	collision	none
-💫	dizzy	none
 💦	sweating ke droplets	none
-💨	dashing away	none
-🕳	hole	none
-💣	bomb	none
-💬	speech balloon	none
 👁‍🗨	speech bubble mein eye	none
-🗨	left speech bubble	none
-🗯	right anger bubble	none
-💭	thought balloon	none
-💤	ZZZ	none
 👋	wave karta haath	none
 🤚	uthe huye haath ki back side	none
 🖐	faili fingers wala haath	none
 ✋	utha hua haath	none
-🖖	vulcan salute	none
 👌	OK kaa symbol	none
-🤌	pinched fingers	none
 🤏	pinch dikhaata haath	none
 ✌	victory dikhaata haath	none
-🤞	crossed fingers	none
-🤟	love-you gesture	none
 🤘	horns kaa sign	none
 🤙	call me kaa ishaara karne wala haath	none
-👈	left mein point karti index finger dikhaate haath ki back side	none
-👉	right mein point karti index finger dikhaate haath ki back side	none
-👆	oopar point karti index finger dikhaate haath ki back side	none
-🖕	middle finger	none
-👇	neeche point karti index finger dikhaate haath ki back side	none
+👈	left mein point karti index finger	none
+👉	right mein point karti index finger	none
+👆	oopar ishaara karti index finger	none
+👇	neeche ishaara karti index finger	none
 ☝	oopar point karti index finger	none
-👍	thumbs up	none
-👎	thumbs down	none
-✊	raised fist	none
-👊	oncoming fist	none
-🤛	left-facing fist	none
-🤜	right-facing fist	none
-👏	clapping hands	none
+🫵	viewer ki taraf pont karti index finger	none
 🙌	khush hokar dono haath uthaana	none
-👐	open hands	none
+🫶	haathon se bana heart	none
 🤲	palms ko eksaath oopar karna	none
-🤝	handshake	none
 🙏	namaste karna	none
 ✍	likhta hua haath	none
-💅	nail polish	none
-🤳	selfie	none
-💪	flexed biceps	none
-🦾	mechanical arm	none
-🦿	mechanical leg	none
-🦵	leg	none
-🦶	foot	none
-👂	ear	none
 🦻	hearing aid laga kaan	none
-👃	nose	none
-🧠	brain	none
-🫀	anatomical heart	none
-🫁	lungs	none
-🦷	tooth	none
-🦴	bone	none
-👀	eyes	none
-👁	eye	none
-👅	tongue	none
-👄	mouth	none
-👶	baby	none
-🧒	child	none
-👦	boy	none
-👧	girl	none
-🧑	person	none
-👱	person blond hair	none
-👨	man	none
-🧔	person beard	none
-🧔‍♂	man beard	none
-👱‍♂	man blond hair	none
-👩	woman	none
-🧔‍♀	woman beard	none
-👱‍♀	woman blond hair	none
-🧓	older person	none
-👴	old man	none
-👵	old woman	none
 🙍	frown karta person	none
 🙍‍♂	frown karta aadmi	none
 🙍‍♀	frown karti mahila	none
@@ -536,9 +223,6 @@ symbols:
 🙋	haath uthaata vyakti	none
 🙋‍♂	haath uthaata aadmi	none
 🙋‍♀	haath uthaati mahila	none
-🧏	deaf person	none
-🧏‍♂	deaf man	none
-🧏‍♀	deaf woman	none
 🙇	bow karta vyakti	none
 🙇‍♂	bow karta aadmi	none
 🙇‍♀	bow karti mahila	none
@@ -548,69 +232,7 @@ symbols:
 🤷	shrug karta vyakti	none
 🤷‍♂	shrug karta aadmi	none
 🤷‍♀	shrug karti mahila	none
-🧑‍⚕	health worker	none
-👨‍⚕	man health worker	none
-👩‍⚕	woman health worker	none
-🧑‍🎓	student	none
-👨‍🎓	man student	none
-👩‍🎓	woman student	none
-🧑‍🏫	teacher	none
-👨‍🏫	man teacher	none
-👩‍🏫	woman teacher	none
-🧑‍⚖	judge	none
-👨‍⚖	man judge	none
-👩‍⚖	woman judge	none
-🧑‍🌾	farmer	none
-👨‍🌾	man farmer	none
-👩‍🌾	woman farmer	none
-🧑‍🍳	cook	none
-👨‍🍳	man cook	none
-👩‍🍳	woman cook	none
-🧑‍🔧	mechanic	none
-👨‍🔧	man mechanic	none
-👩‍🔧	woman mechanic	none
-🧑‍🏭	factory worker	none
-👨‍🏭	man factory worker	none
-👩‍🏭	woman factory worker	none
-🧑‍💼	office worker	none
-👨‍💼	man office worker	none
-👩‍💼	woman office worker	none
-🧑‍🔬	scientist	none
-👨‍🔬	man scientist	none
-👩‍🔬	woman scientist	none
-🧑‍💻	technologist	none
-👨‍💻	man technologist	none
-👩‍💻	woman technologist	none
-🧑‍🎤	singer	none
-👨‍🎤	man singer	none
-👩‍🎤	woman singer	none
-🧑‍🎨	artist	none
-👨‍🎨	man artist	none
-👩‍🎨	woman artist	none
-🧑‍✈	pilot	none
-👨‍✈	man pilot	none
-👩‍✈	woman pilot	none
-🧑‍🚀	astronaut	none
-👨‍🚀	man astronaut	none
-👩‍🚀	woman astronaut	none
-🧑‍🚒	firefighter	none
-👨‍🚒	man firefighter	none
-👩‍🚒	woman firefighter	none
-👮	police officer	none
-👮‍♂	man police officer	none
-👮‍♀	woman police officer	none
-🕵	detective	none
-🕵‍♂	man detective	none
-🕵‍♀	woman detective	none
-💂	guard	none
-💂‍♂	man guard	none
-💂‍♀	woman guard	none
-🥷	ninja	none
-👷	construction worker	none
-👷‍♂	man construction worker	none
-👷‍♀	woman construction worker	none
-🤴	prince	none
-👸	princess	none
+🫅	crown wala vyakti	none
 👳	turban wala vyakti	none
 👳‍♂	turban wala aadmi	none
 👳‍♀	turban wali mahila	none
@@ -619,43 +241,11 @@ symbols:
 🤵	suit boot mein vyakti	none
 🤵‍♂	suit boot mein aadmi	none
 🤵‍♀	suit boot mein mahila	none
+👰	Ghoonghat mein bride	none
 👰‍♀	parde mein dulhan	none
-🤰	pregnant woman	none
-🤱	breast-feeding	none
 👩‍🍼	baby ko feed karti mahila	none
 👨‍🍼	baby ko feed karta aadmi	none
 🧑‍🍼	baby ko feed karta vyakti	none
-👼	baby angel	none
-🎅	Santa Claus	none
-🤶	Mrs. Claus	none
-🧑‍🎄	mx claus	none
-🦸	superhero	none
-🦸‍♂	man superhero	none
-🦸‍♀	woman superhero	none
-🦹	supervillain	none
-🦹‍♂	man supervillain	none
-🦹‍♀	woman supervillain	none
-🧙	mage	none
-🧙‍♂	man mage	none
-🧙‍♀	woman mage	none
-🧚	fairy	none
-🧚‍♂	man fairy	none
-🧚‍♀	woman fairy	none
-🧛	vampire	none
-🧛‍♂	man vampire	none
-🧛‍♀	woman vampire	none
-🧜	merperson	none
-🧜‍♂	merman	none
-🧜‍♀	mermaid	none
-🧝	elf	none
-🧝‍♂	man elf	none
-🧝‍♀	woman elf	none
-🧞	genie	none
-🧞‍♂	man genie	none
-🧞‍♀	woman genie	none
-🧟	zombie	none
-🧟‍♂	man zombie	none
-🧟‍♀	woman zombie	none
 💆	massage karwaata vyakti	none
 💆‍♂	massage karwaata aadmi	none
 💆‍♀	massage karwaati mahila	none
@@ -685,7 +275,7 @@ symbols:
 🏃‍♀	run karti mahila	none
 💃	dance karti mahila	none
 🕺	dance karta aadmi	none
-🕴	suit wala vyakti	none
+🕴	hawa mein udta suit wala vyakti	none
 👯	khargosh ke kaan wale log	none
 👯‍♂	khargosh ke kaan wale aadmi	none
 👯‍♀	khargosh ke kaan wali mahilaayein	none
@@ -696,9 +286,6 @@ symbols:
 🧗‍♂	climb karta aadmi	none
 🧗‍♀	climb karti mahila	none
 🤺	fencing karta vyakti	none
-🏇	horse racing	none
-⛷	skier	none
-🏂	snowboarder	none
 🏌	golf khelta vyakti	none
 🏌‍♂	golf khelta aadmi	none
 🏌‍♀	golf khelti mahila	none
@@ -729,7 +316,7 @@ symbols:
 🤼	wrestling karte log	none
 🤼‍♂	wrestling karte aadmi	none
 🤼‍♀	wrestling karti mahilaayein	none
-🤽	water polo khelta vyakt	none
+🤽	water polo khelta vyakti	none
 🤽‍♂	water polo khelta aadmi	none
 🤽‍♀	water polo khelti mahila	none
 🤾	handball khelta vyakti	none
@@ -741,483 +328,72 @@ symbols:
 🧘	padmaasan mein baitha vyakti	none
 🧘‍♂	padmaasan mein baitha aadmi	none
 🧘‍♀	padmaasan mein baithi mahila	none
-🛀	person taking bath	none
+🛀	bath leta vyakti	none
 🛌	bed par sota vyakti	none
 🧑‍🤝‍🧑	haath pakde huye log	none
 👭	haath pakde do mahilaayein	none
 👫	haath mein haath liye aurat-aadmi	none
 👬	haath pakde do aadmi	none
-💏	kiss	none
 💑	heart symbol ke saath couple	none
-👪	family	none
 🗣	bolta face	none
 👤	body ke upper part ki image	none
 👥	body ke upper part ki images	none
 🫂	hug karte huye log	none
-👣	footprints	none
-🦰	red hair	none
-🦱	curly hair	none
-🦳	white hair	none
-🦲	bald	none
-🐵	monkey face	none
-🐒	monkey	none
-🦍	gorilla	none
-🦧	orangutan	none
-🐶	dog face	none
-🐕	dog	none
-🦮	guide dog	none
-🐕‍🦺	service dog	none
-🐩	poodle	none
-🐺	wolf	none
-🦊	fox	none
-🦝	raccoon	none
-🐱	cat face	none
-🐈	cat	none
-🐈‍⬛	black cat	none
-🦁	lion	none
-🐯	tiger face	none
-🐅	tiger	none
-🐆	leopard	none
-🐴	horse face	none
-🐎	horse	none
-🦄	unicorn	none
-🦓	zebra	none
-🦌	deer	none
-🦬	bison	none
-🐮	cow face	none
-🐂	ox	none
-🐃	water buffalo	none
-🐄	cow	none
-🐷	pig face	none
-🐖	pig	none
-🐗	boar	none
-🐽	pig nose	none
-🐏	ram	none
-🐑	ewe	none
-🐐	goat	none
-🐪	camel	none
 🐫	do hump wala camel	none
-🦙	llama	none
-🦒	giraffe	none
-🐘	elephant	none
-🦣	mammoth	none
-🦏	rhinoceros	none
-🦛	hippopotamus	none
-🐭	mouse face	none
-🐁	mouse	none
-🐀	rat	none
-🐹	hamster	none
-🐰	rabbit face	none
-🐇	rabbit	none
-🐿	chipmunk	none
-🦫	beaver	none
-🦔	hedgehog	none
-🦇	bat	none
-🐻	bear	none
-🐻‍❄	polar bear	none
-🐨	koala	none
-🐼	panda	none
-🦥	sloth	none
-🦦	otter	none
-🦨	skunk	none
-🦘	kangaroo	none
-🦡	badger	none
 🐾	panje ke prints	none
-🦃	turkey	none
-🐔	chicken	none
-🐓	rooster	none
 🐣	ande se baahar aata chick	none
-🐤	baby chick	none
 🐥	front face karta baby chick	none
-🐦	bird	none
-🐧	penguin	none
-🕊	dove	none
-🦅	eagle	none
-🦆	duck	none
-🦢	swan	none
-🦉	owl	none
-🦤	dodo	none
-🪶	feather	none
-🦩	flamingo	none
-🦚	peacock	none
-🦜	parrot	none
-🐸	frog	none
-🐊	crocodile	none
-🐢	turtle	none
-🦎	lizard	none
-🐍	snake	none
-🐲	dragon face	none
-🐉	dragon	none
-🦕	sauropod	none
-🦖	T-Rex	none
 🐳	spout karti whale	none
-🐋	whale	none
-🐬	dolphin	none
-🦭	seal	none
-🐟	fish	none
-🐠	tropical fish	none
-🐡	blowfish	none
-🦈	shark	none
-🐙	octopus	none
-🐚	spiral shell	none
-🐌	snail	none
-🦋	butterfly	none
-🐛	bug	none
-🐜	ant	none
-🐝	honeybee	none
-🪲	beetle	none
-🐞	lady beetle	none
-🦗	cricket	none
-🪳	cockroach	none
-🕷	spider	none
-🕸	spider web	none
-🦂	scorpion	none
-🦟	mosquito	none
-🪰	fly	none
-🪱	worm	none
-🦠	microbe	none
-💐	bouquet	none
-🌸	cherry blossom	none
-💮	white flower	none
-🏵	rosette	none
-🌹	rose	none
-🥀	murjhaaya huya phool	none
-🌺	hibiscus	none
-🌻	sunflower	none
-🌼	blossom	none
-🌷	tulip	none
-🌱	seedling	none
+🥀	murjhaaya hua phool	none
 🪴	pot mein laga plant	none
-🌲	evergreen tree	none
-🌳	deciduous tree	none
-🌴	palm tree	none
-🌵	cactus	none
 🌾	chaawal ki baali	none
-🌿	herb	none
-☘	shamrock	none
 🍀	4 leaves wali grass	none
-🍁	maple leaf	none
 🍂	giri hui leaf	none
 🍃	hawa mein lahraati leaf	none
-🍇	grapes	none
-🍈	melon	none
-🍉	watermelon	none
-🍊	tangerine	none
-🍋	lemon	none
-🍌	banana	none
-🍍	pineapple	none
-🥭	mango	none
-🍎	red apple	none
-🍏	green apple	none
-🍐	pear	none
-🍑	peach	none
-🍒	cherries	none
-🍓	strawberry	none
-🫐	blueberries	none
-🥝	kiwi fruit	none
-🍅	tomato	none
-🫒	olive	none
-🥥	coconut	none
-🥑	avocado	none
-🍆	eggplant	none
-🥔	potato	none
-🥕	carrot	none
-🌽	ear of corn	none
-🌶	hot pepper	none
-🫑	bell pepper	none
-🥒	cucumber	none
-🥬	leafy green	none
-🥦	broccoli	none
-🧄	garlic	none
-🧅	onion	none
-🍄	mushroom	none
-🥜	peanuts	none
-🌰	chestnut	none
-🍞	bread	none
-🥐	croissant	none
-🥖	baguette bread	none
-🫓	flatbread	none
-🥨	pretzel	none
-🥯	bagel	none
-🥞	pancakes	none
-🧇	waffle	none
-🧀	cheese wedge	none
+🪹	Khaali nest	none
+🪺	eggs wala nest	none
 🍖	bone wala meat	none
 🍗	chicken leg	none
 🥩	meat kaa piece	none
-🥓	bacon	none
-🍔	hamburger	none
-🍟	french fries	none
-🍕	pizza	none
-🌭	hot dog	none
-🥪	sandwich	none
-🌮	taco	none
-🌯	burrito	none
-🫔	tamale	none
 🥙	stuffed paraantha	none
-🧆	falafel	none
-🥚	egg	none
-🍳	cooking	none
 🥘	food ke liye kam deep pan	none
 🍲	food pot	none
-🫕	fondue	none
 🥣	bowl ke saath spoon	none
-🥗	green salad	none
-🍿	popcorn	none
-🧈	butter	none
 🧂	namak	none
-🥫	canned food	none
-🍱	bento box	none
-🍘	rice cracker	none
-🍙	rice ball	none
-🍚	cooked rice	none
-🍛	curry rice	none
-🍜	steaming bowl	none
-🍝	spaghetti	none
-🍠	roasted sweet potato	none
-🍢	oden	none
-🍣	sushi	none
-🍤	fried shrimp	none
 🍥	swirls wala fish cake	none
-🥮	moon cake	none
-🍡	dango	none
-🥟	dumpling	none
-🥠	fortune cookie	none
-🥡	takeout box	none
-🦀	crab	none
-🦞	lobster	none
-🦐	shrimp	none
-🦑	squid	none
-🦪	oyster	none
-🍦	soft ice cream	none
-🍧	shaved ice	none
-🍨	ice cream	none
-🍩	doughnut	none
-🍪	cookie	none
-🎂	birthday cake	none
-🍰	shortcake	none
-🧁	cupcake	none
-🥧	pie	none
-🍫	chocolate bar	none
-🍬	candy	none
-🍭	lollipop	none
-🍮	custard	none
-🍯	honey pot	none
-🍼	baby bottle	none
 🥛	doodh kaa glass	none
-☕	hot beverage	none
-🫖	teapot	none
 🍵	bina handle wala teacup	none
-🍶	sake	none
 🍾	cork khulti hui bottle	none
-🍷	wine glass	none
-🍸	cocktail glass	none
-🍹	tropical drink	none
-🍺	beer mug	none
 🍻	cheers karte beer mugs	none
 🥂	cheers karte glasses	none
-🥃	tumbler glass	none
-🥤	straw ke saath cup	none
-🧋	bubble tea	none
-🧃	beverage box	none
+🥤	cup ke saath straw	none
 🧉	mate	none
-🧊	ice	none
-🥢	chopsticks	none
 🍽	plate ke saath knife aur fork	none
 🍴	fork aur knife	none
-🥄	spoon	none
-🔪	kitchen knife	none
-🏺	amphora	none
 🌍	Europe-Africa dikhaata globe	none
 🌎	Americas dikhaata globe	none
 🌏	Asia-Australia dikhaata globe	none
 🌐	meridians dikhaata globe	none
-🗺	world map	none
 🗾	Japan kaa map	none
-🧭	compass	none
-🏔	snow-capped mountain	none
-⛰	mountain	none
-🌋	volcano	none
 🗻	mount fuji	none
-🏕	camping	none
 🏖	beach par umbrella	none
-🏜	desert	none
-🏝	desert island	none
-🏞	national park	none
-🏟	stadium	none
-🏛	classical building	none
-🏗	building construction	none
-🧱	brick	none
-🪨	rock	none
-🪵	wood	none
-🛖	hut	none
-🏘	houses	none
-🏚	derelict house	none
-🏠	house	none
 🏡	garden wala house	none
-🏢	office building	none
-🏣	Japanese post office	none
-🏤	post office	none
-🏥	hospital	none
-🏦	bank	none
-🏨	hotel	none
-🏩	love hotel	none
-🏪	convenience store	none
-🏫	school	none
-🏬	department store	none
-🏭	factory	none
-🏯	Japanese castle	none
-🏰	castle	none
-💒	wedding	none
-🗼	Tokyo tower	none
-🗽	Statue of Liberty	none
-⛪	church	none
-🕌	mosque	none
 🛕	hindu temple	none
-🕍	synagogue	none
-⛩	shinto shrine	none
 🕋	kaaba	none
-⛲	fountain	none
-⛺	tent	none
-🌁	foggy	none
 🌃	stars wali night	none
-🏙	cityscape	none
-🌄	sunrise over mountains	none
-🌅	sunrise	none
 🌆	shaam ke time kaa cityscape	none
-🌇	sunset	none
 🌉	night mein bridge kaa view	none
-♨	hot springs	none
-🎠	carousel horse	none
-🎡	ferris wheel	none
-🎢	roller coaster	none
-💈	barber pole	none
-🎪	circus tent	none
-🚂	locomotive	none
-🚃	railway car	none
-🚄	high-speed train	none
-🚅	bullet train	none
-🚆	train	none
-🚇	metro	none
-🚈	light rail	none
-🚉	station	none
-🚊	tram	none
-🚝	monorail	none
-🚞	mountain railway	none
-🚋	tram car	none
-🚌	bus	none
 🚍	aati hui bus	none
-🚎	trolleybus	none
-🚐	minibus	none
-🚑	ambulance	none
-🚒	fire engine	none
-🚓	police car	none
 🚔	aati hui police car	none
-🚕	taxi	none
 🚖	aati hui taxi	none
-🚗	automobile	none
 🚘	aati hui car	none
-🚙	sport utility vehicle	none
-🛻	pickup truck	none
-🚚	delivery truck	none
-🚛	articulated lorry	none
-🚜	tractor	none
-🏎	racing car	none
-🏍	motorcycle	none
-🛵	motor scooter	none
-🦽	manual wheelchair	none
 🦼	motorized wheelchair	none
-🛺	auto rickshaw	none
-🚲	bicycle	none
-🛴	kick scooter	none
-🛹	skateboard	none
-🛼	roller skate	none
-🚏	bus stop	none
-🛣	motorway	none
-🛤	railway track	none
-🛢	oil drum	none
-⛽	fuel pump	none
 🚨	police car ki light	none
-🚥	horizontal traffic light	none
-🚦	vertical traffic light	none
-🛑	stop sign	none
-🚧	construction	none
-⚓	anchor	none
-⛵	sailboat	none
-🛶	canoe	none
-🚤	speedboat	none
-🛳	passenger ship	none
-⛴	ferry	none
-🛥	motor boat	none
-🚢	ship	none
-✈	airplane	none
-🛩	small airplane	none
-🛫	airplane departure	none
-🛬	airplane arrival	none
-🪂	parachute	none
-💺	seat	none
-🚁	helicopter	none
-🚟	suspension railway	none
-🚠	mountain cableway	none
-🚡	aerial tramway	none
-🛰	satellite	none
-🚀	rocket	none
-🛸	flying saucer	none
-🛎	bellhop bell	none
-🧳	luggage	none
-⌛	hourglass done	none
-⏳	hourglass not done	none
-⌚	watch	none
-⏰	alarm clock	none
-⏱	stopwatch	none
-⏲	timer clock	none
-🕰	mantelpiece clock	none
-🕛	twelve o’clock	none
-🕧	twelve-thirty	none
-🕐	one o’clock	none
-🕜	one-thirty	none
-🕑	two o’clock	none
-🕝	two-thirty	none
-🕒	three o’clock	none
-🕞	three-thirty	none
-🕓	four o’clock	none
-🕟	four-thirty	none
-🕔	five o’clock	none
-🕠	five-thirty	none
-🕕	six o’clock	none
-🕡	six-thirty	none
-🕖	seven o’clock	none
-🕢	seven-thirty	none
-🕗	eight o’clock	none
-🕣	eight-thirty	none
-🕘	nine o’clock	none
-🕤	nine-thirty	none
-🕙	ten o’clock	none
-🕥	ten-thirty	none
-🕚	eleven o’clock	none
-🕦	eleven-thirty	none
-🌑	new moon	none
-🌒	waxing crescent moon	none
-🌓	first quarter moon	none
-🌔	waxing gibbous moon	none
-🌕	full moon	none
-🌖	waning gibbous moon	none
-🌗	last quarter moon	none
-🌘	waning crescent moon	none
-🌙	crescent moon	none
-🌚	new moon face	none
-🌛	first quarter moon face	none
-🌜	last quarter moon face	none
-🌡	thermometer	none
-☀	sun	none
+🕛	twelve o’ clock	none
 🌝	full moon wala face	none
 🌞	face wala sun	none
 🪐	ring wala planet	none
-⭐	star	none
 🌟	chamakta star	none
-🌠	shooting star	none
-🌌	milky way	none
-☁	cloud	none
 ⛅	baadlon ke peeche sun	none
 ⛈	lightning aur baarish waale baadal	none
 🌤	chhote baadlon ke peeche chhupa sun	none
@@ -1226,289 +402,55 @@ symbols:
 🌧	baarish ke saath baadal	none
 🌨	barf ke saath baadal	none
 🌩	lightning wale baadal	none
-🌪	tornado	none
-🌫	fog	none
-🌬	wind face	none
-🌀	cyclone	none
-🌈	rainbow	none
 🌂	band umbrella	none
-☂	umbrella	none
 ☔	rain drops wala umbrella	none
 ⛱	zameen par umbrella	none
-⚡	high voltage	none
-❄	snowflake	none
-☃	snowman	none
 ⛄	bina barf wala snowman	none
-☄	comet	none
-🔥	fire	none
-💧	droplet	none
-🌊	water wave	none
-🎃	jack-o-lantern	none
-🎄	Christmas tree	none
-🎆	fireworks	none
-🎇	sparkler	none
-🧨	firecracker	none
-✨	sparkles	none
-🎈	balloon	none
-🎉	party popper	none
-🎊	confetti ball	none
-🎋	tanabata tree	none
-🎍	pine decoration	none
-🎎	Japanese dolls	none
-🎏	carp streamer	none
-🎐	wind chime	none
 🎑	moon dekhne ki ceremony	none
-🧧	red envelope	none
-🎀	ribbon	none
-🎁	wrapped gift	none
-🎗	reminder ribbon	none
-🎟	admission tickets	none
-🎫	ticket	none
-🎖	military medal	none
-🏆	trophy	none
-🏅	sports medal	none
-🥇	1st place medal	none
-🥈	2nd place medal	none
-🥉	3rd place medal	none
-⚽	soccer ball	none
-⚾	baseball	none
-🥎	softball	none
-🏀	basketball	none
-🏐	volleyball	none
-🏈	american football	none
-🏉	rugby football	none
-🎾	tennis	none
-🥏	flying disc	none
-🎳	bowling	none
-🏏	cricket game	none
-🏑	field hockey	none
-🏒	ice hockey	none
-🥍	lacrosse	none
-🏓	ping pong	none
-🏸	badminton	none
-🥊	boxing glove	none
-🥋	martial arts uniform	none
-🥅	goal net	none
-⛳	flag in hole	none
-⛸	ice skate	none
-🎣	fishing pole	none
-🤿	diving mask	none
-🎽	running shirt	none
-🎿	skis	none
-🛷	sled	none
-🥌	curling stone	none
-🎯	bullseye	none
-🪀	yo-yo	none
-🪁	kite	none
-🎱	pool 8 ball	none
-🔮	crystal ball	none
+⛳	hole mein flag	none
+🔫	paani ki pistol	none
 🪄	jaadoo ki chhadi	none
-🧿	nazar ki taabeez	none
-🎮	video game	none
-🕹	joystick	none
-🎰	slot machine	none
-🎲	game die	none
 🧩	puzzle game	none
-🧸	teddy bear	none
-🪅	piñata	none
+🪅	pinata	none
 🪆	nesting dolls	none
-♠	spade suit	none
-♥	heart suit	none
-♦	diamond suit	none
-♣	club suit	none
-♟	chess pawn	none
-🃏	joker	none
-🀄	mahjong red dragon	none
-🎴	flower playing cards	none
-🎭	performing arts	none
 🖼	frame ki gai picture	none
-🎨	artist palette	none
-🧵	thread	none
-🪡	sewing needle	none
-🧶	yarn	none
-🪢	knot	none
-👓	glasses	none
-🕶	sunglasses	none
-🥽	goggles	none
-🥼	lab coat	none
-🦺	safety vest	none
 👔	necktie	none
-👕	t-shirt	none
-👖	jeans	none
-🧣	scarf	none
-🧤	gloves	none
-🧥	coat	none
-🧦	socks	none
-👗	dress	none
-👘	kimono	none
-🥻	sari	none
-🩱	one-piece swimsuit	none
-🩲	briefs	none
-🩳	shorts	none
-👙	bikini	none
-👚	woman’s clothes	none
-👛	purse	none
-👜	handbag	none
-👝	clutch bag	none
-🛍	shopping bags	none
-🎒	backpack	none
 🩴	thong sandal	none
-👞	man’s shoe	none
-👟	running shoe	none
-🥾	hiking boot	none
-🥿	flat shoe	none
 👠	high-heel kaa shoe	none
-👡	mahilaaon kaa sandal	none
-🩰	ballet shoes	none
+👡	mahilaaon ki sandal	none
 👢	mahilaaon kaa boot	none
-👑	crown	none
 👒	mahilaaon ki hat	none
-🎩	top hat	none
-🎓	graduation cap	none
-🧢	billed cap	none
-🪖	military helmet	none
 ⛑	rescue worker kaa helmet	none
 📿	pooja ki maala ke manke	none
-💄	lipstick	none
-💍	ring	none
-💎	gem stone	none
 🔇	mute kiya speaker	none
 🔈	speaker kaa low volume	none
 🔉	speaker kaa medium volume	none
 🔊	speaker kaa high volume	none
-📢	loudspeaker	none
-📣	megaphone	none
 📯	postal horn	none
-🔔	bell	none
 🔕	slash ke saath bell	none
-🎼	musical score	none
-🎵	musical note	none
-🎶	musical notes	none
-🎙	studio microphone	none
-🎚	level slider	none
-🎛	control knobs	none
-🎤	microphone	none
-🎧	headphone	none
-📻	radio	none
-🎷	saxophone	none
-🪗	accordion	none
-🎸	guitar	none
-🎹	musical keyboard	none
-🎺	trumpet	none
-🎻	violin	none
-🪕	banjo	none
-🥁	drum	none
 🪘	long drum	none
-📱	mobile phone	none
 📲	arrow ke saath mobile phone	none
-☎	telephone	none
-📞	telephone receiver	none
-📟	pager	none
-📠	fax machine	none
-🔋	battery	none
-🔌	electric plug	none
-💻	laptop	none
-🖥	desktop computer	none
-🖨	printer	none
-⌨	keyboard	none
-🖱	computer mouse	none
-🖲	trackball	none
-💽	computer disk	none
-💾	floppy disk	none
-💿	optical disk	none
-📀	dvd	none
-🧮	abacus	none
-🎥	movie camera	none
-🎞	film frames	none
-📽	film projector	none
-🎬	clapper board	none
-📺	television	none
-📷	camera	none
 📸	flash wala camera	none
-📹	video camera	none
-📼	videocassette	none
 🔍	left ki taraf tilted magnifying glass	none
 🔎	right ki taraf tilted magnifying glass	none
-🕯	candle	none
-💡	light bulb	none
-🔦	flashlight	none
 🏮	red paper wala lantern	none
-🪔	diya lamp	none
 📔	decorative cover wali notebook	none
-📕	closed book	none
-📖	open book	none
-📗	green book	none
-📘	blue book	none
-📙	orange book	none
-📚	books	none
-📓	notebook	none
-📒	ledger	none
 📃	muda hua page	none
-📜	scroll	none
-📄	page facing up	none
-📰	newspaper	none
 🗞	roll kiya hua newspaper	none
-📑	bookmark tabs	none
-🔖	bookmark	none
-🏷	label	none
 💰	paise wala bag	none
-🪙	coin	none
-💴	yen banknote	none
-💵	dollar banknote	none
-💶	euro banknote	none
-💷	pound banknote	none
 💸	paise kharch karna	none
-💳	credit card	none
-🧾	receipt	none
 💹	yen ki badhat dikhaane wala chart	none
-✉	envelope	none
-📧	e-mail	none
-📨	incoming envelope	none
 📩	arrow wala envelope	none
-📤	outbox tray	none
-📥	inbox tray	none
-📦	package	none
 📫	lahraate flag wala band mailbox	none
 📪	jhuke flag wala band mailbox	none
 📬	lahraate flag wala khula mailbox	none
 📭	jhuke flag wala khula mailbox	none
-📮	postbox	none
 🗳	ballot ke saath ballot box	none
-✏	pencil	none
-✒	black nib	none
-🖋	fountain pen	none
-🖊	pen	none
-🖌	paintbrush	none
-🖍	crayon	none
-📝	memo	none
-💼	briefcase	none
-📁	file folder	none
-📂	open file folder	none
-🗂	card index dividers	none
-📅	calendar	none
-📆	tear-off calendar	none
-🗒	spiral notepad	none
-🗓	spiral calendar	none
-📇	card index	none
-📈	chart increasing	none
-📉	chart decreasing	none
-📊	bar chart	none
-📋	clipboard	none
-📌	pushpin	none
-📍	round pushpin	none
-📎	paperclip	none
+📈	Badhat dikhaata chart	none
+📉	Kami dikhaata chart	none
 🖇	link kiye gaye paperclips	none
-📏	straight ruler	none
-📐	triangular ruler	none
-✂	scissors	none
-🗃	card file box	none
-🗄	file cabinet	none
-🗑	wastebasket	none
-🔒	locked	none
-🔓	unlocked	none
 🔏	pen ke saath lock	none
-🔐	key ke saath lock	none
-🔑	key	none
+🔐	key se lock kiya gaya	none
 🗝	puraani key	none
 🔨	hathouda	none
 🪓	kulhaadi	none
@@ -1516,295 +458,83 @@ symbols:
 ⚒	hathouda aur kudaali	none
 🛠	hathouda aur wrench	none
 🗡	kataar	none
-⚔	crossed swords	none
-🔫	paani ki pistol	none
-🪃	boomerang	none
 🏹	teer aur kamaan	none
-🛡	shield	none
 🪚	carpenter ki aari	none
-🔧	wrench	none
-🪛	screwdriver	none
 🔩	nut aur bolt	none
-⚙	gear	none
-🗜	clamp	none
 ⚖	taraazu	none
 🦯	white cane	none
-🔗	link	none
-⛓	chains	none
-🪝	hook	none
-🧰	toolbox	none
-🧲	magnet	none
-🪜	ladder	none
-⚗	alembic	none
-🧪	test tube	none
-🧫	petri dish	none
-🧬	dna	none
-🔬	microscope	none
-🔭	telescope	none
-📡	satellite antenna	none
-💉	syringe	none
 🩸	blood ki drop	none
-💊	pill	none
 🩹	chipkaane wali bandage	none
-🩺	stethoscope	none
-🚪	door	none
 🛗	elevator	none
-🪞	mirror	none
-🪟	window	none
-🛏	bed	none
 🛋	sofa aur lamp	none
-🪑	chair	none
-🚽	toilet	none
-🪠	plunger	none
-🚿	shower	none
 🛁	bathtub	none
 🪤	mouse trap	none
-🪒	razor	none
-🧴	lotion bottle	none
-🧷	safety pin	none
-🧹	broom	none
-🧺	basket	none
 🧻	paper kaa roll	none
-🪣	bucket	none
-🧼	soap	none
-🪥	toothbrush	none
-🧽	sponge	none
-🧯	fire extinguisher	none
-🛒	shopping cart	none
-🚬	cigarette	none
-⚰	coffin	none
-🪦	headstone	none
-⚱	funeral urn	none
-🗿	moai	none
-🪧	placard	none
-🏧	ATM sign	none
+🧿	nazar ki taabeez	none
 🚮	bin mein garbage daalne kaa sign	none
 🚰	peene kaa paani	none
-♿	wheelchair symbol	none
-🚹	men’s room	none
-🚺	women’s room	none
-🚻	restroom	none
-🚼	baby symbol	none
-🚾	water closet	none
-🛂	passport control	none
-🛃	customs	none
-🛄	baggage claim	none
 🛅	chhuta hua luggage	none
-⚠	warning	none
-🚸	bachche nikal rahe hain	none
-⛔	no entry	none
-🚫	prohibited	none
-🚳	no bicycles	none
-🚭	no smoking	none
-🚯	no littering	none
+🚸	bachche cross kar rahe hain	none
 🚱	peene laayak paani nahi	none
 🚷	paidal chalne ki permission nahi	none
-📵	mobile phones use karne ki permission nahi	none
+📵	mobile phones ki permission nahi	none
 🔞	under 18 ko permission nahi	none
-☢	radioactive	none
-☣	biohazard	none
-⬆	Oopar ki ore arrow	none
-↗	up-right arrow	none
-➡	right arrow	none
-↘	down-right arrow	none
-⬇	down arrow	none
-↙	down-left arrow	none
-⬅	left arrow	none
-↖	up-left arrow	none
-↕	up-down arrow	none
-↔	left-right arrow	none
 ↮	left right arrow stroke	none
 ↩	left side muda hua right arrow	none
 ↪	right side muda hua left arrow	none
 ⤴	oopar ki taraf muda hua right arrow	none
-⤵	niche ki taraf muda hua right arrow	none
-🔃	clockwise vertical arrows	none
+⤵	neeche ki taraf muda hua right arrow	none
 🔄	anticlockwise arrows button	none
-🔙	BACK arrow	none
-🔚	END arrow	none
-🔛	ON! arrow	none
-🔜	SOON arrow	none
-🔝	TOP arrow	none
 🛐	pooja karne ki jagah	none
-⚛	atom symbol	none
-🕉	om	none
 ✡	star of David	none
 ☸	dharma chakra	none
-☯	yin yang	none
 ✝	latin cross	none
 ☦	orthodox cross	none
 ☪	star aur crescent	none
-☮	peace symbol	none
-🕎	menorah	none
 🔯	6 point wala dotted star	none
-♈	Aries	none
-♉	Taurus	none
-♊	Gemini	none
-♋	Cancer	none
-♌	Leo	none
-♍	Virgo	none
-♎	Libra	none
-♏	Scorpio	none
-♐	Sagittarius	none
-♑	Capricorn	none
-♒	Aquarius	none
-♓	Pisces	none
-⛎	Ophiuchus	none
-🔀	shuffle tracks button	none
-🔁	repeat button	none
-🔂	repeat single button	none
-▶	play button	none
-⏩	fast-forward button	none
-⏭	next track button	none
 ⏯	play aur pause button	none
-◀	reverse button	none
-⏪	fast reverse button	none
-⏮	last track button	none
-🔼	upwards button	none
-⏫	fast up button	none
-🔽	downwards button	none
-⏬	fast down button	none
-⏸	pause button	none
-⏹	stop button	none
-⏺	record button	none
-⏏	eject button	none
-🎦	cinema	none
-🔅	dim button	none
-🔆	bright button	none
-📶	antenna bars	none
-📳	vibration mode	none
-📴	mobile phone off	none
-♀	female sign	none
-♂	male sign	none
-⚧	transgender symbol	none
-✖	multiply	none
-➕	plus	none
-➖	minus	none
-➗	divide	none
-♾	infinity	none
-❓	red question mark	none
-❔	white question mark	none
-❕	white exclamation mark	none
-❗	red exclamation mark	none
-💱	currency exchange	none
-💲	heavy dollar sign	none
-⚕	medical symbol	none
-♻	recycling symbol	none
 ⚜	lily flower	none
-🔱	trident emblem	none
-📛	name badge	none
 🔰	beginner ke liye Japanese symbol	none
 ⭕	hole wala big red circle	none
 ✅	check mark button	none
-☑	check box with check	none
+☑	check mark wala check box	none
 ✔	check mark	none
-❌	cross mark	none
-❎	cross mark button	none
-➰	curly loop	none
-➿	double curly loop	none
 ✳	8 spoke wala asterisk	none
 ✴	8 point wala star	none
-❇	sparkle	none
-™	trade mark	none
-🔠	input latin uppercase	none
-🔡	input latin lowercase	none
-🔢	input numbers	none
-🔣	input symbols	none
-🔤	input latin letters	none
-🅰	A button (blood type)	none
-🆎	AB button (blood type)	none
-🅱	B button (blood type)	none
-🆑	CL button	none
-🆒	COOL button	none
-🆓	FREE button	none
-ℹ	information	none
-🆔	ID button	none
-Ⓜ	circle wala M	none
-🆕	NEW button	none
-🆖	NG button	none
-🅾	O button (blood type)	none
-🆗	OK button	none
-🅿	P button	none
-🆘	SOS button	none
-🆙	UP! button	none
-🆚	VS button	none
-🔴	red circle	none
-🟠	orange circle	none
-🟡	yellow circle	none
-🟢	green circle	none
-🔵	blue circle	none
-🟣	purple circle	none
-🟤	brown circle	none
-⚫	black circle	none
-⚪	white circle	none
-🟥	red square	none
-🟧	orange square	none
-🟨	yellow square	none
-🟩	green square	none
-🟦	blue square	none
-🟪	purple square	none
-🟫	brown square	none
-⬛	black large square	none
-⬜	white large square	none
-◼	black medium square	none
-◻	white medium square	none
-◾	black medium-small square	none
-◽	white medium-small square	none
-▪	black small square	none
-▫	white small square	none
-🔶	large orange diamond	none
-🔷	large blue diamond	none
-🔸	small orange diamond	none
-🔹	small blue diamond	none
-🔺	red triangle pointed up	none
-🔻	red triangle pointed down	none
-💠	diamond with a dot	none
-🔘	radio button	none
-🔳	white square button	none
-🔲	black square button	none
+Ⓜ	Circle kiya hua M	none
+🔺	Oopar point karta red triangle	none
+🔻	Neeche point karta red triangle	none
+💠	dot wala diamond	none
 🏁	chess board wala flag	none
-🚩	triangular flag	none
-🎌	crossed flags	none
-🏴	black flag	none
-🏳	white flag	none
-🏳‍🌈	rainbow flag	none
-🏳‍⚧	transgender flag	none
-🏴‍☠	pirate flag	none
-₢	cruzeiro	none
 ₣	french franc	none
-₤	lira	none
-₥	mill	none
-₩	won	none
-€	euro	none
 ₰	german penny	none
-₱	peso	none
-₳	austral	none
-₶	livre tournois	none
-₷	spesmilo	none
 ₹	indian rupee	none
 ₽	ruble	none
-₿	bitcoin	none
-₨	rupee	none
-🫃🏻	pregnant man Fair skin	none
-🫃🏼	pregnant man medium-fair skin	none
-🫃🏽	pregnant man medium skin	none
-🫃🏾	pregnant man medium-dark skin	none
-🫃🏿	pregnant man dark skin	none
-🫄🏻	pregnant person Fair skin	none
-🫄🏼	pregnant person medium-fair skin	none
-🫄🏽	pregnant person medium skin	none
-🫄🏾	pregnant person medium-dark skin	none
-🫄🏿	pregnant person dark skin	none
-🫅🏻	crown wala vyakti Fair skin	none
-🫅🏼	crown wala vyakti medium-fair skin	none
-🫅🏽	crown wala vyakti medium skin	none
-🫅🏾	crown wala vyakti medium-dark skin	none
-🫅🏿	crown wala vyakti dark skin	none
-🫰🏻	hand with index finger and thumb crossed Fair skin	none
-🫰🏼	hand with index finger and thumb crossed medium-fair skin	none
-🫰🏽	hand with index finger and thumb crossed medium skin	none
-🫰🏾	hand with index finger and thumb crossed medium-dark skin	none
-🫰🏿	hand with index finger and thumb crossed dark skin	none
+👋🏻	wave karta haath Fair skin	none
+👋🏼	wave karta haath medium-fair skin	none
+👋🏽	wave karta haath medium skin	none
+👋🏾	wave karta haath medium-dark skin	none
+👋🏿	wave karta haath dark skin	none
+🤚🏻	uthe huye haath ki back side Fair skin	none
+🤚🏼	uthe huye haath ki back side medium-fair skin	none
+🤚🏽	uthe huye haath ki back side medium skin	none
+🤚🏾	uthe huye haath ki back side medium-dark skin	none
+🤚🏿	uthe huye haath ki back side dark skin	none
+🖐🏻	faili fingers wala haath Fair skin	none
+🖐🏼	faili fingers wala haath medium-fair skin	none
+🖐🏽	faili fingers wala haath medium skin	none
+🖐🏾	faili fingers wala haath medium-dark skin	none
+🖐🏿	faili fingers wala haath dark skin	none
+✋🏻	utha hua haath Fair skin	none
+✋🏼	utha hua haath medium-fair skin	none
+✋🏽	utha hua haath medium skin	none
+✋🏾	utha hua haath medium-dark skin	none
+✋🏿	utha hua haath dark skin	none
+🖖🏻	vulcan salute Fair skin	none
+🖖🏼	vulcan salute medium-fair skin	none
+🖖🏽	vulcan salute medium skin	none
+🖖🏾	vulcan salute medium-dark skin	none
+🖖🏿	vulcan salute dark skin	none
 🫱🏻	rightwards hand Fair skin	none
 🫱🏼	rightwards hand medium-fair skin	none
 🫱🏽	rightwards hand medium skin	none
@@ -1845,41 +575,16 @@ symbols:
 🫴🏽	palm up hand medium skin	none
 🫴🏾	palm up hand medium-dark skin	none
 🫴🏿	palm up hand dark skin	none
-🫵🏻	viewer ki taraf pont karti index finger Fair skin	none
-🫵🏼	viewer ki taraf pont karti index finger medium-fair skin	none
-🫵🏽	viewer ki taraf pont karti index finger medium skin	none
-🫵🏾	viewer ki taraf pont karti index finger medium-dark skin	none
-🫵🏿	viewer ki taraf pont karti index finger dark skin	none
-🫶🏻	haathon se bana heart Fair skin	none
-🫶🏼	haathon se bana heart medium-fair skin	none
-🫶🏽	haathon se bana heart medium skin	none
-🫶🏾	haathon se bana heart medium-dark skin	none
-🫶🏿	haathon se bana heart dark skin	none
-👋🏻	wave karta haath Fair skin	none
-👋🏼	wave karta haath medium-fair skin	none
-👋🏽	wave karta haath medium skin	none
-👋🏾	wave karta haath medium-dark skin	none
-👋🏿	wave karta haath dark skin	none
-🤚🏻	uthe huye haath ki back side Fair skin	none
-🤚🏼	uthe huye haath ki back side medium-fair skin	none
-🤚🏽	uthe huye haath ki back side medium skin	none
-🤚🏾	uthe huye haath ki back side medium-dark skin	none
-🤚🏿	uthe huye haath ki back side dark skin	none
-🖐🏻	faili fingers wala haath Fair skin	none
-🖐🏼	faili fingers wala haath medium-fair skin	none
-🖐🏽	faili fingers wala haath medium skin	none
-🖐🏾	faili fingers wala haath medium-dark skin	none
-🖐🏿	faili fingers wala haath dark skin	none
-✋🏻	utha hua haath Fair skin	none
-✋🏼	utha hua haath medium-fair skin	none
-✋🏽	utha hua haath medium skin	none
-✋🏾	utha hua haath medium-dark skin	none
-✋🏿	utha hua haath dark skin	none
-🖖🏻	vulcan salute Fair skin	none
-🖖🏼	vulcan salute medium-fair skin	none
-🖖🏽	vulcan salute medium skin	none
-🖖🏾	vulcan salute medium-dark skin	none
-🖖🏿	vulcan salute dark skin	none
+🫷🏻	leftwards pushing hand Fair skin	none
+🫷🏼	leftwards pushing hand medium-fair skin	none
+🫷🏽	leftwards pushing hand medium skin	none
+🫷🏾	leftwards pushing hand medium-dark skin	none
+🫷🏿	leftwards pushing hand dark skin	none
+🫸🏻	rightwards pushing hand Fair skin	none
+🫸🏼	rightwards pushing hand medium-fair skin	none
+🫸🏽	rightwards pushing hand medium skin	none
+🫸🏾	rightwards pushing hand medium-dark skin	none
+🫸🏿	rightwards pushing hand dark skin	none
 👌🏻	OK kaa symbol Fair skin	none
 👌🏼	OK kaa symbol medium-fair skin	none
 👌🏽	OK kaa symbol medium skin	none
@@ -1905,6 +610,11 @@ symbols:
 🤞🏽	crossed fingers medium skin	none
 🤞🏾	crossed fingers medium-dark skin	none
 🤞🏿	crossed fingers dark skin	none
+🫰🏻	hand with index finger and thumb crossed Fair skin	none
+🫰🏼	hand with index finger and thumb crossed medium-fair skin	none
+🫰🏽	hand with index finger and thumb crossed medium skin	none
+🫰🏾	hand with index finger and thumb crossed medium-dark skin	none
+🫰🏿	hand with index finger and thumb crossed dark skin	none
 🤟🏻	love-you gesture Fair skin	none
 🤟🏼	love-you gesture medium-fair skin	none
 🤟🏽	love-you gesture medium skin	none
@@ -1920,36 +630,41 @@ symbols:
 🤙🏽	call me kaa ishaara karne wala haath medium skin	none
 🤙🏾	call me kaa ishaara karne wala haath medium-dark skin	none
 🤙🏿	call me kaa ishaara karne wala haath dark skin	none
-👈🏻	left mein point karti index finger dikhaate haath ki back side Fair skin	none
-👈🏼	left mein point karti index finger dikhaate haath ki back side medium-fair skin	none
-👈🏽	left mein point karti index finger dikhaate haath ki back side medium skin	none
-👈🏾	left mein point karti index finger dikhaate haath ki back side medium-dark skin	none
-👈🏿	left mein point karti index finger dikhaate haath ki back side dark skin	none
-👉🏻	right mein point karti index finger dikhaate haath ki back side Fair skin	none
-👉🏼	right mein point karti index finger dikhaate haath ki back side medium-fair skin	none
-👉🏽	right mein point karti index finger dikhaate haath ki back side medium skin	none
-👉🏾	right mein point karti index finger dikhaate haath ki back side medium-dark skin	none
-👉🏿	right mein point karti index finger dikhaate haath ki back side dark skin	none
-👆🏻	oopar point karti index finger dikhaate haath ki back side Fair skin	none
-👆🏼	oopar point karti index finger dikhaate haath ki back side medium-fair skin	none
-👆🏽	oopar point karti index finger dikhaate haath ki back side medium skin	none
-👆🏾	oopar point karti index finger dikhaate haath ki back side medium-dark skin	none
-👆🏿	oopar point karti index finger dikhaate haath ki back side dark skin	none
+👈🏻	left mein point karti index finger Fair skin	none
+👈🏼	left mein point karti index finger medium-fair skin	none
+👈🏽	left mein point karti index finger medium skin	none
+👈🏾	left mein point karti index finger medium-dark skin	none
+👈🏿	left mein point karti index finger dark skin	none
+👉🏻	right mein point karti index finger Fair skin	none
+👉🏼	right mein point karti index finger medium-fair skin	none
+👉🏽	right mein point karti index finger medium skin	none
+👉🏾	right mein point karti index finger medium-dark skin	none
+👉🏿	right mein point karti index finger dark skin	none
+👆🏻	oopar ishaara karti index finger Fair skin	none
+👆🏼	oopar ishaara karti index finger medium-fair skin	none
+👆🏽	oopar ishaara karti index finger medium skin	none
+👆🏾	oopar ishaara karti index finger medium-dark skin	none
+👆🏿	oopar ishaara karti index finger dark skin	none
 🖕🏻	middle finger Fair skin	none
 🖕🏼	middle finger medium-fair skin	none
 🖕🏽	middle finger medium skin	none
 🖕🏾	middle finger medium-dark skin	none
 🖕🏿	middle finger dark skin	none
-👇🏻	neeche point karti index finger dikhaate haath ki back side Fair skin	none
-👇🏼	neeche point karti index finger dikhaate haath ki back side medium-fair skin	none
-👇🏽	neeche point karti index finger dikhaate haath ki back side medium skin	none
-👇🏾	neeche point karti index finger dikhaate haath ki back side medium-dark skin	none
-👇🏿	neeche point karti index finger dikhaate haath ki back side dark skin	none
+👇🏻	neeche ishaara karti index finger Fair skin	none
+👇🏼	neeche ishaara karti index finger medium-fair skin	none
+👇🏽	neeche ishaara karti index finger medium skin	none
+👇🏾	neeche ishaara karti index finger medium-dark skin	none
+👇🏿	neeche ishaara karti index finger dark skin	none
 ☝🏻	oopar point karti index finger Fair skin	none
 ☝🏼	oopar point karti index finger medium-fair skin	none
 ☝🏽	oopar point karti index finger medium skin	none
 ☝🏾	oopar point karti index finger medium-dark skin	none
 ☝🏿	oopar point karti index finger dark skin	none
+🫵🏻	viewer ki taraf pont karti index finger Fair skin	none
+🫵🏼	viewer ki taraf pont karti index finger medium-fair skin	none
+🫵🏽	viewer ki taraf pont karti index finger medium skin	none
+🫵🏾	viewer ki taraf pont karti index finger medium-dark skin	none
+🫵🏿	viewer ki taraf pont karti index finger dark skin	none
 👍🏻	thumbs up Fair skin	none
 👍🏼	thumbs up medium-fair skin	none
 👍🏽	thumbs up medium skin	none
@@ -1990,6 +705,11 @@ symbols:
 🙌🏽	khush hokar dono haath uthaana medium skin	none
 🙌🏾	khush hokar dono haath uthaana medium-dark skin	none
 🙌🏿	khush hokar dono haath uthaana dark skin	none
+🫶🏻	haathon se bana heart Fair skin	none
+🫶🏼	haathon se bana heart medium-fair skin	none
+🫶🏽	haathon se bana heart medium skin	none
+🫶🏾	haathon se bana heart medium-dark skin	none
+🫶🏿	haathon se bana heart dark skin	none
 👐🏻	open hands Fair skin	none
 👐🏼	open hands medium-fair skin	none
 👐🏽	open hands medium skin	none
@@ -2840,6 +1560,11 @@ symbols:
 👷🏽‍♀	woman construction worker medium skin	none
 👷🏾‍♀	woman construction worker medium-dark skin	none
 👷🏿‍♀	woman construction worker dark skin	none
+🫅🏻	crown wala vyakti Fair skin	none
+🫅🏼	crown wala vyakti medium-fair skin	none
+🫅🏽	crown wala vyakti medium skin	none
+🫅🏾	crown wala vyakti medium-dark skin	none
+🫅🏿	crown wala vyakti dark skin	none
 🤴🏻	prince Fair skin	none
 🤴🏼	prince medium-fair skin	none
 🤴🏽	prince medium skin	none
@@ -2890,11 +1615,11 @@ symbols:
 🤵🏽‍♀	suit boot mein mahila medium skin	none
 🤵🏾‍♀	suit boot mein mahila medium-dark skin	none
 🤵🏿‍♀	suit boot mein mahila dark skin	none
-👰🏻	person with veil Fair skin	none
-👰🏼	person with veil medium-fair skin	none
-👰🏽	person with veil medium skin	none
-👰🏾	person with veil medium-dark skin	none
-👰🏿	person with veil dark skin	none
+👰🏻	Ghoonghat mein bride Fair skin	none
+👰🏼	Ghoonghat mein bride medium-fair skin	none
+👰🏽	Ghoonghat mein bride medium skin	none
+👰🏾	Ghoonghat mein bride medium-dark skin	none
+👰🏿	Ghoonghat mein bride dark skin	none
 👰🏻‍♂	man with veil Fair skin	none
 👰🏼‍♂	man with veil medium-fair skin	none
 👰🏽‍♂	man with veil medium skin	none
@@ -2910,6 +1635,16 @@ symbols:
 🤰🏽	pregnant woman medium skin	none
 🤰🏾	pregnant woman medium-dark skin	none
 🤰🏿	pregnant woman dark skin	none
+🫃🏻	pregnant man Fair skin	none
+🫃🏼	pregnant man medium-fair skin	none
+🫃🏽	pregnant man medium skin	none
+🫃🏾	pregnant man medium-dark skin	none
+🫃🏿	pregnant man dark skin	none
+🫄🏻	pregnant person Fair skin	none
+🫄🏼	pregnant person medium-fair skin	none
+🫄🏽	pregnant person medium skin	none
+🫄🏾	pregnant person medium-dark skin	none
+🫄🏿	pregnant person dark skin	none
 🤱🏻	breast-feeding Fair skin	none
 🤱🏼	breast-feeding medium-fair skin	none
 🤱🏽	breast-feeding medium skin	none
@@ -3200,11 +1935,11 @@ symbols:
 🕺🏽	dance karta aadmi medium skin	none
 🕺🏾	dance karta aadmi medium-dark skin	none
 🕺🏿	dance karta aadmi dark skin	none
-🕴🏻	suit wala vyakti Fair skin	none
-🕴🏼	suit wala vyakti medium-fair skin	none
-🕴🏽	suit wala vyakti medium skin	none
-🕴🏾	suit wala vyakti medium-dark skin	none
-🕴🏿	suit wala vyakti dark skin	none
+🕴🏻	hawa mein udta suit wala vyakti Fair skin	none
+🕴🏼	hawa mein udta suit wala vyakti medium-fair skin	none
+🕴🏽	hawa mein udta suit wala vyakti medium skin	none
+🕴🏾	hawa mein udta suit wala vyakti medium-dark skin	none
+🕴🏿	hawa mein udta suit wala vyakti dark skin	none
 🧖🏻	steamy room mein vyakti Fair skin	none
 🧖🏼	steamy room mein vyakti medium-fair skin	none
 🧖🏽	steamy room mein vyakti medium skin	none
@@ -3380,11 +2115,11 @@ symbols:
 🤸🏽‍♀	cartwheeling karti mahila medium skin	none
 🤸🏾‍♀	cartwheeling karti mahila medium-dark skin	none
 🤸🏿‍♀	cartwheeling karti mahila dark skin	none
-🤽🏻	water polo khelta vyakt Fair skin	none
-🤽🏼	water polo khelta vyakt medium-fair skin	none
-🤽🏽	water polo khelta vyakt medium skin	none
-🤽🏾	water polo khelta vyakt medium-dark skin	none
-🤽🏿	water polo khelta vyakt dark skin	none
+🤽🏻	water polo khelta vyakti Fair skin	none
+🤽🏼	water polo khelta vyakti medium-fair skin	none
+🤽🏽	water polo khelta vyakti medium skin	none
+🤽🏾	water polo khelta vyakti medium-dark skin	none
+🤽🏿	water polo khelta vyakti dark skin	none
 🤽🏻‍♂	water polo khelta aadmi Fair skin	none
 🤽🏼‍♂	water polo khelta aadmi medium-fair skin	none
 🤽🏽‍♂	water polo khelta aadmi medium skin	none
@@ -3440,11 +2175,11 @@ symbols:
 🧘🏽‍♀	padmaasan mein baithi mahila medium skin	none
 🧘🏾‍♀	padmaasan mein baithi mahila medium-dark skin	none
 🧘🏿‍♀	padmaasan mein baithi mahila dark skin	none
-🛀🏻	person taking bath Fair skin	none
-🛀🏼	person taking bath medium-fair skin	none
-🛀🏽	person taking bath medium skin	none
-🛀🏾	person taking bath medium-dark skin	none
-🛀🏿	person taking bath dark skin	none
+🛀🏻	bath leta vyakti Fair skin	none
+🛀🏼	bath leta vyakti medium-fair skin	none
+🛀🏽	bath leta vyakti medium skin	none
+🛀🏾	bath leta vyakti medium-dark skin	none
+🛀🏿	bath leta vyakti dark skin	none
 🛌🏻	bed par sota vyakti Fair skin	none
 🛌🏼	bed par sota vyakti medium-fair skin	none
 🛌🏽	bed par sota vyakti medium skin	none
@@ -3563,5 +2298,12 @@ symbols:
 👩‍❤‍👨	heart symbol ke saath couple woman, man	none
 👨‍❤‍👨	heart symbol ke saath couple man, man	none
 👩‍❤‍👩	heart symbol ke saath couple woman, woman	none
+🇦🇽	flag Aland Islands	none
+🇧🇱	flag St. Barthelemy	none
+🇨🇮	flag Cote d’Ivoire	none
+🇨🇼	flag Curacao	none
+🇷🇪	flag Reunion	none
+🇸🇹	flag Sao Tome & Principe	none
 🇺🇲	flag U.S. Outlying Islands	none
 🇻🇮	flag U.S. Virgin Islands	none
+₡	Costa Rican colon	none

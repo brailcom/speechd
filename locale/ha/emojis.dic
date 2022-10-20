@@ -39,43 +39,6 @@ symbols:
 ♪	alama ta kiɗa	none
 ♭	lebur	none
 ♯	alamar kiɗa	none
-🥹	fuska ido ya ciko	none
-🧌	mutum na zane	none
-🩻	hoton x-ray	none
-🩼	sandar guragu	none
-🪩	ƙwallon madubi	none
-🪪	katin shaida	none
-🪫	batir ya yi sanyi	none
-🪬	alamar hamsa	none
-🪷	magarya	none
-🪸	ciyawa	none
-🪹	sheƙar da ba komai	none
-🪺	sheƙa mai ƙwai	none
-🫃	namiji mai ciki	none
-🫄	mutum mai ciki	none
-🫅	mutum mai kambi	none
-🫗	zuba ruwa	none
-🫘	wake	none
-🫙	kurtu	none
-🫠	fuska narke	none
-🫡	fuska mai sarawa	none
-🫢	fuska da buɗe idanu da miƙa baki	none
-🫣	fuska tare da leƙo ido ɗaya	none
-🫤	fuska mai karkataccen baki	none
-🫥	kewaye da ɗige fuska	none
-🫦	ciza leɓe	none
-🫧	kumfa	none
-🫰	hannu da yatsa da babban yatsa a kewaye	none
-🫱	hannun dama gaba	none
-🫲	hannun hagu gaba	none
-🫳	tafin hannu ƙasa	none
-🫴	tafin hannu sama	none
-🫵	yatsa yana nuna mai kallo	none
-🫶	hannayen zuciya	none
-🛝	filin wasan motsa jiki	none
-🛞	taya	none
-🛟	balan-balan ceto na ruwa	none
-🟰	alamar daidai mai nauyi	none
 😀	fuska mai murmushin baki har kunne	none
 😃	fuska mai murmushi tare da manyan idanu	none
 😄	fuska mai murmushi tare da idanu	none
@@ -86,6 +49,7 @@ symbols:
 😂	fuska mai hawayen murna	none
 🙂	fuska mai murmushi kaɗan	none
 🙃	fuska a birkice	none
+🫠	fuska narke	none
 😉	fuska mai yin ƙifta	none
 😊	fuska mai murmushi haɗe da idanu	none
 😇	fuska mai murmushi tare da da’irar haske	none
@@ -106,18 +70,23 @@ symbols:
 🤑	fuska mai bakin-kuɗi	none
 🤗	fuska mai runguma	none
 🤭	fuska tare da hannu bisa baki	none
+🫢	fuska da buɗe idanu da miƙa baki	none
+🫣	fuska tare da leƙo ido ɗaya	none
 🤫	fuska mai shiru	none
 🤔	fuska mai tunani	none
+🫡	fuska mai sarawa	none
 🤐	fuskar baki mai zif	none
 🤨	fuska tare da ɗagaggiyar gira	none
 😐	fuska mai tsaka-tsakanci	none
 😑	fuska mara shige	none
 😶	fuska ban da baki	none
+🫥	kewaye da ɗige fuska	none
 😏	fuska mai murmushin wauta	none
 😒	fuska mara sha’awa	none
 🙄	fuska tare da idanu masu mirgina	none
 😬	fuska na ɗauren fuska	none
 🤥	fuska mai yin ƙarya	none
+🫨	girgiza fuska	none
 😌	fuska mai kwancin hankali	none
 😔	fuska mai yin tunani	none
 😪	fuska mai jin barci	none
@@ -141,6 +110,7 @@ symbols:
 🤓	fuska mai daƙiƙi	none
 🧐	fuska tare da tabarau mai ido ɗaya	none
 😕	rikitacciyar fuska	none
+🫤	fuska mai karkataccen baki	none
 😟	fuska mai damuwa	none
 🙁	fuska mai gama gira kaɗan	none
 ☹	fuska mai gama gira	none
@@ -149,6 +119,7 @@ symbols:
 😲	fuska mai burgewa	none
 😳	fuska mai murna	none
 🥺	fuska mai roƙo	none
+🥹	fuska ido ya ciko	none
 😦	fuska mai gama gira tare da baki a buɗe	none
 😧	fuska mai tagayyara	none
 😨	fuska mai jin tsoro	none
@@ -192,7 +163,6 @@ symbols:
 🙈	biri na kada a gan mamuganci	none
 🙉	biri na kada a ji sharri	none
 🙊	iri na kada a faɗi sharri	none
-💋	alamar sumba	none
 💌	wasiƙar soyayya	none
 💘	zuciya tare da kibiya	none
 💝	zuciya tare da ribon	none
@@ -205,14 +175,18 @@ symbols:
 ❣	alamar motsin rai na nauyin zuciya	none
 💔	karyayyiyar zuciya	none
 ❤	jar zuciya	none
+🩷	zuciya ruwan hoda	none
 🧡	zuciyar na ruwan goro	none
 💛	rawayan zuciya	none
 💚	koren zuciya	none
 💙	shuɗin zuciya	none
+🩵	zuciya shuɗiya mai haske	none
 💜	zuciya algashi	none
 🤎	zuciya ƙasa-ƙasa	none
 🖤	baƙar zuciya	none
+🩶	zuciya ruwan toka	none
 🤍	farar zuciya	none
+💋	alamar sumba	none
 💯	makunan ɗari	none
 💢	alamar fushi	none
 💥	karo	none
@@ -220,7 +194,6 @@ symbols:
 💦	ɗige-ɗigen gumi	none
 💨	gudu mai sauri	none
 🕳	rami	none
-💣	bam	none
 💬	balan-balan magana	none
 👁‍🗨	ido a cikin kumfan magana	none
 🗨	kumfan magana na hagu	none
@@ -232,11 +205,18 @@ symbols:
 🖐	ɗagaggen hannu tare da yatsa a faɗaɗɗe	none
 ✋	ɗagaggen hannu	none
 🖖	gaisuwar vulcan	none
+🫱	hannun dama gaba	none
+🫲	hannun hagu gaba	none
+🫳	tafin hannu ƙasa	none
+🫴	tafin hannu sama	none
+🫷	hannun yana turawa hagu	none
+🫸	hannu yana turawa dama	none
 👌	hannun TO	none
 🤌	tsuke yatsu	none
 🤏	tsuke yatsu biyu	none
 ✌	hannun nasara	none
 🤞	haɗaɗɗun yatsu	none
+🫰	hannu da yatsa da babban yatsa a kewaye	none
 🤟	nunin soyayya	none
 🤘	alamar ƙaho	none
 🤙	hannun kira ni	none
@@ -246,6 +226,7 @@ symbols:
 🖕	ɗan yatsan tsakiya	none
 👇	ɗan ali na baya mai nunawa ƙasa	none
 ☝	ɗan ali mai nunawa sama	none
+🫵	yatsa yana nuna mai kallo	none
 👍	da kyau	none
 👎	babu kyau	none
 ✊	ɗagaggen dunƙulen hannu	none
@@ -254,6 +235,7 @@ symbols:
 🤜	dunƙulen hannu mai fuskanta dama	none
 👏	hannuwa mai tafawa	none
 🙌	ɗagaggun hannuwa	none
+🫶	hannayen zuciya	none
 👐	buɗaɗɗun hannuwa	none
 🤲	tafunan hannu a sama tare	none
 🤝	musafiha	none
@@ -278,6 +260,7 @@ symbols:
 👁	ido	none
 👅	harshe	none
 👄	baki	none
+🫦	ciza leɓe	none
 👶	jariri	none
 🧒	ɗa	none
 👦	yaro	none
@@ -365,6 +348,7 @@ symbols:
 👷	ma’aikacin gini	none
 👷‍♂	mutum ma’aikacin gini	none
 👷‍♀	mace ma’aikacin gini	none
+🫅	mutum mai kambi	none
 🤴	ɗan sarki	none
 👸	gimbiya	none
 👳	mutum mai sakawa rawani	none
@@ -375,6 +359,8 @@ symbols:
 🤵	mutum cikin kwat	none
 👰	amarya da mayafi	none
 🤰	mace mai ciki	none
+🫃	namiji mai ciki	none
+🫄	mutum mai ciki	none
 🤱	shayarwa	none
 👼	jaririn malaika	none
 🎅	Tsoho-da-Gemu	none
@@ -402,6 +388,7 @@ symbols:
 🧟	gaya mai rai	none
 🧟‍♂	gaya mai rai namiji	none
 🧟‍♀	gaya mai rai na mace	none
+🧌	mutum na zane	none
 💆	mutum mai samun tausa	none
 💆‍♂	namiji mai samun tausa	none
 💆‍♀	mace mai samun tausa	none
@@ -509,6 +496,8 @@ symbols:
 🐅	damisa mai ratsi-ratsi	none
 🐆	damisa	none
 🐴	fuskar doki	none
+🫎	karakanda	none
+🫏	jaki	none
 🐎	doki	none
 🦄	fuskar dabbar unicorn	none
 🦓	jakin dawa	none
@@ -570,6 +559,8 @@ symbols:
 🦩	filamingo	none
 🦚	ɗawisu	none
 🦜	aku	none
+🪽	fuffuke	none
+🪿	gis	none
 🐸	kwaɗo	none
 🐊	kada	none
 🐢	ƙififfiya	none
@@ -589,6 +580,8 @@ symbols:
 🦈	kifin shark	none
 🐙	dabbar octopus	none
 🐚	lanƙwasasshen ƙumba	none
+🪸	ciyawa	none
+🪼	jelisih	none
 🐌	dodon koɗi	none
 🦋	malam-buɗe-mana-littafi	none
 🐛	ƙwaro	none
@@ -608,13 +601,15 @@ symbols:
 💐	jerin fure	none
 🌸	hudar cherry	none
 💮	farin fure	none
-🏵	lambar girmamawa	none
+🪷	magarya	none
+🏵	rosette	none
 🌹	furen wardi	none
 🥀	lanƙwasasshen fure	none
 🌺	zoɓorodo	none
 🌻	furenrana	none
 🌼	huda	none
 🌷	fure	none
+🪻	hayasin	none
 🌱	dashe	none
 🪴	tsire-tsire na tukunya	none
 🌲	bishiya mai tsanwa	none
@@ -628,6 +623,9 @@ symbols:
 🍁	busasshen ganye	none
 🍂	ganyen da ya faɗi	none
 🍃	ganye mai yin filfilwa a iska	none
+🪹	sheƙar da ba komai	none
+🪺	sheƙa mai ƙwai	none
+🍄	inuwar-kwaɗi	none
 🍇	inabi	none
 🍈	malo	none
 🍉	kankana	none
@@ -659,9 +657,11 @@ symbols:
 🥦	burokoli	none
 🧄	tafarnuwa	none
 🧅	albasa	none
-🍄	inuwar-kwaɗi	none
 🥜	gyaɗa	none
+🫘	wake	none
 🌰	gyaɗar chestnut	none
+🫚	saiwar citta	none
+🫛	koren wake na fis	none
 🍞	burodi	none
 🥐	burodin croissant	none
 🥖	burodin baguette	none
@@ -746,6 +746,7 @@ symbols:
 🍻	kofofin giya masu yin amo	none
 🥂	gilasan giya masu yin amo	none
 🥃	gilashin tambular	none
+🫗	zuba ruwa	none
 🥤	kofi tare da tsinke	none
 🧋	shayi mai kumfa	none
 🧃	lemon kwali	none
@@ -756,6 +757,7 @@ symbols:
 🍴	cokali mai yatsu da wuƙa	none
 🥄	cokali	none
 🔪	wuƙar kicin	none
+🫙	kurtu	none
 🏺	butar amphora	none
 🌍	taswirar duniya mai nuna Turai-Afirka	none
 🌎	taswirar duniya mai nuna Ƙasashen Amurka	none
@@ -818,6 +820,7 @@ symbols:
 🌉	gada a dare	none
 ♨	maɓuɓɓuga mai zafi	none
 🎠	dokin lilon mai juyawa	none
+🛝	filin wasan motsa jiki	none
 🎡	babban lilo	none
 🎢	motocin masa masu juyawa	none
 💈	sandar mai aski	none
@@ -866,12 +869,14 @@ symbols:
 🛤	sawun reluwe	none
 🛢	gangar mai	none
 ⛽	famfon mai	none
+🛞	taya	none
 🚨	wutar motar ’yan sanda	none
 🚥	wutar tarafik mai kwance	none
 🚦	wutar tarafik mai tsaye	none
 🛑	alamar dakata	none
 🚧	aikin gini	none
 ⚓	babban karfi	none
+🛟	balan-balan ceto na ruwa	none
 ⛵	jirgin ruwa mai filafilai	none
 🛶	ƙaramin jirgin ruwa	none
 🚤	jirgin ruwa mai sauri	none
@@ -1029,17 +1034,18 @@ symbols:
 🎯	bugawa ta kai tsaye	none
 🪀	zaren yo-yo	none
 🪁	fiffiluwa	none
+🔫	ƙaramar bindiga	none
 🎱	ƙwallon pool 8	none
 🔮	balon kallo	none
 🪄	sandan sihiri	none
-🧿	layar nazar	none
 🎮	wasan bidiyo	none
 🕹	abin buga wasa	none
 🎰	na’urar kaya mai karɓin kuɗi	none
 🎲	dayis na wasa	none
 🧩	wasa mai wuyar warwara	none
 🧸	tunkun wasa	none
-🪅	piñata	none
+🪅	pinata	none
+🪩	ƙwallon madubi	none
 🪆	ʼyartsana mai sheƙa	none
 ♠	zubin suffa	none
 ♥	zubin kubbi	none
@@ -1076,6 +1082,7 @@ symbols:
 🩳	gajeren wando	none
 👙	kayan bikini	none
 👚	suturar mace	none
+🪭	mafici mai naɗewa	none
 👛	ƙaramar jakar hannu	none
 👜	jakar mata	none
 👝	jaka mara hannu	none
@@ -1090,6 +1097,7 @@ symbols:
 👡	sandal na mata	none
 🩰	takalam rawar ballet	none
 👢	but na mace	none
+🪮	matajin gashi	none
 👑	kambi	none
 👒	hular mace	none
 🎩	shaho	none
@@ -1128,6 +1136,8 @@ symbols:
 🪕	gurmin banjo	none
 🥁	ganga	none
 🪘	doguwar ganga	none
+🪇	kacau-kacau	none
+🪈	sarewa	none
 📱	wayar hannu	none
 📲	wayar hannu tare da kibiya	none
 ☎	tarho	none
@@ -1135,6 +1145,7 @@ symbols:
 📟	na’urar faɗakarwa	none
 📠	injin faks	none
 🔋	batir	none
+🪫	batir ya yi sanyi	none
 🔌	fulogin lantarki	none
 💻	kwamfutar tafi-da-gidanka	none
 🖥	kwamfutar na destof	none
@@ -1246,7 +1257,7 @@ symbols:
 🛠	gudana da sufana	none
 🗡	wuƙar ƙugu	none
 ⚔	haɗaɗɗun takuba	none
-🔫	ƙaramar bindiga	none
+💣	bam	none
 🪃	majefi	none
 🏹	baka da kibiya	none
 🛡	garkuwa	none
@@ -1275,7 +1286,9 @@ symbols:
 🩸	ɗigon jini	none
 💊	ƙwaya	none
 🩹	bandeji na liƙawa	none
+🩼	sandar guragu	none
 🩺	maʼunin likita	none
+🩻	hoton x-ray	none
 🚪	ƙofa	none
 🛗	lif	none
 🪞	madubi	none
@@ -1296,6 +1309,7 @@ symbols:
 🧻	kwakwaron takarda	none
 🪣	bokiti	none
 🧼	sabulu	none
+🫧	kumfa	none
 🪥	burushin haƙori	none
 🧽	soso	none
 🧯	tokar kashe gobara	none
@@ -1304,8 +1318,11 @@ symbols:
 ⚰	akwatin gawa	none
 🪦	dutsen rubutun kan kabari	none
 ⚱	tukunyar jana’iza	none
+🧿	layar nazar	none
+🪬	alamar hamsa	none
 🗿	sassaƙar moai	none
 🪧	alamar maƙalawa	none
+🪪	katin shaida	none
 🏧	alamar ATM	none
 🚮	alamar shara a cikin bola	none
 🚰	ruwan sha	none
@@ -1365,6 +1382,7 @@ symbols:
 ☮	alamar zaman lafiya	none
 🕎	menora	none
 🔯	tauraro mai tsini-shida mai ɗigo	none
+🪯	khanda	none
 ♈	Kan rago	none
 ♉	Bijimi	none
 ♊	Tagwaye	none
@@ -1400,6 +1418,7 @@ symbols:
 🔅	maɓallin dushe	none
 🔆	maɓallin haske	none
 📶	sandunan eriya	none
+🛜	hanyar iska	none
 📳	yanayin jijjiga	none
 📴	wayar hannu a kashe	none
 ♀	alamar mace	none
@@ -1409,6 +1428,7 @@ symbols:
 ➕	tarawa	none
 ➖	deɓewa	none
 ➗	rabawa	none
+🟰	alamar daidai mai nauyi	none
 ♾	rashin iyaka	none
 ❓	jar alamar tambaya	none
 ❔	farar alamar tambaya	none
@@ -1503,26 +1523,31 @@ symbols:
 ₹	rupee na indiya	none
 ₽	ruble na rasha	none
 ₿	alamar bitcoin	none
-🫃🏻	namiji mai ciki launin fata mai haske	none
-🫃🏼	namiji mai ciki launin fata mai madaidaicin haske	none
-🫃🏽	namiji mai ciki madaidaicin launin fata	none
-🫃🏾	namiji mai ciki launin fata mai madaidaicin duhu	none
-🫃🏿	namiji mai ciki launin fata mai duhu	none
-🫄🏻	mutum mai ciki launin fata mai haske	none
-🫄🏼	mutum mai ciki launin fata mai madaidaicin haske	none
-🫄🏽	mutum mai ciki madaidaicin launin fata	none
-🫄🏾	mutum mai ciki launin fata mai madaidaicin duhu	none
-🫄🏿	mutum mai ciki launin fata mai duhu	none
-🫅🏻	mutum mai kambi launin fata mai haske	none
-🫅🏼	mutum mai kambi launin fata mai madaidaicin haske	none
-🫅🏽	mutum mai kambi madaidaicin launin fata	none
-🫅🏾	mutum mai kambi launin fata mai madaidaicin duhu	none
-🫅🏿	mutum mai kambi launin fata mai duhu	none
-🫰🏻	hannu da yatsa da babban yatsa a kewaye launin fata mai haske	none
-🫰🏼	hannu da yatsa da babban yatsa a kewaye launin fata mai madaidaicin haske	none
-🫰🏽	hannu da yatsa da babban yatsa a kewaye madaidaicin launin fata	none
-🫰🏾	hannu da yatsa da babban yatsa a kewaye launin fata mai madaidaicin duhu	none
-🫰🏿	hannu da yatsa da babban yatsa a kewaye launin fata mai duhu	none
+👋🏻	hannu mai wurgawa launin fata mai haske	none
+👋🏼	hannu mai wurgawa launin fata mai madaidaicin haske	none
+👋🏽	hannu mai wurgawa madaidaicin launin fata	none
+👋🏾	hannu mai wurgawa launin fata mai madaidaicin duhu	none
+👋🏿	hannu mai wurgawa launin fata mai duhu	none
+🤚🏻	ɗagaggen bayan hannu launin fata mai haske	none
+🤚🏼	ɗagaggen bayan hannu launin fata mai madaidaicin haske	none
+🤚🏽	ɗagaggen bayan hannu madaidaicin launin fata	none
+🤚🏾	ɗagaggen bayan hannu launin fata mai madaidaicin duhu	none
+🤚🏿	ɗagaggen bayan hannu launin fata mai duhu	none
+🖐🏻	ɗagaggen hannu tare da yatsa a faɗaɗɗe launin fata mai haske	none
+🖐🏼	ɗagaggen hannu tare da yatsa a faɗaɗɗe launin fata mai madaidaicin haske	none
+🖐🏽	ɗagaggen hannu tare da yatsa a faɗaɗɗe madaidaicin launin fata	none
+🖐🏾	ɗagaggen hannu tare da yatsa a faɗaɗɗe launin fata mai madaidaicin duhu	none
+🖐🏿	ɗagaggen hannu tare da yatsa a faɗaɗɗe launin fata mai duhu	none
+✋🏻	ɗagaggen hannu launin fata mai haske	none
+✋🏼	ɗagaggen hannu launin fata mai madaidaicin haske	none
+✋🏽	ɗagaggen hannu madaidaicin launin fata	none
+✋🏾	ɗagaggen hannu launin fata mai madaidaicin duhu	none
+✋🏿	ɗagaggen hannu launin fata mai duhu	none
+🖖🏻	gaisuwar vulcan launin fata mai haske	none
+🖖🏼	gaisuwar vulcan launin fata mai madaidaicin haske	none
+🖖🏽	gaisuwar vulcan madaidaicin launin fata	none
+🖖🏾	gaisuwar vulcan launin fata mai madaidaicin duhu	none
+🖖🏿	gaisuwar vulcan launin fata mai duhu	none
 🫱🏻	hannun dama gaba launin fata mai haske	none
 🫱🏼	hannun dama gaba launin fata mai madaidaicin haske	none
 🫱🏽	hannun dama gaba madaidaicin launin fata	none
@@ -1563,41 +1588,16 @@ symbols:
 🫴🏽	tafin hannu sama madaidaicin launin fata	none
 🫴🏾	tafin hannu sama launin fata mai madaidaicin duhu	none
 🫴🏿	tafin hannu sama launin fata mai duhu	none
-🫵🏻	yatsa yana nuna mai kallo launin fata mai haske	none
-🫵🏼	yatsa yana nuna mai kallo launin fata mai madaidaicin haske	none
-🫵🏽	yatsa yana nuna mai kallo madaidaicin launin fata	none
-🫵🏾	yatsa yana nuna mai kallo launin fata mai madaidaicin duhu	none
-🫵🏿	yatsa yana nuna mai kallo launin fata mai duhu	none
-🫶🏻	hannayen zuciya launin fata mai haske	none
-🫶🏼	hannayen zuciya launin fata mai madaidaicin haske	none
-🫶🏽	hannayen zuciya madaidaicin launin fata	none
-🫶🏾	hannayen zuciya launin fata mai madaidaicin duhu	none
-🫶🏿	hannayen zuciya launin fata mai duhu	none
-👋🏻	hannu mai wurgawa launin fata mai haske	none
-👋🏼	hannu mai wurgawa launin fata mai madaidaicin haske	none
-👋🏽	hannu mai wurgawa madaidaicin launin fata	none
-👋🏾	hannu mai wurgawa launin fata mai madaidaicin duhu	none
-👋🏿	hannu mai wurgawa launin fata mai duhu	none
-🤚🏻	ɗagaggen bayan hannu launin fata mai haske	none
-🤚🏼	ɗagaggen bayan hannu launin fata mai madaidaicin haske	none
-🤚🏽	ɗagaggen bayan hannu madaidaicin launin fata	none
-🤚🏾	ɗagaggen bayan hannu launin fata mai madaidaicin duhu	none
-🤚🏿	ɗagaggen bayan hannu launin fata mai duhu	none
-🖐🏻	ɗagaggen hannu tare da yatsa a faɗaɗɗe launin fata mai haske	none
-🖐🏼	ɗagaggen hannu tare da yatsa a faɗaɗɗe launin fata mai madaidaicin haske	none
-🖐🏽	ɗagaggen hannu tare da yatsa a faɗaɗɗe madaidaicin launin fata	none
-🖐🏾	ɗagaggen hannu tare da yatsa a faɗaɗɗe launin fata mai madaidaicin duhu	none
-🖐🏿	ɗagaggen hannu tare da yatsa a faɗaɗɗe launin fata mai duhu	none
-✋🏻	ɗagaggen hannu launin fata mai haske	none
-✋🏼	ɗagaggen hannu launin fata mai madaidaicin haske	none
-✋🏽	ɗagaggen hannu madaidaicin launin fata	none
-✋🏾	ɗagaggen hannu launin fata mai madaidaicin duhu	none
-✋🏿	ɗagaggen hannu launin fata mai duhu	none
-🖖🏻	gaisuwar vulcan launin fata mai haske	none
-🖖🏼	gaisuwar vulcan launin fata mai madaidaicin haske	none
-🖖🏽	gaisuwar vulcan madaidaicin launin fata	none
-🖖🏾	gaisuwar vulcan launin fata mai madaidaicin duhu	none
-🖖🏿	gaisuwar vulcan launin fata mai duhu	none
+🫷🏻	hannun yana turawa hagu launin fata mai haske	none
+🫷🏼	hannun yana turawa hagu launin fata mai madaidaicin haske	none
+🫷🏽	hannun yana turawa hagu madaidaicin launin fata	none
+🫷🏾	hannun yana turawa hagu launin fata mai madaidaicin duhu	none
+🫷🏿	hannun yana turawa hagu launin fata mai duhu	none
+🫸🏻	hannu yana turawa dama launin fata mai haske	none
+🫸🏼	hannu yana turawa dama launin fata mai madaidaicin haske	none
+🫸🏽	hannu yana turawa dama madaidaicin launin fata	none
+🫸🏾	hannu yana turawa dama launin fata mai madaidaicin duhu	none
+🫸🏿	hannu yana turawa dama launin fata mai duhu	none
 👌🏻	hannun TO launin fata mai haske	none
 👌🏼	hannun TO launin fata mai madaidaicin haske	none
 👌🏽	hannun TO madaidaicin launin fata	none
@@ -1623,6 +1623,11 @@ symbols:
 🤞🏽	haɗaɗɗun yatsu madaidaicin launin fata	none
 🤞🏾	haɗaɗɗun yatsu launin fata mai madaidaicin duhu	none
 🤞🏿	haɗaɗɗun yatsu launin fata mai duhu	none
+🫰🏻	hannu da yatsa da babban yatsa a kewaye launin fata mai haske	none
+🫰🏼	hannu da yatsa da babban yatsa a kewaye launin fata mai madaidaicin haske	none
+🫰🏽	hannu da yatsa da babban yatsa a kewaye madaidaicin launin fata	none
+🫰🏾	hannu da yatsa da babban yatsa a kewaye launin fata mai madaidaicin duhu	none
+🫰🏿	hannu da yatsa da babban yatsa a kewaye launin fata mai duhu	none
 🤟🏻	nunin soyayya launin fata mai haske	none
 🤟🏼	nunin soyayya launin fata mai madaidaicin haske	none
 🤟🏽	nunin soyayya madaidaicin launin fata	none
@@ -1668,6 +1673,11 @@ symbols:
 ☝🏽	ɗan ali mai nunawa sama madaidaicin launin fata	none
 ☝🏾	ɗan ali mai nunawa sama launin fata mai madaidaicin duhu	none
 ☝🏿	ɗan ali mai nunawa sama launin fata mai duhu	none
+🫵🏻	yatsa yana nuna mai kallo launin fata mai haske	none
+🫵🏼	yatsa yana nuna mai kallo launin fata mai madaidaicin haske	none
+🫵🏽	yatsa yana nuna mai kallo madaidaicin launin fata	none
+🫵🏾	yatsa yana nuna mai kallo launin fata mai madaidaicin duhu	none
+🫵🏿	yatsa yana nuna mai kallo launin fata mai duhu	none
 👍🏻	da kyau launin fata mai haske	none
 👍🏼	da kyau launin fata mai madaidaicin haske	none
 👍🏽	da kyau madaidaicin launin fata	none
@@ -1708,6 +1718,11 @@ symbols:
 🙌🏽	ɗagaggun hannuwa madaidaicin launin fata	none
 🙌🏾	ɗagaggun hannuwa launin fata mai madaidaicin duhu	none
 🙌🏿	ɗagaggun hannuwa launin fata mai duhu	none
+🫶🏻	hannayen zuciya launin fata mai haske	none
+🫶🏼	hannayen zuciya launin fata mai madaidaicin haske	none
+🫶🏽	hannayen zuciya madaidaicin launin fata	none
+🫶🏾	hannayen zuciya launin fata mai madaidaicin duhu	none
+🫶🏿	hannayen zuciya launin fata mai duhu	none
 👐🏻	buɗaɗɗun hannuwa launin fata mai haske	none
 👐🏼	buɗaɗɗun hannuwa launin fata mai madaidaicin haske	none
 👐🏽	buɗaɗɗun hannuwa madaidaicin launin fata	none
@@ -2470,6 +2485,11 @@ symbols:
 👷🏽‍♀	mace ma’aikacin gini madaidaicin launin fata	none
 👷🏾‍♀	mace ma’aikacin gini launin fata mai madaidaicin duhu	none
 👷🏿‍♀	mace ma’aikacin gini launin fata mai duhu	none
+🫅🏻	mutum mai kambi launin fata mai haske	none
+🫅🏼	mutum mai kambi launin fata mai madaidaicin haske	none
+🫅🏽	mutum mai kambi madaidaicin launin fata	none
+🫅🏾	mutum mai kambi launin fata mai madaidaicin duhu	none
+🫅🏿	mutum mai kambi launin fata mai duhu	none
 🤴🏻	ɗan sarki launin fata mai haske	none
 🤴🏼	ɗan sarki launin fata mai madaidaicin haske	none
 🤴🏽	ɗan sarki madaidaicin launin fata	none
@@ -2520,6 +2540,16 @@ symbols:
 🤰🏽	mace mai ciki madaidaicin launin fata	none
 🤰🏾	mace mai ciki launin fata mai madaidaicin duhu	none
 🤰🏿	mace mai ciki launin fata mai duhu	none
+🫃🏻	namiji mai ciki launin fata mai haske	none
+🫃🏼	namiji mai ciki launin fata mai madaidaicin haske	none
+🫃🏽	namiji mai ciki madaidaicin launin fata	none
+🫃🏾	namiji mai ciki launin fata mai madaidaicin duhu	none
+🫃🏿	namiji mai ciki launin fata mai duhu	none
+🫄🏻	mutum mai ciki launin fata mai haske	none
+🫄🏼	mutum mai ciki launin fata mai madaidaicin haske	none
+🫄🏽	mutum mai ciki madaidaicin launin fata	none
+🫄🏾	mutum mai ciki launin fata mai madaidaicin duhu	none
+🫄🏿	mutum mai ciki launin fata mai duhu	none
 🤱🏻	shayarwa launin fata mai haske	none
 🤱🏼	shayarwa launin fata mai madaidaicin haske	none
 🤱🏽	shayarwa madaidaicin launin fata	none
@@ -3241,7 +3271,7 @@ symbols:
 🇳🇨	tuta Kaledoniya Sabuwa	none
 🇳🇪	tuta Nijar	none
 🇳🇫	tuta Tsibirin Narfalk	none
-🇳🇬	tuta Najeriya	none
+🇳🇬	tuta Nijeriya	none
 🇳🇮	tuta Nikaraguwa	none
 🇳🇱	tuta Holan	none
 🇳🇴	tuta Norwe	none

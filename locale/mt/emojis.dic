@@ -115,7 +115,6 @@ symbols:
 🙈	xadina li ma tara ebda ħażen	none
 🙉	xadina li ma tisma’ ebda ħażen	none
 🙊	xadina li ma titkellem ebda ħażen	none
-💋	marka ta’ bewsa	none
 💌	ittra ta’ mħabba	none
 💘	qalb bi vleġġa	none
 💝	qalb b’ċoff	none
@@ -134,6 +133,7 @@ symbols:
 💙	qalb blu	none
 💜	qalb vjola	none
 🖤	qalb sewda	none
+💋	marka ta’ bewsa	none
 💯	mitt punt	none
 💢	simbolu ta’ rabja	none
 💥	ħabta	none
@@ -141,7 +141,6 @@ symbols:
 💦	qtar tal-għaraq	none
 💨	jaħrab ’l hemm	none
 🕳	toqba	none
-💣	bomba	none
 💬	bużżieqa tad-diskors	none
 👁‍🗨	għajnejn f’bużżieqa tad-diskors	none
 🗨	bużżieqa tad-diskors fuq ix-xellug	none
@@ -500,6 +499,7 @@ symbols:
 🍁	werqa tal-aġġru	none
 🍂	werqa mwaqqa’	none
 🍃	werqa tixxejjer fir-riħ	none
+🍄	faqqiegħa	none
 🍇	għeneb	none
 🍈	bettieħa	none
 🍉	dulliegħa	none
@@ -524,7 +524,6 @@ symbols:
 🌶	bżar jaħraq	none
 🥒	ħjara	none
 🥦	brokkoli	none
-🍄	faqqiegħa	none
 🥜	karawett	none
 🌰	qastan	none
 🍞	ħobż	none
@@ -854,6 +853,7 @@ symbols:
 🛷	slitta	none
 🥌	ġebla tal-curling	none
 🎯	tir dirett	none
+🔫	pistola	none
 🎱	ballun ta’ pool 8	none
 🔮	boċċa tal-kristal	none
 🎮	video game	none
@@ -1040,7 +1040,7 @@ symbols:
 🛠	martell u spaner	none
 🗡	stallet	none
 ⚔	xwabel inkroċjati	none
-🔫	pistola	none
+💣	bomba	none
 🏹	qaws u vleġġa	none
 🛡	tarka	none
 🔧	spanner	none
@@ -1242,26 +1242,6 @@ symbols:
 🏴	bandiera sewda	none
 🏳	bandiera bajda	none
 🏳‍🌈	bandiera tal-qawsalla	none
-🫱🏻‍🫲🏼	ħu bl-idejn ton ċar tal-ġilda u ton medju-ċar tal-ġilda	none
-🫱🏻‍🫲🏽	ħu bl-idejn ton ċar tal-ġilda u ton medju tal-ġilda	none
-🫱🏻‍🫲🏾	ħu bl-idejn ton ċar tal-ġilda u ton medju-skur tal-ġilda	none
-🫱🏻‍🫲🏿	ħu bl-idejn ton ċar tal-ġilda u ton skur tal-ġilda	none
-🫱🏼‍🫲🏻	ħu bl-idejn ton medju-ċar tal-ġilda u ton ċar tal-ġilda	none
-🫱🏼‍🫲🏽	ħu bl-idejn ton medju-ċar tal-ġilda u ton medju tal-ġilda	none
-🫱🏼‍🫲🏾	ħu bl-idejn ton medju-ċar tal-ġilda u ton medju-skur tal-ġilda	none
-🫱🏼‍🫲🏿	ħu bl-idejn ton medju-ċar tal-ġilda u ton skur tal-ġilda	none
-🫱🏽‍🫲🏻	ħu bl-idejn ton medju tal-ġilda u ton ċar tal-ġilda	none
-🫱🏽‍🫲🏼	ħu bl-idejn ton medju tal-ġilda u ton medju-ċar tal-ġilda	none
-🫱🏽‍🫲🏾	ħu bl-idejn ton medju tal-ġilda u ton medju-skur tal-ġilda	none
-🫱🏽‍🫲🏿	ħu bl-idejn ton medju tal-ġilda u ton skur tal-ġilda	none
-🫱🏾‍🫲🏻	ħu bl-idejn ton medju-skur tal-ġilda u ton ċar tal-ġilda	none
-🫱🏾‍🫲🏼	ħu bl-idejn ton medju-skur tal-ġilda u ton medju-ċar tal-ġilda	none
-🫱🏾‍🫲🏽	ħu bl-idejn ton medju-skur tal-ġilda u ton medju tal-ġilda	none
-🫱🏾‍🫲🏿	ħu bl-idejn ton medju-skur tal-ġilda u ton skur tal-ġilda	none
-🫱🏿‍🫲🏻	ħu bl-idejn ton skur tal-ġilda u ton ċar tal-ġilda	none
-🫱🏿‍🫲🏼	ħu bl-idejn ton skur tal-ġilda u ton medju-ċar tal-ġilda	none
-🫱🏿‍🫲🏽	ħu bl-idejn ton skur tal-ġilda u ton medju tal-ġilda	none
-🫱🏿‍🫲🏾	ħu bl-idejn ton skur tal-ġilda u ton medju-skur tal-ġilda	none
 👋🏻	id ixxejjer ton ċar tal-ġilda	none
 👋🏼	id ixxejjer ton medju-ċar tal-ġilda	none
 👋🏽	id ixxejjer ton medju tal-ġilda	none
@@ -1287,6 +1267,26 @@ symbols:
 🖖🏽	salut ta’ vulcan ton medju tal-ġilda	none
 🖖🏾	salut ta’ vulcan ton medju-skur tal-ġilda	none
 🖖🏿	salut ta’ vulcan ton skur tal-ġilda	none
+🫱🏻‍🫲🏼	ħu bl-idejn ton ċar tal-ġilda u ton medju-ċar tal-ġilda	none
+🫱🏻‍🫲🏽	ħu bl-idejn ton ċar tal-ġilda u ton medju tal-ġilda	none
+🫱🏻‍🫲🏾	ħu bl-idejn ton ċar tal-ġilda u ton medju-skur tal-ġilda	none
+🫱🏻‍🫲🏿	ħu bl-idejn ton ċar tal-ġilda u ton skur tal-ġilda	none
+🫱🏼‍🫲🏻	ħu bl-idejn ton medju-ċar tal-ġilda u ton ċar tal-ġilda	none
+🫱🏼‍🫲🏽	ħu bl-idejn ton medju-ċar tal-ġilda u ton medju tal-ġilda	none
+🫱🏼‍🫲🏾	ħu bl-idejn ton medju-ċar tal-ġilda u ton medju-skur tal-ġilda	none
+🫱🏼‍🫲🏿	ħu bl-idejn ton medju-ċar tal-ġilda u ton skur tal-ġilda	none
+🫱🏽‍🫲🏻	ħu bl-idejn ton medju tal-ġilda u ton ċar tal-ġilda	none
+🫱🏽‍🫲🏼	ħu bl-idejn ton medju tal-ġilda u ton medju-ċar tal-ġilda	none
+🫱🏽‍🫲🏾	ħu bl-idejn ton medju tal-ġilda u ton medju-skur tal-ġilda	none
+🫱🏽‍🫲🏿	ħu bl-idejn ton medju tal-ġilda u ton skur tal-ġilda	none
+🫱🏾‍🫲🏻	ħu bl-idejn ton medju-skur tal-ġilda u ton ċar tal-ġilda	none
+🫱🏾‍🫲🏼	ħu bl-idejn ton medju-skur tal-ġilda u ton medju-ċar tal-ġilda	none
+🫱🏾‍🫲🏽	ħu bl-idejn ton medju-skur tal-ġilda u ton medju tal-ġilda	none
+🫱🏾‍🫲🏿	ħu bl-idejn ton medju-skur tal-ġilda u ton skur tal-ġilda	none
+🫱🏿‍🫲🏻	ħu bl-idejn ton skur tal-ġilda u ton ċar tal-ġilda	none
+🫱🏿‍🫲🏼	ħu bl-idejn ton skur tal-ġilda u ton medju-ċar tal-ġilda	none
+🫱🏿‍🫲🏽	ħu bl-idejn ton skur tal-ġilda u ton medju tal-ġilda	none
+🫱🏿‍🫲🏾	ħu bl-idejn ton skur tal-ġilda u ton medju-skur tal-ġilda	none
 👌🏻	id OK ton ċar tal-ġilda	none
 👌🏼	id OK ton medju-ċar tal-ġilda	none
 👌🏽	id OK ton medju tal-ġilda	none

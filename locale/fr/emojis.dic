@@ -68,7 +68,7 @@ symbols:
 ⇏	double flèche vers la droite barrée	none
 ⇓	flèche double vers le bas	none
 ⇔	flèche double vers la gauche et la droite	none
-⇎	double flèche gauche​-droite barrée	none
+⇎	double flèche gauche-droite barrée	none
 ⇖	flèche double vers le nord-ouest	none
 ⇗	flèche double vers le nord-est	none
 ⇘	flèche double vers le sud-est	none
@@ -264,43 +264,6 @@ symbols:
 ⪺	suit sur non presque égal à	none
 ♭	bémol	none
 ♯	dièse	none
-🥹	visage retenant ses larmes	none
-🧌	troll	none
-🩻	radiographie	none
-🩼	béquille	none
-🪩	boule à facettes	none
-🪪	carte d’identité	none
-🪫	pile faible	none
-🪬	main de Fatma	none
-🪷	lotus	none
-🪸	corail	none
-🪹	nid vide	none
-🪺	nid avec œufs	none
-🫃	homme enceinte	none
-🫄	personne enceinte	none
-🫅	personne avec une couronne	none
-🫗	verser un liquide	none
-🫘	haricots	none
-🫙	bocal	none
-🫠	visage qui fond	none
-🫡	visage qui fait un salut militaire	none
-🫢	visage avec yeux ouverts et main sur la bouche	none
-🫣	visage qui regarde entre ses doigts	none
-🫤	visage avec bouche en diagonale	none
-🫥	visage en pointillés	none
-🫦	lèvres qui se mordent	none
-🫧	bulles	none
-🫰	main avec index et pouce croisés	none
-🫱	main vers la droite	none
-🫲	main vers la gauche	none
-🫳	main paume vers le bas	none
-🫴	main paume vers le haut	none
-🫵	index pointant vers l’utilisateur	none
-🫶	mains qui forment un cœur	none
-🛝	toboggan	none
-🛞	roue	none
-🛟	bouée de sauvetage	none
-🟰	signe égal gras	none
 😀	visage rieur	none
 😃	visage souriant avec de grands yeux	none
 😄	visage très souriant aux yeux rieurs	none
@@ -311,6 +274,7 @@ symbols:
 😂	visage riant aux larmes	none
 🙂	visage avec un léger sourire	none
 🙃	tête à l’envers	none
+🫠	visage qui fond	none
 😉	visage faisant un clin d’œil	none
 😊	visage souriant avec yeux rieurs	none
 😇	visage souriant avec auréole	none
@@ -331,13 +295,17 @@ symbols:
 🤑	argent dans les yeux et la bouche	none
 🤗	visage qui fait un câlin	none
 🤭	visage avec une main sur la bouche	none
+🫢	visage avec yeux ouverts et main sur la bouche	none
+🫣	visage qui regarde entre ses doigts	none
 🤫	visage avec un doigt sur la bouche	none
 🤔	visage en pleine réflexion	none
+🫡	visage qui fait un salut militaire	none
 🤐	visage avec bouche fermeture éclair	none
 🤨	visage avec les sourcils relevés	none
 😐	visage neutre	none
 😑	visage sans expression	none
 😶	visage sans bouche	none
+🫥	visage en pointillés	none
 😶‍🌫	visage dans les nuages	none
 😏	visage avec un sourire malin	none
 😒	visage blasé	none
@@ -345,6 +313,7 @@ symbols:
 😬	visage grimaçant	none
 😮‍💨	visage expirant	none
 🤥	visage de menteur	none
+🫨	visage secoué	none
 😌	visage soulagé	none
 😔	visage pensif	none
 😪	visage endormi	none
@@ -369,6 +338,7 @@ symbols:
 🤓	visage de geek	none
 🧐	visage avec un monocle	none
 😕	visage confus	none
+🫤	visage avec bouche en diagonale	none
 😟	visage inquiet	none
 🙁	visage légèrement mécontent	none
 ☹	visage mécontent	none
@@ -377,6 +347,7 @@ symbols:
 😲	visage stupéfait	none
 😳	visage qui rougit	none
 🥺	visage implorant	none
+🥹	visage retenant ses larmes	none
 😦	visage mécontent avec bouche ouverte	none
 😧	visage angoissé	none
 😨	visage effrayé	none
@@ -420,7 +391,6 @@ symbols:
 🙈	singe ne rien voir	none
 🙉	singe ne rien entendre	none
 🙊	singe ne rien dire	none
-💋	trace de rouge à lèvres	none
 💌	lettre d’amour	none
 💘	cœur et flèche	none
 💝	cœur avec ruban	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	cœur enflammé	none
 ❤‍🩹	cœur avec bandages	none
 ❤	cœur rouge	none
+🩷	cœur rose	none
 🧡	cœur orange	none
 💛	cœur jaune	none
 💚	cœur vert	none
 💙	cœur bleu	none
+🩵	cœur bleu clair	none
 💜	cœur violet	none
 🤎	cœur marron	none
 🖤	cœur noir	none
+🩶	cœur gris	none
 🤍	cœur blanc	none
+💋	trace de rouge à lèvres	none
 💯	cent points	none
 💢	symbole de colère	none
 💥	explosion	none
@@ -450,7 +424,6 @@ symbols:
 💦	gouttes de sueur	none
 💨	décamper	none
 🕳	trou	none
-💣	bombe	none
 💬	bulle de parole	none
 👁‍🗨	œil dans une bulle de BD	none
 🗨	bulle de parole gauche	none
@@ -462,11 +435,18 @@ symbols:
 🖐	main levée doigts écartés	none
 ✋	main levée	none
 🖖	salut vulcain	none
+🫱	main vers la droite	none
+🫲	main vers la gauche	none
+🫳	main paume vers le bas	none
+🫴	main paume vers le haut	none
+🫷	main qui pousse vers la gauche	none
+🫸	main qui pousse vers la droite	none
 👌	ok	none
 🤌	bout des doigts joints	none
 🤏	pouce et index rapprochés	none
 ✌	V de la victoire	none
 🤞	doigts croisés	none
+🫰	main avec index et pouce croisés	none
 🤟	signe je t’aime	none
 🤘	cornes avec les doigts	none
 🤙	signe appel téléphonique avec les doigts	none
@@ -476,6 +456,7 @@ symbols:
 🖕	doigt d’honneur	none
 👇	main avec index pointant vers le bas	none
 ☝	index pointant vers le haut	none
+🫵	index pointant vers l’utilisateur	none
 👍	pouce vers le haut	none
 👎	pouce vers le bas	none
 ✊	poing levé	none
@@ -484,6 +465,7 @@ symbols:
 🤜	poing à droite	none
 👏	applaudissements	none
 🙌	mains levées	none
+🫶	mains qui forment un cœur	none
 👐	mains ouvertes	none
 🤲	paume contre paume doigts vers le haut	none
 🤝	poignée de main	none
@@ -508,6 +490,7 @@ symbols:
 👁	œil	none
 👅	langue	none
 👄	bouche	none
+🫦	lèvres qui se mordent	none
 👶	bébé	none
 🧒	enfant	none
 👦	garçon	none
@@ -615,6 +598,7 @@ symbols:
 👷	personnel du bâtiment	none
 👷‍♂	ouvrier du bâtiment	none
 👷‍♀	ouvrière du bâtiment	none
+🫅	personne avec une couronne	none
 🤴	prince	none
 👸	princesse	none
 👳	personne en turban	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	homme avec voile	none
 👰‍♀	femme avec voile	none
 🤰	femme enceinte	none
+🫃	homme enceint	none
+🫄	personne enceinte	none
 🤱	allaitement	none
 👩‍🍼	femme allaitant un bébé	none
 👨‍🍼	homme allaitant un bébé	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombie	none
 🧟‍♂	zombie homme	none
 🧟‍♀	zombie femme	none
+🧌	troll	none
 💆	personne qui se fait masser	none
 💆‍♂	homme qui se fait masser	none
 💆‍♀	femme qui se fait masser	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tigre	none
 🐆	léopard	none
 🐴	tête de cheval	none
+🫎	élan	none
+🫏	âne	none
 🐎	cheval	none
 🦄	licorne	none
 🦓	zèbre	none
@@ -849,6 +838,8 @@ symbols:
 🦩	flamant	none
 🦚	paon	none
 🦜	perroquet	none
+🪽	aile	none
+🪿	oie	none
 🐸	grenouille	none
 🐊	crocodile	none
 🐢	tortue	none
@@ -868,6 +859,8 @@ symbols:
 🦈	requin	none
 🐙	pieuvre	none
 🐚	coquille en spirale	none
+🪸	corail	none
+🪼	méduse	none
 🐌	escargot	none
 🦋	papillon	none
 🐛	chenille	none
@@ -887,6 +880,7 @@ symbols:
 💐	bouquet	none
 🌸	fleur de cerisier	none
 💮	fleur blanche	none
+🪷	lotus	none
 🏵	rosette	none
 🌹	rose	none
 🥀	fleur fanée	none
@@ -894,6 +888,7 @@ symbols:
 🌻	tournesol	none
 🌼	bourgeon	none
 🌷	tulipe	none
+🪻	jacinthe	none
 🌱	jeune pousse	none
 🪴	plante en pot	none
 🌲	conifère	none
@@ -907,6 +902,9 @@ symbols:
 🍁	feuille d’érable	none
 🍂	feuille morte	none
 🍃	feuille virevoltante	none
+🪹	nid vide	none
+🪺	nid avec œufs	none
+🍄	champignon	none
 🍇	raisin	none
 🍈	melon	none
 🍉	pastèque	none
@@ -938,9 +936,11 @@ symbols:
 🥦	brocoli	none
 🧄	ail	none
 🧅	oignon	none
-🍄	champignon	none
 🥜	cacahuètes	none
+🫘	haricots	none
 🌰	châtaigne	none
+🫚	racine de gingembre	none
+🫛	cosse de petits pois	none
 🍞	pain	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	chopes de bière	none
 🥂	trinquer	none
 🥃	verre tumbler	none
+🫗	verser un liquide	none
 🥤	gobelet avec paille	none
 🧋	thé aux perles	none
 🧃	briquette de jus	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	fourchette et couteau	none
 🥄	cuillère	none
 🔪	couteau de cuisine	none
+🫙	bocal	none
 🏺	amphore	none
 🌍	globe tourné sur l’Afrique et l’Europe	none
 🌎	globe tourné sur les Amériques	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	pont de nuit	none
 ♨	sources chaudes	none
 🎠	cheval de manège	none
+🛝	toboggan	none
 🎡	grande roue	none
 🎢	montagnes russes	none
 💈	enseigne de barbier	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	voie ferrée	none
 🛢	baril de pétrole	none
 ⛽	pompe à essence	none
+🛞	roue	none
 🚨	gyrophare	none
 🚥	feu tricolore horizontal	none
 🚦	feu tricolore vertical	none
 🛑	stop	none
 🚧	travaux	none
 ⚓	ancre	none
+🛟	bouée de sauvetage	none
 ⛵	voilier	none
 🛶	canoë	none
 🚤	hors-bord	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	dans le mille	none
 🪀	yoyo	none
 🪁	cerf-volant	none
+🔫	pistolet à eau	none
 🎱	boule de billard	none
 🔮	boule de cristal	none
 🪄	baguette magique	none
-🧿	mauvais œil	none
 🎮	jeu vidéo	none
 🕹	manette de jeu	none
 🎰	machine à sous	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	pièce de puzzle	none
 🧸	ours en peluche	none
 🪅	piñata	none
+🪩	boule à facettes	none
 🪆	poupées russes	none
 ♠	pique	none
 ♥	cœur cartes	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	short	none
 👙	bikini	none
 👚	vêtements de femme	none
+🪭	éventail	none
 👛	porte-monnaie	none
 👜	sac à main	none
 👝	pochette	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	sandale de femme	none
 🩰	chaussons de danse	none
 👢	botte de femme	none
+🪮	peigne afro	none
 👑	couronne	none
 👒	chapeau de femme	none
 🎩	haut de forme	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banjo	none
 🥁	batterie	none
 🪘	djembé	none
+🪇	maracas	none
+🪈	flûte	none
 📱	téléphone portable	none
 📲	appel entrant	none
 ☎	téléphone	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	bipeur	none
 📠	fax	none
 🔋	pile	none
+🪫	pile faible	none
 🔌	câble avec fiche électrique	none
 💻	ordinateur portable	none
 🖥	ordinateur de bureau	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	marteau et clé à molette	none
 🗡	dague	none
 ⚔	épées croisées	none
-🔫	pistolet à eau	none
+💣	bombe	none
 🪃	boomerang	none
 🏹	arc et flèche	none
 🛡	bouclier	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	goutte de sang	none
 💊	pilule	none
 🩹	sparadrap	none
+🩼	béquille	none
 🩺	stéthoscope	none
+🩻	radiographie	none
 🚪	porte	none
 🛗	ascenseur	none
 🪞	miroir	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	rouleau de papier	none
 🪣	seau	none
 🧼	savon	none
+🫧	bulles	none
 🪥	brosse à dents	none
 🧽	éponge	none
 🧯	extincteur	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	cercueil	none
 🪦	pierre tombale	none
 ⚱	urne funéraire	none
+🧿	mauvais œil	none
+🪬	main de Fatma	none
 🗿	moai	none
 🪧	pancarte	none
+🪪	carte d’identité	none
 🏧	distributeur de billets	none
 🚮	icône Poubelle	none
 🚰	eau potable	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	symbole de paix	none
 🕎	chandelier à sept branches	none
 🔯	étoile à 6 branches	none
+🪯	khanda	none
 ♈	bélier zodiaque	none
 ♉	taureau	none
 ♊	gémeaux	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	luminosité faible	none
 🔆	luminosité élevée	none
 📶	barres de réseau	none
+🛜	sans fil	none
 📳	mode vibreur	none
 📴	téléphone éteint	none
 ♀	symbole de la femme	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	plus	none
 ➖	moins	none
 ➗	signe diviser	none
+🟰	signe égal gras	none
 ♾	infini	none
 ❓	point d’interrogation rouge	none
 ❔	point d’interrogation blanc	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	rouble	none
 ₿	bitcoin	none
 ₨	roupie	none
-🫃🏻	homme enceinte  peau claire	none
-🫃🏼	homme enceinte  peau moyennement claire	none
-🫃🏽	homme enceinte  peau légèrement mate	none
-🫃🏾	homme enceinte  peau mate	none
-🫃🏿	homme enceinte  peau foncée	none
-🫄🏻	personne enceinte  peau claire	none
-🫄🏼	personne enceinte  peau moyennement claire	none
-🫄🏽	personne enceinte  peau légèrement mate	none
-🫄🏾	personne enceinte  peau mate	none
-🫄🏿	personne enceinte  peau foncée	none
-🫅🏻	personne avec une couronne  peau claire	none
-🫅🏼	personne avec une couronne  peau moyennement claire	none
-🫅🏽	personne avec une couronne  peau légèrement mate	none
-🫅🏾	personne avec une couronne  peau mate	none
-🫅🏿	personne avec une couronne  peau foncée	none
-🫰🏻	main avec index et pouce croisés  peau claire	none
-🫰🏼	main avec index et pouce croisés  peau moyennement claire	none
-🫰🏽	main avec index et pouce croisés  peau légèrement mate	none
-🫰🏾	main avec index et pouce croisés  peau mate	none
-🫰🏿	main avec index et pouce croisés  peau foncée	none
+👋🏻	signe de la main  peau claire	none
+👋🏼	signe de la main  peau moyennement claire	none
+👋🏽	signe de la main  peau légèrement mate	none
+👋🏾	signe de la main  peau mate	none
+👋🏿	signe de la main  peau foncée	none
+🤚🏻	dos de main levée  peau claire	none
+🤚🏼	dos de main levée  peau moyennement claire	none
+🤚🏽	dos de main levée  peau légèrement mate	none
+🤚🏾	dos de main levée  peau mate	none
+🤚🏿	dos de main levée  peau foncée	none
+🖐🏻	main levée doigts écartés  peau claire	none
+🖐🏼	main levée doigts écartés  peau moyennement claire	none
+🖐🏽	main levée doigts écartés  peau légèrement mate	none
+🖐🏾	main levée doigts écartés  peau mate	none
+🖐🏿	main levée doigts écartés  peau foncée	none
+✋🏻	main levée  peau claire	none
+✋🏼	main levée  peau moyennement claire	none
+✋🏽	main levée  peau légèrement mate	none
+✋🏾	main levée  peau mate	none
+✋🏿	main levée  peau foncée	none
+🖖🏻	salut vulcain  peau claire	none
+🖖🏼	salut vulcain  peau moyennement claire	none
+🖖🏽	salut vulcain  peau légèrement mate	none
+🖖🏾	salut vulcain  peau mate	none
+🖖🏿	salut vulcain  peau foncée	none
 🫱🏻	main vers la droite  peau claire	none
 🫱🏼	main vers la droite  peau moyennement claire	none
 🫱🏽	main vers la droite  peau légèrement mate	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	main paume vers le haut  peau légèrement mate	none
 🫴🏾	main paume vers le haut  peau mate	none
 🫴🏿	main paume vers le haut  peau foncée	none
-🫵🏻	index pointant vers l’utilisateur  peau claire	none
-🫵🏼	index pointant vers l’utilisateur  peau moyennement claire	none
-🫵🏽	index pointant vers l’utilisateur  peau légèrement mate	none
-🫵🏾	index pointant vers l’utilisateur  peau mate	none
-🫵🏿	index pointant vers l’utilisateur  peau foncée	none
-🫶🏻	mains qui forment un cœur  peau claire	none
-🫶🏼	mains qui forment un cœur  peau moyennement claire	none
-🫶🏽	mains qui forment un cœur  peau légèrement mate	none
-🫶🏾	mains qui forment un cœur  peau mate	none
-🫶🏿	mains qui forment un cœur  peau foncée	none
-👋🏻	signe de la main  peau claire	none
-👋🏼	signe de la main  peau moyennement claire	none
-👋🏽	signe de la main  peau légèrement mate	none
-👋🏾	signe de la main  peau mate	none
-👋🏿	signe de la main  peau foncée	none
-🤚🏻	dos de main levée  peau claire	none
-🤚🏼	dos de main levée  peau moyennement claire	none
-🤚🏽	dos de main levée  peau légèrement mate	none
-🤚🏾	dos de main levée  peau mate	none
-🤚🏿	dos de main levée  peau foncée	none
-🖐🏻	main levée doigts écartés  peau claire	none
-🖐🏼	main levée doigts écartés  peau moyennement claire	none
-🖐🏽	main levée doigts écartés  peau légèrement mate	none
-🖐🏾	main levée doigts écartés  peau mate	none
-🖐🏿	main levée doigts écartés  peau foncée	none
-✋🏻	main levée  peau claire	none
-✋🏼	main levée  peau moyennement claire	none
-✋🏽	main levée  peau légèrement mate	none
-✋🏾	main levée  peau mate	none
-✋🏿	main levée  peau foncée	none
-🖖🏻	salut vulcain  peau claire	none
-🖖🏼	salut vulcain  peau moyennement claire	none
-🖖🏽	salut vulcain  peau légèrement mate	none
-🖖🏾	salut vulcain  peau mate	none
-🖖🏿	salut vulcain  peau foncée	none
+🫷🏻	main qui pousse vers la gauche  peau claire	none
+🫷🏼	main qui pousse vers la gauche  peau moyennement claire	none
+🫷🏽	main qui pousse vers la gauche  peau légèrement mate	none
+🫷🏾	main qui pousse vers la gauche  peau mate	none
+🫷🏿	main qui pousse vers la gauche  peau foncée	none
+🫸🏻	main qui pousse vers la droite  peau claire	none
+🫸🏼	main qui pousse vers la droite  peau moyennement claire	none
+🫸🏽	main qui pousse vers la droite  peau légèrement mate	none
+🫸🏾	main qui pousse vers la droite  peau mate	none
+🫸🏿	main qui pousse vers la droite  peau foncée	none
 👌🏻	ok  peau claire	none
 👌🏼	ok  peau moyennement claire	none
 👌🏽	ok  peau légèrement mate	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	doigts croisés  peau légèrement mate	none
 🤞🏾	doigts croisés  peau mate	none
 🤞🏿	doigts croisés  peau foncée	none
+🫰🏻	main avec index et pouce croisés  peau claire	none
+🫰🏼	main avec index et pouce croisés  peau moyennement claire	none
+🫰🏽	main avec index et pouce croisés  peau légèrement mate	none
+🫰🏾	main avec index et pouce croisés  peau mate	none
+🫰🏿	main avec index et pouce croisés  peau foncée	none
 🤟🏻	signe je t’aime  peau claire	none
 🤟🏼	signe je t’aime  peau moyennement claire	none
 🤟🏽	signe je t’aime  peau légèrement mate	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	index pointant vers le haut  peau légèrement mate	none
 ☝🏾	index pointant vers le haut  peau mate	none
 ☝🏿	index pointant vers le haut  peau foncée	none
+🫵🏻	index pointant vers l’utilisateur  peau claire	none
+🫵🏼	index pointant vers l’utilisateur  peau moyennement claire	none
+🫵🏽	index pointant vers l’utilisateur  peau légèrement mate	none
+🫵🏾	index pointant vers l’utilisateur  peau mate	none
+🫵🏿	index pointant vers l’utilisateur  peau foncée	none
 👍🏻	pouce vers le haut  peau claire	none
 👍🏼	pouce vers le haut  peau moyennement claire	none
 👍🏽	pouce vers le haut  peau légèrement mate	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	mains levées  peau légèrement mate	none
 🙌🏾	mains levées  peau mate	none
 🙌🏿	mains levées  peau foncée	none
+🫶🏻	mains qui forment un cœur  peau claire	none
+🫶🏼	mains qui forment un cœur  peau moyennement claire	none
+🫶🏽	mains qui forment un cœur  peau légèrement mate	none
+🫶🏾	mains qui forment un cœur  peau mate	none
+🫶🏿	mains qui forment un cœur  peau foncée	none
 👐🏻	mains ouvertes  peau claire	none
 👐🏼	mains ouvertes  peau moyennement claire	none
 👐🏽	mains ouvertes  peau légèrement mate	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	ouvrière du bâtiment  peau légèrement mate	none
 👷🏾‍♀	ouvrière du bâtiment  peau mate	none
 👷🏿‍♀	ouvrière du bâtiment  peau foncée	none
+🫅🏻	personne avec une couronne  peau claire	none
+🫅🏼	personne avec une couronne  peau moyennement claire	none
+🫅🏽	personne avec une couronne  peau légèrement mate	none
+🫅🏾	personne avec une couronne  peau mate	none
+🫅🏿	personne avec une couronne  peau foncée	none
 🤴🏻	prince  peau claire	none
 🤴🏼	prince  peau moyennement claire	none
 🤴🏽	prince  peau légèrement mate	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	femme enceinte  peau légèrement mate	none
 🤰🏾	femme enceinte  peau mate	none
 🤰🏿	femme enceinte  peau foncée	none
+🫃🏻	homme enceint  peau claire	none
+🫃🏼	homme enceint  peau moyennement claire	none
+🫃🏽	homme enceint  peau légèrement mate	none
+🫃🏾	homme enceint  peau mate	none
+🫃🏿	homme enceint  peau foncée	none
+🫄🏻	personne enceinte  peau claire	none
+🫄🏼	personne enceinte  peau moyennement claire	none
+🫄🏽	personne enceinte  peau légèrement mate	none
+🫄🏾	personne enceinte  peau mate	none
+🫄🏿	personne enceinte  peau foncée	none
 🤱🏻	allaitement  peau claire	none
 🤱🏼	allaitement  peau moyennement claire	none
 🤱🏽	allaitement  peau légèrement mate	none

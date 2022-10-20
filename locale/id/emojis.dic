@@ -264,43 +264,6 @@ symbols:
 ⪺	mengikuti di atas tanda tidak hampir sama	none
 ♭	nada mol	none
 ♯	nada kres	none
-🥹	wajah menahan air mata	none
-🧌	raksasa	none
-🩻	x-ray	none
-🩼	kruk	none
-🪩	bola disko	none
-🪪	kartu identitas	none
-🪫	baterai lemah	none
-🪬	hamsa	none
-🪷	teratai	none
-🪸	terumbu karang	none
-🪹	sarang burung kosong	none
-🪺	sarang dengan telur	none
-🫃	pria hamil	none
-🫄	orang hamil	none
-🫅	orang mengenakan mahkota	none
-🫗	menuang cairan	none
-🫘	kacang merah	none
-🫙	toples	none
-🫠	wajah meleleh	none
-🫡	wajah memberi hormat	none
-🫢	wajah dengan mata terbuka dan tangan menutupi mulut	none
-🫣	wajah dengan mata mengintip	none
-🫤	wajah dengan mulut diagonal	none
-🫥	wajah dengan garis titik-titik	none
-🫦	menggigit bibir	none
-🫧	gelembung	none
-🫰	tangan dengan jari telunjuk dan ibu jari menyilang	none
-🫱	tangan menghadap kanan	none
-🫲	tangan menghadap kiri	none
-🫳	telapak tangan menghadap ke bawah	none
-🫴	telapak tangan menghadap ke atas	none
-🫵	jari telunjuk menunjuk penonton	none
-🫶	tangan membentuk hati	none
-🛝	perosotan	none
-🛞	roda	none
-🛟	ban pelampung	none
-🟰	tanda sama dengan tebal	none
 😀	wajah gembira	none
 😃	wajah tersenyum lebar	none
 😄	wajah tersenyum lebar dan mata tertutup	none
@@ -311,6 +274,7 @@ symbols:
 😂	wajah gembira berurai air mata	none
 🙂	wajah agak tersenyum	none
 🙃	wajah terbalik	none
+🫠	wajah meleleh	none
 😉	wajah berkedip	none
 😊	wajah tersenyum dengan mata bahagia	none
 😇	wajah malaikat	none
@@ -331,19 +295,24 @@ symbols:
 🤑	wajah materialistis	none
 🤗	wajah memeluk	none
 🤭	wajah dengan tangan menutup mulut	none
+🫢	wajah dengan mata terbuka dan tangan menutupi mulut	none
+🫣	wajah dengan mata mengintip	none
 🤫	wajah menyuruh diam	none
 🤔	wajah berpikir	none
+🫡	wajah memberi hormat	none
 🤐	wajah dengan mulut tertutup rapat	none
 🤨	wajah dengan alis terangkat	none
 😐	wajah netral	none
 😑	wajah tanpa ekspresi	none
 😶	wajah tanpa mulut	none
+🫥	wajah dengan garis titik-titik	none
 😏	wajah tersenyum sombong	none
 😒	wajah bosan	none
 🙄	wajah dengan mata ke atas	none
 😬	wajah menyeringai	none
 😮‍💨	wajah mengembuskan napas	none
 🤥	bohong	none
+🫨	wajah gemetar	none
 😌	wajah lega	none
 😔	wajah merenung	none
 😪	wajah mengantuk	none
@@ -368,6 +337,7 @@ symbols:
 🤓	wajah kutu buku	none
 🧐	wajah dengan monokel	none
 😕	wajah bingung	none
+🫤	wajah dengan mulut diagonal	none
 😟	wajah cemas	none
 🙁	wajah agak cemberut	none
 ☹	wajah cemberut	none
@@ -376,6 +346,7 @@ symbols:
 😲	wajah terpukau	none
 😳	wajah tersipu	none
 🥺	wajah memelas	none
+🥹	wajah menahan air mata	none
 😦	wajah mengerutkan kening dengan mulut terbuka	none
 😧	wajah menderita	none
 😨	wajah ketakutan	none
@@ -419,7 +390,6 @@ symbols:
 🙈	tidak melihat	none
 🙉	tidak mendengar	none
 🙊	tidak bicara	none
-💋	tanda ciuman	none
 💌	surat cinta	none
 💘	hati terpanah	none
 💝	hati berpita	none
@@ -434,14 +404,18 @@ symbols:
 ❤‍🔥	hati berapi-api	none
 ❤‍🩹	mengobati hati terluka	none
 ❤	hati merah	none
+🩷	hati merah muda	none
 🧡	hati oranye	none
 💛	hati kuning	none
 💚	hati hijau	none
 💙	hati biru	none
+🩵	hati biru muda	none
 💜	hati ungu	none
 🤎	hati cokelat	none
 🖤	hati hitam	none
+🩶	hati abu-abu	none
 🤍	hati putih	none
+💋	tanda ciuman	none
 💯	nilai seratus	none
 💢	marah	none
 💥	tabrakan	none
@@ -449,7 +423,6 @@ symbols:
 💦	keringat	none
 💨	berlari	none
 🕳	lubang	none
-💣	bom	none
 💬	balon ucapan	none
 👁‍🗨	mata di dalam gelembung ucapan	none
 🗨	gelembung ucapan kiri	none
@@ -461,11 +434,18 @@ symbols:
 🖐	telapak tangan terbuka	none
 ✋	telapak tangan terbuka dengan jari rapat	none
 🖖	salam vulcan	none
+🫱	tangan menghadap kanan	none
+🫲	tangan menghadap kiri	none
+🫳	telapak tangan menghadap ke bawah	none
+🫴	telapak tangan menghadap ke atas	none
+🫷	tangan mendorong ke kiri	none
+🫸	tangan mendorong ke kanan	none
 👌	oke	none
 🤌	jari terkuncup	none
 🤏	tangan menjepit	none
 ✌	isyarat kemenangan	none
 🤞	jari menyilang	none
+🫰	tangan dengan jari telunjuk dan ibu jari menyilang	none
 🤟	gerakan sayang kamu	none
 🤘	lambang tanduk	none
 🤙	panggil saya	none
@@ -475,6 +455,7 @@ symbols:
 🖕	jari tengah	none
 👇	menunjuk ke bawah	none
 ☝	menunjuk ke atas	none
+🫵	jari telunjuk menunjuk penonton	none
 👍	jempol ke atas	none
 👎	jempol ke bawah	none
 ✊	tangan terkepal ke atas	none
@@ -483,6 +464,7 @@ symbols:
 🤜	tinju kanan	none
 👏	tepuk tangan	none
 🙌	mengangkat tangan	none
+🫶	tangan membentuk hati	none
 👐	tangan terbuka	none
 🤲	tangan diangkat dan dirapatkan bersama	none
 🤝	jabat tangan	none
@@ -507,6 +489,7 @@ symbols:
 👁	satu mata	none
 👅	lidah	none
 👄	mulut	none
+🫦	menggigit bibir	none
 👶	bayi	none
 🧒	anak	none
 👦	anak laki-laki	none
@@ -614,6 +597,7 @@ symbols:
 👷	pekerja konstruksi	none
 👷‍♂	pekerja konstruksi pria	none
 👷‍♀	pekerja konstruksi wanita	none
+🫅	orang mengenakan mahkota	none
 🤴	pangeran	none
 👸	putri	none
 👳	orang mengenakan serban	none
@@ -628,6 +612,8 @@ symbols:
 👰‍♂	pria berpenutup kepala	none
 👰‍♀	wanita berpenutup kepala	none
 🤰	wanita hamil	none
+🫃	pria hamil	none
+🫄	orang hamil	none
 🤱	menyusui	none
 👩‍🍼	wanita menyusui bayi	none
 👨‍🍼	pria menyusui bayi	none
@@ -663,6 +649,7 @@ symbols:
 🧟	zombi	none
 🧟‍♂	zombi pria	none
 🧟‍♀	zombi wanita	none
+🧌	raksasa	none
 💆	pria dipijat	none
 💆‍♂	pria dipijat kepalanya	none
 💆‍♀	wanita dipijat	none
@@ -786,6 +773,8 @@ symbols:
 🐅	harimau	none
 🐆	macan tutul	none
 🐴	wajah kuda	none
+🫎	rusa besar	none
+🫏	keledai	none
 🐎	kuda	none
 🦄	unicorn	none
 🦓	zebra	none
@@ -841,13 +830,15 @@ symbols:
 🕊	merpati	none
 🦅	elang	none
 🦆	bebek	none
-🦢	angsa	none
+🦢	angsa leher panjang	none
 🦉	burung hantu	none
 🦤	dodo	none
 🪶	bulu	none
 🦩	flamingo	none
 🦚	merak	none
 🦜	nuri	none
+🪽	sayap	none
+🪿	angsa leher pendek	none
 🐸	katak	none
 🐊	buaya	none
 🐢	kura-kura	none
@@ -867,6 +858,8 @@ symbols:
 🦈	hiu	none
 🐙	gurita	none
 🐚	cangkang spiral	none
+🪸	terumbu karang	none
+🪼	ubur-ubur	none
 🐌	siput	none
 🦋	kupu-kupu	none
 🐛	serangga kecil	none
@@ -886,6 +879,7 @@ symbols:
 💐	karangan bunga	none
 🌸	sakura	none
 💮	bunga putih	none
+🪷	teratai	none
 🏵	hiasan mawar	none
 🌹	mawar	none
 🥀	bunga layu	none
@@ -893,6 +887,7 @@ symbols:
 🌻	bunga matahari	none
 🌼	mekar	none
 🌷	tulip	none
+🪻	hyacinthus	none
 🌱	semai	none
 🪴	tanaman pot	none
 🌲	pohon hijau abadi	none
@@ -906,6 +901,9 @@ symbols:
 🍁	daun maple	none
 🍂	daun berguguran	none
 🍃	daun tertiup angin	none
+🪹	sarang burung kosong	none
+🪺	sarang dengan telur	none
+🍄	jamur	none
 🍇	anggur	none
 🍈	melon	none
 🍉	semangka	none
@@ -937,9 +935,11 @@ symbols:
 🥦	brokoli	none
 🧄	bawang putih	none
 🧅	bawang bombay	none
-🍄	jamur	none
 🥜	kacang tanah	none
+🫘	kacang merah	none
 🌰	kastanye	none
+🫚	akar jahe	none
+🫛	kacang polong	none
 🍞	roti	none
 🥐	croissant	none
 🥖	roti baguette	none
@@ -1024,6 +1024,7 @@ symbols:
 🍻	mug bir berdenting	none
 🥂	mendentingkan gelas	none
 🥃	gelas tumbler	none
+🫗	menuang cairan	none
 🥤	cangkir dengan sedotan	none
 🧋	teh bubble	none
 🧃	kotak minuman	none
@@ -1034,6 +1035,7 @@ symbols:
 🍴	garpu dan pisau	none
 🥄	sendok	none
 🔪	pisau dapur	none
+🫙	toples	none
 🏺	amphora	none
 🌍	bola dunia Eropa-Afrika	none
 🌎	bola dunia Amerika	none
@@ -1096,6 +1098,7 @@ symbols:
 🌉	jembatan di malam hari	none
 ♨	sumber air panas	none
 🎠	komidi putar	none
+🛝	perosotan	none
 🎡	kincir ria	none
 🎢	roller coaster	none
 💈	tanda salon	none
@@ -1144,12 +1147,14 @@ symbols:
 🛤	rel kereta	none
 🛢	drum minyak	none
 ⛽	pompa bahan bakar	none
+🛞	roda	none
 🚨	lampu mobil polisi	none
 🚥	lampu lalu lintas horizontal	none
 🚦	lampu lalu lintas vertikal	none
 🛑	rambu stop	none
 🚧	konstruksi	none
 ⚓	jangkar	none
+🛟	ban pelampung	none
 ⛵	perahu layar	none
 🛶	kano	none
 🚤	perahu cepat	none
@@ -1307,10 +1312,10 @@ symbols:
 🎯	dart	none
 🪀	yo-yo	none
 🪁	layang-layang	none
+🔫	pistol air	none
 🎱	biliar 8 bola	none
 🔮	bola kristal	none
 🪄	tongkat ajaib	none
-🧿	jimat nazar	none
 🎮	video game	none
 🕹	joystick	none
 🎰	mesin slot	none
@@ -1318,6 +1323,7 @@ symbols:
 🧩	keping puzzle	none
 🧸	boneka beruang	none
 🪅	pinata	none
+🪩	bola disko	none
 🪆	boneka bersarang	none
 ♠	sekop	none
 ♥	hati	none
@@ -1354,6 +1360,7 @@ symbols:
 🩳	celana pendek	none
 👙	bikini	none
 👚	pakaian wanita	none
+🪭	kipas tangan lipat	none
 👛	dompet	none
 👜	tas jinjing	none
 👝	kantung	none
@@ -1368,6 +1375,7 @@ symbols:
 👡	sandal wanita	none
 🩰	sepatu balet	none
 👢	sepatu bot wanita	none
+🪮	sisir garpu	none
 👑	mahkota	none
 👒	topi wanita	none
 🎩	topi tinggi	none
@@ -1406,6 +1414,8 @@ symbols:
 🪕	banjo	none
 🥁	drum	none
 🪘	gendang	none
+🪇	marakas	none
+🪈	seruling	none
 📱	ponsel	none
 📲	telepon masuk	none
 ☎	telepon	none
@@ -1413,6 +1423,7 @@ symbols:
 📟	pager	none
 📠	mesin faks	none
 🔋	baterai	none
+🪫	baterai lemah	none
 🔌	steker	none
 💻	komputer laptop	none
 🖥	komputer desktop	none
@@ -1524,7 +1535,7 @@ symbols:
 🛠	palu dan kunci inggris	none
 🗡	belati	none
 ⚔	pedang bersilang	none
-🔫	pistol air	none
+💣	bom	none
 🪃	bumerang	none
 🏹	busur dan panah	none
 🛡	perisai	none
@@ -1553,7 +1564,9 @@ symbols:
 🩸	tetesan darah	none
 💊	pil	none
 🩹	plester luka	none
+🩼	kruk	none
 🩺	stetoskop	none
+🩻	sinar-x	none
 🚪	pintu	none
 🛗	elevator	none
 🪞	cermin	none
@@ -1574,6 +1587,7 @@ symbols:
 🧻	gulungan kertas	none
 🪣	ember	none
 🧼	sabun	none
+🫧	gelembung	none
 🪥	sikat gigi	none
 🧽	spons	none
 🧯	alat pemadam api ringan	none
@@ -1582,8 +1596,11 @@ symbols:
 ⚰	peti mati	none
 🪦	batu nisan	none
 ⚱	guci abu	none
+🧿	jimat nazar	none
+🪬	hamsa	none
 🗿	moai	none
 🪧	plakat	none
+🪪	kartu identitas	none
 🏧	tanda ATM	none
 🚮	tanda membuang sampah	none
 🚰	air dapat diminum	none
@@ -1644,6 +1661,7 @@ symbols:
 ☮	simbol damai	none
 🕎	menorah	none
 🔯	bintang sudut enam bertitik	none
+🪯	khanda	none
 ♈	Aries	none
 ♉	Taurus	none
 ♊	Gemini	none
@@ -1679,6 +1697,7 @@ symbols:
 🔅	tombol redupkan	none
 🔆	tombol cerahkan	none
 📶	batang antena	none
+🛜	nirkabel	none
 📳	mode getar	none
 📴	ponsel nonaktif	none
 ♀	simbol wanita	none
@@ -1688,6 +1707,7 @@ symbols:
 ➕	tambah	none
 ➖	kurang	none
 ➗	bagi	none
+🟰	tanda sama dengan tebal	none
 ♾	tak terhingga	none
 ❓	tanda tanya merah	none
 ❔	tanda tanya putih	none
@@ -1792,26 +1812,31 @@ symbols:
 ₽	ruble	none
 ₿	bitcoin	none
 ₨	rupee	none
-🫃🏻	pria hamil warna kulit cerah	none
-🫃🏼	pria hamil warna kulit cerah-sedang	none
-🫃🏽	pria hamil warna kulit sedang	none
-🫃🏾	pria hamil warna kulit gelap-sedang	none
-🫃🏿	pria hamil warna kulit gelap	none
-🫄🏻	orang hamil warna kulit cerah	none
-🫄🏼	orang hamil warna kulit cerah-sedang	none
-🫄🏽	orang hamil warna kulit sedang	none
-🫄🏾	orang hamil warna kulit gelap-sedang	none
-🫄🏿	orang hamil warna kulit gelap	none
-🫅🏻	orang mengenakan mahkota warna kulit cerah	none
-🫅🏼	orang mengenakan mahkota warna kulit cerah-sedang	none
-🫅🏽	orang mengenakan mahkota warna kulit sedang	none
-🫅🏾	orang mengenakan mahkota warna kulit gelap-sedang	none
-🫅🏿	orang mengenakan mahkota warna kulit gelap	none
-🫰🏻	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit cerah	none
-🫰🏼	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit cerah-sedang	none
-🫰🏽	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit sedang	none
-🫰🏾	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit gelap-sedang	none
-🫰🏿	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit gelap	none
+👋🏻	tangan melambai warna kulit cerah	none
+👋🏼	tangan melambai warna kulit cerah-sedang	none
+👋🏽	tangan melambai warna kulit sedang	none
+👋🏾	tangan melambai warna kulit gelap-sedang	none
+👋🏿	tangan melambai warna kulit gelap	none
+🤚🏻	angkat tangan warna kulit cerah	none
+🤚🏼	angkat tangan warna kulit cerah-sedang	none
+🤚🏽	angkat tangan warna kulit sedang	none
+🤚🏾	angkat tangan warna kulit gelap-sedang	none
+🤚🏿	angkat tangan warna kulit gelap	none
+🖐🏻	telapak tangan terbuka warna kulit cerah	none
+🖐🏼	telapak tangan terbuka warna kulit cerah-sedang	none
+🖐🏽	telapak tangan terbuka warna kulit sedang	none
+🖐🏾	telapak tangan terbuka warna kulit gelap-sedang	none
+🖐🏿	telapak tangan terbuka warna kulit gelap	none
+✋🏻	telapak tangan terbuka dengan jari rapat warna kulit cerah	none
+✋🏼	telapak tangan terbuka dengan jari rapat warna kulit cerah-sedang	none
+✋🏽	telapak tangan terbuka dengan jari rapat warna kulit sedang	none
+✋🏾	telapak tangan terbuka dengan jari rapat warna kulit gelap-sedang	none
+✋🏿	telapak tangan terbuka dengan jari rapat warna kulit gelap	none
+🖖🏻	salam vulcan warna kulit cerah	none
+🖖🏼	salam vulcan warna kulit cerah-sedang	none
+🖖🏽	salam vulcan warna kulit sedang	none
+🖖🏾	salam vulcan warna kulit gelap-sedang	none
+🖖🏿	salam vulcan warna kulit gelap	none
 🫱🏻	tangan menghadap kanan warna kulit cerah	none
 🫱🏼	tangan menghadap kanan warna kulit cerah-sedang	none
 🫱🏽	tangan menghadap kanan warna kulit sedang	none
@@ -1852,41 +1877,16 @@ symbols:
 🫴🏽	telapak tangan menghadap ke atas warna kulit sedang	none
 🫴🏾	telapak tangan menghadap ke atas warna kulit gelap-sedang	none
 🫴🏿	telapak tangan menghadap ke atas warna kulit gelap	none
-🫵🏻	jari telunjuk menunjuk penonton warna kulit cerah	none
-🫵🏼	jari telunjuk menunjuk penonton warna kulit cerah-sedang	none
-🫵🏽	jari telunjuk menunjuk penonton warna kulit sedang	none
-🫵🏾	jari telunjuk menunjuk penonton warna kulit gelap-sedang	none
-🫵🏿	jari telunjuk menunjuk penonton warna kulit gelap	none
-🫶🏻	tangan membentuk hati warna kulit cerah	none
-🫶🏼	tangan membentuk hati warna kulit cerah-sedang	none
-🫶🏽	tangan membentuk hati warna kulit sedang	none
-🫶🏾	tangan membentuk hati warna kulit gelap-sedang	none
-🫶🏿	tangan membentuk hati warna kulit gelap	none
-👋🏻	tangan melambai warna kulit cerah	none
-👋🏼	tangan melambai warna kulit cerah-sedang	none
-👋🏽	tangan melambai warna kulit sedang	none
-👋🏾	tangan melambai warna kulit gelap-sedang	none
-👋🏿	tangan melambai warna kulit gelap	none
-🤚🏻	angkat tangan warna kulit cerah	none
-🤚🏼	angkat tangan warna kulit cerah-sedang	none
-🤚🏽	angkat tangan warna kulit sedang	none
-🤚🏾	angkat tangan warna kulit gelap-sedang	none
-🤚🏿	angkat tangan warna kulit gelap	none
-🖐🏻	telapak tangan terbuka warna kulit cerah	none
-🖐🏼	telapak tangan terbuka warna kulit cerah-sedang	none
-🖐🏽	telapak tangan terbuka warna kulit sedang	none
-🖐🏾	telapak tangan terbuka warna kulit gelap-sedang	none
-🖐🏿	telapak tangan terbuka warna kulit gelap	none
-✋🏻	telapak tangan terbuka dengan jari rapat warna kulit cerah	none
-✋🏼	telapak tangan terbuka dengan jari rapat warna kulit cerah-sedang	none
-✋🏽	telapak tangan terbuka dengan jari rapat warna kulit sedang	none
-✋🏾	telapak tangan terbuka dengan jari rapat warna kulit gelap-sedang	none
-✋🏿	telapak tangan terbuka dengan jari rapat warna kulit gelap	none
-🖖🏻	salam vulcan warna kulit cerah	none
-🖖🏼	salam vulcan warna kulit cerah-sedang	none
-🖖🏽	salam vulcan warna kulit sedang	none
-🖖🏾	salam vulcan warna kulit gelap-sedang	none
-🖖🏿	salam vulcan warna kulit gelap	none
+🫷🏻	tangan mendorong ke kiri warna kulit cerah	none
+🫷🏼	tangan mendorong ke kiri warna kulit cerah-sedang	none
+🫷🏽	tangan mendorong ke kiri warna kulit sedang	none
+🫷🏾	tangan mendorong ke kiri warna kulit gelap-sedang	none
+🫷🏿	tangan mendorong ke kiri warna kulit gelap	none
+🫸🏻	tangan mendorong ke kanan warna kulit cerah	none
+🫸🏼	tangan mendorong ke kanan warna kulit cerah-sedang	none
+🫸🏽	tangan mendorong ke kanan warna kulit sedang	none
+🫸🏾	tangan mendorong ke kanan warna kulit gelap-sedang	none
+🫸🏿	tangan mendorong ke kanan warna kulit gelap	none
 👌🏻	oke warna kulit cerah	none
 👌🏼	oke warna kulit cerah-sedang	none
 👌🏽	oke warna kulit sedang	none
@@ -1912,6 +1912,11 @@ symbols:
 🤞🏽	jari menyilang warna kulit sedang	none
 🤞🏾	jari menyilang warna kulit gelap-sedang	none
 🤞🏿	jari menyilang warna kulit gelap	none
+🫰🏻	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit cerah	none
+🫰🏼	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit cerah-sedang	none
+🫰🏽	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit sedang	none
+🫰🏾	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit gelap-sedang	none
+🫰🏿	tangan dengan jari telunjuk dan ibu jari menyilang warna kulit gelap	none
 🤟🏻	gerakan sayang kamu warna kulit cerah	none
 🤟🏼	gerakan sayang kamu warna kulit cerah-sedang	none
 🤟🏽	gerakan sayang kamu warna kulit sedang	none
@@ -1957,6 +1962,11 @@ symbols:
 ☝🏽	menunjuk ke atas warna kulit sedang	none
 ☝🏾	menunjuk ke atas warna kulit gelap-sedang	none
 ☝🏿	menunjuk ke atas warna kulit gelap	none
+🫵🏻	jari telunjuk menunjuk penonton warna kulit cerah	none
+🫵🏼	jari telunjuk menunjuk penonton warna kulit cerah-sedang	none
+🫵🏽	jari telunjuk menunjuk penonton warna kulit sedang	none
+🫵🏾	jari telunjuk menunjuk penonton warna kulit gelap-sedang	none
+🫵🏿	jari telunjuk menunjuk penonton warna kulit gelap	none
 👍🏻	jempol ke atas warna kulit cerah	none
 👍🏼	jempol ke atas warna kulit cerah-sedang	none
 👍🏽	jempol ke atas warna kulit sedang	none
@@ -1997,6 +2007,11 @@ symbols:
 🙌🏽	mengangkat tangan warna kulit sedang	none
 🙌🏾	mengangkat tangan warna kulit gelap-sedang	none
 🙌🏿	mengangkat tangan warna kulit gelap	none
+🫶🏻	tangan membentuk hati warna kulit cerah	none
+🫶🏼	tangan membentuk hati warna kulit cerah-sedang	none
+🫶🏽	tangan membentuk hati warna kulit sedang	none
+🫶🏾	tangan membentuk hati warna kulit gelap-sedang	none
+🫶🏿	tangan membentuk hati warna kulit gelap	none
 👐🏻	tangan terbuka warna kulit cerah	none
 👐🏼	tangan terbuka warna kulit cerah-sedang	none
 👐🏽	tangan terbuka warna kulit sedang	none
@@ -2859,6 +2874,11 @@ symbols:
 👷🏽‍♀	pekerja konstruksi wanita warna kulit sedang	none
 👷🏾‍♀	pekerja konstruksi wanita warna kulit gelap-sedang	none
 👷🏿‍♀	pekerja konstruksi wanita warna kulit gelap	none
+🫅🏻	orang mengenakan mahkota warna kulit cerah	none
+🫅🏼	orang mengenakan mahkota warna kulit cerah-sedang	none
+🫅🏽	orang mengenakan mahkota warna kulit sedang	none
+🫅🏾	orang mengenakan mahkota warna kulit gelap-sedang	none
+🫅🏿	orang mengenakan mahkota warna kulit gelap	none
 🤴🏻	pangeran warna kulit cerah	none
 🤴🏼	pangeran warna kulit cerah-sedang	none
 🤴🏽	pangeran warna kulit sedang	none
@@ -2929,6 +2949,16 @@ symbols:
 🤰🏽	wanita hamil warna kulit sedang	none
 🤰🏾	wanita hamil warna kulit gelap-sedang	none
 🤰🏿	wanita hamil warna kulit gelap	none
+🫃🏻	pria hamil warna kulit cerah	none
+🫃🏼	pria hamil warna kulit cerah-sedang	none
+🫃🏽	pria hamil warna kulit sedang	none
+🫃🏾	pria hamil warna kulit gelap-sedang	none
+🫃🏿	pria hamil warna kulit gelap	none
+🫄🏻	orang hamil warna kulit cerah	none
+🫄🏼	orang hamil warna kulit cerah-sedang	none
+🫄🏽	orang hamil warna kulit sedang	none
+🫄🏾	orang hamil warna kulit gelap-sedang	none
+🫄🏿	orang hamil warna kulit gelap	none
 🤱🏻	menyusui warna kulit cerah	none
 🤱🏼	menyusui warna kulit cerah-sedang	none
 🤱🏽	menyusui warna kulit sedang	none

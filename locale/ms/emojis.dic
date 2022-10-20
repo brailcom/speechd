@@ -264,43 +264,6 @@ symbols:
 ⪺	tanda mendahului di atas tanda sama bukan hampir	none
 ♭	flet	none
 ♯	syap	none
-🥹	muka menahan air mata	none
-🧌	raksasa	none
-🩻	sinar-x	none
-🩼	topang	none
-🪩	bola cermin	none
-🪪	kad pengenalan	none
-🪫	bateri lemah	none
-🪬	hamsa	none
-🪷	teratai	none
-🪸	karang	none
-🪹	sarang kosong	none
-🪺	sarang dengan telur	none
-🫃	lelaki bunting	none
-🫄	orang hamil	none
-🫅	orang memakai mahkota	none
-🫗	menuang cecair	none
-🫘	kacang	none
-🫙	balang	none
-🫠	muka mencair	none
-🫡	muka sedang menabik	none
-🫢	muka dengan mata terbuka dan tangan atas mulut	none
-🫣	muka dengan mata mengintai	none
-🫤	muka dengan mulut serong	none
-🫥	muka garis putus-putus	none
-🫦	menggigit bibir	none
-🫧	buih	none
-🫰	tangan dengan jari telunjuk dan ibu jari bersilang	none
-🫱	tangan kanan	none
-🫲	tangan kiri	none
-🫳	tapak tangan ke bawah	none
-🫴	tapak tangan ke atas	none
-🫵	jari telunjuk menunjuk ke arah pemandang	none
-🫶	tangan berbentuk hati	none
-🛝	papan gelongsor taman permainan	none
-🛞	roda	none
-🛟	boya	none
-🟰	tanda sama dengan tebal	none
 😀	muka tersengih	none
 😃	muka tersengih dengan mata besar	none
 😄	muka tersengih dan mata tersenyum	none
@@ -311,6 +274,7 @@ symbols:
 😂	muka dengan air mata kegembiraan	none
 🙂	muka tersenyum sedikit	none
 🙃	muka terbalik	none
+🫠	muka mencair	none
 😉	muka kenyit mata	none
 😊	muka tersenyum dengan mata tersenyum	none
 😇	muka tersenyum dengan halo	none
@@ -331,13 +295,17 @@ symbols:
 🤑	muka dengan wang dalam mulut	none
 🤗	muka memberi pelukan	none
 🤭	muka dengan tangan atas mulut	none
+🫢	muka dengan mata terbuka dan tangan atas mulut	none
+🫣	muka dengan mata mengintai	none
 🤫	muka suruh senyap	none
 🤔	muka sedang berfikir	none
+🫡	muka sedang menabik	none
 🤐	muka mulut berzip	none
 🤨	muka dengan kening terangkat	none
 😐	muka neutral	none
 😑	muka selamba	none
 😶	muka tanpa mulut	none
+🫥	muka garis putus-putus	none
 😶‍🌫	muka dikepung awan	none
 😏	muka tersenyum sinis	none
 😒	muka tidak puas hati	none
@@ -345,6 +313,7 @@ symbols:
 😬	muka menyeringai	none
 😮‍💨	muka menghembuskan nafas	none
 🤥	muka bohong	none
+🫨	muka bergoyang	none
 😌	muka lega	none
 😔	muka bertafakur	none
 😪	muka mengantuk	none
@@ -369,6 +338,7 @@ symbols:
 🤓	muka nerda	none
 🧐	muka dengan cermin mata satu kanta	none
 😕	muka keliru	none
+🫤	muka dengan mulut serong	none
 😟	muka risau	none
 🙁	muka berkerut sedikit	none
 ☹	muka berkerut	none
@@ -377,6 +347,7 @@ symbols:
 😲	muka terperanjat	none
 😳	muka malu	none
 🥺	muka merayu	none
+🥹	muka menahan air mata	none
 😦	muka berkerut dengan mulut ternganga	none
 😧	muka merana	none
 😨	muka ketakutan	none
@@ -420,7 +391,6 @@ symbols:
 🙈	monyet tutup mata	none
 🙉	monyet tutup telinga	none
 🙊	monyet tutup mulut	none
-💋	tanda ciuman	none
 💌	surat cinta	none
 💘	hati ditembusi anak panah	none
 💝	hati dengan reben	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	hati membara	none
 ❤‍🩹	hati sembuh	none
 ❤	hati merah	none
+🩷	hati merah jambu	none
 🧡	hati jingga	none
 💛	hati kuning	none
 💚	hati hijau	none
 💙	hati biru	none
+🩵	hati biru muda	none
 💜	hati ungu	none
 🤎	hati perang	none
 🖤	hati hitam	none
+🩶	hati kelabu	none
 🤍	hati putih	none
+💋	tanda ciuman	none
 💯	seratus mata	none
 💢	simbol marah	none
 💥	pelanggaran	none
@@ -450,7 +424,6 @@ symbols:
 💦	titis peluh	none
 💨	meluru	none
 🕳	lubang	none
-💣	bom	none
 💬	gelembung pertuturan	none
 👁‍🗨	mata dalam gelembung pertuturan	none
 🗨	gelembung pertuturan kiri	none
@@ -462,11 +435,18 @@ symbols:
 🖐	tangan dengan jari terkepak	none
 ✋	angkat tangan	none
 🖖	tabik vulcan	none
+🫱	tangan kanan	none
+🫲	tangan kiri	none
+🫳	tapak tangan ke bawah	none
+🫴	tapak tangan ke atas	none
+🫷	tangan menolak ke arah kiri	none
+🫸	tangan menolak ke arah kanan	none
 👌	simbol OK	none
 🤌	jari mencubit	none
 🤏	tangan mencubit	none
 ✌	simbol kemenangan	none
 🤞	silang jari	none
+🫰	tangan dengan jari telunjuk dan ibu jari bersilang	none
 🤟	gerak isyarat cinta kamu	none
 🤘	simbol tanduk	none
 🤙	telefon saya	none
@@ -476,6 +456,7 @@ symbols:
 🖕	jari hantu	none
 👇	jari telunjuk belakang tangan tuding ke bawah	none
 ☝	jari telunjuk menunjuk ke atas	none
+🫵	jari telunjuk menunjuk ke arah pemandang	none
 👍	simbol bagus	none
 👎	simbol tidak bagus	none
 ✊	angkat penumbuk	none
@@ -484,6 +465,7 @@ symbols:
 🤜	penumbuk ke kanan	none
 👏	bertepuk tangan	none
 🙌	orang mengangkat tangan	none
+🫶	tangan berbentuk hati	none
 👐	tangan terbuka	none
 🤲	tapak tangan rapat	none
 🤝	berjabat tangan	none
@@ -508,6 +490,7 @@ symbols:
 👁	mata	none
 👅	lidah	none
 👄	mulut	none
+🫦	menggigit bibir	none
 👶	bayi	none
 🧒	kanak-kanak	none
 👦	kanak-kanak lelaki	none
@@ -615,6 +598,7 @@ symbols:
 👷	pekerja pembinaan	none
 👷‍♂	pekerja pembinaan lelaki	none
 👷‍♀	pekerja pembinaan wanita	none
+🫅	orang memakai mahkota	none
 🤴	putera	none
 👸	puteri	none
 👳	orang berserban	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	lelaki memakai vel	none
 👰‍♀	wanita memakai vel	none
 🤰	wanita hamil	none
+🫃	lelaki bunting	none
+🫄	orang hamil	none
 🤱	menyusu badan	none
 👩‍🍼	wanita menyusui bayi	none
 👨‍🍼	lelaki menyusui bayi	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombi	none
 🧟‍♂	zombi lelaki	none
 🧟‍♀	zombi wanita	none
+🧌	raksasa	none
 💆	urut muka	none
 💆‍♂	lelaki diurut muka	none
 💆‍♀	perempuan diurut muka	none
@@ -787,6 +774,8 @@ symbols:
 🐅	harimau	none
 🐆	harimau bintang	none
 🐴	muka kuda	none
+🫎	moose	none
+🫏	keldai	none
 🐎	kuda	none
 🦄	unikorn	none
 🦓	zebra	none
@@ -842,13 +831,15 @@ symbols:
 🕊	burung merpati	none
 🦅	helang	none
 🦆	itik	none
-🦢	angsa	none
+🦢	swan	none
 🦉	burung hantu	none
 🦤	dodo	none
 🪶	bulu pelepah	none
 🦩	flamingo	none
 🦚	merak	none
 🦜	kakak tua	none
+🪽	sayap	none
+🪿	angsa	none
 🐸	katak	none
 🐊	buaya	none
 🐢	penyu	none
@@ -868,6 +859,8 @@ symbols:
 🦈	jerung	none
 🐙	sotong kurita	none
 🐚	kulit kerang berpilin	none
+🪸	karang	none
+🪼	ubur-ubur	none
 🐌	siput	none
 🦋	rama-rama	none
 🐛	ulat	none
@@ -887,6 +880,7 @@ symbols:
 💐	sejambak bunga	none
 🌸	bunga sakura	none
 💮	bunga putih	none
+🪷	teratai	none
 🏵	roset	none
 🌹	bunga mawar	none
 🥀	bunga layu	none
@@ -894,6 +888,7 @@ symbols:
 🌻	bunga matahari	none
 🌼	bunga mekar	none
 🌷	bunga tulip	none
+🪻	keladi bunting	none
 🌱	anak benih	none
 🪴	pokok dalam pasu	none
 🌲	malar hijau	none
@@ -907,6 +902,9 @@ symbols:
 🍁	daun mapel	none
 🍂	daun luruh	none
 🍃	daun melayang ditiup angin	none
+🪹	sarang kosong	none
+🪺	sarang dengan telur	none
+🍄	cendawan	none
 🍇	anggur	none
 🍈	tembikai susu	none
 🍉	tembikai	none
@@ -938,9 +936,11 @@ symbols:
 🥦	brokoli	none
 🧄	bawang putih	none
 🧅	bawang	none
-🍄	cendawan	none
 🥜	kacang tanah	none
+🫘	kacang	none
 🌰	buah berangan	none
+🫚	akar halia	none
+🫛	lenggai	none
 🍞	roti	none
 🥐	kroisan	none
 🥖	roti baguette	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	kole bir berdenting	none
 🥂	melaga gelas	none
 🥃	gelas pendek	none
+🫗	menuang cecair	none
 🥤	cawan dan straw	none
 🧋	teh buih	none
 🧃	minuman air kotak	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	garpu dan pisau	none
 🥄	sudu	none
 🔪	pisau dapur	none
+🫙	balang	none
 🏺	amfora	none
 🌍	peta glob Eropah-Afrika	none
 🌎	peta glob Amerika	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	jambatan pada waktu malam	none
 ♨	mata air panas	none
 🎠	kuda karusel	none
+🛝	papan gelongsor taman permainan	none
 🎡	roda ferris	none
 🎢	roller coaster	none
 💈	jalur kedai gunting rambut	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	jalan kereta api	none
 🛢	tong minyak	none
 ⛽	pam minyak	none
+🛞	roda	none
 🚨	lampu kereta polis	none
 🚥	lampu isyarat melintang	none
 🚦	lampu isyarat menegak	none
 🛑	tanda berhenti	none
 🚧	pembinaan	none
 ⚓	sauh	none
+🛟	boya	none
 ⛵	perahu layar	none
 🛶	kanu	none
 🚤	bot laju	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	balingan tepat	none
 🪀	yo-yo	none
 🪁	layang-layang	none
+🔫	pistol air	none
 🎱	biliard	none
 🔮	bola kristal	none
 🪄	tongkat sakti	none
-🧿	azimat nazar	none
 🎮	permainan video	none
 🕹	kayu bedik	none
 🎰	mesin judi	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	kepingan suai gambar	none
 🧸	beruang teddy	none
 🪅	pinata	none
+🪩	bola cermin	none
 🪆	anak potong sekelompok	none
 ♠	daun sped	none
 ♥	daun lekuk	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	seluar pendek	none
 👙	bikini	none
 👚	pakaian wanita	none
+🪭	kipas tangan boleh lipat	none
 👛	dompet	none
 👜	beg tangan	none
 👝	pau	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	sandal wanita	none
 🩰	kasut balet	none
 👢	but wanita	none
+🪮	pin rambut	none
 👑	mahkota	none
 👒	topi wanita	none
 🎩	topi tinggi	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banjo	none
 🥁	dram	none
 🪘	karatung	none
+🪇	marakas	none
+🪈	seruling	none
 📱	telefon bimbit	none
 📲	telefon bimbit dengan anak panah	none
 ☎	telefon	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	alat kelui	none
 📠	mesin faksimili	none
 🔋	bateri	none
+🪫	bateri lemah	none
 🔌	palam elektrik	none
 💻	komputer riba	none
 🖥	komputer meja	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	tukul dan perengkuh	none
 🗡	pisau belati	none
 ⚔	pedang bersilang	none
-🔫	pistol air	none
+💣	bom	none
 🪃	bumerang	none
 🏹	panah dan busur	none
 🛡	perisai	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	titisan darah	none
 💊	pil	none
 🩹	pembalut adhesif	none
+🩼	topang	none
 🩺	stetoskop	none
+🩻	sinar-x	none
 🚪	pintu	none
 🛗	elevator	none
 🪞	cermin	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	gulungan kertas	none
 🪣	timba	none
 🧼	sabun	none
+🫧	buih	none
 🪥	berus gigi	none
 🧽	span	none
 🧯	alat pemadam api	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	keranda	none
 🪦	nisan	none
 ⚱	takar abu mayat	none
+🧿	azimat nazar	none
+🪬	hamsa	none
 🗿	moyai	none
 🪧	plakad	none
+🪪	kad pengenalan	none
 🏧	tanda ATM	none
 🚮	tanda buang ke dalam tong sampah	none
 🚰	air minum	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	simbol keamanan	none
 🕎	menorah	none
 🔯	bintang berpenjuru enam berbintik	none
+🪯	khanda	none
 ♈	Aries	none
 ♉	Taurus	none
 ♊	Gemini	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	butang malap	none
 🔆	butang cerah	none
 📶	palang antena	none
+🛜	wayarles	none
 📳	mod getaran	none
 📴	telefon mudah alih dimatikan	none
 ♀	simbol perempuan	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	tambah	none
 ➖	tolak	none
 ➗	bahagi	none
+🟰	tanda sama dengan tebal	none
 ♾	infiniti	none
 ❓	tanda soal	none
 ❔	tanda soal putih	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	rouble	none
 ₿	bitcoin	none
 ₨	rupee	none
-🫃🏻	lelaki bunting ton kulit cerah	none
-🫃🏼	lelaki bunting ton kulit sederhana cerah	none
-🫃🏽	lelaki bunting ton kulit sederhana	none
-🫃🏾	lelaki bunting ton kulit sederhana gelap	none
-🫃🏿	lelaki bunting ton kulit gelap	none
-🫄🏻	orang hamil ton kulit cerah	none
-🫄🏼	orang hamil ton kulit sederhana cerah	none
-🫄🏽	orang hamil ton kulit sederhana	none
-🫄🏾	orang hamil ton kulit sederhana gelap	none
-🫄🏿	orang hamil ton kulit gelap	none
-🫅🏻	orang memakai mahkota ton kulit cerah	none
-🫅🏼	orang memakai mahkota ton kulit sederhana cerah	none
-🫅🏽	orang memakai mahkota ton kulit sederhana	none
-🫅🏾	orang memakai mahkota ton kulit sederhana gelap	none
-🫅🏿	orang memakai mahkota ton kulit gelap	none
-🫰🏻	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit cerah	none
-🫰🏼	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit sederhana cerah	none
-🫰🏽	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit sederhana	none
-🫰🏾	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit sederhana gelap	none
-🫰🏿	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit gelap	none
+👋🏻	lambai tangan ton kulit cerah	none
+👋🏼	lambai tangan ton kulit sederhana cerah	none
+👋🏽	lambai tangan ton kulit sederhana	none
+👋🏾	lambai tangan ton kulit sederhana gelap	none
+👋🏿	lambai tangan ton kulit gelap	none
+🤚🏻	angkat belakang tapak tangan ton kulit cerah	none
+🤚🏼	angkat belakang tapak tangan ton kulit sederhana cerah	none
+🤚🏽	angkat belakang tapak tangan ton kulit sederhana	none
+🤚🏾	angkat belakang tapak tangan ton kulit sederhana gelap	none
+🤚🏿	angkat belakang tapak tangan ton kulit gelap	none
+🖐🏻	tangan dengan jari terkepak ton kulit cerah	none
+🖐🏼	tangan dengan jari terkepak ton kulit sederhana cerah	none
+🖐🏽	tangan dengan jari terkepak ton kulit sederhana	none
+🖐🏾	tangan dengan jari terkepak ton kulit sederhana gelap	none
+🖐🏿	tangan dengan jari terkepak ton kulit gelap	none
+✋🏻	angkat tangan ton kulit cerah	none
+✋🏼	angkat tangan ton kulit sederhana cerah	none
+✋🏽	angkat tangan ton kulit sederhana	none
+✋🏾	angkat tangan ton kulit sederhana gelap	none
+✋🏿	angkat tangan ton kulit gelap	none
+🖖🏻	tabik vulcan ton kulit cerah	none
+🖖🏼	tabik vulcan ton kulit sederhana cerah	none
+🖖🏽	tabik vulcan ton kulit sederhana	none
+🖖🏾	tabik vulcan ton kulit sederhana gelap	none
+🖖🏿	tabik vulcan ton kulit gelap	none
 🫱🏻	tangan kanan ton kulit cerah	none
 🫱🏼	tangan kanan ton kulit sederhana cerah	none
 🫱🏽	tangan kanan ton kulit sederhana	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	tapak tangan ke atas ton kulit sederhana	none
 🫴🏾	tapak tangan ke atas ton kulit sederhana gelap	none
 🫴🏿	tapak tangan ke atas ton kulit gelap	none
-🫵🏻	jari telunjuk menunjuk ke arah pemandang ton kulit cerah	none
-🫵🏼	jari telunjuk menunjuk ke arah pemandang ton kulit sederhana cerah	none
-🫵🏽	jari telunjuk menunjuk ke arah pemandang ton kulit sederhana	none
-🫵🏾	jari telunjuk menunjuk ke arah pemandang ton kulit sederhana gelap	none
-🫵🏿	jari telunjuk menunjuk ke arah pemandang ton kulit gelap	none
-🫶🏻	tangan berbentuk hati ton kulit cerah	none
-🫶🏼	tangan berbentuk hati ton kulit sederhana cerah	none
-🫶🏽	tangan berbentuk hati ton kulit sederhana	none
-🫶🏾	tangan berbentuk hati ton kulit sederhana gelap	none
-🫶🏿	tangan berbentuk hati ton kulit gelap	none
-👋🏻	lambai tangan ton kulit cerah	none
-👋🏼	lambai tangan ton kulit sederhana cerah	none
-👋🏽	lambai tangan ton kulit sederhana	none
-👋🏾	lambai tangan ton kulit sederhana gelap	none
-👋🏿	lambai tangan ton kulit gelap	none
-🤚🏻	angkat belakang tapak tangan ton kulit cerah	none
-🤚🏼	angkat belakang tapak tangan ton kulit sederhana cerah	none
-🤚🏽	angkat belakang tapak tangan ton kulit sederhana	none
-🤚🏾	angkat belakang tapak tangan ton kulit sederhana gelap	none
-🤚🏿	angkat belakang tapak tangan ton kulit gelap	none
-🖐🏻	tangan dengan jari terkepak ton kulit cerah	none
-🖐🏼	tangan dengan jari terkepak ton kulit sederhana cerah	none
-🖐🏽	tangan dengan jari terkepak ton kulit sederhana	none
-🖐🏾	tangan dengan jari terkepak ton kulit sederhana gelap	none
-🖐🏿	tangan dengan jari terkepak ton kulit gelap	none
-✋🏻	angkat tangan ton kulit cerah	none
-✋🏼	angkat tangan ton kulit sederhana cerah	none
-✋🏽	angkat tangan ton kulit sederhana	none
-✋🏾	angkat tangan ton kulit sederhana gelap	none
-✋🏿	angkat tangan ton kulit gelap	none
-🖖🏻	tabik vulcan ton kulit cerah	none
-🖖🏼	tabik vulcan ton kulit sederhana cerah	none
-🖖🏽	tabik vulcan ton kulit sederhana	none
-🖖🏾	tabik vulcan ton kulit sederhana gelap	none
-🖖🏿	tabik vulcan ton kulit gelap	none
+🫷🏻	tangan menolak ke arah kiri ton kulit cerah	none
+🫷🏼	tangan menolak ke arah kiri ton kulit sederhana cerah	none
+🫷🏽	tangan menolak ke arah kiri ton kulit sederhana	none
+🫷🏾	tangan menolak ke arah kiri ton kulit sederhana gelap	none
+🫷🏿	tangan menolak ke arah kiri ton kulit gelap	none
+🫸🏻	tangan menolak ke arah kanan ton kulit cerah	none
+🫸🏼	tangan menolak ke arah kanan ton kulit sederhana cerah	none
+🫸🏽	tangan menolak ke arah kanan ton kulit sederhana	none
+🫸🏾	tangan menolak ke arah kanan ton kulit sederhana gelap	none
+🫸🏿	tangan menolak ke arah kanan ton kulit gelap	none
 👌🏻	simbol OK ton kulit cerah	none
 👌🏼	simbol OK ton kulit sederhana cerah	none
 👌🏽	simbol OK ton kulit sederhana	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	silang jari ton kulit sederhana	none
 🤞🏾	silang jari ton kulit sederhana gelap	none
 🤞🏿	silang jari ton kulit gelap	none
+🫰🏻	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit cerah	none
+🫰🏼	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit sederhana cerah	none
+🫰🏽	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit sederhana	none
+🫰🏾	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit sederhana gelap	none
+🫰🏿	tangan dengan jari telunjuk dan ibu jari bersilang ton kulit gelap	none
 🤟🏻	gerak isyarat cinta kamu ton kulit cerah	none
 🤟🏼	gerak isyarat cinta kamu ton kulit sederhana cerah	none
 🤟🏽	gerak isyarat cinta kamu ton kulit sederhana	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	jari telunjuk menunjuk ke atas ton kulit sederhana	none
 ☝🏾	jari telunjuk menunjuk ke atas ton kulit sederhana gelap	none
 ☝🏿	jari telunjuk menunjuk ke atas ton kulit gelap	none
+🫵🏻	jari telunjuk menunjuk ke arah pemandang ton kulit cerah	none
+🫵🏼	jari telunjuk menunjuk ke arah pemandang ton kulit sederhana cerah	none
+🫵🏽	jari telunjuk menunjuk ke arah pemandang ton kulit sederhana	none
+🫵🏾	jari telunjuk menunjuk ke arah pemandang ton kulit sederhana gelap	none
+🫵🏿	jari telunjuk menunjuk ke arah pemandang ton kulit gelap	none
 👍🏻	simbol bagus ton kulit cerah	none
 👍🏼	simbol bagus ton kulit sederhana cerah	none
 👍🏽	simbol bagus ton kulit sederhana	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	orang mengangkat tangan ton kulit sederhana	none
 🙌🏾	orang mengangkat tangan ton kulit sederhana gelap	none
 🙌🏿	orang mengangkat tangan ton kulit gelap	none
+🫶🏻	tangan berbentuk hati ton kulit cerah	none
+🫶🏼	tangan berbentuk hati ton kulit sederhana cerah	none
+🫶🏽	tangan berbentuk hati ton kulit sederhana	none
+🫶🏾	tangan berbentuk hati ton kulit sederhana gelap	none
+🫶🏿	tangan berbentuk hati ton kulit gelap	none
 👐🏻	tangan terbuka ton kulit cerah	none
 👐🏼	tangan terbuka ton kulit sederhana cerah	none
 👐🏽	tangan terbuka ton kulit sederhana	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	pekerja pembinaan wanita ton kulit sederhana	none
 👷🏾‍♀	pekerja pembinaan wanita ton kulit sederhana gelap	none
 👷🏿‍♀	pekerja pembinaan wanita ton kulit gelap	none
+🫅🏻	orang memakai mahkota ton kulit cerah	none
+🫅🏼	orang memakai mahkota ton kulit sederhana cerah	none
+🫅🏽	orang memakai mahkota ton kulit sederhana	none
+🫅🏾	orang memakai mahkota ton kulit sederhana gelap	none
+🫅🏿	orang memakai mahkota ton kulit gelap	none
 🤴🏻	putera ton kulit cerah	none
 🤴🏼	putera ton kulit sederhana cerah	none
 🤴🏽	putera ton kulit sederhana	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	wanita hamil ton kulit sederhana	none
 🤰🏾	wanita hamil ton kulit sederhana gelap	none
 🤰🏿	wanita hamil ton kulit gelap	none
+🫃🏻	lelaki bunting ton kulit cerah	none
+🫃🏼	lelaki bunting ton kulit sederhana cerah	none
+🫃🏽	lelaki bunting ton kulit sederhana	none
+🫃🏾	lelaki bunting ton kulit sederhana gelap	none
+🫃🏿	lelaki bunting ton kulit gelap	none
+🫄🏻	orang hamil ton kulit cerah	none
+🫄🏼	orang hamil ton kulit sederhana cerah	none
+🫄🏽	orang hamil ton kulit sederhana	none
+🫄🏾	orang hamil ton kulit sederhana gelap	none
+🫄🏿	orang hamil ton kulit gelap	none
 🤱🏻	menyusu badan ton kulit cerah	none
 🤱🏼	menyusu badan ton kulit sederhana cerah	none
 🤱🏽	menyusu badan ton kulit sederhana	none
@@ -3830,7 +3860,7 @@ symbols:
 🇸🇻	bendera El Salvador	none
 🇸🇽	bendera Sint Maarten	none
 🇸🇾	bendera Syria	none
-🇸🇿	bendera Swaziland	none
+🇸🇿	bendera Eswatini	none
 🇹🇦	bendera Tristan da Cunha	none
 🇹🇨	bendera Kepulauan Turks dan Caicos	none
 🇹🇩	bendera Chad	none

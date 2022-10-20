@@ -264,43 +264,6 @@ symbols:
 ⪺	etterfølger over ikke tilnærmet lik	none
 ♭	note-b	none
 ♯	note-kryss	none
-🥹	fjes som holder tilbake tårene	none
-🧌	troll	none
-🩻	røntgen	none
-🩼	krykke	none
-🪩	speilkule	none
-🪪	ID-kort	none
-🪫	lite batteri	none
-🪬	hamsa	none
-🪷	lotusblomst	none
-🪸	korall	none
-🪹	tomt rede	none
-🪺	rede med egg	none
-🫃	gravid mann	none
-🫄	gravid person	none
-🫅	person med krone	none
-🫗	helle væske	none
-🫘	bønner	none
-🫙	krukke	none
-🫠	fjes som smelter	none
-🫡	fjes som viser honnør	none
-🫢	fjes med åpne øyne og hånd over munnen	none
-🫣	fjes som titter frem bak hendene	none
-🫤	fjes med diagonal munn	none
-🫥	fjes med stiplet omriss	none
-🫦	bite seg i leppen	none
-🫧	bobler	none
-🫰	hånd med pekefinger og tommel krysset	none
-🫱	hånd mot høyre	none
-🫲	hånd mot venstre	none
-🫳	håndflaten ned	none
-🫴	håndflaten opp	none
-🫵	pekefinger peker på leseren	none
-🫶	hjertehender	none
-🛝	sklie	none
-🛞	hjul	none
-🛟	livbøye	none
-🟰	likhetstegn i fet skrift	none
 😀	glisefjes	none
 😃	glisende fjes med vidåpne øyne	none
 😄	smilefjes med åpen munn og smilende øyne	none
@@ -311,6 +274,7 @@ symbols:
 😂	gledestårer	none
 🙂	smiler litt	none
 🙃	fjes som er opp-ned	none
+🫠	fjes som smelter	none
 😉	blunkende ansikt	none
 😊	smil med smilende øyne	none
 😇	smil med glorie	none
@@ -331,13 +295,17 @@ symbols:
 🤑	pengegal	none
 🤗	fjes som gir klem	none
 🤭	hånden over munnen	none
+🫢	fjes med åpne øyne og hånd over munnen	none
+🫣	fjes som titter frem bak hendene	none
 🤫	hysj	none
 🤔	tenkefjes	none
+🫡	fjes som viser honnør	none
 🤐	fjes med glidelåsmunn	none
 🤨	hevet øyenbryn	none
 😐	nøytral	none
 😑	uttrykksløs	none
 😶	uten munn	none
+🫥	fjes med stiplet omriss	none
 😶‍🌫	fjes i skyer	none
 😏	lurt smil	none
 😒	misfornøyd	none
@@ -345,6 +313,7 @@ symbols:
 😬	grimase	none
 😮‍💨	puster ut	none
 🤥	lyver	none
+🫨	skjelvende fjes	none
 😌	lettet	none
 😔	tankefull	none
 😪	søvnig	none
@@ -369,6 +338,7 @@ symbols:
 🤓	nerdefjes	none
 🧐	fjes med monokkel	none
 😕	forvirret	none
+🫤	fjes med diagonal munn	none
 😟	bekymret	none
 🙁	litt surt fjes	none
 ☹	surt fjes	none
@@ -377,6 +347,7 @@ symbols:
 😲	sjokkert	none
 😳	rødmer	none
 🥺	bedende fjes	none
+🥹	fjes som holder tilbake tårene	none
 😦	oppgitt	none
 😧	pine	none
 😨	redd	none
@@ -420,7 +391,6 @@ symbols:
 🙈	ser ingenting ondt	none
 🙉	hører ingenting ondt	none
 🙊	sier ingenting ondt	none
-💋	kyssemerke	none
 💌	kjærlighesbrev	none
 💘	hjerte med pil	none
 💝	hjerte med bånd	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	hjerte i brann	none
 ❤‍🩹	lindret hjerte	none
 ❤	rødt hjerte	none
+🩷	rosa hjerte	none
 🧡	oransje hjerte	none
 💛	gult hjerte	none
 💚	grønt hjerte	none
 💙	blått hjerte	none
+🩵	lyseblått hjerte	none
 💜	lilla hjerte	none
 🤎	brunt hjerte	none
 🖤	svart hjerte	none
+🩶	grått hjerte	none
 🤍	hvitt hjerte	none
+💋	kyssemerke	none
 💯	hundre poeng	none
 💢	sinne	none
 💥	krasj	none
@@ -450,7 +424,6 @@ symbols:
 💦	svettedråper	none
 💨	stikker av	none
 🕳	hull i bakken	none
-💣	bombe	none
 💬	snakkeboble	none
 👁‍🗨	øye i snakkeboble	none
 🗨	snakkeboble mot venstre	none
@@ -462,11 +435,18 @@ symbols:
 🖐	flat hånd med spredte fingre	none
 ✋	hevet hånd	none
 🖖	Vulcan-hilsen	none
+🫱	hånd mot høyre	none
+🫲	hånd mot venstre	none
+🫳	håndflaten ned	none
+🫴	håndflaten opp	none
+🫷	håndflate hevet mot venstre	none
+🫸	håndflate hevet mot høyre	none
 👌	OK-hånd	none
 🤌	hånd med fingertuppene sammen	none
 🤏	hånd som klyper	none
 ✌	seierstegn	none
 🤞	kryssede fingre	none
+🫰	hånd med pekefinger og tommel krysset	none
 🤟	glad i deg-tegn	none
 🤘	rock’n’roll	none
 🤙	ring meg-hånd	none
@@ -476,6 +456,7 @@ symbols:
 🖕	langfinger	none
 👇	peker ned – bakhånd	none
 ☝	peker opp	none
+🫵	pekefinger peker på leseren	none
 👍	tommel opp	none
 👎	tommel ned	none
 ✊	hevet knyttneve	none
@@ -484,6 +465,7 @@ symbols:
 🤜	knyttneve mot høyre	none
 👏	klappende hender	none
 🙌	hevede hender	none
+🫶	hjertehender	none
 👐	åpne hender	none
 🤲	håndflatene sammen	none
 🤝	håndhilse	none
@@ -508,6 +490,7 @@ symbols:
 👁	øye	none
 👅	tunge	none
 👄	munn	none
+🫦	bite seg i leppen	none
 👶	baby	none
 🧒	barn	none
 👦	gutt	none
@@ -615,6 +598,7 @@ symbols:
 👷	anleggsarbeider	none
 👷‍♂	mannlig anleggsarbeider	none
 👷‍♀	kvinnelig anleggsarbeider	none
+🫅	person med krone	none
 🤴	prins	none
 👸	prinsesse	none
 👳	turbankledd person	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	mann med slør	none
 👰‍♀	kvinne med slør	none
 🤰	gravid kvinne	none
+🫃	gravid mann	none
+🫄	gravid person	none
 🤱	ammer	none
 👩‍🍼	kvinne som mater baby	none
 👨‍🍼	mann som mater baby	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombie	none
 🧟‍♂	mannlig zombie	none
 🧟‍♀	kvinnelig zombie	none
+🧌	troll	none
 💆	ansiktsmassasje	none
 💆‍♂	mann som får ansiktsmassasje	none
 💆‍♀	kvinne som får ansiktsmassasje	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tiger	none
 🐆	leopard	none
 🐴	hestefjes	none
+🫎	elg	none
+🫏	esel	none
 🐎	hest	none
 🦄	enhjørning	none
 🦓	sebra	none
@@ -849,6 +838,8 @@ symbols:
 🦩	flamingo	none
 🦚	påfugl	none
 🦜	papegøye	none
+🪽	vinge	none
+🪿	gås	none
 🐸	frosk	none
 🐊	krokodille	none
 🐢	skilpadde	none
@@ -868,6 +859,8 @@ symbols:
 🦈	hai	none
 🐙	blekksprut	none
 🐚	spiralskjell	none
+🪸	korall	none
+🪼	manet	none
 🐌	snegle	none
 🦋	sommerfugl	none
 🐛	insekt	none
@@ -887,6 +880,7 @@ symbols:
 💐	bukett	none
 🌸	kirsebærblomst	none
 💮	hvit blomst	none
+🪷	lotusblomst	none
 🏵	rosett	none
 🌹	rose	none
 🥀	vissen blomst	none
@@ -894,6 +888,7 @@ symbols:
 🌻	solsikke	none
 🌼	blomst	none
 🌷	tulipan	none
+🪻	hyasint	none
 🌱	spire	none
 🪴	potteplante	none
 🌲	bartre	none
@@ -907,6 +902,9 @@ symbols:
 🍁	lønneblad	none
 🍂	høstblad	none
 🍃	blader i vind	none
+🪹	tomt rede	none
+🪺	rede med egg	none
+🍄	sopp	none
 🍇	druer	none
 🍈	honningmelon	none
 🍉	vannmelon	none
@@ -938,9 +936,11 @@ symbols:
 🥦	brokkoli	none
 🧄	hvitløk	none
 🧅	løk	none
-🍄	sopp	none
 🥜	peanøtter	none
+🫘	bønner	none
 🌰	kastanje	none
+🫚	ingefærrot	none
+🫛	ertebelg	none
 🍞	brød	none
 🥐	croissant	none
 🥖	bagett	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	ølkrus som skåler	none
 🥂	glass som skåler	none
 🥃	whiskyglass	none
+🫗	helle væske	none
 🥤	kopp med sugerør	none
 🧋	boble-te	none
 🧃	drikkekartong	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	kniv og gaffel	none
 🥄	skje	none
 🔪	kokkekniv	none
+🫙	krukke	none
 🏺	amfora	none
 🌍	jordklode med Europa og Afrika	none
 🌎	jordklode med Amerika	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	bro om natten	none
 ♨	varme kilder	none
 🎠	karusellhest	none
+🛝	sklie	none
 🎡	pariserhjul	none
 🎢	berg-og-dal-bane	none
 💈	barberskilt	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	jernbanespor	none
 🛢	oljefat	none
 ⛽	bensinpumpe	none
+🛞	hjul	none
 🚨	politilys	none
 🚥	horisontale trafikklys	none
 🚦	vertikale trafiklys	none
 🛑	stoppskilt	none
 🚧	anleggsarbeid	none
 ⚓	anker	none
+🛟	livbøye	none
 ⛵	seilbåt	none
 🛶	kano	none
 🚤	speedbåt	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	blink	none
 🪀	jojo	none
 🪁	papirdrage	none
+🔫	vannpistol	none
 🎱	biljard	none
 🔮	krystallkule	none
 🪄	tryllestav	none
-🧿	nazar	none
 🎮	videospill	none
 🕹	joystick	none
 🎰	spilleautomat	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	puslespillbrikke	none
 🧸	teddybjørn	none
 🪅	piñata	none
+🪩	speilkule	none
 🪆	matrjosjka	none
 ♠	spar	none
 ♥	hjerter	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	shorts	none
 👙	bikini	none
 👚	dameklær	none
+🪭	håndvifte	none
 👛	portemoné	none
 👜	håndveske	none
 👝	clutch-veske	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	damesandal	none
 🩰	ballettsko	none
 👢	damestøvlett	none
+🪮	afrokam	none
 👑	krone	none
 👒	damehatt	none
 🎩	flosshatt	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banjo	none
 🥁	tromme	none
 🪘	langtromme	none
+🪇	marakas	none
+🪈	fløyte	none
 📱	mobiltelefon	none
 📲	mobiltelefon med pil	none
 ☎	telefon	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	personsøker	none
 📠	faksmaskin	none
 🔋	batteri	none
+🪫	lite batteri	none
 🔌	støpsel	none
 💻	bærbar datamaskin	none
 🖥	stasjonær datamaskin	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	hammer og fastnøkkel	none
 🗡	dolk	none
 ⚔	sverd i kryss	none
-🔫	vannpistol	none
+💣	bombe	none
 🪃	bumerang	none
 🏹	pil og bue	none
 🛡	skjold	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	bloddråpe	none
 💊	pille	none
 🩹	plaster	none
+🩼	krykke	none
 🩺	stetoskop	none
+🩻	røntgen	none
 🚪	dør	none
 🛗	heis	none
 🪞	speil	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	rull med papir	none
 🪣	bøtte	none
 🧼	såpe	none
+🫧	bobler	none
 🪥	tannbørste	none
 🧽	svamp	none
 🧯	brannslukningsapparat	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	kiste	none
 🪦	gravstein	none
 ⚱	urne	none
+🧿	nazar	none
+🪬	hamsa	none
 🗿	moai-statue	none
 🪧	plakat	none
+🪪	ID-kort	none
 🏧	minibankskilt	none
 🚮	avfallsskilt	none
 🚰	drikkevann	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	fredssymbol	none
 🕎	menora	none
 🔯	sekstagget stjerne med prikk	none
+🪯	khanda	none
 ♈	Væren	none
 ♉	Tyren	none
 ♊	Tvillingene	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	lite lys-knapp	none
 🔆	mye lys-knapp	none
 📶	mobilsignaler	none
+🛜	trådløst	none
 📳	vibreringsmodus	none
 📴	mobiltelefon av	none
 ♀	kvinnesymbol	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	pluss	none
 ➖	minus	none
 ➗	dele	none
+🟰	likhetstegn i fet skrift	none
 ♾	uendelig	none
 ❓	rødt spørsmålstegn	none
 ❔	hvitt spørsmålstegn	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	rubler	none
 ₿	bitcoin	none
 ₨	rupier	none
-🫃🏻	gravid mann hudtype 1–2	none
-🫃🏼	gravid mann hudtype 3	none
-🫃🏽	gravid mann hudtype 4	none
-🫃🏾	gravid mann hudtype 5	none
-🫃🏿	gravid mann hudtype 6	none
-🫄🏻	gravid person hudtype 1–2	none
-🫄🏼	gravid person hudtype 3	none
-🫄🏽	gravid person hudtype 4	none
-🫄🏾	gravid person hudtype 5	none
-🫄🏿	gravid person hudtype 6	none
-🫅🏻	person med krone hudtype 1–2	none
-🫅🏼	person med krone hudtype 3	none
-🫅🏽	person med krone hudtype 4	none
-🫅🏾	person med krone hudtype 5	none
-🫅🏿	person med krone hudtype 6	none
-🫰🏻	hånd med pekefinger og tommel krysset hudtype 1–2	none
-🫰🏼	hånd med pekefinger og tommel krysset hudtype 3	none
-🫰🏽	hånd med pekefinger og tommel krysset hudtype 4	none
-🫰🏾	hånd med pekefinger og tommel krysset hudtype 5	none
-🫰🏿	hånd med pekefinger og tommel krysset hudtype 6	none
+👋🏻	vinkende hånd hudtype 1–2	none
+👋🏼	vinkende hånd hudtype 3	none
+👋🏽	vinkende hånd hudtype 4	none
+👋🏾	vinkende hånd hudtype 5	none
+👋🏿	vinkende hånd hudtype 6	none
+🤚🏻	løftet håndbak hudtype 1–2	none
+🤚🏼	løftet håndbak hudtype 3	none
+🤚🏽	løftet håndbak hudtype 4	none
+🤚🏾	løftet håndbak hudtype 5	none
+🤚🏿	løftet håndbak hudtype 6	none
+🖐🏻	flat hånd med spredte fingre hudtype 1–2	none
+🖐🏼	flat hånd med spredte fingre hudtype 3	none
+🖐🏽	flat hånd med spredte fingre hudtype 4	none
+🖐🏾	flat hånd med spredte fingre hudtype 5	none
+🖐🏿	flat hånd med spredte fingre hudtype 6	none
+✋🏻	hevet hånd hudtype 1–2	none
+✋🏼	hevet hånd hudtype 3	none
+✋🏽	hevet hånd hudtype 4	none
+✋🏾	hevet hånd hudtype 5	none
+✋🏿	hevet hånd hudtype 6	none
+🖖🏻	Vulcan-hilsen hudtype 1–2	none
+🖖🏼	Vulcan-hilsen hudtype 3	none
+🖖🏽	Vulcan-hilsen hudtype 4	none
+🖖🏾	Vulcan-hilsen hudtype 5	none
+🖖🏿	Vulcan-hilsen hudtype 6	none
 🫱🏻	hånd mot høyre hudtype 1–2	none
 🫱🏼	hånd mot høyre hudtype 3	none
 🫱🏽	hånd mot høyre hudtype 4	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	håndflaten opp hudtype 4	none
 🫴🏾	håndflaten opp hudtype 5	none
 🫴🏿	håndflaten opp hudtype 6	none
-🫵🏻	pekefinger peker på leseren hudtype 1–2	none
-🫵🏼	pekefinger peker på leseren hudtype 3	none
-🫵🏽	pekefinger peker på leseren hudtype 4	none
-🫵🏾	pekefinger peker på leseren hudtype 5	none
-🫵🏿	pekefinger peker på leseren hudtype 6	none
-🫶🏻	hjertehender hudtype 1–2	none
-🫶🏼	hjertehender hudtype 3	none
-🫶🏽	hjertehender hudtype 4	none
-🫶🏾	hjertehender hudtype 5	none
-🫶🏿	hjertehender hudtype 6	none
-👋🏻	vinkende hånd hudtype 1–2	none
-👋🏼	vinkende hånd hudtype 3	none
-👋🏽	vinkende hånd hudtype 4	none
-👋🏾	vinkende hånd hudtype 5	none
-👋🏿	vinkende hånd hudtype 6	none
-🤚🏻	løftet håndbak hudtype 1–2	none
-🤚🏼	løftet håndbak hudtype 3	none
-🤚🏽	løftet håndbak hudtype 4	none
-🤚🏾	løftet håndbak hudtype 5	none
-🤚🏿	løftet håndbak hudtype 6	none
-🖐🏻	flat hånd med spredte fingre hudtype 1–2	none
-🖐🏼	flat hånd med spredte fingre hudtype 3	none
-🖐🏽	flat hånd med spredte fingre hudtype 4	none
-🖐🏾	flat hånd med spredte fingre hudtype 5	none
-🖐🏿	flat hånd med spredte fingre hudtype 6	none
-✋🏻	hevet hånd hudtype 1–2	none
-✋🏼	hevet hånd hudtype 3	none
-✋🏽	hevet hånd hudtype 4	none
-✋🏾	hevet hånd hudtype 5	none
-✋🏿	hevet hånd hudtype 6	none
-🖖🏻	Vulcan-hilsen hudtype 1–2	none
-🖖🏼	Vulcan-hilsen hudtype 3	none
-🖖🏽	Vulcan-hilsen hudtype 4	none
-🖖🏾	Vulcan-hilsen hudtype 5	none
-🖖🏿	Vulcan-hilsen hudtype 6	none
+🫷🏻	håndflate hevet mot venstre hudtype 1–2	none
+🫷🏼	håndflate hevet mot venstre hudtype 3	none
+🫷🏽	håndflate hevet mot venstre hudtype 4	none
+🫷🏾	håndflate hevet mot venstre hudtype 5	none
+🫷🏿	håndflate hevet mot venstre hudtype 6	none
+🫸🏻	håndflate hevet mot høyre hudtype 1–2	none
+🫸🏼	håndflate hevet mot høyre hudtype 3	none
+🫸🏽	håndflate hevet mot høyre hudtype 4	none
+🫸🏾	håndflate hevet mot høyre hudtype 5	none
+🫸🏿	håndflate hevet mot høyre hudtype 6	none
 👌🏻	OK-hånd hudtype 1–2	none
 👌🏼	OK-hånd hudtype 3	none
 👌🏽	OK-hånd hudtype 4	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	kryssede fingre hudtype 4	none
 🤞🏾	kryssede fingre hudtype 5	none
 🤞🏿	kryssede fingre hudtype 6	none
+🫰🏻	hånd med pekefinger og tommel krysset hudtype 1–2	none
+🫰🏼	hånd med pekefinger og tommel krysset hudtype 3	none
+🫰🏽	hånd med pekefinger og tommel krysset hudtype 4	none
+🫰🏾	hånd med pekefinger og tommel krysset hudtype 5	none
+🫰🏿	hånd med pekefinger og tommel krysset hudtype 6	none
 🤟🏻	glad i deg-tegn hudtype 1–2	none
 🤟🏼	glad i deg-tegn hudtype 3	none
 🤟🏽	glad i deg-tegn hudtype 4	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	peker opp hudtype 4	none
 ☝🏾	peker opp hudtype 5	none
 ☝🏿	peker opp hudtype 6	none
+🫵🏻	pekefinger peker på leseren hudtype 1–2	none
+🫵🏼	pekefinger peker på leseren hudtype 3	none
+🫵🏽	pekefinger peker på leseren hudtype 4	none
+🫵🏾	pekefinger peker på leseren hudtype 5	none
+🫵🏿	pekefinger peker på leseren hudtype 6	none
 👍🏻	tommel opp hudtype 1–2	none
 👍🏼	tommel opp hudtype 3	none
 👍🏽	tommel opp hudtype 4	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	hevede hender hudtype 4	none
 🙌🏾	hevede hender hudtype 5	none
 🙌🏿	hevede hender hudtype 6	none
+🫶🏻	hjertehender hudtype 1–2	none
+🫶🏼	hjertehender hudtype 3	none
+🫶🏽	hjertehender hudtype 4	none
+🫶🏾	hjertehender hudtype 5	none
+🫶🏿	hjertehender hudtype 6	none
 👐🏻	åpne hender hudtype 1–2	none
 👐🏼	åpne hender hudtype 3	none
 👐🏽	åpne hender hudtype 4	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	kvinnelig anleggsarbeider hudtype 4	none
 👷🏾‍♀	kvinnelig anleggsarbeider hudtype 5	none
 👷🏿‍♀	kvinnelig anleggsarbeider hudtype 6	none
+🫅🏻	person med krone hudtype 1–2	none
+🫅🏼	person med krone hudtype 3	none
+🫅🏽	person med krone hudtype 4	none
+🫅🏾	person med krone hudtype 5	none
+🫅🏿	person med krone hudtype 6	none
 🤴🏻	prins hudtype 1–2	none
 🤴🏼	prins hudtype 3	none
 🤴🏽	prins hudtype 4	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	gravid kvinne hudtype 4	none
 🤰🏾	gravid kvinne hudtype 5	none
 🤰🏿	gravid kvinne hudtype 6	none
+🫃🏻	gravid mann hudtype 1–2	none
+🫃🏼	gravid mann hudtype 3	none
+🫃🏽	gravid mann hudtype 4	none
+🫃🏾	gravid mann hudtype 5	none
+🫃🏿	gravid mann hudtype 6	none
+🫄🏻	gravid person hudtype 1–2	none
+🫄🏼	gravid person hudtype 3	none
+🫄🏽	gravid person hudtype 4	none
+🫄🏾	gravid person hudtype 5	none
+🫄🏿	gravid person hudtype 6	none
 🤱🏻	ammer hudtype 1–2	none
 🤱🏼	ammer hudtype 3	none
 🤱🏽	ammer hudtype 4	none

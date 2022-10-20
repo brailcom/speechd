@@ -115,7 +115,6 @@ symbols:
 🙈	golo budul gis lu bon	none
 🙉	golo budul dégg lu bon	none
 🙊	golo budul wax lu bon	none
-💋	marku fóon	none
 💌	bataaxalu mbëggeel	none
 💘	xol ak fett	none
 💝	xol buñ laxas ribaŋ	none
@@ -134,6 +133,7 @@ symbols:
 💙	xol bu baxa	none
 💜	xol bu yolet	none
 🖤	xol bu ñuul	none
+💋	marku fóon	none
 💯	tombi teeméer	none
 💢	màndarga ku mer	none
 💥	mbëkkante	none
@@ -141,7 +141,6 @@ symbols:
 💦	toqu ñaq	none
 💨	dem sa yoon	none
 🕳	pax	none
-💣	bomb	none
 💬	rëddu bind kàddu	none
 👁‍🗨	bët ci rëddu-bind-wax	none
 🗨	bulu bind waxu càmmoñ	none
@@ -500,6 +499,7 @@ symbols:
 🍁	kobu kanadaa	none
 🍂	xob yu daanu	none
 🍃	xob wu gelaw yëngal	none
+🍄	sampiñoŋ	none
 🍇	reeseŋ	none
 🍈	mëloŋ	none
 🍉	xaal	none
@@ -524,7 +524,6 @@ symbols:
 🌶	kaani xeeñ	none
 🥒	komkombar	none
 🥦	brokoli	none
-🍄	sampiñoŋ	none
 🥜	gerte	none
 🌰	sateñ	none
 🍞	mburu	none
@@ -854,6 +853,7 @@ symbols:
 🛷	trenóo	none
 🥌	xeeru kërliŋ	none
 🎯	dóor bu jub	none
+🔫	pistole	none
 🎱	biyaar 8 bal	none
 🔮	bulu kristaal	none
 🎮	powum wideo	none
@@ -1040,7 +1040,7 @@ symbols:
 🛠	marto ak kle	none
 🗡	paaka	none
 ⚔	bu am kruwaa eppee	none
-🔫	pistole	none
+💣	bomb	none
 🏹	ark bu ànd ak fett	none
 🛡	kiiraay	none
 🔧	kle	none
@@ -1243,26 +1243,6 @@ symbols:
 🏴	raaya bu ñuul	none
 🏳	raaya bu weex	none
 🏳‍🌈	raaya xon	none
-🫱🏻‍🫲🏼	joxante loxo xeesaayu der bu woyof, xeesaayu der bu xeereer	none
-🫱🏻‍🫲🏽	joxante loxo xeesaayu der bu woyof, xeesaayu der bu yam	none
-🫱🏻‍🫲🏾	joxante loxo xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
-🫱🏻‍🫲🏿	joxante loxo xeesaayu der bu woyof, xeesaayu der bu ñuul	none
-🫱🏼‍🫲🏻	joxante loxo xeesaayu der bu xeereer, xeesaayu der bu woyof	none
-🫱🏼‍🫲🏽	joxante loxo xeesaayu der bu xeereer, xeesaayu der bu yam	none
-🫱🏼‍🫲🏾	joxante loxo xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
-🫱🏼‍🫲🏿	joxante loxo xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
-🫱🏽‍🫲🏻	joxante loxo xeesaayu der bu yam, xeesaayu der bu woyof	none
-🫱🏽‍🫲🏼	joxante loxo xeesaayu der bu yam, xeesaayu der bu xeereer	none
-🫱🏽‍🫲🏾	joxante loxo xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
-🫱🏽‍🫲🏿	joxante loxo xeesaayu der bu yam, xeesaayu der bu ñuul	none
-🫱🏾‍🫲🏻	joxante loxo xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
-🫱🏾‍🫲🏼	joxante loxo xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
-🫱🏾‍🫲🏽	joxante loxo xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
-🫱🏾‍🫲🏿	joxante loxo xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
-🫱🏿‍🫲🏻	joxante loxo xeesaayu der bu ñuul, xeesaayu der bu woyof	none
-🫱🏿‍🫲🏼	joxante loxo xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
-🫱🏿‍🫲🏽	joxante loxo xeesaayu der bu ñuul, xeesaayu der bu yam	none
-🫱🏿‍🫲🏾	joxante loxo xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
 👋🏻	tàllal loxo xeesaayu der bu woyof	none
 👋🏼	tàllal loxo xeesaayu der bu xeereer	none
 👋🏽	tàllal loxo xeesaayu der bu yam	none
@@ -1288,6 +1268,26 @@ symbols:
 🖖🏽	loxo xaajale ñeenti baaraam xeesaayu der bu yam	none
 🖖🏾	loxo xaajale ñeenti baaraam xeesaayu der bu xawa ñuul	none
 🖖🏿	loxo xaajale ñeenti baaraam xeesaayu der bu ñuul	none
+🫱🏻‍🫲🏼	joxante loxo xeesaayu der bu woyof, xeesaayu der bu xeereer	none
+🫱🏻‍🫲🏽	joxante loxo xeesaayu der bu woyof, xeesaayu der bu yam	none
+🫱🏻‍🫲🏾	joxante loxo xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
+🫱🏻‍🫲🏿	joxante loxo xeesaayu der bu woyof, xeesaayu der bu ñuul	none
+🫱🏼‍🫲🏻	joxante loxo xeesaayu der bu xeereer, xeesaayu der bu woyof	none
+🫱🏼‍🫲🏽	joxante loxo xeesaayu der bu xeereer, xeesaayu der bu yam	none
+🫱🏼‍🫲🏾	joxante loxo xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
+🫱🏼‍🫲🏿	joxante loxo xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
+🫱🏽‍🫲🏻	joxante loxo xeesaayu der bu yam, xeesaayu der bu woyof	none
+🫱🏽‍🫲🏼	joxante loxo xeesaayu der bu yam, xeesaayu der bu xeereer	none
+🫱🏽‍🫲🏾	joxante loxo xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
+🫱🏽‍🫲🏿	joxante loxo xeesaayu der bu yam, xeesaayu der bu ñuul	none
+🫱🏾‍🫲🏻	joxante loxo xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
+🫱🏾‍🫲🏼	joxante loxo xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
+🫱🏾‍🫲🏽	joxante loxo xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
+🫱🏾‍🫲🏿	joxante loxo xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
+🫱🏿‍🫲🏻	joxante loxo xeesaayu der bu ñuul, xeesaayu der bu woyof	none
+🫱🏿‍🫲🏼	joxante loxo xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
+🫱🏿‍🫲🏽	joxante loxo xeesaayu der bu ñuul, xeesaayu der bu yam	none
+🫱🏿‍🫲🏾	joxante loxo xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
 👌🏻	laxo waaw-kay xeesaayu der bu woyof	none
 👌🏼	laxo waaw-kay xeesaayu der bu xeereer	none
 👌🏽	laxo waaw-kay xeesaayu der bu yam	none

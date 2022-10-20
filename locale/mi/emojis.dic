@@ -115,7 +115,6 @@ symbols:
 🙈	makimaki kore-kite-kino	none
 🙉	makimaki kore-rongo-kino	none
 🙊	makimaki kore-kōrero-kino	none
-💋	tohu kihi	none
 💌	reta aroha	none
 💘	manawa me te pere	none
 💝	manawa mau rīpene	none
@@ -134,6 +133,7 @@ symbols:
 💙	manawa kikorangi	none
 💜	manawa poroporo	none
 🖤	manawa pango	none
+💋	tohu kihi	none
 💯	rau piro	none
 💢	tohu riri	none
 💥	tutukitanga	none
@@ -141,7 +141,6 @@ symbols:
 💦	ngā kōpata werawera	none
 💨	rere atu ana	none
 🕳	puare	none
-💣	pōma	none
 💬	pūangi kōrero	none
 👁‍🗨	karu rō mirumiru kōrero	none
 🗨	mirumiru kōrero mauī	none
@@ -500,6 +499,7 @@ symbols:
 🍁	rau mapera	none
 🍂	rau makere	none
 🍃	rau kapakapa hau	none
+🍄	harore	none
 🍇	ngā karepe	none
 🍈	merengi	none
 🍉	merengiwai	none
@@ -524,7 +524,6 @@ symbols:
 🌶	pepa wera	none
 🥒	kūkama	none
 🥦	porokori	none
-🍄	harore	none
 🥜	pīnati	none
 🌰	hetenati	none
 🍞	parāoa	none
@@ -854,6 +853,7 @@ symbols:
 🛷	kōneke	none
 🥌	pōhatu whakakōrino	none
 🎯	pā hāngai	none
+🔫	pū	none
 🎱	piriota 8 pōro	none
 🔮	pōro atamaha	none
 🎮	kēmu ataata	none
@@ -1040,7 +1040,7 @@ symbols:
 🛠	hama me te wāwāhi	none
 🗡	oka	none
 ⚔	hoari whakawhiri	none
-🔫	pū	none
+💣	pōma	none
 🏹	kōpere me ngā pere	none
 🛡	pākai	none
 🔧	wāwāhi	none
@@ -1242,26 +1242,6 @@ symbols:
 🏴	kara pango	none
 🏳	kara mā	none
 🏳‍🌈	kara kahukura	none
-🫱🏻‍🫲🏼	rūrū kiri āhua māmā, kiri āhua māmā-waenga	none
-🫱🏻‍🫲🏽	rūrū kiri āhua māmā, kiri āhua waenga	none
-🫱🏻‍🫲🏾	rūrū kiri āhua māmā, kiri āhua waenga-parauri	none
-🫱🏻‍🫲🏿	rūrū kiri āhua māmā, kiri āhua parauri	none
-🫱🏼‍🫲🏻	rūrū kiri āhua māmā-waenga, kiri āhua māmā	none
-🫱🏼‍🫲🏽	rūrū kiri āhua māmā-waenga, kiri āhua waenga	none
-🫱🏼‍🫲🏾	rūrū kiri āhua māmā-waenga, kiri āhua waenga-parauri	none
-🫱🏼‍🫲🏿	rūrū kiri āhua māmā-waenga, kiri āhua parauri	none
-🫱🏽‍🫲🏻	rūrū kiri āhua waenga, kiri āhua māmā	none
-🫱🏽‍🫲🏼	rūrū kiri āhua waenga, kiri āhua māmā-waenga	none
-🫱🏽‍🫲🏾	rūrū kiri āhua waenga, kiri āhua waenga-parauri	none
-🫱🏽‍🫲🏿	rūrū kiri āhua waenga, kiri āhua parauri	none
-🫱🏾‍🫲🏻	rūrū kiri āhua waenga-parauri, kiri āhua māmā	none
-🫱🏾‍🫲🏼	rūrū kiri āhua waenga-parauri, kiri āhua māmā-waenga	none
-🫱🏾‍🫲🏽	rūrū kiri āhua waenga-parauri, kiri āhua waenga	none
-🫱🏾‍🫲🏿	rūrū kiri āhua waenga-parauri, kiri āhua parauri	none
-🫱🏿‍🫲🏻	rūrū kiri āhua parauri, kiri āhua māmā	none
-🫱🏿‍🫲🏼	rūrū kiri āhua parauri, kiri āhua māmā-waenga	none
-🫱🏿‍🫲🏽	rūrū kiri āhua parauri, kiri āhua waenga	none
-🫱🏿‍🫲🏾	rūrū kiri āhua parauri, kiri āhua waenga-parauri	none
 👋🏻	ringa pōhirihiri kiri āhua māmā	none
 👋🏼	ringa pōhirihiri kiri āhua māmā-waenga	none
 👋🏽	ringa pōhirihiri kiri āhua waenga	none
@@ -1287,6 +1267,26 @@ symbols:
 🖖🏽	whakakōtua vulcan kiri āhua waenga	none
 🖖🏾	whakakōtua vulcan kiri āhua waenga-parauri	none
 🖖🏿	whakakōtua vulcan kiri āhua parauri	none
+🫱🏻‍🫲🏼	rūrū kiri āhua māmā, kiri āhua māmā-waenga	none
+🫱🏻‍🫲🏽	rūrū kiri āhua māmā, kiri āhua waenga	none
+🫱🏻‍🫲🏾	rūrū kiri āhua māmā, kiri āhua waenga-parauri	none
+🫱🏻‍🫲🏿	rūrū kiri āhua māmā, kiri āhua parauri	none
+🫱🏼‍🫲🏻	rūrū kiri āhua māmā-waenga, kiri āhua māmā	none
+🫱🏼‍🫲🏽	rūrū kiri āhua māmā-waenga, kiri āhua waenga	none
+🫱🏼‍🫲🏾	rūrū kiri āhua māmā-waenga, kiri āhua waenga-parauri	none
+🫱🏼‍🫲🏿	rūrū kiri āhua māmā-waenga, kiri āhua parauri	none
+🫱🏽‍🫲🏻	rūrū kiri āhua waenga, kiri āhua māmā	none
+🫱🏽‍🫲🏼	rūrū kiri āhua waenga, kiri āhua māmā-waenga	none
+🫱🏽‍🫲🏾	rūrū kiri āhua waenga, kiri āhua waenga-parauri	none
+🫱🏽‍🫲🏿	rūrū kiri āhua waenga, kiri āhua parauri	none
+🫱🏾‍🫲🏻	rūrū kiri āhua waenga-parauri, kiri āhua māmā	none
+🫱🏾‍🫲🏼	rūrū kiri āhua waenga-parauri, kiri āhua māmā-waenga	none
+🫱🏾‍🫲🏽	rūrū kiri āhua waenga-parauri, kiri āhua waenga	none
+🫱🏾‍🫲🏿	rūrū kiri āhua waenga-parauri, kiri āhua parauri	none
+🫱🏿‍🫲🏻	rūrū kiri āhua parauri, kiri āhua māmā	none
+🫱🏿‍🫲🏼	rūrū kiri āhua parauri, kiri āhua māmā-waenga	none
+🫱🏿‍🫲🏽	rūrū kiri āhua parauri, kiri āhua waenga	none
+🫱🏿‍🫲🏾	rūrū kiri āhua parauri, kiri āhua waenga-parauri	none
 👌🏻	ringa ĀE kiri āhua māmā	none
 👌🏼	ringa ĀE kiri āhua māmā-waenga	none
 👌🏽	ringa ĀE kiri āhua waenga	none
@@ -2633,3 +2633,157 @@ symbols:
 👩‍👧	whānau wahine, kōtiro	none
 👩‍👧‍👦	whānau wahine, kōtiro, tamatāne	none
 👩‍👧‍👧	whānau wahine, kōtiro, kōtiro	none
+🔟	uhi pātuhi 10	none
+🇦🇬	haki Anatikua me Pāpura	none
+🇦🇮	haki Ākuira	none
+🇦🇴	haki Anakora	none
+🇦🇷	haki Āketina	none
+🇦🇹	haki Ateria	none
+🇦🇼	haki Arūpa	none
+🇦🇽	haki Motu Ōrana	none
+🇧🇧	haki Pāpetō	none
+🇧🇪	haki Paratiamu	none
+🇧🇫	haki Pēkina Waho	none
+🇧🇮	haki Puruniti	none
+🇧🇯	haki Penīna	none
+🇧🇱	haki Hato Pāteremi	none
+🇧🇲	haki Pemiuta	none
+🇧🇴	haki Poriwia	none
+🇧🇶	haki Karepeana Hōrana	none
+🇧🇷	haki Parīhi	none
+🇧🇸	haki Pahāma	none
+🇧🇻	haki Motu Pūwei	none
+🇧🇼	haki Poriwana	none
+🇧🇿	haki Perīhi	none
+🇨🇦	haki Kānata	none
+🇨🇩	haki Kōngo - Kingihāha	none
+🇨🇫	haki Te Puku o Āwherika	none
+🇨🇬	haki Kōngo - Parāwhe	none
+🇨🇭	haki Huiterangi	none
+🇨🇮	haki Te Tai Rei	none
+🇨🇱	haki Hiri	none
+🇨🇲	haki Kamarūna	none
+🇨🇳	haki Haina	none
+🇨🇴	haki Koromōpia	none
+🇨🇷	haki Kota Rīka	none
+🇨🇺	haki Kiupa	none
+🇨🇻	haki Te Kūrae Matomato	none
+🇨🇼	haki Kurahao	none
+🇩🇪	haki Tiamani	none
+🇩🇯	haki Tipūti	none
+🇩🇰	haki Tenemāka	none
+🇩🇲	haki Tominika	none
+🇩🇴	haki Te Whenua Tominika	none
+🇩🇿	haki Aratiria	none
+🇪🇦	haki Hūta me Merera	none
+🇪🇨	haki Ekuatoa	none
+🇪🇪	haki Etōnia	none
+🇪🇬	haki Īhipa	none
+🇪🇭	haki Hahāra ki te Tonga	none
+🇪🇷	haki Eritēria	none
+🇪🇹	haki Etiopia	none
+🇪🇺	haki Te Uniana o Ūropi	none
+🇫🇮	haki Whinirana	none
+🇫🇰	haki Motu Whākarangi	none
+🇫🇴	haki Motu Wharo	none
+🇫🇷	haki Wīwī	none
+🇬🇦	haki Kāpona	none
+🇬🇧	haki Te Hononga o Piritene	none
+🇬🇩	haki Kerenāta	none
+🇬🇫	haki Kaiana Wīwī	none
+🇬🇬	haki Kēni	none
+🇬🇭	haki Kāna	none
+🇬🇱	haki Kirīrangi	none
+🇬🇲	haki Te Kamopia	none
+🇬🇳	haki Kini	none
+🇬🇵	haki Kuatarū	none
+🇬🇶	haki Kini Ekuatoria	none
+🇬🇸	haki Hōria ki te Tonga me Motu Hanuwiti ki te Tonga	none
+🇬🇹	haki Kuatamāra	none
+🇬🇼	haki Kini-Pihao	none
+🇬🇾	haki Kaiana	none
+🇭🇳	haki Honūra	none
+🇭🇹	haki Haiti	none
+🇮🇨	haki Motu Kānara	none
+🇮🇪	haki Aerana	none
+🇮🇲	haki Motu Tangata	none
+🇮🇳	haki Inia	none
+🇮🇴	haki Te Rohe o te Moana Īniana Piritihi	none
+🇮🇸	haki Tiorangi	none
+🇮🇹	haki Itāria	none
+🇯🇪	haki Tiehe	none
+🇯🇲	haki Hemeika	none
+🇯🇵	haki Hapani	none
+🇰🇪	haki Kēnia	none
+🇰🇲	haki Komoro	none
+🇰🇳	haki Hato Kiti me Newhi	none
+🇰🇾	haki Ngā Motu Keimana	none
+🇱🇨	haki Hato Ruhia	none
+🇱🇮	haki Rīkeneteina	none
+🇱🇷	haki Raipiri	none
+🇱🇸	haki Teroto	none
+🇱🇹	haki Rituānia	none
+🇱🇺	haki Rakimipēki	none
+🇱🇻	haki Ratawia	none
+🇱🇾	haki Rīpia	none
+🇲🇦	haki Moroko	none
+🇲🇨	haki Manako	none
+🇲🇫	haki Hato Mātene	none
+🇲🇬	haki Marakāhia	none
+🇲🇰	haki Makerōnia ki te Raki	none
+🇲🇱	haki Māri	none
+🇲🇶	haki Māteniki	none
+🇲🇷	haki Mauritānia	none
+🇲🇸	haki Monoterā	none
+🇲🇺	haki Mōrihi	none
+🇲🇼	haki Marāwi	none
+🇲🇽	haki Mēhiko	none
+🇲🇿	haki Mohapiki	none
+🇳🇦	haki Namīpia	none
+🇳🇪	haki Ngāika	none
+🇳🇬	haki Ngāitiria	none
+🇳🇮	haki Nikarakua	none
+🇳🇱	haki Hōrana	none
+🇳🇴	haki Nōwei	none
+🇳🇿	haki Aotearoa	none
+🇵🇦	haki Panama	none
+🇵🇪	haki Peru	none
+🇵🇲	haki Hato Piere & Mikarona	none
+🇵🇷	haki Pōta Riko	none
+🇵🇾	haki Parakai	none
+🇷🇪	haki Rēnio	none
+🇷🇺	haki Rūhia	none
+🇷🇼	haki Rāwana	none
+🇸🇨	haki Heihere	none
+🇸🇩	haki Hūtāne	none
+🇸🇪	haki Huītene	none
+🇸🇭	haki Hato Harīna	none
+🇸🇯	haki Heopāra me Ia Maiana	none
+🇸🇱	haki Te Araone	none
+🇸🇳	haki Henekara	none
+🇸🇴	haki Hūmārie	none
+🇸🇷	haki Hurināme	none
+🇸🇸	haki Hūtāne ki te Tonga	none
+🇸🇹	haki Hao Tomei me Pirinipei	none
+🇸🇻	haki Ere Hāwhatō	none
+🇸🇽	haki Hiti Mātene	none
+🇸🇿	haki Ewatini	none
+🇹🇨	haki Tāke me ngā Motu o Keiko	none
+🇹🇩	haki Kāta	none
+🇹🇫	haki Ngā Rohe o Wīwī ki te Tonga	none
+🇹🇬	haki Toko	none
+🇹🇳	haki Tūnihia	none
+🇹🇹	haki Tinitātā me Topēko	none
+🇹🇿	haki Tānahia	none
+🇺🇬	haki Ukāna	none
+🇺🇳	haki Te Kotahitanga o Ngā Iwi o te Ao	none
+🇺🇸	haki Hononga o Amerika	none
+🇺🇾	haki Urukoi	none
+🇻🇨	haki Hato Wetene me Keretīni	none
+🇻🇪	haki Wenehūera	none
+🇻🇬	haki Ngā Motu o Tātāhou Piritene	none
+🇻🇮	haki Ngā Motu o Tātāhou Amerika	none
+🇾🇹	haki Maio	none
+🇿🇦	haki Āwherika ki te Tonga	none
+🇿🇲	haki Tāmipia	none
+🇿🇼	haki Timuwawe	none

@@ -39,43 +39,6 @@ symbols:
 ♪	noti ya nane	none
 ♭	kishukisho	none
 ♯	kipandisho	none
-🥹	uso unaolengwalengwa na machozi	none
-🧌	jitu	none
-🩻	eksirei	none
-🩼	gongo	none
-🪩	tufe la vioo	none
-🪪	kitambulisho	none
-🪫	betri iliyopungua chaji	none
-🪬	ishara ya hamsa	none
-🪷	yungiyungi	none
-🪸	matumbawe	none
-🪹	kiota tupu	none
-🪺	kiota chenye mayai	none
-🫃	mwanamume mwenye kitambi	none
-🫄	mtu mwenye mimba	none
-🫅	kichwa chenye taji	none
-🫗	kinywaji kinachomiminika	none
-🫘	maharagwe	none
-🫙	chupa kubwa	none
-🫠	uso unaoyeyuka	none
-🫡	uso unaopiga saluti	none
-🫢	uso wenye macho wazi na mkono kwenye mdomo	none
-🫣	uso wenye macho yanayochungulia	none
-🫤	uso wenye mdomo uliopinda	none
-🫥	uso uliochorwa kwa vitone	none
-🫦	kuuma mdomo	none
-🫧	viputo	none
-🫰	vidole vya shahada na gumba vinavyopitana	none
-🫱	mkono unaoelekea kulia	none
-🫲	mkono unaoelekea kushoto	none
-🫳	mkono wenye kiganja kinachoelekea chini	none
-🫴	mkono wenye kiganja kinachoelekea juu	none
-🫵	kidole cha shahada kinachomwelekea mtazamaji	none
-🫶	mikono inayoonyesha ishara ya moyo	none
-🛝	mtelezo wa watoto	none
-🛞	gurudumu	none
-🛟	boya okozi	none
-🟰	ishara ya usawa	none
 😀	uso unaokenua	none
 😃	uso unaotabasamu wenye macho makubwa	none
 😄	uso unaotabasamu wenye macho ya tabasamu	none
@@ -86,6 +49,7 @@ symbols:
 😂	uso wenye machozi ya furaha	none
 🙂	uso unaotabasamu kwa mbali	none
 🙃	uso uliogeuzwa juu chini	none
+🫠	uso unaoyeyuka	none
 😉	uso unaokonyeza	none
 😊	uso unaotabasamu na macho yanayotabasamu	none
 😇	uso unaotabasamu ulio na mduara wa mwangaza juu yake	none
@@ -106,13 +70,17 @@ symbols:
 🤑	uso unaoonyesha pesa ya noti mdomoni	none
 🤗	uso unaokumbatia	none
 🤭	uso uliofunika mdomo kwa mkono	none
+🫢	uso wenye macho wazi na mkono kwenye mdomo	none
+🫣	uso wenye macho yanayochungulia	none
 🤫	uso unaonyamazisha	none
 🤔	uso unaotafakari	none
+🫡	uso unaopiga saluti	none
 🤐	uso uliofungwa mdomo kwa zipu	none
 🤨	uso wenye nyusi zilizoinuka	none
 😐	uso uliotulia	none
 😑	uso uliojikausha	none
 😶	uso bila mdomo	none
+🫥	uso uliochorwa kwa vitone	none
 😶‍🌫	uso kwenye mawingu	none
 😏	uso unaobeza	none
 😒	uso usio na furaha	none
@@ -120,6 +88,7 @@ symbols:
 😬	uso uliokunjwa	none
 😮‍💨	uso unaopumua	none
 🤥	uso unaodanganya	none
+🫨	uso unaotikisika	none
 😌	uso uliofarijika	none
 😔	uso uliozama katika mawazo	none
 😪	uso unaosinzia	none
@@ -144,6 +113,7 @@ symbols:
 🤓	uso wa mjuaji	none
 🧐	uso wenye miwani kwenye jicho moja	none
 😕	uso uliochanganyikiwa	none
+🫤	uso wenye mdomo uliopinda	none
 😟	uso ulio na wasiwasi	none
 🙁	uso ulionuna kiasi	none
 ☹	uso ulionuna	none
@@ -152,6 +122,7 @@ symbols:
 😲	uso uliostaajabu	none
 😳	uso uliojawa msisimko	none
 🥺	uso unaosihi	none
+🥹	uso unaolengwalengwa na machozi	none
 😦	uso ulionuna wenye mdomo uliofunguliwa	none
 😧	uso unaoonyesha uchungu	none
 😨	uso unaoogopa	none
@@ -195,7 +166,6 @@ symbols:
 🙈	nyani aliyefumba macho kwa mikono	none
 🙉	nyani aliyefunika masikio kwa mikono	none
 🙊	nyani aliyefunika mdomo kwa mikono	none
-💋	alama ya busu	none
 💌	barua ya mapenzi	none
 💘	moyo uliopenyezwa mshale	none
 💝	moyo uliofungwa kwa utepe	none
@@ -210,14 +180,18 @@ symbols:
 ❤‍🔥	moyo unaochomeka	none
 ❤‍🩹	kurekebisha moyo	none
 ❤	moyo mwekundu	none
+🩷	moyo wa waridi	none
 🧡	moyo wa rangi ya chungwa	none
 💛	moyo wa manjano	none
 💚	moyo wa kijani	none
 💙	moyo ya samawati	none
+🩵	moyo wa buluu hafifu	none
 💜	moyo wa zambarau	none
 🤎	moyo wa hudhurungi	none
 🖤	umbo nyeusi la moyo	none
+🩶	moyo wa kijivu	none
 🤍	moyo mweupe	none
+💋	alama ya busu	none
 💯	pointi mia moja	none
 💢	alama ya hasira	none
 💥	mgongano	none
@@ -225,7 +199,6 @@ symbols:
 💦	matone ya jasho	none
 💨	kuharakisha	none
 🕳	shimo	none
-💣	bomu	none
 💬	kitufe cha usemi	none
 👁‍🗨	jicho ndani ya puto la usemi unaoelekea kulia	none
 🗨	kitufe cha usemi cha kushoto	none
@@ -237,11 +210,18 @@ symbols:
 🖐	mkono ulioinuliwa wenye vidole vilivyotanuliwa	none
 ✋	mkono ulioinuliwa	none
 🖖	ishara ya vulkani	none
+🫱	mkono unaoelekea kulia	none
+🫲	mkono unaoelekea kushoto	none
+🫳	mkono wenye kiganja kinachoelekea chini	none
+🫴	mkono wenye kiganja kinachoelekea juu	none
+🫷	mkono unaosukuma kushoto	none
+🫸	mkono unaosukuma kulia	none
 👌	mkono wa kuonyesha mambo yako shwari	none
 🤌	mkono wenye vidole vinavyobana	none
 🤏	vidole vinavyobana	none
 ✌	mkono wa ushindi	none
 🤞	ishara ya kubahatisha	none
+🫰	vidole vya shahada na gumba vinavyopitana	none
 🤟	ishara ya "nakupenda"	none
 🤘	ishara ya pembe	none
 🤙	ishara ya “nipigie simu”	none
@@ -251,6 +231,7 @@ symbols:
 🖕	kidole cha kati	none
 👇	kidole cha kwanza kinachoelekeza chini kwa nyuma	none
 ☝	kidole cha shahada kinachoelekeza juu	none
+🫵	kidole cha shahada kinachomwelekea mtazamaji	none
 👍	dole gumba juu	none
 👎	dole gumba chini	none
 ✊	ngumi iliyoinuliwa	none
@@ -259,6 +240,7 @@ symbols:
 🤜	ngumi ya kushoto	none
 👏	mikono inayopiga makofi	none
 🙌	mikono iliyoinuliwa	none
+🫶	mikono inayoonyesha ishara ya moyo	none
 👐	mikono iliyowazi	none
 🤲	viganja vilivyoshikana	none
 🤝	kusalimiana	none
@@ -283,6 +265,7 @@ symbols:
 👁	jicho	none
 👅	ulimi	none
 👄	mdomo	none
+🫦	kuuma mdomo	none
 👶	mtoto	none
 🧒	kijana	none
 👦	mvulana	none
@@ -390,6 +373,7 @@ symbols:
 👷	mfanyakazi wa ujenzi	none
 👷‍♂	mjenzi mwanamume	none
 👷‍♀	mjenzi wa kike	none
+🫅	kichwa chenye taji	none
 🤴	mwana wa mfalme	none
 👸	binti mfalme	none
 👳	mwanaume aliyefunga kilemba	none
@@ -404,6 +388,8 @@ symbols:
 👰‍♂	mwanamume aliyevalia shela	none
 👰‍♀	mwanamke aliyevalia shela	none
 🤰	mwanamke mjamzito	none
+🫃	mwanamume mwenye kitambi	none
+🫄	mtu mwenye mimba	none
 🤱	kunyonyesha mtoto	none
 👩‍🍼	mwanamke anayemlisha mtoto	none
 👨‍🍼	mwanamume anayemlisha mtoto	none
@@ -439,6 +425,7 @@ symbols:
 🧟	dubwana	none
 🧟‍♂	dubwana dume	none
 🧟‍♀	dubwana jike	none
+🧌	jitu	none
 💆	kukanda uso	none
 💆‍♂	mwanamume anayekandwa uso	none
 💆‍♀	mwanamke anayekandwa uso	none
@@ -562,6 +549,8 @@ symbols:
 🐅	chui mkubwa mwenye milia	none
 🐆	chui	none
 🐴	uso wa farasi	none
+🫎	kongoni	none
+🫏	punda	none
 🐎	farasi	none
 🦄	uso wa farasi mwenye pembe moja	none
 🦓	punda milia	none
@@ -624,6 +613,8 @@ symbols:
 🦩	Flamingo	none
 🦚	tausi	none
 🦜	kasuku	none
+🪽	bawa	none
+🪿	bata bukini	none
 🐸	uso wa chura	none
 🐊	mamba	none
 🐢	mzee kobe	none
@@ -643,6 +634,8 @@ symbols:
 🦈	papa	none
 🐙	pweza	none
 🐚	kombe la mzunguko	none
+🪸	matumbawe	none
+🪼	kiwavi wa baharini	none
 🐌	konokono	none
 🦋	kipepeo	none
 🐛	mdudu	none
@@ -662,6 +655,7 @@ symbols:
 💐	shada la maua	none
 🌸	ua la mcheri	none
 💮	ua jeupe	none
+🪷	yungiyungi	none
 🏵	waridi	none
 🌹	ua la waridi	none
 🥀	ua lililonyauka	none
@@ -669,6 +663,7 @@ symbols:
 🌻	alizeti	none
 🌼	maua mengi	none
 🌷	tulipu	none
+🪻	hyacinthi	none
 🌱	mche	none
 🪴	mmea ndani ya mkebe	none
 🌲	mmea wenye majani mwaka mzima	none
@@ -682,6 +677,9 @@ symbols:
 🍁	jani la mshira	none
 🍂	jani lililoanguka	none
 🍃	jani linalopepea kwenye upepo	none
+🪹	kiota tupu	none
+🪺	kiota chenye mayai	none
+🍄	uyoga	none
 🍇	zabibu	none
 🍈	tikiti	none
 🍉	tikitimaji	none
@@ -713,9 +711,11 @@ symbols:
 🥦	brokoli	none
 🧄	kitunguu saumu	none
 🧅	kitunguu	none
-🍄	uyoga	none
 🥜	njugu	none
+🫘	maharagwe	none
 🌰	aina ya njugu	none
+🫚	tangawizi	none
+🫛	ganda la njegere	none
 🍞	mkate	none
 🥐	mahamri	none
 🥖	mkate wa kifaransa	none
@@ -800,6 +800,7 @@ symbols:
 🍻	vikombe vya bia vilivyogonganishwa	none
 🥂	kugonga glasi	none
 🥃	glasi	none
+🫗	kinywaji kinachomiminika	none
 🥤	kikombe chenye mrija	none
 🧋	chai ya maziwa ya boba	none
 🧃	chupa ya kinywaji	none
@@ -810,6 +811,7 @@ symbols:
 🍴	uma na kisu	none
 🥄	kijiko	none
 🔪	kisu kinachotumika jikoni	none
+🫙	chupa kubwa	none
 🏺	jungu	none
 🌍	tufe linaloonyesha ulaya-afrika	none
 🌎	tufe linaloonyesha amerika	none
@@ -872,6 +874,7 @@ symbols:
 🌉	daraja usiku	none
 ♨	chemichemi za maji ya moto	none
 🎠	farasi inayozunguka	none
+🛝	mtelezo wa watoto	none
 🎡	gurudumu linalozunguka	none
 🎢	rola kosta	none
 💈	nguzo ya kinyozi	none
@@ -920,12 +923,14 @@ symbols:
 🛤	njia ya reli	none
 🛢	pipa la mafuta	none
 ⛽	pampu ya mafuta	none
+🛞	gurudumu	none
 🚨	taa ya gari la polisi	none
 🚥	taa mlalo ya trafiki	none
 🚦	taa wima ya trafiki	none
 🛑	taa ya kusimama	none
 🚧	ujenzi	none
 ⚓	nanga	none
+🛟	boya okozi	none
 ⛵	mashua	none
 🛶	mtumbwi	none
 🚤	mashua ya kasi	none
@@ -1083,10 +1088,10 @@ symbols:
 🎯	kulenga shabaha	none
 🪀	kigurudumu cha uzi	none
 🪁	kishada	none
+🔫	bastola ya maji	none
 🎱	biliadi	none
 🔮	tufe la kioo	none
 🪄	kifimbo cha mazingaombwe	none
-🧿	hirizi	none
 🎮	mchezo wa video	none
 🕹	usukani	none
 🎰	mashine ya kamari	none
@@ -1094,6 +1099,7 @@ symbols:
 🧩	mchezofumbo	none
 🧸	mwanaserere wa dubu	none
 🪅	pinata	none
+🪩	tufe la vioo	none
 🪆	mwanaserere wa kirusi	none
 ♠	shupaza	none
 ♥	kopa	none
@@ -1130,6 +1136,7 @@ symbols:
 🩳	kaptura	none
 👙	bikini	none
 👚	nguo za wanawake	none
+🪭	feni ya kujipepeta	none
 👛	kibeti	none
 👜	mfuko	none
 👝	kipochi	none
@@ -1144,6 +1151,7 @@ symbols:
 👡	ndara ya mwanamke	none
 🩰	viatu vya bale	none
 👢	buti la mwanamke	none
+🪮	kitana	none
 👑	taji	none
 👒	kofia ya mwanamke	none
 🎩	kofia ya mwanamume	none
@@ -1182,6 +1190,8 @@ symbols:
 🪕	gambusi	none
 🥁	ngoma	none
 🪘	ngoma refu	none
+🪇	maraka	none
+🪈	zumari	none
 📱	simu ya mkononi	none
 📲	simu ya mkononi yenye kishale	none
 ☎	simu	none
@@ -1189,6 +1199,7 @@ symbols:
 📟	peja	none
 📠	mashine ya faksi	none
 🔋	betri	none
+🪫	betri iliyopungua chaji	none
 🔌	plagi ya umeme	none
 💻	kompyuta ndogo	none
 🖥	kompyuta ya mezani	none
@@ -1300,7 +1311,7 @@ symbols:
 🛠	nyundo na spana malaya	none
 🗡	sime	none
 ⚔	panga zilizopishanishwa	none
-🔫	bastola ya maji	none
+💣	bomu	none
 🪃	bumerangi	none
 🏹	upinde na mshale	none
 🛡	ngao	none
@@ -1329,7 +1340,9 @@ symbols:
 🩸	tone la damu	none
 💊	kidonge	none
 🩹	bendeji inayonata	none
+🩼	gongo	none
 🩺	stetoskopu	none
+🩻	eksirei	none
 🚪	mlango	none
 🛗	kambarau	none
 🪞	kioo	none
@@ -1350,6 +1363,7 @@ symbols:
 🧻	karatasi	none
 🪣	ndoo	none
 🧼	sabuni	none
+🫧	viputo	none
 🪥	mswaki	none
 🧽	sifongo	none
 🧯	kizima moto	none
@@ -1358,8 +1372,11 @@ symbols:
 ⚰	jeneza	none
 🪦	jiwe la kaburi	none
 ⚱	chombo cha kutia majivu ya maiti aliyechomwa	none
+🧿	hirizi	none
+🪬	ishara ya hamsa	none
 🗿	kinyago	none
 🪧	bango	none
+🪪	kitambulisho	none
 🏧	alama ya ATM	none
 🚮	weka taka kwenye pipa	none
 🚰	maji safi ya kunywa	none
@@ -1419,6 +1436,7 @@ symbols:
 ☮	alama ya amani	none
 🕎	menorah	none
 🔯	nyota yenye pembe sita na kitone katikati	none
+🪯	khanda	none
 ♈	nyota ya kondoo	none
 ♉	fahali	none
 ♊	mapacha	none
@@ -1454,6 +1472,7 @@ symbols:
 🔅	kitufe cha kufifiza mwanga	none
 🔆	kitufe cha kuongeza mwanga	none
 📶	pau za antena	none
+🛜	pasiwaya	none
 📳	hali ya mtetemo	none
 📴	zima simu za mkononi	none
 ♀	ishara ya jinsia ya kike	none
@@ -1463,6 +1482,7 @@ symbols:
 ➕	kuongeza	none
 ➖	kutoa	none
 ➗	gawanya	none
+🟰	ishara ya usawa	none
 ♾	milele	none
 ❓	alama nyekundu ya kuuliza	none
 ❔	alama nyeupe ya kuuliza	none
@@ -1559,26 +1579,31 @@ symbols:
 ₹	rupia ya india	none
 ₽	rubo	none
 ₿	bitcoin	none
-🫃🏻	mwanamume mwenye kitambi ngozi nyeupe	none
-🫃🏼	mwanamume mwenye kitambi ngozi nyeupe kiasi	none
-🫃🏽	mwanamume mwenye kitambi ngozi ya kahawia	none
-🫃🏾	mwanamume mwenye kitambi ngozi nyeusi kiasi	none
-🫃🏿	mwanamume mwenye kitambi ngozi nyeusi	none
-🫄🏻	mtu mwenye mimba ngozi nyeupe	none
-🫄🏼	mtu mwenye mimba ngozi nyeupe kiasi	none
-🫄🏽	mtu mwenye mimba ngozi ya kahawia	none
-🫄🏾	mtu mwenye mimba ngozi nyeusi kiasi	none
-🫄🏿	mtu mwenye mimba ngozi nyeusi	none
-🫅🏻	kichwa chenye taji ngozi nyeupe	none
-🫅🏼	kichwa chenye taji ngozi nyeupe kiasi	none
-🫅🏽	kichwa chenye taji ngozi ya kahawia	none
-🫅🏾	kichwa chenye taji ngozi nyeusi kiasi	none
-🫅🏿	kichwa chenye taji ngozi nyeusi	none
-🫰🏻	vidole vya shahada na gumba vinavyopitana ngozi nyeupe	none
-🫰🏼	vidole vya shahada na gumba vinavyopitana ngozi nyeupe kiasi	none
-🫰🏽	vidole vya shahada na gumba vinavyopitana ngozi ya kahawia	none
-🫰🏾	vidole vya shahada na gumba vinavyopitana ngozi nyeusi kiasi	none
-🫰🏿	vidole vya shahada na gumba vinavyopitana ngozi nyeusi	none
+👋🏻	mkono unaopunga ngozi nyeupe	none
+👋🏼	mkono unaopunga ngozi nyeupe kiasi	none
+👋🏽	mkono unaopunga ngozi ya kahawia	none
+👋🏾	mkono unaopunga ngozi nyeusi kiasi	none
+👋🏿	mkono unaopunga ngozi nyeusi	none
+🤚🏻	kuinua mkono ngozi nyeupe	none
+🤚🏼	kuinua mkono ngozi nyeupe kiasi	none
+🤚🏽	kuinua mkono ngozi ya kahawia	none
+🤚🏾	kuinua mkono ngozi nyeusi kiasi	none
+🤚🏿	kuinua mkono ngozi nyeusi	none
+🖐🏻	mkono ulioinuliwa wenye vidole vilivyotanuliwa ngozi nyeupe	none
+🖐🏼	mkono ulioinuliwa wenye vidole vilivyotanuliwa ngozi nyeupe kiasi	none
+🖐🏽	mkono ulioinuliwa wenye vidole vilivyotanuliwa ngozi ya kahawia	none
+🖐🏾	mkono ulioinuliwa wenye vidole vilivyotanuliwa ngozi nyeusi kiasi	none
+🖐🏿	mkono ulioinuliwa wenye vidole vilivyotanuliwa ngozi nyeusi	none
+✋🏻	mkono ulioinuliwa ngozi nyeupe	none
+✋🏼	mkono ulioinuliwa ngozi nyeupe kiasi	none
+✋🏽	mkono ulioinuliwa ngozi ya kahawia	none
+✋🏾	mkono ulioinuliwa ngozi nyeusi kiasi	none
+✋🏿	mkono ulioinuliwa ngozi nyeusi	none
+🖖🏻	ishara ya vulkani ngozi nyeupe	none
+🖖🏼	ishara ya vulkani ngozi nyeupe kiasi	none
+🖖🏽	ishara ya vulkani ngozi ya kahawia	none
+🖖🏾	ishara ya vulkani ngozi nyeusi kiasi	none
+🖖🏿	ishara ya vulkani ngozi nyeusi	none
 🫱🏻	mkono unaoelekea kulia ngozi nyeupe	none
 🫱🏼	mkono unaoelekea kulia ngozi nyeupe kiasi	none
 🫱🏽	mkono unaoelekea kulia ngozi ya kahawia	none
@@ -1619,41 +1644,16 @@ symbols:
 🫴🏽	mkono wenye kiganja kinachoelekea juu ngozi ya kahawia	none
 🫴🏾	mkono wenye kiganja kinachoelekea juu ngozi nyeusi kiasi	none
 🫴🏿	mkono wenye kiganja kinachoelekea juu ngozi nyeusi	none
-🫵🏻	kidole cha shahada kinachomwelekea mtazamaji ngozi nyeupe	none
-🫵🏼	kidole cha shahada kinachomwelekea mtazamaji ngozi nyeupe kiasi	none
-🫵🏽	kidole cha shahada kinachomwelekea mtazamaji ngozi ya kahawia	none
-🫵🏾	kidole cha shahada kinachomwelekea mtazamaji ngozi nyeusi kiasi	none
-🫵🏿	kidole cha shahada kinachomwelekea mtazamaji ngozi nyeusi	none
-🫶🏻	mikono inayoonyesha ishara ya moyo ngozi nyeupe	none
-🫶🏼	mikono inayoonyesha ishara ya moyo ngozi nyeupe kiasi	none
-🫶🏽	mikono inayoonyesha ishara ya moyo ngozi ya kahawia	none
-🫶🏾	mikono inayoonyesha ishara ya moyo ngozi nyeusi kiasi	none
-🫶🏿	mikono inayoonyesha ishara ya moyo ngozi nyeusi	none
-👋🏻	mkono unaopunga ngozi nyeupe	none
-👋🏼	mkono unaopunga ngozi nyeupe kiasi	none
-👋🏽	mkono unaopunga ngozi ya kahawia	none
-👋🏾	mkono unaopunga ngozi nyeusi kiasi	none
-👋🏿	mkono unaopunga ngozi nyeusi	none
-🤚🏻	kuinua mkono ngozi nyeupe	none
-🤚🏼	kuinua mkono ngozi nyeupe kiasi	none
-🤚🏽	kuinua mkono ngozi ya kahawia	none
-🤚🏾	kuinua mkono ngozi nyeusi kiasi	none
-🤚🏿	kuinua mkono ngozi nyeusi	none
-🖐🏻	mkono ulioinuliwa wenye vidole vilivyotanuliwa ngozi nyeupe	none
-🖐🏼	mkono ulioinuliwa wenye vidole vilivyotanuliwa ngozi nyeupe kiasi	none
-🖐🏽	mkono ulioinuliwa wenye vidole vilivyotanuliwa ngozi ya kahawia	none
-🖐🏾	mkono ulioinuliwa wenye vidole vilivyotanuliwa ngozi nyeusi kiasi	none
-🖐🏿	mkono ulioinuliwa wenye vidole vilivyotanuliwa ngozi nyeusi	none
-✋🏻	mkono ulioinuliwa ngozi nyeupe	none
-✋🏼	mkono ulioinuliwa ngozi nyeupe kiasi	none
-✋🏽	mkono ulioinuliwa ngozi ya kahawia	none
-✋🏾	mkono ulioinuliwa ngozi nyeusi kiasi	none
-✋🏿	mkono ulioinuliwa ngozi nyeusi	none
-🖖🏻	ishara ya vulkani ngozi nyeupe	none
-🖖🏼	ishara ya vulkani ngozi nyeupe kiasi	none
-🖖🏽	ishara ya vulkani ngozi ya kahawia	none
-🖖🏾	ishara ya vulkani ngozi nyeusi kiasi	none
-🖖🏿	ishara ya vulkani ngozi nyeusi	none
+🫷🏻	mkono unaosukuma kushoto ngozi nyeupe	none
+🫷🏼	mkono unaosukuma kushoto ngozi nyeupe kiasi	none
+🫷🏽	mkono unaosukuma kushoto ngozi ya kahawia	none
+🫷🏾	mkono unaosukuma kushoto ngozi nyeusi kiasi	none
+🫷🏿	mkono unaosukuma kushoto ngozi nyeusi	none
+🫸🏻	mkono unaosukuma kulia ngozi nyeupe	none
+🫸🏼	mkono unaosukuma kulia ngozi nyeupe kiasi	none
+🫸🏽	mkono unaosukuma kulia ngozi ya kahawia	none
+🫸🏾	mkono unaosukuma kulia ngozi nyeusi kiasi	none
+🫸🏿	mkono unaosukuma kulia ngozi nyeusi	none
 👌🏻	mkono wa kuonyesha mambo yako shwari ngozi nyeupe	none
 👌🏼	mkono wa kuonyesha mambo yako shwari ngozi nyeupe kiasi	none
 👌🏽	mkono wa kuonyesha mambo yako shwari ngozi ya kahawia	none
@@ -1679,6 +1679,11 @@ symbols:
 🤞🏽	ishara ya kubahatisha ngozi ya kahawia	none
 🤞🏾	ishara ya kubahatisha ngozi nyeusi kiasi	none
 🤞🏿	ishara ya kubahatisha ngozi nyeusi	none
+🫰🏻	vidole vya shahada na gumba vinavyopitana ngozi nyeupe	none
+🫰🏼	vidole vya shahada na gumba vinavyopitana ngozi nyeupe kiasi	none
+🫰🏽	vidole vya shahada na gumba vinavyopitana ngozi ya kahawia	none
+🫰🏾	vidole vya shahada na gumba vinavyopitana ngozi nyeusi kiasi	none
+🫰🏿	vidole vya shahada na gumba vinavyopitana ngozi nyeusi	none
 🤟🏻	ishara ya "nakupenda" ngozi nyeupe	none
 🤟🏼	ishara ya "nakupenda" ngozi nyeupe kiasi	none
 🤟🏽	ishara ya "nakupenda" ngozi ya kahawia	none
@@ -1724,6 +1729,11 @@ symbols:
 ☝🏽	kidole cha shahada kinachoelekeza juu ngozi ya kahawia	none
 ☝🏾	kidole cha shahada kinachoelekeza juu ngozi nyeusi kiasi	none
 ☝🏿	kidole cha shahada kinachoelekeza juu ngozi nyeusi	none
+🫵🏻	kidole cha shahada kinachomwelekea mtazamaji ngozi nyeupe	none
+🫵🏼	kidole cha shahada kinachomwelekea mtazamaji ngozi nyeupe kiasi	none
+🫵🏽	kidole cha shahada kinachomwelekea mtazamaji ngozi ya kahawia	none
+🫵🏾	kidole cha shahada kinachomwelekea mtazamaji ngozi nyeusi kiasi	none
+🫵🏿	kidole cha shahada kinachomwelekea mtazamaji ngozi nyeusi	none
 👍🏻	dole gumba juu ngozi nyeupe	none
 👍🏼	dole gumba juu ngozi nyeupe kiasi	none
 👍🏽	dole gumba juu ngozi ya kahawia	none
@@ -1764,6 +1774,11 @@ symbols:
 🙌🏽	mikono iliyoinuliwa ngozi ya kahawia	none
 🙌🏾	mikono iliyoinuliwa ngozi nyeusi kiasi	none
 🙌🏿	mikono iliyoinuliwa ngozi nyeusi	none
+🫶🏻	mikono inayoonyesha ishara ya moyo ngozi nyeupe	none
+🫶🏼	mikono inayoonyesha ishara ya moyo ngozi nyeupe kiasi	none
+🫶🏽	mikono inayoonyesha ishara ya moyo ngozi ya kahawia	none
+🫶🏾	mikono inayoonyesha ishara ya moyo ngozi nyeusi kiasi	none
+🫶🏿	mikono inayoonyesha ishara ya moyo ngozi nyeusi	none
 👐🏻	mikono iliyowazi ngozi nyeupe	none
 👐🏼	mikono iliyowazi ngozi nyeupe kiasi	none
 👐🏽	mikono iliyowazi ngozi ya kahawia	none
@@ -2626,6 +2641,11 @@ symbols:
 👷🏽‍♀	mjenzi wa kike ngozi ya kahawia	none
 👷🏾‍♀	mjenzi wa kike ngozi nyeusi kiasi	none
 👷🏿‍♀	mjenzi wa kike ngozi nyeusi	none
+🫅🏻	kichwa chenye taji ngozi nyeupe	none
+🫅🏼	kichwa chenye taji ngozi nyeupe kiasi	none
+🫅🏽	kichwa chenye taji ngozi ya kahawia	none
+🫅🏾	kichwa chenye taji ngozi nyeusi kiasi	none
+🫅🏿	kichwa chenye taji ngozi nyeusi	none
 🤴🏻	mwana wa mfalme ngozi nyeupe	none
 🤴🏼	mwana wa mfalme ngozi nyeupe kiasi	none
 🤴🏽	mwana wa mfalme ngozi ya kahawia	none
@@ -2696,6 +2716,16 @@ symbols:
 🤰🏽	mwanamke mjamzito ngozi ya kahawia	none
 🤰🏾	mwanamke mjamzito ngozi nyeusi kiasi	none
 🤰🏿	mwanamke mjamzito ngozi nyeusi	none
+🫃🏻	mwanamume mwenye kitambi ngozi nyeupe	none
+🫃🏼	mwanamume mwenye kitambi ngozi nyeupe kiasi	none
+🫃🏽	mwanamume mwenye kitambi ngozi ya kahawia	none
+🫃🏾	mwanamume mwenye kitambi ngozi nyeusi kiasi	none
+🫃🏿	mwanamume mwenye kitambi ngozi nyeusi	none
+🫄🏻	mtu mwenye mimba ngozi nyeupe	none
+🫄🏼	mtu mwenye mimba ngozi nyeupe kiasi	none
+🫄🏽	mtu mwenye mimba ngozi ya kahawia	none
+🫄🏾	mtu mwenye mimba ngozi nyeusi kiasi	none
+🫄🏿	mtu mwenye mimba ngozi nyeusi	none
 🤱🏻	kunyonyesha mtoto ngozi nyeupe	none
 🤱🏼	kunyonyesha mtoto ngozi nyeupe kiasi	none
 🤱🏽	kunyonyesha mtoto ngozi ya kahawia	none

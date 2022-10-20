@@ -3,6 +3,7 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
+🏿	krocʼhen teñval	none
 ∇	nabla	none
 √	gwrizienn garrez	none
 ∞	arouezenn anfin	none
@@ -33,7 +34,6 @@ symbols:
 💯	kant poent	none
 💥	tarzhadenn	none
 🕳	toull	none
-💣	bombezenn	none
 💤	zzz	none
 🤳	emboltred	none
 💪	kigenn daoubennek argrezet	none
@@ -261,6 +261,7 @@ symbols:
 🍁	delienn skav-gwracʼh	none
 🍂	delioù secʼh	none
 🍃	delienn en avel	none
+🍄	kabell-touseg	none
 🍇	rezin	none
 🍈	meloñs	none
 🍉	pastekez	none
@@ -292,7 +293,6 @@ symbols:
 🥦	brikoli	none
 🧄	kignen	none
 🧅	ognon	none
-🍄	kabell-touseg	none
 🥜	kakaouetez	none
 🌰	kistin	none
 🍞	bara	none
@@ -638,10 +638,10 @@ symbols:
 🎯	ober mil	none
 🪀	pun-dibun	none
 🪁	sarpant-nij	none
+🔫	pistolenn	none
 🎱	bilhard saoz	none
 🔮	boulenn strink	none
 🪄	gwialenn-hud	none
-🧿	amuzetez nazar	none
 🎮	cʼhoari video	none
 🕹	lanker cʼhoari	none
 🎲	diñs	none
@@ -828,7 +828,7 @@ symbols:
 🛠	morzhol hag alcʼhwez plat	none
 🗡	badalenn	none
 ⚔	klezeier kroaziet	none
-🔫	pistolenn	none
+💣	bombezenn	none
 🪃	boumerang	none
 🏹	gwareg ha saezh	none
 🛡	skoed	none
@@ -885,6 +885,7 @@ symbols:
 ⚰	charke	none
 🪦	maen-bez	none
 ⚱	jarl-kañv	none
+🧿	amuzetez nazar	none
 🗿	moai	none
 🏧	arlun bilhedaouer	none
 🚮	arlun pod-lastez	none
@@ -908,6 +909,7 @@ symbols:
 🚯	arabat lakaat lastez	none
 🚱	dour fall da evañ	none
 🚷	difennet dʼar gerzhourien	none
+📵	pellgomzerioù difennet	none
 ☢	skinoberiek	none
 ☣	riskl bevoniel	none
 🛐	lec’h azeuliñ	none
@@ -1009,6 +1011,7 @@ symbols:
 🔸	romb bihan orañjez	none
 🔹	romb bihan glas	none
 🔘	bouton radio	none
+🏁	banniel karrezek	none
 🚩	banniel tricʼhornek	none
 🎌	bannieloù kroaziet	none
 🏴	banniel du	none
@@ -1021,18 +1024,103 @@ symbols:
 ₱	peso	none
 ₹	roupi	none
 ₽	roubl	none
+🤳🏿	emboltred  krocʼhen teñval	none
+💪🏿	kigenn daoubennek argrezet  krocʼhen teñval	none
+🦵🏿	gar  krocʼhen teñval	none
+🦶🏿	troad  krocʼhen teñval	none
+👂🏿	skouarn  krocʼhen teñval	none
+👃🏿	fri  krocʼhen teñval	none
+👶🏿	babig  krocʼhen teñval	none
+🧒🏿	bugel  krocʼhen teñval	none
+👦🏿	paotr  krocʼhen teñval	none
+👧🏿	placʼh  krocʼhen teñval	none
+🧑🏿	den deuet  krocʼhen teñval	none
+👱🏿	den melegan  krocʼhen teñval	none
 🧑‍🦰	den deuet  blev ruz	none
+🧑🏿‍🦰	den deuet  krocʼhen teñval, blev ruz	none
 🧑‍🦱	den deuet  blev rodellek	none
+🧑🏿‍🦱	den deuet  krocʼhen teñval, blev rodellek	none
 🧑‍🦳	den deuet  blev gwenn	none
+🧑🏿‍🦳	den deuet  krocʼhen teñval, blev gwenn	none
 🧑‍🦲	den deuet  moal	none
+🧑🏿‍🦲	den deuet  krocʼhen teñval, moal	none
+👨🏿	gwaz  krocʼhen teñval	none
+👱🏿‍♂	melegan  krocʼhen teñval	none
 👨‍🦰	gwaz  blev ruz	none
+👨🏿‍🦰	gwaz  krocʼhen teñval, blev ruz	none
 👨‍🦱	gwaz  blev rodellek	none
+👨🏿‍🦱	gwaz  krocʼhen teñval, blev rodellek	none
 👨‍🦳	gwaz  blev gwenn	none
+👨🏿‍🦳	gwaz  krocʼhen teñval, blev gwenn	none
 👨‍🦲	gwaz  moal	none
+👨🏿‍🦲	gwaz  krocʼhen teñval, moal	none
+👩🏿	maouez  krocʼhen teñval	none
+👱🏿‍♀	meleganez  krocʼhen teñval	none
 👩‍🦰	maouez  blev ruz	none
+👩🏿‍🦰	maouez  krocʼhen teñval, blev ruz	none
 👩‍🦱	maouez  blev rodellek	none
+👩🏿‍🦱	maouez  krocʼhen teñval, blev rodellek	none
 👩‍🦳	maouez  blev gwenn	none
+👩🏿‍🦳	maouez  krocʼhen teñval, blev gwenn	none
 👩‍🦲	maouez  moal	none
+👩🏿‍🦲	maouez  krocʼhen teñval, moal	none
+🧓🏿	den kozh  krocʼhen teñval	none
+👴🏿	gwaz kozh  krocʼhen teñval	none
+👵🏿	maouez kozh  krocʼhen teñval	none
+👨🏿‍🎓	studier  krocʼhen teñval	none
+👩🏿‍🎓	studierez  krocʼhen teñval	none
+👨🏿‍🏫	kelenner  krocʼhen teñval	none
+👩🏿‍🏫	kelennerez  krocʼhen teñval	none
+👨🏿‍⚖	barner  krocʼhen teñval	none
+👩🏿‍⚖	barnerez  krocʼhen teñval	none
+👨🏿‍🌾	labourer-douar  krocʼhen teñval	none
+👩🏿‍🌾	labourerez-douar  krocʼhen teñval	none
+👨🏿‍🍳	keginer  krocʼhen teñval	none
+👩🏿‍🍳	keginerez  krocʼhen teñval	none
+👨🏿‍🏭	micherour  krocʼhen teñval	none
+👩🏿‍🏭	micherourez  krocʼhen teñval	none
+👨🏿‍💼	implijad  krocʼhen teñval	none
+👩🏿‍💼	implijadez  krocʼhen teñval	none
+👨🏿‍🔬	skiantour  krocʼhen teñval	none
+👩🏿‍🔬	skiantourez  krocʼhen teñval	none
+👨🏿‍💻	stlennegour  krocʼhen teñval	none
+👩🏿‍💻	stlennegourez  krocʼhen teñval	none
+🧑🏿‍🎤	den a gan  krocʼhen teñval	none
+👨🏿‍🎤	kaner  krocʼhen teñval	none
+👩🏿‍🎤	kanerez  krocʼhen teñval	none
+👨🏿‍🎨	arzour  krocʼhen teñval	none
+👩🏿‍🎨	arzourez  krocʼhen teñval	none
+👨🏿‍✈	levier  krocʼhen teñval	none
+👩🏿‍✈	levierez  krocʼhen teñval	none
+👨🏿‍🚀	astraer  krocʼhen teñval	none
+👩🏿‍🚀	astraerez  krocʼhen teñval	none
+👨🏿‍🚒	pomper  krocʼhen teñval	none
+👩🏿‍🚒	pomperez  krocʼhen teñval	none
+👮🏿	polis  krocʼhen teñval	none
+👮🏿‍♂	poliser  krocʼhen teñval	none
+👮🏿‍♀	poliserez  krocʼhen teñval	none
+🕵🏿	igoun  krocʼhen teñval	none
+🕵🏿‍♂	igounier  krocʼhen teñval	none
+🕵🏿‍♀	igounierez  krocʼhen teñval	none
+💂🏿	gward  krocʼhen teñval	none
+🥷🏿	ninja  krocʼhen teñval	none
+🤴🏿	priñs  krocʼhen teñval	none
+👸🏿	priñsez  krocʼhen teñval	none
+👼🏿	babig ael  krocʼhen teñval	none
+🎅🏿	Tad Nedeleg  krocʼhen teñval	none
+🤶🏿	Mamm Nedeleg  krocʼhen teñval	none
+🦸🏿	gourharoz  krocʼhen teñval	none
+🧙🏿	maj  krocʼhen teñval	none
+🧙🏿‍♂	hudour  krocʼhen teñval	none
+🧙🏿‍♀	hudourez  krocʼhen teñval	none
+🧚🏿	boudig  krocʼhen teñval	none
+🧛🏿	suner/ez-gwad  krocʼhen teñval	none
+🧛🏿‍♂	suner-gwad  krocʼhen teñval	none
+🧛🏿‍♀	sunerez-gwad  krocʼhen teñval	none
+🧜🏿‍♂	morgan  krocʼhen teñval	none
+🧜🏿‍♀	morganez  krocʼhen teñval	none
+🧝🏿‍♂	elf  krocʼhen teñval	none
+🧝🏿‍♀	elfez  krocʼhen teñval	none
 👨‍👩‍👦	familh  gwaz, maouez, paotr	none
 👨‍👩‍👧	familh  gwaz, maouez, placʼh	none
 👨‍👩‍👧‍👦	familh  gwaz, maouez, placʼh, paotr	none

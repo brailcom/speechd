@@ -264,43 +264,6 @@ symbols:
 ⪺	komt na boven niet bijna gelijk aan	none
 ♭	mol	none
 ♯	kruis	none
-🥹	gezicht dat tranen tegenhoudt	none
-🧌	trol	none
-🩻	röntgenfoto	none
-🩼	kruk	none
-🪩	spiegelbal	none
-🪪	legitimatiebewijs	none
-🪫	batterij bijna leeg	none
-🪬	hamsa	none
-🪷	lotus	none
-🪸	koraal	none
-🪹	leeg nest	none
-🪺	nest met eieren	none
-🫃	zwangere man	none
-🫄	zwanger persoon	none
-🫅	persoon met kroon	none
-🫗	vloeistof uitgieten	none
-🫘	bonen	none
-🫙	pot	none
-🫠	smeltend gezicht	none
-🫡	saluerend gezicht	none
-🫢	gezicht met open ogen en hand over de mond	none
-🫣	gezicht met glurend oog	none
-🫤	gezicht met schuine mond	none
-🫥	gezicht in stippellijn	none
-🫦	mond die op lip bijt	none
-🫧	zeepbellen	none
-🫰	hand met wijsvinger en duim gekruist	none
-🫱	hand naar rechts	none
-🫲	hand naar links	none
-🫳	handpalm omlaag	none
-🫴	handpalm omhoog	none
-🫵	wijsvinger die naar de kijker wijst	none
-🫶	handen in de vorm van een hart	none
-🛝	glijbaan	none
-🛞	wiel	none
-🛟	reddingsboei	none
-🟰	vetgedrukt gelijkteken	none
 😀	grijnzend gezicht	none
 😃	grijnzend gezicht met grote ogen	none
 😄	grijnzend gezicht met lachende ogen	none
@@ -311,6 +274,7 @@ symbols:
 😂	gezicht met tranen van vreugde	none
 🙂	enigszins lachend gezicht	none
 🙃	omgekeerd gezicht	none
+🫠	smeltend gezicht	none
 😉	knipogend gezicht	none
 😊	lachend gezicht met lachende ogen	none
 😇	lachend gezicht met halo	none
@@ -329,15 +293,19 @@ symbols:
 🤪	gek gezicht	none
 😝	gezicht met uitgestoken tong en dichtgeknepen ogen	none
 🤑	gezicht met geld in de mond	none
-🤗	blij gezicht met handen uitgestoken voor een knuffel	none
+🤗	blij gezicht met uitgestoken handen	none
 🤭	gezicht met hand over de mond	none
+🫢	gezicht met open ogen en hand voor mond	none
+🫣	gezicht met glurend oog	none
 🤫	gezicht dat tot stilte maant	none
 🤔	nadenkend gezicht	none
+🫡	saluerend gezicht	none
 🤐	gezicht met een rits als mond	none
 🤨	gezicht met opgeheven wenkbrauw	none
 😐	neutraal gezicht	none
 😑	uitdrukkingsloos gezicht	none
 😶	gezicht zonder mond	none
+🫥	gezicht in stippellijn	none
 😶‍🌫	gezicht in de wolken	none
 😏	gniffelend gezicht	none
 😒	chagrijnig gezicht	none
@@ -345,6 +313,7 @@ symbols:
 😬	gezicht met grimas	none
 😮‍💨	gezicht dat uitademt	none
 🤥	liegend gezicht	none
+🫨	schuddend gezicht	none
 😌	opgelucht gezicht	none
 😔	peinzend gezicht	none
 😪	slaperig gezicht	none
@@ -369,6 +338,7 @@ symbols:
 🤓	nerdgezicht	none
 🧐	gezicht met monocle	none
 😕	verward gezicht	none
+🫤	gezicht met schuine mond	none
 😟	bezorgd gezicht	none
 🙁	licht fronsend gezicht	none
 ☹	fronsend gezicht	none
@@ -377,6 +347,7 @@ symbols:
 😲	verbaasd gezicht	none
 😳	blozend gezicht	none
 🥺	smekend gezicht	none
+🥹	gezicht dat tranen tegenhoudt	none
 😦	fronsend gezicht met open mond	none
 😧	gekweld gezicht	none
 😨	bang gezicht	none
@@ -420,7 +391,6 @@ symbols:
 🙈	geen kwaad zien	none
 🙉	geen kwaad horen	none
 🙊	geen kwaad spreken	none
-💋	lipafdruk	none
 💌	liefdesbrief	none
 💘	hart met pijl	none
 💝	hart met strik	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	hart in vuur en vlam	none
 ❤‍🩹	helend hart	none
 ❤	rood hart	none
+🩷	roze hart	none
 🧡	oranje hart	none
 💛	geel hart	none
 💚	groen hart	none
 💙	blauw hart	none
+🩵	lichtblauw hart	none
 💜	paars hart	none
 🤎	bruin hart	none
 🖤	zwart hart	none
+🩶	grijs hart	none
 🤍	wit hart	none
+💋	lipafdruk	none
 💯	maximumscore	none
 💢	woedesymbool	none
 💥	botsing	none
@@ -450,7 +424,6 @@ symbols:
 💦	zweetdruppels	none
 💨	wegrennen	none
 🕳	gat	none
-💣	bom	none
 💬	spraakballon	none
 👁‍🗨	spraakballon met oog	none
 🗨	spraakballon naar links	none
@@ -462,11 +435,18 @@ symbols:
 🖐	opgeheven hand met uitgestoken vingers	none
 ✋	opgeheven hand	none
 🖖	Vulcaanse groet	none
+🫱	hand naar rechts	none
+🫲	hand naar links	none
+🫳	handpalm omlaag	none
+🫴	handpalm omhoog	none
+🫷	hand die naar links duwt	none
+🫸	hand die naar rechts duwt	none
 👌	OK-handgebaar	none
 🤌	samengeknepen vingers	none
 🤏	hand met samengeknepen vingers	none
 ✌	winnende hand	none
 🤞	gekruiste vingers	none
+🫰	hand met wijsvinger en duim gekruist	none
 🤟	ik-hou-van-je-gebaar	none
 🤘	duivelshorens	none
 🤙	bel me-gebaar	none
@@ -476,6 +456,7 @@ symbols:
 🖕	middelvinger	none
 👇	achterkant van hand met omlaag wijzende wijsvinger	none
 ☝	omhoog wijzende wijsvinger	none
+🫵	wijsvinger die naar de kijker wijst	none
 👍	duim omhoog	none
 👎	duim omlaag	none
 ✊	opgeheven vuist	none
@@ -484,6 +465,7 @@ symbols:
 🤜	naar rechts gerichte vuist	none
 👏	klappende handen	none
 🙌	juichend omhooggestoken handen	none
+🫶	handen in de vorm van een hart	none
 👐	open handen	none
 🤲	beide handpalmen omhoog	none
 🤝	handdruk	none
@@ -508,6 +490,7 @@ symbols:
 👁	oog	none
 👅	tong	none
 👄	mond	none
+🫦	mond die op lip bijt	none
 👶	baby	none
 🧒	kind	none
 👦	jongen	none
@@ -615,6 +598,7 @@ symbols:
 👷	bouwvakker	none
 👷‍♂	mannelijke bouwvakker	none
 👷‍♀	vrouwelijke bouwvakker	none
+🫅	persoon met kroon	none
 🤴	prins	none
 👸	prinses	none
 👳	persoon met tulband	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	man met sluier	none
 👰‍♀	vrouw met sluier	none
 🤰	zwangere vrouw	none
+🫃	zwangere man	none
+🫄	zwanger persoon	none
 🤱	borstvoeding	none
 👩‍🍼	vrouw die een baby voedt	none
 👨‍🍼	man die een baby voedt	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombie	none
 🧟‍♂	mannelijke zombie	none
 🧟‍♀	vrouwelijke zombie	none
+🧌	trol	none
 💆	persoon die hoofdmassage krijgt	none
 💆‍♂	man die hoofdmassage krijgt	none
 💆‍♀	vrouw die hoofdmassage krijgt	none
@@ -773,7 +760,7 @@ symbols:
 🦧	orang-oetang	none
 🐶	hondengezicht	none
 🐕	hond	none
-🦮	blin­den­ge­leide­hond	none
+🦮	blindengeleidehond	none
 🐕‍🦺	as­sis­ten­tie­hond	none
 🐩	poedel	none
 🐺	wolf	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tijger	none
 🐆	luipaard	none
 🐴	paardengezicht	none
+🫎	eland	none
+🫏	ezel	none
 🐎	paard	none
 🦄	eenhoorn	none
 🦓	zebra	none
@@ -827,7 +816,7 @@ symbols:
 🐼	panda	none
 🦥	luiaard	none
 🦦	otter	none
-🦨	stink­dier	none
+🦨	stinkdier	none
 🦘	kangoeroe	none
 🦡	das	none
 🐾	pootafdrukken	none
@@ -849,6 +838,8 @@ symbols:
 🦩	flamingo	none
 🦚	pauw	none
 🦜	papegaai	none
+🪽	vleugel	none
+🪿	gans	none
 🐸	kikker	none
 🐊	krokodil	none
 🐢	schildpad	none
@@ -868,6 +859,8 @@ symbols:
 🦈	haai	none
 🐙	octopus	none
 🐚	schelp	none
+🪸	koraal	none
+🪼	kwal	none
 🐌	slak	none
 🦋	vlinder	none
 🐛	insect	none
@@ -887,6 +880,7 @@ symbols:
 💐	boeket	none
 🌸	kersenbloesem	none
 💮	witte bloem	none
+🪷	lotus	none
 🏵	rozet	none
 🌹	roos	none
 🥀	verwelkte bloem	none
@@ -894,6 +888,7 @@ symbols:
 🌻	zonnebloem	none
 🌼	bloesem	none
 🌷	tulp	none
+🪻	hyacint	none
 🌱	zaailing	none
 🪴	potplant	none
 🌲	naaldboom	none
@@ -907,6 +902,9 @@ symbols:
 🍁	esdoornblad	none
 🍂	vallende bladeren	none
 🍃	blad in de wind	none
+🪹	leeg nest	none
+🪺	nest met eieren	none
+🍄	paddenstoel	none
 🍇	druiven	none
 🍈	meloen	none
 🍉	watermeloen	none
@@ -938,9 +936,11 @@ symbols:
 🥦	broccoli	none
 🧄	knoflook	none
 🧅	ui	none
-🍄	paddenstoel	none
 🥜	pinda’s	none
+🫘	bonen	none
 🌰	kastanje	none
+🫚	gemberwortel	none
+🫛	erwtendop	none
 🍞	brood	none
 🥐	croissant	none
 🥖	stokbrood	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	klinkende bierglazen	none
 🥂	klinkende glazen	none
 🥃	tumblerglas	none
+🫗	vloeistof uitgieten	none
 🥤	beker met rietje	none
 🧋	bubbelthee	none
 🧃	pakje drinken	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	mes en vork	none
 🥄	lepel	none
 🔪	keukenmes	none
+🫙	pot	none
 🏺	amfora	none
 🌍	wereldbol met Europa-Afrika	none
 🌎	wereldbol met Noord- en Zuid-Amerika	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	brug bij nacht	none
 ♨	warmwaterbronnen	none
 🎠	draaimolenpaard	none
+🛝	glijbaan	none
 🎡	reuzenrad	none
 🎢	achtbaan	none
 💈	kapperspaal	none
@@ -1135,7 +1138,7 @@ symbols:
 🛵	scooter	none
 🦽	rolstoel	none
 🦼	elektrische rolstoel	none
-🛺	rik­sja	none
+🛺	riksja	none
 🚲	fiets	none
 🛴	step	none
 🛹	skateboard	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	treinspoor	none
 🛢	olievat	none
 ⛽	benzinestation	none
+🛞	wiel	none
 🚨	zwaailicht van politieauto	none
 🚥	horizontaal verkeerslicht	none
 🚦	verticaal verkeerslicht	none
 🛑	stopteken	none
 🚧	bouwwerkzaamheden	none
 ⚓	anker	none
+🛟	reddingsboei	none
 ⛵	zeilboot	none
 🛶	kano	none
 🚤	speedboot	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	directe treffer	none
 🪀	jojo	none
 🪁	vlieger	none
+🔫	waterpistool	none
 🎱	biljart	none
 🔮	kristallen bol	none
 🪄	toverstok	none
-🧿	Nazar-amulet	none
 🎮	videogame	none
 🕹	joystick	none
 🎰	fruitautomaat	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	puzzelstukje	none
 🧸	teddybeer	none
 🪅	piñata	none
+🪩	spiegelbal	none
 🪆	matroesjka	none
 ♠	schoppen	none
 ♥	harten	none
@@ -1339,7 +1345,7 @@ symbols:
 🕶	zonnebril	none
 🥽	oogscherm	none
 🥼	labjas	none
-🦺	veilig­heids­vest	none
+🦺	veiligheidsvest	none
 👔	stropdas	none
 👕	T-shirt	none
 👖	spijkerbroek	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	korte broek	none
 👙	bikini	none
 👚	dameskleding	none
+🪭	opvouwbare waaier	none
 👛	portemonnee	none
 👜	handtas	none
 👝	tasje	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	damessandaal	none
 🩰	balletschoenen	none
 👢	dameslaars	none
+🪮	haarkam	none
 👑	kroon	none
 👒	dameshoed	none
 🎩	hoge hoed	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banjo	none
 🥁	trommel	none
 🪘	hoge trom	none
+🪇	sambaballen	none
+🪈	fluit	none
 📱	mobiele telefoon	none
 📲	mobiel met pijl	none
 ☎	telefoon	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	pager	none
 📠	fax	none
 🔋	batterij	none
+🪫	batterij bijna leeg	none
 🔌	stekker	none
 💻	laptop	none
 🖥	desktop	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	hamer en moersleutel	none
 🗡	dolk	none
 ⚔	gekruiste zwaarden	none
-🔫	waterpistool	none
+💣	bom	none
 🪃	boemerang	none
 🏹	pijl en boog	none
 🛡	schild	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	bloeddruppel	none
 💊	pil	none
 🩹	pleister	none
-🩺	ste­tho­scoop	none
+🩼	kruk	none
+🩺	stethoscoop	none
+🩻	röntgenfoto	none
 🚪	deur	none
 🛗	lift	none
 🪞	spiegel	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	rol papier	none
 🪣	emmer	none
 🧼	zeep	none
+🫧	zeepbellen	none
 🪥	tandenborstel	none
 🧽	spons	none
 🧯	brandblusapparaat	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	doodskist	none
 🪦	grafsteen	none
 ⚱	urn	none
+🧿	Nazar-amulet	none
+🪬	hamsa	none
 🗿	moai-beeld	none
 🪧	plakkaat	none
+🪪	legitimatiebewijs	none
 🏧	pinautomaat	none
 🚮	prullenbaksymbool	none
 🚰	drinkwater	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	vredessymbool	none
 🕎	menora	none
 🔯	zespuntige ster	none
+🪯	khanda	none
 ♈	ram (sterrenbeeld)	none
 ♉	stier (sterrenbeeld)	none
 ♊	tweelingen (sterrenbeeld)	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	knop voor lagere helderheid	none
 🔆	knop voor hogere helderheid	none
 📶	mobiel signaal	none
+🛜	draadloos	none
 📳	trilstand	none
 📴	telefoon uit	none
 ♀	vrouwelijkheidssymbool	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	plus	none
 ➖	min	none
 ➗	delen	none
+🟰	vetgedrukt gelijkteken	none
 ♾	oneindig	none
 ❓	rood vraagteken	none
 ❔	wit vraagteken	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	roebel	none
 ₿	bitcoin	none
 ₨	roepie	none
-🫃🏻	zwangere man lichte huidskleur	none
-🫃🏼	zwangere man lichtgetinte huidskleur	none
-🫃🏽	zwangere man getinte huidskleur	none
-🫃🏾	zwangere man donkergetinte huidskleur	none
-🫃🏿	zwangere man donkere huidskleur	none
-🫄🏻	zwanger persoon lichte huidskleur	none
-🫄🏼	zwanger persoon lichtgetinte huidskleur	none
-🫄🏽	zwanger persoon getinte huidskleur	none
-🫄🏾	zwanger persoon donkergetinte huidskleur	none
-🫄🏿	zwanger persoon donkere huidskleur	none
-🫅🏻	persoon met kroon lichte huidskleur	none
-🫅🏼	persoon met kroon lichtgetinte huidskleur	none
-🫅🏽	persoon met kroon getinte huidskleur	none
-🫅🏾	persoon met kroon donkergetinte huidskleur	none
-🫅🏿	persoon met kroon donkere huidskleur	none
-🫰🏻	hand met wijsvinger en duim gekruist lichte huidskleur	none
-🫰🏼	hand met wijsvinger en duim gekruist lichtgetinte huidskleur	none
-🫰🏽	hand met wijsvinger en duim gekruist getinte huidskleur	none
-🫰🏾	hand met wijsvinger en duim gekruist donkergetinte huidskleur	none
-🫰🏿	hand met wijsvinger en duim gekruist donkere huidskleur	none
+👋🏻	zwaaiende hand lichte huidskleur	none
+👋🏼	zwaaiende hand lichtgetinte huidskleur	none
+👋🏽	zwaaiende hand getinte huidskleur	none
+👋🏾	zwaaiende hand donkergetinte huidskleur	none
+👋🏿	zwaaiende hand donkere huidskleur	none
+🤚🏻	achterkant van opgeheven hand lichte huidskleur	none
+🤚🏼	achterkant van opgeheven hand lichtgetinte huidskleur	none
+🤚🏽	achterkant van opgeheven hand getinte huidskleur	none
+🤚🏾	achterkant van opgeheven hand donkergetinte huidskleur	none
+🤚🏿	achterkant van opgeheven hand donkere huidskleur	none
+🖐🏻	opgeheven hand met uitgestoken vingers lichte huidskleur	none
+🖐🏼	opgeheven hand met uitgestoken vingers lichtgetinte huidskleur	none
+🖐🏽	opgeheven hand met uitgestoken vingers getinte huidskleur	none
+🖐🏾	opgeheven hand met uitgestoken vingers donkergetinte huidskleur	none
+🖐🏿	opgeheven hand met uitgestoken vingers donkere huidskleur	none
+✋🏻	opgeheven hand lichte huidskleur	none
+✋🏼	opgeheven hand lichtgetinte huidskleur	none
+✋🏽	opgeheven hand getinte huidskleur	none
+✋🏾	opgeheven hand donkergetinte huidskleur	none
+✋🏿	opgeheven hand donkere huidskleur	none
+🖖🏻	Vulcaanse groet lichte huidskleur	none
+🖖🏼	Vulcaanse groet lichtgetinte huidskleur	none
+🖖🏽	Vulcaanse groet getinte huidskleur	none
+🖖🏾	Vulcaanse groet donkergetinte huidskleur	none
+🖖🏿	Vulcaanse groet donkere huidskleur	none
 🫱🏻	hand naar rechts lichte huidskleur	none
 🫱🏼	hand naar rechts lichtgetinte huidskleur	none
 🫱🏽	hand naar rechts getinte huidskleur	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	handpalm omhoog getinte huidskleur	none
 🫴🏾	handpalm omhoog donkergetinte huidskleur	none
 🫴🏿	handpalm omhoog donkere huidskleur	none
-🫵🏻	wijsvinger die naar de kijker wijst lichte huidskleur	none
-🫵🏼	wijsvinger die naar de kijker wijst lichtgetinte huidskleur	none
-🫵🏽	wijsvinger die naar de kijker wijst getinte huidskleur	none
-🫵🏾	wijsvinger die naar de kijker wijst donkergetinte huidskleur	none
-🫵🏿	wijsvinger die naar de kijker wijst donkere huidskleur	none
-🫶🏻	handen in de vorm van een hart lichte huidskleur	none
-🫶🏼	handen in de vorm van een hart lichtgetinte huidskleur	none
-🫶🏽	handen in de vorm van een hart getinte huidskleur	none
-🫶🏾	handen in de vorm van een hart donkergetinte huidskleur	none
-🫶🏿	handen in de vorm van een hart donkere huidskleur	none
-👋🏻	zwaaiende hand lichte huidskleur	none
-👋🏼	zwaaiende hand lichtgetinte huidskleur	none
-👋🏽	zwaaiende hand getinte huidskleur	none
-👋🏾	zwaaiende hand donkergetinte huidskleur	none
-👋🏿	zwaaiende hand donkere huidskleur	none
-🤚🏻	achterkant van opgeheven hand lichte huidskleur	none
-🤚🏼	achterkant van opgeheven hand lichtgetinte huidskleur	none
-🤚🏽	achterkant van opgeheven hand getinte huidskleur	none
-🤚🏾	achterkant van opgeheven hand donkergetinte huidskleur	none
-🤚🏿	achterkant van opgeheven hand donkere huidskleur	none
-🖐🏻	opgeheven hand met uitgestoken vingers lichte huidskleur	none
-🖐🏼	opgeheven hand met uitgestoken vingers lichtgetinte huidskleur	none
-🖐🏽	opgeheven hand met uitgestoken vingers getinte huidskleur	none
-🖐🏾	opgeheven hand met uitgestoken vingers donkergetinte huidskleur	none
-🖐🏿	opgeheven hand met uitgestoken vingers donkere huidskleur	none
-✋🏻	opgeheven hand lichte huidskleur	none
-✋🏼	opgeheven hand lichtgetinte huidskleur	none
-✋🏽	opgeheven hand getinte huidskleur	none
-✋🏾	opgeheven hand donkergetinte huidskleur	none
-✋🏿	opgeheven hand donkere huidskleur	none
-🖖🏻	Vulcaanse groet lichte huidskleur	none
-🖖🏼	Vulcaanse groet lichtgetinte huidskleur	none
-🖖🏽	Vulcaanse groet getinte huidskleur	none
-🖖🏾	Vulcaanse groet donkergetinte huidskleur	none
-🖖🏿	Vulcaanse groet donkere huidskleur	none
+🫷🏻	hand die naar links duwt lichte huidskleur	none
+🫷🏼	hand die naar links duwt lichtgetinte huidskleur	none
+🫷🏽	hand die naar links duwt getinte huidskleur	none
+🫷🏾	hand die naar links duwt donkergetinte huidskleur	none
+🫷🏿	hand die naar links duwt donkere huidskleur	none
+🫸🏻	hand die naar rechts duwt lichte huidskleur	none
+🫸🏼	hand die naar rechts duwt lichtgetinte huidskleur	none
+🫸🏽	hand die naar rechts duwt getinte huidskleur	none
+🫸🏾	hand die naar rechts duwt donkergetinte huidskleur	none
+🫸🏿	hand die naar rechts duwt donkere huidskleur	none
 👌🏻	OK-handgebaar lichte huidskleur	none
 👌🏼	OK-handgebaar lichtgetinte huidskleur	none
 👌🏽	OK-handgebaar getinte huidskleur	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	gekruiste vingers getinte huidskleur	none
 🤞🏾	gekruiste vingers donkergetinte huidskleur	none
 🤞🏿	gekruiste vingers donkere huidskleur	none
+🫰🏻	hand met wijsvinger en duim gekruist lichte huidskleur	none
+🫰🏼	hand met wijsvinger en duim gekruist lichtgetinte huidskleur	none
+🫰🏽	hand met wijsvinger en duim gekruist getinte huidskleur	none
+🫰🏾	hand met wijsvinger en duim gekruist donkergetinte huidskleur	none
+🫰🏿	hand met wijsvinger en duim gekruist donkere huidskleur	none
 🤟🏻	ik-hou-van-je-gebaar lichte huidskleur	none
 🤟🏼	ik-hou-van-je-gebaar lichtgetinte huidskleur	none
 🤟🏽	ik-hou-van-je-gebaar getinte huidskleur	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	omhoog wijzende wijsvinger getinte huidskleur	none
 ☝🏾	omhoog wijzende wijsvinger donkergetinte huidskleur	none
 ☝🏿	omhoog wijzende wijsvinger donkere huidskleur	none
+🫵🏻	wijsvinger die naar de kijker wijst lichte huidskleur	none
+🫵🏼	wijsvinger die naar de kijker wijst lichtgetinte huidskleur	none
+🫵🏽	wijsvinger die naar de kijker wijst getinte huidskleur	none
+🫵🏾	wijsvinger die naar de kijker wijst donkergetinte huidskleur	none
+🫵🏿	wijsvinger die naar de kijker wijst donkere huidskleur	none
 👍🏻	duim omhoog lichte huidskleur	none
 👍🏼	duim omhoog lichtgetinte huidskleur	none
 👍🏽	duim omhoog getinte huidskleur	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	juichend omhooggestoken handen getinte huidskleur	none
 🙌🏾	juichend omhooggestoken handen donkergetinte huidskleur	none
 🙌🏿	juichend omhooggestoken handen donkere huidskleur	none
+🫶🏻	handen in de vorm van een hart lichte huidskleur	none
+🫶🏼	handen in de vorm van een hart lichtgetinte huidskleur	none
+🫶🏽	handen in de vorm van een hart getinte huidskleur	none
+🫶🏾	handen in de vorm van een hart donkergetinte huidskleur	none
+🫶🏿	handen in de vorm van een hart donkere huidskleur	none
 👐🏻	open handen lichte huidskleur	none
 👐🏼	open handen lichtgetinte huidskleur	none
 👐🏽	open handen getinte huidskleur	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	vrouwelijke bouwvakker getinte huidskleur	none
 👷🏾‍♀	vrouwelijke bouwvakker donkergetinte huidskleur	none
 👷🏿‍♀	vrouwelijke bouwvakker donkere huidskleur	none
+🫅🏻	persoon met kroon lichte huidskleur	none
+🫅🏼	persoon met kroon lichtgetinte huidskleur	none
+🫅🏽	persoon met kroon getinte huidskleur	none
+🫅🏾	persoon met kroon donkergetinte huidskleur	none
+🫅🏿	persoon met kroon donkere huidskleur	none
 🤴🏻	prins lichte huidskleur	none
 🤴🏼	prins lichtgetinte huidskleur	none
 🤴🏽	prins getinte huidskleur	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	zwangere vrouw getinte huidskleur	none
 🤰🏾	zwangere vrouw donkergetinte huidskleur	none
 🤰🏿	zwangere vrouw donkere huidskleur	none
+🫃🏻	zwangere man lichte huidskleur	none
+🫃🏼	zwangere man lichtgetinte huidskleur	none
+🫃🏽	zwangere man getinte huidskleur	none
+🫃🏾	zwangere man donkergetinte huidskleur	none
+🫃🏿	zwangere man donkere huidskleur	none
+🫄🏻	zwanger persoon lichte huidskleur	none
+🫄🏼	zwanger persoon lichtgetinte huidskleur	none
+🫄🏽	zwanger persoon getinte huidskleur	none
+🫄🏾	zwanger persoon donkergetinte huidskleur	none
+🫄🏿	zwanger persoon donkere huidskleur	none
 🤱🏻	borstvoeding lichte huidskleur	none
 🤱🏼	borstvoeding lichtgetinte huidskleur	none
 🤱🏽	borstvoeding getinte huidskleur	none

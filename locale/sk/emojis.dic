@@ -264,43 +264,6 @@ symbols:
 ⪺	nasleduje nad nie je približne rovné	none
 ♭	zníženie tónu	none
 ♯	zvýšenie tónu	none
-🥹	tvár zadržujúca slzy	none
-🧌	obor	none
-🩻	röntgen	none
-🩼	barla	none
-🪩	zrkadlová guľa	none
-🪪	preukaz	none
-🪫	slabá batéria	none
-🪬	hamsa	none
-🪷	lotos	none
-🪸	koral	none
-🪹	prázdne hniezdo	none
-🪺	hniezdo s vajcami	none
-🫃	tehotný muž	none
-🫄	tehotná osoba	none
-🫅	osoba s korunou	none
-🫗	liatie	none
-🫘	fazuľa	none
-🫙	pohár	none
-🫠	roztopená tvár	none
-🫡	salutujúca tvár	none
-🫢	tvár s otvorenými očami a rukou na ústach	none
-🫣	tvár vykúkajúca pomedzi prsty	none
-🫤	tvár so šikmými ústami	none
-🫥	tvár s prerušovanou čiarou	none
-🫦	zahryznutie do pery	none
-🫧	bubliny	none
-🫰	ruka s prekríženým ukazovákom a palcom	none
-🫱	ruka doprava	none
-🫲	ruka doľava	none
-🫳	ruka dlaňou nadol	none
-🫴	ruka dlaňou nahor	none
-🫵	ukazovanie ukazovákom	none
-🫶	srdce z dlaní	none
-🛝	šmykľavka	none
-🛞	koleso	none
-🛟	záchranné koleso	none
-🟰	rovné	none
 😀	škeriaca sa tvár	none
 😃	škeriaca sa tvár s veľkými očami	none
 😄	škeriaca sa tvár s prižmúrenými očami	none
@@ -311,6 +274,7 @@ symbols:
 😂	plačem od smiechu	none
 🙂	usmievajúca sa tvár	none
 🙃	prevrátená tvár	none
+🫠	roztopená tvár	none
 😉	žmurkajúca tvár	none
 😊	smejúca sa tvár s prižmúrenými očami	none
 😇	smejúca sa tvár so svätožiarou	none
@@ -331,13 +295,17 @@ symbols:
 🤑	tvár s peniazmi na jazyku	none
 🤗	objímajúca tvár	none
 🤭	tvár s rukou na ústach	none
+🫢	tvár s otvorenými očami a rukou na ústach	none
+🫣	tvár vykúkajúca pomedzi prsty	none
 🤫	tvár s prstom na ústach	none
 🤔	premýšľajúca tvár	none
+🫡	salutujúca tvár	none
 🤐	tvár so zazipsovanými ústami	none
 🤨	tvár so zdvihnutým obočím	none
 😐	neutrálna tvár	none
 😑	bezvýrazná tvár	none
 😶	tvár bez úst	none
+🫥	tvár s prerušovanou čiarou	none
 😶‍🌫	tvár v oblakoch	none
 😏	samoľúba tvár	none
 😒	znudená tvár	none
@@ -345,6 +313,7 @@ symbols:
 😬	vyškerená tvár	none
 😮‍💨	vydychujúca tvár	none
 🤥	tvár s dlhým nosom	none
+🫨	roztrasená tvár	none
 😌	tvár vyjadrujúca úľavu	none
 😔	zamyslená tvár	none
 😪	ospalá tvár	none
@@ -369,6 +338,7 @@ symbols:
 🤓	vedátor	none
 🧐	tvár s monoklom	none
 😕	zmätená tvár	none
+🫤	tvár so šikmými ústami	none
 😟	ustaraná tvár	none
 🙁	trochu zamračená tvár	none
 ☹	zamračená tvár	none
@@ -377,6 +347,7 @@ symbols:
 😲	udivená tvár	none
 😳	zapýrená tvár	none
 🥺	prosebná tvár	none
+🥹	tvár zadržujúca slzy	none
 😦	zamračená tvár s otvorenými ústami	none
 😧	utrápená tvár	none
 😨	vystrašená tvár	none
@@ -420,7 +391,6 @@ symbols:
 🙈	nevidím zlo	none
 🙉	nepočujem zlo	none
 🙊	nehovorím zlo	none
-💋	odtlačok pier	none
 💌	ľúbostný list	none
 💘	srdce so šípom	none
 💝	srdce so stuhou	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	horiace srdce	none
 ❤‍🩹	srdce s obväzom	none
 ❤	červené srdce	none
+🩷	ružové srdce	none
 🧡	oranžové srdce	none
 💛	žlté srdce	none
 💚	zelené srdce	none
 💙	modré srdce	none
+🩵	svetlomodré srdce	none
 💜	fialové srdce	none
 🤎	hnedé srdce	none
 🖤	čierne srdce	none
+🩶	sivé srdce	none
 🤍	biele srdce	none
+💋	odtlačok pier	none
 💯	sto bodov	none
 💢	symbol hnevu	none
 💥	zrážka	none
@@ -450,7 +424,6 @@ symbols:
 💦	kvapky potu	none
 💨	utekám	none
 🕳	jama	none
-💣	bomba	none
 💬	reč	none
 👁‍🗨	oko v bubline	none
 🗨	ľavá bublina	none
@@ -462,11 +435,18 @@ symbols:
 🖐	roztiahnutá ruka	none
 ✋	zdvihnutá ruka	none
 🖖	vulkánsky pozdrav	none
+🫱	ruka doprava	none
+🫲	ruka doľava	none
+🫳	ruka dlaňou nadol	none
+🫴	ruka dlaňou nahor	none
+🫷	ruka tlačiaca vľavo	none
+🫸	ruka tlačiaca vpravo	none
 👌	výborne	none
 🤌	štipka	none
 🤏	málo	none
 ✌	víťazstvo	none
 🤞	držím palce	none
+🫰	ruka s prekríženým ukazovákom a palcom	none
 🤟	ľúbim ťa	none
 🤘	paroháč	none
 🤙	zavoláme si	none
@@ -476,6 +456,7 @@ symbols:
 🖕	prostredník	none
 👇	ukazovák spakruky nadol	none
 ☝	ukazovák nahor	none
+🫵	ukazovanie ukazovákom	none
 👍	palec nahor	none
 👎	palec nadol	none
 ✊	zdvihnutá päsť	none
@@ -484,6 +465,7 @@ symbols:
 🤜	päsť doprava	none
 👏	tlieskajúce ruky	none
 🙌	zdvihnuté ruky	none
+🫶	srdce z dlaní	none
 👐	roztvorené dlane	none
 🤲	zdvihnuté dlane	none
 🤝	potrasenie rukami	none
@@ -508,6 +490,7 @@ symbols:
 👁	oko	none
 👅	jazyk	none
 👄	ústa	none
+🫦	zahryznutie do pery	none
 👶	bábätko	none
 🧒	dieťa	none
 👦	chlapec	none
@@ -615,6 +598,7 @@ symbols:
 👷	pracovník na stavbe	none
 👷‍♂	stavbár	none
 👷‍♀	stavbárka	none
+🫅	osoba s korunou	none
 🤴	princ	none
 👸	princezná	none
 👳	človek s turbanom	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	muž so závojom	none
 👰‍♀	žena so závojom	none
 🤰	tehotná žena	none
+🫃	tehotný muž	none
+🫄	tehotná osoba	none
 🤱	dojčenie	none
 👩‍🍼	žena kŕmiaca bábätko	none
 👨‍🍼	muž kŕmiaci bábätko	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombia	none
 🧟‍♂	mužská zombia	none
 🧟‍♀	ženská zombia	none
+🧌	obor	none
 💆	masáž tváre	none
 💆‍♂	muž dostáva masáž tváre	none
 💆‍♀	žena dostáva masáž tváre	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tiger	none
 🐆	leopard	none
 🐴	hlava koňa	none
+🫎	los	none
+🫏	somár	none
 🐎	kôň	none
 🦄	jednorožec	none
 🦓	zebra	none
@@ -849,6 +838,8 @@ symbols:
 🦩	plameniak	none
 🦚	páv	none
 🦜	papagáj	none
+🪽	krídlo	none
+🪿	hus	none
 🐸	žaba	none
 🐊	krokodíl	none
 🐢	korytnačka	none
@@ -868,6 +859,8 @@ symbols:
 🦈	žralok	none
 🐙	chobotnica	none
 🐚	špirálovitá mušľa	none
+🪸	koral	none
+🪼	medúza	none
 🐌	slimák	none
 🦋	motýľ	none
 🐛	húsenica	none
@@ -887,6 +880,7 @@ symbols:
 💐	kytica	none
 🌸	čerešňový kvet	none
 💮	biely kvet	none
+🪷	lotos	none
 🏵	ružička	none
 🌹	ruža	none
 🥀	zvädnutá kvetina	none
@@ -894,6 +888,7 @@ symbols:
 🌻	slnečnica	none
 🌼	kvet	none
 🌷	tulipán	none
+🪻	hyacint	none
 🌱	sadenica	none
 🪴	kvetináč	none
 🌲	ihličnatý strom	none
@@ -907,6 +902,9 @@ symbols:
 🍁	javorový list	none
 🍂	opadnutý list	none
 🍃	list vo vetre	none
+🪹	prázdne hniezdo	none
+🪺	hniezdo s vajcami	none
+🍄	huba	none
 🍇	hrozno	none
 🍈	cukrový melón	none
 🍉	melón	none
@@ -938,9 +936,11 @@ symbols:
 🥦	brokolica	none
 🧄	cesnak	none
 🧅	cibuľa	none
-🍄	huba	none
 🥜	arašidy	none
+🫘	fazuľa	none
 🌰	gaštan	none
+🫚	koreň ďumbiera	none
+🫛	hrachový struk	none
 🍞	chlieb	none
 🥐	croissant	none
 🥖	bageta	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	štrngajúce pivové poháre	none
 🥂	štrngajúce poháriky	none
 🥃	pohár na whisky	none
+🫗	liatie	none
 🥤	pohár so slamkou	none
 🧋	perlivý čaj	none
 🧃	nápoj v krabičke	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	vidlička a nôž	none
 🥄	lyžica	none
 🔪	kuchynský nôž	none
+🫙	pohár	none
 🏺	amfora	none
 🌍	zemeguľa s Európou a Afrikou	none
 🌎	zemeguľa s Amerikou	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	most v noci	none
 ♨	horúce pramene	none
 🎠	kolotočový kôň	none
+🛝	šmykľavka	none
 🎡	ruské koleso	none
 🎢	horská dráha	none
 💈	pútač holičstva	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	železničná trať	none
 🛢	barel	none
 ⛽	čerpacia stanica	none
+🛞	koleso	none
 🚨	policajný maják	none
 🚥	vodorovný semafor	none
 🚦	zvislý semafor	none
 🛑	značka stop	none
 🚧	práce na ceste	none
 ⚓	kotva	none
+🛟	záchranné koleso	none
 ⛵	plachetnica	none
 🛶	kanoe	none
 🚤	rýchly čln	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	presný zásah	none
 🪀	jojo	none
 🪁	papierový šarkan	none
+🔫	vodná pištoľ	none
 🎱	biliardová guľa č. 8	none
 🔮	krištáľová guľa	none
 🪄	kúzelná palička	none
-🧿	nazar	none
 🎮	videohra	none
 🕹	joystick	none
 🎰	výherný automat	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	skladačka	none
 🧸	medvedík	none
 🪅	piñata	none
+🪩	zrkadlová guľa	none
 🪆	matriošky	none
 ♠	pika	none
 ♥	srdce	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	šortky	none
 👙	bikini	none
 👚	dámske oblečenie	none
+🪭	skladací vejár	none
 👛	peňaženka	none
 👜	kabelka	none
 👝	malá kabelka	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	dámsky sandál	none
 🩰	baletné špice	none
 👢	dámska čižma	none
+🪮	hrebeň na kučeravé vlasy	none
 👑	koruna	none
 👒	dámsky klobúk	none
 🎩	cylinder	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	bendžo	none
 🥁	bubon	none
 🪘	kongo	none
+🪇	rumbagule	none
+🪈	píšťalka	none
 📱	mobil	none
 📲	mobil so šípkou	none
 ☎	telefón	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	pejdžer	none
 📠	fax	none
 🔋	batéria	none
+🪫	slabá batéria	none
 🔌	zástrčka	none
 💻	prenosný počítač	none
 🖥	stolný počítač	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	kladivo a kľúč	none
 🗡	dýka	none
 ⚔	prekrížené meče	none
-🔫	vodná pištoľ	none
+💣	bomba	none
 🪃	bumerang	none
 🏹	luk a šíp	none
 🛡	štít	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	kvapka krvi	none
 💊	tabletka	none
 🩹	náplasť	none
+🩼	barla	none
 🩺	stetoskop	none
+🩻	röntgen	none
 🚪	dvere	none
 🛗	výťah	none
 🪞	zrkadlo	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	rolka papiera	none
 🪣	vedro	none
 🧼	mydlo	none
+🫧	bubliny	none
 🪥	zubná kefka	none
 🧽	špongia	none
 🧯	hasiaci prístroj	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	rakva	none
 🪦	náhrobok	none
 ⚱	pohrebná urna	none
+🧿	nazar	none
+🪬	hamsa	none
 🗿	socha moai	none
 🪧	transparent	none
+🪪	preukaz	none
 🏧	bankomat	none
 🚮	symbol odpadkového koša	none
 🚰	pitná voda	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	symbol mieru	none
 🕎	menóra	none
 🔯	šesťcípa hviezda s bodkou uprostred	none
+🪯	khanda	none
 ♈	znamenie barana	none
 ♉	znamenie býka	none
 ♊	znamenie blížencov	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	tlačidlo stlmenia jasu	none
 🔆	tlačidlo jasu	none
 📶	sila signálu	none
+🛜	bezdrôtový	none
 📳	vibračný režim	none
 📴	vypnutý mobil	none
 ♀	ženský symbol	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	plus	none
 ➖	mínus	none
 ➗	deleno	none
+🟰	rovné	none
 ♾	nekonečno	none
 ❓	červený otáznik	none
 ❔	biely otáznik	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	rubeľ	none
 ₿	bitcoin	none
 ₨	rupie	none
-🫃🏻	tehotný muž svetlý tón pleti	none
-🫃🏼	tehotný muž stredne svetlý tón pleti	none
-🫃🏽	tehotný muž stredný tón pleti	none
-🫃🏾	tehotný muž stredne tmavý tón pleti	none
-🫃🏿	tehotný muž tmavý tón pleti	none
-🫄🏻	tehotná osoba svetlý tón pleti	none
-🫄🏼	tehotná osoba stredne svetlý tón pleti	none
-🫄🏽	tehotná osoba stredný tón pleti	none
-🫄🏾	tehotná osoba stredne tmavý tón pleti	none
-🫄🏿	tehotná osoba tmavý tón pleti	none
-🫅🏻	osoba s korunou svetlý tón pleti	none
-🫅🏼	osoba s korunou stredne svetlý tón pleti	none
-🫅🏽	osoba s korunou stredný tón pleti	none
-🫅🏾	osoba s korunou stredne tmavý tón pleti	none
-🫅🏿	osoba s korunou tmavý tón pleti	none
-🫰🏻	ruka s prekríženým ukazovákom a palcom svetlý tón pleti	none
-🫰🏼	ruka s prekríženým ukazovákom a palcom stredne svetlý tón pleti	none
-🫰🏽	ruka s prekríženým ukazovákom a palcom stredný tón pleti	none
-🫰🏾	ruka s prekríženým ukazovákom a palcom stredne tmavý tón pleti	none
-🫰🏿	ruka s prekríženým ukazovákom a palcom tmavý tón pleti	none
+👋🏻	mávajúca ruka svetlý tón pleti	none
+👋🏼	mávajúca ruka stredne svetlý tón pleti	none
+👋🏽	mávajúca ruka stredný tón pleti	none
+👋🏾	mávajúca ruka stredne tmavý tón pleti	none
+👋🏿	mávajúca ruka tmavý tón pleti	none
+🤚🏻	zdvihnutá ruka spakruky svetlý tón pleti	none
+🤚🏼	zdvihnutá ruka spakruky stredne svetlý tón pleti	none
+🤚🏽	zdvihnutá ruka spakruky stredný tón pleti	none
+🤚🏾	zdvihnutá ruka spakruky stredne tmavý tón pleti	none
+🤚🏿	zdvihnutá ruka spakruky tmavý tón pleti	none
+🖐🏻	roztiahnutá ruka svetlý tón pleti	none
+🖐🏼	roztiahnutá ruka stredne svetlý tón pleti	none
+🖐🏽	roztiahnutá ruka stredný tón pleti	none
+🖐🏾	roztiahnutá ruka stredne tmavý tón pleti	none
+🖐🏿	roztiahnutá ruka tmavý tón pleti	none
+✋🏻	zdvihnutá ruka svetlý tón pleti	none
+✋🏼	zdvihnutá ruka stredne svetlý tón pleti	none
+✋🏽	zdvihnutá ruka stredný tón pleti	none
+✋🏾	zdvihnutá ruka stredne tmavý tón pleti	none
+✋🏿	zdvihnutá ruka tmavý tón pleti	none
+🖖🏻	vulkánsky pozdrav svetlý tón pleti	none
+🖖🏼	vulkánsky pozdrav stredne svetlý tón pleti	none
+🖖🏽	vulkánsky pozdrav stredný tón pleti	none
+🖖🏾	vulkánsky pozdrav stredne tmavý tón pleti	none
+🖖🏿	vulkánsky pozdrav tmavý tón pleti	none
 🫱🏻	ruka doprava svetlý tón pleti	none
 🫱🏼	ruka doprava stredne svetlý tón pleti	none
 🫱🏽	ruka doprava stredný tón pleti	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	ruka dlaňou nahor stredný tón pleti	none
 🫴🏾	ruka dlaňou nahor stredne tmavý tón pleti	none
 🫴🏿	ruka dlaňou nahor tmavý tón pleti	none
-🫵🏻	ukazovanie ukazovákom svetlý tón pleti	none
-🫵🏼	ukazovanie ukazovákom stredne svetlý tón pleti	none
-🫵🏽	ukazovanie ukazovákom stredný tón pleti	none
-🫵🏾	ukazovanie ukazovákom stredne tmavý tón pleti	none
-🫵🏿	ukazovanie ukazovákom tmavý tón pleti	none
-🫶🏻	srdce z dlaní svetlý tón pleti	none
-🫶🏼	srdce z dlaní stredne svetlý tón pleti	none
-🫶🏽	srdce z dlaní stredný tón pleti	none
-🫶🏾	srdce z dlaní stredne tmavý tón pleti	none
-🫶🏿	srdce z dlaní tmavý tón pleti	none
-👋🏻	mávajúca ruka svetlý tón pleti	none
-👋🏼	mávajúca ruka stredne svetlý tón pleti	none
-👋🏽	mávajúca ruka stredný tón pleti	none
-👋🏾	mávajúca ruka stredne tmavý tón pleti	none
-👋🏿	mávajúca ruka tmavý tón pleti	none
-🤚🏻	zdvihnutá ruka spakruky svetlý tón pleti	none
-🤚🏼	zdvihnutá ruka spakruky stredne svetlý tón pleti	none
-🤚🏽	zdvihnutá ruka spakruky stredný tón pleti	none
-🤚🏾	zdvihnutá ruka spakruky stredne tmavý tón pleti	none
-🤚🏿	zdvihnutá ruka spakruky tmavý tón pleti	none
-🖐🏻	roztiahnutá ruka svetlý tón pleti	none
-🖐🏼	roztiahnutá ruka stredne svetlý tón pleti	none
-🖐🏽	roztiahnutá ruka stredný tón pleti	none
-🖐🏾	roztiahnutá ruka stredne tmavý tón pleti	none
-🖐🏿	roztiahnutá ruka tmavý tón pleti	none
-✋🏻	zdvihnutá ruka svetlý tón pleti	none
-✋🏼	zdvihnutá ruka stredne svetlý tón pleti	none
-✋🏽	zdvihnutá ruka stredný tón pleti	none
-✋🏾	zdvihnutá ruka stredne tmavý tón pleti	none
-✋🏿	zdvihnutá ruka tmavý tón pleti	none
-🖖🏻	vulkánsky pozdrav svetlý tón pleti	none
-🖖🏼	vulkánsky pozdrav stredne svetlý tón pleti	none
-🖖🏽	vulkánsky pozdrav stredný tón pleti	none
-🖖🏾	vulkánsky pozdrav stredne tmavý tón pleti	none
-🖖🏿	vulkánsky pozdrav tmavý tón pleti	none
+🫷🏻	ruka tlačiaca vľavo svetlý tón pleti	none
+🫷🏼	ruka tlačiaca vľavo stredne svetlý tón pleti	none
+🫷🏽	ruka tlačiaca vľavo stredný tón pleti	none
+🫷🏾	ruka tlačiaca vľavo stredne tmavý tón pleti	none
+🫷🏿	ruka tlačiaca vľavo tmavý tón pleti	none
+🫸🏻	ruka tlačiaca vpravo svetlý tón pleti	none
+🫸🏼	ruka tlačiaca vpravo stredne svetlý tón pleti	none
+🫸🏽	ruka tlačiaca vpravo stredný tón pleti	none
+🫸🏾	ruka tlačiaca vpravo stredne tmavý tón pleti	none
+🫸🏿	ruka tlačiaca vpravo tmavý tón pleti	none
 👌🏻	výborne svetlý tón pleti	none
 👌🏼	výborne stredne svetlý tón pleti	none
 👌🏽	výborne stredný tón pleti	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	držím palce stredný tón pleti	none
 🤞🏾	držím palce stredne tmavý tón pleti	none
 🤞🏿	držím palce tmavý tón pleti	none
+🫰🏻	ruka s prekríženým ukazovákom a palcom svetlý tón pleti	none
+🫰🏼	ruka s prekríženým ukazovákom a palcom stredne svetlý tón pleti	none
+🫰🏽	ruka s prekríženým ukazovákom a palcom stredný tón pleti	none
+🫰🏾	ruka s prekríženým ukazovákom a palcom stredne tmavý tón pleti	none
+🫰🏿	ruka s prekríženým ukazovákom a palcom tmavý tón pleti	none
 🤟🏻	ľúbim ťa svetlý tón pleti	none
 🤟🏼	ľúbim ťa stredne svetlý tón pleti	none
 🤟🏽	ľúbim ťa stredný tón pleti	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	ukazovák nahor stredný tón pleti	none
 ☝🏾	ukazovák nahor stredne tmavý tón pleti	none
 ☝🏿	ukazovák nahor tmavý tón pleti	none
+🫵🏻	ukazovanie ukazovákom svetlý tón pleti	none
+🫵🏼	ukazovanie ukazovákom stredne svetlý tón pleti	none
+🫵🏽	ukazovanie ukazovákom stredný tón pleti	none
+🫵🏾	ukazovanie ukazovákom stredne tmavý tón pleti	none
+🫵🏿	ukazovanie ukazovákom tmavý tón pleti	none
 👍🏻	palec nahor svetlý tón pleti	none
 👍🏼	palec nahor stredne svetlý tón pleti	none
 👍🏽	palec nahor stredný tón pleti	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	zdvihnuté ruky stredný tón pleti	none
 🙌🏾	zdvihnuté ruky stredne tmavý tón pleti	none
 🙌🏿	zdvihnuté ruky tmavý tón pleti	none
+🫶🏻	srdce z dlaní svetlý tón pleti	none
+🫶🏼	srdce z dlaní stredne svetlý tón pleti	none
+🫶🏽	srdce z dlaní stredný tón pleti	none
+🫶🏾	srdce z dlaní stredne tmavý tón pleti	none
+🫶🏿	srdce z dlaní tmavý tón pleti	none
 👐🏻	roztvorené dlane svetlý tón pleti	none
 👐🏼	roztvorené dlane stredne svetlý tón pleti	none
 👐🏽	roztvorené dlane stredný tón pleti	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	stavbárka stredný tón pleti	none
 👷🏾‍♀	stavbárka stredne tmavý tón pleti	none
 👷🏿‍♀	stavbárka tmavý tón pleti	none
+🫅🏻	osoba s korunou svetlý tón pleti	none
+🫅🏼	osoba s korunou stredne svetlý tón pleti	none
+🫅🏽	osoba s korunou stredný tón pleti	none
+🫅🏾	osoba s korunou stredne tmavý tón pleti	none
+🫅🏿	osoba s korunou tmavý tón pleti	none
 🤴🏻	princ svetlý tón pleti	none
 🤴🏼	princ stredne svetlý tón pleti	none
 🤴🏽	princ stredný tón pleti	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	tehotná žena stredný tón pleti	none
 🤰🏾	tehotná žena stredne tmavý tón pleti	none
 🤰🏿	tehotná žena tmavý tón pleti	none
+🫃🏻	tehotný muž svetlý tón pleti	none
+🫃🏼	tehotný muž stredne svetlý tón pleti	none
+🫃🏽	tehotný muž stredný tón pleti	none
+🫃🏾	tehotný muž stredne tmavý tón pleti	none
+🫃🏿	tehotný muž tmavý tón pleti	none
+🫄🏻	tehotná osoba svetlý tón pleti	none
+🫄🏼	tehotná osoba stredne svetlý tón pleti	none
+🫄🏽	tehotná osoba stredný tón pleti	none
+🫄🏾	tehotná osoba stredne tmavý tón pleti	none
+🫄🏿	tehotná osoba tmavý tón pleti	none
 🤱🏻	dojčenie svetlý tón pleti	none
 🤱🏼	dojčenie stredne svetlý tón pleti	none
 🤱🏽	dojčenie stredný tón pleti	none
