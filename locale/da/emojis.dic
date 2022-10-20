@@ -264,43 +264,6 @@ symbols:
 ⪺	følger efter over ikke cirka lig med	none
 ♭	tone med b for	none
 ♯	tone med kryds for	none
-🥹	ansigt, der holder tårer tilbage	none
-🧌	trold	none
-🩻	røntgen	none
-🩼	krykke	none
-🪩	diskokugle	none
-🪪	legitimationskort	none
-🪫	lavt batteriniveau	none
-🪬	hamsa	none
-🪷	lotus	none
-🪸	koral	none
-🪹	tom rede	none
-🪺	rede med æg	none
-🫃	gravid mand	none
-🫄	gravid person	none
-🫅	person med krone	none
-🫗	hælde vand	none
-🫘	bønner	none
-🫙	krukke	none
-🫠	smeltende ansigt	none
-🫡	ansigt, der gør honnør	none
-🫢	ansigt med åbne øjne og hånden over munden	none
-🫣	ansigt, der smugkigger	none
-🫤	ansigt med skrå mund	none
-🫥	stiplet linje ansigt	none
-🫦	bider i læben	none
-🫧	bobler	none
-🫰	krydset pegefinger og tommelfinger	none
-🫱	hånd til højre	none
-🫲	hånd til venstre	none
-🫳	håndflade nedad	none
-🫴	håndflade opad	none
-🫵	peger på seeren	none
-🫶	hjertehænder	none
-🛝	legeplads-rutsjebane	none
-🛞	hjul	none
-🛟	redningskrans	none
-🟰	fedt lighedstegn	none
 😀	grinende ansigt	none
 😃	grinende ansigt med store øjne	none
 😄	grinende ansigt med smilende øjne	none
@@ -311,6 +274,7 @@ symbols:
 😂	ansigt med glædestårer	none
 🙂	let smilende ansigt	none
 🙃	omvendt ansigt	none
+🫠	smeltende ansigt	none
 😉	blinkende ansigt	none
 😊	smilende ansigt og øjne	none
 😇	smilende ansigt med glorie	none
@@ -331,13 +295,17 @@ symbols:
 🤑	ansigt med dollartegn	none
 🤗	krammende ansigt	none
 🤭	ansigt med hånd over munden	none
+🫢	ansigt med åbne øjne og hånden over munden	none
+🫣	ansigt, der smugkigger	none
 🤫	tyssende ansigt	none
 🤔	tænkende ansigt	none
+🫡	ansigt, der gør honnør	none
 🤐	ansigt med lynlåsmund	none
 🤨	ansigt med løftet øjenbryn	none
 😐	neutralt ansigt	none
 😑	udtryksløst ansigt	none
 😶	ansigt uden mund	none
+🫥	stiplet linje ansigt	none
 😶‍🌫	ansigt i sky	none
 😏	ansigt med smørret grin	none
 😒	uimponeret ansigt	none
@@ -345,6 +313,7 @@ symbols:
 😬	sammenbidt ansigt	none
 😮‍💨	udåndende ansigt	none
 🤥	løgneransigt	none
+🫨	rystende ansigt	none
 😌	lettet ansigt	none
 😔	eftertænksomt ansigt	none
 😪	søvnigt ansigt	none
@@ -369,6 +338,7 @@ symbols:
 🤓	nørdansigt	none
 🧐	ansigt med monokel	none
 😕	forvirret ansigt	none
+🫤	ansigt med skrå mund	none
 😟	bekymret ansigt	none
 🙁	lidt trist ansigt	none
 ☹	trist ansigt	none
@@ -377,6 +347,7 @@ symbols:
 😲	overrasket ansigt	none
 😳	rødmende ansigt	none
 🥺	bønfaldende ansigt	none
+🥹	ansigt, der holder tårer tilbage	none
 😦	måbende ansigt med åben mund	none
 😧	forpint ansigt	none
 😨	bange ansigt	none
@@ -420,7 +391,6 @@ symbols:
 🙈	ikke se	none
 🙉	ikke høre	none
 🙊	ikke tale	none
-💋	læbeaftryk	none
 💌	kærlighedsbrev	none
 💘	hjerte med pil	none
 💝	hjerte med bånd	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	brændende hjerte	none
 ❤‍🩹	helende hjerte	none
 ❤	rødt hjerte	none
+🩷	lyserødt hjerte	none
 🧡	orange hjerte	none
 💛	gult hjerte	none
 💚	grønt hjerte	none
 💙	blåt hjerte	none
+🩵	lyseblåt hjerte	none
 💜	violet hjerte	none
 🤎	brunt hjerte	none
 🖤	sort hjerte	none
+🩶	gråt hjerte	none
 🤍	hvidt hjerte	none
+💋	læbeaftryk	none
 💯	100 point	none
 💢	vrede	none
 💥	kollision	none
@@ -450,7 +424,6 @@ symbols:
 💦	sveddråber	none
 💨	smutter	none
 🕳	hul	none
-💣	bombe	none
 💬	taleboble	none
 👁‍🗨	øje i taleboble	none
 🗨	taleboble til venstre	none
@@ -462,11 +435,18 @@ symbols:
 🖐	hånd med spredte fingre	none
 ✋	løftet hånd	none
 🖖	vulcan-hilsen	none
+🫱	hånd til højre	none
+🫲	hånd til venstre	none
+🫳	håndflade nedad	none
+🫴	håndflade opad	none
+🫷	hånd skubber mod venstre	none
+🫸	hånd skubber mod højre	none
 👌	ok-tegn	none
 🤌	samlede fingre	none
 🤏	lidt vist med tommel- og pegefinger	none
 ✌	v-tegn	none
 🤞	krydsede fingre	none
+🫰	krydset pegefinger og tommelfinger	none
 🤟	elsker dig-gestus	none
 🤘	djævletegn	none
 🤙	ring til mig-hånd	none
@@ -476,6 +456,7 @@ symbols:
 🖕	langefinger	none
 👇	peger nedad	none
 ☝	rækker finger op	none
+🫵	peger på seeren	none
 👍	tommelfinger op	none
 👎	tommelfinger ned	none
 ✊	løftet knytnæve	none
@@ -484,6 +465,7 @@ symbols:
 🤜	højrevendt knytnæve	none
 👏	klappende hænder	none
 🙌	løftede hænder	none
+🫶	hjertehænder	none
 👐	åbne hænder	none
 🤲	håndflader samlet og løftet	none
 🤝	håndtryk	none
@@ -508,6 +490,7 @@ symbols:
 👁	øje	none
 👅	tunge	none
 👄	mund	none
+🫦	bider i læben	none
 👶	baby	none
 🧒	barn	none
 👦	dreng	none
@@ -615,6 +598,7 @@ symbols:
 👷	bygningsarbejder	none
 👷‍♂	mandlig bygningsarbejder	none
 👷‍♀	kvindelig bygningsarbejder	none
+🫅	person med krone	none
 🤴	prins	none
 👸	prinsesse	none
 👳	person med turban	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	mand med brudeslør	none
 👰‍♀	kvinde med brudeslør	none
 🤰	gravid kvinde	none
+🫃	gravid mand	none
+🫄	gravid person	none
 🤱	kvinde, der ammer	none
 👩‍🍼	kvinde, der mader baby	none
 👨‍🍼	mand, der mader baby	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombie	none
 🧟‍♂	mandlig zombie	none
 🧟‍♀	kvindelig zombie	none
+🧌	trold	none
 💆	ansigtsmassage	none
 💆‍♂	mand får ansigtsmassage	none
 💆‍♀	kvinde får ansigtsmassage	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tiger	none
 🐆	leopard	none
 🐴	hestehoved	none
+🫎	elg	none
+🫏	æsel	none
 🐎	hest	none
 🦄	enhjørningehoved	none
 🦓	zebra	none
@@ -849,6 +838,8 @@ symbols:
 🦩	flamingo	none
 🦚	påfugl	none
 🦜	papegøje	none
+🪽	vinge	none
+🪿	gås	none
 🐸	frø	none
 🐊	krokodille	none
 🐢	skildpadde	none
@@ -868,6 +859,8 @@ symbols:
 🦈	haj	none
 🐙	blæksprutte	none
 🐚	konkylie	none
+🪸	koral	none
+🪼	gople	none
 🐌	snegl	none
 🦋	sommerfugl	none
 🐛	larve	none
@@ -887,6 +880,7 @@ symbols:
 💐	blomsterbuket	none
 🌸	kirsebærblomst	none
 💮	hvid blomst	none
+🪷	lotus	none
 🏵	roset	none
 🌹	rose	none
 🥀	vissen blomst	none
@@ -894,6 +888,7 @@ symbols:
 🌻	solsikke	none
 🌼	blomst	none
 🌷	tulipan	none
+🪻	hyacint	none
 🌱	spire	none
 🪴	potteplante	none
 🌲	nåletræ	none
@@ -907,6 +902,9 @@ symbols:
 🍁	ahornblad	none
 🍂	faldende blade	none
 🍃	blade i vinden	none
+🪹	tom rede	none
+🪺	rede med æg	none
+🍄	svamp	none
 🍇	vindruer	none
 🍈	melon	none
 🍉	vandmelon	none
@@ -938,9 +936,11 @@ symbols:
 🥦	broccoli	none
 🧄	hvidløg	none
 🧅	løg	none
-🍄	svamp	none
 🥜	jordnødder	none
+🫘	bønner	none
 🌰	kastanje	none
+🫚	ingefærrod	none
+🫛	ærtebælg	none
 🍞	brød	none
 🥐	croissant	none
 🥖	flute	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	skålende ølkrus	none
 🥂	skål	none
 🥃	fladbundet glas	none
+🫗	hælde vand	none
 🥤	bæger med sugerør	none
 🧋	bubble tea	none
 🧃	brik	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	kniv og gaffel	none
 🥄	ske	none
 🔪	køkkenkniv	none
+🫙	krukke	none
 🏺	amfora	none
 🌍	globus med Europa og Afrika	none
 🌎	globus med Nord- og Sydamerika	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	bro i mørke	none
 ♨	varme kilder	none
 🎠	karrusel	none
+🛝	legeplads-rutsjebane	none
 🎡	pariserhjul	none
 🎢	rutsjebane	none
 💈	barber	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	jernbane	none
 🛢	olietønde	none
 ⛽	tankstation	none
+🛞	hjul	none
 🚨	politiblink	none
 🚥	liggende trafiklys	none
 🚦	trafiklys	none
 🛑	stopskilt	none
 🚧	byggeri	none
 ⚓	anker	none
+🛟	redningskrans	none
 ⛵	sejlbåd	none
 🛶	kano	none
 🚤	speedbåd	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	pletskud	none
 🪀	yoyo	none
 🪁	legetøjsdrage	none
+🔫	vandpistol	none
 🎱	billard	none
 🔮	krystalkugle	none
 🪄	tryllestav	none
-🧿	nazaramulet	none
 🎮	videospil	none
 🕹	joystick	none
 🎰	spillemaskine	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	brik til puslespil	none
 🧸	bamse	none
 🪅	piñata	none
+🪩	diskokugle	none
 🪆	russiske dukker	none
 ♠	spar	none
 ♥	hjerter	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	shorts	none
 👙	bikini	none
 👚	bluse	none
+🪭	sammenklappelig håndvifte	none
 👛	pung	none
 👜	håndtaske	none
 👝	clutch	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	damesandal	none
 🩰	balletsko	none
 👢	damestøvle	none
+🪮	afrokam	none
 👑	krone	none
 👒	hat	none
 🎩	høj hat	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banjo	none
 🥁	tromme	none
 🪘	høj tromme	none
+🪇	maracas	none
+🪈	fløjte	none
 📱	mobil	none
 📲	mobil med pil	none
 ☎	telefon	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	personsøger	none
 📠	fax	none
 🔋	batteri	none
+🪫	lavt batteriniveau	none
 🔌	stik	none
 💻	bærbar computer	none
 🖥	stationær computer	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	hammer og skruenøgle	none
 🗡	dolk	none
 ⚔	korslagte sværd	none
-🔫	vandpistol	none
+💣	bombe	none
 🪃	boomerang	none
 🏹	bue og pil	none
 🛡	skjold	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	bloddråbe	none
 💊	pille	none
 🩹	plaster	none
+🩼	krykke	none
 🩺	stetoskop	none
+🩻	røntgen	none
 🚪	dør	none
 🛗	elevator	none
 🪞	spejl	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	papirrulle	none
 🪣	spand	none
 🧼	sæbe	none
+🫧	bobler	none
 🪥	tandbørste	none
 🧽	vaskesvamp	none
 🧯	brandslukker	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	kiste	none
 🪦	gravsten	none
 ⚱	urne	none
+🧿	nazaramulet	none
+🪬	hamsa	none
 🗿	statue	none
 🪧	skilt	none
+🪪	legitimationskort	none
 🏧	hæveautomat	none
 🚮	brug affaldsspanden	none
 🚰	drikkevand	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	fredssymbol	none
 🕎	syvarmet lysestage	none
 🔯	sekstakket stjerne med prik	none
+🪯	khanda	none
 ♈	vædderen	none
 ♉	tyren	none
 ♊	tvillingen	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	lav lysstyrke	none
 🔆	høj lysstyrke	none
 📶	mobilsignal	none
+🛜	trådløs	none
 📳	vibration	none
 📴	mobil slået fra	none
 ♀	kvindesymbol	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	plus	none
 ➖	minus	none
 ➗	dividere	none
+🟰	fedt lighedstegn	none
 ♾	uendelig	none
 ❓	rødt spørgsmålstegn	none
 ❔	hvidt spørgsmålstegn	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	rubel	none
 ₿	bitcoin	none
 ₨	rupee	none
-🫃🏻	gravid mand lys teint	none
-🫃🏼	gravid mand medium til lys teint	none
-🫃🏽	gravid mand medium teint	none
-🫃🏾	gravid mand medium til mørk teint	none
-🫃🏿	gravid mand mørk teint	none
-🫄🏻	gravid person lys teint	none
-🫄🏼	gravid person medium til lys teint	none
-🫄🏽	gravid person medium teint	none
-🫄🏾	gravid person medium til mørk teint	none
-🫄🏿	gravid person mørk teint	none
-🫅🏻	person med krone lys teint	none
-🫅🏼	person med krone medium til lys teint	none
-🫅🏽	person med krone medium teint	none
-🫅🏾	person med krone medium til mørk teint	none
-🫅🏿	person med krone mørk teint	none
-🫰🏻	krydset pegefinger og tommelfinger lys teint	none
-🫰🏼	krydset pegefinger og tommelfinger medium til lys teint	none
-🫰🏽	krydset pegefinger og tommelfinger medium teint	none
-🫰🏾	krydset pegefinger og tommelfinger medium til mørk teint	none
-🫰🏿	krydset pegefinger og tommelfinger mørk teint	none
+👋🏻	vinker lys teint	none
+👋🏼	vinker medium til lys teint	none
+👋🏽	vinker medium teint	none
+👋🏾	vinker medium til mørk teint	none
+👋🏿	vinker mørk teint	none
+🤚🏻	løftet håndryg lys teint	none
+🤚🏼	løftet håndryg medium til lys teint	none
+🤚🏽	løftet håndryg medium teint	none
+🤚🏾	løftet håndryg medium til mørk teint	none
+🤚🏿	løftet håndryg mørk teint	none
+🖐🏻	hånd med spredte fingre lys teint	none
+🖐🏼	hånd med spredte fingre medium til lys teint	none
+🖐🏽	hånd med spredte fingre medium teint	none
+🖐🏾	hånd med spredte fingre medium til mørk teint	none
+🖐🏿	hånd med spredte fingre mørk teint	none
+✋🏻	løftet hånd lys teint	none
+✋🏼	løftet hånd medium til lys teint	none
+✋🏽	løftet hånd medium teint	none
+✋🏾	løftet hånd medium til mørk teint	none
+✋🏿	løftet hånd mørk teint	none
+🖖🏻	vulcan-hilsen lys teint	none
+🖖🏼	vulcan-hilsen medium til lys teint	none
+🖖🏽	vulcan-hilsen medium teint	none
+🖖🏾	vulcan-hilsen medium til mørk teint	none
+🖖🏿	vulcan-hilsen mørk teint	none
 🫱🏻	hånd til højre lys teint	none
 🫱🏼	hånd til højre medium til lys teint	none
 🫱🏽	hånd til højre medium teint	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	håndflade opad medium teint	none
 🫴🏾	håndflade opad medium til mørk teint	none
 🫴🏿	håndflade opad mørk teint	none
-🫵🏻	peger på seeren lys teint	none
-🫵🏼	peger på seeren medium til lys teint	none
-🫵🏽	peger på seeren medium teint	none
-🫵🏾	peger på seeren medium til mørk teint	none
-🫵🏿	peger på seeren mørk teint	none
-🫶🏻	hjertehænder lys teint	none
-🫶🏼	hjertehænder medium til lys teint	none
-🫶🏽	hjertehænder medium teint	none
-🫶🏾	hjertehænder medium til mørk teint	none
-🫶🏿	hjertehænder mørk teint	none
-👋🏻	vinker lys teint	none
-👋🏼	vinker medium til lys teint	none
-👋🏽	vinker medium teint	none
-👋🏾	vinker medium til mørk teint	none
-👋🏿	vinker mørk teint	none
-🤚🏻	løftet håndryg lys teint	none
-🤚🏼	løftet håndryg medium til lys teint	none
-🤚🏽	løftet håndryg medium teint	none
-🤚🏾	løftet håndryg medium til mørk teint	none
-🤚🏿	løftet håndryg mørk teint	none
-🖐🏻	hånd med spredte fingre lys teint	none
-🖐🏼	hånd med spredte fingre medium til lys teint	none
-🖐🏽	hånd med spredte fingre medium teint	none
-🖐🏾	hånd med spredte fingre medium til mørk teint	none
-🖐🏿	hånd med spredte fingre mørk teint	none
-✋🏻	løftet hånd lys teint	none
-✋🏼	løftet hånd medium til lys teint	none
-✋🏽	løftet hånd medium teint	none
-✋🏾	løftet hånd medium til mørk teint	none
-✋🏿	løftet hånd mørk teint	none
-🖖🏻	vulcan-hilsen lys teint	none
-🖖🏼	vulcan-hilsen medium til lys teint	none
-🖖🏽	vulcan-hilsen medium teint	none
-🖖🏾	vulcan-hilsen medium til mørk teint	none
-🖖🏿	vulcan-hilsen mørk teint	none
+🫷🏻	hånd skubber mod venstre lys teint	none
+🫷🏼	hånd skubber mod venstre medium til lys teint	none
+🫷🏽	hånd skubber mod venstre medium teint	none
+🫷🏾	hånd skubber mod venstre medium til mørk teint	none
+🫷🏿	hånd skubber mod venstre mørk teint	none
+🫸🏻	hånd skubber mod højre lys teint	none
+🫸🏼	hånd skubber mod højre medium til lys teint	none
+🫸🏽	hånd skubber mod højre medium teint	none
+🫸🏾	hånd skubber mod højre medium til mørk teint	none
+🫸🏿	hånd skubber mod højre mørk teint	none
 👌🏻	ok-tegn lys teint	none
 👌🏼	ok-tegn medium til lys teint	none
 👌🏽	ok-tegn medium teint	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	krydsede fingre medium teint	none
 🤞🏾	krydsede fingre medium til mørk teint	none
 🤞🏿	krydsede fingre mørk teint	none
+🫰🏻	krydset pegefinger og tommelfinger lys teint	none
+🫰🏼	krydset pegefinger og tommelfinger medium til lys teint	none
+🫰🏽	krydset pegefinger og tommelfinger medium teint	none
+🫰🏾	krydset pegefinger og tommelfinger medium til mørk teint	none
+🫰🏿	krydset pegefinger og tommelfinger mørk teint	none
 🤟🏻	elsker dig-gestus lys teint	none
 🤟🏼	elsker dig-gestus medium til lys teint	none
 🤟🏽	elsker dig-gestus medium teint	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	rækker finger op medium teint	none
 ☝🏾	rækker finger op medium til mørk teint	none
 ☝🏿	rækker finger op mørk teint	none
+🫵🏻	peger på seeren lys teint	none
+🫵🏼	peger på seeren medium til lys teint	none
+🫵🏽	peger på seeren medium teint	none
+🫵🏾	peger på seeren medium til mørk teint	none
+🫵🏿	peger på seeren mørk teint	none
 👍🏻	tommelfinger op lys teint	none
 👍🏼	tommelfinger op medium til lys teint	none
 👍🏽	tommelfinger op medium teint	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	løftede hænder medium teint	none
 🙌🏾	løftede hænder medium til mørk teint	none
 🙌🏿	løftede hænder mørk teint	none
+🫶🏻	hjertehænder lys teint	none
+🫶🏼	hjertehænder medium til lys teint	none
+🫶🏽	hjertehænder medium teint	none
+🫶🏾	hjertehænder medium til mørk teint	none
+🫶🏿	hjertehænder mørk teint	none
 👐🏻	åbne hænder lys teint	none
 👐🏼	åbne hænder medium til lys teint	none
 👐🏽	åbne hænder medium teint	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	kvindelig bygningsarbejder medium teint	none
 👷🏾‍♀	kvindelig bygningsarbejder medium til mørk teint	none
 👷🏿‍♀	kvindelig bygningsarbejder mørk teint	none
+🫅🏻	person med krone lys teint	none
+🫅🏼	person med krone medium til lys teint	none
+🫅🏽	person med krone medium teint	none
+🫅🏾	person med krone medium til mørk teint	none
+🫅🏿	person med krone mørk teint	none
 🤴🏻	prins lys teint	none
 🤴🏼	prins medium til lys teint	none
 🤴🏽	prins medium teint	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	gravid kvinde medium teint	none
 🤰🏾	gravid kvinde medium til mørk teint	none
 🤰🏿	gravid kvinde mørk teint	none
+🫃🏻	gravid mand lys teint	none
+🫃🏼	gravid mand medium til lys teint	none
+🫃🏽	gravid mand medium teint	none
+🫃🏾	gravid mand medium til mørk teint	none
+🫃🏿	gravid mand mørk teint	none
+🫄🏻	gravid person lys teint	none
+🫄🏼	gravid person medium til lys teint	none
+🫄🏽	gravid person medium teint	none
+🫄🏾	gravid person medium til mørk teint	none
+🫄🏿	gravid person mørk teint	none
 🤱🏻	kvinde, der ammer lys teint	none
 🤱🏼	kvinde, der ammer medium til lys teint	none
 🤱🏽	kvinde, der ammer medium teint	none
@@ -3648,7 +3678,7 @@ symbols:
 🇧🇹	flag Bhutan	none
 🇧🇻	flag Bouvetøen	none
 🇧🇼	flag Botswana	none
-🇧🇾	flag Hviderusland	none
+🇧🇾	flag Belarus	none
 🇧🇿	flag Belize	none
 🇨🇦	flag Canada	none
 🇨🇨	flag Cocosøerne	none
@@ -3783,7 +3813,7 @@ symbols:
 🇳🇫	flag Norfolk Island	none
 🇳🇬	flag Nigeria	none
 🇳🇮	flag Nicaragua	none
-🇳🇱	flag Holland	none
+🇳🇱	flag Nederlandene	none
 🇳🇴	flag Norge	none
 🇳🇵	flag Nepal	none
 🇳🇷	flag Nauru	none

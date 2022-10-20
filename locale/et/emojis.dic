@@ -103,45 +103,8 @@ symbols:
 ♪	kaheksandiknoot	none
 ♭	bemoll	none
 ♯	diees	none
-🥹	pisaraid tagasi hoidev nägu	none
-🧌	troll	none
-🩻	röntgen	none
-🩼	kark	none
-🪩	diskokera	none
-🪪	ID-kaart	none
-🪫	aku tühjeneb	none
-🪬	hamsa	none
-🪷	lootos	none
-🪸	korall	none
-🪹	tühi pesa	none
-🪺	munadega pesa	none
-🫃	rase mees	none
-🫄	rase inimene	none
-🫅	krooniga inimene	none
-🫗	vedeliku kallamine	none
-🫘	oad	none
-🫙	purk	none
-🫠	sulav nägu	none
-🫡	au andev nägu	none
-🫢	kätt suul hoidev pärani silmadega nägu	none
-🫣	käte vahelt piiluva silmaga nägu	none
-🫤	diagonaalse suuga nägu	none
-🫥	punktiirjoonega nägu	none
-🫦	huulde hammustav	none
-🫧	mullid	none
-🫰	pöialt ja nimetissõrme risti hoidev käsi	none
-🫱	käsi paremale	none
-🫲	käsi vasakule	none
-🫳	käsi peopesaga allapoole	none
-🫴	käsi peopesaga ülespoole	none
-🫵	vaataja poole osutav nimetissõrm	none
-🫶	südant moodustavad käed	none
-🛝	liumägi	none
-🛞	ratas	none
-🛟	päästerõngas	none
-🟰	tugev võrdusmärk	none
 😀	laia naeratusega nägu	none
-😃	avatud suuga naerunägu	none
+😃	suurte silmadega naerunägu	none
 😄	avatud suu ja naeratavate silmadega naerunägu	none
 😁	naerul silmade ja laia naeratusega nägu	none
 😆	avatud suu ja suletud silmadega naerunägu	none
@@ -150,6 +113,7 @@ symbols:
 😂	rõõmupisaratega nägu	none
 🙂	naeratusega nägu	none
 🙃	tagurpidi nägu	none
+🫠	sulav nägu	none
 😉	silma pilgutav nägu	none
 😊	naeratavate silmadega naerunägu	none
 😇	aupaistega naerunägu	none
@@ -170,13 +134,17 @@ symbols:
 🤑	nägu, millel on raha suus	none
 🤗	kallistav nägu	none
 🤭	kätt suul hoidev nägu	none
+🫢	kätt suul hoidev pärani silmadega nägu	none
+🫣	käte vahelt piiluva silmaga nägu	none
 🤫	sõrme suul hoidev nägu	none
 🤔	mõtlev nägu	none
+🫡	au andev nägu	none
 🤐	tõmblukusuuga nägu	none
 🤨	kergitatud kulmudega nägu	none
 😐	erapooletu nägu	none
 😑	ilmetu nägu	none
 😶	ilma suuta nägu	none
+🫥	punktiirjoonega nägu	none
 😶‍🌫	nägu pilvedes	none
 😏	muigav nägu	none
 😒	põlglik nägu	none
@@ -184,6 +152,7 @@ symbols:
 😬	grimassitav nägu	none
 😮‍💨	väljahingav nägu	none
 🤥	valetav nägu	none
+🫨	värisev nägu	none
 😌	kergendust tundev nägu	none
 😔	mõtlik nägu	none
 😪	unine nägu	none
@@ -208,6 +177,7 @@ symbols:
 🤓	nohiku nägu	none
 🧐	monokliga nägu	none
 😕	segaduses nägu	none
+🫤	diagonaalse suuga nägu	none
 😟	murelik nägu	none
 🙁	veidi kulmu kortsutav nägu	none
 ☹	kulmu kortsutav nägu	none
@@ -216,6 +186,7 @@ symbols:
 😲	hämmastunud nägu	none
 😳	punastav nägu	none
 🥺	anuv nägu	none
+🥹	pisaraid tagasi hoidev nägu	none
 😦	avatud suuga mossitav nägu	none
 😧	ahastuses nägu	none
 😨	hirmunud nägu	none
@@ -259,7 +230,6 @@ symbols:
 🙈	kaetud silmadega ahv	none
 🙉	kaetud kõrvadega ahv	none
 🙊	kaetud suuga ahv	none
-💋	suudluse jälg	none
 💌	armastuskiri	none
 💘	noolega süda	none
 💝	lindiga süda	none
@@ -274,14 +244,18 @@ symbols:
 ❤‍🔥	leegitsev süda	none
 ❤‍🩹	tervenev süda	none
 ❤	punane süda	none
+🩷	roosa süda	none
 🧡	oranž süda	none
 💛	kollane süda	none
 💚	roheline süda	none
 💙	sinine süda	none
+🩵	helesinine süda	none
 💜	lilla süda	none
 🤎	pruun süda	none
 🖤	must süda	none
+🩶	hall süda	none
 🤍	valge süda	none
+💋	suudluse jälg	none
 💯	sada punkti	none
 💢	viha sümbol	none
 💥	piraki	none
@@ -289,7 +263,6 @@ symbols:
 💦	higipiisad	none
 💨	kiirustamine	none
 🕳	auk	none
-💣	pomm	none
 💬	jutumull	none
 👁‍🗨	silm jutumullis	none
 🗨	jutumull suunaga vasakule	none
@@ -301,11 +274,18 @@ symbols:
 🖐	harali sõrmedega käsi	none
 ✋	ülestõstetud käsi	none
 🖖	vulcanite tervitus	none
+🫱	käsi paremale	none
+🫲	käsi vasakule	none
+🫳	käsi peopesaga allapoole	none
+🫴	käsi peopesaga ülespoole	none
+🫷	vasakule lükkav käsi	none
+🫸	paremale lükkav käsi	none
 👌	OK-käemärk	none
 🤌	kokkusurutud sõrmed	none
 🤏	näpistav käsi	none
 ✌	võit	none
 🤞	sõrmed risti	none
+🫰	pöialt ja nimetissõrme risti hoidev käsi	none
 🤟	armastust väljendav žest	none
 🤘	sarvede märk	none
 🤙	helista mulle	none
@@ -315,6 +295,7 @@ symbols:
 🖕	keskmine sõrm	none
 👇	alla osutav sõrm	none
 ☝	üles osutav sõrm	none
+🫵	vaataja poole osutav nimetissõrm	none
 👍	meeldib	none
 👎	ei meeldi	none
 ✊	ülestõstetud rusikas	none
@@ -323,6 +304,7 @@ symbols:
 🤜	paremale suunatud rusikas	none
 👏	plaksutavad käed	none
 🙌	ülestõstetud käed	none
+🫶	südant moodustavad käed	none
 👐	avatud käed	none
 🤲	peopesad üleval koos	none
 🤝	käepigistus	none
@@ -347,6 +329,7 @@ symbols:
 👁	silm	none
 👅	keel	none
 👄	suu	none
+🫦	huulde hammustav	none
 👶	beebi	none
 🧒	laps	none
 👦	poiss	none
@@ -454,6 +437,7 @@ symbols:
 👷	ehitaja	none
 👷‍♂	meesehitaja	none
 👷‍♀	naisehitaja	none
+🫅	krooniga inimene	none
 🤴	prints	none
 👸	printsess	none
 👳	turbaniga inimene	none
@@ -468,6 +452,8 @@ symbols:
 👰‍♂	mees looriga	none
 👰‍♀	naine looriga	none
 🤰	rase naine	none
+🫃	rase mees	none
+🫄	rase inimene	none
 🤱	rinnaga toitmine	none
 👩‍🍼	beebit toitev naine	none
 👨‍🍼	beebit toitev mees	none
@@ -503,6 +489,7 @@ symbols:
 🧟	zombi	none
 🧟‍♂	meeszombi	none
 🧟‍♀	naiszombi	none
+🧌	troll	none
 💆	näomassaaž	none
 💆‍♂	näomassaaži saav mees	none
 💆‍♀	näomassaaži saav naine	none
@@ -626,6 +613,8 @@ symbols:
 🐅	tiiger	none
 🐆	leopard	none
 🐴	hobuse nägu	none
+🫎	põder	none
+🫏	eesel	none
 🐎	hobune	none
 🦄	ükssarvik	none
 🦓	sebra	none
@@ -688,6 +677,8 @@ symbols:
 🦩	flamingo	none
 🦚	paabulind	none
 🦜	papagoi	none
+🪽	tiib	none
+🪿	hani	none
 🐸	konn	none
 🐊	krokodill	none
 🐢	kilpkonn	none
@@ -707,6 +698,8 @@ symbols:
 🦈	hai	none
 🐙	kaheksajalg	none
 🐚	spiraalne teokarp	none
+🪸	korall	none
+🪼	meduus	none
 🐌	tigu	none
 🦋	liblikas	none
 🐛	röövik	none
@@ -726,6 +719,7 @@ symbols:
 💐	kimp	none
 🌸	kirsiõis	none
 💮	valge lill	none
+🪷	lootos	none
 🏵	rosett	none
 🌹	roos	none
 🥀	närbunud lill	none
@@ -733,6 +727,7 @@ symbols:
 🌻	päevalill	none
 🌼	õis	none
 🌷	tulp	none
+🪻	hüatsint	none
 🌱	võrse	none
 🪴	potilill	none
 🌲	igihaljas puu	none
@@ -746,6 +741,9 @@ symbols:
 🍁	vahtraleht	none
 🍂	langenud leht	none
 🍃	tuules lendlev leht	none
+🪹	tühi pesa	none
+🪺	munadega pesa	none
+🍄	seen	none
 🍇	viinamarjad	none
 🍈	melon	none
 🍉	arbuus	none
@@ -777,9 +775,11 @@ symbols:
 🥦	brokoli	none
 🧄	küüslauk	none
 🧅	sibul	none
-🍄	seen	none
 🥜	maapähklid	none
+🫘	oad	none
 🌰	kastan	none
+🫚	ingver	none
+🫛	hernekaun	none
 🍞	leib	none
 🥐	sarvesai	none
 🥖	baguette	none
@@ -864,6 +864,7 @@ symbols:
 🍻	kõlisevad õllekannud	none
 🥂	kõlisevad klaasid	none
 🥃	joogiklaas	none
+🫗	vedeliku kallamine	none
 🥤	kõrrega tops	none
 🧋	pärlitee	none
 🧃	joogipakk	none
@@ -874,6 +875,7 @@ symbols:
 🍴	kahvel ja nuga	none
 🥄	lusikas	none
 🔪	kööginuga	none
+🫙	purk	none
 🏺	amfora	none
 🌍	Euroopa ja Aafrika gloobusel	none
 🌎	Ameerika mandrid gloobusel	none
@@ -936,6 +938,7 @@ symbols:
 🌉	sild öösel	none
 ♨	kuumaveeallikad	none
 🎠	karussellihobune	none
+🛝	liumägi	none
 🎡	vaateratas	none
 🎢	Ameerika mäed	none
 💈	habemeajaja tähis	none
@@ -984,12 +987,14 @@ symbols:
 🛤	raudteerööpad	none
 🛢	õlitünn	none
 ⛽	tankur	none
+🛞	ratas	none
 🚨	politseiauto vilkur	none
 🚥	horisontaalne foor	none
 🚦	vertikaalne foor	none
 🛑	stoppmärk	none
 🚧	ehitustööd	none
 ⚓	ankur	none
+🛟	päästerõngas	none
 ⛵	purjepaat	none
 🛶	kanuu	none
 🚤	kiirkaater	none
@@ -1147,10 +1152,10 @@ symbols:
 🎯	täistabamus	none
 🪀	jojo	none
 🪁	tuulelohe	none
+🔫	veepüstol	none
 🎱	piljardikuul	none
 🔮	kristallkuul	none
 🪄	võlukepp	none
-🧿	Nazari amulett	none
 🎮	videomäng	none
 🕹	juhtpult	none
 🎰	mänguautomaat	none
@@ -1158,6 +1163,7 @@ symbols:
 🧩	pusletükk	none
 🧸	mängukaru	none
 🪅	piñata	none
+🪩	diskokera	none
 🪆	matrjoška	none
 ♠	poti	none
 ♥	ärtu	none
@@ -1194,6 +1200,7 @@ symbols:
 🩳	šortsid	none
 👙	bikiinid	none
 👚	naisteriided	none
+🪭	volditav lehvik	none
 👛	ridikül	none
 👜	käekott	none
 👝	kott	none
@@ -1208,6 +1215,7 @@ symbols:
 👡	naistesandaal	none
 🩰	balletikingad	none
 👢	naistesaabas	none
+🪮	juuksehark	none
 👑	kroon	none
 👒	naistekübar	none
 🎩	torukübar	none
@@ -1246,6 +1254,8 @@ symbols:
 🪕	bandžo	none
 🥁	trumm	none
 🪘	aafrika trumm	none
+🪇	marakas	none
+🪈	flööt	none
 📱	mobiiltelefon	none
 📲	noolega mobiiltelefon	none
 ☎	telefon	none
@@ -1253,6 +1263,7 @@ symbols:
 📟	piipar	none
 📠	faksimasin	none
 🔋	aku	none
+🪫	aku tühjeneb	none
 🔌	elektripistik	none
 💻	sülearvuti	none
 🖥	lauaarvuti	none
@@ -1364,7 +1375,7 @@ symbols:
 🛠	haamer ja mutrivõti	none
 🗡	pistoda	none
 ⚔	ristatud mõõgad	none
-🔫	veepüstol	none
+💣	pomm	none
 🪃	bumerang	none
 🏹	vibu ja nool	none
 🛡	kilp	none
@@ -1393,7 +1404,9 @@ symbols:
 🩸	veretilk	none
 💊	tablett	none
 🩹	plaaster	none
+🩼	kark	none
 🩺	stetoskoop	none
+🩻	röntgen	none
 🚪	uks	none
 🛗	lift	none
 🪞	peegel	none
@@ -1414,6 +1427,7 @@ symbols:
 🧻	paberirull	none
 🪣	ämber	none
 🧼	seep	none
+🫧	mullid	none
 🪥	hambahari	none
 🧽	pesukäsn	none
 🧯	tulekustuti	none
@@ -1422,8 +1436,11 @@ symbols:
 ⚰	kirst	none
 🪦	hauakivi	none
 ⚱	tuhaurn	none
+🧿	Nazari amulett	none
+🪬	hamsa	none
 🗿	moai	none
 🪧	plakat	none
+🪪	ID-kaart	none
 🏧	pangaautomaat	none
 🚮	prügikasti silt	none
 🚰	joogivesi	none
@@ -1483,6 +1500,7 @@ symbols:
 ☮	rahu sümbol	none
 🕎	menoraa	none
 🔯	punktiga kuusnurkne täht	none
+🪯	khanda	none
 ♈	Jäär	none
 ♉	Sõnn	none
 ♊	Kaksikud	none
@@ -1518,6 +1536,7 @@ symbols:
 🔅	tuhmistamisnupp	none
 🔆	ereduse nupp	none
 📶	levi	none
+🛜	juhtmevaba	none
 📳	värinarežiim	none
 📴	väljalülitatud mobiiltelefon	none
 ♀	naisesümbol	none
@@ -1527,6 +1546,7 @@ symbols:
 ➕	liitmine	none
 ➖	lahutamine	none
 ➗	jagamine	none
+🟰	tugev võrdusmärk	none
 ♾	lõpmatus	none
 ❓	punane küsimärk	none
 ❔	valge küsimärk	none
@@ -1631,26 +1651,31 @@ symbols:
 ₽	rubla	none
 ₿	bitcoin	none
 ₨	ruupia	none
-🫃🏻	rase mees hele nahatoon	none
-🫃🏼	rase mees keskmiselt hele nahatoon	none
-🫃🏽	rase mees keskmine nahatoon	none
-🫃🏾	rase mees keskmiselt tume nahatoon	none
-🫃🏿	rase mees tume nahatoon	none
-🫄🏻	rase inimene hele nahatoon	none
-🫄🏼	rase inimene keskmiselt hele nahatoon	none
-🫄🏽	rase inimene keskmine nahatoon	none
-🫄🏾	rase inimene keskmiselt tume nahatoon	none
-🫄🏿	rase inimene tume nahatoon	none
-🫅🏻	krooniga inimene hele nahatoon	none
-🫅🏼	krooniga inimene keskmiselt hele nahatoon	none
-🫅🏽	krooniga inimene keskmine nahatoon	none
-🫅🏾	krooniga inimene keskmiselt tume nahatoon	none
-🫅🏿	krooniga inimene tume nahatoon	none
-🫰🏻	pöialt ja nimetissõrme risti hoidev käsi hele nahatoon	none
-🫰🏼	pöialt ja nimetissõrme risti hoidev käsi keskmiselt hele nahatoon	none
-🫰🏽	pöialt ja nimetissõrme risti hoidev käsi keskmine nahatoon	none
-🫰🏾	pöialt ja nimetissõrme risti hoidev käsi keskmiselt tume nahatoon	none
-🫰🏿	pöialt ja nimetissõrme risti hoidev käsi tume nahatoon	none
+👋🏻	lehvitav käsi hele nahatoon	none
+👋🏼	lehvitav käsi keskmiselt hele nahatoon	none
+👋🏽	lehvitav käsi keskmine nahatoon	none
+👋🏾	lehvitav käsi keskmiselt tume nahatoon	none
+👋🏿	lehvitav käsi tume nahatoon	none
+🤚🏻	tõstetud käsi hele nahatoon	none
+🤚🏼	tõstetud käsi keskmiselt hele nahatoon	none
+🤚🏽	tõstetud käsi keskmine nahatoon	none
+🤚🏾	tõstetud käsi keskmiselt tume nahatoon	none
+🤚🏿	tõstetud käsi tume nahatoon	none
+🖐🏻	harali sõrmedega käsi hele nahatoon	none
+🖐🏼	harali sõrmedega käsi keskmiselt hele nahatoon	none
+🖐🏽	harali sõrmedega käsi keskmine nahatoon	none
+🖐🏾	harali sõrmedega käsi keskmiselt tume nahatoon	none
+🖐🏿	harali sõrmedega käsi tume nahatoon	none
+✋🏻	ülestõstetud käsi hele nahatoon	none
+✋🏼	ülestõstetud käsi keskmiselt hele nahatoon	none
+✋🏽	ülestõstetud käsi keskmine nahatoon	none
+✋🏾	ülestõstetud käsi keskmiselt tume nahatoon	none
+✋🏿	ülestõstetud käsi tume nahatoon	none
+🖖🏻	vulcanite tervitus hele nahatoon	none
+🖖🏼	vulcanite tervitus keskmiselt hele nahatoon	none
+🖖🏽	vulcanite tervitus keskmine nahatoon	none
+🖖🏾	vulcanite tervitus keskmiselt tume nahatoon	none
+🖖🏿	vulcanite tervitus tume nahatoon	none
 🫱🏻	käsi paremale hele nahatoon	none
 🫱🏼	käsi paremale keskmiselt hele nahatoon	none
 🫱🏽	käsi paremale keskmine nahatoon	none
@@ -1691,41 +1716,16 @@ symbols:
 🫴🏽	käsi peopesaga ülespoole keskmine nahatoon	none
 🫴🏾	käsi peopesaga ülespoole keskmiselt tume nahatoon	none
 🫴🏿	käsi peopesaga ülespoole tume nahatoon	none
-🫵🏻	vaataja poole osutav nimetissõrm hele nahatoon	none
-🫵🏼	vaataja poole osutav nimetissõrm keskmiselt hele nahatoon	none
-🫵🏽	vaataja poole osutav nimetissõrm keskmine nahatoon	none
-🫵🏾	vaataja poole osutav nimetissõrm keskmiselt tume nahatoon	none
-🫵🏿	vaataja poole osutav nimetissõrm tume nahatoon	none
-🫶🏻	südant moodustavad käed hele nahatoon	none
-🫶🏼	südant moodustavad käed keskmiselt hele nahatoon	none
-🫶🏽	südant moodustavad käed keskmine nahatoon	none
-🫶🏾	südant moodustavad käed keskmiselt tume nahatoon	none
-🫶🏿	südant moodustavad käed tume nahatoon	none
-👋🏻	lehvitav käsi hele nahatoon	none
-👋🏼	lehvitav käsi keskmiselt hele nahatoon	none
-👋🏽	lehvitav käsi keskmine nahatoon	none
-👋🏾	lehvitav käsi keskmiselt tume nahatoon	none
-👋🏿	lehvitav käsi tume nahatoon	none
-🤚🏻	tõstetud käsi hele nahatoon	none
-🤚🏼	tõstetud käsi keskmiselt hele nahatoon	none
-🤚🏽	tõstetud käsi keskmine nahatoon	none
-🤚🏾	tõstetud käsi keskmiselt tume nahatoon	none
-🤚🏿	tõstetud käsi tume nahatoon	none
-🖐🏻	harali sõrmedega käsi hele nahatoon	none
-🖐🏼	harali sõrmedega käsi keskmiselt hele nahatoon	none
-🖐🏽	harali sõrmedega käsi keskmine nahatoon	none
-🖐🏾	harali sõrmedega käsi keskmiselt tume nahatoon	none
-🖐🏿	harali sõrmedega käsi tume nahatoon	none
-✋🏻	ülestõstetud käsi hele nahatoon	none
-✋🏼	ülestõstetud käsi keskmiselt hele nahatoon	none
-✋🏽	ülestõstetud käsi keskmine nahatoon	none
-✋🏾	ülestõstetud käsi keskmiselt tume nahatoon	none
-✋🏿	ülestõstetud käsi tume nahatoon	none
-🖖🏻	vulcanite tervitus hele nahatoon	none
-🖖🏼	vulcanite tervitus keskmiselt hele nahatoon	none
-🖖🏽	vulcanite tervitus keskmine nahatoon	none
-🖖🏾	vulcanite tervitus keskmiselt tume nahatoon	none
-🖖🏿	vulcanite tervitus tume nahatoon	none
+🫷🏻	vasakule lükkav käsi hele nahatoon	none
+🫷🏼	vasakule lükkav käsi keskmiselt hele nahatoon	none
+🫷🏽	vasakule lükkav käsi keskmine nahatoon	none
+🫷🏾	vasakule lükkav käsi keskmiselt tume nahatoon	none
+🫷🏿	vasakule lükkav käsi tume nahatoon	none
+🫸🏻	paremale lükkav käsi hele nahatoon	none
+🫸🏼	paremale lükkav käsi keskmiselt hele nahatoon	none
+🫸🏽	paremale lükkav käsi keskmine nahatoon	none
+🫸🏾	paremale lükkav käsi keskmiselt tume nahatoon	none
+🫸🏿	paremale lükkav käsi tume nahatoon	none
 👌🏻	OK-käemärk hele nahatoon	none
 👌🏼	OK-käemärk keskmiselt hele nahatoon	none
 👌🏽	OK-käemärk keskmine nahatoon	none
@@ -1751,6 +1751,11 @@ symbols:
 🤞🏽	sõrmed risti keskmine nahatoon	none
 🤞🏾	sõrmed risti keskmiselt tume nahatoon	none
 🤞🏿	sõrmed risti tume nahatoon	none
+🫰🏻	pöialt ja nimetissõrme risti hoidev käsi hele nahatoon	none
+🫰🏼	pöialt ja nimetissõrme risti hoidev käsi keskmiselt hele nahatoon	none
+🫰🏽	pöialt ja nimetissõrme risti hoidev käsi keskmine nahatoon	none
+🫰🏾	pöialt ja nimetissõrme risti hoidev käsi keskmiselt tume nahatoon	none
+🫰🏿	pöialt ja nimetissõrme risti hoidev käsi tume nahatoon	none
 🤟🏻	armastust väljendav žest hele nahatoon	none
 🤟🏼	armastust väljendav žest keskmiselt hele nahatoon	none
 🤟🏽	armastust väljendav žest keskmine nahatoon	none
@@ -1796,6 +1801,11 @@ symbols:
 ☝🏽	üles osutav sõrm keskmine nahatoon	none
 ☝🏾	üles osutav sõrm keskmiselt tume nahatoon	none
 ☝🏿	üles osutav sõrm tume nahatoon	none
+🫵🏻	vaataja poole osutav nimetissõrm hele nahatoon	none
+🫵🏼	vaataja poole osutav nimetissõrm keskmiselt hele nahatoon	none
+🫵🏽	vaataja poole osutav nimetissõrm keskmine nahatoon	none
+🫵🏾	vaataja poole osutav nimetissõrm keskmiselt tume nahatoon	none
+🫵🏿	vaataja poole osutav nimetissõrm tume nahatoon	none
 👍🏻	meeldib hele nahatoon	none
 👍🏼	meeldib keskmiselt hele nahatoon	none
 👍🏽	meeldib keskmine nahatoon	none
@@ -1836,6 +1846,11 @@ symbols:
 🙌🏽	ülestõstetud käed keskmine nahatoon	none
 🙌🏾	ülestõstetud käed keskmiselt tume nahatoon	none
 🙌🏿	ülestõstetud käed tume nahatoon	none
+🫶🏻	südant moodustavad käed hele nahatoon	none
+🫶🏼	südant moodustavad käed keskmiselt hele nahatoon	none
+🫶🏽	südant moodustavad käed keskmine nahatoon	none
+🫶🏾	südant moodustavad käed keskmiselt tume nahatoon	none
+🫶🏿	südant moodustavad käed tume nahatoon	none
 👐🏻	avatud käed hele nahatoon	none
 👐🏼	avatud käed keskmiselt hele nahatoon	none
 👐🏽	avatud käed keskmine nahatoon	none
@@ -2698,6 +2713,11 @@ symbols:
 👷🏽‍♀	naisehitaja keskmine nahatoon	none
 👷🏾‍♀	naisehitaja keskmiselt tume nahatoon	none
 👷🏿‍♀	naisehitaja tume nahatoon	none
+🫅🏻	krooniga inimene hele nahatoon	none
+🫅🏼	krooniga inimene keskmiselt hele nahatoon	none
+🫅🏽	krooniga inimene keskmine nahatoon	none
+🫅🏾	krooniga inimene keskmiselt tume nahatoon	none
+🫅🏿	krooniga inimene tume nahatoon	none
 🤴🏻	prints hele nahatoon	none
 🤴🏼	prints keskmiselt hele nahatoon	none
 🤴🏽	prints keskmine nahatoon	none
@@ -2768,6 +2788,16 @@ symbols:
 🤰🏽	rase naine keskmine nahatoon	none
 🤰🏾	rase naine keskmiselt tume nahatoon	none
 🤰🏿	rase naine tume nahatoon	none
+🫃🏻	rase mees hele nahatoon	none
+🫃🏼	rase mees keskmiselt hele nahatoon	none
+🫃🏽	rase mees keskmine nahatoon	none
+🫃🏾	rase mees keskmiselt tume nahatoon	none
+🫃🏿	rase mees tume nahatoon	none
+🫄🏻	rase inimene hele nahatoon	none
+🫄🏼	rase inimene keskmiselt hele nahatoon	none
+🫄🏽	rase inimene keskmine nahatoon	none
+🫄🏾	rase inimene keskmiselt tume nahatoon	none
+🫄🏿	rase inimene tume nahatoon	none
 🤱🏻	rinnaga toitmine hele nahatoon	none
 🤱🏼	rinnaga toitmine keskmiselt hele nahatoon	none
 🤱🏽	rinnaga toitmine keskmine nahatoon	none

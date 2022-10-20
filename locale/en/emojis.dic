@@ -264,43 +264,6 @@ symbols:
 ⪺	succeeds above not almost equal	none
 ♭	flat	none
 ♯	sharp	none
-🥹	face holding back tears	none
-🧌	troll	none
-🩻	x-ray	none
-🩼	crutch	none
-🪩	mirror ball	none
-🪪	identification card	none
-🪫	low battery	none
-🪬	hamsa	none
-🪷	lotus	none
-🪸	coral	none
-🪹	empty nest	none
-🪺	nest with eggs	none
-🫃	pregnant man	none
-🫄	pregnant person	none
-🫅	person with crown	none
-🫗	pouring liquid	none
-🫘	beans	none
-🫙	jar	none
-🫠	melting face	none
-🫡	saluting face	none
-🫢	face with open eyes and hand over mouth	none
-🫣	face with peeking eye	none
-🫤	face with diagonal mouth	none
-🫥	dotted line face	none
-🫦	biting lip	none
-🫧	bubbles	none
-🫰	hand with index finger and thumb crossed	none
-🫱	rightwards hand	none
-🫲	leftwards hand	none
-🫳	palm down hand	none
-🫴	palm up hand	none
-🫵	index pointing at the viewer	none
-🫶	heart hands	none
-🛝	playground slide	none
-🛞	wheel	none
-🛟	ring buoy	none
-🟰	heavy equals sign	none
 😀	grinning face	none
 😃	grinning face with big eyes	none
 😄	grinning face with smiling eyes	none
@@ -311,6 +274,7 @@ symbols:
 😂	face with tears of joy	none
 🙂	slightly smiling face	none
 🙃	upside-down face	none
+🫠	melting face	none
 😉	winking face	none
 😊	smiling face with smiling eyes	none
 😇	smiling face with halo	none
@@ -331,13 +295,17 @@ symbols:
 🤑	money-mouth face	none
 🤗	smiling face with open hands	none
 🤭	face with hand over mouth	none
+🫢	face with open eyes and hand over mouth	none
+🫣	face with peeking eye	none
 🤫	shushing face	none
 🤔	thinking face	none
+🫡	saluting face	none
 🤐	zipper-mouth face	none
 🤨	face with raised eyebrow	none
 😐	neutral face	none
 😑	expressionless face	none
 😶	face without mouth	none
+🫥	dotted line face	none
 😶‍🌫	face in clouds	none
 😏	smirking face	none
 😒	unamused face	none
@@ -345,6 +313,7 @@ symbols:
 😬	grimacing face	none
 😮‍💨	face exhaling	none
 🤥	lying face	none
+🫨	shaking face	none
 😌	relieved face	none
 😔	pensive face	none
 😪	sleepy face	none
@@ -369,6 +338,7 @@ symbols:
 🤓	nerd face	none
 🧐	face with monocle	none
 😕	confused face	none
+🫤	face with diagonal mouth	none
 😟	worried face	none
 🙁	slightly frowning face	none
 ☹	frowning face	none
@@ -377,6 +347,7 @@ symbols:
 😲	astonished face	none
 😳	flushed face	none
 🥺	pleading face	none
+🥹	face holding back tears	none
 😦	frowning face with open mouth	none
 😧	anguished face	none
 😨	fearful face	none
@@ -420,7 +391,6 @@ symbols:
 🙈	see-no-evil monkey	none
 🙉	hear-no-evil monkey	none
 🙊	speak-no-evil monkey	none
-💋	kiss mark	none
 💌	love letter	none
 💘	heart with arrow	none
 💝	heart with ribbon	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	heart on fire	none
 ❤‍🩹	mending heart	none
 ❤	red heart	none
+🩷	pink heart	none
 🧡	orange heart	none
 💛	yellow heart	none
 💚	green heart	none
 💙	blue heart	none
+🩵	light blue heart	none
 💜	purple heart	none
 🤎	brown heart	none
 🖤	black heart	none
+🩶	grey heart	none
 🤍	white heart	none
+💋	kiss mark	none
 💯	hundred points	none
 💢	anger symbol	none
 💥	collision	none
@@ -450,7 +424,6 @@ symbols:
 💦	sweat droplets	none
 💨	dashing away	none
 🕳	hole	none
-💣	bomb	none
 💬	speech balloon	none
 👁‍🗨	eye in speech bubble	none
 🗨	left speech bubble	none
@@ -462,11 +435,18 @@ symbols:
 🖐	hand with fingers splayed	none
 ✋	raised hand	none
 🖖	vulcan salute	none
+🫱	rightwards hand	none
+🫲	leftwards hand	none
+🫳	palm down hand	none
+🫴	palm up hand	none
+🫷	leftwards pushing hand	none
+🫸	rightwards pushing hand	none
 👌	OK hand	none
 🤌	pinched fingers	none
 🤏	pinching hand	none
 ✌	victory hand	none
 🤞	crossed fingers	none
+🫰	hand with index finger and thumb crossed	none
 🤟	love-you gesture	none
 🤘	sign of the horns	none
 🤙	call me hand	none
@@ -476,6 +456,7 @@ symbols:
 🖕	middle finger	none
 👇	backhand index pointing down	none
 ☝	index pointing up	none
+🫵	index pointing at the viewer	none
 👍	thumbs up	none
 👎	thumbs down	none
 ✊	raised fist	none
@@ -484,6 +465,7 @@ symbols:
 🤜	right-facing fist	none
 👏	clapping hands	none
 🙌	raising hands	none
+🫶	heart hands	none
 👐	open hands	none
 🤲	palms up together	none
 🤝	handshake	none
@@ -508,6 +490,7 @@ symbols:
 👁	eye	none
 👅	tongue	none
 👄	mouth	none
+🫦	biting lip	none
 👶	baby	none
 🧒	child	none
 👦	boy	none
@@ -615,6 +598,7 @@ symbols:
 👷	construction worker	none
 👷‍♂	man construction worker	none
 👷‍♀	woman construction worker	none
+🫅	person with crown	none
 🤴	prince	none
 👸	princess	none
 👳	person wearing turban	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	man with veil	none
 👰‍♀	woman with veil	none
 🤰	pregnant woman	none
+🫃	pregnant man	none
+🫄	pregnant person	none
 🤱	breast-feeding	none
 👩‍🍼	woman feeding baby	none
 👨‍🍼	man feeding baby	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zombie	none
 🧟‍♂	man zombie	none
 🧟‍♀	woman zombie	none
+🧌	troll	none
 💆	person getting massage	none
 💆‍♂	man getting massage	none
 💆‍♀	woman getting massage	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tiger	none
 🐆	leopard	none
 🐴	horse face	none
+🫎	moose	none
+🫏	donkey	none
 🐎	horse	none
 🦄	unicorn	none
 🦓	zebra	none
@@ -849,6 +838,9 @@ symbols:
 🦩	flamingo	none
 🦚	peacock	none
 🦜	parrot	none
+🪽	wing	none
+🐦‍⬛	black bird	none
+🪿	goose	none
 🐸	frog	none
 🐊	crocodile	none
 🐢	turtle	none
@@ -868,6 +860,8 @@ symbols:
 🦈	shark	none
 🐙	octopus	none
 🐚	spiral shell	none
+🪸	coral	none
+🪼	jellyfish	none
 🐌	snail	none
 🦋	butterfly	none
 🐛	bug	none
@@ -887,6 +881,7 @@ symbols:
 💐	bouquet	none
 🌸	cherry blossom	none
 💮	white flower	none
+🪷	lotus	none
 🏵	rosette	none
 🌹	rose	none
 🥀	wilted flower	none
@@ -894,6 +889,7 @@ symbols:
 🌻	sunflower	none
 🌼	blossom	none
 🌷	tulip	none
+🪻	hyacinth	none
 🌱	seedling	none
 🪴	potted plant	none
 🌲	evergreen tree	none
@@ -907,6 +903,9 @@ symbols:
 🍁	maple leaf	none
 🍂	fallen leaf	none
 🍃	leaf fluttering in wind	none
+🪹	empty nest	none
+🪺	nest with eggs	none
+🍄	mushroom	none
 🍇	grapes	none
 🍈	melon	none
 🍉	watermelon	none
@@ -938,9 +937,11 @@ symbols:
 🥦	broccoli	none
 🧄	garlic	none
 🧅	onion	none
-🍄	mushroom	none
 🥜	peanuts	none
+🫘	beans	none
 🌰	chestnut	none
+🫚	ginger root	none
+🫛	pea pod	none
 🍞	bread	none
 🥐	croissant	none
 🥖	baguette bread	none
@@ -1025,6 +1026,7 @@ symbols:
 🍻	clinking beer mugs	none
 🥂	clinking glasses	none
 🥃	tumbler glass	none
+🫗	pouring liquid	none
 🥤	cup with straw	none
 🧋	bubble tea	none
 🧃	beverage box	none
@@ -1035,6 +1037,7 @@ symbols:
 🍴	fork and knife	none
 🥄	spoon	none
 🔪	kitchen knife	none
+🫙	jar	none
 🏺	amphora	none
 🌍	globe showing Europe-Africa	none
 🌎	globe showing Americas	none
@@ -1097,6 +1100,7 @@ symbols:
 🌉	bridge at night	none
 ♨	hot springs	none
 🎠	carousel horse	none
+🛝	playground slide	none
 🎡	ferris wheel	none
 🎢	roller coaster	none
 💈	barber pole	none
@@ -1145,12 +1149,14 @@ symbols:
 🛤	railway track	none
 🛢	oil drum	none
 ⛽	fuel pump	none
+🛞	wheel	none
 🚨	police car light	none
 🚥	horizontal traffic light	none
 🚦	vertical traffic light	none
 🛑	stop sign	none
 🚧	construction	none
 ⚓	anchor	none
+🛟	ring buoy	none
 ⛵	sailboat	none
 🛶	canoe	none
 🚤	speedboat	none
@@ -1308,10 +1314,10 @@ symbols:
 🎯	bullseye	none
 🪀	yo-yo	none
 🪁	kite	none
+🔫	water pistol	none
 🎱	pool 8 ball	none
 🔮	crystal ball	none
 🪄	magic wand	none
-🧿	nazar amulet	none
 🎮	video game	none
 🕹	joystick	none
 🎰	slot machine	none
@@ -1319,6 +1325,7 @@ symbols:
 🧩	puzzle piece	none
 🧸	teddy bear	none
 🪅	piñata	none
+🪩	mirror ball	none
 🪆	nesting dolls	none
 ♠	spade suit	none
 ♥	heart suit	none
@@ -1355,6 +1362,7 @@ symbols:
 🩳	shorts	none
 👙	bikini	none
 👚	woman’s clothes	none
+🪭	folding hand fan	none
 👛	purse	none
 👜	handbag	none
 👝	clutch bag	none
@@ -1369,6 +1377,7 @@ symbols:
 👡	woman’s sandal	none
 🩰	ballet shoes	none
 👢	woman’s boot	none
+🪮	hair pick	none
 👑	crown	none
 👒	woman’s hat	none
 🎩	top hat	none
@@ -1407,6 +1416,8 @@ symbols:
 🪕	banjo	none
 🥁	drum	none
 🪘	long drum	none
+🪇	maracas	none
+🪈	flute	none
 📱	mobile phone	none
 📲	mobile phone with arrow	none
 ☎	telephone	none
@@ -1414,6 +1425,7 @@ symbols:
 📟	pager	none
 📠	fax machine	none
 🔋	battery	none
+🪫	low battery	none
 🔌	electric plug	none
 💻	laptop	none
 🖥	desktop computer	none
@@ -1525,7 +1537,7 @@ symbols:
 🛠	hammer and wrench	none
 🗡	dagger	none
 ⚔	crossed swords	none
-🔫	water pistol	none
+💣	bomb	none
 🪃	boomerang	none
 🏹	bow and arrow	none
 🛡	shield	none
@@ -1554,7 +1566,9 @@ symbols:
 🩸	drop of blood	none
 💊	pill	none
 🩹	adhesive bandage	none
+🩼	crutch	none
 🩺	stethoscope	none
+🩻	x-ray	none
 🚪	door	none
 🛗	elevator	none
 🪞	mirror	none
@@ -1575,6 +1589,7 @@ symbols:
 🧻	roll of paper	none
 🪣	bucket	none
 🧼	soap	none
+🫧	bubbles	none
 🪥	toothbrush	none
 🧽	sponge	none
 🧯	fire extinguisher	none
@@ -1583,8 +1598,11 @@ symbols:
 ⚰	coffin	none
 🪦	headstone	none
 ⚱	funeral urn	none
+🧿	nazar amulet	none
+🪬	hamsa	none
 🗿	moai	none
 🪧	placard	none
+🪪	identification card	none
 🏧	ATM sign	none
 🚮	litter in bin sign	none
 🚰	potable water	none
@@ -1645,6 +1663,7 @@ symbols:
 ☮	peace symbol	none
 🕎	menorah	none
 🔯	dotted six-pointed star	none
+🪯	khanda	none
 ♈	Aries	none
 ♉	Taurus	none
 ♊	Gemini	none
@@ -1680,6 +1699,7 @@ symbols:
 🔅	dim button	none
 🔆	bright button	none
 📶	antenna bars	none
+🛜	wireless	none
 📳	vibration mode	none
 📴	mobile phone off	none
 ♀	female sign	none
@@ -1689,6 +1709,7 @@ symbols:
 ➕	plus	none
 ➖	minus	none
 ➗	divide	none
+🟰	heavy equals sign	none
 ♾	infinity	none
 ❓	red question mark	none
 ❔	white question mark	none
@@ -1793,26 +1814,31 @@ symbols:
 ₽	ruble	none
 ₿	bitcoin	none
 ₨	rupee	none
-🫃🏻	pregnant man light skin tone	none
-🫃🏼	pregnant man medium-light skin tone	none
-🫃🏽	pregnant man medium skin tone	none
-🫃🏾	pregnant man medium-dark skin tone	none
-🫃🏿	pregnant man dark skin tone	none
-🫄🏻	pregnant person light skin tone	none
-🫄🏼	pregnant person medium-light skin tone	none
-🫄🏽	pregnant person medium skin tone	none
-🫄🏾	pregnant person medium-dark skin tone	none
-🫄🏿	pregnant person dark skin tone	none
-🫅🏻	person with crown light skin tone	none
-🫅🏼	person with crown medium-light skin tone	none
-🫅🏽	person with crown medium skin tone	none
-🫅🏾	person with crown medium-dark skin tone	none
-🫅🏿	person with crown dark skin tone	none
-🫰🏻	hand with index finger and thumb crossed light skin tone	none
-🫰🏼	hand with index finger and thumb crossed medium-light skin tone	none
-🫰🏽	hand with index finger and thumb crossed medium skin tone	none
-🫰🏾	hand with index finger and thumb crossed medium-dark skin tone	none
-🫰🏿	hand with index finger and thumb crossed dark skin tone	none
+👋🏻	waving hand light skin tone	none
+👋🏼	waving hand medium-light skin tone	none
+👋🏽	waving hand medium skin tone	none
+👋🏾	waving hand medium-dark skin tone	none
+👋🏿	waving hand dark skin tone	none
+🤚🏻	raised back of hand light skin tone	none
+🤚🏼	raised back of hand medium-light skin tone	none
+🤚🏽	raised back of hand medium skin tone	none
+🤚🏾	raised back of hand medium-dark skin tone	none
+🤚🏿	raised back of hand dark skin tone	none
+🖐🏻	hand with fingers splayed light skin tone	none
+🖐🏼	hand with fingers splayed medium-light skin tone	none
+🖐🏽	hand with fingers splayed medium skin tone	none
+🖐🏾	hand with fingers splayed medium-dark skin tone	none
+🖐🏿	hand with fingers splayed dark skin tone	none
+✋🏻	raised hand light skin tone	none
+✋🏼	raised hand medium-light skin tone	none
+✋🏽	raised hand medium skin tone	none
+✋🏾	raised hand medium-dark skin tone	none
+✋🏿	raised hand dark skin tone	none
+🖖🏻	vulcan salute light skin tone	none
+🖖🏼	vulcan salute medium-light skin tone	none
+🖖🏽	vulcan salute medium skin tone	none
+🖖🏾	vulcan salute medium-dark skin tone	none
+🖖🏿	vulcan salute dark skin tone	none
 🫱🏻	rightwards hand light skin tone	none
 🫱🏼	rightwards hand medium-light skin tone	none
 🫱🏽	rightwards hand medium skin tone	none
@@ -1853,41 +1879,16 @@ symbols:
 🫴🏽	palm up hand medium skin tone	none
 🫴🏾	palm up hand medium-dark skin tone	none
 🫴🏿	palm up hand dark skin tone	none
-🫵🏻	index pointing at the viewer light skin tone	none
-🫵🏼	index pointing at the viewer medium-light skin tone	none
-🫵🏽	index pointing at the viewer medium skin tone	none
-🫵🏾	index pointing at the viewer medium-dark skin tone	none
-🫵🏿	index pointing at the viewer dark skin tone	none
-🫶🏻	heart hands light skin tone	none
-🫶🏼	heart hands medium-light skin tone	none
-🫶🏽	heart hands medium skin tone	none
-🫶🏾	heart hands medium-dark skin tone	none
-🫶🏿	heart hands dark skin tone	none
-👋🏻	waving hand light skin tone	none
-👋🏼	waving hand medium-light skin tone	none
-👋🏽	waving hand medium skin tone	none
-👋🏾	waving hand medium-dark skin tone	none
-👋🏿	waving hand dark skin tone	none
-🤚🏻	raised back of hand light skin tone	none
-🤚🏼	raised back of hand medium-light skin tone	none
-🤚🏽	raised back of hand medium skin tone	none
-🤚🏾	raised back of hand medium-dark skin tone	none
-🤚🏿	raised back of hand dark skin tone	none
-🖐🏻	hand with fingers splayed light skin tone	none
-🖐🏼	hand with fingers splayed medium-light skin tone	none
-🖐🏽	hand with fingers splayed medium skin tone	none
-🖐🏾	hand with fingers splayed medium-dark skin tone	none
-🖐🏿	hand with fingers splayed dark skin tone	none
-✋🏻	raised hand light skin tone	none
-✋🏼	raised hand medium-light skin tone	none
-✋🏽	raised hand medium skin tone	none
-✋🏾	raised hand medium-dark skin tone	none
-✋🏿	raised hand dark skin tone	none
-🖖🏻	vulcan salute light skin tone	none
-🖖🏼	vulcan salute medium-light skin tone	none
-🖖🏽	vulcan salute medium skin tone	none
-🖖🏾	vulcan salute medium-dark skin tone	none
-🖖🏿	vulcan salute dark skin tone	none
+🫷🏻	leftwards pushing hand light skin tone	none
+🫷🏼	leftwards pushing hand medium-light skin tone	none
+🫷🏽	leftwards pushing hand medium skin tone	none
+🫷🏾	leftwards pushing hand medium-dark skin tone	none
+🫷🏿	leftwards pushing hand dark skin tone	none
+🫸🏻	rightwards pushing hand light skin tone	none
+🫸🏼	rightwards pushing hand medium-light skin tone	none
+🫸🏽	rightwards pushing hand medium skin tone	none
+🫸🏾	rightwards pushing hand medium-dark skin tone	none
+🫸🏿	rightwards pushing hand dark skin tone	none
 👌🏻	OK hand light skin tone	none
 👌🏼	OK hand medium-light skin tone	none
 👌🏽	OK hand medium skin tone	none
@@ -1913,6 +1914,11 @@ symbols:
 🤞🏽	crossed fingers medium skin tone	none
 🤞🏾	crossed fingers medium-dark skin tone	none
 🤞🏿	crossed fingers dark skin tone	none
+🫰🏻	hand with index finger and thumb crossed light skin tone	none
+🫰🏼	hand with index finger and thumb crossed medium-light skin tone	none
+🫰🏽	hand with index finger and thumb crossed medium skin tone	none
+🫰🏾	hand with index finger and thumb crossed medium-dark skin tone	none
+🫰🏿	hand with index finger and thumb crossed dark skin tone	none
 🤟🏻	love-you gesture light skin tone	none
 🤟🏼	love-you gesture medium-light skin tone	none
 🤟🏽	love-you gesture medium skin tone	none
@@ -1958,6 +1964,11 @@ symbols:
 ☝🏽	index pointing up medium skin tone	none
 ☝🏾	index pointing up medium-dark skin tone	none
 ☝🏿	index pointing up dark skin tone	none
+🫵🏻	index pointing at the viewer light skin tone	none
+🫵🏼	index pointing at the viewer medium-light skin tone	none
+🫵🏽	index pointing at the viewer medium skin tone	none
+🫵🏾	index pointing at the viewer medium-dark skin tone	none
+🫵🏿	index pointing at the viewer dark skin tone	none
 👍🏻	thumbs up light skin tone	none
 👍🏼	thumbs up medium-light skin tone	none
 👍🏽	thumbs up medium skin tone	none
@@ -1998,6 +2009,11 @@ symbols:
 🙌🏽	raising hands medium skin tone	none
 🙌🏾	raising hands medium-dark skin tone	none
 🙌🏿	raising hands dark skin tone	none
+🫶🏻	heart hands light skin tone	none
+🫶🏼	heart hands medium-light skin tone	none
+🫶🏽	heart hands medium skin tone	none
+🫶🏾	heart hands medium-dark skin tone	none
+🫶🏿	heart hands dark skin tone	none
 👐🏻	open hands light skin tone	none
 👐🏼	open hands medium-light skin tone	none
 👐🏽	open hands medium skin tone	none
@@ -2860,6 +2876,11 @@ symbols:
 👷🏽‍♀	woman construction worker medium skin tone	none
 👷🏾‍♀	woman construction worker medium-dark skin tone	none
 👷🏿‍♀	woman construction worker dark skin tone	none
+🫅🏻	person with crown light skin tone	none
+🫅🏼	person with crown medium-light skin tone	none
+🫅🏽	person with crown medium skin tone	none
+🫅🏾	person with crown medium-dark skin tone	none
+🫅🏿	person with crown dark skin tone	none
 🤴🏻	prince light skin tone	none
 🤴🏼	prince medium-light skin tone	none
 🤴🏽	prince medium skin tone	none
@@ -2930,6 +2951,16 @@ symbols:
 🤰🏽	pregnant woman medium skin tone	none
 🤰🏾	pregnant woman medium-dark skin tone	none
 🤰🏿	pregnant woman dark skin tone	none
+🫃🏻	pregnant man light skin tone	none
+🫃🏼	pregnant man medium-light skin tone	none
+🫃🏽	pregnant man medium skin tone	none
+🫃🏾	pregnant man medium-dark skin tone	none
+🫃🏿	pregnant man dark skin tone	none
+🫄🏻	pregnant person light skin tone	none
+🫄🏼	pregnant person medium-light skin tone	none
+🫄🏽	pregnant person medium skin tone	none
+🫄🏾	pregnant person medium-dark skin tone	none
+🫄🏿	pregnant person dark skin tone	none
 🤱🏻	breast-feeding light skin tone	none
 🤱🏼	breast-feeding medium-light skin tone	none
 🤱🏽	breast-feeding medium skin tone	none
