@@ -264,43 +264,6 @@ symbols:
 ⪺	sucede acima de não quase igual	none
 ♭	bemol	none
 ♯	sustenido	none
-🥹	rosto segurando as lágrimas	none
-🧌	troll	none
-🩻	raio x	none
-🩼	muleta	none
-🪩	globo de espelhos	none
-🪪	cartão de identificação	none
-🪫	pouca bateria	none
-🪬	hamsá	none
-🪷	lótus	none
-🪸	coral	none
-🪹	ninho vazio	none
-🪺	ninho com ovos	none
-🫃	homem grávido	none
-🫄	pessoa grávida	none
-🫅	pessoa com coroa	none
-🫗	derramando líquido	none
-🫘	feijões	none
-🫙	jarro	none
-🫠	rosto derretendo	none
-🫡	rosto saudando	none
-🫢	rosto com olhos abertos e mão sobre a boca	none
-🫣	rosto com olho espiando	none
-🫤	rosto com boca diagonal	none
-🫥	rosto com linha pontilhada	none
-🫦	mordendo o lábio	none
-🫧	bolhas	none
-🫰	mão com dedo indicador e polegar cruzados	none
-🫱	mão para a direita	none
-🫲	mão para a esquerda	none
-🫳	mão com a palma para baixo	none
-🫴	mão com a palma para cima	none
-🫵	indicador apontando para o visualizador	none
-🫶	mãos de coração	none
-🛝	escorregador	none
-🛞	roda	none
-🛟	boia	none
-🟰	sinal de igual	none
 😀	rosto risonho	none
 😃	rosto risonho com olhos bem abertos	none
 😄	rosto risonho com olhos sorridentes	none
@@ -311,6 +274,7 @@ symbols:
 😂	rosto chorando de rir	none
 🙂	rosto levemente sorridente	none
 🙃	rosto de cabeça para baixo	none
+🫠	rosto derretendo	none
 😉	rosto com olho piscando	none
 😊	rosto sorridente com olhos sorridentes	none
 😇	rosto sorridente com auréola	none
@@ -331,13 +295,17 @@ symbols:
 🤑	rosto com cifrões	none
 🤗	rosto abraçando	none
 🤭	rosto com a mão sobre a boca	none
+🫢	rosto com olhos abertos e mão sobre a boca	none
+🫣	rosto com olho espiando	none
 🤫	rosto fazendo sinal de silêncio	none
 🤔	rosto pensativo	none
+🫡	rosto saudando	none
 🤐	rosto com boca de zíper	none
 🤨	rosto com sobrancelha levantada	none
 😐	rosto neutro	none
 😑	rosto inexpressivo	none
 😶	rosto sem boca	none
+🫥	rosto com linha pontilhada	none
 😶‍🌫	rosto nas nuvens	none
 😏	rosto com sorriso maroto	none
 😒	rosto aborrecido	none
@@ -345,6 +313,7 @@ symbols:
 😬	rosto expressando desagrado	none
 😮‍💨	rosto exalando	none
 🤥	rosto de mentiroso	none
+🫨	rosto tremendo	none
 😌	rosto aliviado	none
 😔	rosto deprimido	none
 😪	rosto sonolento	none
@@ -369,6 +338,7 @@ symbols:
 🤓	rosto de nerd	none
 🧐	rosto com monóculo	none
 😕	rosto confuso	none
+🫤	rosto com boca diagonal	none
 😟	rosto preocupado	none
 🙁	rosto meio triste	none
 ☹	rosto descontente	none
@@ -377,6 +347,7 @@ symbols:
 😲	rosto espantado	none
 😳	rosto ruborizado	none
 🥺	rosto implorando	none
+🥹	rosto segurando as lágrimas	none
 😦	rosto franzido com boca aberta	none
 😧	rosto angustiado	none
 😨	rosto amedrontado	none
@@ -420,7 +391,6 @@ symbols:
 🙈	macaco que não vê nada	none
 🙉	macaco que não ouve nada	none
 🙊	macaco que não fala nada	none
-💋	marca de beijo	none
 💌	carta de amor	none
 💘	coração com flecha	none
 💝	coração com fita	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	coração em chamas	none
 ❤‍🩹	coração remendado	none
 ❤	coração vermelho	none
+🩷	coração rosa	none
 🧡	coração laranja	none
 💛	coração amarelo	none
 💚	coração verde	none
 💙	coração azul	none
+🩵	coração azul-claro	none
 💜	coração roxo	none
 🤎	coração marrom	none
 🖤	coração preto	none
+🩶	coração cinza	none
 🤍	coração branco	none
+💋	marca de beijo	none
 💯	cem pontos	none
 💢	símbolo de raiva	none
 💥	colisão	none
@@ -450,7 +424,6 @@ symbols:
 💦	pingos de suor	none
 💨	rapidez	none
 🕳	buraco	none
-💣	bomba	none
 💬	balão de diálogo	none
 👁‍🗨	olho no balão de diálogo	none
 🗨	balão de diálogo à esquerda	none
@@ -462,11 +435,18 @@ symbols:
 🖐	mão aberta com os dedos separados	none
 ✋	mão levantada	none
 🖖	saudação vulcana	none
+🫱	mão para a direita	none
+🫲	mão para a esquerda	none
+🫳	mão com a palma para baixo	none
+🫴	mão com a palma para cima	none
+🫷	mão empurrando para a esquerda	none
+🫸	mão empurrando para a direita	none
 👌	sinal de ok	none
 🤌	dedos comprimidos	none
 🤏	mão beliscando	none
 ✌	mão em V de vitória	none
 🤞	dedos cruzados	none
+🫰	mão com dedo indicador e polegar cruzados	none
 🤟	gesto de "te amo"	none
 🤘	saudação do rock	none
 🤙	sinal "me liga"	none
@@ -476,6 +456,7 @@ symbols:
 🖕	dedo do meio	none
 👇	dorso da mão com dedo indicador apontando para baixo	none
 ☝	indicador apontando para cima	none
+🫵	indicador apontando para o visualizador	none
 👍	polegar para cima	none
 👎	polegar para baixo	none
 ✊	punho levantado	none
@@ -484,6 +465,7 @@ symbols:
 🤜	punho direito	none
 👏	mãos aplaudindo	none
 🙌	mãos para cima	none
+🫶	mãos de coração	none
 👐	mãos abertas	none
 🤲	palmas unidas para cima	none
 🤝	aperto de mãos	none
@@ -508,6 +490,7 @@ symbols:
 👁	olho	none
 👅	língua	none
 👄	boca	none
+🫦	mordendo o lábio	none
 👶	bebê	none
 🧒	criança	none
 👦	menino	none
@@ -615,6 +598,7 @@ symbols:
 👷	trabalhador de construção civil	none
 👷‍♂	pedreiro	none
 👷‍♀	pedreira	none
+🫅	pessoa com coroa	none
 🤴	príncipe	none
 👸	princesa	none
 👳	pessoa com turbante	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	noivo com véu	none
 👰‍♀	noiva com véu	none
 🤰	grávida	none
+🫃	homem grávido	none
+🫄	pessoa grávida	none
 🤱	amamentando	none
 👩‍🍼	mulher alimentando bebê	none
 👨‍🍼	homem alimentando bebê	none
@@ -664,6 +650,7 @@ symbols:
 🧟	zumbi	none
 🧟‍♂	homem zumbi	none
 🧟‍♀	mulher zumbi	none
+🧌	troll	none
 💆	pessoa recebendo massagem facial	none
 💆‍♂	homem recebendo massagem facial	none
 💆‍♀	mulher recebendo massagem facial	none
@@ -787,6 +774,8 @@ symbols:
 🐅	tigre	none
 🐆	leopardo	none
 🐴	rosto de cavalo	none
+🫎	alce	none
+🫏	burro	none
 🐎	cavalo	none
 🦄	rosto de unicórnio	none
 🦓	zebra	none
@@ -849,6 +838,8 @@ symbols:
 🦩	flamingo	none
 🦚	pavão	none
 🦜	papagaio	none
+🪽	asa	none
+🪿	ganso	none
 🐸	sapo	none
 🐊	crocodilo	none
 🐢	tartaruga	none
@@ -868,6 +859,8 @@ symbols:
 🦈	tubarão	none
 🐙	polvo	none
 🐚	caramujo	none
+🪸	coral	none
+🪼	água-viva	none
 🐌	caracol	none
 🦋	borboleta	none
 🐛	inseto	none
@@ -887,6 +880,7 @@ symbols:
 💐	buquê	none
 🌸	flor de cerejeira	none
 💮	flor branca	none
+🪷	lótus	none
 🏵	roseta	none
 🌹	rosa	none
 🥀	flor murcha	none
@@ -894,6 +888,7 @@ symbols:
 🌻	girassol	none
 🌼	flor	none
 🌷	tulipa	none
+🪻	jacinto	none
 🌱	muda de planta	none
 🪴	vaso com planta	none
 🌲	conífera	none
@@ -907,6 +902,9 @@ symbols:
 🍁	folha de bordo	none
 🍂	folhas caídas	none
 🍃	folha ao vento	none
+🪹	ninho vazio	none
+🪺	ninho com ovos	none
+🍄	cogumelo	none
 🍇	uvas	none
 🍈	melão	none
 🍉	melancia	none
@@ -938,9 +936,11 @@ symbols:
 🥦	brócolis	none
 🧄	alho	none
 🧅	cebola	none
-🍄	cogumelo	none
 🥜	amendoim	none
+🫘	feijões	none
 🌰	castanha	none
+🫚	gengibre	none
+🫛	vagem	none
 🍞	pão	none
 🥐	croissant	none
 🥖	baguete	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	canecas de cerveja	none
 🥂	taças brindando	none
 🥃	copo	none
+🫗	derramando líquido	none
 🥤	copo com canudo	none
 🧋	chá perolado	none
 🧃	suco de caixa	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	garfo e faca	none
 🥄	colher	none
 🔪	faca de cozinha	none
+🫙	jarro	none
 🏺	ânfora	none
 🌍	globo mostrando Europa e África	none
 🌎	globo mostrando as Américas	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	ponte à noite	none
 ♨	chamas	none
 🎠	carrossel	none
+🛝	escorregador	none
 🎡	roda gigante	none
 🎢	montanha russa	none
 💈	barbearia	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	trilhos	none
 🛢	barril de óleo	none
 ⛽	posto de gasolina	none
+🛞	roda	none
 🚨	sirene	none
 🚥	semáforo horizontal	none
 🚦	semáforo vertical	none
 🛑	sinal de pare	none
 🚧	em construção	none
 ⚓	âncora	none
+🛟	boia	none
 ⛵	barco a vela	none
 🛶	canoa	none
 🚤	lancha	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	no alvo	none
 🪀	ioiô	none
 🪁	pipa	none
+🔫	pistola d’água	none
 🎱	bilhar	none
 🔮	bola de cristal	none
 🪄	varinha mágica	none
-🧿	olho grego	none
 🎮	videogame	none
 🕹	joystick	none
 🎰	caça-níquel	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	quebra-cabeça	none
 🧸	ursinho de pelúcia	none
 🪅	pinhata	none
+🪩	globo de espelhos	none
 🪆	boneca russa	none
 ♠	naipe de espadas	none
 ♥	naipe de copas	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	shorts	none
 👙	biquíni	none
 👚	roupas femininas	none
+🪭	leque dobrável	none
 👛	bolsinha	none
 👜	bolsa de mão	none
 👝	bolsa pequena	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	sandália feminina	none
 🩰	sapatilha de balé	none
 👢	bota feminina	none
+🪮	pente de cabelo	none
 👑	coroa	none
 👒	chapéu feminino	none
 🎩	cartola	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banjo	none
 🥁	tambor	none
 🪘	tambor comprido	none
+🪇	maracás	none
+🪈	flauta	none
 📱	telefone celular	none
 📲	telefone celular com seta	none
 ☎	telefone no gancho	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	pager	none
 📠	fax	none
 🔋	pilha	none
+🪫	pouca bateria	none
 🔌	tomada elétrica	none
 💻	laptop	none
 🖥	computador de mesa	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	martelo e chave-inglesa	none
 🗡	adaga	none
 ⚔	espadas cruzadas	none
-🔫	pistola d’água	none
+💣	bomba	none
 🪃	bumerangue	none
 🏹	arco e flecha	none
 🛡	escudo	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	gota de sangue	none
 💊	comprimido	none
 🩹	atadura adesiva	none
+🩼	muleta	none
 🩺	estetoscópio	none
+🩻	raio x	none
 🚪	porta	none
 🛗	elevador	none
 🪞	espelho	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	rolo de papel	none
 🪣	balde	none
 🧼	sabonete	none
+🫧	bolhas	none
 🪥	escova de dentes	none
 🧽	esponja	none
 🧯	extintor de incêndio	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	caixão	none
 🪦	lápide	none
 ⚱	urna funerária	none
+🧿	olho grego	none
+🪬	hamsá	none
 🗿	moai	none
 🪧	placa	none
+🪪	cartão de identificação	none
 🏧	símbolo de caixa automático	none
 🚮	símbolo de lixeira	none
 🚰	água potável	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	símbolo da paz	none
 🕎	menorá	none
 🔯	estrela de seis pontas	none
+🪯	khanda	none
 ♈	signo de Áries	none
 ♉	signo de Touro	none
 ♊	signo de Gêmeos	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	botão de diminuir brilho	none
 🔆	botão de aumentar brilho	none
 📶	barras de sinal	none
+🛜	sem fio	none
 📳	modo vibratório	none
 📴	telefone celular desligado	none
 ♀	símbolo de feminino	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	símbolo de adição	none
 ➖	símbolo de subtração	none
 ➗	símbolo de divisão	none
+🟰	sinal de igual	none
 ♾	infinito	none
 ❓	ponto de interrogação vermelho	none
 ❔	ponto de interrogação branco	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	rublo	none
 ₿	bitcoin	none
 ₨	rupia	none
-🫃🏻	homem grávido pele clara	none
-🫃🏼	homem grávido pele morena clara	none
-🫃🏽	homem grávido pele morena	none
-🫃🏾	homem grávido pele morena escura	none
-🫃🏿	homem grávido pele escura	none
-🫄🏻	pessoa grávida pele clara	none
-🫄🏼	pessoa grávida pele morena clara	none
-🫄🏽	pessoa grávida pele morena	none
-🫄🏾	pessoa grávida pele morena escura	none
-🫄🏿	pessoa grávida pele escura	none
-🫅🏻	pessoa com coroa pele clara	none
-🫅🏼	pessoa com coroa pele morena clara	none
-🫅🏽	pessoa com coroa pele morena	none
-🫅🏾	pessoa com coroa pele morena escura	none
-🫅🏿	pessoa com coroa pele escura	none
-🫰🏻	mão com dedo indicador e polegar cruzados pele clara	none
-🫰🏼	mão com dedo indicador e polegar cruzados pele morena clara	none
-🫰🏽	mão com dedo indicador e polegar cruzados pele morena	none
-🫰🏾	mão com dedo indicador e polegar cruzados pele morena escura	none
-🫰🏿	mão com dedo indicador e polegar cruzados pele escura	none
+👋🏻	mão acenando pele clara	none
+👋🏼	mão acenando pele morena clara	none
+👋🏽	mão acenando pele morena	none
+👋🏾	mão acenando pele morena escura	none
+👋🏿	mão acenando pele escura	none
+🤚🏻	dorso da mão levantado pele clara	none
+🤚🏼	dorso da mão levantado pele morena clara	none
+🤚🏽	dorso da mão levantado pele morena	none
+🤚🏾	dorso da mão levantado pele morena escura	none
+🤚🏿	dorso da mão levantado pele escura	none
+🖐🏻	mão aberta com os dedos separados pele clara	none
+🖐🏼	mão aberta com os dedos separados pele morena clara	none
+🖐🏽	mão aberta com os dedos separados pele morena	none
+🖐🏾	mão aberta com os dedos separados pele morena escura	none
+🖐🏿	mão aberta com os dedos separados pele escura	none
+✋🏻	mão levantada pele clara	none
+✋🏼	mão levantada pele morena clara	none
+✋🏽	mão levantada pele morena	none
+✋🏾	mão levantada pele morena escura	none
+✋🏿	mão levantada pele escura	none
+🖖🏻	saudação vulcana pele clara	none
+🖖🏼	saudação vulcana pele morena clara	none
+🖖🏽	saudação vulcana pele morena	none
+🖖🏾	saudação vulcana pele morena escura	none
+🖖🏿	saudação vulcana pele escura	none
 🫱🏻	mão para a direita pele clara	none
 🫱🏼	mão para a direita pele morena clara	none
 🫱🏽	mão para a direita pele morena	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	mão com a palma para cima pele morena	none
 🫴🏾	mão com a palma para cima pele morena escura	none
 🫴🏿	mão com a palma para cima pele escura	none
-🫵🏻	indicador apontando para o visualizador pele clara	none
-🫵🏼	indicador apontando para o visualizador pele morena clara	none
-🫵🏽	indicador apontando para o visualizador pele morena	none
-🫵🏾	indicador apontando para o visualizador pele morena escura	none
-🫵🏿	indicador apontando para o visualizador pele escura	none
-🫶🏻	mãos de coração pele clara	none
-🫶🏼	mãos de coração pele morena clara	none
-🫶🏽	mãos de coração pele morena	none
-🫶🏾	mãos de coração pele morena escura	none
-🫶🏿	mãos de coração pele escura	none
-👋🏻	mão acenando pele clara	none
-👋🏼	mão acenando pele morena clara	none
-👋🏽	mão acenando pele morena	none
-👋🏾	mão acenando pele morena escura	none
-👋🏿	mão acenando pele escura	none
-🤚🏻	dorso da mão levantado pele clara	none
-🤚🏼	dorso da mão levantado pele morena clara	none
-🤚🏽	dorso da mão levantado pele morena	none
-🤚🏾	dorso da mão levantado pele morena escura	none
-🤚🏿	dorso da mão levantado pele escura	none
-🖐🏻	mão aberta com os dedos separados pele clara	none
-🖐🏼	mão aberta com os dedos separados pele morena clara	none
-🖐🏽	mão aberta com os dedos separados pele morena	none
-🖐🏾	mão aberta com os dedos separados pele morena escura	none
-🖐🏿	mão aberta com os dedos separados pele escura	none
-✋🏻	mão levantada pele clara	none
-✋🏼	mão levantada pele morena clara	none
-✋🏽	mão levantada pele morena	none
-✋🏾	mão levantada pele morena escura	none
-✋🏿	mão levantada pele escura	none
-🖖🏻	saudação vulcana pele clara	none
-🖖🏼	saudação vulcana pele morena clara	none
-🖖🏽	saudação vulcana pele morena	none
-🖖🏾	saudação vulcana pele morena escura	none
-🖖🏿	saudação vulcana pele escura	none
+🫷🏻	mão empurrando para a esquerda pele clara	none
+🫷🏼	mão empurrando para a esquerda pele morena clara	none
+🫷🏽	mão empurrando para a esquerda pele morena	none
+🫷🏾	mão empurrando para a esquerda pele morena escura	none
+🫷🏿	mão empurrando para a esquerda pele escura	none
+🫸🏻	mão empurrando para a direita pele clara	none
+🫸🏼	mão empurrando para a direita pele morena clara	none
+🫸🏽	mão empurrando para a direita pele morena	none
+🫸🏾	mão empurrando para a direita pele morena escura	none
+🫸🏿	mão empurrando para a direita pele escura	none
 👌🏻	sinal de ok pele clara	none
 👌🏼	sinal de ok pele morena clara	none
 👌🏽	sinal de ok pele morena	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	dedos cruzados pele morena	none
 🤞🏾	dedos cruzados pele morena escura	none
 🤞🏿	dedos cruzados pele escura	none
+🫰🏻	mão com dedo indicador e polegar cruzados pele clara	none
+🫰🏼	mão com dedo indicador e polegar cruzados pele morena clara	none
+🫰🏽	mão com dedo indicador e polegar cruzados pele morena	none
+🫰🏾	mão com dedo indicador e polegar cruzados pele morena escura	none
+🫰🏿	mão com dedo indicador e polegar cruzados pele escura	none
 🤟🏻	gesto de "te amo" pele clara	none
 🤟🏼	gesto de "te amo" pele morena clara	none
 🤟🏽	gesto de "te amo" pele morena	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	indicador apontando para cima pele morena	none
 ☝🏾	indicador apontando para cima pele morena escura	none
 ☝🏿	indicador apontando para cima pele escura	none
+🫵🏻	indicador apontando para o visualizador pele clara	none
+🫵🏼	indicador apontando para o visualizador pele morena clara	none
+🫵🏽	indicador apontando para o visualizador pele morena	none
+🫵🏾	indicador apontando para o visualizador pele morena escura	none
+🫵🏿	indicador apontando para o visualizador pele escura	none
 👍🏻	polegar para cima pele clara	none
 👍🏼	polegar para cima pele morena clara	none
 👍🏽	polegar para cima pele morena	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	mãos para cima pele morena	none
 🙌🏾	mãos para cima pele morena escura	none
 🙌🏿	mãos para cima pele escura	none
+🫶🏻	mãos de coração pele clara	none
+🫶🏼	mãos de coração pele morena clara	none
+🫶🏽	mãos de coração pele morena	none
+🫶🏾	mãos de coração pele morena escura	none
+🫶🏿	mãos de coração pele escura	none
 👐🏻	mãos abertas pele clara	none
 👐🏼	mãos abertas pele morena clara	none
 👐🏽	mãos abertas pele morena	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	pedreira pele morena	none
 👷🏾‍♀	pedreira pele morena escura	none
 👷🏿‍♀	pedreira pele escura	none
+🫅🏻	pessoa com coroa pele clara	none
+🫅🏼	pessoa com coroa pele morena clara	none
+🫅🏽	pessoa com coroa pele morena	none
+🫅🏾	pessoa com coroa pele morena escura	none
+🫅🏿	pessoa com coroa pele escura	none
 🤴🏻	príncipe pele clara	none
 🤴🏼	príncipe pele morena clara	none
 🤴🏽	príncipe pele morena	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	grávida pele morena	none
 🤰🏾	grávida pele morena escura	none
 🤰🏿	grávida pele escura	none
+🫃🏻	homem grávido pele clara	none
+🫃🏼	homem grávido pele morena clara	none
+🫃🏽	homem grávido pele morena	none
+🫃🏾	homem grávido pele morena escura	none
+🫃🏿	homem grávido pele escura	none
+🫄🏻	pessoa grávida pele clara	none
+🫄🏼	pessoa grávida pele morena clara	none
+🫄🏽	pessoa grávida pele morena	none
+🫄🏾	pessoa grávida pele morena escura	none
+🫄🏿	pessoa grávida pele escura	none
 🤱🏻	amamentando pele clara	none
 🤱🏼	amamentando pele morena clara	none
 🤱🏽	amamentando pele morena	none

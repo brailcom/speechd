@@ -115,7 +115,6 @@ symbols:
 🙈	Aen zouhalenden Af	none
 🙉	Oueren zouhalenden Af	none
 🙊	Mond zouhalenden Af	none
-💋	Kussmond	none
 💌	Libesbréif	none
 💘	Häerz mat Feil	none
 💝	Häerz mat Putsch	none
@@ -134,6 +133,7 @@ symbols:
 💙	blot Häerz	none
 💜	mooft Häerz	none
 🖤	schwaarzt Häerz	none
+💋	Kussmond	none
 💯	honnert Punkten	none
 💢	Rosereiszeechen	none
 💥	Kollisioun	none
@@ -141,7 +141,6 @@ symbols:
 💦	Schweessdrëpsen	none
 💨	séier fort	none
 🕳	Lach	none
-💣	Bomm	none
 💬	Spriechblos	none
 👁‍🗨	A an enger Spriechblos	none
 🗨	lénks Spriechblos	none
@@ -500,6 +499,7 @@ symbols:
 🍁	Ahornblat	none
 🍂	Hierschtblat	none
 🍃	am Wand fléiend Blat	none
+🍄	Champignon	none
 🍇	Drauwen	none
 🍈	Meloun	none
 🍉	Waassermeloun	none
@@ -524,7 +524,6 @@ symbols:
 🌶	Peperoni	none
 🥒	Kornischong	none
 🥦	Brokkoli	none
-🍄	Champignon	none
 🥜	Kakuett	none
 🌰	Käscht	none
 🍞	Brout	none
@@ -854,6 +853,7 @@ symbols:
 🛷	Schlitt	none
 🥌	Curling-Steen	none
 🎯	an d’Mëtt getraff	none
+🔫	Pistoul	none
 🎱	Billardkugel	none
 🔮	Kristallkugel	none
 🎮	Videospill	none
@@ -1040,7 +1040,7 @@ symbols:
 🛠	Hummer a Schrauweschlëssel	none
 🗡	Dolch	none
 ⚔	gekräizt Schwäerter	none
-🔫	Pistoul	none
+💣	Bomm	none
 🏹	Bou mat Feiler	none
 🛡	Schëld	none
 🔧	Schrauweschlëssel	none
@@ -1243,26 +1243,6 @@ symbols:
 🏴	schwaarze Fändel	none
 🏳	wäisse Fändel	none
 🏳‍🌈	Reeboufändel	none
-🫱🏻‍🫲🏼	Handdrock hell Hautfaarf, mëttelhell Hautfaarf	none
-🫱🏻‍🫲🏽	Handdrock hell Hautfaarf, mëttel Hautfaarf	none
-🫱🏻‍🫲🏾	Handdrock hell Hautfaarf, mëtteldäischter Hautfaarf	none
-🫱🏻‍🫲🏿	Handdrock hell Hautfaarf, däischter Hautfaarf	none
-🫱🏼‍🫲🏻	Handdrock mëttelhell Hautfaarf, hell Hautfaarf	none
-🫱🏼‍🫲🏽	Handdrock mëttelhell Hautfaarf, mëttel Hautfaarf	none
-🫱🏼‍🫲🏾	Handdrock mëttelhell Hautfaarf, mëtteldäischter Hautfaarf	none
-🫱🏼‍🫲🏿	Handdrock mëttelhell Hautfaarf, däischter Hautfaarf	none
-🫱🏽‍🫲🏻	Handdrock mëttel Hautfaarf, hell Hautfaarf	none
-🫱🏽‍🫲🏼	Handdrock mëttel Hautfaarf, mëttelhell Hautfaarf	none
-🫱🏽‍🫲🏾	Handdrock mëttel Hautfaarf, mëtteldäischter Hautfaarf	none
-🫱🏽‍🫲🏿	Handdrock mëttel Hautfaarf, däischter Hautfaarf	none
-🫱🏾‍🫲🏻	Handdrock mëtteldäischter Hautfaarf, hell Hautfaarf	none
-🫱🏾‍🫲🏼	Handdrock mëtteldäischter Hautfaarf, mëttelhell Hautfaarf	none
-🫱🏾‍🫲🏽	Handdrock mëtteldäischter Hautfaarf, mëttel Hautfaarf	none
-🫱🏾‍🫲🏿	Handdrock mëtteldäischter Hautfaarf, däischter Hautfaarf	none
-🫱🏿‍🫲🏻	Handdrock däischter Hautfaarf, hell Hautfaarf	none
-🫱🏿‍🫲🏼	Handdrock däischter Hautfaarf, mëttelhell Hautfaarf	none
-🫱🏿‍🫲🏽	Handdrock däischter Hautfaarf, mëttel Hautfaarf	none
-🫱🏿‍🫲🏾	Handdrock däischter Hautfaarf, mëtteldäischter Hautfaarf	none
 👋🏻	wénkend Hand hell Hautfaarf	none
 👋🏼	wénkend Hand mëttelhell Hautfaarf	none
 👋🏽	wénkend Hand mëttel Hautfaarf	none
@@ -1288,6 +1268,26 @@ symbols:
 🖖🏽	Vulcan-Grouss mëttel Hautfaarf	none
 🖖🏾	Vulcan-Grouss mëtteldäischter Hautfaarf	none
 🖖🏿	Vulcan-Grouss däischter Hautfaarf	none
+🫱🏻‍🫲🏼	Handdrock hell Hautfaarf, mëttelhell Hautfaarf	none
+🫱🏻‍🫲🏽	Handdrock hell Hautfaarf, mëttel Hautfaarf	none
+🫱🏻‍🫲🏾	Handdrock hell Hautfaarf, mëtteldäischter Hautfaarf	none
+🫱🏻‍🫲🏿	Handdrock hell Hautfaarf, däischter Hautfaarf	none
+🫱🏼‍🫲🏻	Handdrock mëttelhell Hautfaarf, hell Hautfaarf	none
+🫱🏼‍🫲🏽	Handdrock mëttelhell Hautfaarf, mëttel Hautfaarf	none
+🫱🏼‍🫲🏾	Handdrock mëttelhell Hautfaarf, mëtteldäischter Hautfaarf	none
+🫱🏼‍🫲🏿	Handdrock mëttelhell Hautfaarf, däischter Hautfaarf	none
+🫱🏽‍🫲🏻	Handdrock mëttel Hautfaarf, hell Hautfaarf	none
+🫱🏽‍🫲🏼	Handdrock mëttel Hautfaarf, mëttelhell Hautfaarf	none
+🫱🏽‍🫲🏾	Handdrock mëttel Hautfaarf, mëtteldäischter Hautfaarf	none
+🫱🏽‍🫲🏿	Handdrock mëttel Hautfaarf, däischter Hautfaarf	none
+🫱🏾‍🫲🏻	Handdrock mëtteldäischter Hautfaarf, hell Hautfaarf	none
+🫱🏾‍🫲🏼	Handdrock mëtteldäischter Hautfaarf, mëttelhell Hautfaarf	none
+🫱🏾‍🫲🏽	Handdrock mëtteldäischter Hautfaarf, mëttel Hautfaarf	none
+🫱🏾‍🫲🏿	Handdrock mëtteldäischter Hautfaarf, däischter Hautfaarf	none
+🫱🏿‍🫲🏻	Handdrock däischter Hautfaarf, hell Hautfaarf	none
+🫱🏿‍🫲🏼	Handdrock däischter Hautfaarf, mëttelhell Hautfaarf	none
+🫱🏿‍🫲🏽	Handdrock däischter Hautfaarf, mëttel Hautfaarf	none
+🫱🏿‍🫲🏾	Handdrock däischter Hautfaarf, mëtteldäischter Hautfaarf	none
 👌🏻	OK-Handzeechen hell Hautfaarf	none
 👌🏼	OK-Handzeechen mëttelhell Hautfaarf	none
 👌🏽	OK-Handzeechen mëttel Hautfaarf	none

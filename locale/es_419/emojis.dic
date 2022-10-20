@@ -3,55 +3,14 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-🏻	↑↑↑	none
-🏼	↑↑↑	none
-🏽	↑↑↑	none
-🏾	↑↑↑	none
-🏿	↑↑↑	none
-℗	↑↑↑	none
-←	↑↑↑	none
-↚	↑↑↑	none
-→	↑↑↑	none
-↛	↑↑↑	none
-↑	↑↑↑	none
-↓	↑↑↑	none
-↜	↑↑↑	none
-↝	↑↑↑	none
-↞	↑↑↑	none
-↟	↑↑↑	none
-↠	↑↑↑	none
-↡	↑↑↑	none
-↢	↑↑↑	none
-↣	↑↑↑	none
-↤	↑↑↑	none
-↥	↑↑↑	none
-↦	↑↑↑	none
-↧	↑↑↑	none
-↨	↑↑↑	none
-↫	↑↑↑	none
-↬	↑↑↑	none
-↭	↑↑↑	none
-↯	↑↑↑	none
-↰	↑↑↑	none
-↱	↑↑↑	none
-↲	↑↑↑	none
-↳	↑↑↑	none
 ↴	flecha hacia abajo con punta hacia la esquina derecha	none
 ↵	flecha hacia abajo con punta hacia la esquina izquierda	none
 ↶	flecha en sentido antihorario	none
 ↷	flecha en sentido horario	none
 ↸	flecha hacia noroeste con barra	none
 ↹	flecha hacia la izquierda con barra sobre flecha hacia la derecha con barra	none
-↺	↑↑↑	none
-↻	↑↑↑	none
-↼	↑↑↑	none
-↽	↑↑↑	none
-↾	↑↑↑	none
-↿	↑↑↑	none
 ⇀	arpón hacia la derecha con flecha por arriba	none
 ⇁	arpón hacia la derecha con flecha por debajo	none
-⇂	arpón hacia abajo con flecha a la derecha	none
-⇃	↑↑↑	none
 ⇄	flecha a la derecha sobre flecha a la izquierda	none
 ⇅	flecha doble hacia arriba y abajo	none
 ⇆	flecha doble hacia la izquierda y derecha	none
@@ -61,146 +20,26 @@ symbols:
 ⇊	par de flechas hacia abajo	none
 ⇋	arpón a la izquierda sobre arpón a la derecha	none
 ⇌	arpón a la derecha sobre arpón a la izquierda	none
-⇐	↑↑↑	none
-⇍	↑↑↑	none
-⇑	↑↑↑	none
-⇒	↑↑↑	none
-⇏	↑↑↑	none
-⇓	↑↑↑	none
-⇔	↑↑↑	none
-⇎	↑↑↑	none
-⇖	↑↑↑	none
-⇗	↑↑↑	none
-⇘	↑↑↑	none
-⇙	↑↑↑	none
-⇚	↑↑↑	none
-⇛	↑↑↑	none
-⇜	↑↑↑	none
-⇝	↑↑↑	none
-⇞	↑↑↑	none
-⇟	↑↑↑	none
 ⇠	flecha discontinua hacia la izquierda	none
-⇡	↑↑↑	none
 ⇢	flecha discontinua hacia la derecha	none
-⇣	↑↑↑	none
-⇤	↑↑↑	none
-⇥	↑↑↑	none
 ⇦	flecha vacía hacia la izquierda	none
 ⇧	flecha vacía hacia arriba	none
 ⇨	flecha vacía hacia la derecha	none
 ⇩	flecha vacía hacia abajo	none
 ⇪	flecha vacía hacia arriba desde barra	none
 ⇵	flecha hacia abajo y flecha hacia arriba	none
-∀	↑↑↑	none
-∂	↑↑↑	none
-∃	↑↑↑	none
-∅	conjunto vacío	none
-∆	↑↑↑	none
-∇	↑↑↑	none
-∈	↑↑↑	none
 ∉	no es un elemento de	none
 ∋	es un elemento de	none
-∎	↑↑↑	none
-∏	↑↑↑	none
-∑	↑↑↑	none
-≮	↑↑↑	none
-≠	↑↑↑	none
-≯	↑↑↑	none
-−	↑↑↑	none
-⁻	↑↑↑	none
 ∓	menos-más	none
-∕	↑↑↑	none
-∗	operador de asterisco	none
-∘	↑↑↑	none
-∙	↑↑↑	none
-√	↑↑↑	none
-∝	↑↑↑	none
-∞	↑↑↑	none
 ∟	ángulo derecho	none
-∠	ángulo	none
-∣	↑↑↑	none
-∥	↑↑↑	none
-∧	↑↑↑	none
-∩	↑↑↑	none
-∪	↑↑↑	none
-∫	↑↑↑	none
-∬	↑↑↑	none
-∮	↑↑↑	none
-∴	↑↑↑	none
-∵	↑↑↑	none
-∶	↑↑↑	none
-∷	↑↑↑	none
-∼	↑↑↑	none
-∽	↑↑↑	none
-∾	↑↑↑	none
-≃	↑↑↑	none
-≅	↑↑↑	none
-≈	↑↑↑	none
-≌	↑↑↑	none
-≒	↑↑↑	none
-≖	↑↑↑	none
-≡	↑↑↑	none
-≣	↑↑↑	none
-≤	↑↑↑	none
-≥	↑↑↑	none
-≦	↑↑↑	none
-≧	↑↑↑	none
-≪	↑↑↑	none
-≫	↑↑↑	none
-≬	↑↑↑	none
-≳	↑↑↑	none
-≺	↑↑↑	none
-≻	↑↑↑	none
-⊁	↑↑↑	none
-⊂	↑↑↑	none
-⊃	↑↑↑	none
-⊆	↑↑↑	none
-⊇	↑↑↑	none
-⊕	↑↑↑	none
-⊖	↑↑↑	none
-⊗	↑↑↑	none
-⊘	↑↑↑	none
-⊙	↑↑↑	none
-⊚	↑↑↑	none
-⊛	↑↑↑	none
-⊞	↑↑↑	none
-⊟	↑↑↑	none
-⊥	↑↑↑	none
-⊮	↑↑↑	none
-⊰	↑↑↑	none
-⊱	↑↑↑	none
-⋭	↑↑↑	none
-⊶	↑↑↑	none
-⊹	↑↑↑	none
-⊿	↑↑↑	none
-⋁	↑↑↑	none
-⋂	↑↑↑	none
-⋃	↑↑↑	none
-⋅	operador de punto	none
-⋆	operador de estrella	none
-⋈	unión natural	none
-⋒	↑↑↑	none
-⋘	↑↑↑	none
-⋙	↑↑↑	none
 ⋮	elipsis vertical	none
 ⋯	elipsis horizontal de línea media	none
 ⋰	elipsis en diagonal hacia la derecha	none
 ⋱	elipsis en diagonal hacia la izquierda	none
-■	cuadrado relleno	none
 □	cuadrado vacío	none
 ▢	cuadrado vacío con bordes redondos	none
 ▣	cuadrado vacío con cuadrado relleno dentro	none
-▤	↑↑↑	none
-▥	↑↑↑	none
-▦	↑↑↑	none
-▧	↑↑↑	none
-▨	↑↑↑	none
-▩	↑↑↑	none
-▬	rectángulo relleno	none
 ▭	rectángulo vacío	none
-▮	rectángulo vertical relleno	none
-▰	paralelogramo relleno	none
-▲	↑↑↑	none
 △	triángulo vacío que apunta hacia arriba	none
 ▴	triángulo pequeño relleno hacia arriba	none
 ▵	triángulo pequeño vacío hacia arriba	none
@@ -209,7 +48,6 @@ symbols:
 ▹	triángulo pequeño vacío hacia la derecha	none
 ►	puntero relleno hacia la derecha	none
 ▻	puntero vacío hacia la derecha	none
-▼	↑↑↑	none
 ▽	triángulo vacío hacia abajo	none
 ▾	triángulo pequeño relleno hacia abajo	none
 ▿	triángulo pequeño vacío hacia abajo	none
@@ -218,89 +56,22 @@ symbols:
 ◃	triángulo pequeño vacío hacia la izquierda	none
 ◄	puntero relleno hacia la izquierda	none
 ◅	puntero vacío hacia la izquierda	none
-◆	↑↑↑	none
 ◇	diamante vacío	none
 ◈	diamante vacío con diamante relleno dentro	none
 ◉	círculo vacío con círculo relleno dentro	none
-◊	↑↑↑	none
 ○	círculo vacío	none
-◌	↑↑↑	none
-◍	↑↑↑	none
-◎	↑↑↑	none
-●	↑↑↑	none
-◐	↑↑↑	none
-◑	↑↑↑	none
-◒	↑↑↑	none
-◓	↑↑↑	none
 ◔	círculo con cuadrante superior derecho relleno	none
-◕	↑↑↑	none
-◖	↑↑↑	none
-◗	↑↑↑	none
 ◘	viñeta invertida	none
 ◙	cuadrado relleno con círculo vacío dentro	none
 ◜	arco de cuadrante superior izquierdo	none
 ◝	arco de cuadrante superior derecho	none
 ◞	arco de cuadrante inferior derecho	none
 ◟	arco de cuadrante inferior izquierdo	none
-◠	semicírculo superior	none
-◡	semicírculo inferior	none
-◢	↑↑↑	none
-◣	↑↑↑	none
-◤	↑↑↑	none
-◥	↑↑↑	none
 ◦	viñeta vacía	none
 ◯	círculo vacío grande	none
 ◳	cuadrado vacío con cuadrante superior derecho	none
 ◷	círculo vacío con cuadrante superior derecho	none
-◿	↑↑↑	none
-♪	↑↑↑	none
-⨧	↑↑↑	none
 ⨯	producto vectorial	none
-⨼	producto interior	none
-⩣	↑↑↑	none
-⩽	↑↑↑	none
-⪍	↑↑↑	none
-⪚	↑↑↑	none
-⪺	↑↑↑	none
-♭	↑↑↑	none
-♯	↑↑↑	none
-🥹	↑↑↑	none
-🧌	troll	none
-🩻	↑↑↑	none
-🩼	↑↑↑	none
-🪩	↑↑↑	none
-🪪	identificación	none
-🪫	↑↑↑	none
-🪬	↑↑↑	none
-🪷	lotus	none
-🪸	coral	none
-🪹	nido vacío	none
-🪺	nido con huevos	none
-🫃	hombre embarazado	none
-🫄	persona embarazada	none
-🫅	persona con corona	none
-🫗	líquido que se vierte	none
-🫘	frijoles	none
-🫙	jarra	none
-🫠	↑↑↑	none
-🫡	↑↑↑	none
-🫢	↑↑↑	none
-🫣	↑↑↑	none
-🫤	↑↑↑	none
-🫥	↑↑↑	none
-🫦	labio mordido	none
-🫧	↑↑↑	none
-🫰	↑↑↑	none
-🫱	↑↑↑	none
-🫲	↑↑↑	none
-🫳	↑↑↑	none
-🫴	↑↑↑	none
-🫵	↑↑↑	none
-🫶	corazón con las manos	none
-🛝	tobogán	none
-🛞	rueda	none
-🛟	↑↑↑	none
-🟰	↑↑↑	none
 😀	cara feliz	none
 😃	sonrisa con boca abierta	none
 😄	boca y ojos sonrientes	none
@@ -310,922 +81,221 @@ symbols:
 🤣	cara llorando de risa	none
 😂	cara llorando	none
 🙂	cara sonriendo levemente	none
-🙃	↑↑↑	none
 😉	cara con guiño	none
 😊	cara alegre	none
-😇	↑↑↑	none
-🥰	↑↑↑	none
-😍	↑↑↑	none
-🤩	↑↑↑	none
-😘	cara lanzando un beso	none
 😗	cara dando un beso	none
-☺	↑↑↑	none
 😚	beso con ojos cerrados	none
-😙	cara besando con ojos sonrientes	none
-🥲	↑↑↑	none
 😋	cara de broma	none
-😛	cara sacando la lengua	none
-😜	cara sacando la lengua y guiñando un ojo	none
-🤪	↑↑↑	none
 😝	cara con los ojos bien cerrados y sacando la lengua	none
-🤑	cara con lengua de dinero	none
-🤗	↑↑↑	none
-🤭	↑↑↑	none
-🤫	↑↑↑	none
 🤔	cara pensante	none
 🤐	cara con la boca cerrada con cierre	none
-🤨	↑↑↑	none
-😐	↑↑↑	none
-😑	cara sin expresión	none
-😶	↑↑↑	none
-😶‍🌫	↑↑↑	none
-😏	cara sonriendo con superioridad	none
-😒	↑↑↑	none
 🙄	cara revoleando los ojos	none
-😬	↑↑↑	none
-😮‍💨	↑↑↑	none
-🤥	↑↑↑	none
-😌	↑↑↑	none
-😔	cara desanimada	none
-😪	cara de sueño	none
-🤤	↑↑↑	none
-😴	cara durmiendo	none
+🫨	cara que vibra	none
 😷	cara con barbijo	none
-🤒	cara con termómetro	none
 🤕	cabeza vendada	none
-🤢	↑↑↑	none
-🤮	↑↑↑	none
 🤧	cara de estornudo	none
-🥵	↑↑↑	none
-🥶	↑↑↑	none
-🥴	↑↑↑	none
 😵	cara de mareado	none
-😵‍💫	↑↑↑	none
-🤯	↑↑↑	none
-🤠	↑↑↑	none
-🥳	↑↑↑	none
-🥸	↑↑↑	none
 😎	cara sonriendo con lentes de sol	none
 🤓	cara de nerd	none
-🧐	↑↑↑	none
-😕	↑↑↑	none
 😟	cara de preocupación	none
-🙁	↑↑↑	none
-☹	↑↑↑	none
 😮	cara con boca abierta	none
-😯	↑↑↑	none
-😲	↑↑↑	none
-😳	cara sonrojada	none
-🥺	↑↑↑	none
 😦	cara boquiabierta	none
 😧	cara de angustia	none
 😨	cara de miedo	none
-😰	↑↑↑	none
-😥	cara triste pero aliviada	none
 😢	cara con llanto	none
-😭	↑↑↑	none
 😱	cara de terror	none
-😖	↑↑↑	none
 😣	cara perseverante	none
 😞	cara de decepción	none
-😓	↑↑↑	none
 😩	cara de cansancio	none
-😫	cara cansada	none
-🥱	↑↑↑	none
 😤	mirada de triunfo	none
 😡	cara de odio	none
 😠	cara de enojado	none
-🤬	↑↑↑	none
 😈	sonriente con cuernos	none
 👿	granuja	none
 💀	cráneo	none
 ☠	calavera	none
 💩	caca	none
-🤡	↑↑↑	none
 👹	cara de ogro japonés	none
 👺	cara de demonio japonés	none
-👻	↑↑↑	none
 👽	extraterrestre	none
 👾	monstruo extraterrestre	none
-🤖	robot	none
 😺	gato sonriente	none
-😸	↑↑↑	none
-😹	↑↑↑	none
 😻	gato sonriente con corazones	none
 😼	gato sarcástico	none
 😽	gato mandando un beso	none
-🙀	↑↑↑	none
-😿	↑↑↑	none
 😾	cara de gato enfadado	none
 🙈	mono con ojos tapados	none
 🙉	mono con orejas tapadas	none
 🙊	mono con boca tapada	none
-💋	marca de beso	none
-💌	↑↑↑	none
-💘	↑↑↑	none
 💝	corazón con moño	none
-💖	corazón brillante	none
 💗	corazón que crece	none
 💓	corazón que palpita	none
 💞	corazones que giran	none
-💕	↑↑↑	none
 💟	corazón de decoración	none
 ❣	exclamación con forma de corazón	none
-💔	corazón roto	none
-❤‍🔥	↑↑↑	none
-❤‍🩹	↑↑↑	none
-❤	corazón rojo	none
-🧡	↑↑↑	none
-💛	corazón amarillo	none
-💚	corazón verde	none
-💙	corazón azul	none
-💜	corazón morado	none
-🤎	↑↑↑	none
-🖤	↑↑↑	none
-🤍	↑↑↑	none
+🩵	corazón celeste	none
 💯	100 puntos	none
 💢	enojo	none
-💥	↑↑↑	none
 💫	mareado	none
-💦	↑↑↑	none
-💨	salir corriendo	none
-🕳	agujero	none
-💣	↑↑↑	none
 💬	globo de diálogo	none
 👁‍🗨	ojo en una burbuja de texto	none
 🗨	globo de diálogo izquierdo	none
 🗯	globo de enojo derecho	none
 💭	globo de pensamiento	none
-💤	↑↑↑	none
-👋	mano saludando	none
 🤚	palma de la mano	none
-🖐	↑↑↑	none
-✋	↑↑↑	none
-🖖	↑↑↑	none
 👌	señal de OK	none
-🤌	↑↑↑	none
-🤏	↑↑↑	none
 ✌	gesto de victoria	none
-🤞	dedos cruzados	none
-🤟	↑↑↑	none
 🤘	gesto de cuernos	none
 🤙	gesto de llamada	none
-👈	↑↑↑	none
-👉	↑↑↑	none
 👆	dorso de mano con dedo índice hacia arriba	none
 🖕	dorso de mano con dedo medio hacia arriba	none
 👇	dorso de mano con dedo índice hacia abajo	none
-☝	↑↑↑	none
-👍	↑↑↑	none
-👎	↑↑↑	none
 ✊	puño levantado	none
-👊	puño cerrado	none
 🤛	puño a la izquierda	none
 🤜	puño a la derecha	none
-👏	manos aplaudiendo	none
 🙌	chocar las manos	none
-👐	↑↑↑	none
-🤲	↑↑↑	none
-🤝	↑↑↑	none
-🙏	↑↑↑	none
-✍	mano escribiendo	none
-💅	↑↑↑	none
+🫶	corazón con las manos	none
 🤳	selfie	none
-💪	bíceps flexionado	none
-🦾	↑↑↑	none
-🦿	↑↑↑	none
-🦵	↑↑↑	none
-🦶	↑↑↑	none
-👂	↑↑↑	none
-🦻	↑↑↑	none
-👃	↑↑↑	none
-🧠	↑↑↑	none
-🫀	↑↑↑	none
-🫁	↑↑↑	none
-🦷	↑↑↑	none
-🦴	↑↑↑	none
-👀	↑↑↑	none
-👁	↑↑↑	none
-👅	↑↑↑	none
-👄	↑↑↑	none
-👶	bebé	none
-🧒	↑↑↑	none
-👦	↑↑↑	none
-👧	niña	none
-🧑	↑↑↑	none
-👱	↑↑↑	none
-👨	↑↑↑	none
-🧔	↑↑↑	none
-🧔‍♂	hombre barba	none
-👱‍♂	↑↑↑	none
-👩	↑↑↑	none
-🧔‍♀	↑↑↑	none
-👱‍♀	↑↑↑	none
 🧓	adulto mayor	none
 👴	hombre mayor	none
 👵	mujer mayor	none
-🙍	↑↑↑	none
-🙍‍♂	↑↑↑	none
 🙍‍♀	mujer que frunce el seño	none
-🙎	↑↑↑	none
-🙎‍♂	↑↑↑	none
-🙎‍♀	↑↑↑	none
 🙅	gesto de está mal	none
-🙅‍♂	↑↑↑	none
-🙅‍♀	↑↑↑	none
 🙆	gesto de está bien	none
-🙆‍♂	↑↑↑	none
-🙆‍♀	↑↑↑	none
-💁	↑↑↑	none
-💁‍♂	↑↑↑	none
-💁‍♀	↑↑↑	none
 🙋	persona levantando la mano	none
-🙋‍♂	↑↑↑	none
-🙋‍♀	↑↑↑	none
-🧏	↑↑↑	none
-🧏‍♂	↑↑↑	none
-🧏‍♀	↑↑↑	none
-🙇	↑↑↑	none
-🙇‍♂	↑↑↑	none
-🙇‍♀	↑↑↑	none
-🤦	↑↑↑	none
-🤦‍♂	↑↑↑	none
-🤦‍♀	↑↑↑	none
-🤷	↑↑↑	none
-🤷‍♂	↑↑↑	none
-🤷‍♀	↑↑↑	none
-🧑‍⚕	↑↑↑	none
-👨‍⚕	↑↑↑	none
-👩‍⚕	↑↑↑	none
-🧑‍🎓	↑↑↑	none
-👨‍🎓	↑↑↑	none
-👩‍🎓	↑↑↑	none
-🧑‍🏫	↑↑↑	none
-👨‍🏫	↑↑↑	none
-👩‍🏫	↑↑↑	none
-🧑‍⚖	↑↑↑	none
-👨‍⚖	↑↑↑	none
-👩‍⚖	↑↑↑	none
-🧑‍🌾	↑↑↑	none
-👨‍🌾	↑↑↑	none
-👩‍🌾	↑↑↑	none
-🧑‍🍳	↑↑↑	none
-👨‍🍳	↑↑↑	none
-👩‍🍳	↑↑↑	none
-🧑‍🔧	↑↑↑	none
-👨‍🔧	↑↑↑	none
-👩‍🔧	↑↑↑	none
-🧑‍🏭	↑↑↑	none
-👨‍🏭	↑↑↑	none
-👩‍🏭	↑↑↑	none
-🧑‍💼	↑↑↑	none
-👨‍💼	↑↑↑	none
-👩‍💼	↑↑↑	none
-🧑‍🔬	↑↑↑	none
-👨‍🔬	↑↑↑	none
-👩‍🔬	↑↑↑	none
-🧑‍💻	↑↑↑	none
-👨‍💻	↑↑↑	none
-👩‍💻	↑↑↑	none
-🧑‍🎤	↑↑↑	none
-👨‍🎤	↑↑↑	none
-👩‍🎤	↑↑↑	none
-🧑‍🎨	↑↑↑	none
-👨‍🎨	↑↑↑	none
-👩‍🎨	↑↑↑	none
-🧑‍✈	↑↑↑	none
-👨‍✈	↑↑↑	none
-👩‍✈	↑↑↑	none
-🧑‍🚀	↑↑↑	none
-👨‍🚀	↑↑↑	none
-👩‍🚀	↑↑↑	none
-🧑‍🚒	↑↑↑	none
-👨‍🚒	↑↑↑	none
-👩‍🚒	↑↑↑	none
-👮	↑↑↑	none
-👮‍♂	↑↑↑	none
-👮‍♀	↑↑↑	none
-🕵	↑↑↑	none
-🕵‍♂	↑↑↑	none
-🕵‍♀	↑↑↑	none
-💂	↑↑↑	none
-💂‍♂	↑↑↑	none
-💂‍♀	↑↑↑	none
-🥷	↑↑↑	none
-👷	↑↑↑	none
-👷‍♂	↑↑↑	none
-👷‍♀	↑↑↑	none
-🤴	↑↑↑	none
-👸	↑↑↑	none
-👳	↑↑↑	none
-👳‍♂	↑↑↑	none
-👳‍♀	↑↑↑	none
-👲	↑↑↑	none
-🧕	↑↑↑	none
-🤵	↑↑↑	none
-🤵‍♂	↑↑↑	none
-🤵‍♀	↑↑↑	none
-👰	↑↑↑	none
-👰‍♂	↑↑↑	none
-👰‍♀	↑↑↑	none
-🤰	↑↑↑	none
-🤱	↑↑↑	none
-👩‍🍼	↑↑↑	none
-👨‍🍼	↑↑↑	none
-🧑‍🍼	↑↑↑	none
 👼	cara de ángel bebé	none
 🎅	Santa Claus	none
-🤶	↑↑↑	none
 🧑‍🎄	papá noel	none
-🦸	↑↑↑	none
-🦸‍♂	↑↑↑	none
-🦸‍♀	↑↑↑	none
-🦹	↑↑↑	none
-🦹‍♂	↑↑↑	none
-🦹‍♀	↑↑↑	none
-🧙	↑↑↑	none
-🧙‍♂	↑↑↑	none
-🧙‍♀	↑↑↑	none
-🧚	↑↑↑	none
-🧚‍♂	↑↑↑	none
-🧚‍♀	↑↑↑	none
-🧛	↑↑↑	none
-🧛‍♂	↑↑↑	none
-🧛‍♀	↑↑↑	none
-🧜	↑↑↑	none
 🧜‍♂	sireno	none
-🧜‍♀	↑↑↑	none
-🧝	↑↑↑	none
-🧝‍♂	↑↑↑	none
-🧝‍♀	↑↑↑	none
-🧞	↑↑↑	none
-🧞‍♂	↑↑↑	none
-🧞‍♀	↑↑↑	none
-🧟	↑↑↑	none
-🧟‍♂	↑↑↑	none
-🧟‍♀	↑↑↑	none
+🧌	troll	none
 💆	masaje facial	none
-💆‍♂	↑↑↑	none
-💆‍♀	↑↑↑	none
 💇	corte de pelo	none
-💇‍♂	↑↑↑	none
-💇‍♀	↑↑↑	none
-🚶	↑↑↑	none
-🚶‍♂	↑↑↑	none
-🚶‍♀	↑↑↑	none
-🧍	↑↑↑	none
-🧍‍♂	↑↑↑	none
-🧍‍♀	↑↑↑	none
-🧎	↑↑↑	none
-🧎‍♂	↑↑↑	none
-🧎‍♀	↑↑↑	none
-🧑‍🦯	↑↑↑	none
-👨‍🦯	↑↑↑	none
-👩‍🦯	↑↑↑	none
-🧑‍🦼	↑↑↑	none
-👨‍🦼	↑↑↑	none
-👩‍🦼	↑↑↑	none
-🧑‍🦽	↑↑↑	none
-👨‍🦽	↑↑↑	none
-👩‍🦽	↑↑↑	none
-🏃	↑↑↑	none
-🏃‍♂	↑↑↑	none
-🏃‍♀	↑↑↑	none
-💃	↑↑↑	none
-🕺	↑↑↑	none
 🕴	hombre de traje	none
 👯	mujeres de fiesta	none
-👯‍♂	↑↑↑	none
-👯‍♀	↑↑↑	none
-🧖	↑↑↑	none
-🧖‍♂	↑↑↑	none
-🧖‍♀	↑↑↑	none
-🧗	↑↑↑	none
-🧗‍♂	↑↑↑	none
-🧗‍♀	↑↑↑	none
 🤺	esgrimista	none
-🏇	↑↑↑	none
-⛷	↑↑↑	none
 🏂	snowboard	none
 🏌	jugador de golf	none
-🏌‍♂	↑↑↑	none
-🏌‍♀	↑↑↑	none
 🏄	surf	none
-🏄‍♂	↑↑↑	none
-🏄‍♀	↑↑↑	none
 🚣	bote a remo	none
-🚣‍♂	↑↑↑	none
-🚣‍♀	↑↑↑	none
-🏊	↑↑↑	none
-🏊‍♂	↑↑↑	none
-🏊‍♀	↑↑↑	none
 ⛹	persona con una pelota	none
-⛹‍♂	↑↑↑	none
-⛹‍♀	↑↑↑	none
-🏋	↑↑↑	none
-🏋‍♂	↑↑↑	none
-🏋‍♀	↑↑↑	none
-🚴	↑↑↑	none
-🚴‍♂	↑↑↑	none
-🚴‍♀	↑↑↑	none
-🚵	↑↑↑	none
-🚵‍♂	↑↑↑	none
-🚵‍♀	↑↑↑	none
-🤸	↑↑↑	none
-🤸‍♂	↑↑↑	none
-🤸‍♀	↑↑↑	none
-🤼	↑↑↑	none
-🤼‍♂	↑↑↑	none
-🤼‍♀	↑↑↑	none
-🤽	↑↑↑	none
-🤽‍♂	↑↑↑	none
-🤽‍♀	↑↑↑	none
 🤾	handball	none
 🤾‍♂	hombre jugando handball	none
 🤾‍♀	mujer jugando handball	none
-🤹	↑↑↑	none
-🤹‍♂	↑↑↑	none
-🤹‍♀	↑↑↑	none
-🧘	↑↑↑	none
-🧘‍♂	↑↑↑	none
-🧘‍♀	↑↑↑	none
-🛀	↑↑↑	none
 🛌	persona durmiendo	none
-🧑‍🤝‍🧑	↑↑↑	none
-👭	↑↑↑	none
-👫	↑↑↑	none
 👬	dos hombres de la mano	none
 💏	pareja besándose	none
-💑	pareja enamorada	none
-👪	↑↑↑	none
 🗣	silueta hablando	none
-👤	↑↑↑	none
-👥	↑↑↑	none
-🫂	↑↑↑	none
 👣	huellas	none
-🦰	↑↑↑	none
-🦱	↑↑↑	none
-🦳	↑↑↑	none
-🦲	↑↑↑	none
-🐵	↑↑↑	none
-🐒	↑↑↑	none
-🦍	↑↑↑	none
-🦧	↑↑↑	none
-🐶	↑↑↑	none
-🐕	↑↑↑	none
-🦮	↑↑↑	none
-🐕‍🦺	↑↑↑	none
-🐩	↑↑↑	none
-🐺	↑↑↑	none
-🦊	↑↑↑	none
-🦝	↑↑↑	none
-🐱	↑↑↑	none
-🐈	↑↑↑	none
-🐈‍⬛	gato negro	none
-🦁	↑↑↑	none
-🐯	↑↑↑	none
-🐅	↑↑↑	none
-🐆	↑↑↑	none
-🐴	↑↑↑	none
-🐎	↑↑↑	none
-🦄	↑↑↑	none
-🦓	↑↑↑	none
-🦌	↑↑↑	none
-🦬	↑↑↑	none
-🐮	↑↑↑	none
-🐂	↑↑↑	none
-🐃	↑↑↑	none
-🐄	↑↑↑	none
-🐷	↑↑↑	none
-🐖	↑↑↑	none
-🐗	↑↑↑	none
 🐽	hocico de cerdo	none
-🐏	↑↑↑	none
-🐑	↑↑↑	none
-🐐	↑↑↑	none
-🐪	↑↑↑	none
-🐫	↑↑↑	none
-🦙	↑↑↑	none
-🦒	↑↑↑	none
-🐘	↑↑↑	none
-🦣	↑↑↑	none
-🦏	↑↑↑	none
-🦛	↑↑↑	none
-🐭	↑↑↑	none
-🐁	↑↑↑	none
-🐀	↑↑↑	none
-🐹	↑↑↑	none
-🐰	↑↑↑	none
-🐇	↑↑↑	none
-🐿	↑↑↑	none
-🦫	↑↑↑	none
-🦔	↑↑↑	none
-🦇	↑↑↑	none
-🐻	↑↑↑	none
-🐻‍❄	oso polar	none
-🐨	↑↑↑	none
-🐼	↑↑↑	none
-🦥	↑↑↑	none
-🦦	↑↑↑	none
-🦨	↑↑↑	none
-🦘	↑↑↑	none
-🦡	↑↑↑	none
-🐾	↑↑↑	none
-🦃	↑↑↑	none
-🐔	↑↑↑	none
-🐓	↑↑↑	none
-🐣	↑↑↑	none
 🐤	cara de pollito	none
-🐥	↑↑↑	none
-🐦	↑↑↑	none
-🐧	↑↑↑	none
-🕊	↑↑↑	none
-🦅	↑↑↑	none
-🦆	↑↑↑	none
-🦢	↑↑↑	none
-🦉	↑↑↑	none
-🦤	↑↑↑	none
-🪶	↑↑↑	none
-🦩	↑↑↑	none
-🦚	↑↑↑	none
-🦜	↑↑↑	none
-🐸	↑↑↑	none
-🐊	↑↑↑	none
-🐢	↑↑↑	none
+🪿	ganso	none
 🦎	lagartija	none
-🐍	↑↑↑	none
-🐲	↑↑↑	none
-🐉	↑↑↑	none
-🦕	↑↑↑	none
-🦖	↑↑↑	none
 🐳	ballena soplando un chorro de agua	none
-🐋	↑↑↑	none
-🐬	↑↑↑	none
-🦭	↑↑↑	none
-🐟	↑↑↑	none
-🐠	↑↑↑	none
-🐡	↑↑↑	none
-🦈	↑↑↑	none
-🐙	↑↑↑	none
 🐚	caracola marina	none
-🐌	↑↑↑	none
-🦋	↑↑↑	none
 🐛	oruga	none
-🐜	↑↑↑	none
-🐝	↑↑↑	none
-🪲	escarabajo	none
-🐞	↑↑↑	none
-🦗	↑↑↑	none
-🪳	↑↑↑	none
-🕷	↑↑↑	none
 🕸	telaraña	none
-🦂	↑↑↑	none
-🦟	↑↑↑	none
-🪰	↑↑↑	none
-🪱	↑↑↑	none
-🦠	↑↑↑	none
-💐	↑↑↑	none
-🌸	↑↑↑	none
-💮	↑↑↑	none
-🏵	↑↑↑	none
-🌹	↑↑↑	none
-🥀	↑↑↑	none
-🌺	↑↑↑	none
-🌻	↑↑↑	none
-🌼	↑↑↑	none
-🌷	↑↑↑	none
+🪷	lotus	none
+🪻	jacinto	none
 🌱	plántula	none
-🪴	↑↑↑	none
-🌲	↑↑↑	none
 🌳	árbol caducifolio	none
-🌴	↑↑↑	none
-🌵	↑↑↑	none
-🌾	↑↑↑	none
-🌿	↑↑↑	none
-☘	↑↑↑	none
-🍀	↑↑↑	none
-🍁	↑↑↑	none
-🍂	↑↑↑	none
 🍃	hoja al viento	none
-🍇	↑↑↑	none
-🍈	↑↑↑	none
-🍉	↑↑↑	none
-🍊	↑↑↑	none
-🍋	↑↑↑	none
 🍌	banana	none
-🍍	↑↑↑	none
-🥭	↑↑↑	none
-🍎	↑↑↑	none
-🍏	↑↑↑	none
-🍐	↑↑↑	none
 🍑	durazno	none
-🍒	↑↑↑	none
-🍓	frutilla	none
-🫐	arándanos	none
-🥝	↑↑↑	none
-🍅	↑↑↑	none
-🫒	aceituna	none
-🥥	↑↑↑	none
-🥑	palta	none
-🍆	↑↑↑	none
 🥔	papa	none
-🥕	↑↑↑	none
 🌽	mazorca de maíz	none
 🌶	pimiento picante	none
-🫑	↑↑↑	none
-🥒	↑↑↑	none
-🥬	↑↑↑	none
-🥦	↑↑↑	none
-🧄	↑↑↑	none
-🧅	↑↑↑	none
-🍄	↑↑↑	none
 🥜	maní	none
-🌰	↑↑↑	none
+🫘	frijoles	none
 🍞	pan	none
 🥐	croissant	none
 🥖	baguette	none
-🫓	pan sin levadura	none
-🥨	↑↑↑	none
-🥯	↑↑↑	none
 🥞	hotcakes	none
-🧇	↑↑↑	none
 🧀	queso	none
-🍖	↑↑↑	none
 🍗	pata de pollo	none
-🥩	↑↑↑	none
 🥓	tocino	none
-🍔	↑↑↑	none
 🍟	papas fritas	none
-🍕	↑↑↑	none
 🌭	salchicha	none
-🥪	sándwich	none
-🌮	↑↑↑	none
-🌯	↑↑↑	none
-🫔	tamal	none
 🥙	fajita	none
-🧆	↑↑↑	none
-🥚	↑↑↑	none
 🍳	sartén	none
-🥘	↑↑↑	none
-🍲	↑↑↑	none
-🫕	fondue	none
-🥣	↑↑↑	none
-🥗	↑↑↑	none
 🍿	palomitas de maíz	none
-🧈	↑↑↑	none
-🧂	↑↑↑	none
-🥫	↑↑↑	none
-🍱	↑↑↑	none
-🍘	↑↑↑	none
-🍙	↑↑↑	none
-🍚	↑↑↑	none
-🍛	↑↑↑	none
-🍜	↑↑↑	none
-🍝	↑↑↑	none
 🍠	batata asada	none
 🍢	brocheta de mariscos	none
-🍣	↑↑↑	none
 🍤	camarones fritos	none
 🍥	pastel de pescado	none
-🥮	↑↑↑	none
 🍡	brocheta dulce japonesa	none
-🥟	↑↑↑	none
-🥠	↑↑↑	none
-🥡	↑↑↑	none
-🦀	↑↑↑	none
-🦞	↑↑↑	none
 🦐	camarón	none
-🦑	↑↑↑	none
-🦪	↑↑↑	none
 🍦	helado en cucurucho	none
 🍧	hielo molido	none
-🍨	↑↑↑	none
 🍩	dona	none
-🍪	↑↑↑	none
 🎂	torta de cumpleaños	none
 🍰	porción de torta	none
-🧁	↑↑↑	none
-🥧	↑↑↑	none
-🍫	↑↑↑	none
-🍬	↑↑↑	none
 🍭	paleta dulce	none
-🍮	↑↑↑	none
-🍯	↑↑↑	none
-🍼	↑↑↑	none
-🥛	↑↑↑	none
-☕	↑↑↑	none
-🫖	↑↑↑	none
-🍵	↑↑↑	none
-🍶	↑↑↑	none
-🍾	↑↑↑	none
-🍷	↑↑↑	none
-🍸	↑↑↑	none
-🍹	↑↑↑	none
 🍺	tarro de cerveza	none
 🍻	brindis con cerveza	none
-🥂	↑↑↑	none
-🥃	↑↑↑	none
-🥤	↑↑↑	none
-🧋	té de burbujas	none
-🧃	↑↑↑	none
-🧉	↑↑↑	none
-🧊	↑↑↑	none
-🥢	↑↑↑	none
+🫗	líquido que se vierte	none
 🍽	plato y cubiertos	none
 🍴	cuchillo y tenedor	none
-🥄	↑↑↑	none
-🔪	↑↑↑	none
+🫙	jarra	none
 🏺	vasija	none
 🌍	globo terráqueo Europa/África	none
 🌎	globo terráqueo América	none
 🌏	globo terráqueo Asia/Oceanía	none
-🌐	↑↑↑	none
 🗺	mapamundi	none
-🗾	↑↑↑	none
-🧭	↑↑↑	none
 🏔	montañas nevadas	none
 ⛰	montañas	none
-🌋	↑↑↑	none
-🗻	↑↑↑	none
 🏕	campamento	none
-🏖	↑↑↑	none
-🏜	↑↑↑	none
-🏝	↑↑↑	none
-🏞	↑↑↑	none
-🏟	↑↑↑	none
-🏛	↑↑↑	none
 🏗	edificio en construcción	none
-🧱	↑↑↑	none
-🪨	↑↑↑	none
-🪵	↑↑↑	none
-🛖	↑↑↑	none
 🏘	viviendas	none
 🏚	edificio abandonado	none
-🏠	↑↑↑	none
-🏡	↑↑↑	none
-🏢	↑↑↑	none
 🏣	oficina de correo japonesa	none
 🏤	oficina de correo europea	none
-🏥	↑↑↑	none
-🏦	↑↑↑	none
-🏨	↑↑↑	none
 🏩	motel	none
-🏪	↑↑↑	none
 🏫	escuela	none
 🏬	centro comercial	none
-🏭	↑↑↑	none
-🏯	↑↑↑	none
-🏰	↑↑↑	none
 💒	casamiento en capilla	none
-🗼	↑↑↑	none
-🗽	↑↑↑	none
-⛪	↑↑↑	none
-🕌	↑↑↑	none
-🛕	↑↑↑	none
-🕍	↑↑↑	none
-⛩	↑↑↑	none
-🕋	↑↑↑	none
-⛲	↑↑↑	none
 ⛺	carpa	none
 🌁	niebla	none
-🌃	↑↑↑	none
-🏙	↑↑↑	none
 🌄	amanecer en las montañas	none
-🌅	↑↑↑	none
-🌆	↑↑↑	none
 🌇	puesta de sol sobre edificios	none
-🌉	↑↑↑	none
-♨	↑↑↑	none
 🎠	caballo de carrusel	none
 🎡	noria	none
-🎢	↑↑↑	none
 💈	barbería	none
 🎪	circo	none
 🚂	tren a vapor	none
 🚃	tren eléctrico	none
-🚄	↑↑↑	none
-🚅	↑↑↑	none
-🚆	↑↑↑	none
 🚇	subterráneo	none
-🚈	↑↑↑	none
-🚉	↑↑↑	none
-🚊	↑↑↑	none
 🚝	monorriel	none
-🚞	↑↑↑	none
-🚋	↑↑↑	none
-🚌	↑↑↑	none
 🚍	autobús se aproxima	none
-🚎	↑↑↑	none
-🚐	↑↑↑	none
-🚑	↑↑↑	none
 🚒	camión de bomberos	none
 🚓	auto de policía	none
 🚔	patrullero se aproxima	none
-🚕	↑↑↑	none
 🚖	taxi se aproxima	none
 🚗	auto	none
 🚘	auto se aproxima	none
-🚙	↑↑↑	none
-🛻	↑↑↑	none
-🚚	↑↑↑	none
-🚛	↑↑↑	none
-🚜	↑↑↑	none
 🏎	auto de carrera	none
 🏍	motocicleta	none
 🛵	moto	none
-🦽	↑↑↑	none
-🦼	↑↑↑	none
-🛺	↑↑↑	none
-🚲	↑↑↑	none
 🛴	monopatín	none
 🛹	skateboard	none
-🛼	patines	none
-🚏	↑↑↑	none
-🛣	↑↑↑	none
 🛤	vías	none
 🛢	tambor de petróleo	none
 ⛽	estación de gasolina	none
 🚨	luz de patrullero	none
-🚥	↑↑↑	none
 🚦	semáforo vertical	none
 🛑	señal de pare	none
 🚧	señal de construcción	none
-⚓	↑↑↑	none
-⛵	velero	none
-🛶	↑↑↑	none
 🚤	lancha	none
-🛳	↑↑↑	none
 ⛴	transbordador	none
-🛥	↑↑↑	none
-🚢	↑↑↑	none
-✈	↑↑↑	none
-🛩	↑↑↑	none
-🛫	↑↑↑	none
-🛬	↑↑↑	none
-🪂	↑↑↑	none
-💺	↑↑↑	none
-🚁	↑↑↑	none
 🚟	tren colgante	none
 🚠	teleférico	none
 🚡	tranvía aéreo	none
-🛰	↑↑↑	none
-🚀	↑↑↑	none
 🛸	platillo volador	none
 🛎	campanilla de hotel	none
-🧳	↑↑↑	none
-⌛	↑↑↑	none
-⏳	↑↑↑	none
-⌚	↑↑↑	none
-⏰	↑↑↑	none
-⏱	↑↑↑	none
-⏲	↑↑↑	none
 🕰	reloj de repisa	none
-🕛	↑↑↑	none
-🕧	↑↑↑	none
-🕐	↑↑↑	none
-🕜	↑↑↑	none
-🕑	↑↑↑	none
-🕝	↑↑↑	none
-🕒	↑↑↑	none
-🕞	↑↑↑	none
-🕓	↑↑↑	none
-🕟	↑↑↑	none
-🕔	↑↑↑	none
-🕠	↑↑↑	none
-🕕	↑↑↑	none
-🕡	↑↑↑	none
-🕖	↑↑↑	none
-🕢	↑↑↑	none
-🕗	↑↑↑	none
-🕣	↑↑↑	none
-🕘	↑↑↑	none
-🕤	↑↑↑	none
-🕙	↑↑↑	none
-🕥	↑↑↑	none
-🕚	↑↑↑	none
-🕦	↑↑↑	none
-🌑	↑↑↑	none
 🌒	luna nueva visible	none
-🌓	↑↑↑	none
-🌔	↑↑↑	none
-🌕	↑↑↑	none
-🌖	↑↑↑	none
-🌗	↑↑↑	none
 🌘	luna creciente menguante	none
 🌙	media luna	none
-🌚	↑↑↑	none
-🌛	↑↑↑	none
-🌜	↑↑↑	none
-🌡	↑↑↑	none
-☀	↑↑↑	none
-🌝	↑↑↑	none
-🌞	↑↑↑	none
-🪐	↑↑↑	none
 ⭐	estrella blanca	none
-🌟	↑↑↑	none
-🌠	↑↑↑	none
-🌌	↑↑↑	none
-☁	↑↑↑	none
 ⛅	parcialmente nublado	none
 ⛈	tormenta	none
 🌤	soleado con nubes	none
@@ -1234,570 +304,165 @@ symbols:
 🌧	lluvia	none
 🌨	nieve	none
 🌩	nubes y relámpagos	none
-🌪	↑↑↑	none
 🌫	neblina	none
-🌬	↑↑↑	none
-🌀	↑↑↑	none
-🌈	↑↑↑	none
 🌂	paraguas	none
 ☂	paraguas abierto	none
 ☔	paraguas con gotas	none
-⛱	↑↑↑	none
-⚡	↑↑↑	none
-❄	↑↑↑	none
 ☃	muñeco de nieve nevado	none
-⛄	↑↑↑	none
-☄	↑↑↑	none
-🔥	↑↑↑	none
-💧	↑↑↑	none
 🌊	ola	none
 🎃	calabaza	none
-🎄	↑↑↑	none
-🎆	↑↑↑	none
-🎇	↑↑↑	none
-🧨	↑↑↑	none
-✨	↑↑↑	none
-🎈	↑↑↑	none
 🎉	lanzador de serpentina	none
 🎊	confeti	none
-🎋	↑↑↑	none
 🎍	adorno para pinos	none
-🎎	↑↑↑	none
 🎏	banderín con forma de carpa	none
-🎐	↑↑↑	none
 🎑	ceremonia japonesa	none
-🧧	↑↑↑	none
 🎀	moño	none
-🎁	↑↑↑	none
 🎗	cinta conmemorativa	none
-🎟	↑↑↑	none
 🎫	boleto	none
-🎖	↑↑↑	none
-🏆	↑↑↑	none
-🏅	↑↑↑	none
 🥇	medalla de primer lugar	none
 🥈	medalla de segundo lugar	none
 🥉	medalla de tercer lugar	none
 ⚽	pelota de fútbol	none
 ⚾	pelota de béisbol	none
-🥎	↑↑↑	none
 🏀	pelota de básquet	none
 🏐	vóleibol	none
 🏈	pelota de fútbol americano	none
 🏉	pelota de rugby	none
-🎾	↑↑↑	none
-🥏	↑↑↑	none
-🎳	↑↑↑	none
 🏏	cricket	none
-🏑	↑↑↑	none
-🏒	↑↑↑	none
-🥍	↑↑↑	none
-🏓	↑↑↑	none
-🏸	↑↑↑	none
-🥊	↑↑↑	none
-🥋	↑↑↑	none
-🥅	↑↑↑	none
-⛳	↑↑↑	none
 ⛸	patinaje sobre hielo	none
-🎣	↑↑↑	none
-🤿	↑↑↑	none
 🎽	camiseta para correr	none
-🎿	↑↑↑	none
-🛷	↑↑↑	none
-🥌	↑↑↑	none
 🎯	dardo en el centro	none
-🪀	↑↑↑	none
-🪁	↑↑↑	none
 🎱	bola ocho	none
-🔮	↑↑↑	none
-🪄	↑↑↑	none
-🧿	↑↑↑	none
 🎮	video juegos	none
-🕹	↑↑↑	none
 🎰	tragamonedas	none
-🎲	↑↑↑	none
 🧩	pieza de rompecabezas	none
-🧸	↑↑↑	none
-🪅	↑↑↑	none
-🪆	↑↑↑	none
 ♠	picas	none
 ♥	corazones	none
 ♦	diamantes	none
 ♣	tréboles	none
-♟	↑↑↑	none
 🃏	carta comodín	none
-🀄	↑↑↑	none
 🎴	carta	none
-🎭	↑↑↑	none
-🖼	↑↑↑	none
 🎨	paleta de pinturas	none
-🧵	↑↑↑	none
-🪡	↑↑↑	none
-🧶	↑↑↑	none
-🪢	↑↑↑	none
 👓	lentes	none
 🕶	anteojos de sol	none
-🥽	↑↑↑	none
-🥼	↑↑↑	none
-🦺	↑↑↑	none
-👔	↑↑↑	none
-👕	↑↑↑	none
 👖	jeans	none
-🧣	↑↑↑	none
-🧤	↑↑↑	none
-🧥	↑↑↑	none
-🧦	↑↑↑	none
-👗	↑↑↑	none
-👘	↑↑↑	none
-🥻	↑↑↑	none
-🩱	↑↑↑	none
-🩲	↑↑↑	none
-🩳	↑↑↑	none
-👙	↑↑↑	none
-👚	↑↑↑	none
-👛	↑↑↑	none
-👜	↑↑↑	none
-👝	↑↑↑	none
-🛍	↑↑↑	none
 🎒	mochila	none
-🩴	chancla	none
-👞	↑↑↑	none
 👟	zapato deportivo	none
-🥾	↑↑↑	none
-🥿	↑↑↑	none
 👠	zapato de taco alto	none
-👡	↑↑↑	none
-🩰	↑↑↑	none
-👢	↑↑↑	none
-👑	↑↑↑	none
-👒	↑↑↑	none
 🎩	galera	none
 🎓	gorro de graduación	none
-🧢	↑↑↑	none
-🪖	↑↑↑	none
 ⛑	casco con cruz blanca	none
-📿	↑↑↑	none
 💄	lápiz labial	none
-💍	↑↑↑	none
-💎	↑↑↑	none
-🔇	↑↑↑	none
-🔈	↑↑↑	none
-🔉	↑↑↑	none
-🔊	↑↑↑	none
-📢	↑↑↑	none
-📣	↑↑↑	none
 📯	corneta de correo	none
-🔔	↑↑↑	none
-🔕	↑↑↑	none
-🎼	↑↑↑	none
-🎵	↑↑↑	none
-🎶	↑↑↑	none
 🎙	micrófono de grabación	none
 🎚	control deslizante	none
 🎛	perillas	none
-🎤	↑↑↑	none
 🎧	auriculares	none
-📻	↑↑↑	none
-🎷	↑↑↑	none
-🪗	↑↑↑	none
-🎸	↑↑↑	none
-🎹	↑↑↑	none
-🎺	↑↑↑	none
-🎻	↑↑↑	none
-🪕	↑↑↑	none
-🥁	↑↑↑	none
-🪘	↑↑↑	none
-📱	↑↑↑	none
 📲	teléfono móvil con una flecha	none
 ☎	teléfono de línea	none
 📞	teléfono	none
 📟	buscapersonas	none
-📠	↑↑↑	none
-🔋	↑↑↑	none
-🔌	↑↑↑	none
 💻	laptop	none
 🖥	computadora de escritorio	none
-🖨	↑↑↑	none
-⌨	↑↑↑	none
 🖱	mouse	none
 🖲	rueda de desplazamiento	none
 💽	minidisco	none
-💾	↑↑↑	none
-💿	↑↑↑	none
 📀	DVD	none
-🧮	↑↑↑	none
 🎥	filmadora	none
 🎞	cuadros de película	none
-📽	↑↑↑	none
-🎬	↑↑↑	none
 📺	televisor	none
 📷	cámara fotográfica	none
-📸	↑↑↑	none
-📹	↑↑↑	none
 📼	cinta de video	none
 🔍	lupa hacia la izquierda	none
 🔎	lupa hacia la derecha	none
-🕯	↑↑↑	none
 💡	lámpara	none
-🔦	↑↑↑	none
 🏮	farol de papel japonés	none
-🪔	↑↑↑	none
-📔	↑↑↑	none
-📕	↑↑↑	none
-📖	↑↑↑	none
-📗	↑↑↑	none
-📘	↑↑↑	none
 📙	libro anaranjado	none
-📚	↑↑↑	none
-📓	↑↑↑	none
-📒	↑↑↑	none
 📃	documento doblado	none
-📜	↑↑↑	none
 📄	documento	none
-📰	↑↑↑	none
-🗞	↑↑↑	none
 📑	pestañas de marcador	none
-🔖	↑↑↑	none
-🏷	↑↑↑	none
-💰	↑↑↑	none
-🪙	↑↑↑	none
-💴	↑↑↑	none
-💵	↑↑↑	none
-💶	↑↑↑	none
-💷	↑↑↑	none
-💸	↑↑↑	none
-💳	↑↑↑	none
-🧾	↑↑↑	none
 💹	mercado en alza	none
-✉	↑↑↑	none
-📧	↑↑↑	none
 📨	mensaje entrante	none
 📩	mensaje saliente	none
-📤	↑↑↑	none
-📥	↑↑↑	none
-📦	↑↑↑	none
 📫	buzón cerrado bandera levantada	none
 📪	buzón cerrado bandera baja	none
 📬	buzón abierto bandera levantada	none
 📭	buzón abierto bandera baja	none
-📮	↑↑↑	none
-🗳	↑↑↑	none
-✏	↑↑↑	none
 ✒	lapicera de pluma	none
 🖋	pluma fuente	none
 🖊	lapicera	none
-🖌	↑↑↑	none
 🖍	crayón	none
 📝	nota	none
-💼	↑↑↑	none
-📁	↑↑↑	none
-📂	↑↑↑	none
 🗂	separadores para tarjetas	none
-📅	↑↑↑	none
 📆	calendario con hojas	none
 🗒	bloc de notas con espiral	none
 🗓	calendario con espiral	none
-📇	↑↑↑	none
 📈	tendencia ascendente	none
 📉	tendencia descendente	none
-📊	↑↑↑	none
-📋	↑↑↑	none
-📌	↑↑↑	none
-📍	↑↑↑	none
 📎	clip para hojas	none
-🖇	↑↑↑	none
 📏	regla recta	none
-📐	↑↑↑	none
-✂	↑↑↑	none
 🗃	organizador de tarjetas	none
-🗄	↑↑↑	none
 🗑	cesto	none
-🔒	↑↑↑	none
-🔓	↑↑↑	none
 🔏	candado y lapicera	none
-🔐	↑↑↑	none
-🔑	↑↑↑	none
-🗝	↑↑↑	none
-🔨	↑↑↑	none
-🪓	↑↑↑	none
-⛏	↑↑↑	none
-⚒	↑↑↑	none
-🛠	↑↑↑	none
 🗡	daga	none
-⚔	↑↑↑	none
-🔫	↑↑↑	none
-🪃	↑↑↑	none
-🏹	↑↑↑	none
-🛡	↑↑↑	none
-🪚	↑↑↑	none
-🔧	↑↑↑	none
-🪛	↑↑↑	none
 🔩	perno con tuerca	none
-⚙	↑↑↑	none
-🗜	↑↑↑	none
-⚖	↑↑↑	none
-🦯	↑↑↑	none
 🔗	eslabones de cadena	none
-⛓	↑↑↑	none
-🪝	↑↑↑	none
-🧰	↑↑↑	none
-🧲	↑↑↑	none
-🪜	↑↑↑	none
-⚗	↑↑↑	none
-🧪	↑↑↑	none
-🧫	↑↑↑	none
-🧬	↑↑↑	none
-🔬	↑↑↑	none
-🔭	↑↑↑	none
 📡	antena satelital	none
 💉	jeringa	none
-🩸	↑↑↑	none
-💊	↑↑↑	none
-🩹	↑↑↑	none
-🩺	↑↑↑	none
-🚪	↑↑↑	none
-🛗	↑↑↑	none
-🪞	↑↑↑	none
-🪟	↑↑↑	none
-🛏	↑↑↑	none
-🛋	↑↑↑	none
-🪑	↑↑↑	none
-🚽	↑↑↑	none
-🪠	↑↑↑	none
-🚿	↑↑↑	none
-🛁	↑↑↑	none
-🪤	↑↑↑	none
-🪒	↑↑↑	none
-🧴	↑↑↑	none
-🧷	↑↑↑	none
-🧹	↑↑↑	none
-🧺	↑↑↑	none
-🧻	↑↑↑	none
-🪣	↑↑↑	none
-🧼	↑↑↑	none
-🪥	↑↑↑	none
-🧽	↑↑↑	none
-🧯	↑↑↑	none
 🛒	carrito de compras	none
-🚬	↑↑↑	none
-⚰	↑↑↑	none
-🪦	↑↑↑	none
-⚱	↑↑↑	none
 🗿	estatua de la isla de Pascua	none
-🪧	↑↑↑	none
+🪪	identificación	none
 🏧	cajero automático	none
 🚮	cartel cesto de basura	none
-🚰	↑↑↑	none
 ♿	acceso para silla de ruedas	none
 🚹	símbolo de hombre	none
 🚺	símbolo de mujer	none
 🚻	señal de baño	none
-🚼	↑↑↑	none
 🚾	servicios	none
 🛂	inspección de pasaportes	none
-🛃	↑↑↑	none
 🛄	reclamo de equipaje	none
 🛅	depósito de equipaje	none
-⚠	↑↑↑	none
 🚸	cruce de niños	none
 ⛔	prohibido entrar	none
 🚫	señal de prohibición	none
 🚳	no se permiten bicicletas	none
-🚭	prohibido fumar	none
-🚯	↑↑↑	none
-🚱	↑↑↑	none
-🚷	↑↑↑	none
 📵	no se permiten celulares	none
 🔞	prohibido para menores de 18	none
-☢	radiactivo	none
 ☣	peligro biológico	none
-⬆	↑↑↑	none
-↗	↑↑↑	none
-➡	↑↑↑	none
-↘	↑↑↑	none
-⬇	↑↑↑	none
-↙	↑↑↑	none
-⬅	↑↑↑	none
-↖	↑↑↑	none
-↕	↑↑↑	none
-↔	↑↑↑	none
-↮	↑↑↑	none
-↩	↑↑↑	none
-↪	↑↑↑	none
-⤴	↑↑↑	none
-⤵	↑↑↑	none
-🔃	↑↑↑	none
 🔄	flechas horizontales en sentido horario	none
-🔙	↑↑↑	none
-🔚	↑↑↑	none
-🔛	↑↑↑	none
-🔜	↑↑↑	none
-🔝	↑↑↑	none
-🛐	↑↑↑	none
-⚛	↑↑↑	none
-🕉	↑↑↑	none
-✡	↑↑↑	none
 ☸	dharma	none
-☯	↑↑↑	none
-✝	cruz latina	none
-☦	↑↑↑	none
 ☪	estrella y creciente	none
-☮	↑↑↑	none
-🕎	↑↑↑	none
-🔯	estrella de seis puntas	none
-♈	↑↑↑	none
-♉	↑↑↑	none
-♊	↑↑↑	none
-♋	↑↑↑	none
-♌	↑↑↑	none
-♍	↑↑↑	none
-♎	Libra	none
-♏	↑↑↑	none
-♐	↑↑↑	none
-♑	↑↑↑	none
-♒	↑↑↑	none
-♓	↑↑↑	none
-⛎	↑↑↑	none
-🔀	↑↑↑	none
-🔁	↑↑↑	none
-🔂	↑↑↑	none
-▶	↑↑↑	none
-⏩	↑↑↑	none
 ⏭	avanzar a la pista siguiente	none
 ⏯	pausar o reproducir	none
 ◀	retroceder	none
-⏪	retroceso rápido	none
 ⏮	última pista	none
-🔼	↑↑↑	none
-⏫	↑↑↑	none
 🔽	botón hacia abajo	none
-⏬	↑↑↑	none
-⏸	↑↑↑	none
-⏹	↑↑↑	none
-⏺	↑↑↑	none
-⏏	↑↑↑	none
 🎦	filmar	none
-🔅	↑↑↑	none
-🔆	↑↑↑	none
-📶	↑↑↑	none
-📳	↑↑↑	none
 📴	celular apagado	none
-♀	↑↑↑	none
-♂	↑↑↑	none
-⚧	↑↑↑	none
-✖	multiplicación	none
 ➕	suma	none
 ➖	resta	none
-➗	↑↑↑	none
-♾	↑↑↑	none
 ❓	signo de interrogación	none
 ❔	signo de interrogación gris	none
 ❕	signo de exclamación gris	none
 ❗	signo de exclamación	none
-💱	↑↑↑	none
-💲	↑↑↑	none
-⚕	↑↑↑	none
-♻	↑↑↑	none
-⚜	↑↑↑	none
-🔱	↑↑↑	none
 📛	identificación con nombre	none
 🔰	símbolo japonés de principiante	none
-⭕	↑↑↑	none
-✅	↑↑↑	none
 ☑	casilla seleccionada	none
 ✔	marca de verificación grande	none
 ❌	cruz	none
 ❎	cruz con recuadro	none
-➰	↑↑↑	none
-➿	↑↑↑	none
-✳	↑↑↑	none
-✴	↑↑↑	none
-❇	↑↑↑	none
-™	↑↑↑	none
-🔠	↑↑↑	none
-🔡	↑↑↑	none
-🔢	↑↑↑	none
-🔣	↑↑↑	none
-🔤	↑↑↑	none
-🅰	↑↑↑	none
-🆎	↑↑↑	none
-🅱	↑↑↑	none
 🆑	botón CL	none
-🆒	↑↑↑	none
 🆓	gratis	none
-ℹ	↑↑↑	none
-🆔	↑↑↑	none
 Ⓜ	letra m en un círculo	none
-🆕	↑↑↑	none
-🆖	↑↑↑	none
-🅾	↑↑↑	none
-🆗	↑↑↑	none
 🅿	estacionamiento	none
 🆘	auxilio	none
-🆙	↑↑↑	none
-🆚	↑↑↑	none
-🔴	círculo rojo	none
-🟠	↑↑↑	none
-🟡	↑↑↑	none
-🟢	↑↑↑	none
-🔵	círculo azul	none
-🟣	↑↑↑	none
-🟤	↑↑↑	none
-⚫	↑↑↑	none
-⚪	↑↑↑	none
-🟥	↑↑↑	none
-🟧	↑↑↑	none
-🟨	↑↑↑	none
-🟩	↑↑↑	none
-🟦	↑↑↑	none
-🟪	↑↑↑	none
-🟫	↑↑↑	none
-⬛	↑↑↑	none
-⬜	↑↑↑	none
-◼	↑↑↑	none
-◻	↑↑↑	none
-◾	↑↑↑	none
-◽	↑↑↑	none
-▪	↑↑↑	none
-▫	↑↑↑	none
 🔶	diamante naranja grande	none
 🔷	diamante azul grande	none
 🔸	diamante naranja pequeño	none
-🔹	↑↑↑	none
-🔺	↑↑↑	none
-🔻	↑↑↑	none
-💠	↑↑↑	none
-🔘	↑↑↑	none
 🔳	cuadrado negro con borde blanco	none
 🔲	cuadrado blanco con borde negro	none
-🏁	↑↑↑	none
-🚩	↑↑↑	none
-🎌	↑↑↑	none
-🏴	↑↑↑	none
-🏳	↑↑↑	none
-🏳‍🌈	↑↑↑	none
-🏳‍⚧	↑↑↑	none
-🏴‍☠	↑↑↑	none
-₢	cruceiro	none
-₣	franco francés	none
-₤	lira	none
 ₥	mill	none
-₩	won	none
-€	↑↑↑	none
-₰	penique alemán	none
-₱	peso	none
-₳	austral	none
-₶	libra tornesa	none
-₷	spesmilo	none
-₹	↑↑↑	none
-₽	↑↑↑	none
 ₿	bitcoin	none
-₨	rupia	none
-🫶🏻	corazón con las manos tono de piel claro	none
-🫶🏼	corazón con las manos tono de piel claro medio	none
-🫶🏽	corazón con las manos tono de piel medio	none
-🫶🏾	corazón con las manos tono de piel oscuro medio	none
-🫶🏿	corazón con las manos tono de piel oscuro	none
 🤚🏻	palma de la mano tono de piel claro	none
 🤚🏼	palma de la mano tono de piel claro medio	none
 🤚🏽	palma de la mano tono de piel medio	none
@@ -1858,6 +523,11 @@ symbols:
 🙌🏽	chocar las manos tono de piel medio	none
 🙌🏾	chocar las manos tono de piel oscuro medio	none
 🙌🏿	chocar las manos tono de piel oscuro	none
+🫶🏻	corazón con las manos tono de piel claro	none
+🫶🏼	corazón con las manos tono de piel claro medio	none
+🫶🏽	corazón con las manos tono de piel medio	none
+🫶🏾	corazón con las manos tono de piel oscuro medio	none
+🫶🏿	corazón con las manos tono de piel oscuro	none
 🤳🏻	selfie tono de piel claro	none
 🤳🏼	selfie tono de piel claro medio	none
 🤳🏽	selfie tono de piel medio	none

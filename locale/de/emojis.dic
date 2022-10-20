@@ -264,43 +264,6 @@ symbols:
 ⪺	nachfolgend über fast ungleich	none
 ♭	Erniedrigungszeichen	none
 ♯	Erhöhungszeichen	none
-🥹	Gesicht, das Tränen zurückhält	none
-🧌	Troll	none
-🩻	Röntgenbild	none
-🩼	Krücke	none
-🪩	Discokugel	none
-🪪	Ausweis	none
-🪫	schwache Batterie	none
-🪬	Hamsa	none
-🪷	Lotusblüte	none
-🪸	Koralle	none
-🪹	leeres Nest	none
-🪺	Nest mit Eiern	none
-🫃	schwangerer Mann	none
-🫄	schwangere Person	none
-🫅	Person mit Krone	none
-🫗	Flüssigkeit ausgießen	none
-🫘	Bohnen	none
-🫙	Einmachglas	none
-🫠	schmelzendes Gesicht	none
-🫡	grüßendes Gesicht	none
-🫢	Gesicht mit offenen Augen und Hand über dem Mund	none
-🫣	Gesicht mit durch die Finger linsendem Auge	none
-🫤	Gesicht mit schrägem Mund	none
-🫥	Gesicht mit gestrichelter Linie	none
-🫦	Auf Lippe beißen	none
-🫧	Blasen	none
-🫰	Hand mit gekreuztem Zeigefinger und Daumen	none
-🫱	nach rechts weisende Hand	none
-🫲	nach links weisende Hand	none
-🫳	Hand mit Handfläche nach unten	none
-🫴	Hand mit Handfläche nach oben	none
-🫵	auf Betrachter zeigender Zeigefinger	none
-🫶	Hände, die Herz bilden	none
-🛝	Spielplatzrutsche	none
-🛞	Autorad	none
-🛟	Rettungsring	none
-🟰	Gleichheitszeichen extrafett	none
 😀	grinsendes Gesicht	none
 😃	grinsendes Gesicht mit großen Augen	none
 😄	grinsendes Gesicht mit lachenden Augen	none
@@ -311,6 +274,7 @@ symbols:
 😂	Gesicht mit Freudentränen	none
 🙂	leicht lächelndes Gesicht	none
 🙃	umgekehrtes Gesicht	none
+🫠	schmelzendes Gesicht	none
 😉	zwinkerndes Gesicht	none
 😊	lächelndes Gesicht mit lachenden Augen	none
 😇	lächelndes Gesicht mit Heiligenschein	none
@@ -331,13 +295,17 @@ symbols:
 🤑	Gesicht mit Dollarzeichen	none
 🤗	Gesicht mit umarmenden Händen	none
 🤭	verlegen kicherndes Gesicht	none
+🫢	Gesicht mit offenen Augen und Hand über dem Mund	none
+🫣	Gesicht mit durch die Finger linsendem Auge	none
 🤫	ermahnendes Gesicht	none
 🤔	nachdenkendes Gesicht	none
+🫡	salutierendes Gesicht	none
 🤐	Gesicht mit Reißverschlussmund	none
 🤨	Gesicht mit hochgezogenen Augenbrauen	none
 😐	neutrales Gesicht	none
 😑	ausdrucksloses Gesicht	none
 😶	Gesicht ohne Mund	none
+🫥	gestricheltes Gesicht	none
 😶‍🌫	Gesicht in Wolken	none
 😏	süffisant lächelndes Gesicht	none
 😒	verstimmtes Gesicht	none
@@ -345,6 +313,7 @@ symbols:
 😬	Grimassen schneidendes Gesicht	none
 😮‍💨	Gesicht, das ausatmet	none
 🤥	lügendes Gesicht	none
+🫨	zitterndes Doppelgesicht	none
 😌	erleichtertes Gesicht	none
 😔	nachdenkliches Gesicht	none
 😪	schläfriges Gesicht	none
@@ -369,6 +338,7 @@ symbols:
 🤓	Strebergesicht	none
 🧐	Gesicht mit Monokel	none
 😕	verwundertes Gesicht	none
+🫤	Gesicht mit schrägem Mund	none
 😟	besorgtes Gesicht	none
 🙁	betrübtes Gesicht	none
 ☹	düsteres Gesicht	none
@@ -377,6 +347,7 @@ symbols:
 😲	erstauntes Gesicht	none
 😳	errötetes Gesicht mit großen Augen	none
 🥺	bettelndes Gesicht	none
+🥹	Gesicht, das Tränen zurückhält	none
 😦	entsetztes Gesicht	none
 😧	qualvolles Gesicht	none
 😨	ängstliches Gesicht	none
@@ -420,7 +391,6 @@ symbols:
 🙈	sich die Augen zuhaltendes Affengesicht	none
 🙉	sich die Ohren zuhaltendes Affengesicht	none
 🙊	sich den Mund zuhaltendes Affengesicht	none
-💋	Kussabdruck	none
 💌	Liebesbrief	none
 💘	Herz mit Pfeil	none
 💝	Herz mit Schleife	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	Herz in Flammen	none
 ❤‍🩹	Herz mit Verband	none
 ❤	rotes Herz	none
+🩷	pinkes Herz	none
 🧡	oranges Herz	none
 💛	gelbes Herz	none
 💚	grünes Herz	none
 💙	blaues Herz	none
+🩵	hellblaues Herz	none
 💜	lila Herz	none
 🤎	braunes Herz	none
 🖤	schwarzes Herz	none
+🩶	graues Herz	none
 🤍	weißes Herz	none
+💋	Kussabdruck	none
 💯	100 Punkte	none
 💢	Ärger	none
 💥	Zusammenstoß	none
@@ -450,7 +424,6 @@ symbols:
 💦	Schweißtropfen	none
 💨	Staubwolke	none
 🕳	Loch	none
-💣	Bombe	none
 💬	Sprechblase mit drei Punkten	none
 👁‍🗨	Auge in Sprechblase	none
 🗨	Sprechblase links	none
@@ -462,11 +435,18 @@ symbols:
 🖐	Hand mit gespreizten Fingern	none
 ✋	erhobene Hand	none
 🖖	vulkanischer Gruß	none
+🫱	nach rechts weisende Hand	none
+🫲	nach links weisende Hand	none
+🫳	Hand mit Handfläche nach unten	none
+🫴	Hand mit Handfläche nach oben	none
+🫷	nach links schiebende Hand	none
+🫸	nach rechts schiebende Hand	none
 👌	OK-Zeichen	none
 🤌	zusammengedrückte Finger	none
 🤏	Wenig-Geste	none
 ✌	Victory-Geste	none
 🤞	Hand mit gekreuzten Fingern	none
+🫰	Hand mit gekreuztem Zeigefinger und Daumen	none
 🤟	Ich-liebe-dich-Geste	none
 🤘	Teufelsgruß	none
 🤙	Ruf-mich-an-Handzeichen	none
@@ -476,6 +456,7 @@ symbols:
 🖕	Mittelfinger	none
 👇	nach unten weisender Zeigefinger	none
 ☝	nach oben weisender Zeigefinger von vorne	none
+🫵	auf Betrachter zeigender Zeigefinger	none
 👍	Daumen hoch	none
 👎	Daumen runter	none
 ✊	erhobene Faust	none
@@ -484,6 +465,7 @@ symbols:
 🤜	Faust nach rechts	none
 👏	klatschende Hände	none
 🙌	zwei erhobene Handflächen	none
+🫶	Hände, die Herz bilden	none
 👐	offene Hände	none
 🤲	Handflächen nach oben	none
 🤝	Handschlag	none
@@ -508,6 +490,7 @@ symbols:
 👁	Auge	none
 👅	Zunge	none
 👄	Mund	none
+🫦	auf Lippe beißen	none
 👶	Baby	none
 🧒	Kind	none
 👦	Junge	none
@@ -615,6 +598,7 @@ symbols:
 👷	Bauarbeiter(in)	none
 👷‍♂	Bauarbeiter	none
 👷‍♀	Bauarbeiterin	none
+🫅	Person mit Krone	none
 🤴	Prinz	none
 👸	Prinzessin	none
 👳	Person mit Turban	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	Mann mit Schleier	none
 👰‍♀	Frau mit Schleier	none
 🤰	schwangere Frau	none
+🫃	schwangerer Mann	none
+🫄	schwangere Person	none
 🤱	Stillen	none
 👩‍🍼	stillende Frau	none
 👨‍🍼	stillender Mann	none
@@ -664,6 +650,7 @@ symbols:
 🧟	Zombie	none
 🧟‍♂	männlicher Zombie	none
 🧟‍♀	weiblicher Zombie	none
+🧌	Troll	none
 💆	Person, die eine Kopfmassage bekommt	none
 💆‍♂	Mann, der eine Kopfmassage bekommt	none
 💆‍♀	Frau, die eine Kopfmassage bekommt	none
@@ -787,6 +774,8 @@ symbols:
 🐅	Tiger	none
 🐆	Leopard	none
 🐴	Pferdegesicht	none
+🫎	Elch	none
+🫏	Esel	none
 🐎	Pferd	none
 🦄	Einhorn	none
 🦓	Zebra	none
@@ -849,6 +838,8 @@ symbols:
 🦩	Flamingo	none
 🦚	Pfau	none
 🦜	Papagei	none
+🪽	Flügel	none
+🪿	Gans	none
 🐸	Frosch	none
 🐊	Krokodil	none
 🐢	Schildkröte	none
@@ -868,6 +859,8 @@ symbols:
 🦈	Hai	none
 🐙	Oktopus	none
 🐚	Schneckenhaus	none
+🪸	Koralle	none
+🪼	Qualle	none
 🐌	Schnecke	none
 🦋	Schmetterling	none
 🐛	Raupe	none
@@ -887,6 +880,7 @@ symbols:
 💐	Blumenstrauß	none
 🌸	Kirschblüte	none
 💮	Blumenstempel	none
+🪷	Lotusblüte	none
 🏵	Rosette	none
 🌹	Rose	none
 🥀	welke Blume	none
@@ -894,6 +888,7 @@ symbols:
 🌻	Sonnenblume	none
 🌼	gelbe Blüte	none
 🌷	Tulpe	none
+🪻	Hyazinthe	none
 🌱	Spross	none
 🪴	Topfpflanze	none
 🌲	Nadelbaum	none
@@ -907,6 +902,9 @@ symbols:
 🍁	Ahornblatt	none
 🍂	Laub	none
 🍃	Blätter im Wind	none
+🪹	leeres Nest	none
+🪺	Nest mit Eiern	none
+🍄	Fliegenpilz	none
 🍇	Trauben	none
 🍈	Honigmelone	none
 🍉	Wassermelone	none
@@ -938,9 +936,11 @@ symbols:
 🥦	Brokkoli	none
 🧄	Knoblauch	none
 🧅	Zwiebel	none
-🍄	Fliegenpilz	none
 🥜	Erdnuss	none
+🫘	Bohnen	none
 🌰	Kastanie	none
+🫚	Ingwer	none
+🫛	Erbsenschote	none
 🍞	Brot	none
 🥐	Croissant	none
 🥖	Baguette	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	Bierkrüge	none
 🥂	Sektgläser	none
 🥃	Trinkglas	none
+🫗	Flüssigkeit ausgießen	none
 🥤	Becher mit Strohhalm	none
 🧋	Bubble Tea	none
 🧃	Trinkpäckchen	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	Messer und Gabel	none
 🥄	Löffel	none
 🔪	Küchenmesser	none
+🫙	Einmachglas	none
 🏺	Amphore	none
 🌍	Globus mit Europa und Afrika	none
 🌎	Globus mit Amerika	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	Brücke vor Nachthimmel	none
 ♨	heiße Quellen	none
 🎠	Karussellpferd	none
+🛝	Spielplatzrutsche	none
 🎡	Riesenrad	none
 🎢	Achterbahn	none
 💈	Barbershop-Säule	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	Bahngleis	none
 🛢	Ölfass	none
 ⛽	Tanksäule	none
+🛞	Autorad	none
 🚨	Polizeilicht	none
 🚥	horizontale Verkehrsampel	none
 🚦	vertikale Verkehrsampel	none
 🛑	Stoppschild	none
 🚧	Baustellenabsperrung	none
 ⚓	Anker	none
+🛟	Rettungsring	none
 ⛵	Segelboot	none
 🛶	Kanu	none
 🚤	Schnellboot	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	Darts	none
 🪀	Jo-Jo	none
 🪁	Drachen	none
+🔫	Wasserpistole	none
 🎱	Billardkugel	none
 🔮	Kristallkugel	none
 🪄	Zauberstab	none
-🧿	Nazar-Amulett	none
 🎮	Gamepad	none
 🕹	Joystick	none
 🎰	Spielautomat	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	Puzzleteil	none
 🧸	Teddybär	none
 🪅	Piñata	none
+🪩	Discokugel	none
 🪆	Matroschka	none
 ♠	Pik	none
 ♥	Herz	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	Shorts	none
 👙	Bikini	none
 👚	Bluse	none
+🪭	Faltfächer	none
 👛	Geldbörse	none
 👜	Handtasche	none
 👝	Clutch	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	Damensandale	none
 🩰	Ballettschuhe	none
 👢	Damenstiefel	none
+🪮	Haarkamm	none
 👑	Krone	none
 👒	Damenhut	none
 🎩	Zylinder	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	Banjo	none
 🥁	Trommel	none
 🪘	afrikanische Trommel	none
+🪇	Maracas	none
+🪈	Flöte	none
 📱	Mobiltelefon	none
 📲	Mobiltelefon mit Pfeil	none
 ☎	Telefon	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	Pager	none
 📠	Faxgerät	none
 🔋	Batterie	none
+🪫	schwache Batterie	none
 🔌	Netzstecker	none
 💻	Laptop	none
 🖥	Desktopcomputer	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	Hammer und Schraubenschlüssel	none
 🗡	Dolch	none
 ⚔	gekreuzte Schwerter	none
-🔫	Wasserpistole	none
+💣	Bombe	none
 🪃	Bumerang	none
 🏹	Pfeil und Bogen	none
 🛡	Schutzschild	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	Blutstropfen	none
 💊	Kapsel	none
 🩹	Heftpflaster	none
+🩼	Krücke	none
 🩺	Stethoskop	none
+🩻	Röntgenbild	none
 🚪	Tür	none
 🛗	Fahrstuhl	none
 🪞	Spiegel	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	Küchenrolle	none
 🪣	Eimer	none
 🧼	Seife	none
+🫧	Blasen	none
 🪥	Zahnbürste	none
 🧽	Schwamm	none
 🧯	Feuerlöscher	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	Sarg	none
 🪦	Grabstein	none
 ⚱	Urne	none
+🧿	Nazar-Amulett	none
+🪬	Hamsa	none
 🗿	Statue	none
 🪧	Protestschild	none
+🪪	Ausweis	none
 🏧	Symbol „Geldautomat“	none
 🚮	Symbol „Papierkorb“	none
 🚰	Trinkwasser	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	Friedenszeichen	none
 🕎	Menora	none
 🔯	Hexagramm mit Punkt	none
+🪯	Khanda	none
 ♈	Widder (Sternzeichen)	none
 ♉	Stier (Sternzeichen)	none
 ♊	Zwillinge (Sternzeichen)	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	Taste Dimmen	none
 🔆	Heller-Taste	none
 📶	balkenförmige Signalstärkenanzeige	none
+🛜	WLAN	none
 📳	Vibrationsmodus	none
 📴	Mobiltelefon aus	none
 ♀	Frauensymbol	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	plus	none
 ➖	minus	none
 ➗	geteilt durch	none
+🟰	Gleichheitszeichen extrafett	none
 ♾	Unendlichkeit	none
 ❓	rotes Fragezeichen	none
 ❔	weißes Fragezeichen	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	Rubel	none
 ₿	Bitcoin-Zeichen	none
 ₨	Rupie	none
-🫃🏻	schwangerer Mann helle Hautfarbe	none
-🫃🏼	schwangerer Mann mittelhelle Hautfarbe	none
-🫃🏽	schwangerer Mann mittlere Hautfarbe	none
-🫃🏾	schwangerer Mann mitteldunkle Hautfarbe	none
-🫃🏿	schwangerer Mann dunkle Hautfarbe	none
-🫄🏻	schwangere Person helle Hautfarbe	none
-🫄🏼	schwangere Person mittelhelle Hautfarbe	none
-🫄🏽	schwangere Person mittlere Hautfarbe	none
-🫄🏾	schwangere Person mitteldunkle Hautfarbe	none
-🫄🏿	schwangere Person dunkle Hautfarbe	none
-🫅🏻	Person mit Krone helle Hautfarbe	none
-🫅🏼	Person mit Krone mittelhelle Hautfarbe	none
-🫅🏽	Person mit Krone mittlere Hautfarbe	none
-🫅🏾	Person mit Krone mitteldunkle Hautfarbe	none
-🫅🏿	Person mit Krone dunkle Hautfarbe	none
-🫰🏻	Hand mit gekreuztem Zeigefinger und Daumen helle Hautfarbe	none
-🫰🏼	Hand mit gekreuztem Zeigefinger und Daumen mittelhelle Hautfarbe	none
-🫰🏽	Hand mit gekreuztem Zeigefinger und Daumen mittlere Hautfarbe	none
-🫰🏾	Hand mit gekreuztem Zeigefinger und Daumen mitteldunkle Hautfarbe	none
-🫰🏿	Hand mit gekreuztem Zeigefinger und Daumen dunkle Hautfarbe	none
+👋🏻	winkende Hand helle Hautfarbe	none
+👋🏼	winkende Hand mittelhelle Hautfarbe	none
+👋🏽	winkende Hand mittlere Hautfarbe	none
+👋🏾	winkende Hand mitteldunkle Hautfarbe	none
+👋🏿	winkende Hand dunkle Hautfarbe	none
+🤚🏻	erhobene Hand von hinten helle Hautfarbe	none
+🤚🏼	erhobene Hand von hinten mittelhelle Hautfarbe	none
+🤚🏽	erhobene Hand von hinten mittlere Hautfarbe	none
+🤚🏾	erhobene Hand von hinten mitteldunkle Hautfarbe	none
+🤚🏿	erhobene Hand von hinten dunkle Hautfarbe	none
+🖐🏻	Hand mit gespreizten Fingern helle Hautfarbe	none
+🖐🏼	Hand mit gespreizten Fingern mittelhelle Hautfarbe	none
+🖐🏽	Hand mit gespreizten Fingern mittlere Hautfarbe	none
+🖐🏾	Hand mit gespreizten Fingern mitteldunkle Hautfarbe	none
+🖐🏿	Hand mit gespreizten Fingern dunkle Hautfarbe	none
+✋🏻	erhobene Hand helle Hautfarbe	none
+✋🏼	erhobene Hand mittelhelle Hautfarbe	none
+✋🏽	erhobene Hand mittlere Hautfarbe	none
+✋🏾	erhobene Hand mitteldunkle Hautfarbe	none
+✋🏿	erhobene Hand dunkle Hautfarbe	none
+🖖🏻	vulkanischer Gruß helle Hautfarbe	none
+🖖🏼	vulkanischer Gruß mittelhelle Hautfarbe	none
+🖖🏽	vulkanischer Gruß mittlere Hautfarbe	none
+🖖🏾	vulkanischer Gruß mitteldunkle Hautfarbe	none
+🖖🏿	vulkanischer Gruß dunkle Hautfarbe	none
 🫱🏻	nach rechts weisende Hand helle Hautfarbe	none
 🫱🏼	nach rechts weisende Hand mittelhelle Hautfarbe	none
 🫱🏽	nach rechts weisende Hand mittlere Hautfarbe	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	Hand mit Handfläche nach oben mittlere Hautfarbe	none
 🫴🏾	Hand mit Handfläche nach oben mitteldunkle Hautfarbe	none
 🫴🏿	Hand mit Handfläche nach oben dunkle Hautfarbe	none
-🫵🏻	auf Betrachter zeigender Zeigefinger helle Hautfarbe	none
-🫵🏼	auf Betrachter zeigender Zeigefinger mittelhelle Hautfarbe	none
-🫵🏽	auf Betrachter zeigender Zeigefinger mittlere Hautfarbe	none
-🫵🏾	auf Betrachter zeigender Zeigefinger mitteldunkle Hautfarbe	none
-🫵🏿	auf Betrachter zeigender Zeigefinger dunkle Hautfarbe	none
-🫶🏻	Hände, die Herz bilden helle Hautfarbe	none
-🫶🏼	Hände, die Herz bilden mittelhelle Hautfarbe	none
-🫶🏽	Hände, die Herz bilden mittlere Hautfarbe	none
-🫶🏾	Hände, die Herz bilden mitteldunkle Hautfarbe	none
-🫶🏿	Hände, die Herz bilden dunkle Hautfarbe	none
-👋🏻	winkende Hand helle Hautfarbe	none
-👋🏼	winkende Hand mittelhelle Hautfarbe	none
-👋🏽	winkende Hand mittlere Hautfarbe	none
-👋🏾	winkende Hand mitteldunkle Hautfarbe	none
-👋🏿	winkende Hand dunkle Hautfarbe	none
-🤚🏻	erhobene Hand von hinten helle Hautfarbe	none
-🤚🏼	erhobene Hand von hinten mittelhelle Hautfarbe	none
-🤚🏽	erhobene Hand von hinten mittlere Hautfarbe	none
-🤚🏾	erhobene Hand von hinten mitteldunkle Hautfarbe	none
-🤚🏿	erhobene Hand von hinten dunkle Hautfarbe	none
-🖐🏻	Hand mit gespreizten Fingern helle Hautfarbe	none
-🖐🏼	Hand mit gespreizten Fingern mittelhelle Hautfarbe	none
-🖐🏽	Hand mit gespreizten Fingern mittlere Hautfarbe	none
-🖐🏾	Hand mit gespreizten Fingern mitteldunkle Hautfarbe	none
-🖐🏿	Hand mit gespreizten Fingern dunkle Hautfarbe	none
-✋🏻	erhobene Hand helle Hautfarbe	none
-✋🏼	erhobene Hand mittelhelle Hautfarbe	none
-✋🏽	erhobene Hand mittlere Hautfarbe	none
-✋🏾	erhobene Hand mitteldunkle Hautfarbe	none
-✋🏿	erhobene Hand dunkle Hautfarbe	none
-🖖🏻	vulkanischer Gruß helle Hautfarbe	none
-🖖🏼	vulkanischer Gruß mittelhelle Hautfarbe	none
-🖖🏽	vulkanischer Gruß mittlere Hautfarbe	none
-🖖🏾	vulkanischer Gruß mitteldunkle Hautfarbe	none
-🖖🏿	vulkanischer Gruß dunkle Hautfarbe	none
+🫷🏻	nach links schiebende Hand helle Hautfarbe	none
+🫷🏼	nach links schiebende Hand mittelhelle Hautfarbe	none
+🫷🏽	nach links schiebende Hand mittlere Hautfarbe	none
+🫷🏾	nach links schiebende Hand mitteldunkle Hautfarbe	none
+🫷🏿	nach links schiebende Hand dunkle Hautfarbe	none
+🫸🏻	nach rechts schiebende Hand helle Hautfarbe	none
+🫸🏼	nach rechts schiebende Hand mittelhelle Hautfarbe	none
+🫸🏽	nach rechts schiebende Hand mittlere Hautfarbe	none
+🫸🏾	nach rechts schiebende Hand mitteldunkle Hautfarbe	none
+🫸🏿	nach rechts schiebende Hand dunkle Hautfarbe	none
 👌🏻	OK-Zeichen helle Hautfarbe	none
 👌🏼	OK-Zeichen mittelhelle Hautfarbe	none
 👌🏽	OK-Zeichen mittlere Hautfarbe	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	Hand mit gekreuzten Fingern mittlere Hautfarbe	none
 🤞🏾	Hand mit gekreuzten Fingern mitteldunkle Hautfarbe	none
 🤞🏿	Hand mit gekreuzten Fingern dunkle Hautfarbe	none
+🫰🏻	Hand mit gekreuztem Zeigefinger und Daumen helle Hautfarbe	none
+🫰🏼	Hand mit gekreuztem Zeigefinger und Daumen mittelhelle Hautfarbe	none
+🫰🏽	Hand mit gekreuztem Zeigefinger und Daumen mittlere Hautfarbe	none
+🫰🏾	Hand mit gekreuztem Zeigefinger und Daumen mitteldunkle Hautfarbe	none
+🫰🏿	Hand mit gekreuztem Zeigefinger und Daumen dunkle Hautfarbe	none
 🤟🏻	Ich-liebe-dich-Geste helle Hautfarbe	none
 🤟🏼	Ich-liebe-dich-Geste mittelhelle Hautfarbe	none
 🤟🏽	Ich-liebe-dich-Geste mittlere Hautfarbe	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	nach oben weisender Zeigefinger von vorne mittlere Hautfarbe	none
 ☝🏾	nach oben weisender Zeigefinger von vorne mitteldunkle Hautfarbe	none
 ☝🏿	nach oben weisender Zeigefinger von vorne dunkle Hautfarbe	none
+🫵🏻	auf Betrachter zeigender Zeigefinger helle Hautfarbe	none
+🫵🏼	auf Betrachter zeigender Zeigefinger mittelhelle Hautfarbe	none
+🫵🏽	auf Betrachter zeigender Zeigefinger mittlere Hautfarbe	none
+🫵🏾	auf Betrachter zeigender Zeigefinger mitteldunkle Hautfarbe	none
+🫵🏿	auf Betrachter zeigender Zeigefinger dunkle Hautfarbe	none
 👍🏻	Daumen hoch helle Hautfarbe	none
 👍🏼	Daumen hoch mittelhelle Hautfarbe	none
 👍🏽	Daumen hoch mittlere Hautfarbe	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	zwei erhobene Handflächen mittlere Hautfarbe	none
 🙌🏾	zwei erhobene Handflächen mitteldunkle Hautfarbe	none
 🙌🏿	zwei erhobene Handflächen dunkle Hautfarbe	none
+🫶🏻	Hände, die Herz bilden helle Hautfarbe	none
+🫶🏼	Hände, die Herz bilden mittelhelle Hautfarbe	none
+🫶🏽	Hände, die Herz bilden mittlere Hautfarbe	none
+🫶🏾	Hände, die Herz bilden mitteldunkle Hautfarbe	none
+🫶🏿	Hände, die Herz bilden dunkle Hautfarbe	none
 👐🏻	offene Hände helle Hautfarbe	none
 👐🏼	offene Hände mittelhelle Hautfarbe	none
 👐🏽	offene Hände mittlere Hautfarbe	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	Bauarbeiterin mittlere Hautfarbe	none
 👷🏾‍♀	Bauarbeiterin mitteldunkle Hautfarbe	none
 👷🏿‍♀	Bauarbeiterin dunkle Hautfarbe	none
+🫅🏻	Person mit Krone helle Hautfarbe	none
+🫅🏼	Person mit Krone mittelhelle Hautfarbe	none
+🫅🏽	Person mit Krone mittlere Hautfarbe	none
+🫅🏾	Person mit Krone mitteldunkle Hautfarbe	none
+🫅🏿	Person mit Krone dunkle Hautfarbe	none
 🤴🏻	Prinz helle Hautfarbe	none
 🤴🏼	Prinz mittelhelle Hautfarbe	none
 🤴🏽	Prinz mittlere Hautfarbe	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	schwangere Frau mittlere Hautfarbe	none
 🤰🏾	schwangere Frau mitteldunkle Hautfarbe	none
 🤰🏿	schwangere Frau dunkle Hautfarbe	none
+🫃🏻	schwangerer Mann helle Hautfarbe	none
+🫃🏼	schwangerer Mann mittelhelle Hautfarbe	none
+🫃🏽	schwangerer Mann mittlere Hautfarbe	none
+🫃🏾	schwangerer Mann mitteldunkle Hautfarbe	none
+🫃🏿	schwangerer Mann dunkle Hautfarbe	none
+🫄🏻	schwangere Person helle Hautfarbe	none
+🫄🏼	schwangere Person mittelhelle Hautfarbe	none
+🫄🏽	schwangere Person mittlere Hautfarbe	none
+🫄🏾	schwangere Person mitteldunkle Hautfarbe	none
+🫄🏿	schwangere Person dunkle Hautfarbe	none
 🤱🏻	Stillen helle Hautfarbe	none
 🤱🏼	Stillen mittelhelle Hautfarbe	none
 🤱🏽	Stillen mittlere Hautfarbe	none

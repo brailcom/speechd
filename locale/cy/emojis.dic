@@ -264,43 +264,6 @@ symbols:
 ⪺	yn dilyn uwchben ddim bron yn hafal	none
 ♭	fflat	none
 ♯	miniog	none
-🥹	wyneb yn dal dagrau yn ôl	none
-🧌	ellyll	none
-🩻	pelydr-x	none
-🩼	bagl	none
-🪩	pêl ddrych	none
-🪪	cerdyn adnabod	none
-🪫	batri isel	none
-🪬	hamsa	none
-🪷	lotws	none
-🪸	cwrel	none
-🪹	nyth gwag	none
-🪺	nythu gydag wyau	none
-🫃	dyn beichiog	none
-🫄	person beichiog	none
-🫅	person â choron	none
-🫗	arllwys hylif	none
-🫘	ffa	none
-🫙	jar	none
-🫠	wyneb toddi	none
-🫡	wyneb saliwt	none
-🫢	wyneb gyda llygaid agored a llaw dros geg	none
-🫣	wyneb gyda llygad sy’n sbïo	none
-🫤	wyneb â cheg letraws	none
-🫥	wyneb llinell dotiog	none
-🫦	brathu gwefus	none
-🫧	swigod	none
-🫰	llaw gyda bys mynegai a bawd wedi’i chroesi	none
-🫱	llaw i’r dde	none
-🫲	llaw i’r chwith	none
-🫳	llaw palmwydd i lawr	none
-🫴	llaw palmwydd i fyny	none
-🫵	bys mynegai yn pwyntio at y gwyliwr	none
-🫶	dwylo calon	none
-🛝	sleid maes chwarae	none
-🛞	olwyn	none
-🛟	bwi cylch	none
-🟰	arwydd hafal trwm	none
 😀	wyneb yn gwenu â cheg agored	none
 😃	wyneb yn gwenu â cheg agored a llygaid mawr	none
 😄	wyneb yn gwenu â cheg agored a gwên yn y llygaid	none
@@ -311,6 +274,7 @@ symbols:
 😂	wyneb â dagrau hapusrwydd	none
 🙂	wyneb ag ychydig o wên arni	none
 🙃	wyneb â’i ben i waered	none
+🫠	wyneb toddi	none
 😉	llygaid yn wincio	none
 😊	wyneb yn gwenu â gwên yn y llygaid	none
 😇	wyneb yn gwenu ag eurgylch	none
@@ -331,13 +295,17 @@ symbols:
 🤑	wyneb symbol arian	none
 🤗	wyneb yn rhoi cwtsh	none
 🤭	wyneb gyda llaw dros y geg	none
+🫢	wyneb gyda llygaid agored a llaw dros geg	none
+🫣	wyneb gyda llygad sy’n sbïo	none
 🤫	wyneb hisht	none
 🤔	wyneb yn meddwl	none
+🫡	wyneb saliwt	none
 🤐	wyneb â sip dros y geg	none
 🤨	wyneb gydag ael wedi codi	none
 😐	wyneb niwtral	none
 😑	wyneb difynegiant	none
 😶	wyneb heb geg	none
+🫥	wyneb llinell dotiog	none
 😶‍🌫	wyneb mewn cymylau	none
 😏	wyneb yn cilwenu	none
 😒	wyneb ddi-ddifyr	none
@@ -345,6 +313,7 @@ symbols:
 😬	wyneb ag ystum	none
 😮‍💨	wyneb anadlu allan	none
 🤥	wyneb celwydd	none
+🫨	wyneb sydd ysgwyd	none
 😌	wyneb o ryddhad	none
 😔	wyneb synfyfyriol	none
 😪	wyneb cysglyd	none
@@ -369,6 +338,7 @@ symbols:
 🤓	wyneb clyfar	none
 🧐	wyneb gyda monocl	none
 😕	wyneb cymysglyd	none
+🫤	wyneb â cheg letraws	none
 😟	wyneb gofidio	none
 🙁	wyneb â pheth gwg arni	none
 ☹	wyneb gwgus	none
@@ -377,6 +347,7 @@ symbols:
 😲	wyneb wedi rhyfeddu	none
 😳	wyneb yn gwrido	none
 🥺	wyneb yn pledio	none
+🥹	wyneb yn dal dagrau yn ôl	none
 😦	wyneb gwgus â cheg agored	none
 😧	wyneb dirboen	none
 😨	wyneb ofnus	none
@@ -420,7 +391,6 @@ symbols:
 🙈	mwnci gweld dim drwg	none
 🙉	clywed dim drwg	none
 🙊	siarad dim drwg	none
-💋	ôl cusan	none
 💌	llythyr caru	none
 💘	calon â saeth trwyddi	none
 💝	calon â rhuban	none
@@ -435,14 +405,18 @@ symbols:
 ❤‍🔥	calon ar dân	none
 ❤‍🩹	trwsio calon	none
 ❤	calon goch	none
+🩷	calon binc	none
 🧡	calon oren	none
 💛	calon felen	none
 💚	calon werdd	none
 💙	calon las	none
+🩵	calon las golau	none
 💜	calon borffor	none
 🤎	calon frown	none
 🖤	calon ddu	none
+🩶	calon lwyd	none
 🤍	calon wen	none
+💋	ôl cusan	none
 💯	cant o bwyntiau	none
 💢	symbol dicter	none
 💥	trawiad	none
@@ -450,7 +424,6 @@ symbols:
 💦	defnynnau chwys	none
 💨	rhuthro	none
 🕳	twll	none
-💣	bom	none
 💬	balŵn deialog	none
 👁‍🗨	llygad mewn cwmwl	none
 🗨	swigen siarad i’r chwith	none
@@ -462,11 +435,18 @@ symbols:
 🖐	llaw wedi ei chodi â bysedd wedi eu lledu	none
 ✋	llaw wedi codi	none
 🖖	saliwt fulcanaidd	none
+🫱	llaw i’r dde	none
+🫲	llaw i’r chwith	none
+🫳	llaw palmwydd i lawr	none
+🫴	llaw palmwydd i fyny	none
+🫷	llaw yn gwthio i’r chwith	none
+🫸	llaw yn gwthio i’r dde	none
 👌	llaw ocê	none
 🤌	bysedd wedi’u pinsio	none
 🤏	bysedd yn pinshio	none
 ✌	llaw fuddugol	none
 🤞	bysedd wedi’u croesi	none
+🫰	llaw gyda bys mynegai a bawd wedi’i chroesi	none
 🤟	arwydd caru ti	none
 🤘	arwydd y cyrn	none
 🤙	llaw ffonia fi	none
@@ -476,6 +456,7 @@ symbols:
 🖕	bys canol	none
 👇	mynegfys yr wrthlaw yn pwyntio i lawr	none
 ☝	mynegfys yn pwyntio i fyny	none
+🫵	bys mynegai yn pwyntio at y gwyliwr	none
 👍	bys bawd i fyny	none
 👎	bys bawd i lawr	none
 ✊	dwrn wedi codi	none
@@ -484,6 +465,7 @@ symbols:
 🤜	dwrn tua’r dde	none
 👏	dwylo yn curo	none
 🙌	person yn codi dwylo	none
+🫶	dwylo calon	none
 👐	dwylo agored	none
 🤲	cledrau dwylo yn yr awyr gyda’u gilydd	none
 🤝	ysgwyd dwylo	none
@@ -508,6 +490,7 @@ symbols:
 👁	llygad	none
 👅	tafod	none
 👄	ceg	none
+🫦	brathu gwefus	none
 👶	babi	none
 🧒	plentyn	none
 👦	bachgen	none
@@ -615,6 +598,7 @@ symbols:
 👷	adeiladwr	none
 👷‍♂	gweithiwr adeiladu gwrywaidd	none
 👷‍♀	gweithiwr adeiladu benywaidd	none
+🫅	person â choron	none
 🤴	tywysog	none
 👸	tywysoges	none
 👳	person yn gwisgo twrban	none
@@ -629,6 +613,8 @@ symbols:
 👰‍♂	dyn yn gwisgo llen	none
 👰‍♀	menyw yn gwisgo llen	none
 🤰	menyw feichiog	none
+🫃	dyn beichiog	none
+🫄	person beichiog	none
 🤱	bwydo o’r fron	none
 👩‍🍼	menyw yn bwydo babi	none
 👨‍🍼	dyn yn bwydo babi	none
@@ -664,6 +650,7 @@ symbols:
 🧟	sombi	none
 🧟‍♂	sombi gwrywaidd	none
 🧟‍♀	sombi benywaidd	none
+🧌	ellyll	none
 💆	person yn derbyn tyluniad	none
 💆‍♂	dyn yn derbyn tyluniad i’w wyneb	none
 💆‍♀	menyw yn derbyn tyluniad i’w wyneb	none
@@ -787,6 +774,8 @@ symbols:
 🐅	teigr	none
 🐆	llewpard	none
 🐴	wyneb ceffyl	none
+🫎	elc	none
+🫏	asyn	none
 🐎	ceffyl	none
 🦄	wyneb uncorn	none
 🦓	sebra	none
@@ -849,6 +838,8 @@ symbols:
 🦩	fflamingo	none
 🦚	paun	none
 🦜	parot	none
+🪽	adain	none
+🪿	gwydd	none
 🐸	broga	none
 🐊	crocodeil	none
 🐢	crwban y môr	none
@@ -868,6 +859,8 @@ symbols:
 🦈	siarc	none
 🐙	octopws	none
 🐚	cragen droellog	none
+🪸	cwrel	none
+🪼	slefren fôr	none
 🐌	malwoden	none
 🦋	pili-pala	none
 🐛	pryf	none
@@ -887,6 +880,7 @@ symbols:
 💐	tusw	none
 🌸	blodeuyn ceirios	none
 💮	blodyn gwyn	none
+🪷	lotws	none
 🏵	rhosglwm	none
 🌹	rhosyn	none
 🥀	blodyn wedi gwiwo	none
@@ -894,6 +888,7 @@ symbols:
 🌻	blodyn haul	none
 🌼	blodeuyn	none
 🌷	tiwlip	none
+🪻	hiasinth	none
 🌱	eginblanhigyn	none
 🪴	planhigyn mewn pot	none
 🌲	bythwyrdd	none
@@ -907,6 +902,9 @@ symbols:
 🍁	deilen masarnen	none
 🍂	deilen yn cwympo	none
 🍃	deilen yn crynu yn y gwynt	none
+🪹	nyth gwag	none
+🪺	nythu gydag wyau	none
+🍄	madarch	none
 🍇	grawnwin	none
 🍈	melon	none
 🍉	melon dŵr	none
@@ -938,9 +936,11 @@ symbols:
 🥦	brocoli	none
 🧄	garlleg	none
 🧅	winwns	none
-🍄	madarch	none
 🥜	cnai ddaear	none
+🫘	ffa	none
 🌰	castan	none
+🫚	gwraidd sinsir	none
+🫛	pod pys	none
 🍞	bara	none
 🥐	croissant	none
 🥖	ffon fara	none
@@ -1025,6 +1025,7 @@ symbols:
 🍻	mygiau cwrw yn clincian	none
 🥂	gwydrau yn tincian	none
 🥃	tymbler	none
+🫗	arllwys hylif	none
 🥤	cwpan â gwellt yfed	none
 🧋	te swigod	none
 🧃	blwch diodydd	none
@@ -1035,6 +1036,7 @@ symbols:
 🍴	fforc a chyllell	none
 🥄	llwy	none
 🔪	cyllell cegin	none
+🫙	jar	none
 🏺	llestri	none
 🌍	glôb yn dangos Ewrop-Affrica	none
 🌎	glôb yn dangos yr Americas	none
@@ -1097,6 +1099,7 @@ symbols:
 🌉	pont gyda’r nos	none
 ♨	tarddelli poeth	none
 🎠	ceffyl carwsél	none
+🛝	sleid maes chwarae	none
 🎡	olwyn fawr	none
 🎢	cert sglefrio	none
 💈	polyn barbwr	none
@@ -1145,12 +1148,14 @@ symbols:
 🛤	trac rheilffordd	none
 🛢	drwm olew	none
 ⛽	pwmp tanwydd	none
+🛞	olwyn	none
 🚨	golau car yr heddlu	none
 🚥	golau traffig llorweddol	none
 🚦	golau traffig fertigol	none
 🛑	arwydd stop	none
 🚧	adeiladwaith	none
 ⚓	angor	none
+🛟	bwi cylch	none
 ⛵	cwch hwylio	none
 🛶	canŵ	none
 🚤	cwch gwib	none
@@ -1308,10 +1313,10 @@ symbols:
 🎯	ergyd uniongyrchol	none
 🪀	io-io	none
 🪁	barcud	none
+🔫	pistol dŵr	none
 🎱	biliards	none
 🔮	pêl grisial	none
 🪄	ffon hud	none
-🧿	amwled nazar	none
 🎮	gêm fideo	none
 🕹	ffon reoli	none
 🎰	peiriant slot	none
@@ -1319,6 +1324,7 @@ symbols:
 🧩	jig-so	none
 🧸	tedi bêr	none
 🪅	piñata	none
+🪩	pêl ddrych	none
 🪆	doliau sy’n nythu	none
 ♠	siwt rhofiau	none
 ♥	siwt calonnau	none
@@ -1355,6 +1361,7 @@ symbols:
 🩳	siorts	none
 👙	bicini	none
 👚	dillad menywod	none
+🪭	ffan llaw plyg	none
 👛	pwrs	none
 👜	bag llaw	none
 👝	cwd	none
@@ -1369,6 +1376,7 @@ symbols:
 👡	sandal menyw	none
 🩰	esgidiau bale	none
 👢	esgid fenyw	none
+🪮	pig gwallt	none
 👑	coron	none
 👒	het fenyw	none
 🎩	het silc	none
@@ -1407,6 +1415,8 @@ symbols:
 🪕	banjo	none
 🥁	drwm	none
 🪘	drwm hir	none
+🪇	maracas	none
+🪈	ffliwt	none
 📱	ffôn symudol	none
 📲	ffôn symudol â saeth	none
 ☎	ffôn	none
@@ -1414,6 +1424,7 @@ symbols:
 📟	peiriant galw	none
 📠	peiriant ffacs	none
 🔋	batri	none
+🪫	batri isel	none
 🔌	plwg trydanol	none
 💻	cluniadur	none
 🖥	cyfrifiadur	none
@@ -1525,7 +1536,7 @@ symbols:
 🛠	morthwyl a sbaner	none
 🗡	dagr	none
 ⚔	cleddyfau wedi croesi	none
-🔫	pistol dŵr	none
+💣	bom	none
 🪃	bwmerang	none
 🏹	bwa saeth	none
 🛡	tarian	none
@@ -1554,7 +1565,9 @@ symbols:
 🩸	diferyn o waed	none
 💊	pilsen	none
 🩹	bandej glynu	none
+🩼	bagl	none
 🩺	stethosgop	none
+🩻	pelydr-x	none
 🚪	drws	none
 🛗	lifft	none
 🪞	drych	none
@@ -1575,6 +1588,7 @@ symbols:
 🧻	rholyn o bapur	none
 🪣	bwced	none
 🧼	sebon	none
+🫧	swigod	none
 🪥	brwsh dannedd	none
 🧽	sbwng	none
 🧯	diffoddydd tân	none
@@ -1583,8 +1597,11 @@ symbols:
 ⚰	arch	none
 🪦	carreg fedd	none
 ⚱	wrn angladd	none
+🧿	amwled nazar	none
+🪬	hamsa	none
 🗿	moai	none
 🪧	placard	none
+🪪	cerdyn adnabod	none
 🏧	arwydd peiriant codi arian	none
 🚮	arwydd sbwriel mewn bin	none
 🚰	dŵr yfed	none
@@ -1645,6 +1662,7 @@ symbols:
 ☮	symbol hedd	none
 🕎	menorah	none
 🔯	seren chwe ochr dotiog	none
+🪯	khanda	none
 ♈	yr Hwrdd	none
 ♉	y Tarw	none
 ♊	yr Efeilliaid	none
@@ -1680,6 +1698,7 @@ symbols:
 🔅	botwm pylu	none
 🔆	botwm disglair	none
 📶	barau antena	none
+🛜	diwifr	none
 📳	modd dirgryniad	none
 📴	ffôn symudol wedi’i ddiffodd	none
 ♀	arwydd benyw	none
@@ -1689,6 +1708,7 @@ symbols:
 ➕	adio	none
 ➖	tynnu	none
 ➗	rhannu	none
+🟰	arwydd hafal trwm	none
 ♾	anfeidredd	none
 ❓	marc cwestiwn	none
 ❔	marc cwestiwn gwyn	none
@@ -1793,26 +1813,31 @@ symbols:
 ₽	rwbl	none
 ₿	bitcoin	none
 ₨	rwpî	none
-🫃🏻	dyn beichiog arlliw croen golau	none
-🫃🏼	dyn beichiog arlliw croen canolig-golau	none
-🫃🏽	dyn beichiog arlliw croen canolog	none
-🫃🏾	dyn beichiog arlliw croen canolig-tywyll	none
-🫃🏿	dyn beichiog arlliw croen tywyll	none
-🫄🏻	person beichiog arlliw croen golau	none
-🫄🏼	person beichiog arlliw croen canolig-golau	none
-🫄🏽	person beichiog arlliw croen canolog	none
-🫄🏾	person beichiog arlliw croen canolig-tywyll	none
-🫄🏿	person beichiog arlliw croen tywyll	none
-🫅🏻	person â choron arlliw croen golau	none
-🫅🏼	person â choron arlliw croen canolig-golau	none
-🫅🏽	person â choron arlliw croen canolog	none
-🫅🏾	person â choron arlliw croen canolig-tywyll	none
-🫅🏿	person â choron arlliw croen tywyll	none
-🫰🏻	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen golau	none
-🫰🏼	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen canolig-golau	none
-🫰🏽	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen canolog	none
-🫰🏾	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen canolig-tywyll	none
-🫰🏿	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen tywyll	none
+👋🏻	llaw yn chwifio arlliw croen golau	none
+👋🏼	llaw yn chwifio arlliw croen canolig-golau	none
+👋🏽	llaw yn chwifio arlliw croen canolog	none
+👋🏾	llaw yn chwifio arlliw croen canolig-tywyll	none
+👋🏿	llaw yn chwifio arlliw croen tywyll	none
+🤚🏻	cefn llaw wedi’i chodi arlliw croen golau	none
+🤚🏼	cefn llaw wedi’i chodi arlliw croen canolig-golau	none
+🤚🏽	cefn llaw wedi’i chodi arlliw croen canolog	none
+🤚🏾	cefn llaw wedi’i chodi arlliw croen canolig-tywyll	none
+🤚🏿	cefn llaw wedi’i chodi arlliw croen tywyll	none
+🖐🏻	llaw wedi ei chodi â bysedd wedi eu lledu arlliw croen golau	none
+🖐🏼	llaw wedi ei chodi â bysedd wedi eu lledu arlliw croen canolig-golau	none
+🖐🏽	llaw wedi ei chodi â bysedd wedi eu lledu arlliw croen canolog	none
+🖐🏾	llaw wedi ei chodi â bysedd wedi eu lledu arlliw croen canolig-tywyll	none
+🖐🏿	llaw wedi ei chodi â bysedd wedi eu lledu arlliw croen tywyll	none
+✋🏻	llaw wedi codi arlliw croen golau	none
+✋🏼	llaw wedi codi arlliw croen canolig-golau	none
+✋🏽	llaw wedi codi arlliw croen canolog	none
+✋🏾	llaw wedi codi arlliw croen canolig-tywyll	none
+✋🏿	llaw wedi codi arlliw croen tywyll	none
+🖖🏻	saliwt fulcanaidd arlliw croen golau	none
+🖖🏼	saliwt fulcanaidd arlliw croen canolig-golau	none
+🖖🏽	saliwt fulcanaidd arlliw croen canolog	none
+🖖🏾	saliwt fulcanaidd arlliw croen canolig-tywyll	none
+🖖🏿	saliwt fulcanaidd arlliw croen tywyll	none
 🫱🏻	llaw i’r dde arlliw croen golau	none
 🫱🏼	llaw i’r dde arlliw croen canolig-golau	none
 🫱🏽	llaw i’r dde arlliw croen canolog	none
@@ -1853,41 +1878,16 @@ symbols:
 🫴🏽	llaw palmwydd i fyny arlliw croen canolog	none
 🫴🏾	llaw palmwydd i fyny arlliw croen canolig-tywyll	none
 🫴🏿	llaw palmwydd i fyny arlliw croen tywyll	none
-🫵🏻	bys mynegai yn pwyntio at y gwyliwr arlliw croen golau	none
-🫵🏼	bys mynegai yn pwyntio at y gwyliwr arlliw croen canolig-golau	none
-🫵🏽	bys mynegai yn pwyntio at y gwyliwr arlliw croen canolog	none
-🫵🏾	bys mynegai yn pwyntio at y gwyliwr arlliw croen canolig-tywyll	none
-🫵🏿	bys mynegai yn pwyntio at y gwyliwr arlliw croen tywyll	none
-🫶🏻	dwylo calon arlliw croen golau	none
-🫶🏼	dwylo calon arlliw croen canolig-golau	none
-🫶🏽	dwylo calon arlliw croen canolog	none
-🫶🏾	dwylo calon arlliw croen canolig-tywyll	none
-🫶🏿	dwylo calon arlliw croen tywyll	none
-👋🏻	llaw yn chwifio arlliw croen golau	none
-👋🏼	llaw yn chwifio arlliw croen canolig-golau	none
-👋🏽	llaw yn chwifio arlliw croen canolog	none
-👋🏾	llaw yn chwifio arlliw croen canolig-tywyll	none
-👋🏿	llaw yn chwifio arlliw croen tywyll	none
-🤚🏻	cefn llaw wedi’i chodi arlliw croen golau	none
-🤚🏼	cefn llaw wedi’i chodi arlliw croen canolig-golau	none
-🤚🏽	cefn llaw wedi’i chodi arlliw croen canolog	none
-🤚🏾	cefn llaw wedi’i chodi arlliw croen canolig-tywyll	none
-🤚🏿	cefn llaw wedi’i chodi arlliw croen tywyll	none
-🖐🏻	llaw wedi ei chodi â bysedd wedi eu lledu arlliw croen golau	none
-🖐🏼	llaw wedi ei chodi â bysedd wedi eu lledu arlliw croen canolig-golau	none
-🖐🏽	llaw wedi ei chodi â bysedd wedi eu lledu arlliw croen canolog	none
-🖐🏾	llaw wedi ei chodi â bysedd wedi eu lledu arlliw croen canolig-tywyll	none
-🖐🏿	llaw wedi ei chodi â bysedd wedi eu lledu arlliw croen tywyll	none
-✋🏻	llaw wedi codi arlliw croen golau	none
-✋🏼	llaw wedi codi arlliw croen canolig-golau	none
-✋🏽	llaw wedi codi arlliw croen canolog	none
-✋🏾	llaw wedi codi arlliw croen canolig-tywyll	none
-✋🏿	llaw wedi codi arlliw croen tywyll	none
-🖖🏻	saliwt fulcanaidd arlliw croen golau	none
-🖖🏼	saliwt fulcanaidd arlliw croen canolig-golau	none
-🖖🏽	saliwt fulcanaidd arlliw croen canolog	none
-🖖🏾	saliwt fulcanaidd arlliw croen canolig-tywyll	none
-🖖🏿	saliwt fulcanaidd arlliw croen tywyll	none
+🫷🏻	llaw yn gwthio i’r chwith arlliw croen golau	none
+🫷🏼	llaw yn gwthio i’r chwith arlliw croen canolig-golau	none
+🫷🏽	llaw yn gwthio i’r chwith arlliw croen canolog	none
+🫷🏾	llaw yn gwthio i’r chwith arlliw croen canolig-tywyll	none
+🫷🏿	llaw yn gwthio i’r chwith arlliw croen tywyll	none
+🫸🏻	llaw yn gwthio i’r dde arlliw croen golau	none
+🫸🏼	llaw yn gwthio i’r dde arlliw croen canolig-golau	none
+🫸🏽	llaw yn gwthio i’r dde arlliw croen canolog	none
+🫸🏾	llaw yn gwthio i’r dde arlliw croen canolig-tywyll	none
+🫸🏿	llaw yn gwthio i’r dde arlliw croen tywyll	none
 👌🏻	llaw ocê arlliw croen golau	none
 👌🏼	llaw ocê arlliw croen canolig-golau	none
 👌🏽	llaw ocê arlliw croen canolog	none
@@ -1913,6 +1913,11 @@ symbols:
 🤞🏽	bysedd wedi’u croesi arlliw croen canolog	none
 🤞🏾	bysedd wedi’u croesi arlliw croen canolig-tywyll	none
 🤞🏿	bysedd wedi’u croesi arlliw croen tywyll	none
+🫰🏻	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen golau	none
+🫰🏼	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen canolig-golau	none
+🫰🏽	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen canolog	none
+🫰🏾	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen canolig-tywyll	none
+🫰🏿	llaw gyda bys mynegai a bawd wedi’i chroesi arlliw croen tywyll	none
 🤟🏻	arwydd caru ti arlliw croen golau	none
 🤟🏼	arwydd caru ti arlliw croen canolig-golau	none
 🤟🏽	arwydd caru ti arlliw croen canolog	none
@@ -1958,6 +1963,11 @@ symbols:
 ☝🏽	mynegfys yn pwyntio i fyny arlliw croen canolog	none
 ☝🏾	mynegfys yn pwyntio i fyny arlliw croen canolig-tywyll	none
 ☝🏿	mynegfys yn pwyntio i fyny arlliw croen tywyll	none
+🫵🏻	bys mynegai yn pwyntio at y gwyliwr arlliw croen golau	none
+🫵🏼	bys mynegai yn pwyntio at y gwyliwr arlliw croen canolig-golau	none
+🫵🏽	bys mynegai yn pwyntio at y gwyliwr arlliw croen canolog	none
+🫵🏾	bys mynegai yn pwyntio at y gwyliwr arlliw croen canolig-tywyll	none
+🫵🏿	bys mynegai yn pwyntio at y gwyliwr arlliw croen tywyll	none
 👍🏻	bys bawd i fyny arlliw croen golau	none
 👍🏼	bys bawd i fyny arlliw croen canolig-golau	none
 👍🏽	bys bawd i fyny arlliw croen canolog	none
@@ -1998,6 +2008,11 @@ symbols:
 🙌🏽	person yn codi dwylo arlliw croen canolog	none
 🙌🏾	person yn codi dwylo arlliw croen canolig-tywyll	none
 🙌🏿	person yn codi dwylo arlliw croen tywyll	none
+🫶🏻	dwylo calon arlliw croen golau	none
+🫶🏼	dwylo calon arlliw croen canolig-golau	none
+🫶🏽	dwylo calon arlliw croen canolog	none
+🫶🏾	dwylo calon arlliw croen canolig-tywyll	none
+🫶🏿	dwylo calon arlliw croen tywyll	none
 👐🏻	dwylo agored arlliw croen golau	none
 👐🏼	dwylo agored arlliw croen canolig-golau	none
 👐🏽	dwylo agored arlliw croen canolog	none
@@ -2860,6 +2875,11 @@ symbols:
 👷🏽‍♀	gweithiwr adeiladu benywaidd arlliw croen canolog	none
 👷🏾‍♀	gweithiwr adeiladu benywaidd arlliw croen canolig-tywyll	none
 👷🏿‍♀	gweithiwr adeiladu benywaidd arlliw croen tywyll	none
+🫅🏻	person â choron arlliw croen golau	none
+🫅🏼	person â choron arlliw croen canolig-golau	none
+🫅🏽	person â choron arlliw croen canolog	none
+🫅🏾	person â choron arlliw croen canolig-tywyll	none
+🫅🏿	person â choron arlliw croen tywyll	none
 🤴🏻	tywysog arlliw croen golau	none
 🤴🏼	tywysog arlliw croen canolig-golau	none
 🤴🏽	tywysog arlliw croen canolog	none
@@ -2930,6 +2950,16 @@ symbols:
 🤰🏽	menyw feichiog arlliw croen canolog	none
 🤰🏾	menyw feichiog arlliw croen canolig-tywyll	none
 🤰🏿	menyw feichiog arlliw croen tywyll	none
+🫃🏻	dyn beichiog arlliw croen golau	none
+🫃🏼	dyn beichiog arlliw croen canolig-golau	none
+🫃🏽	dyn beichiog arlliw croen canolog	none
+🫃🏾	dyn beichiog arlliw croen canolig-tywyll	none
+🫃🏿	dyn beichiog arlliw croen tywyll	none
+🫄🏻	person beichiog arlliw croen golau	none
+🫄🏼	person beichiog arlliw croen canolig-golau	none
+🫄🏽	person beichiog arlliw croen canolog	none
+🫄🏾	person beichiog arlliw croen canolig-tywyll	none
+🫄🏿	person beichiog arlliw croen tywyll	none
 🤱🏻	bwydo o’r fron arlliw croen golau	none
 🤱🏼	bwydo o’r fron arlliw croen canolig-golau	none
 🤱🏽	bwydo o’r fron arlliw croen canolog	none
