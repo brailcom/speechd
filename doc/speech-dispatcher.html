@@ -57,7 +57,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 </div>
 <span id="Speech-Dispatcher"></span><h1 class="top">Speech Dispatcher</h1>
 
-<p>This manual documents Speech Dispatcher, version 0.11.3.
+<p>This manual documents Speech Dispatcher, version 0.11.4.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 </p>
@@ -3361,6 +3361,16 @@ punctuation_some=NULL
 only once immediately after <code>INIT</code> to transmit the requested audio
 parameters and tell the output module to open the audio device.
 </p>
+<p>Here is an example:
+</p><div class="example">
+<pre class="example">AUDIO
+207 OK RECEIVING AUDIO SETTINGS
+audio_output_method=pulse
+audio_pulse_device=default
+.
+203 OK AUDIO INITIALIZED
+</pre></div>
+
 </dd>
 <dt><span><code>QUIT</code></span></dt>
 <dd><p>Terminates the output module. It should send the response, deallocate
