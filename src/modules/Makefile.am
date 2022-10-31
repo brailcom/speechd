@@ -32,7 +32,7 @@ common_LDADD = $(DOTCONF_LIBS) $(GLIB_LIBS) $(audio_dlopen) -lpthread
 
 AM_CFLAGS = $(ERROR_CFLAGS)
 AM_CXXFLAGS = $(ERROR_CFLAGS)
-AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" -D_GNU_SOURCE $(GLIB_CFLAGS)
+AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" $(GLIB_CFLAGS)
 
 module_utils_CPPFLAGS = $(AM_CPPFLAGS) \
 	$(DOTCONF_CFLAGS)

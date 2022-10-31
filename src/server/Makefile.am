@@ -35,7 +35,7 @@ speech_dispatcher_CPPFLAGS = $(inc_local) $(DOTCONF_CFLAGS) $(GLIB_CFLAGS) \
 	-DMODULEBINDIR=\"$(modulebindir)\" \
 	-DOLDMODULEBINDIR=\"$(oldmodulebindir)\" \
 	-DLOCALE_DATA=\"$(localedatadir)\" \
-	-D_GNU_SOURCE -DDEFAULT_AUDIO_METHOD=\"$(default_audio_method)\"
+	-DDEFAULT_AUDIO_METHOD=\"$(default_audio_method)\"
 speech_dispatcher_LDFLAGS = $(RDYNAMIC)
 speech_dispatcher_LDADD = $(lib_common) $(DOTCONF_LIBS) $(GLIB_LIBS) \
 	$(SNDFILE_LIBS) $(GMODULE_LIBS) $(GTHREAD_LIBS) $(EXTRA_SOCKET_LIBS) \

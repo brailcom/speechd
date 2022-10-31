@@ -68,6 +68,8 @@ AC_PROG_LN_S
 AC_CHECK_PROGS([HELP2MAN], [help2man])
 AM_CONDITIONAL([HAVE_HELP2MAN], [test "x$HELP2MAN" != "x"])
 
+AC_USE_SYSTEM_EXTENSIONS
+
 # Checks for libraries.
 AC_SEARCH_LIBS([sqrt], [m], [],
 	[AC_MSG_FAILURE([Math library missing])])
