@@ -863,7 +863,10 @@ spd_char(SPDConnection * connection, SPDPriority priority,
 	if (ret)
 		RET(-1);
 
-	sprintf(command, "CHAR %s", character);
+	if (character == ' ')
+		sprintf(command, "CHAR space");
+	else
+		sprintf(command, "CHAR %s", character);
 	ret = spd_execute_command_wo_mutex(connection, command);
 	if (ret)
 		RET(-1);
