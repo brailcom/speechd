@@ -207,6 +207,7 @@ int module_init(char **status_info)
 	    espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, EspeakAudioChunkSize,
 			      NULL, 0);
 #endif
+	DBG(DBG_MODNAME " Sample rate is %d", espeak_sample_rate);
 	if (espeak_sample_rate == EE_INTERNAL_ERROR) {
 		DBG(DBG_MODNAME " Could not initialize engine.");
 		*status_info = g_strdup("Could not initialize engine. ");
@@ -507,7 +508,7 @@ static void espeak_set_punctuation_mode(SPDPunctuation punct_mode)
 	espeak_ERROR ret =
 	    espeak_SetParameter(espeakPUNCTUATION, espeak_punct_mode, 0);
 	if (ret != EE_OK) {
-		DBG(DBG_MODNAME " Failed to set punctuation mode.");
+		DBG(DBG_MODNAME " Failed to set punctuation mode to %d.", espeak_punct_mode);
 	} else {
 		DBG("Set punctuation mode.");
 	}
@@ -531,7 +532,7 @@ static void espeak_set_cap_let_recogn(SPDCapitalLetters cap_mode)
 	espeak_ERROR ret =
 	    espeak_SetParameter(espeakCAPITALS, espeak_cap_mode, 1);
 	if (ret != EE_OK) {
-		DBG(DBG_MODNAME " Failed to set capitals mode.");
+		DBG(DBG_MODNAME " Failed to set capitals mode to %d.", espeak_cap_mode);
 	} else {
 		DBG("Set capitals mode.");
 	}
