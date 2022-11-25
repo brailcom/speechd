@@ -863,7 +863,7 @@ spd_char(SPDConnection * connection, SPDPriority priority,
 	if (ret)
 		RET(-1);
 
-	if (character == ' ')
+	if (!strcmp(character, " "))
 		sprintf(command, "CHAR space");
 	else
 		sprintf(command, "CHAR %s", character);
