@@ -810,13 +810,13 @@ msgstr "A hibakeresési kimenetés a konfigurációs információk gyűjtése"
 #, python-format
 msgid ""
 "\n"
-"Please send %s to speechd@bugs.freebsoft.org with\n"
+"Please send %s to speechd-discuss@nongnu.org with\n"
 "a short description of what you did. We will get in touch with you soon\n"
 "and suggest a solution."
 msgstr ""
 "\n"
 "Kérjük, küldje el egy rövid leírással együtt azt amit tett a\n"
-"speechd@bugs.freebsoft.org e-mail címre: %s\n"
+"speechd-discuss@nongnu.org e-mail címre: %s\n"
 "Hamarosan kapcsolatba lépünk Önnel, és javasolni fogunk egy megoldást."
 
 #: src/api/python/speechd_config/config.py:588
