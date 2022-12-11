@@ -3923,7 +3923,7 @@ or use the email @email{users@@lists.freebsoft.org}.
 
 If you believe you found a bug in Speech Dispatcher, we will be very
 grateful if you let us know about it. Please do it by email on the
-address @email{speechd@@bugs.freebsoft.org}, but please don't send us
+address @email{speechd-discuss@@nongnu.org}, but please don't send us
 messages larger than half a megabyte unless we ask you.
 
 To report a bug in a way that is useful for the developers is not
@@ -4001,7 +4001,7 @@ us about the bugs and inconveniences he encounters. A good user community that
 reports bugs is a crucial part of development of a good Free Software package.
 We can't test our software under all circumstances and on all platforms, so each
 constructive bug report is highly appreciated. You can report bugs in Speech
-Dispatcher on @email{speechd@@bugs.freebsoft.org}.
+Dispatcher on @email{speechd-discuss@@nongnu.org}.
 
 @item
 @emph{Write or modify an application to support synthesis:} With

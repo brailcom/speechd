@@ -513,7 +513,7 @@ Please start your system Speech Dispatcher now with parameter '-D'"""))
         os.system("rm -rf %s" % debugdir_path)
 
         report(_("""
-Please send %s to speechd@bugs.freebsoft.org with
+Please send %s to speechd-discuss@nongnu.org with
 a short description of what you did. We will get in touch with you soon
 and suggest a solution.""" % debugarchive_path))
 
