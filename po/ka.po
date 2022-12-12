@@ -276,7 +276,7 @@ msgstr ""
 #, c-format
 msgid ""
 "Set the application name used to establish\n"
-"%sthe connection to specified string value\n"
+"%1$sthe connection to specified string value\n"
 msgstr ""
 
 #: src/clients/say/options.c:145 src/clients/say/options.c:152
@@ -288,7 +288,7 @@ msgstr ""
 #, c-format
 msgid ""
 "Set the connection name used to establish\n"
-"%sthe connection to specified string value\n"
+"%1$sthe connection to specified string value\n"
 msgstr ""
 
 #: src/clients/say/options.c:156
