@@ -261,8 +261,8 @@ msgid "Speak the key\n"
 msgstr "Uttal nøkkelen\n"
 
 #: src/clients/say/options.c:121
-#, c-format
-msgid "Set the punctuation mode\n"
+#, fuzzy, c-format
+msgid "Set the punctuation mode %s\n"
 msgstr "Sett tegnsettingsmodus\n"
 
 #: src/clients/say/options.c:124
@@ -294,10 +294,10 @@ msgstr "forvalg: %s)\n"
 #, fuzzy, c-format
 msgid ""
 "Set the application name used to establish\n"
-"%sthe connection to specified string value\n"
+"%1$sthe connection to specified string value\n"
 msgstr ""
 "Sett programnavn brukt til å etablere\n"
-"%s koblingen til angitt strengverdi\n"
+"%1$skoblingen til angitt strengverdi\n"
 
 #: src/clients/say/options.c:145 src/clients/say/options.c:152
 #, c-format
@@ -308,10 +308,10 @@ msgstr "(forvalg: %s)\n"
 #, fuzzy, c-format
 msgid ""
 "Set the connection name used to establish\n"
-"%sthe connection to specified string value\n"
+"%1$sthe connection to specified string value\n"
 msgstr ""
 "Sett tilkoblingsnavnet brukt til å etablere\n"
-"%s koblingen til angitt strengverdi\n"
+"%1$skoblingen til angitt strengverdi\n"
 
 #: src/clients/say/options.c:156
 #, c-format
