@@ -260,8 +260,8 @@ msgid "Speak the key\n"
 msgstr "énonce la touche\n"
 
 #: src/clients/say/options.c:121
-#, c-format
-msgid "Set the punctuation mode\n"
+#, fuzzy, c-format
+msgid "Set the punctuation mode %s\n"
 msgstr "Définit le mode de ponctuations\n"
 
 #: src/clients/say/options.c:124
@@ -293,10 +293,10 @@ msgstr "par défaut : %s)\n"
 #, c-format
 msgid ""
 "Set the application name used to establish\n"
-"%sthe connection to specified string value\n"
+"%1$sthe connection to specified string value\n"
 msgstr ""
 "Définir le nom de l’application utilisé pour établir\n"
-"%sla connexion à la valeur de chaîne spécifiée\n"
+"%1$sla connexion à la valeur de chaîne spécifiée\n"
 
 #: src/clients/say/options.c:145 src/clients/say/options.c:152
 #, c-format
@@ -307,10 +307,10 @@ msgstr "(par défaut : %s)\n"
 #, c-format
 msgid ""
 "Set the connection name used to establish\n"
-"%sthe connection to specified string value\n"
+"%1$sthe connection to specified string value\n"
 msgstr ""
 "Définir le nom de connexion utilisé pour établir\n"
-"%sla connexion à la valeur spécifiée\n"
+"%1$sla connexion à la valeur spécifiée\n"
 
 #: src/clients/say/options.c:156
 #, c-format

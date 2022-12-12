@@ -140,14 +140,14 @@ void options_print_help(char *argv[])
 
 	printf("  -N, --application-name          ");
 	printf(_("Set the application name used to establish\n"
-		 "%sthe connection to specified string value\n"),
+	         "%1$sthe connection to specified string value\n"),
 	       "                                  ");
 	printf("                                  ");
 	printf(_("(default: %s)\n"), "spd-say");
 
 	printf("  -n, --connection-name           ");
 	printf(_("Set the connection name used to establish\n"
-		 "%sthe connection to specified string value\n"),
+	         "%1$sthe connection to specified string value\n"),
 	       "                                  ");
 	printf("                                  ");
 	printf(_("(default: %s)\n"), "main");
