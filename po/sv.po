@@ -22,116 +22,118 @@ msgid ""
 "%s -- Common interface for Speech Synthesis %s\n"
 "\n"
 msgstr ""
+"%s -- Gemensamt gränssnitt för talsyntes %s\n"
+"\n"
 
 #: src/server/options.c:65
 #, c-format
 msgid "Usage: "
-msgstr ""
+msgstr "Användning: "
 
 #: src/server/options.c:69
 #, c-format
 msgid "Options: \n"
-msgstr ""
+msgstr "Flaggor: \n"
 
 #: src/server/options.c:71
 #, c-format
 msgid "Run as a daemon\n"
-msgstr ""
+msgstr "Kör som en demon\n"
 
 #: src/server/options.c:73
 #, c-format
 msgid "Run as single application\n"
-msgstr ""
+msgstr "Kör som ett program\n"
 
 #: src/server/options.c:75
 #, c-format
 msgid "Start only if autospawn is not disabled\n"
-msgstr ""
+msgstr "Starta endast om automatisk start är aktiverad\n"
 
 #: src/server/options.c:77
 #, c-format
 msgid "Set log level (between %d and %d)\n"
-msgstr ""
+msgstr "Ställ in loggningsnivå (mellan %d och %d)\n"
 
 #: src/server/options.c:79
 #, c-format
 msgid "Set path to logging\n"
-msgstr ""
+msgstr "Ställ in sökväg till loggning\n"
 
 #: src/server/options.c:82
 #, c-format
 msgid "Communication method to use ('%s'\n"
-msgstr ""
+msgstr "Kommunikationsmetod att använda (”%s”\n"
 
 #: src/server/options.c:84
 #, c-format
 msgid "or '%s')\n"
-msgstr ""
+msgstr "eller ”%s”)\n"
 
 #: src/server/options.c:87
 #, c-format
 msgid "Socket path to use for '%s' method\n"
-msgstr ""
+msgstr "Sökväg till uttag att använda för metoden ”%s”\n"
 
 #: src/server/options.c:89
 #, c-format
 msgid "(filesystem path or '%s')\n"
-msgstr ""
+msgstr "(filsystemsökväg eller ”%s”)\n"
 
 #: src/server/options.c:91
 #, c-format
 msgid "Specify a port number for '%s' method\n"
-msgstr ""
+msgstr "Ange ett portnummer för metoden ”%s”\n"
 
 #: src/server/options.c:93
 #, c-format
 msgid "Set time in seconds for the server to wait before it\n"
-msgstr ""
+msgstr "Ställ in tiden i sekunder som servern ska vänta innan\n"
 
 #: src/server/options.c:95
 #, c-format
 msgid "shuts down, if it has no clients connected. Setting to\n"
-msgstr ""
+msgstr "den avslutas om inga klienter är anslutna. Att ställa\n"
 
 #: src/server/options.c:97
 #, c-format
 msgid "0 disables such shutdown\n"
-msgstr ""
+msgstr "in till 0 inaktiverar sådan nedstängning\n"
 
 #: src/server/options.c:99
 #, c-format
 msgid "Set path to pid file\n"
-msgstr ""
+msgstr "Ställ in sökväg till pid-fil\n"
 
 #: src/server/options.c:101
 #, c-format
 msgid "Set path to configuration\n"
-msgstr ""
+msgstr "Ställ in sökväg till konfiguration\n"
 
 #: src/server/options.c:103
 #, c-format
 msgid "Set path to modules\n"
-msgstr ""
+msgstr "Ställ in sökväg till moduler\n"
 
 #: src/server/options.c:105
 #, c-format
 msgid "Report version of this program\n"
-msgstr ""
+msgstr "Rapportera version av programmet\n"
 
 #: src/server/options.c:107
 #, c-format
 msgid "Output debugging information into $TMPDIR/%s\n"
-msgstr ""
+msgstr "Mata ut felsökningsinformation till $TMPDIR/%s\n"
 
 #: src/server/options.c:110
 #, c-format
 msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
-msgstr ""
+msgstr "om TMPDIR exporteras, annars till /tmp/%s\n"
 
 #: src/server/options.c:113 src/clients/say/options.c:169
 #, c-format
 msgid "Print this info\n"
-msgstr ""
+msgstr "Skriv ut denna information\n"
 
 #: src/server/options.c:115 src/clients/say/options.c:172
 #, c-format
@@ -139,6 +141,9 @@ msgid ""
 "Please report bugs to %s\n"
 "\n"
 msgstr ""
+"Rapportera fel till: %s\n"
+"Skicka synpunkter på översättningen till <tp-sv@listor.tp-sv.se>.\n"
+"\n"
 
 #: src/server/options.c:121 src/clients/say/options.c:179
 #: src/api/python/speechd_config/config.py:174
@@ -151,6 +156,12 @@ msgid ""
 "any later version. Please see COPYING for more details.\n"
 "\n"
 msgstr ""
+"Copyright © %d-%d Brailcom, o.p.s.\n"
+"Detta är fri programvara; du kan distribuera och/eller modifiera\n"
+"den under villkoren i GNU General Public License, publicerad av\n"
+"Free Software Foundation, antingen version 2 eller (om du så vill)\n"
+"någon senare version. Se COPYING för mer detaljer.\n"
+"\n"
 
 #: src/clients/say/options.c:67
 #, c-format
@@ -158,6 +169,8 @@ msgid ""
 "send text-to-speech output request to speech-dispatcher\n"
 "\n"
 msgstr ""
+"skicka förfrågan till speech-dispatcher om text-till-tal-utmatning\n"
+"\n"
 
 #: src/clients/say/options.c:68
 #, c-format
@@ -165,82 +178,84 @@ msgid ""
 "Usage: %s [options] \"some text\"\n"
 "\n"
 msgstr ""
+"Användning: %s [flaggor] \"lite text\"\n"
+"\n"
 
 #: src/clients/say/options.c:70
 #, c-format
 msgid "Options:\n"
-msgstr ""
+msgstr "Flaggor:\n"
 
 #: src/clients/say/options.c:72
 #, c-format
 msgid "Set the rate of the speech\n"
-msgstr ""
+msgstr "Ställ in uppläsningshastigheten\n"
 
 #: src/clients/say/options.c:74 src/clients/say/options.c:79
 #: src/clients/say/options.c:84 src/clients/say/options.c:89
 #, c-format
 msgid "(between %+d and %+d, default: %d)\n"
-msgstr ""
+msgstr "(mellan %+d och %+d, standard: %d)\n"
 
 #: src/clients/say/options.c:77
 #, c-format
 msgid "Set the pitch of the speech\n"
-msgstr ""
+msgstr "Ställ in tonhöjden för tal\n"
 
 #: src/clients/say/options.c:82
 #, c-format
 msgid "Set the pitch range of the speech\n"
-msgstr ""
+msgstr "Ställ in tonhöjdsintervallet för tal\n"
 
 #: src/clients/say/options.c:87
 #, c-format
 msgid "Set the volume (intensity) of the speech\n"
-msgstr ""
+msgstr "Ställ in volymen (intensiteten) för tal\n"
 
 #: src/clients/say/options.c:92
 #, c-format
 msgid "Set the output module\n"
-msgstr ""
+msgstr "Ställ in utmatningsmodulen\n"
 
 #: src/clients/say/options.c:95
 #, c-format
 msgid "Get the list of output modules\n"
-msgstr ""
+msgstr "Hämta listan över utmatningsmoduler\n"
 
 #: src/clients/say/options.c:98
 #, c-format
 msgid "Play the sound icon\n"
-msgstr ""
+msgstr "Spela upp ljudikonen\n"
 
 #: src/clients/say/options.c:101
 #, c-format
 msgid "Set the language (ISO code)\n"
-msgstr ""
+msgstr "Ställ in språket (ISO-kod)\n"
 
 #: src/clients/say/options.c:104
 #, c-format
 msgid "Set the preferred voice type\n"
-msgstr ""
+msgstr "Ställ in den föredragna rösttypen\n"
 
 #: src/clients/say/options.c:109
 #, c-format
 msgid "Get the list of synthesis voices\n"
-msgstr ""
+msgstr "Hämta listan över syntetröster\n"
 
 #: src/clients/say/options.c:112
 #, c-format
 msgid "Set the synthesis voice\n"
-msgstr ""
+msgstr "Ställ in syntetrösten\n"
 
 #: src/clients/say/options.c:115
 #, c-format
 msgid "Speak the character\n"
-msgstr ""
+msgstr "Läs upp tecknet\n"
 
 #: src/clients/say/options.c:118
 #, c-format
 msgid "Speak the key\n"
-msgstr ""
+msgstr "Läs upp tangenten\n"
 
 #: src/clients/say/options.c:121
 #, c-format
@@ -250,27 +265,27 @@ msgstr ""
 #: src/clients/say/options.c:124
 #, c-format
 msgid "Spell the message\n"
-msgstr ""
+msgstr "Bokstavera meddelandet\n"
 
 #: src/clients/say/options.c:127
 #, c-format
 msgid "Set SSML mode on (default: off)\n"
-msgstr ""
+msgstr "Slå på SSML-läge (standard: av)\n"
 
 #: src/clients/say/options.c:131
 #, c-format
 msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
-msgstr ""
+msgstr "Skapa rör från standard in till standard ut plus Speech Dispatcher\n"
 
 #: src/clients/say/options.c:134
 #, c-format
 msgid "Set priority of the message "
-msgstr ""
+msgstr "Ställ in meddelandets prioritet "
 
 #: src/clients/say/options.c:138
 #, c-format
 msgid "default: %s)\n"
-msgstr ""
+msgstr "standard: %s)\n"
 
 #: src/clients/say/options.c:141
 #, c-format
@@ -282,7 +297,7 @@ msgstr ""
 #: src/clients/say/options.c:145 src/clients/say/options.c:152
 #, c-format
 msgid "(default: %s)\n"
-msgstr ""
+msgstr "(standard: %s)\n"
 
 #: src/clients/say/options.c:148
 #, c-format
@@ -294,45 +309,45 @@ msgstr ""
 #: src/clients/say/options.c:156
 #, c-format
 msgid "Wait till the message is spoken or discarded\n"
-msgstr ""
+msgstr "Vänta till meddelandet läses upp eller förkastas\n"
 
 #: src/clients/say/options.c:159
 #, c-format
 msgid "Stop speaking the message being spoken\n"
-msgstr ""
+msgstr "Sluta läsa upp det lästa meddelandet\n"
 
 #: src/clients/say/options.c:162
 #, c-format
 msgid "Cancel all messages\n"
-msgstr ""
+msgstr "Avbryt alla meddelanden\n"
 
 #: src/clients/say/options.c:166
 #, c-format
 msgid "Print version and copyright info\n"
-msgstr ""
+msgstr "Skriv ut information om version och copyright\n"
 
 #: src/clients/say/options.c:191
 #, c-format
 msgid "Syntax error or bad parameter!\n"
-msgstr ""
+msgstr "Syntaxfel eller felaktig parameter!\n"
 
 #: src/clients/say/options.c:202
 #, c-format
 msgid "Missing argument!\n"
-msgstr ""
+msgstr "Argument saknas!\n"
 
 #: src/clients/say/options.c:303
 #, c-format
 msgid "Unrecognized option\n"
-msgstr ""
+msgstr "Okänd flagga\n"
 
 #: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Speech Dispatcher"
-msgstr ""
+msgstr "Speech Dispatcher"
 
 #: src/api/python/speechd_config/speechd.desktop.in:22
 msgid "Interface to Text to Speech services"
-msgstr ""
+msgstr "Gränssnitt till text-till-tal-tjänster"
 
 #: src/api/python/speechd_config/config.py:103
 #, python-format
@@ -340,77 +355,82 @@ msgid ""
 "The value you have chosen is not among the suggested values.\n"
 "You have chosen '%s'."
 msgstr ""
+"Värdet du har valt är inte bland de föreslagna värdena.\n"
+"Du har valt ”%s”."
 
 #: src/api/python/speechd_config/config.py:105
 msgid "The suggested values are "
-msgstr ""
+msgstr "De föreslagna värdena är "
 
 #: src/api/python/speechd_config/config.py:106
 msgid "Do you want to correct your answer?"
-msgstr ""
+msgstr "Vill du korrigera ditt svar?"
 
 #: src/api/python/speechd_config/config.py:118
 #, python-format
 msgid "You have chosen '%s'. Please choose one of %s"
-msgstr ""
+msgstr "Du har valt ”%s”. Välj en av %s"
 
 #: src/api/python/speechd_config/config.py:125
 msgid ""
 "A simple tool for basic configuration of Speech Dispatcher and problem "
 "diagnostics"
 msgstr ""
+"Ett enkelt verktyg för grundläggande konfiguration av Speech Dispatcher och "
+"diagnos av problem"
 
 #: src/api/python/speechd_config/config.py:128
 msgid "Create Speech Dispatcher configuration for the given user"
-msgstr ""
+msgstr "Skapa Speech Dispatcher-konfiguration för angiven användare"
 
 #: src/api/python/speechd_config/config.py:131
 msgid "Configure basic settings in user configuration"
-msgstr ""
+msgstr "Konfigurera grundläggande inställningar i användarkonfiguration"
 
 #: src/api/python/speechd_config/config.py:134
 msgid "Configure basic settings in system-wide configuration"
 msgstr ""
+"Konfigurera grundläggande inställningar i systemomfattande konfiguration"
 
 #: src/api/python/speechd_config/config.py:137
 msgid "Diagnose problems with the current setup"
-msgstr ""
+msgstr "Diagnostisera problem med aktuell konfiguration"
 
 #: src/api/python/speechd_config/config.py:140
 msgid "Test connection to Speech Dispatcher using spd-say"
-msgstr ""
+msgstr "Testa anslutning till Speech Dispatcher med spd-say"
 
 #: src/api/python/speechd_config/config.py:143
 msgid "Test whether Festival works as a server"
-msgstr ""
+msgstr "Testa huruvida Festival fungerar som server"
 
 #: src/api/python/speechd_config/config.py:145
 msgid "Test whether Espeak works as a standalone binary"
-msgstr ""
+msgstr "Testa huruvida Espeak fungerar som fristående binär"
 
 #: src/api/python/speechd_config/config.py:147
 msgid "Test ALSA audio output"
-msgstr ""
+msgstr "Testa ALSA-ljudutmatning"
 
 #: src/api/python/speechd_config/config.py:149
 msgid "Test Pulse Audio output"
-msgstr ""
+msgstr "Testa Pulse Audio-utmatning"
 
 #: src/api/python/speechd_config/config.py:152
 msgid "Use espeak to synthesize messages"
-msgstr ""
+msgstr "Använd espeak för att syntetisera meddelanden"
 
 #: src/api/python/speechd_config/config.py:155
 msgid "Do not ask any questions, always use default values"
-msgstr ""
+msgstr "Ställ inga frågor, använd alltid standardvärden"
 
 #: src/api/python/speechd_config/config.py:158
 msgid "Debug a problem and generate a report"
-msgstr ""
+msgstr "Felsök ett problem och generera en rapport"
 
 #: src/api/python/speechd_config/config.py:161
 msgid "Print version and copyright info"
-msgstr ""
+msgstr "Skriv ut information om version och copyright"
 
 #: src/api/python/speechd_config/config.py:203
 #, python-format
@@ -418,6 +438,8 @@ msgid ""
 "ERROR: It was not possible to connect to Festival on the\n"
 "given host and port. Connection failed with error %d : %s ."
 msgstr ""
+"FEL: Det var inte möjligt att ansluta till Festival på\n"
+"angiven värd och port. Anslutning misslyckades med fel %d : %s ."
 
 #: src/api/python/speechd_config/config.py:205
 #, python-format
@@ -428,10 +450,15 @@ msgid ""
 "Try /etc/init.d/festival start or run 'festival --server' from the command "
 "line."
 msgstr ""
+"Tips: Din Festival-server körs mest troligt inte nu\n"
+"eller på annan port än standardporten %d.\n"
+"\n"
+"Försök med /etc/init.d/festival start eller kör ”festival --server” från "
+"kommandoraden."
 
 #: src/api/python/speechd_config/config.py:221
 msgid "Festival contains freebsoft-utils."
-msgstr ""
+msgstr "Festival innehåller freebsoft-utils."
 
 #: src/api/python/speechd_config/config.py:224
 msgid ""
@@ -440,6 +467,9 @@ msgid ""
 "utils\n"
 "to be able to use Festival with Speech Dispatcher."
 msgstr ""
+"FEL: Din Festival-server fungerar men verkar inte läsa in\n"
+"festival-freebsoft-utils. Du behöver installera festival-freebsoft-utils\n"
+"för att kunna använda Festival med Speech Dispatcher."
 
 #: src/api/python/speechd_config/config.py:235
 msgid ""
@@ -448,6 +478,11 @@ msgid ""
 "Python applications like Orca will be able to use it.\n"
 "Search for package like python-speechd, download and install it."
 msgstr ""
+"Python kan inte hitta Speech Dispatcher-biblioteket.\n"
+"Är det installerat? Detta kommer inte förhindra Speech Dispatcher\n"
+"från att fungera, men inga Python-program som Orca kommer kunna\n"
+"använda det.\n"
+"Sök ett paket som python-speechd, hämta och installera det."
 
 #: src/api/python/speechd_config/config.py:257
 #, python-format
@@ -455,11 +490,13 @@ msgid ""
 "%s selected, but %s not installed. This might be a false\n"
 "warning, but most likely sound is not working."
 msgstr ""
+"%s valt, men %s inte installerat. Detta kan vara en falsk\n"
+"varning, men ljudet kommer troligen inte fungera."
 
 #: src/api/python/speechd_config/config.py:259
 #, python-format
 msgid "Are you sure that %s audio is working?"
-msgstr ""
+msgstr "Är du säker att %s-ljud fungerar?"
 
 #: src/api/python/speechd_config/config.py:264
 #, python-format
@@ -467,16 +504,20 @@ msgid ""
 "Can't play audio via\n"
 "     %s"
 msgstr ""
+"Kan inte spela ljud via\n"
+"     %s"
 
 #: src/api/python/speechd_config/config.py:265
 msgid ""
 "Your audio doesn't seem to work, please fix audio first or choose\n"
 "a different method."
 msgstr ""
+"Ditt ljud verkar inte fungera, fixa ljudet först eller välj en\n"
+"annan metod."
 
 #: src/api/python/speechd_config/config.py:270
 msgid "Did you hear the sound?"
-msgstr ""
+msgstr "Hörde du ljudet?"
 
 #: src/api/python/speechd_config/config.py:273
 msgid ""
@@ -487,71 +528,79 @@ msgid ""
 "different\n"
 "audio output method in configuration."
 msgstr ""
+"Undersök utmatningen ovan från ljuduppspelningsverktyget.\n"
+"Om allting verkar rätt får du kontrollera om ditt ljud är högt nog och inte\n"
+"tystats i mixern. Fixa ditt ljudsystem först eller välj en annan\n"
+"ljudutmatningsmetod i konfiguration."
 
 #: src/api/python/speechd_config/config.py:279
 #, python-format
 msgid "Audio output '%s' works"
-msgstr ""
+msgstr "Ljudutmatningen ”%s” fungerar"
 
 #: src/api/python/speechd_config/config.py:285
 msgid "Testing Speech Dispatcher using spd_say"
-msgstr ""
+msgstr "Testar Speech Dispatcher med spd_say"
 
 #: src/api/python/speechd_config/config.py:289
 msgid ""
 "Can't execute the spd-say binary,\n"
 "it is very likely that Speech Dispatcher is not installed."
 msgstr ""
+"Kan inte exekvera spd-say-binären, det är mycket troligt\n"
+"att Speech Dispatcher inte är installerat."
 
 #: src/api/python/speechd_config/config.py:292
 msgid "Did you hear the message about Speech Dispatcher working?"
-msgstr ""
+msgstr "Hörde du meddelandet om att Speech Dispatcher fungerar?"
 
 #: src/api/python/speechd_config/config.py:294
 msgid "Speech Dispatcher is installed and working!"
-msgstr ""
+msgstr "Speech Dispatcher är installerat och fungerar!"
 
 #: src/api/python/speechd_config/config.py:297
 msgid "Speech Dispatcher is installed but there is some problem"
-msgstr ""
+msgstr "Speech Dispatcher är installerat men har något problem"
 
 #: src/api/python/speechd_config/config.py:302
 msgid "Testing whether Festival works as a server"
-msgstr ""
+msgstr "Testar huruvida Festival fungerar som server"
 
 #: src/api/python/speechd_config/config.py:306
 msgid "Festival server is not working."
-msgstr ""
+msgstr "Festival-servern fungerar inte."
 
 #: src/api/python/speechd_config/config.py:309
 msgid "Festival server seems to work correctly"
-msgstr ""
+msgstr "Festival-servern verkar fungera"
 
 #: src/api/python/speechd_config/config.py:315
 msgid "Testing whether Espeak works"
-msgstr ""
+msgstr "Testar huruvida Espeak fungerar"
 
 #: src/api/python/speechd_config/config.py:317
 msgid "Espeak is installed"
-msgstr ""
+msgstr "Espeak är installerat"
 
 #: src/api/python/speechd_config/config.py:320
 msgid ""
 "Can't execute the espeak binary, it is likely that espeak\n"
 "is not installed."
 msgstr ""
+"Kan inte exekvera espeak-binären, det är troligt att\n"
+"espeak inte är installerat."
 
 #: src/api/python/speechd_config/config.py:326
 msgid "Testing ALSA sound output"
-msgstr ""
+msgstr "Testar ALSA-ljudutmatning"
 
 #: src/api/python/speechd_config/config.py:331
 msgid "Testing PULSE sound output"
-msgstr ""
+msgstr "Testar PULSE-ljudutmatning"
 
 #: src/api/python/speechd_config/config.py:344
 msgid "Speech Dispatcher works. Do you want to skip other tests?"
-msgstr ""
+msgstr "Speech Dispatcher fungerar. Vill du hoppa över övriga test?"
 
 #: src/api/python/speechd_config/config.py:354
 msgid ""
@@ -560,16 +609,22 @@ msgid ""
 "do you want to proceed with other tests? (They can help to determine\n"
 "what is wrong)"
 msgstr ""
+"\n"
+"Speech Dispatcher körs inte eller så kan vi inte ansluta till det\n"
+"(se ovan), vill du fortsätta med övriga test? (De kan hjälpa till att\n"
+"avgöra vad som är fel)"
 
 #: src/api/python/speechd_config/config.py:365
 #, python-format
 msgid "Do you want to test the %s now?"
-msgstr ""
+msgstr "Vill du testa %s nu?"
 
 #: src/api/python/speechd_config/config.py:386
 msgid ""
 "Testing whether Python Speech Dispatcher library is in path and importable"
 msgstr ""
+"Testar huruvida Speech Dispatcher-biblioteket för Python är i sökväg och "
+"importerbart"
 
 #: src/api/python/speechd_config/config.py:397
 msgid ""
@@ -577,54 +632,63 @@ msgid ""
 "\n"
 "Diagnostics results:"
 msgstr ""
+"\n"
+"\n"
+"Diagnosresultat:"
 
 #: src/api/python/speechd_config/config.py:402
 msgid "Speech Dispatcher is working"
-msgstr ""
+msgstr "Speech Dispatcher fungerar"
 
 #: src/api/python/speechd_config/config.py:404
 msgid "Speech Dispatcher not working through spd-say"
-msgstr ""
+msgstr "Speech Dispatcher fungerar inte genom spd-say"
 
 #: src/api/python/speechd_config/config.py:406
 #, python-format
 msgid "Synthesizers that were tested and seem to work: %s"
-msgstr ""
+msgstr "Syntetiserare som testades och verkar fungera: %s"
 
 #: src/api/python/speechd_config/config.py:409
 #, python-format
 msgid "Audio systems that were tested and seem to work: %s"
-msgstr ""
+msgstr "Ljudsystem som testades och verkar fungera: %s"
 
 #: src/api/python/speechd_config/config.py:413
 msgid "Python Speech Dispatcher module is importable"
-msgstr ""
+msgstr "Speech Dispatcher-modul för Python går att importera"
 
 #: src/api/python/speechd_config/config.py:415
 msgid ""
 "Python Speech Dispatcher module not importable.\n"
 "Either not installed or not in path."
 msgstr ""
+"Speech Dispatcher-modul för Python går inte att importera.\n"
+"Antingen inte installerad eller inte i sökväg."
 
 #: src/api/python/speechd_config/config.py:417
 msgid "End of diagnostics results"
-msgstr ""
+msgstr "Slut på diagnosresultat"
 
 #: src/api/python/speechd_config/config.py:439
 msgid "Starting collecting debugging output, configuration and logfiles"
-msgstr ""
+msgstr "Startar insamling av felsökningsutdata, konfiguration och loggfiler"
 
 #: src/api/python/speechd_config/config.py:442
 msgid ""
 "\n"
 "Do you want to debug 'system' or  'user' Speech Dispatcher?"
 msgstr ""
+"\n"
+"Vill du felsöka Speech Dispatcher för ”system” eller ”user”?"
 
 #: src/api/python/speechd_config/config.py:447
 msgid ""
 "It is necessary to kill the currently running Speech Dispatcher\n"
 "processes. Do you want to do it now?"
 msgstr ""
+"Det är nödvändigt att döda körande Speech Dispatcher-\n"
+"processer. Vill du göra det nu?"
 
 #: src/api/python/speechd_config/config.py:454
 msgid ""
@@ -632,59 +696,64 @@ msgid ""
 "You decided not to kill running Speech Dispatcher processes.\n"
 "Please make sure your Speech Dispatcher is not running now."
 msgstr ""
+"\n"
+"Du valde att inte döda körande Speech Dispatcher-processer.\n"
+"Se till att Speech Dispatcher inte körs nu."
 
 #: src/api/python/speechd_config/config.py:457
 msgid "Is your Speech Dispatcher not running now?"
-msgstr ""
+msgstr "Körs Speech Dispatcher inte nu?"
 
 #: src/api/python/speechd_config/config.py:459
 msgid "Can't continue, please stop your Speech Dispatcher and try again"
-msgstr ""
+msgstr "Kan inte fortsätta, stoppa Speech Dispatcher och försök igen"
 
 #: src/api/python/speechd_config/config.py:475
 msgid "Speech Dispatcher will be started now in debugging mode"
-msgstr ""
+msgstr "Speech Dispatcher kommer nu startas i felsökningsläge"
 
 #: src/api/python/speechd_config/config.py:479
 #: src/api/python/speechd_config/config.py:625
 #: src/api/python/speechd_config/config.py:716
 msgid "Warning: You must be root or under sudo to do this."
-msgstr ""
+msgstr "Varning: Du måste vara root eller använda sudo för att göra detta."
 
 #: src/api/python/speechd_config/config.py:480
 msgid ""
 "\n"
 "Please start your system Speech Dispatcher now with parameter '-D'"
 msgstr ""
+"\n"
+"Starta nu systemets Speech Dispatcher med parametern ”-D”"
 
 #: src/api/python/speechd_config/config.py:482
 msgid "Is your Speech Dispatcher running now?"
-msgstr ""
+msgstr "Körs Speech Dispatcher just nu?"
 
 #: src/api/python/speechd_config/config.py:486
 #: src/api/python/speechd_config/config.py:734
 msgid "Can't continue"
-msgstr ""
+msgstr "Kan inte fortsätta"
 
 #: src/api/python/speechd_config/config.py:491
 msgid "Speech Dispatcher failed to start, continuing anyway?"
-msgstr ""
+msgstr "Speech Dispatcher misslyckades med att starta, fortsätt i alla fall?"
 
 #: src/api/python/speechd_config/config.py:494
 msgid "Trying to speak some messages"
-msgstr ""
+msgstr "Försöker läsa upp några meddelanden"
 
 #: src/api/python/speechd_config/config.py:500
 msgid "Can't test Speech Dispatcher connection, can't connect"
-msgstr ""
+msgstr "Kan inte testa Speech Dispatcher-anslutning, kan inte ansluta"
 
 #: src/api/python/speechd_config/config.py:502
 msgid "Please wait (about 5 seconds)"
-msgstr ""
+msgstr "Vänta (ungefär 5 sekunder)"
 
 #: src/api/python/speechd_config/config.py:505
 msgid "Collecting debugging output and your configuration information"
-msgstr ""
+msgstr "Samlar felsökningsutdata och din konfigurationsinformation"
 
 #: src/api/python/speechd_config/config.py:515
 #, python-format
@@ -700,51 +769,61 @@ msgid ""
 "User configuration already exists.\n"
 "Do you want to rewrite it with a new one?"
 msgstr ""
+"Användarkonfiguration finns redan.\n"
+"Vill du skriva över den med en ny?"
 
 #: src/api/python/speechd_config/config.py:591
 msgid "Keeping configuration intact and continuing with settings."
-msgstr ""
+msgstr "Behåller konfiguration intakt och fortsätter med inställningar."
 
 #: src/api/python/speechd_config/config.py:596
 msgid ""
 "User configuration already exists, but it seems to be incomplete.\n"
 "Do you want to keep it?"
 msgstr ""
+"Användarkonfiguration finns redan men verkar vara inkomplett.\n"
+"Vill du behålla den?"
 
 #: src/api/python/speechd_config/config.py:601
 msgid "Keeping configuration intact and aborting."
-msgstr ""
+msgstr "Behåller konfiguration intakt och avbryter."
 
 #: src/api/python/speechd_config/config.py:617
 #, python-format
 msgid "User configuration created in %s"
-msgstr ""
+msgstr "Användarkonfiguration skapad i %s"
 
 #: src/api/python/speechd_config/config.py:623
 msgid "Configuring user settings for Speech Dispatcher"
-msgstr ""
+msgstr "Konfigurerar användarinställningar för Speech Dispatcher"
 
 #: src/api/python/speechd_config/config.py:626
 msgid "Configuring system settings for Speech Dispatcher"
-msgstr ""
+msgstr "Konfigurerar systeminställningar för Speech Dispatcher"
 
 #: src/api/python/speechd_config/config.py:649
 msgid ""
 "Default speech rate (on the scale of -100..100, 0 is default, 50 is faster, "
 "-50 is slower)"
 msgstr ""
+"Standarduppläsningshastighet (på skalan -100..100, 0 är standard, 50 är "
+"snabbare, -50 är långsammare)"
 
 #: src/api/python/speechd_config/config.py:653
 msgid ""
 "Default speech pitch (on the scale of -100..100, 0 is default, 50 is higher, "
 "-50 is lower)"
 msgstr ""
+"Standardtonhöjd för tal (på skalan -100..100, 0 är standard, 50 är högre, "
+"-50 är lägre)"
 
 #: src/api/python/speechd_config/config.py:657
 msgid ""
 "Default speech pitch range (on the scale of -100..100, 0 is default, 50 is "
 "higher, -50 is lower)"
 msgstr ""
+"Standardtonhöjdsintervall för tal (på skalan -100..100, 0 är standard, 50 är "
+"högre, -50 är lägre)"
 
 #: src/api/python/speechd_config/config.py:676
 msgid ""
@@ -753,6 +832,10 @@ msgid ""
 "This is usually not necessary, most applications will start Speech "
 "Dispatcher automatically."
 msgstr ""
+"Vill du att Speech Dispatcher ska startas automatiskt från ~/.config/"
+"autostart ?\n"
+"Detta är vanligen inte nödvändigt, de flesta program kommer starta Speech "
+"Dispatcher automatiskt."
 
 #: src/api/python/speechd_config/config.py:685
 #, python-format
@@ -763,95 +846,135 @@ msgid ""
 "manually editing the configuration file above. Especially if you need to\n"
 "use special audio settings, non-standard synthesizer ports etc."
 msgstr ""
+"\n"
+"Konfiguration skriven till %s\n"
+"Grundläggande konfiguration klar. Du kan fortfarande behöva finjustera\n"
+"den genom att manuellt redigera konfigurationsfilen ovan. Detta särskilt\n"
+"om du behöver använda speciella ljudinställningar, andra\n"
+"syntetiserarportar än standard o.s.v."
 
 #: src/api/python/speechd_config/config.py:694
 msgid "Starting Speech Dispatcher in user-mode"
-msgstr ""
+msgstr "Startar Speech Dispatcher i användarläge"
 
 #: src/api/python/speechd_config/config.py:698
 #: src/api/python/speechd_config/config.py:727
 #, python-format
 msgid "Can't start Speech Dispatcher. Exited with status %d"
-msgstr ""
+msgstr "Kan inte starta Speech Dispatcher. Avslutades med status %d"
 
 #: src/api/python/speechd_config/config.py:699
 msgid ""
 "Perhaps this is because your Speech Dispatcher is already running.\n"
 "Do you want to kill all running Speech Dispatchers and try again?"
 msgstr ""
+"Kanske är detta för att Speech Dispatcher redan körs.\n"
+"Vill du döda alla Speech Dispatcher-processer som körs och försöka igen?"
 
 #: src/api/python/speechd_config/config.py:707
 msgid "Can't start Speech Dispatcher"
-msgstr ""
+msgstr "Kan inte starta Speech Dispatcher"
 
 #: src/api/python/speechd_config/config.py:717
 msgid "Starting Speech Dispatcher in system-mode"
-msgstr ""
+msgstr "Startar Speech Dispatcher i systemläge"
 
 #: src/api/python/speechd_config/config.py:719
 msgid "Is your system using an /etc/init.d/speech-dispatcher script?"
-msgstr ""
+msgstr "Använder ditt system skriptet /etc/init.d/speech-dispatcher?"
 
 #: src/api/python/speechd_config/config.py:722
 msgid "Stopping Speech Dispatcher in case any is running already"
-msgstr ""
+msgstr "Stoppar Speech Dispatcher ifall det redan körs"
 
 #: src/api/python/speechd_config/config.py:724
 msgid "Starting Speech Dispatcher via /etc/init.d/speech-dispatcher"
-msgstr ""
+msgstr "Startar Speech Dispatcher via /etc/init.d/speech-dispatcher"
 
 #: src/api/python/speechd_config/config.py:730
 msgid ""
 "Do not know how to start system Speech Dispatcher,\n"
 "you have to start it manually to continue."
 msgstr ""
+"Vet inte hur systemets Speech Dispatcher ska startas,\n"
+"du måste göra det manuellt för att fortsätta."
 
 #: src/api/python/speechd_config/config.py:732
 msgid "Have you started Speech Dispatcher now?"
-msgstr ""
+msgstr "Har du startat Speech Dispatcher nu?"
 
 #: src/api/python/speechd_config/config.py:742
 msgid "Do you want to create/setup a 'user' or 'system' configuration?"
-msgstr ""
+msgstr "Vill du skapa/konfigurera en ”user”- eller ”system”-konfiguration?"
 
 #: src/api/python/speechd_config/config.py:753
 msgid "Do you want to start/restart Speech Dispatcher now and run some tests?"
-msgstr ""
+msgstr "Vill du starta/starta om Speech Dispatcher nu och köra några test?"
 
 #: src/api/python/speechd_config/config.py:755
 msgid "Your configuration is now done but not tested"
-msgstr ""
+msgstr "Din konfiguration är nu klar men har inte testats"
 
 #: src/api/python/speechd_config/config.py:764
 msgid "Your Speech Dispatcher is not running"
-msgstr ""
+msgstr "Speech Dispatcher körs inte"
 
 #: src/api/python/speechd_config/config.py:772
 msgid ""
 "Do you want to run debugging now and send a request for help to the "
 "developers?"
 msgstr ""
+"Vill du köra felsökning nu och skicka en förfrågan om hjälp till utvecklarna?"
 
 #: src/api/python/speechd_config/config.py:792
 msgid ""
 "\n"
 "Speech Dispatcher configuration tool\n"
 msgstr ""
+"\n"
+"Konfigurationsverktyg för Speech Dispatcher\n"
 
 #: src/api/python/speechd_config/config.py:797
 msgid "Do you want to continue with basic settings?"
-msgstr ""
+msgstr "Vill du fortsätta med grundläggande inställningar?"
 
 #: src/api/python/speechd_config/config.py:832
 msgid "Do you want to setup a completely new configuration?"
-msgstr ""
+msgstr "Vill du konfigurera en helt ny konfiguration?"
 
 #: src/api/python/speechd_config/config.py:836
 msgid "Do you want to run diagnosis of problems?"
-msgstr ""
+msgstr "Vill du köra problemdiagnos?"
 
 #: src/api/python/speechd_config/config.py:841
 msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."
 msgstr ""
+"Kör detta kommando igen och välj vad du vill göra eller läs\n"
+"den tillgängliga snabbhjälpen genom ”-h” eller ”--help”."
+
+#: src/clients/say/options.c:121
+#, c-format
+msgid "Set the punctuation mode %s\n"
+msgstr "Ställ in skiljeteckenläget %s\n"
+
+#: src/clients/say/options.c:141
+#, c-format
+msgid ""
+"Set the application name used to establish\n"
+"%sthe connection to specified string value\n"
+msgstr ""
+"Ställ in programnamnet som används för att\n"
+"%setablera anslutningen till angivet\n"
+"                                  strängvärde\n"
+
+#: src/clients/say/options.c:148
+#, c-format
+msgid ""
+"Set the connection name used to establish\n"
+"%sthe connection to specified string value\n"
+msgstr ""
+"Ställ in anslutningsnamnet som används\n"
+"%sför att etablera anslutningen till\n"
+"                                  angivet strängvärde\n"
