@@ -262,8 +262,8 @@ msgstr "Fala a tecla\n"
 
 #: src/clients/say/options.c:121
 #, c-format
-msgid "Set the punctuation mode %s\n"
-msgstr "Define o modo de pontuação %s\n"
+msgid "Set the punctuation mode\n"
+msgstr "Define o modo de pontuação\n"
 
 #: src/clients/say/options.c:124
 #, c-format
