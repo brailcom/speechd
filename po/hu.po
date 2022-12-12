@@ -278,8 +278,8 @@ msgid "Speak the key\n"
 msgstr "A kimondandó billentyű betűztetése\n"
 
 #: src/clients/say/options.c:121
-#, c-format
-msgid "Set the punctuation mode\n"
+#, fuzzy, c-format
+msgid "Set the punctuation mode %s\n"
 msgstr "A központozási szint beállítása\n"
 
 #: src/clients/say/options.c:124
@@ -315,11 +315,11 @@ msgstr "Alapértelmezett érték: %s)\n"
 #, c-format
 msgid ""
 "Set the application name used to establish\n"
-"%sthe connection to specified string value\n"
+"%1$sthe connection to specified string value\n"
 msgstr ""
 "Az alkalmazás nevének megadása, mely a\n"
-" kapcsolatot felépíti\n"
-"a(z) %s karakterlánccal.\n"
+"%1$skapcsolatot felépíti\n"
+"%1$sa(z) karakterlánccal.\n"
 
 #: src/clients/say/options.c:145 src/clients/say/options.c:152
 #, c-format
@@ -330,8 +330,8 @@ msgstr "(Alapértelmezett érték: %s)\n"
 #, c-format
 msgid ""
 "Set the connection name used to establish\n"
-"%sthe connection to specified string value\n"
-msgstr "A kapcsolat nevének megadása a(z) %s karakterlánccal\n"
+"%1$sthe connection to specified string value\n"
+msgstr "A kapcsolat nevének megadása a(z)\n%1$s karakterlánccal\n"
 
 #: src/clients/say/options.c:156
 #, c-format
