@@ -262,8 +262,8 @@ msgstr "Uttal nøkkelen\n"
 
 #: src/clients/say/options.c:121
 #, c-format
-msgid "Set the punctuation mode %s\n"
-msgstr "Sett tegnsettingsmodus %s\n"
+msgid "Set the punctuation mode\n"
+msgstr "Sett tegnsettingsmodus\n"
 
 #: src/clients/say/options.c:124
 #, c-format
