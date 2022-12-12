@@ -261,8 +261,8 @@ msgstr "Paroli la klavon\n"
 
 #: src/clients/say/options.c:121
 #, c-format
-msgid "Set the punctuation mode %s\n"
-msgstr "Agordi la interpunkcian reĝimon kiel %s\n"
+msgid "Set the punctuation mode\n"
+msgstr "Agordi la interpunkcian reĝimon kiel\n"
 
 #: src/clients/say/options.c:124
 #, c-format

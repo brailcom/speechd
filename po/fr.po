@@ -261,8 +261,8 @@ msgstr "énonce la touche\n"
 
 #: src/clients/say/options.c:121
 #, c-format
-msgid "Set the punctuation mode %s\n"
-msgstr "Définit le mode de ponctuations %s\n"
+msgid "Set the punctuation mode\n"
+msgstr "Définit le mode de ponctuations\n"
 
 #: src/clients/say/options.c:124
 #, c-format

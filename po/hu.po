@@ -279,8 +279,8 @@ msgstr "A kimondandó billentyű betűztetése\n"
 
 #: src/clients/say/options.c:121
 #, c-format
-msgid "Set the punctuation mode %s\n"
-msgstr "A központozási szint beállítása %s\n"
+msgid "Set the punctuation mode\n"
+msgstr "A központozási szint beállítása\n"
 
 #: src/clients/say/options.c:124
 #, c-format

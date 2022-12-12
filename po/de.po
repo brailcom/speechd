@@ -277,8 +277,8 @@ msgstr "buchstabiert die Nachricht.\n"
 
 #: src/clients/say/options.c:121
 #, c-format
-msgid "Set the punctuation mode %s\n"
-msgstr "setzt den Zeichensetzungsmodus %s.\n"
+msgid "Set the punctuation mode\n"
+msgstr "setzt den Zeichensetzungsmodus.\n"
 
 #: src/clients/say/options.c:124
 #, c-format
