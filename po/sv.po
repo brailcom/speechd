@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: speech-dispatcher 0.11.3\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2022-08-25 23:48+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-12-14 10:51+0000\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/"
+"speech-dispatcher/po/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15-dev\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -295,7 +298,7 @@ msgid ""
 msgstr ""
 "Ställ in programnamnet som används för att\n"
 "%1$setablera anslutningen till angivet\n"
-"%1$strängvärde\n"
+"%1$ssträngvärde\n"
 
 #: src/clients/say/options.c:145 src/clients/say/options.c:152
 #, c-format
@@ -310,7 +313,7 @@ msgid ""
 msgstr ""
 "Ställ in anslutningsnamnet som används\n"
 "%1$sför att etablera anslutningen till\n"
-"%1$angivet strängvärde\n"
+"%1$sangivet strängvärde\n"
 
 #: src/clients/say/options.c:156
 #, c-format
@@ -769,6 +772,10 @@ msgid ""
 "a short description of what you did. We will get in touch with you soon\n"
 "and suggest a solution."
 msgstr ""
+"\n"
+"Skicka %s till speechd@bugs.freebsoft.org med\n"
+"en kort beskrivning av vad du gjorde. Vi kommer kontakta dig inom kort\n"
+"och föreslå en lösning."
 
 #: src/api/python/speechd_config/config.py:588
 msgid ""
