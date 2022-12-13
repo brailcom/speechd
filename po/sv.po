@@ -260,7 +260,7 @@ msgstr "Läs upp tangenten\n"
 #: src/clients/say/options.c:121
 #, c-format
 msgid "Set the punctuation mode\n"
-msgstr ""
+msgstr "Ställ in skiljeteckenläget\n"
 
 #: src/clients/say/options.c:124
 #, c-format
@@ -293,6 +293,9 @@ msgid ""
 "Set the application name used to establish\n"
 "%1$sthe connection to specified string value\n"
 msgstr ""
+"Ställ in programnamnet som används för att\n"
+"%1$setablera anslutningen till angivet\n"
+"%1$strängvärde\n"
 
 #: src/clients/say/options.c:145 src/clients/say/options.c:152
 #, c-format
@@ -305,6 +308,9 @@ msgid ""
 "Set the connection name used to establish\n"
 "%1$sthe connection to specified string value\n"
 msgstr ""
+"Ställ in anslutningsnamnet som används\n"
+"%1$sför att etablera anslutningen till\n"
+"%1$angivet strängvärde\n"
 
 #: src/clients/say/options.c:156
 #, c-format
@@ -953,28 +959,3 @@ msgid ""
 msgstr ""
 "Kör detta kommando igen och välj vad du vill göra eller läs\n"
 "den tillgängliga snabbhjälpen genom ”-h” eller ”--help”."
-
-#: src/clients/say/options.c:121
-#, c-format
-msgid "Set the punctuation mode %s\n"
-msgstr "Ställ in skiljeteckenläget %s\n"
-
-#: src/clients/say/options.c:141
-#, c-format
-msgid ""
-"Set the application name used to establish\n"
-"%sthe connection to specified string value\n"
-msgstr ""
-"Ställ in programnamnet som används för att\n"
-"%setablera anslutningen till angivet\n"
-"                                  strängvärde\n"
-
-#: src/clients/say/options.c:148
-#, c-format
-msgid ""
-"Set the connection name used to establish\n"
-"%sthe connection to specified string value\n"
-msgstr ""
-"Ställ in anslutningsnamnet som används\n"
-"%sför att etablera anslutningen till\n"
-"                                  angivet strängvärde\n"
