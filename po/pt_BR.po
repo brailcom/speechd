@@ -970,3 +970,8 @@ msgid ""
 msgstr ""
 "Execute este comando novamente e selecione o que deseja fazer\n"
 "ou leia a ajuda rápida disponível em “-h” ou “--help”."
+
+#: src/clients/say/options.c:121
+#, c-format
+msgid "Set the punctuation mode %s\n"
+msgstr "Define o modo de pontuação %s\n"
