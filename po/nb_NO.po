@@ -261,8 +261,8 @@ msgid "Speak the key\n"
 msgstr "Uttal nøkkelen\n"
 
 #: src/clients/say/options.c:121
-#, fuzzy, c-format
-msgid "Set the punctuation mode %s\n"
+#, c-format
+msgid "Set the punctuation mode\n"
 msgstr "Sett tegnsettingsmodus\n"
 
 #: src/clients/say/options.c:124
