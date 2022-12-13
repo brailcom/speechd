@@ -275,8 +275,8 @@ msgid "Speak the key\n"
 msgstr "Hláskovat zprávu\n"
 
 #: src/clients/say/options.c:121
-#, fuzzy, c-format
-msgid "Set the punctuation mode %s\n"
+#, c-format
+msgid "Set the punctuation mode\n"
 msgstr "Nastavit mód čtení interpukce\n"
 
 #: src/clients/say/options.c:124
