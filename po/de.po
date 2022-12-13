@@ -276,8 +276,8 @@ msgid "Speak the key\n"
 msgstr "buchstabiert die Nachricht.\n"
 
 #: src/clients/say/options.c:121
-#, fuzzy, c-format
-msgid "Set the punctuation mode %s\n"
+#, c-format
+msgid "Set the punctuation mode\n"
 msgstr "setzt den Zeichensetzungsmodus.\n"
 
 #: src/clients/say/options.c:124
