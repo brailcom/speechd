@@ -278,8 +278,8 @@ msgid "Speak the key\n"
 msgstr "A kimondandó billentyű betűztetése\n"
 
 #: src/clients/say/options.c:121
-#, fuzzy, c-format
-msgid "Set the punctuation mode %s\n"
+#, c-format
+msgid "Set the punctuation mode\n"
 msgstr "A központozási szint beállítása\n"
 
 #: src/clients/say/options.c:124

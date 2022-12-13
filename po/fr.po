@@ -260,8 +260,8 @@ msgid "Speak the key\n"
 msgstr "énonce la touche\n"
 
 #: src/clients/say/options.c:121
-#, fuzzy, c-format
-msgid "Set the punctuation mode %s\n"
+#, c-format
+msgid "Set the punctuation mode\n"
 msgstr "Définit le mode de ponctuations\n"
 
 #: src/clients/say/options.c:124

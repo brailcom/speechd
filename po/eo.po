@@ -260,8 +260,8 @@ msgid "Speak the key\n"
 msgstr "Paroli la klavon\n"
 
 #: src/clients/say/options.c:121
-#, fuzzy, c-format
-msgid "Set the punctuation mode %s\n"
+#, c-format
+msgid "Set the punctuation mode\n"
 msgstr "Agordi la interpunkcian reĝimon kiel\n"
 
 #: src/clients/say/options.c:124
