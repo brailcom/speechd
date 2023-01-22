@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: speech-dispatcher 0.11.2\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2022-08-25 23:48+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2023-01-22 22:18+0000\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <https://hosted.weblate.org/projects/"
+"speech-dispatcher/po/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15.1\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -22,26 +25,28 @@ msgid ""
 "%s -- Common interface for Speech Synthesis %s\n"
 "\n"
 msgstr ""
+"%s -- ხმის სინთეზის საერთო ინტერფეისი %s\n"
+"\n"
 
 #: src/server/options.c:65
 #, c-format
 msgid "Usage: "
-msgstr ""
+msgstr "გამოყენება: "
 
 #: src/server/options.c:69
 #, c-format
 msgid "Options: \n"
-msgstr ""
+msgstr "პარამეტრები: \n"
 
 #: src/server/options.c:71
 #, c-format
 msgid "Run as a daemon\n"
-msgstr ""
+msgstr "დემონად გაშვება\n"
 
 #: src/server/options.c:73
 #, c-format
 msgid "Run as single application\n"
-msgstr ""
+msgstr "ერთ აპლიკაციად გაშვება\n"
 
 #: src/server/options.c:75
 #, c-format
@@ -66,7 +71,7 @@ msgstr ""
 #: src/server/options.c:84
 #, c-format
 msgid "or '%s')\n"
-msgstr ""
+msgstr "ან '%s')\n"
 
 #: src/server/options.c:87
 #, c-format
@@ -131,7 +136,7 @@ msgstr ""
 #: src/server/options.c:113 src/clients/say/options.c:169
 #, c-format
 msgid "Print this info\n"
-msgstr ""
+msgstr "ამ ინფორმაციის გამოტანა\n"
 
 #: src/server/options.c:115 src/clients/say/options.c:172
 #, c-format
@@ -169,7 +174,7 @@ msgstr ""
 #: src/clients/say/options.c:70
 #, c-format
 msgid "Options:\n"
-msgstr ""
+msgstr "პარამეტრები:\n"
 
 #: src/clients/say/options.c:72
 #, c-format
@@ -230,27 +235,27 @@ msgstr ""
 #: src/clients/say/options.c:112
 #, c-format
 msgid "Set the synthesis voice\n"
-msgstr ""
+msgstr "სინთეზის ხმის დაყენება\n"
 
 #: src/clients/say/options.c:115
 #, c-format
 msgid "Speak the character\n"
-msgstr ""
+msgstr "სიმბოლოს გამოთქმა\n"
 
 #: src/clients/say/options.c:118
 #, c-format
 msgid "Speak the key\n"
-msgstr ""
+msgstr "სიტყვის გამოთქმა\n"
 
 #: src/clients/say/options.c:121
 #, c-format
 msgid "Set the punctuation mode\n"
-msgstr ""
+msgstr "პუნქტუაციის რეჟიმის დაყენება\n"
 
 #: src/clients/say/options.c:124
 #, c-format
 msgid "Spell the message\n"
-msgstr ""
+msgstr "შეტყობინების გამოთქმა\n"
 
 #: src/clients/say/options.c:127
 #, c-format
@@ -265,12 +270,12 @@ msgstr ""
 #: src/clients/say/options.c:134
 #, c-format
 msgid "Set priority of the message "
-msgstr ""
+msgstr "შეტყობინების პრიორიტეტის დაყენება "
 
 #: src/clients/say/options.c:138
 #, c-format
 msgid "default: %s)\n"
-msgstr ""
+msgstr "ნაგულისხმები: %s)\n"
 
 #: src/clients/say/options.c:141
 #, c-format
@@ -282,7 +287,7 @@ msgstr ""
 #: src/clients/say/options.c:145 src/clients/say/options.c:152
 #, c-format
 msgid "(default: %s)\n"
-msgstr ""
+msgstr "(ნაგულისხმები: %s)\n"
 
 #: src/clients/say/options.c:148
 #, c-format
@@ -304,31 +309,31 @@ msgstr ""
 #: src/clients/say/options.c:162
 #, c-format
 msgid "Cancel all messages\n"
-msgstr ""
+msgstr "ყველა შეტყობინების გაუქმება\n"
 
 #: src/clients/say/options.c:166
 #, c-format
 msgid "Print version and copyright info\n"
-msgstr ""
+msgstr "ვერსიისა და საავტორო უფლებების გამოტანა\n"
 
 #: src/clients/say/options.c:191
 #, c-format
 msgid "Syntax error or bad parameter!\n"
-msgstr ""
+msgstr "სინტაქსის შეცდომა ან არასწორი პარამეტრი!\n"
 
 #: src/clients/say/options.c:202
 #, c-format
 msgid "Missing argument!\n"
-msgstr ""
+msgstr "ნაკლული არგუმენტი!\n"
 
 #: src/clients/say/options.c:303
 #, c-format
 msgid "Unrecognized option\n"
-msgstr ""
+msgstr "უცნობი პარამეტრი\n"
 
 #: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Speech Dispatcher"
-msgstr ""
+msgstr "საუბრის დისპეტჩერი"
 
 #: src/api/python/speechd_config/speechd.desktop.in:22
 msgid "Interface to Text to Speech services"
@@ -390,11 +395,11 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:147
 msgid "Test ALSA audio output"
-msgstr ""
+msgstr "ALSA-დან აუდიოს გატანის ტესტი"
 
 #: src/api/python/speechd_config/config.py:149
 msgid "Test Pulse Audio output"
-msgstr ""
+msgstr "Pulse-დან აუდიოს გატანს ტესტი"
 
 #: src/api/python/speechd_config/config.py:152
 msgid "Use espeak to synthesize messages"
@@ -410,7 +415,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:161
 msgid "Print version and copyright info"
-msgstr ""
+msgstr "ვერსიისა და საავტორო უფლებების გამოტანა"
 
 #: src/api/python/speechd_config/config.py:203
 #, python-format
@@ -476,7 +481,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:270
 msgid "Did you hear the sound?"
-msgstr ""
+msgstr "ხმა გაიგეთ?"
 
 #: src/api/python/speechd_config/config.py:273
 msgid ""
@@ -533,7 +538,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:317
 msgid "Espeak is installed"
-msgstr ""
+msgstr "Espeak, თუ დაყენებულია"
 
 #: src/api/python/speechd_config/config.py:320
 msgid ""
@@ -577,6 +582,9 @@ msgid ""
 "\n"
 "Diagnostics results:"
 msgstr ""
+"\n"
+"\n"
+"დიაგნოსტიკის შედეგები:"
 
 #: src/api/python/speechd_config/config.py:402
 msgid "Speech Dispatcher is working"
@@ -659,12 +667,12 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:482
 msgid "Is your Speech Dispatcher running now?"
-msgstr ""
+msgstr "თქვენი საუბრის დისპეტჩერი ახლა გაშვებულია?"
 
 #: src/api/python/speechd_config/config.py:486
 #: src/api/python/speechd_config/config.py:734
 msgid "Can't continue"
-msgstr ""
+msgstr "გაგრძელება შეუძლებელია"
 
 #: src/api/python/speechd_config/config.py:491
 msgid "Speech Dispatcher failed to start, continuing anyway?"
@@ -672,7 +680,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:494
 msgid "Trying to speak some messages"
-msgstr ""
+msgstr "სცადეთ, რამე შეტყობინება თქვათ"
 
 #: src/api/python/speechd_config/config.py:500
 msgid "Can't test Speech Dispatcher connection, can't connect"
@@ -680,7 +688,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:502
 msgid "Please wait (about 5 seconds)"
-msgstr ""
+msgstr "მოითმინეთ (დაახლ. 5 წამი)"
 
 #: src/api/python/speechd_config/config.py:505
 msgid "Collecting debugging output and your configuration information"
