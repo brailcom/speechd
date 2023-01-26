@@ -283,6 +283,7 @@ class _SSIP_Connection(object):
             if sep == ' ':
                 msg = text
                 return int(code), msg, tuple(data)
+            c = code
             data.append(text)
 
     def _recv_response(self):
