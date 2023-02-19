@@ -168,6 +168,10 @@ AC_SUBST([EXTRA_SOCKET_LIBS])
 AC_SUBST([ERROR_CFLAGS])
 AC_SUBST([RDYNAMIC])
 
+AC_ARG_ENABLE([doc],
+              [AC_HELP_STRING([--disable-doc], [turn off documentation])])
+AM_CONDITIONAL(ENABLE_DOC, test "$enable_doc" != "no")
+
 # Check for python support.
 # Python 3 or greater required
 AC_ARG_ENABLE([python],
