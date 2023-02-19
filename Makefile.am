@@ -22,7 +22,11 @@ pkgconfig_DATA = speech-dispatcher.pc
 
 BUILT_SOURCES = $(top_srcdir)/.version
 
-SUBDIRS= include locale src config doc po
+SUBDIRS= include locale src config po
+
+if ENABLE_DOC
+SUBDIRS += doc
+endif
 
 EXTRA_DIST= config.rpath COPYING.LGPL COPYING.GPL-2 COPYING.GPL-3 ANNOUNCE BUGS FAQ README.md README.packagers README.translators README.overview.md README.style.md build.sh speech-dispatcherd.service.in speech-dispatcher.socket speech-dispatcher.service.in po/Makevars.in po/README
 
