@@ -381,6 +381,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	if (mod_cfg_dir) {
 		module->configfilename =
 		    (char *)spd_get_path(mod_cfgfile, mod_cfg_dir);
+		MSG(4, "Used mod_cfg_dir to build configfilename %s", module->configfilename);
 	} else {
 		module_conf_dir = g_strdup_printf("%s/modules",
 					  SpeechdOptions.user_conf_dir);
@@ -390,10 +391,12 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 		if (stat(module->configfilename, &fileinfo) != 0) {
 			module_conf_dir = g_strdup_printf("%s/modules",
 							  SpeechdOptions.conf_dir);
+			MSG(4, "%s does not exist, looking in %s", module->configfilename, module_conf_dir);
 			module->configfilename =
 			    (char *)spd_get_path(mod_cfgfile, module_conf_dir);
 			g_free(module_conf_dir);
 		}
+		MSG(4, "Built configfilename %s", module->configfilename);
 	}
 
 	if (mod_dbgfile != NULL)
