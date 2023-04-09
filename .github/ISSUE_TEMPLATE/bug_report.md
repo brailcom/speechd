@@ -29,6 +29,7 @@ Please follow the next step, to provide us with precious information about how t
 * Make a copy of the `speech-dispacher.log` file, it is usually found in `/run/user/1000/speech-dispatcher/log`. Also make a copy of `yourspeechmodule.log` (e.g. `espeak-ng.log`).
 * Set `LogLevel` back to 3 in your `/etc/speech-dispacher/speechd.conf`
 * Attach the `speech-dispatcher.log` and `yourspeechmodule.log` file to your bug report.
+* Also attach your `speechd.conf` file and `yourspeechdmodule.conf` file.
 
 ### Distribution
 
