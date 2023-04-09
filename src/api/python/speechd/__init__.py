@@ -13,5 +13,22 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+"""Python API to Speech Dispatcher
+
+This is the Python client API to Speech Dispatcher.
+
+Two main classes are provided:
+
+- speechd.client.SSIPClient : direct mapping of the SSIP commands and logic
+- speechd.client.Speaker : a more convenient interface.
+
+You can use
+
+pydoc3 speechd.client.SSIPClient
+pydoc3 speechd.client.Speaker
+
+to get their documentation.
+"""
+
 from .client import *
 
