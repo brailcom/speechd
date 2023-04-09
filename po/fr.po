@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2022-08-25 23:48+0200\n"
+"POT-Creation-Date: 2023-04-10 01:03+0200\n"
 "PO-Revision-Date: 2020-10-26 17:17+0000\n"
 "Last-Translator: Samuel Thibault <samuel.thibault@ens-lyon.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/speech-dispatcher/"
@@ -133,12 +133,12 @@ msgstr "Enregistre les informations de débogage dans $TMPDIR/%s\n"
 msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
 msgstr "si TMPDIR est exporté, sinon dans /tmp/%s\n"
 
-#: src/server/options.c:113 src/clients/say/options.c:169
+#: src/server/options.c:113 src/clients/say/options.c:170
 #, c-format
 msgid "Print this info\n"
 msgstr "Affiche cette information\n"
 
-#: src/server/options.c:115 src/clients/say/options.c:172
+#: src/server/options.c:115 src/clients/say/options.c:173
 #, c-format
 msgid ""
 "Please report bugs to %s\n"
@@ -147,7 +147,7 @@ msgstr ""
 "Veuillez rapporter toute anomalie à %s\n"
 "\n"
 
-#: src/server/options.c:121 src/clients/say/options.c:179
+#: src/server/options.c:121 src/clients/say/options.c:180
 #: src/api/python/speechd_config/config.py:174
 #, c-format, python-format
 msgid ""
@@ -264,32 +264,32 @@ msgstr "énonce la touche\n"
 msgid "Set the punctuation mode\n"
 msgstr "Définit le mode de ponctuations\n"
 
-#: src/clients/say/options.c:124
+#: src/clients/say/options.c:125
 #, c-format
 msgid "Spell the message\n"
 msgstr "épelle le message\n"
 
-#: src/clients/say/options.c:127
+#: src/clients/say/options.c:128
 #, c-format
 msgid "Set SSML mode on (default: off)\n"
 msgstr "active le mode SSML (désactivé par défaut)\n"
 
-#: src/clients/say/options.c:131
+#: src/clients/say/options.c:132
 #, c-format
 msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
 msgstr "Transférer de stdin à stdout plus Speech Dispatcher\n"
 
-#: src/clients/say/options.c:134
+#: src/clients/say/options.c:135
 #, c-format
 msgid "Set priority of the message "
 msgstr "Définit la priorité du message "
 
-#: src/clients/say/options.c:138
+#: src/clients/say/options.c:139
 #, c-format
 msgid "default: %s)\n"
 msgstr "par défaut : %s)\n"
 
-#: src/clients/say/options.c:141
+#: src/clients/say/options.c:142
 #, c-format
 msgid ""
 "Set the application name used to establish\n"
@@ -298,12 +298,12 @@ msgstr ""
 "Définir le nom de l’application utilisé pour établir\n"
 "%1$sla connexion à la valeur de chaîne spécifiée\n"
 
-#: src/clients/say/options.c:145 src/clients/say/options.c:152
+#: src/clients/say/options.c:146 src/clients/say/options.c:153
 #, c-format
 msgid "(default: %s)\n"
 msgstr "(par défaut : %s)\n"
 
-#: src/clients/say/options.c:148
+#: src/clients/say/options.c:149
 #, c-format
 msgid ""
 "Set the connection name used to establish\n"
@@ -312,37 +312,37 @@ msgstr ""
 "Définir le nom de connexion utilisé pour établir\n"
 "%1$sla connexion à la valeur spécifiée\n"
 
-#: src/clients/say/options.c:156
+#: src/clients/say/options.c:157
 #, c-format
 msgid "Wait till the message is spoken or discarded\n"
 msgstr "Attendre que le message soit prononcé ou interrompu\n"
 
-#: src/clients/say/options.c:159
+#: src/clients/say/options.c:160
 #, c-format
 msgid "Stop speaking the message being spoken\n"
 msgstr "Interrompre le message actuellement prononcé\n"
 
-#: src/clients/say/options.c:162
+#: src/clients/say/options.c:163
 #, c-format
 msgid "Cancel all messages\n"
 msgstr "Annule tous les messages\n"
 
-#: src/clients/say/options.c:166
+#: src/clients/say/options.c:167
 #, c-format
 msgid "Print version and copyright info\n"
 msgstr "affiche la version et les informations de copyright\n"
 
-#: src/clients/say/options.c:191
+#: src/clients/say/options.c:192
 #, c-format
 msgid "Syntax error or bad parameter!\n"
 msgstr "Erreur de syntaxe ou paramètre incorrect !\n"
 
-#: src/clients/say/options.c:202
+#: src/clients/say/options.c:203
 #, c-format
 msgid "Missing argument!\n"
 msgstr "Argument manquant !\n"
 
-#: src/clients/say/options.c:303
+#: src/clients/say/options.c:304
 #, c-format
 msgid "Unrecognized option\n"
 msgstr "Option non reconnue\n"
