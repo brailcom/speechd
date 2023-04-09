@@ -305,7 +305,7 @@ int main(int argc, char **argv)
 
 			if (err == -1) {
 				fprintf(stderr,
-					"Speech Dispatcher failed to say character");
+					"Speech Dispatcher failed to say character\n");
 				exit(1);
 			}
 
@@ -322,7 +322,7 @@ int main(int argc, char **argv)
 
 			if (err == -1) {
 				fprintf(stderr,
-					"Speech Dispatcher failed to say key");
+					"Speech Dispatcher failed to say key\n");
 				exit(1);
 			}
 
@@ -356,7 +356,7 @@ int main(int argc, char **argv)
 			    spd_sayf(conn, spd_priority, "%s", (char *)argv[optind]);
 			if (err == -1) {
 				fprintf(stderr,
-					"Speech Dispatcher failed to say message");
+					"Speech Dispatcher failed to say message\n");
 				exit(1);
 			}
 
