@@ -29,6 +29,7 @@
 #include <sys/stat.h>
 #include <sys/socket.h>
 #include <sys/un.h>
+#include <stdint.h>
 #ifdef USE_LIBSYSTEMD
 #include <systemd/sd-daemon.h>
 #endif
