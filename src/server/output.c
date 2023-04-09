@@ -1022,6 +1022,8 @@ static int output_module_is_speaking(OutputModule * output)
 		if (output->audio) {
 			if (!output_pause_queued)
 				module_speak_queue_pause();
+			if (!module_speak_queue_add_end())
+				MSG(3, "Warning: couldn't add end to speak queue");
 		} else
 			module_report_event_pause();
 		retcode = 0;
