@@ -13,7 +13,7 @@
 # Copyright (C) 2017 Colomban Wendling <cwendling@hypra.fr>
 # Copyright (C) 2017 Jan Tojnar <jtojnar@gmail.com>
 # Copyright (C) 2018 Raphaël POITEVIN <rpoitevin@hypra.fr>
-# Copyright (C) 2018-2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
+# Copyright (C) 2018-2023 Samuel Thibault <samuel.thibault@ens-lyon.org>
 # Copyright (C) 2018 Alan Coopersmith <alan.coopersmith@oracle.com>
 #
 # This program is free software; you can redistribute it and/or modify it under
@@ -33,7 +33,7 @@ AC_PREREQ([2.63])
 m4_define([MAJOR_VERSION], [0])
 m4_define([MINOR_VERSION], [11])
 m4_define([MICRO_VERSION], [3])
-m4_define([AC_PACKAGE_VERSION],[MAJOR_VERSION.MINOR_VERSION.MICRO_VERSION])
+m4_define([AC_PACKAGE_VERSION],[MAJOR_VERSION.MINOR_VERSION.MICRO_VERSION+dev])
 AC_INIT([speech-dispatcher], [AC_PACKAGE_VERSION], [speechd-discuss@nongnu.org])
 AC_CONFIG_MACRO_DIRS([m4])
 AM_INIT_AUTOMAKE([foreign info-in-builddir])
