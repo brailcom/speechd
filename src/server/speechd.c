@@ -105,6 +105,11 @@ TSpeechDMode spd_mode;
 static gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user);
 static gboolean speechd_reload_dead_modules(gpointer user_data);
 static gboolean speechd_load_configuration(gpointer user_data);
+enum quit_reason {
+	QUIT_SIGINT,
+	QUIT_SIGTERM,
+	QUIT_TIMEOUT,
+};
 static gboolean speechd_quit(gpointer user_data);
 
 static gboolean server_process_incoming (gint          fd,
@@ -669,6 +674,7 @@ void speechd_init()
 	speechd_load_configuration(NULL);
 
 	logging_init();
+	MSG(1, "Speech Dispatcher " VERSION " log start");
 
 	/* Check for output modules */
 	if (g_list_length(output_modules) == 0) {
@@ -823,6 +829,21 @@ static gboolean speechd_load_configuration(gpointer user_data)
 
 static gboolean speechd_quit(gpointer user_data)
 {
+	switch ((enum quit_reason)(uintptr_t) user_data) {
+		case QUIT_SIGINT:
+			MSG(4, "Got SIGINT");
+			break;
+		case QUIT_SIGTERM:
+			MSG(4, "Got SIGTERM");
+			break;
+		case QUIT_TIMEOUT:
+			MSG(4, "Timed out");
+			break;
+		default:
+			MSG(4, "Unknown quit reason");
+			break;
+	}
+	MSG(4, "Quitting main loop");
 	g_main_loop_quit(main_loop);
 	return FALSE;
 }
@@ -1048,7 +1069,7 @@ void check_client_count(void)
 		MSG(4, "Currently no clients connected, enabling shutdown timer.");
 		server_timeout_source = g_timeout_add_seconds(
 		                        SpeechdOptions.server_timeout,
-		                        speechd_quit, NULL);
+		                        speechd_quit, (void*) (uintptr_t) QUIT_TIMEOUT);
 	} else {
 		if (server_timeout_source >= 0) {
 			MSG(4, "Clients connected, disabling shutdown timer.");
@@ -1288,7 +1309,7 @@ int main(int argc, char *argv[])
 
 #ifdef USE_LIBSYSTEMD
 	if (sd_listen_fds(0) >= 1) {
-		/* Daemon launched via Systemd socket activation */
+		MSG(4, "Daemon launched via Systemd socket activation");
 		server_socket = SD_LISTEN_FDS_START;
 	} else
 #endif
@@ -1303,9 +1324,13 @@ int main(int argc, char *argv[])
 		    SpeechdOptions.socket_path);
 		/* Delete an old socket file if it exists */
 		if (g_file_test(SpeechdOptions.socket_path, G_FILE_TEST_EXISTS))
+		{
 			if (g_unlink(SpeechdOptions.socket_path) == -1)
 				FATAL
 				    ("Local socket file exists but impossible to delete. Wrong permissions?");
+			else
+				MSG(4, "Deleted old socket\n");
+		}
 		/* Connect and start listening on local unix socket */
 		server_socket = make_local_socket(SpeechdOptions.socket_path);
 	} else {
@@ -1314,6 +1339,7 @@ int main(int argc, char *argv[])
 
 	/* Fork, set uid, chdir, etc. */
 	if (spd_mode == SPD_MODE_DAEMON) {
+		MSG(4, "Daemon mode, forking\n");
 		if (daemon(0, 0)) {
 			FATAL("Can't fork child process");
 		}
@@ -1325,8 +1351,8 @@ int main(int argc, char *argv[])
 
 	/* Set up the main loop and register signals */
         main_loop = g_main_loop_new(g_main_context_default(), FALSE);
-	g_unix_signal_add(SIGINT, speechd_quit, NULL);
-	g_unix_signal_add(SIGTERM, speechd_quit, NULL);
+	g_unix_signal_add(SIGINT, speechd_quit, (void*) (uintptr_t) QUIT_SIGINT);
+	g_unix_signal_add(SIGTERM, speechd_quit, (void*) (uintptr_t) QUIT_SIGTERM);
 	g_unix_signal_add(SIGHUP, speechd_load_configuration, NULL);
 	g_unix_signal_add(SIGUSR1, speechd_reload_dead_modules, NULL);
 	(void)signal(SIGPIPE, SIG_IGN);
