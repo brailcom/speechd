@@ -491,6 +491,11 @@ class SSIPClient(object):
     Dispatcher control application, however.  More datails can be found in
     Speech Dispatcher documentation.
 
+    Here is a simple example:
+
+    from speechd import client
+    c = client.SSIPClient("mytest")
+    c.speak("hello, world!")
     """
     
     DEFAULT_HOST = '127.0.0.1'
