@@ -991,6 +991,8 @@ static int output_module_is_speaking(OutputModule * output)
 				MSG(4, "we sent PAUSE too late, now tell the speak queue");
 				if (!output_pause_queued)
 					module_speak_queue_pause();
+				if (!module_speak_queue_add_end())
+					MSG(3, "Warning: couldn't add end to speak queue");
 			} else {
 				if (!module_speak_queue_add_end())
 					MSG(3, "Warning: couldn't add end to speak queue");
