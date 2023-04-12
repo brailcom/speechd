@@ -30,7 +30,7 @@ nobase_localedata_DATA = \
 	az/emojis.dic \
 	be/emojis.dic \
 	bg/emojis.dic \
-	bgn/emojis.dic
+	bgn/emojis.dic \
 	bn/emojis.dic \
 	br/emojis.dic \
 	bs/emojis.dic \
@@ -97,7 +97,7 @@ nobase_localedata_DATA = \
 	ku/emojis.dic \
 	ky/emojis.dic \
 	lb/emojis.dic \
-	lij/emojis.dic
+	lij/emojis.dic \
 	lo/emojis.dic \
 	lt/emojis.dic \
 	lv/emojis.dic \
@@ -115,7 +115,7 @@ nobase_localedata_DATA = \
 	nl/emojis.dic \
 	nn/emojis.dic \
 	no/emojis.dic \
-	nso/emojis.dic
+	nso/emojis.dic \
 	oc/emojis.dic \
 	or/emojis.dic \
 	pa/emojis.dic \
@@ -126,7 +126,7 @@ nobase_localedata_DATA = \
 	pt/emojis.dic \
 	pt_PT/emojis.dic \
 	qu/emojis.dic \
-	quc/emojis.dic
+	quc/emojis.dic \
 	rm/emojis.dic \
 	ro/emojis.dic \
 	ru/emojis.dic \
@@ -151,7 +151,7 @@ nobase_localedata_DATA = \
 	th/emojis.dic \
 	ti/emojis.dic \
 	tk/emojis.dic \
-	tn/emojis.dic
+	tn/emojis.dic \
 	to/emojis.dic \
 	tr/emojis.dic \
 	ug/emojis.dic \
