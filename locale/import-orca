@@ -1,7 +1,7 @@
 #!/bin/bash
 # coding: utf-8
 # Orca symbols import
-# Copyright (C) 2020-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
+# Copyright (C) 2020-2023 Samuel Thibault <samuel.thibault@ens-lyon.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -97,11 +97,6 @@ for sym,name in chnames.items():
 
     print("%s\\t%s\\t%s%s" % (sym, name, l[level], keep))
 EOF
-
-if [ "$num" == "" ]
-then
-    cat orca.sym >> orca$num.autosym
-fi
 
 for lang in base $(cat orca.polist)
 do
