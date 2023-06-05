@@ -563,7 +563,6 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			*error_result = strdup("Thread initialization failed");
 			SPD_DBG(*error_result);
 			fclose(connection->stream);
-			close(connection->socket);
 			free(connection);
 			connection = NULL;
 			goto out;
