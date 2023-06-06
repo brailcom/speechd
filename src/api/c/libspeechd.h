@@ -86,8 +86,10 @@ typedef struct {
 
 	/* PRIVATE */
 	int socket;
-	FILE *stream;
 	SPDConnectionMode mode;
+	char *buf;
+	size_t buf_start;
+	size_t buf_used;
 
 	pthread_mutex_t ssip_mutex;
 
