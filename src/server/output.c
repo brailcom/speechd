@@ -805,7 +805,10 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 		MSG(2, "Invalid message type in output_speak()!");
 	}
 
-	SEND_DATA(msg->buf);
+	if (!strcmp(msg->buf, " "))
+		SEND_DATA("space");
+	else
+		SEND_DATA(msg->buf);
 	SEND_CMD("\n.");
 
 	/* Start a thread that will process the module events */

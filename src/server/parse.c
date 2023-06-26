@@ -864,6 +864,13 @@ char *parse_general_event(const char *buf, const int bytes, const int fd,
 		return g_strdup(ERR_INVALID_ENCODING);
 	}
 
+	if ((type == SPD_MSGTYPE_CHAR || type == SPD_MSGTYPE_KEY)
+		&& !strcmp(param, "space"))
+	{
+		g_free(param);
+		param = g_strdup(" ");
+	}
+
 	msg = (TSpeechDMessage *) g_malloc(sizeof(TSpeechDMessage));
 	msg->bytes = strlen(param);
 	msg->buf = g_strdup(param);
