@@ -337,7 +337,7 @@ int module_load(void)
 	REGISTER_DEBUG();
 
 	MOD_OPTION_1_INT_REG(IbmttsUseSSML, 1);
-	MOD_OPTION_1_INT_REG(IbmttsUsePunctuation, 1);
+	MOD_OPTION_1_INT_REG(IbmttsUsePunctuation, 0);
 	MOD_OPTION_1_INT_REG(IbmttsUseAbbreviation, 1);
 	MOD_OPTION_1_STR_REG(IbmttsPunctuationList, "()?");
 	MOD_OPTION_1_STR_REG(IbmttsDictionaryFolder,
