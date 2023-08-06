@@ -475,11 +475,11 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_STRING_PARAMETER(voice.language, set_language);
 	UPDATE_PARAMETER(voice_type, set_voice_type);
 	UPDATE_STRING_PARAMETER(voice.name, set_synthesis_voice);
-	UPDATE_PARAMETER(rate, set_rate);
-	UPDATE_PARAMETER(volume, set_volume);
-	UPDATE_PARAMETER(pitch, set_pitch);
-	UPDATE_PARAMETER(punctuation_mode, set_punctuation_mode);
-	UPDATE_PARAMETER(cap_let_recogn, set_capital_mode);
+	set_rate(msg_settings.rate);
+	set_volume(msg_settings.volume);
+	set_pitch(msg_settings.pitch);
+	set_punctuation_mode(msg_settings.punctuation_mode);
+	set_capital_mode(msg_settings.cap_let_recogn);
 	
 	if (!IbmttsUseSSML) {
 		/* Strip all SSML */
