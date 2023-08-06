@@ -1,3 +1,13 @@
+Version 0.11.5
+* Update CLDR to version 43 and symbols from NVDA.
+* Fix parsing and emitting space character.
+* Reduce espeak buffer size to avoid ssml issues.
+* Add --disable-doc.
+* Fix spd-conf not being able to set the default module.
+* Fix pausing without index.
+* ibmtts: Fix parameter reset.
+* ibmtts: Disable using the module punctuation by default.
+
 Version 0.11.4
 * Update CLDR to version 42 and symbols from NVDA.
 * Fix audio plugin loading with dlopen.
@@ -415,7 +425,7 @@ Version 0.0.1
 
 Copyright (C) 2002-2012 Brailcom, o.p.s
 Copyright (C) 2002-2012 Brailcom, o.p.s
-Copyright (C) 2018-2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2023 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Florian Steinhardt <no.known.email@example.com>
 
 This program is free software; you can redistribute it and/or modify it under
