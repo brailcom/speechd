@@ -125,11 +125,13 @@ class VoiceTest(_SSIPClientTest):
              c.set_output_module(module)
              print("**", module)
              c.speak(module +"using default voice")
-             for name, lang, dialect in c.list_synthesis_voices():
-                 print(" -", module, name, lang, dialect)
+             for name, lang, variant in c.list_synthesis_voices():
+                 print(" -", module, name, lang, variant)
                  c.set_synthesis_voice(name)
                  c.speak(module +" using voice "+ name)
-        
+             for name, lang, variant in c.list_synthesis_voices("fr"):
+                 print(" -", module, name, lang, variant)
+                 assert lang.startswith("fr")
 
 if __name__ == '__main__':
     unittest.main()

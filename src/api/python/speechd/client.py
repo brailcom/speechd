@@ -848,8 +848,11 @@ class SSIPClient(object):
         code, msg, data = self._conn.send_command('LIST', 'OUTPUT_MODULES')
         return data
 
-    def list_synthesis_voices(self):
+    def list_synthesis_voices(self, language=None, variant=None):
         """Return names of all available voices for the current output module.
+
+        If language (possibly even variant) is set, only the list matching that
+        language (possibly even variant) is returned.
 
         Returns a tuple of tripplets (name, language, variant).
 
@@ -858,7 +861,12 @@ class SSIPClient(object):
 
         """
         try:
-            code, msg, data = self._conn.send_command('LIST', 'SYNTHESIS_VOICES')
+            command = ['LIST', 'SYNTHESIS_VOICES']
+            if language:
+                command.append(language)
+                if variant:
+                    command.append(variant)
+            code, msg, data = self._conn.send_command(*command)
         except SSIPCommandError:
             return ()
         def split(item):
