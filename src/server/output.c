@@ -457,6 +457,7 @@ SPDVoice **output_get_voices(OutputModule * module, const char *language, const 
 	gboolean errors = FALSE;
 	int err;
 	char *command;
+	char *all_command = "LIST VOICES\n";
 
 	output_lock();
 
@@ -469,15 +470,13 @@ SPDVoice **output_get_voices(OutputModule * module, const char *language, const 
 				  language ? language : "",
 				  language && variant ? " " : "",
 				  variant ? variant : "");
+retry:
 	err = output_send_data(command, module, 0);
-	free(command);
+	if (command != all_command)
+		free(command);
 	if (err < 0) {
-		/* Old module that doesn't support filtering? Try to get it all instead */
-		err = output_send_data("LIST VOICES\n", module, 0);
-		if (err < 0) {
-			output_unlock();
-			return NULL;
-		}
+		output_unlock();
+		return NULL;
 	}
 	reply = output_read_reply(module);
 
@@ -488,6 +487,15 @@ SPDVoice **output_get_voices(OutputModule * module, const char *language, const 
 
 	lines = g_strsplit(reply->str, "\n", -1);
 	g_string_free(reply, TRUE);
+
+	if (!strncmp(lines[0], "300", 3) && command != all_command) {
+		/* Old module that doesn't support filtering? Try to get it all
+		 * instead */
+		g_strfreev(lines);
+		command = all_command;
+		goto retry;
+	}
+
 	voices = g_queue_new();
 	for (i = 0; !errors && (lines[i] != NULL); i++) {
 		MSG(1, "LINE here:|%s|", lines[i]);
