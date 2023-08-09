@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Speech Synthesis Interface Protocol</title>
@@ -19,21 +19,12 @@
 <link href="dir.html#Top" rel="prev" title="(dir)">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+div.center {text-align:center}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
+pre.display-preformatted {font-family: inherit}
+ul.mark-bullet {list-style-type: disc}
+ul.mark-minus {list-style-type: "\2212"}
 -->
 </style>
 
@@ -41,23 +32,22 @@ ul.no-bullet {list-style: none}
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">Speech Synthesis Interface Protocol</h1>
 
 
 
 
 
-<span id="Top"></span><div class="header">
+<a class="node-id" id="Top"></a><div class="nav-panel">
 <p>
 Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<h1 class="node-heading">Top</h1>
+<h1 class="node">Top</h1>
 
 <p>This manual documents Speech Synthesis Interface Protocol, version 0.2.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003 Brailcom, o.p.s., http://www.brailcom.cz .
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.2 or
 any later version published by the Free Software Foundation; with no
@@ -69,7 +59,7 @@ Documentation License.&rdquo;
 <p>You can also (at your option) distribute this manual under the GNU
 General Public License:
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU General Public License as published by the
 Free Software Foundation; either version 2 of the License, or (at your
@@ -79,34 +69,34 @@ option) any later version.
 General Public License&rdquo;
 </p></blockquote>
 
-<p>Please contact us on <a href="http://www.freebsoft.org">http://www.freebsoft.org</a>
+<p>Please contact us on <a class="url" href="http://www.freebsoft.org">http://www.freebsoft.org</a>
 </p>
 
-<span id="Menu"></span><h3 class="heading">Menu</h3>
+<h3 class="heading" id="Menu">Menu</h3>
 
 
 
 <hr>
-<div class="chapter" id="Introduction">
-<div class="header">
+<div class="chapter-level-extent" id="Introduction">
+<div class="nav-panel">
 <p>
 Next: <a href="#Basic-Terminology" accesskey="n" rel="next">Basic Terminology</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Introduction-1"></span><h2 class="chapter">1 Introduction</h2>
+<h2 class="chapter" id="Introduction-1">1 Introduction</h2>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Purpose" accesskey="1">Purpose</a></li>
 <li><a href="#Protocol-Philosophy" accesskey="2">Protocol Philosophy</a></li>
 <li><a href="#Higher-Level-API" accesskey="3">Higher Level API</a></li>
 </ul>
 <hr>
-<div class="section" id="Purpose">
-<div class="header">
+<div class="section-level-extent" id="Purpose">
+<div class="nav-panel">
 <p>
 Next: <a href="#Protocol-Philosophy" accesskey="n" rel="next">Protocol Philosophy</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Purpose-1"></span><h3 class="section">1.1 Purpose</h3>
+<h3 class="section" id="Purpose-1">1.1 Purpose</h3>
 
 <p>Speech Synthesis Interface Protocol is a device independent layer for
 speech synthesis, developed with the goal of making the usage of
@@ -136,12 +126,12 @@ suppressing others.
 </p>
 <hr>
 </div>
-<div class="section" id="Protocol-Philosophy">
-<div class="header">
+<div class="section-level-extent" id="Protocol-Philosophy">
+<div class="nav-panel">
 <p>
 Next: <a href="#Higher-Level-API" accesskey="n" rel="next">Higher Level API</a>, Previous: <a href="#Purpose" accesskey="p" rel="prev">Purpose</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Protocol-Philosophy-1"></span><h3 class="section">1.2 Protocol Philosophy</h3>
+<h3 class="section" id="Protocol-Philosophy-1">1.2 Protocol Philosophy</h3>
 
 <p>Speech Synthesis Interface Protocol defines a reasonable subset of the
 different capabilities provided by the different synthesizers.  It
@@ -184,12 +174,12 @@ supported formats of the messages you can send through SSIP is SSML.
 </p>
 <hr>
 </div>
-<div class="section" id="Higher-Level-API">
-<div class="header">
+<div class="section-level-extent" id="Higher-Level-API">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Protocol-Philosophy" accesskey="p" rel="prev">Protocol Philosophy</a>, Up: <a href="#Introduction" accesskey="u" rel="up">Introduction</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Higher-Level-API-1"></span><h3 class="section">1.3 Higher Level API</h3>
+<h3 class="section" id="Higher-Level-API-1">1.3 Higher Level API</h3>
 
 <p>SSIP is the basic interface protocol that is being used in the
 communication of a client with the central Speech Server on a
@@ -210,40 +200,40 @@ a lot easier and allow programmers to make more of them.
 <hr>
 </div>
 </div>
-<div class="chapter" id="Basic-Terminology">
-<div class="header">
+<div class="chapter-level-extent" id="Basic-Terminology">
+<div class="nav-panel">
 <p>
 Next: <a href="#General-Rules" accesskey="n" rel="next">General Rules</a>, Previous: <a href="#Introduction" accesskey="p" rel="prev">Introduction</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Basic-Terminology-1"></span><h2 class="chapter">2 Basic Terminology</h2>
+<h2 class="chapter" id="Basic-Terminology-1">2 Basic Terminology</h2>
 
-<ul>
-<li> <span id="index-SSIP"></span>
-<span id="index-Speech-Synthesis-Interface-Protocol"></span>
-<em>Speech Synthesis Interface Protocol</em> or <em>SSIP</em> is the
+<ul class="itemize mark-bullet">
+<li><a class="index-entry-id" id="index-SSIP"></a>
+<a class="index-entry-id" id="index-Speech-Synthesis-Interface-Protocol"></a>
+<em class="emph">Speech Synthesis Interface Protocol</em> or <em class="emph">SSIP</em> is the
 device-independent protocol described in this document through which
 client application can send their requests for speech synthesis to the
 Speech Server.
 
-</li><li> <span id="index-Speech-Server"></span>
-<em>Speech Server</em>
+</li><li><a class="index-entry-id" id="index-Speech-Server"></a>
+<em class="emph">Speech Server</em>
 is the server application that implements Speech Synthesis Interface
 Protocol, as described in this document, and provides an interface
 for client applications.
 
-</li><li> <span id="index-client"></span>
-<span id="index-client-application"></span>
-<em>Client</em> or <em>client application</em>
+</li><li><a class="index-entry-id" id="index-client"></a>
+<a class="index-entry-id" id="index-client-application"></a>
+<em class="emph">Client</em> or <em class="emph">client application</em>
 is every application that connects to Speech Server and talks to
 it through the Speech Synthesis Interface Protocol. In other words,
 this is the application that &ldquo;wants to speak&rdquo;.
 
-</li><li> <span id="index-message"></span>
-<em>Message</em>
+</li><li><a class="index-entry-id" id="index-message"></a>
+<em class="emph">Message</em>
 is a chunk of text that a client sends to Speech Server to request
 saying something or play some sound.
 
-</li><li> <em>To cancel a message</em>
+</li><li><em class="emph">To cancel a message</em>
 means to stop saying it and/or remove it from the queue of messages
 waiting to be said. However, it is not removed from the history, where
 it was stored after being received by Speech Server.
@@ -253,12 +243,12 @@ it was stored after being received by Speech Server.
 
 <hr>
 </div>
-<div class="chapter" id="General-Rules">
-<div class="header">
+<div class="chapter-level-extent" id="General-Rules">
+<div class="nav-panel">
 <p>
 Next: <a href="#SSIP-Commands" accesskey="n" rel="next">SSIP Commands</a>, Previous: <a href="#Basic-Terminology" accesskey="p" rel="prev">Basic Terminology</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="General-Rules-1"></span><h2 class="chapter">3 General Rules</h2>
+<h2 class="chapter" id="General-Rules-1">3 General Rules</h2>
 
 <p>SSIP communicates with the clients through a defined set of text
 commands, in the usual manner for common Internet protocols.  The
@@ -269,10 +259,10 @@ encoded using the UTF-8 encoding.
 line.  The line is sent in the following format:
 </p>
 <div class="example">
-<pre class="example"><var>command</var> <var>arg</var> ...
+<pre class="example-preformatted"><var class="var">command</var> <var class="var">arg</var> ...
 </pre></div>
 
-<p>where <var>command</var> is a case insensitive command name and <var>arg</var>s
+<p>where <var class="var">command</var> is a case insensitive command name and <var class="var">arg</var>s
 are its arguments separated by spaces.  The command arguments which
 come from a defined set of values are case insensitive as well.  The
 number of arguments is dependent on the particular command and there
@@ -282,13 +272,13 @@ can be commands having no arguments.
 carriage return and line feed characters, in that order.
 </p>
 <p>When you connect to Speech Server, you should at least set your client
-name, through the <code>SET SELF CLIENT_NAME</code> command (see <a href="#Parameter-Setting-Commands">Parameter Setting</a>).  This is important to get a proper identification of your client
+name, through the <code class="code">SET SELF CLIENT_NAME</code> command (see <a class="pxref" href="#Parameter-Setting-Commands">Parameter Setting</a>).  This is important to get a proper identification of your client
 &mdash; to allow managing it from the control center application and to identify it
 in a message history browser.  You might want to set other connection
-parameters as well. Look for more details in <a href="#Parameter-Setting-Commands">Parameter Setting</a>.
+parameters as well. Look for more details in <a class="ref" href="#Parameter-Setting-Commands">Parameter Setting</a>.
 </p>
-<p>An SSIP connection is preferably closed by issuing the <code>QUIT</code>
-command, see <a href="#Other-Commands">Other Commands</a>.
+<p>An SSIP connection is preferably closed by issuing the <code class="code">QUIT</code>
+command, see <a class="ref" href="#Other-Commands">Other Commands</a>.
 </p>
 <p>SSIP is a synchronous protocol &mdash; you send commands and only after a
 complete response from SSIP arrives back are you allowed to send the
@@ -307,35 +297,35 @@ sound output for other users, however, there is a mechanism
 to prevent one user from seeing history messages of another
 user.
 </p>
-<p>Some of the commands (<a href="#Speech-Output-Control-Commands">Controlling Speech Output</a>
-and <a href="#Parameter-Setting-Commands">Parameter Setting</a>)
+<p>Some of the commands (<a class="ref" href="#Speech-Output-Control-Commands">Controlling Speech Output</a>
+and <a class="ref" href="#Parameter-Setting-Commands">Parameter Setting</a>)
 take an argument in the form:
 </p><div class="example">
-<pre class="example">        { <var>id</var> | all | self }
+<pre class="example-preformatted">        { <var class="var">id</var> | all | self }
 </pre></div>
 
-<p>where the value can be the <code>id</code> of the connection the command should
-be performed on (a positive number), the string <code>all</code> to
-act on all clients of this server or <code>self</code> to act on the connection
+<p>where the value can be the <code class="code">id</code> of the connection the command should
+be performed on (a positive number), the string <code class="code">all</code> to
+act on all clients of this server or <code class="code">self</code> to act on the connection
 itself. Unless you are writing a special client for managing
 Speech Server or unless you have specific needs, you
-should only use the <code>self</code> value for this argument.
+should only use the <code class="code">self</code> value for this argument.
 </p>
 <p>Not all parameter setting commands may receive all kinds of the first
 parameter defined above, for instance, some of them may receive only
-<code>self</code>.
+<code class="code">self</code>.
 </p>
 <p>SSIP replies have the following format:
 </p>
 <div class="example">
-<pre class="example"><var>ccc</var>-line 1
-<var>ccc</var>-line 2
+<pre class="example-preformatted"><var class="var">ccc</var>-line 1
+<var class="var">ccc</var>-line 2
 ...
-<var>ccc</var>-line <var>n</var>-1
-<var>ddd</var> line <var>n</var>
+<var class="var">ccc</var>-line <var class="var">n</var>-1
+<var class="var">ddd</var> line <var class="var">n</var>
 </pre></div>
 
-<p>where <var>n</var> is a positive integer, and <var>ccc</var> and <var>ddd</var> are
+<p>where <var class="var">n</var> is a positive integer, and <var class="var">ccc</var> and <var class="var">ddd</var> are
 three-digit long numeric codes identifying the result of the command.
 The last line determines the overall result of the command. The result
 code is followed by an English message describing the result of the
@@ -343,12 +333,12 @@ action in a human readable form.
 </p>
 <hr>
 </div>
-<div class="chapter" id="SSIP-Commands">
-<div class="header">
+<div class="chapter-level-extent" id="SSIP-Commands">
+<div class="nav-panel">
 <p>
 Next: <a href="#Return-Codes" accesskey="n" rel="next">Return Codes</a>, Previous: <a href="#General-Rules" accesskey="p" rel="prev">General Rules</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="SSIP-Commands-1"></span><h2 class="chapter">4 SSIP Commands</h2>
+<h2 class="chapter" id="SSIP-Commands-1">4 SSIP Commands</h2>
 
 <p>Commands recognized by SSIP can be divided into several groups: Speech
 synthesis and sound output commands, speech control commands,
@@ -359,17 +349,17 @@ described in one of the following sections.
 </p>
 <p>In the command descriptions, the command is written together with its
 arguments.  Optional arguments are enclosed by square brackets
-(<code>[</code> and <code>]</code>), alternatives are separated by the vertical
-rule (<code>|</code>) and are grouped within braces (<code>{</code> and
-<code>}</code>) or square brackets for mandatory or optional arguments
+(<code class="code">[</code> and <code class="code">]</code>), alternatives are separated by the vertical
+rule (<code class="code">|</code>) and are grouped within braces (<code class="code">{</code> and
+<code class="code">}</code>) or square brackets for mandatory or optional arguments
 respectively. Literal argument values are typeset in lowercase letters
 (they are case insensitive), and variable arguments are typeset
-<var>like this</var>.  Ellipsis denoted by three dots (<code>...</code>) means
+<var class="var">like this</var>.  Ellipsis denoted by three dots (<code class="code">...</code>) means
 repetition (zero or more times) of all the arguments within the
 current brackets.
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Speech-Synthesis-and-Sound-Output-Commands" accesskey="1">Speech Synthesis and Sound Output</a></li>
 <li><a href="#Speech-Output-Control-Commands" accesskey="2">Controlling Speech Output</a></li>
 <li><a href="#Message-Priority-Commands" accesskey="3">Priority Setting Commands</a></li>
@@ -381,40 +371,40 @@ current brackets.
 <li><a href="#Other-Commands" accesskey="9">Other Commands</a></li>
 </ul>
 <hr>
-<div class="section" id="Speech-Synthesis-and-Sound-Output-Commands">
-<div class="header">
+<div class="section-level-extent" id="Speech-Synthesis-and-Sound-Output-Commands">
+<div class="nav-panel">
 <p>
 Next: <a href="#Speech-Output-Control-Commands" accesskey="n" rel="next">Controlling Speech Output</a>, Previous: <a href="#SSIP-Commands" accesskey="p" rel="prev">SSIP Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Speech-Synthesis-and-Sound-Output"></span><h3 class="section">4.1 Speech Synthesis and Sound Output</h3>
+<h3 class="section" id="Speech-Synthesis-and-Sound-Output">4.1 Speech Synthesis and Sound Output</h3>
 
 <p>These commands invoke actual output to particular output device.  The
 particular way how the message is handled depends on current speech
 parameter settings and user configuration.
 </p>
-<dl compact="compact">
-<dt><span><code>SPEAK</code></span></dt>
-<dd><span id="SPEAK"></span><p>Start receiving a text message and synthesize it.  After sending a
+<dl class="table">
+<dt><code class="code">SPEAK</code></dt>
+<dd><a class="anchor" id="SPEAK"></a><p>Start receiving a text message and synthesize it.  After sending a
 reply to the command, Speech Server waits for the text of the
 message.  The text can spread over any number of lines and is
 finished by an end of line marker followed by the line containing the
-single character <code>.</code> (dot).  Thus the complete character sequence
-closing the input text is <code>CR LF . CR LF</code>.  If any line within
+single character <code class="code">.</code> (dot).  Thus the complete character sequence
+closing the input text is <code class="code">CR LF . CR LF</code>.  If any line within
 the sent text starts with a dot, an extra dot is prepended before it.
 </p>
 <p>During reception of the text message, Speech Server doesn&rsquo;t send
 responses for the lines sent.  The response line is sent only
-immediately after the <code>SPEAK</code> command and after receiving the
+immediately after the <code class="code">SPEAK</code> command and after receiving the
 closing dot line.
 </p>
 <p>The content of the message can be either a plain text or a SSML
-(Speech Synthesis Markup Language) text. See <code>SET SELF
+(Speech Synthesis Markup Language) text. See <code class="code">SET SELF
 SSML_MODE</code>.  There is no guarantee that the SSML markup will be
 respected, so the application shouldn&rsquo;t rely on them. The external
 parameters can still be set by the parameter setting commands. SSML is
 intended only for additional markup inside the message. In SSML mode,
-each message must begin with <code>&lt;speak&gt;</code> and end with
-<code>&lt;/speak&gt;</code>.
+each message must begin with <code class="code">&lt;speak&gt;</code> and end with
+<code class="code">&lt;/speak&gt;</code>.
 </p>
 <p>Speech Server can start speech synthesis as soon as a sufficient
 amount of the text arrives; it generally needn&rsquo;t (but may) wait until
@@ -429,18 +419,18 @@ error response code is returned after processing the final dot line.
 <p>The reply takes the form
 </p>
 <div class="example">
-<pre class="example">225-msg_id
+<pre class="example-preformatted">225-msg_id
 225 OK MESSAGE QUEUED
 </pre></div>
 
-<p>where <var>msg_id</var> is a unique id assigned to this message in Speech
-Server. This is useful for the <a href="#History-Handling-Commands">History Handling</a>
-commands as well as for <a href="#Message-Events-Notification-and-Index-Marking">Message Events Notification and Index Marking</a>.
+<p>where <var class="var">msg_id</var> is a unique id assigned to this message in Speech
+Server. This is useful for the <a class="ref" href="#History-Handling-Commands">History Handling</a>
+commands as well as for <a class="ref" href="#Message-Events-Notification-and-Index-Marking">Message Events Notification and Index Marking</a>.
 </p>
-<p>The <code>SPEAK</code> command might be used for example in this way:
+<p>The <code class="code">SPEAK</code> command might be used for example in this way:
 </p>
 <div class="example">
-<pre class="example">SPEAK
+<pre class="example-preformatted">SPEAK
 230 OK RECEIVING DATA
 hi
 .
@@ -449,14 +439,14 @@ hi
 </pre></div>
 
 </dd>
-<dt><span><code>CHAR <var>char</var></code></span></dt>
-<dd><p>Speak letter <var>char</var>.  <var>char</var> can be any character
+<dt><code class="code">CHAR <var class="var">char</var></code></dt>
+<dd><p>Speak letter <var class="var">char</var>.  <var class="var">char</var> can be any character
 representable by the UTF-8 encoding. The only exception is the
-character space (<code> </code>); that can&rsquo;t be sent directly. In this case,
-a string <code>space</code> must be sent instead.
+character space (<code class="code"> </code>); that can&rsquo;t be sent directly. In this case,
+a string <code class="code">space</code> must be sent instead.
 </p>
 <div class="example">
-<pre class="example">CHAR e
+<pre class="example-preformatted">CHAR e
 CHAR \
 CHAR space
 CHAR &amp;
@@ -466,11 +456,11 @@ CHAR &amp;
 e.g. when reading a character under cursor or when spelling words.
 </p>
 </dd>
-<dt><span><code>KEY <var>key-name</var></code></span></dt>
-<dd><span id="SSIP-KEY"></span><p>Speak key identified by <var>key-name</var>.  The command is intended to be
+<dt><code class="code">KEY <var class="var">key-name</var></code></dt>
+<dd><a class="anchor" id="SSIP-KEY"></a><p>Speak key identified by <var class="var">key-name</var>.  The command is intended to be
 used for speaking keys pressed by the user.
 </p>
-<p><var>key-name</var> is a case sensitive symbolic key name.  It is composed
+<p><var class="var">key-name</var> is a case sensitive symbolic key name.  It is composed
 of a key name, optionally prepended with one or more prefixes, each
 containing an auxiliary key name and the underscore character.
 </p>
@@ -481,16 +471,16 @@ characters), spaces, underscores, and double quotes.
 </p>
 <p>The recognized key names are:
 </p>
-<ul>
-<li> Any single UTF-8 character, excluding the exceptions defined above.
+<ul class="itemize mark-bullet">
+<li>Any single UTF-8 character, excluding the exceptions defined above.
 
-</li><li> Any of the symbolic key names defined in <a href="#Key-Names">Key Names</a>.
+</li><li>Any of the symbolic key names defined in <a class="ref" href="#Key-Names">Key Names</a>.
 </li></ul>
 
 <p>Examples of valid key names:
 </p>
 <div class="example">
-<pre class="example">a
+<pre class="example-preformatted">a
 A
 shift_a
 shift_A
@@ -503,80 +493,80 @@ control
 </pre></div>
 
 </dd>
-<dt><span><code>SOUND_ICON <var>icon-name</var></code></span></dt>
-<dd><span id="SSIP-SOUND_005fICON"></span><p>Send a sound identified by <var>icon-name</var> to the audio output.
-<var>icon-name</var> is a symbolic name of the given sound from the
-standard set listed in <a href="#Standard-Sound-Icons">Standard Sound Icons</a>, or another name
+<dt><code class="code">SOUND_ICON <var class="var">icon-name</var></code></dt>
+<dd><a class="anchor" id="SSIP-SOUND_005fICON"></a><p>Send a sound identified by <var class="var">icon-name</var> to the audio output.
+<var class="var">icon-name</var> is a symbolic name of the given sound from the
+standard set listed in <a class="ref" href="#Standard-Sound-Icons">Standard Sound Icons</a>, or another name
 from the particular Speech Server sound icon configuration.
 </p></dd>
 </dl>
 
 <hr>
 </div>
-<div class="section" id="Speech-Output-Control-Commands">
-<div class="header">
+<div class="section-level-extent" id="Speech-Output-Control-Commands">
+<div class="nav-panel">
 <p>
 Next: <a href="#Message-Priority-Commands" accesskey="n" rel="next">Priority Setting Commands</a>, Previous: <a href="#Speech-Synthesis-and-Sound-Output-Commands" accesskey="p" rel="prev">Speech Synthesis and Sound Output</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Controlling-Speech-Output"></span><h3 class="section">4.2 Controlling Speech Output</h3>
+<h3 class="section" id="Controlling-Speech-Output">4.2 Controlling Speech Output</h3>
 
 <p>These commands can stop or resume speech or audio output.  They all
 affect only the synthesis process and output to a sound device, they
 do not affect the message history.
 </p>
-<dl compact="compact">
-<dt><span><code>STOP { <var>id</var> | all | self }</code></span></dt>
+<dl class="table">
+<dt><code class="code">STOP { <var class="var">id</var> | all | self }</code></dt>
 <dd><p>Immediately stop outputting the current message (whatever it is &mdash;
 text, letter, key, or sound icon) from the identified client, if any
-is being output.  If the command argument is <code>self</code>, the last message
-from the current client connection is stopped.  If it is <code>all</code>,
+is being output.  If the command argument is <code class="code">self</code>, the last message
+from the current client connection is stopped.  If it is <code class="code">all</code>,
 stop currently output message or messages from all the clients.
-Otherwise, argument <var>id</var> must be given as a positive integer and
+Otherwise, argument <var class="var">id</var> must be given as a positive integer and
 the currently processed message from the client connection identified
-by <var>id</var> is stopped; if there is none such, do nothing.
+by <var class="var">id</var> is stopped; if there is none such, do nothing.
 </p>
 </dd>
-<dt><span><code>CANCEL { <var>id</var> | all | self }</code></span></dt>
-<dd><p>This command is the same as <code>STOP</code>, with the exception that it
+<dt><code class="code">CANCEL { <var class="var">id</var> | all | self }</code></dt>
+<dd><p>This command is the same as <code class="code">STOP</code>, with the exception that it
 stops as yet unspoken output messages as well.  All currently queued messages
 are stored into the message history without being sent to the audio
 output device.
 </p>
 </dd>
-<dt><span><code>PAUSE { <var>id</var> | all | self }</code></span></dt>
+<dt><code class="code">PAUSE { <var class="var">id</var> | all | self }</code></dt>
 <dd><p>Stop audio output immediately, but do not discard anything.  All the
 currently speaking and currently or later queued messages are postponed
-and saved for later processing, until a corresponding <code>RESUME</code>
+and saved for later processing, until a corresponding <code class="code">RESUME</code>
 command is received.
 </p>
-<p>The meaning of the command arguments is the same as in the <code>STOP</code>
+<p>The meaning of the command arguments is the same as in the <code class="code">STOP</code>
 command.
 </p>
 </dd>
-<dt><span><code>RESUME { <var>id</var> | all | self }</code></span></dt>
-<dd><p>Cancel the effect of the previously issued <code>PAUSE</code> command.
+<dt><code class="code">RESUME { <var class="var">id</var> | all | self }</code></dt>
+<dd><p>Cancel the effect of the previously issued <code class="code">PAUSE</code> command.
 Note that messages of the priority &ldquo;progress&rdquo; and &ldquo;notification&rdquo; received during
 the pause are not output (but they remain stored in the message history).
 </p>
-<p>It is an error to send the <code>RESUME</code> command when the output
+<p>It is an error to send the <code class="code">RESUME</code> command when the output
 corresponding to the given argument is not paused by a previous
-invocation of the <code>PAUSE</code> command.  Such an error is signaled by
-a <code>4XX</code> return code.
+invocation of the <code class="code">PAUSE</code> command.  Such an error is signaled by
+a <code class="code">4XX</code> return code.
 </p>
-<p>The meaning of the command arguments is the same as in the <code>STOP</code>
+<p>The meaning of the command arguments is the same as in the <code class="code">STOP</code>
 command.
 </p></dd>
 </dl>
 
 <hr>
 </div>
-<div class="section" id="Message-Priority-Commands">
-<div class="header">
+<div class="section-level-extent" id="Message-Priority-Commands">
+<div class="nav-panel">
 <p>
 Next: <a href="#Blocks-of-Messages-Commands" accesskey="n" rel="next">Blocks of Messages Commands</a>, Previous: <a href="#Speech-Output-Control-Commands" accesskey="p" rel="prev">Controlling Speech Output</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Priority-Setting-Commands-1"></span><h3 class="section">4.3 Priority Setting Commands</h3>
-<span id="index-priorities"></span>
+<h3 class="section" id="Priority-Setting-Commands-1">4.3 Priority Setting Commands</h3>
+<a class="index-entry-id" id="index-priorities"></a>
 
 <p>A speech synthesizer can&rsquo;t synthesize everything that comes to it,
 for the simple reason that messages are often coming faster
@@ -593,19 +583,19 @@ coming from different clients) is automatically handled by the Speech Server
 by applying certain rules based on the priorities.
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Priority-Categories" accesskey="1">Priority Categories</a></li>
 <li><a href="#Priority-Diagram" accesskey="2">Priority Diagram</a></li>
 <li><a href="#Priority-Setting-Commands" accesskey="3">Priority Setting Commands</a></li>
 <li><a href="#Examples-of-Using-Priorities" accesskey="4">Examples of Using Priorities</a></li>
 </ul>
 <hr>
-<div class="subsection" id="Priority-Categories">
-<div class="header">
+<div class="subsection-level-extent" id="Priority-Categories">
+<div class="nav-panel">
 <p>
 Next: <a href="#Priority-Diagram" accesskey="n" rel="next">Priority Diagram</a>, Previous: <a href="#Message-Priority-Commands" accesskey="p" rel="prev">Priority Setting Commands</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Priority Setting Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Priority-Categories-1"></span><h4 class="subsection">4.3.1 Priority Categories</h4>
+<h4 class="subsection" id="Priority-Categories-1">4.3.1 Priority Categories</h4>
 
 <p>Speech Synthesis Interface Protocol provides a system of five priorities.  Every
 message will either contain explicit priority information, or the
@@ -613,40 +603,40 @@ default value will be used.
 </p>
 <p>Please see also the diagram below.
 </p>
-<span id="Priority-important"></span><h3 class="heading">Priority <code>important</code></h3>
-<span id="index-Priority-important"></span>
+<h3 class="heading" id="Priority-important">Priority <code class="code">important</code></h3>
+<a class="index-entry-id" id="index-Priority-important"></a>
 
 <p>This message will be said immediately as it comes to server.
 It is never interrupted. When several concurrent messages of
 this priority are received by server, they are queued and said
 in the order they came.
 </p>
-<p>When a new message of level <code>important</code> comes while a message of
+<p>When a new message of level <code class="code">important</code> comes while a message of
 another priority is being spoken, the other message is canceled
-and the message with priority <code>important</code> is said instead. Other messages
-of lower priorities are postponed (priority <code>message</code> and
-<code>text</code>) until there are no messages of priority important
-waiting, or are canceled (priority <code>notification</code> and <code>progress</code>).
+and the message with priority <code class="code">important</code> is said instead. Other messages
+of lower priorities are postponed (priority <code class="code">message</code> and
+<code class="code">text</code>) until there are no messages of priority important
+waiting, or are canceled (priority <code class="code">notification</code> and <code class="code">progress</code>).
 </p>
 <p>These messages should be as short as possible and should rarely be
 used, because they block the output of all other messages.
 </p>
-<span id="Priority-message"></span><h3 class="heading">Priority <code>message</code></h3>
-<span id="index-Priority-message"></span>
+<h3 class="heading" id="Priority-message">Priority <code class="code">message</code></h3>
+<a class="index-entry-id" id="index-Priority-message"></a>
 
 <p>This message will be said when there is no message of priority
-<code>important</code> or <code>message</code> waiting in the queue. If there are,
+<code class="code">important</code> or <code class="code">message</code> waiting in the queue. If there are,
 this message is postponed until those messages are spoken. This
-means that the priority <code>message</code> doesn&rsquo;t interrupt itself. If
-there are messages of priority <code>notification</code>, <code>progress</code> or
-<code>text</code> waiting in the queue or being spoken when a message of
-priority <code>message</code> comes, they are canceled.
+means that the priority <code class="code">message</code> doesn&rsquo;t interrupt itself. If
+there are messages of priority <code class="code">notification</code>, <code class="code">progress</code> or
+<code class="code">text</code> waiting in the queue or being spoken when a message of
+priority <code class="code">message</code> comes, they are canceled.
 </p>
-<span id="Priority-text"></span><h3 class="heading">Priority <code>text</code></h3>
-<span id="index-Priority-text"></span>
+<h3 class="heading" id="Priority-text">Priority <code class="code">text</code></h3>
+<a class="index-entry-id" id="index-Priority-text"></a>
 
 <p>This message will be said when there is no message of priority
-<code>important</code> or <code>message</code> waiting in the queue. If there are,
+<code class="code">important</code> or <code class="code">message</code> waiting in the queue. If there are,
 this message is postponed until the previous messages are spoken.
 </p>
 <p>The priority text interrupts itself. This means that if several messages
@@ -654,26 +644,26 @@ of this priority are received, they are not said in the order they
 were received, but only the latest of them is said; others are
 canceled.
 </p>
-<p>If there are messages of priority <code>notification</code> and
-<code>progress</code> waiting in the queue or being spoken when a message
-of priority <code>text</code> comes, they are canceled.
+<p>If there are messages of priority <code class="code">notification</code> and
+<code class="code">progress</code> waiting in the queue or being spoken when a message
+of priority <code class="code">text</code> comes, they are canceled.
 </p>
-<span id="Priority-notification"></span><h3 class="heading">Priority <code>notification</code></h3>
+<h3 class="heading" id="Priority-notification">Priority <code class="code">notification</code></h3>
 
 <p>This is a low priority message. If there are messages with priorities
-<code>important</code>, <code>message</code>, <code>text</code> or <code>progress</code>
-waiting in the queues or being spoken, this <code>notification</code>
+<code class="code">important</code>, <code class="code">message</code>, <code class="code">text</code> or <code class="code">progress</code>
+waiting in the queues or being spoken, this <code class="code">notification</code>
 message is canceled.
 </p>
 <p>This priority interrupts itself, so if more messages with priority
-<code>notification</code> come at the same time, only the last of them is
+<code class="code">notification</code> come at the same time, only the last of them is
 spoken.
 </p>
-<span id="Priority-progress"></span><h3 class="heading">Priority <code>progress</code></h3>
+<h3 class="heading" id="Priority-progress">Priority <code class="code">progress</code></h3>
 
 <p>This is a special priority for messages that are coming
 shortly one after each other and they carry the information
-about some work in progress (e.g.&nbsp;<code>Completed 45%</code>).
+about some work in progress (e.g.&nbsp;<code class="code">Completed 45%</code>).
 </p>
 <p>If new messages interrupted each other (see priority
 Notification), the user might not receive any complete
@@ -682,167 +672,167 @@ message.
 <p>This priority behaves the same as &ldquo;notification&rdquo; except
 for two things:
 </p>
-<ul>
-<li> The messages of this priority don&rsquo;t interrupt each other,
+<ul class="itemize mark-bullet">
+<li>The messages of this priority don&rsquo;t interrupt each other,
 instead, a newly arriving message is canceled if another message is
 being spoken.
-</li><li> Speech Server tries to detect the last message of a series of messages
+</li><li>Speech Server tries to detect the last message of a series of messages
 (for instance, it&rsquo;s important for the user to hear the final
-<code>Completed 100%</code> message to know the work has completed).  Speech
+<code class="code">Completed 100%</code> message to know the work has completed).  Speech
 Server waits until there are no more messages of this priority waiting
 in queues and if the last of them wasn&rsquo;t spoken yet, it speaks it with
-the priority <code>message</code>.
+the priority <code class="code">message</code>.
 </li></ul>
 
 <p>This way, even if Speech Server is busy speaking messages of other
 priorities, we are still sure that the important messages at the
-end of the <code>progress</code> sequences will be said.
+end of the <code class="code">progress</code> sequences will be said.
 </p>
 <hr>
 </div>
-<div class="subsection" id="Priority-Diagram">
-<div class="header">
+<div class="subsection-level-extent" id="Priority-Diagram">
+<div class="nav-panel">
 <p>
 Next: <a href="#Priority-Setting-Commands" accesskey="n" rel="next">Priority Setting Commands</a>, Previous: <a href="#Priority-Categories" accesskey="p" rel="prev">Priority Categories</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Priority Setting Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Priority-Diagram-1"></span><h4 class="subsection">4.3.2 Priority Diagram</h4>
+<h4 class="subsection" id="Priority-Diagram-1">4.3.2 Priority Diagram</h4>
 
-<img src="figures/priorities.png" alt="Speech Synthesis Interface Protocol Priorities">
+<img class="image" src="figures/priorities.png" alt="Speech Synthesis Interface Protocol Priorities">
 
 <hr>
 </div>
-<div class="subsection" id="Priority-Setting-Commands">
-<div class="header">
+<div class="subsection-level-extent" id="Priority-Setting-Commands">
+<div class="nav-panel">
 <p>
 Next: <a href="#Examples-of-Using-Priorities" accesskey="n" rel="next">Examples of Using Priorities</a>, Previous: <a href="#Priority-Diagram" accesskey="p" rel="prev">Priority Diagram</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Priority Setting Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Priority-Setting-Commands-2"></span><h4 class="subsection">4.3.3 Priority Setting Commands</h4>
+<h4 class="subsection" id="Priority-Setting-Commands-2">4.3.3 Priority Setting Commands</h4>
 
 <p>When a priority is set for a given connection, all the newly arriving
 messages will be said with this priority until it is changed for a new
 value.
 </p>
-<ul>
-<li> SET self PRIORITY <var>p</var>
+<ul class="itemize mark-bullet">
+<li>SET self PRIORITY <var class="var">p</var>
 
-<p>This command sets message priority to <var>p</var>.  <var>p</var> must be one of
-the values <code>important</code>, <code>text</code>, <code>message</code>,
-<code>notification</code>, <code>progress</code>.  See <a href="#Priority-Categories">Priority Categories</a>.
+<p>This command sets message priority to <var class="var">p</var>.  <var class="var">p</var> must be one of
+the values <code class="code">important</code>, <code class="code">text</code>, <code class="code">message</code>,
+<code class="code">notification</code>, <code class="code">progress</code>.  See <a class="xref" href="#Priority-Categories">Priority Categories</a>.
 </p>
-<p>Only <code>self</code> is allowed as the &lsquo;target&rsquo; argument.
+<p>Only <code class="code">self</code> is allowed as the &lsquo;target&rsquo; argument.
 </p>
 </li></ul>
 
 <hr>
 </div>
-<div class="subsection" id="Examples-of-Using-Priorities">
-<div class="header">
+<div class="subsection-level-extent" id="Examples-of-Using-Priorities">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Priority-Setting-Commands" accesskey="p" rel="prev">Priority Setting Commands</a>, Up: <a href="#Message-Priority-Commands" accesskey="u" rel="up">Priority Setting Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Examples-of-Using-Priorities-1"></span><h4 class="subsection">4.3.4 Examples of Using Priorities</h4>
+<h4 class="subsection" id="Examples-of-Using-Priorities-1">4.3.4 Examples of Using Priorities</h4>
 
-<p>Example uses for priority <code>important</code> are:
+<p>Example uses for priority <code class="code">important</code> are:
 </p>
-<ul>
-<li> error messages
-</li><li> very important messages
-</li><li> ...
+<ul class="itemize mark-bullet">
+<li>error messages
+</li><li>very important messages
+</li><li>...
 </li></ul>
 
-<p>Example uses for priority <code>message</code> are:
+<p>Example uses for priority <code class="code">message</code> are:
 </p>
-<ul>
-<li> regular program messages
-</li><li> warnings
-</li><li> ...
+<ul class="itemize mark-bullet">
+<li>regular program messages
+</li><li>warnings
+</li><li>...
 </li></ul>
 
-<p>Example uses for priority <code>text</code> are:
+<p>Example uses for priority <code class="code">text</code> are:
 </p>
-<ul>
-<li> text the user is working on
-</li><li> menu items
-</li><li> ...
+<ul class="itemize mark-bullet">
+<li>text the user is working on
+</li><li>menu items
+</li><li>...
 </li></ul>
 
-<p>Example uses for priority <code>notification</code> are:
+<p>Example uses for priority <code class="code">notification</code> are:
 </p>
-<ul>
-<li> less important status information
-</li><li> letters when typing input
-</li><li> run-time help
-</li><li> ...
+<ul class="itemize mark-bullet">
+<li>less important status information
+</li><li>letters when typing input
+</li><li>run-time help
+</li><li>...
 </li></ul>
 
-<p>Example uses for level <code>progress</code> are:
+<p>Example uses for level <code class="code">progress</code> are:
 </p>
-<ul>
-<li> &ldquo;completed 15%&rdquo;, &ldquo;completed 16%&rdquo;, &ldquo;completed 17%&rdquo;
-</li><li> &ldquo;Loading sounds&rdquo;, &ldquo;Loading graphics&rdquo;, &ldquo;Loading ai&rdquo;, ...
+<ul class="itemize mark-bullet">
+<li>&ldquo;completed 15%&rdquo;, &ldquo;completed 16%&rdquo;, &ldquo;completed 17%&rdquo;
+</li><li>&ldquo;Loading sounds&rdquo;, &ldquo;Loading graphics&rdquo;, &ldquo;Loading ai&rdquo;, ...
 </li></ul>
 
 
 <hr>
 </div>
 </div>
-<div class="section" id="Blocks-of-Messages-Commands">
-<div class="header">
+<div class="section-level-extent" id="Blocks-of-Messages-Commands">
+<div class="nav-panel">
 <p>
 Next: <a href="#Parameter-Setting-Commands" accesskey="n" rel="next">Parameter Setting</a>, Previous: <a href="#Message-Priority-Commands" accesskey="p" rel="prev">Priority Setting Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Blocks-of-Messages-Commands-1"></span><h3 class="section">4.4 Blocks of Messages Commands</h3>
+<h3 class="section" id="Blocks-of-Messages-Commands-1">4.4 Blocks of Messages Commands</h3>
 
 <p>Block commands allow the client to concatenate several messages to form one
 block that behaves as one message in the priority system and history. After
 opening the block, client can send a specified subset of the commands and
-the messages introduced by <code>SPEAK</code> will be processed immediately, however
+the messages introduced by <code class="code">SPEAK</code> will be processed immediately, however
 there will be no priority interaction before closing the block.
-The <a href="#Speech-Output-Control-Commands">Controlling Speech Output</a> also handle the whole block as one
+The <a class="ref" href="#Speech-Output-Control-Commands">Controlling Speech Output</a> also handle the whole block as one
 message.
 </p>
 <p>Take for example this message from an email client:
 </p>
 <div class="example">
-<pre class="example">&gt; Hi, how are you?
+<pre class="example-preformatted">&gt; Hi, how are you?
 I'm fine. Thank you.
 </pre></div>
 
 <p>The character &lsquo;&gt;&rsquo; clearly marks who said which part. So it&rsquo;d be nice to say
 the two lines with different voices, however, it&rsquo;d be desirable to treat it all
 as one message with priority TEXT and have it put together in history,
-because in fact, it logically <em>is</em> one message.
+because in fact, it logically <em class="emph">is</em> one message.
 </p>
-<dl compact="compact">
-<dt><span><code>BLOCK BEGIN</code></span></dt>
+<dl class="table">
+<dt><code class="code">BLOCK BEGIN</code></dt>
 <dd><p>Opens a block of messages. There will be no priority interaction between
 the messages inside the block, the whole block will be treated as one message
-of the priority that was specified by previous <code>SET</code> command.
+of the priority that was specified by previous <code class="code">SET</code> command.
 </p>
 <p>It can only be called outside of a block; nesting is not allowed.
 </p>
-<ul>
+<ul class="itemize mark-bullet">
 <li>The allowed commands inside a block are:
-        </li><li> <code>SPEAK</code>
-        </li><li> <code>SOUND_ICON</code>
-        </li><li> <code>CHAR</code>
-        </li><li> <code>KEY</code>
-        </li><li> <code>SET SELF RATE</code>
-        </li><li> <code>SET SELF PITCH</code>
-        </li><li> <code>SET SELF VOLUME</code>
-        </li><li> <code>SET SELF VOICE</code>
-        </li><li> <code>SET SELF LANGUAGE</code>
-        </li><li> <code>SET SELF PUNCTUATION</code>
-        </li><li> <code>SET SELF CAP_LET_RECOGN</code>
-        </li><li> <code>QUIT</code>
-        </li><li> <code>BLOCK END</code>
+        </li><li><code class="code">SPEAK</code>
+        </li><li><code class="code">SOUND_ICON</code>
+        </li><li><code class="code">CHAR</code>
+        </li><li><code class="code">KEY</code>
+        </li><li><code class="code">SET SELF RATE</code>
+        </li><li><code class="code">SET SELF PITCH</code>
+        </li><li><code class="code">SET SELF VOLUME</code>
+        </li><li><code class="code">SET SELF VOICE</code>
+        </li><li><code class="code">SET SELF LANGUAGE</code>
+        </li><li><code class="code">SET SELF PUNCTUATION</code>
+        </li><li><code class="code">SET SELF CAP_LET_RECOGN</code>
+        </li><li><code class="code">QUIT</code>
+        </li><li><code class="code">BLOCK END</code>
 </li></ul>
 
 </dd>
-<dt><span><code>BLOCK END</code></span></dt>
-<dd><p>Closes a block of messages, see <code>BLOCK BEGIN</code>.
+<dt><code class="code">BLOCK END</code></dt>
+<dd><p>Closes a block of messages, see <code class="code">BLOCK BEGIN</code>.
 </p>
-<p>It can be only called inside a block opened by <code>BLOCK BEGIN</code>;
+<p>It can be only called inside a block opened by <code class="code">BLOCK BEGIN</code>;
 nesting is not allowed.
 </p></dd>
 </dl>
@@ -850,7 +840,7 @@ nesting is not allowed.
 <p>A more complete example of SSIP communication using BLOCKs.
 </p>
 <div class="example">
-<pre class="example">[...]
+<pre class="example-preformatted">[...]
 SET SELF PRIORITY TEXT
 202 OK PRIORITY SET
 
@@ -885,20 +875,20 @@ BLOCK END
 
 <hr>
 </div>
-<div class="section" id="Parameter-Setting-Commands">
-<div class="header">
+<div class="section-level-extent" id="Parameter-Setting-Commands">
+<div class="nav-panel">
 <p>
 Next: <a href="#Information-Retrieval-Commands" accesskey="n" rel="next">Retrieving Information</a>, Previous: <a href="#Blocks-of-Messages-Commands" accesskey="p" rel="prev">Blocks of Messages Commands</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Parameter-Setting"></span><h3 class="section">4.5 Parameter Setting</h3>
+<h3 class="section" id="Parameter-Setting">4.5 Parameter Setting</h3>
 
-<p>The <code>SET</code> command sets various control parameters of the
+<p>The <code class="code">SET</code> command sets various control parameters of the
 synthesized speech or server configuration. The parameter is always
 denoted by the second command argument.
 </p>
 <p>All the settings take effect on the connections specified in the first
-argument (see <a href="#General-Rules">General Rules</a>) and until the parameter setting is
-changed by another invocation of the appropriate <code>SET</code> command or
+argument (see <a class="pxref" href="#General-Rules">General Rules</a>) and until the parameter setting is
+changed by another invocation of the appropriate <code class="code">SET</code> command or
 until the connection is closed.
 </p>
 <p>The voice property and TTS-processing settings can sometimes be
@@ -906,20 +896,20 @@ without any real effect if the end synthesizer doesn&rsquo;t provide the
 required functionality.  This is not considered an error in the
 implementation of SSIP.
 </p>
-<dl compact="compact">
-<dt><span><code>SET self CLIENT_NAME <var>user</var>:<var>client</var>:<var>component</var></code></span></dt>
+<dl class="table">
+<dt><code class="code">SET self CLIENT_NAME <var class="var">user</var>:<var class="var">client</var>:<var class="var">component</var></code></dt>
 <dd><p>Set client&rsquo;s name.  Client name consists of the user name, client
 (application) identification, and the identification of the component
 of the client (application).  Each of the parts of the client name may
-contain only alphanumeric characters, dashes (<code>-</code>) and underscores
-(<code>_</code>).
+contain only alphanumeric characters, dashes (<code class="code">-</code>) and underscores
+(<code class="code">_</code>).
 </p>
-<p>For example, for a client called <code>lynx</code> that creates an SSIP
+<p>For example, for a client called <code class="code">lynx</code> that creates an SSIP
 connection for its command processing, the name could be set in the
 following way:
 </p>
 <div class="example">
-<pre class="example">SET CLIENT_NAME joe:lynx:cmd_processing
+<pre class="example-preformatted">SET CLIENT_NAME joe:lynx:cmd_processing
 </pre></div>
 
 <p>The client name is used in the server configuration settings, client
@@ -934,14 +924,14 @@ new SSIP connection is established.  The command may be
 sent only once within a single connection. Attempts to change the
 client&rsquo;s name once it&rsquo;s already set are answered with an error code.
 </p>
-<p>Only <code>self</code> is allowed as the &lsquo;target&rsquo; argument.
+<p>Only <code class="code">self</code> is allowed as the &lsquo;target&rsquo; argument.
 </p>
 </dd>
-<dt><span><code>SET all DEBUG  {ON|OFF}</code></span></dt>
-<dd><p>If set to <code>ON</code>, Speech Dispatcher will write all its debugging
+<dt><code class="code">SET all DEBUG  {ON|OFF}</code></dt>
+<dd><p>If set to <code class="code">ON</code>, Speech Dispatcher will write all its debugging
 information (including output modules) with maximal verbosity into a
 debug directory which is reported by the server to the client in reply
-to this command. When subsequently set to <code>OFF</code>, Speech
+to this command. When subsequently set to <code class="code">OFF</code>, Speech
 Dispatcher will stop writing out debugging information into this path
 and close all the appropriate logging files.
 </p>
@@ -958,70 +948,70 @@ output logs and so should not be left on for an unnecessarily long
 time.
 </p>
 <div class="example">
-<pre class="example">SET all DEBUG ON
+<pre class="example-preformatted">SET all DEBUG ON
 262-/home/hanke/.cache/speech-dispatcher/log/debug
 262 OK DEBUGGING SET
 </pre></div>
 
 </dd>
-<dt><span><code>SET {all | self | <var>id</var> } OUTPUT_MODULE  <var>module</var></code></span></dt>
-<dd><p>Set the output module to  <var>module</var>. This overrides the
+<dt><code class="code">SET {all | self | <var class="var">id</var> } OUTPUT_MODULE  <var class="var">module</var></code></dt>
+<dd><p>Set the output module to  <var class="var">module</var>. This overrides the
 selection based on language. Only values returned by the
-<code>LIST OUTPUT_MODULES</code> command are permitted.
-See <a href="#list_002doutput_002dmodules">list-output-modules</a>.
+<code class="code">LIST OUTPUT_MODULES</code> command are permitted.
+See <a class="xref" href="#list_002doutput_002dmodules">list-output-modules</a>.
 </p>
 <div class="example">
-<pre class="example">SET self OUTPUT_MODULE espeak
+<pre class="example-preformatted">SET self OUTPUT_MODULE espeak
 216 OK OUTPUT MODULE SET
 </pre></div>
 
 </dd>
-<dt><span><code>GET OUTPUT_MODULE</code></span></dt>
+<dt><code class="code">GET OUTPUT_MODULE</code></dt>
 <dd><p>Get the output module currently in use. This takes no parameters
 and simply returns the current output module.
 </p>
 <div class="example">
-<pre class="example">GET OUTPUT_MODULE
+<pre class="example-preformatted">GET OUTPUT_MODULE
 251-espeak
 251 OK GET RETURNED
 </pre></div>
 
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } LANGUAGE <var>language-code</var></code></span></dt>
-<dd><p>Set recommended language for this client according to <var>language-code</var>.
-<var>language-code</var> is the code of the language according to RFC 1766.
+<dt><code class="code">SET { all | self | <var class="var">id</var> } LANGUAGE <var class="var">language-code</var></code></dt>
+<dd><p>Set recommended language for this client according to <var class="var">language-code</var>.
+<var class="var">language-code</var> is the code of the language according to RFC 1766.
 </p>
 <p>For example, to set the preferred language to Czech, you send the
 following command:
 </p>
 <div class="example">
-<pre class="example">SET SELF LANGUAGE cs
+<pre class="example-preformatted">SET SELF LANGUAGE cs
 </pre></div>
 
 <p>Please note, that switching a language may require switching a voice,
-so this command may actually override a previous call to <code>SET VOICE</code> or
-<code>SET SYNTHESIS_VOICE</code>.
+so this command may actually override a previous call to <code class="code">SET VOICE</code> or
+<code class="code">SET SYNTHESIS_VOICE</code>.
 </p>
 <p>The default for the Speech Dispatcher implementation of SSIP
-is determined by the <code>DefaultLanguage</code> setting in the
-<code>speechd.conf</code> file.  The factory default is <code>en-US</code> (American English).
+is determined by the <code class="code">DefaultLanguage</code> setting in the
+<code class="code">speechd.conf</code> file.  The factory default is <code class="code">en-US</code> (American English).
 </p>
 </dd>
-<dt><span><code>SET {self} SSML_MODE  <var>mode</var></code></span></dt>
+<dt><code class="code">SET {self} SSML_MODE  <var class="var">mode</var></code></dt>
 <dd><p>Set the mode of the text received in the message body sent by the
-<code>SPEAK</code> command. This can be either a plain text, if <code>mode</code>
-is set to <code>off</code> or a SSML marked text, if <code>mode</code> is set to <code>on</code>.
+<code class="code">SPEAK</code> command. This can be either a plain text, if <code class="code">mode</code>
+is set to <code class="code">off</code> or a SSML marked text, if <code class="code">mode</code> is set to <code class="code">on</code>.
 </p>
 <p>There is no guarantee that the SSML markup will be respected, so
 the application shouldn&rsquo;t rely on them. The external parameters
 can still be set by the parameter setting commands. SSML is intended
 only for additional markup inside the message. In SSML mode, each
-message must begin with <code>&lt;speak&gt;</code> and end with <code>&lt;/speak&gt;</code>.
+message must begin with <code class="code">&lt;speak&gt;</code> and end with <code class="code">&lt;/speak&gt;</code>.
 </p>
 <p>For example a simple &lsquo;hello world&rsquo; looks like this:
 </p>
 <div class="example">
-<pre class="example">SET SELF SSML_MODE on
+<pre class="example-preformatted">SET SELF SSML_MODE on
 SPEAK
 &lt;speak&gt;
 Hello world!
@@ -1030,140 +1020,140 @@ Hello world!
 </pre></div>
 
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } PUNCTUATION { all | most | some | none }</code></span></dt>
-<dd><p>Set punctuation mode to the given value.  <code>all</code> means speak all
-punctuation characters, <code>none</code> means speak no punctuation characters,
-<code>some</code> and <code>most</code> mean speak only intermediate sets of punctuation
+<dt><code class="code">SET { all | self | <var class="var">id</var> } PUNCTUATION { all | most | some | none }</code></dt>
+<dd><p>Set punctuation mode to the given value.  <code class="code">all</code> means speak all
+punctuation characters, <code class="code">none</code> means speak no punctuation characters,
+<code class="code">some</code> and <code class="code">most</code> mean speak only intermediate sets of punctuation
 characters defined in the synthesizer&rsquo;s configuration or symbols files.
 The default for the Speech Dispatcher implementation of SSIP
-is determined by the <code>DefaultPunctuationMode</code> setting in the
-<code>speechd.conf</code> file.  The factory default is <code>none</code>.
+is determined by the <code class="code">DefaultPunctuationMode</code> setting in the
+<code class="code">speechd.conf</code> file.  The factory default is <code class="code">none</code>.
 </p>
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } SPELLING { on | off }</code></span></dt>
+<dt><code class="code">SET { all | self | <var class="var">id</var> } SPELLING { on | off }</code></dt>
 <dd><p>Switch spelling on or off.  If spelling is set to on, all the
 incoming messages will be said letter-by-letter, instead of
 speaking them as whole words.
 The default for the Speech Dispatcher implementation of SSIP
-is determined by the <code>DefaultSpelling</code> setting in the
-<code>speechd.conf</code> file.  The factory default is <code>off</code>.
+is determined by the <code class="code">DefaultSpelling</code> setting in the
+<code class="code">speechd.conf</code> file.  The factory default is <code class="code">off</code>.
 </p>
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } CAP_LET_RECOGN { none | spell | icon }</code></span></dt>
-<dd><p>Set capital letters recognition mode. <code>none</code> switches this
-feature off. <code>spell</code> causes capital letters to be spelled
-in the speech using the table set as <code>CAP_LET_RECOGN_TABLE</code>.
-With parameter <code>icon</code>, each capital letter will be preceded
+<dt><code class="code">SET { all | self | <var class="var">id</var> } CAP_LET_RECOGN { none | spell | icon }</code></dt>
+<dd><p>Set capital letters recognition mode. <code class="code">none</code> switches this
+feature off. <code class="code">spell</code> causes capital letters to be spelled
+in the speech using the table set as <code class="code">CAP_LET_RECOGN_TABLE</code>.
+With parameter <code class="code">icon</code>, each capital letter will be preceded
 by a sound icon (either sound or textual) specified by the user
 in his configuration.
 The default for the Speech Dispatcher implementation of SSIP
-is determined by the <code>DefaultCapLetRecognition</code> setting in the
-<code>speechd.conf</code> file.  The factory default is <code>none</code>.
+is determined by the <code class="code">DefaultCapLetRecognition</code> setting in the
+<code class="code">speechd.conf</code> file.  The factory default is <code class="code">none</code>.
 </p>
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } VOICE_TYPE <var>name</var></code></span></dt>
-<dd><p>Set the voice identified by <var>name</var>.  <var>name</var> must be one of the voice
-identifiers returned by the command <code>LIST VOICES</code> (see <a href="#Information-Retrieval-Commands">Retrieving Information</a>).
+<dt><code class="code">SET { all | self | <var class="var">id</var> } VOICE_TYPE <var class="var">name</var></code></dt>
+<dd><p>Set the voice identified by <var class="var">name</var>.  <var class="var">name</var> must be one of the voice
+identifiers returned by the command <code class="code">LIST VOICES</code> (see <a class="pxref" href="#Information-Retrieval-Commands">Retrieving Information</a>).
 </p>
-<p>There is a standard set of voice identifiers defined in <a href="#Standard-Voices">Standard Voices</a>.
+<p>There is a standard set of voice identifiers defined in <a class="ref" href="#Standard-Voices">Standard Voices</a>.
 </p>
 <p>The default for the Speech Dispatcher implementation of SSIP
-is determined by the <code>DefaultVoiceType</code> setting in the
-<code>speechd.conf</code> file.  The factory default is <code>MALE1</code>.
+is determined by the <code class="code">DefaultVoiceType</code> setting in the
+<code class="code">speechd.conf</code> file.  The factory default is <code class="code">MALE1</code>.
 </p>
 </dd>
-<dt><span><code>GET VOICE_TYPE</code></span></dt>
+<dt><code class="code">GET VOICE_TYPE</code></dt>
 <dd><p>Gets the current pre-defined voice. A list of voice identifiers can be
-obtained by the command <code>LIST VOICES</code> (see <a href="#Information-Retrieval-Commands">Retrieving Information</a>).
+obtained by the command <code class="code">LIST VOICES</code> (see <a class="pxref" href="#Information-Retrieval-Commands">Retrieving Information</a>).
 </p>
 <div class="example">
-<pre class="example">GET VOICE_TYPE
+<pre class="example-preformatted">GET VOICE_TYPE
 251-MALE1
 251 OK GET RETURNED
 </pre></div>
 
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } SYNTHESIS_VOICE <var>name</var></code></span></dt>
-<dd><p>Set the voice identified by <var>name</var>.  <var>name</var> is a voice name
+<dt><code class="code">SET { all | self | <var class="var">id</var> } SYNTHESIS_VOICE <var class="var">name</var></code></dt>
+<dd><p>Set the voice identified by <var class="var">name</var>.  <var class="var">name</var> is a voice name
 recognized by the current synthesizer. It must be one of the names
-returned by the command <code>LIST SYNTHESIS_VOICES</code> run for the
-appropriate synthesizer. (see <a href="#Information-Retrieval-Commands">Retrieving Information</a>).
+returned by the command <code class="code">LIST SYNTHESIS_VOICES</code> run for the
+appropriate synthesizer. (see <a class="pxref" href="#Information-Retrieval-Commands">Retrieving Information</a>).
 </p>
 <p>Please note, that switching to a particular voice may require
 switching a language, so this command may actually override a previous
-call to <code>SET LANGUAGE</code>.
+call to <code class="code">SET LANGUAGE</code>.
 </p>
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } RATE <var>n</var></code></span></dt>
-<dd><p>Set the rate of speech.  <var>n</var> is an integer value within the range
+<dt><code class="code">SET { all | self | <var class="var">id</var> } RATE <var class="var">n</var></code></dt>
+<dd><p>Set the rate of speech.  <var class="var">n</var> is an integer value within the range
 from -100 to 100, lower values meaning slower
 speech and higher values meaning faster speech.
 The default for the Speech Dispatcher implementation of SSIP
-is determined by the <code>DefaultRate</code> setting in the
-<code>speechd.conf</code> file.  The factory default is 0.
+is determined by the <code class="code">DefaultRate</code> setting in the
+<code class="code">speechd.conf</code> file.  The factory default is 0.
 </p>
 </dd>
-<dt><span><code>GET RATE</code></span></dt>
+<dt><code class="code">GET RATE</code></dt>
 <dd><p>Get the current rate of speech value.
 </p>
 <div class="example">
-<pre class="example">GET RATE
+<pre class="example-preformatted">GET RATE
 251-10
 251 OK GET RETURNED
 </pre></div>
 
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } PITCH <var>n</var></code></span></dt>
-<dd><p>Set the pitch of speech.  <var>n</var> is an integer value within the range
+<dt><code class="code">SET { all | self | <var class="var">id</var> } PITCH <var class="var">n</var></code></dt>
+<dd><p>Set the pitch of speech.  <var class="var">n</var> is an integer value within the range
 from -100 to 100, lower values meaning lower
 pitch and higher values meaning higher pitch.
 The default for the Speech Dispatcher implementation of SSIP
-is determined by the <code>DefaultPitch</code> setting in the
-<code>speechd.conf</code> file.  The factory default is 0.
+is determined by the <code class="code">DefaultPitch</code> setting in the
+<code class="code">speechd.conf</code> file.  The factory default is 0.
 </p>
 </dd>
-<dt><span><code>GET PITCH</code></span></dt>
+<dt><code class="code">GET PITCH</code></dt>
 <dd><p>Get the current pitch value.
 </p>
 <div class="example">
-<pre class="example">GET PITCH
+<pre class="example-preformatted">GET PITCH
 251-10
 251 OK GET RETURNED
 </pre></div>
 
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } VOLUME <var>n</var></code></span></dt>
-<dd><p>Set the volume of speech.  <var>n</var> is an integer value within the range
+<dt><code class="code">SET { all | self | <var class="var">id</var> } VOLUME <var class="var">n</var></code></dt>
+<dd><p>Set the volume of speech.  <var class="var">n</var> is an integer value within the range
 from -100 to 100. lower values meaning lower
 volume and higher values meaning higher volume.
 The default for the Speech Dispatcher implementation of SSIP
-is determined by the <code>DefaultVolume</code> setting in the
-<code>speechd.conf</code> file.  The factory default is 100.
+is determined by the <code class="code">DefaultVolume</code> setting in the
+<code class="code">speechd.conf</code> file.  The factory default is 100.
 </p>
 </dd>
-<dt><span><code>GET VOLUME</code></span></dt>
+<dt><code class="code">GET VOLUME</code></dt>
 <dd><p>Get the current volume value.
 </p>
 <div class="example">
-<pre class="example">GET VOLUME
+<pre class="example-preformatted">GET VOLUME
 251-100
 251 OK GET RETURNED
 </pre></div>
 
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } PAUSE_CONTEXT <var>n</var></code></span></dt>
+<dt><code class="code">SET { all | self | <var class="var">id</var> } PAUSE_CONTEXT <var class="var">n</var></code></dt>
 <dd><p>Set the number of (more or less) sentences that should be repeated
 after a previously paused text is resumed. If there isn&rsquo;t enough text
-before the pause spot, the entire message is repeated. <var>n</var>
+before the pause spot, the entire message is repeated. <var class="var">n</var>
 is a positive integer value specifying the number of sentences to
 repeat.
 The default for the Speech Dispatcher implementation of SSIP
-is determined by the <code>DefaultPauseContext</code> setting in the
-<code>speechd.conf</code> file.  The factory default is 0.
+is determined by the <code class="code">DefaultPauseContext</code> setting in the
+<code class="code">speechd.conf</code> file.  The factory default is 0.
 </p>
 </dd>
-<dt><span><code>SET { all | self | <var>id</var> } HISTORY { on | off }</code></span></dt>
-<dd><p>Enable (<code>on</code>) or disable (<code>off</code>) storing of received
+<dt><code class="code">SET { all | self | <var class="var">id</var> } HISTORY { on | off }</code></dt>
+<dd><p>Enable (<code class="code">on</code>) or disable (<code class="code">off</code>) storing of received
 messages into history.
 </p>
 <p>This command is intended for use by message history browsers and
@@ -1173,27 +1163,27 @@ usually should not be used by other kinds of clients.
 
 <hr>
 </div>
-<div class="section" id="Information-Retrieval-Commands">
-<div class="header">
+<div class="section-level-extent" id="Information-Retrieval-Commands">
+<div class="nav-panel">
 <p>
 Next: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="n" rel="next">Message Events Notification and Index Marking</a>, Previous: <a href="#Parameter-Setting-Commands" accesskey="p" rel="prev">Parameter Setting</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Retrieving-Information"></span><h3 class="section">4.6 Retrieving Information</h3>
+<h3 class="section" id="Retrieving-Information">4.6 Retrieving Information</h3>
 
-<p>The <code>LIST</code> command serves for retrieving information that can be
-presented to the user for selection of the values to the <code>SET</code>
+<p>The <code class="code">LIST</code> command serves for retrieving information that can be
+presented to the user for selection of the values to the <code class="code">SET</code>
 command.  The information listed is selected according to the first
-argument of the <code>LIST</code> command.
+argument of the <code class="code">LIST</code> command.
 </p>
-<dl compact="compact">
-<dd><span id="list_002doutput_002dmodules"></span></dd>
-<dt><span><code>LIST OUTPUT_MOUDLES</code></span></dt>
+<dl class="table">
+<dd><a class="anchor" id="list_002doutput_002dmodules"></a></dd>
+<dt><code class="code">LIST OUTPUT_MOUDLES</code></dt>
 <dd><p>Lists the available output modules putting each module identification
 name one on a single line.
 </p>
 <p>Example:
 </p><div class="example">
-<pre class="example">LIST OUTPUT_MODULES
+<pre class="example-preformatted">LIST OUTPUT_MODULES
 250-festival
 250-espeak
 250 OK MODULE LIST SENT
@@ -1201,7 +1191,7 @@ name one on a single line.
 
 
 </dd>
-<dt><span><code>LIST VOICES</code></span></dt>
+<dt><code class="code">LIST VOICES</code></dt>
 <dd><p>Lists the available symbolic voice names putting each voice name on a single
 line. These are symbolic names that are mapped to the real voices used in the
 synthesizer either automatically or via synthesizer or output module
@@ -1209,7 +1199,7 @@ configuration.
 </p>
 <p>Example:
 </p><div class="example">
-<pre class="example">LIST VOICES
+<pre class="example-preformatted">LIST VOICES
 249-MALE1
 249-MALE2
 249-MALE3
@@ -1222,10 +1212,10 @@ configuration.
 </pre></div>
 
 </dd>
-<dt><span><code>LIST SYNTHESIS_VOICES</code></span></dt>
+<dt><code class="code">LIST SYNTHESIS_VOICES [<var class="var">language</var> [<var class="var">variant</var>]]</code></dt>
 <dd>
 <p>Lists the available voices for the current synthesizer in use. These
-names differ from those obtained by <code>LIST VOICES</code> in that they
+names differ from those obtained by <code class="code">LIST VOICES</code> in that they
 are names of the real voices used inside the synthesizer.
 </p>
 <p>This feature should only be used to allow the user to choose the voice.
@@ -1235,11 +1225,11 @@ done using the symbolic voice names which can be configured in the synthesizer.
 <p>Each voice name is listed on a separate line together with its language
 code and dialect identification string separated by tabs. The dialect
 identification strings do not have well-defined meaning yet. If no dialect
-is specified by the synthesizer, the value <code>none</code> is used.
+is specified by the synthesizer, the value <code class="code">none</code> is used.
 </p>
 <p>Example:
 </p><div class="example">
-<pre class="example">LIST SYNTHESIS_VOICES
+<pre class="example-preformatted">LIST SYNTHESIS_VOICES
 249-afrikaans	af	none
 249-welsh-test	cy	none
 249-german	de	none
@@ -1249,35 +1239,52 @@ is specified by the synthesizer, the value <code>none</code> is used.
 249 OK VOICE LIST SENT
 </pre></div>
 
+<p>Optionally, the language, and possibly even the variant, can be specified, to
+filter out other languages or variants.
+</p>
+<p>Example:
+</p><div class="example">
+<pre class="example-preformatted">LIST SYNTHESIS_VOICES fr
+249-French (Belgium)	fr-BE	none
+249-French (Switzerland)	fr-CH	none
+249-French (France)	fr-FR	none
+249 OK VOICE LIST SENT
+LIST SYNTHESIS_VOICES fr-FR
+249-French (France)	fr-FR	none
+249 OK VOICE LIST SENT
+LIST SYNTHESIS_VOICES fr-CA
+304 CANT LIST VOICES
+</pre></div>
+
 </dd>
 </dl>
 
 <hr>
 </div>
-<div class="section" id="Message-Events-Notification-and-Index-Marking">
-<div class="header">
+<div class="section-level-extent" id="Message-Events-Notification-and-Index-Marking">
+<div class="nav-panel">
 <p>
 Next: <a href="#History-Handling-Commands" accesskey="n" rel="next">History Handling</a>, Previous: <a href="#Information-Retrieval-Commands" accesskey="p" rel="prev">Retrieving Information</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Message-Events-Notification-and-Index-Marking-1"></span><h3 class="section">4.7 Message Events Notification and Index Marking</h3>
+<h3 class="section" id="Message-Events-Notification-and-Index-Marking-1">4.7 Message Events Notification and Index Marking</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Why-Events-Notification" accesskey="1">Why Events Notification</a></li>
 <li><a href="#Types-of-Events" accesskey="2">Types of Events</a></li>
 <li><a href="#Events-Notifications-in-SSIP" accesskey="3">Events Notification in SSIP</a></li>
 <li><a href="#Switching-Notifications-On-and-Off" accesskey="4">Switching Notifications On and Off</a></li>
 </ul>
 <hr>
-<div class="subsection" id="Why-Events-Notification">
-<div class="header">
+<div class="subsection-level-extent" id="Why-Events-Notification">
+<div class="nav-panel">
 <p>
 Next: <a href="#Types-of-Events" accesskey="n" rel="next">Types of Events</a>, Previous: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="p" rel="prev">Message Events Notification and Index Marking</a>, Up: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="u" rel="up">Message Events Notification and Index Marking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Why-Events-Notification-1"></span><h4 class="subsection">4.7.1 Why Events Notification</h4>
+<h4 class="subsection" id="Why-Events-Notification-1">4.7.1 Why Events Notification</h4>
 
 <p>Applications can send messages to a Speech Server through the SSIP
-<code>SPEAK</code> command. However, this command only puts the received
+<code class="code">SPEAK</code> command. However, this command only puts the received
 message into a queue in Speech Server and returns immediately. The
 message then will or will not be said at some particular time
 according to its priority. Through Message Events Notification, the
@@ -1292,69 +1299,69 @@ applications should not rely on it.
 </p>
 <hr>
 </div>
-<div class="subsection" id="Types-of-Events">
-<div class="header">
+<div class="subsection-level-extent" id="Types-of-Events">
+<div class="nav-panel">
 <p>
 Next: <a href="#Events-Notifications-in-SSIP" accesskey="n" rel="next">Events Notification in SSIP</a>, Previous: <a href="#Why-Events-Notification" accesskey="p" rel="prev">Why Events Notification</a>, Up: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="u" rel="up">Message Events Notification and Index Marking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Types-of-Events-1"></span><h4 class="subsection">4.7.2 Types of Events</h4>
+<h4 class="subsection" id="Types-of-Events-1">4.7.2 Types of Events</h4>
 
 <p>SSIP recognizes several types of events. Each event is reported
 together with the unique identification of the message and client it
 is associated with. This is an overview of available events. For
 detailed SSIP syntax, please look below.
 </p>
-<dl compact="compact">
-<dt><span><code>BEGIN</code></span></dt>
+<dl class="table">
+<dt><code class="code">BEGIN</code></dt>
 <dd>
 <p>This event means that the synthesizer just started to speak the
 message and the user is able to hear the speech on his/her speakers.
 </p>
 <p>Please note that not every message stored for speaking by the
-<code>SPEAK</code> command will issue this event. It can issue the
-<code>CANCEL</code> event instead.
+<code class="code">SPEAK</code> command will issue this event. It can issue the
+<code class="code">CANCEL</code> event instead.
 </p>
 </dd>
-<dt><span><code>END</code></span></dt>
+<dt><code class="code">END</code></dt>
 <dd>
 <p>This event means that the synthesizer just terminated speaking the
 message (by reaching its end) and the user is no longer able to hear
 the speech on their speakers.
 </p>
 <p>Again, note that not every message that has already reported the
-<code>BEGIN</code> event will necessarily get to the <code>END</code> event.
-It might instead issue the <code>CANCEL</code> or <code>PAUSE</code> events.
+<code class="code">BEGIN</code> event will necessarily get to the <code class="code">END</code> event.
+It might instead issue the <code class="code">CANCEL</code> or <code class="code">PAUSE</code> events.
 </p>
 </dd>
-<dt><span><code>CANCEL</code></span></dt>
+<dt><code class="code">CANCEL</code></dt>
 <dd>
-<p>The <code>CANCEL</code> event is reported when the message was canceled
-(either after <code>BEGIN</code> during speaking or even before, when waiting
+<p>The <code class="code">CANCEL</code> event is reported when the message was canceled
+(either after <code class="code">BEGIN</code> during speaking or even before, when waiting
 in the queues) and will not be spoken anymore.
 </p>
 </dd>
-<dt><span><code>PAUSE</code></span></dt>
+<dt><code class="code">PAUSE</code></dt>
 <dd>
-<p>The event <code>PAUSE</code> means that the message that was being spoken
+<p>The event <code class="code">PAUSE</code> means that the message that was being spoken
 was paused and no longer produces any sound on the speakers, but
 was not discarded and the rest of the message might be spoken again after the
-<code>RESUME</code> command is sent.  See <a href="#Speech-Output-Control-Commands">Controlling Speech Output</a>. This will be reported by the <code>RESUME</code> event.
+<code class="code">RESUME</code> command is sent.  See <a class="xref" href="#Speech-Output-Control-Commands">Controlling Speech Output</a>. This will be reported by the <code class="code">RESUME</code> event.
 </p>
-<p><code>PAUSE</code> is always preceded by the event <code>BEGIN</code>, and can
-be followed by either the event <code>RESUME</code> or <code>CANCEL</code>.
+<p><code class="code">PAUSE</code> is always preceded by the event <code class="code">BEGIN</code>, and can
+be followed by either the event <code class="code">RESUME</code> or <code class="code">CANCEL</code>.
 </p>
 </dd>
-<dt><span><code>RESUME</code></span></dt>
+<dt><code class="code">RESUME</code></dt>
 <dd>
-<p>The event <code>RESUME</code> means that a message that was paused
+<p>The event <code class="code">RESUME</code> means that a message that was paused
 while being spoken, just started to continue and again produces
 sound in the speakers.
 </p>
-<p><code>RESUME</code> is always preceded by the event <code>PAUSE</code>, and can
-be followed by either the event <code>END</code> or <code>CANCEL</code>.
+<p><code class="code">RESUME</code> is always preceded by the event <code class="code">PAUSE</code>, and can
+be followed by either the event <code class="code">END</code> or <code class="code">CANCEL</code>.
 </p>
 </dd>
-<dt><span><code>INDEX_MARK</code></span></dt>
+<dt><code class="code">INDEX_MARK</code></dt>
 <dd>
 <p>This event means that some previously specified place in the text
 (so-called index mark) was reached when speaking the synthesized
@@ -1369,12 +1376,12 @@ mark.
 </p>
 <p>This SSML message
 </p><div class="example">
-<pre class="example">        &lt;speak&gt;Hello, &lt;mark name=&quot;mark1&quot;/&gt; how does it work?&lt;/speak&gt;
+<pre class="example-preformatted">        &lt;speak&gt;Hello, &lt;mark name=&quot;mark1&quot;/&gt; how does it work?&lt;/speak&gt;
 </pre></div>
 <p>would issue the following sequence of events if it is not discarded or paused:
 </p>
 <div class="example">
-<pre class="example">        BEGIN
+<pre class="example-preformatted">        BEGIN
         INDEX_MARK &quot;mark1&quot;
         END
 </pre></div>
@@ -1383,7 +1390,7 @@ mark.
 <p>or this one if it gets paused after the first index mark and then later resumed.
 </p>
 <div class="example">
-<pre class="example">        BEGIN
+<pre class="example-preformatted">        BEGIN
         INDEX_MARK &quot;mark1&quot;
         PAUSE
         RESUME
@@ -1392,12 +1399,12 @@ mark.
 
 <hr>
 </div>
-<div class="subsection" id="Events-Notifications-in-SSIP">
-<div class="header">
+<div class="subsection-level-extent" id="Events-Notifications-in-SSIP">
+<div class="nav-panel">
 <p>
 Next: <a href="#Switching-Notifications-On-and-Off" accesskey="n" rel="next">Switching Notifications On and Off</a>, Previous: <a href="#Types-of-Events" accesskey="p" rel="prev">Types of Events</a>, Up: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="u" rel="up">Message Events Notification and Index Marking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Events-Notification-in-SSIP"></span><h4 class="subsection">4.7.3 Events Notification in SSIP</h4>
+<h4 class="subsection" id="Events-Notification-in-SSIP">4.7.3 Events Notification in SSIP</h4>
 
 <p>Event notifications, if requested, are reported asynchronously in
 SSIP. This means that they are not sent as replies to any particular
@@ -1406,68 +1413,68 @@ in the time between when a SSIP command is sent by the client and its
 reply is sent back by the server.
 </p>
 <p>Each notification consists of a multi-line SSIP reply as defined in
-<a href="#General-Rules">General Rules</a>, and includes at least two parameters:
-<code>msg_id</code> and <code>client_id</code>. <code>msg_id</code> is the
+<a class="ref" href="#General-Rules">General Rules</a>, and includes at least two parameters:
+<code class="code">msg_id</code> and <code class="code">client_id</code>. <code class="code">msg_id</code> is the
 identification number of the message the event is related to,
-<a href="#SPEAK">SPEAK</a> while <code>client_id</code> is the identification number of the
+<a class="ref" href="#SPEAK">SPEAK</a> while <code class="code">client_id</code> is the identification number of the
 client who sent the message. Some events may have additional
 parameters.
 </p>
-<dl compact="compact">
-<dt><span><code>INDEX_MARK</code></span></dt>
+<dl class="table">
+<dt><code class="code">INDEX_MARK</code></dt>
 <dd>
 <div class="example">
-<pre class="example">700-msg_id
+<pre class="example-preformatted">700-msg_id
 700-client_id
 700-index_mark
 700 END
 </pre></div>
 
-<p>The event <code>INDEX_MARK</code> carries a special parameter
-<code>index_mark</code> which is a string of characters identifying the
+<p>The event <code class="code">INDEX_MARK</code> carries a special parameter
+<code class="code">index_mark</code> which is a string of characters identifying the
 index mark, as specified by the client application (e.g. by the
 SSML tag &lt;mark/&gt;.
 </p>
 </dd>
-<dt><span><code>BEGIN</code></span></dt>
+<dt><code class="code">BEGIN</code></dt>
 <dd>
 <div class="example">
-<pre class="example">701-msg_id
+<pre class="example-preformatted">701-msg_id
 701-client_id
 701 BEGIN
 </pre></div>
 </dd>
-<dt><span><code>END</code></span></dt>
+<dt><code class="code">END</code></dt>
 <dd>
 <div class="example">
-<pre class="example">702-msg_id
+<pre class="example-preformatted">702-msg_id
 702-client_id
 702 END
 </pre></div>
 
 </dd>
-<dt><span><code>CANCEL</code></span></dt>
+<dt><code class="code">CANCEL</code></dt>
 <dd>
 <div class="example">
-<pre class="example">703-msg_id
+<pre class="example-preformatted">703-msg_id
 703-client_id
 703 CANCELED
 </pre></div>
 
 </dd>
-<dt><span><code>PAUSE</code></span></dt>
+<dt><code class="code">PAUSE</code></dt>
 <dd>
 <div class="example">
-<pre class="example">704-msg_id
+<pre class="example-preformatted">704-msg_id
 704-client_id
 704 PAUSED
 </pre></div>
 
 </dd>
-<dt><span><code>RESUME</code></span></dt>
+<dt><code class="code">RESUME</code></dt>
 <dd>
 <div class="example">
-<pre class="example">705-msg_id
+<pre class="example-preformatted">705-msg_id
 705-client_id
 705 RESUMED
 </pre></div>
@@ -1477,12 +1484,12 @@ SSML tag &lt;mark/&gt;.
 
 <hr>
 </div>
-<div class="subsection" id="Switching-Notifications-On-and-Off">
-<div class="header">
+<div class="subsection-level-extent" id="Switching-Notifications-On-and-Off">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Events-Notifications-in-SSIP" accesskey="p" rel="prev">Events Notification in SSIP</a>, Up: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="u" rel="up">Message Events Notification and Index Marking</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Switching-Notifications-On-and-Off-1"></span><h4 class="subsection">4.7.4 Switching Notifications On and Off</h4>
+<h4 class="subsection" id="Switching-Notifications-On-and-Off-1">4.7.4 Switching Notifications On and Off</h4>
 
 <p>The client application might or might not want to receive the
 notifications about events, or it might want to receive some but not
@@ -1490,48 +1497,48 @@ others. SSIP allows clients to specify which notifications are to be
 used.
 </p>
 <p>The following commands for setting notifications on and off affect all
-the text messages (sent by the <code>SPEAK</code> SSIP command) based on
-when the appropriate <code>SPEAK</code> command was called. So if for
+the text messages (sent by the <code class="code">SPEAK</code> SSIP command) based on
+when the appropriate <code class="code">SPEAK</code> command was called. So if for
 example, you set all notifications on, send a message and then set all
 notifications off, you will receive all the available notifications
 for that message even though it might start speaking after the
 notifications are already turned off.
 </p>
-<dl compact="compact">
-<dt><span><code>SET SELF NOTIFICATION ALL { on | off }</code></span></dt>
+<dl class="table">
+<dt><code class="code">SET SELF NOTIFICATION ALL { on | off }</code></dt>
 <dd>
 <p>Set all available event notifications to either &ldquo;on&rdquo; or &ldquo;off&rdquo; for
-for the messages that follow. See <a href="#Types-of-Events">Types of Events</a>.
+for the messages that follow. See <a class="xref" href="#Types-of-Events">Types of Events</a>.
 </p>
 </dd>
-<dt><span><code>SET SELF NOTIFICATION BEGIN { on | off }</code></span></dt>
-<dt><span><code>SET SELF NOTIFICATION END { on | off }</code></span></dt>
+<dt><code class="code">SET SELF NOTIFICATION BEGIN { on | off }</code></dt>
+<dt><code class="code">SET SELF NOTIFICATION END { on | off }</code></dt>
 <dd>
-<p>Set the event notifications for <code>BEGIN</code> or <code>END</code> to either
-&ldquo;on&rdquo; or &ldquo;off&rdquo; for the messages that follow. See <a href="#Types-of-Events">Types of Events</a>.
+<p>Set the event notifications for <code class="code">BEGIN</code> or <code class="code">END</code> to either
+&ldquo;on&rdquo; or &ldquo;off&rdquo; for the messages that follow. See <a class="xref" href="#Types-of-Events">Types of Events</a>.
 </p>
 </dd>
-<dt><span><code>SET SELF NOTIFICATION CANCEL { on | off }</code></span></dt>
+<dt><code class="code">SET SELF NOTIFICATION CANCEL { on | off }</code></dt>
 <dd>
-<p>Set the event notifications for <code>CANCEL</code> to <code>mode</code> where
-<code>mode</code> is either &ldquo;on&rdquo; or &ldquo;off&rdquo; for switching the
-notifications on or off for the messages that follow. See <a href="#Types-of-Events">Types of Events</a>.
+<p>Set the event notifications for <code class="code">CANCEL</code> to <code class="code">mode</code> where
+<code class="code">mode</code> is either &ldquo;on&rdquo; or &ldquo;off&rdquo; for switching the
+notifications on or off for the messages that follow. See <a class="xref" href="#Types-of-Events">Types of Events</a>.
 </p>
 </dd>
-<dt><span><code>SET SELF NOTIFICATION PAUSE { on | off }</code></span></dt>
-<dt><span><code>SET SELF NOTIFICATION RESUME { on | off }</code></span></dt>
+<dt><code class="code">SET SELF NOTIFICATION PAUSE { on | off }</code></dt>
+<dt><code class="code">SET SELF NOTIFICATION RESUME { on | off }</code></dt>
 <dd>
-<p>Set the event notifications for <code>PAUSE</code> or <code>RESUME</code> to
-<code>mode</code> where <code>mode</code> is either &ldquo;on&rdquo; or &ldquo;off&rdquo; for
+<p>Set the event notifications for <code class="code">PAUSE</code> or <code class="code">RESUME</code> to
+<code class="code">mode</code> where <code class="code">mode</code> is either &ldquo;on&rdquo; or &ldquo;off&rdquo; for
 switching the notifications on or off for the messages that
-follow. See <a href="#Types-of-Events">Types of Events</a>.
+follow. See <a class="xref" href="#Types-of-Events">Types of Events</a>.
 </p>
 </dd>
-<dt><span><code>SET SELF NOTIFICATION INDEX_MARKS { on | off }</code></span></dt>
+<dt><code class="code">SET SELF NOTIFICATION INDEX_MARKS { on | off }</code></dt>
 <dd>
-<p>Set the event notifications for <code>INDEX_MARK</code> to either &ldquo;on&rdquo; or
+<p>Set the event notifications for <code class="code">INDEX_MARK</code> to either &ldquo;on&rdquo; or
 &ldquo;off&rdquo; for switching the notifications on or off for the messages
-that follow. See <a href="#Types-of-Events">Types of Events</a>.
+that follow. See <a class="xref" href="#Types-of-Events">Types of Events</a>.
 </p>
 </dd>
 </dl>
@@ -1539,25 +1546,25 @@ that follow. See <a href="#Types-of-Events">Types of Events</a>.
 <hr>
 </div>
 </div>
-<div class="section" id="History-Handling-Commands">
-<div class="header">
+<div class="section-level-extent" id="History-Handling-Commands">
+<div class="nav-panel">
 <p>
 Next: <a href="#Other-Commands" accesskey="n" rel="next">Other Commands</a>, Previous: <a href="#Message-Events-Notification-and-Index-Marking" accesskey="p" rel="prev">Message Events Notification and Index Marking</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="History-Handling"></span><h3 class="section">4.8 History Handling</h3>
+<h3 class="section" id="History-Handling">4.8 History Handling</h3>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Purpose-of-Message-History" accesskey="1">Purpose of Message History</a></li>
 <li><a href="#Message-History-in-SSIP" accesskey="2">Message History in SSIP</a></li>
 </ul>
 <hr>
-<div class="subsection" id="Purpose-of-Message-History">
-<div class="header">
+<div class="subsection-level-extent" id="Purpose-of-Message-History">
+<div class="nav-panel">
 <p>
 Next: <a href="#Message-History-in-SSIP" accesskey="n" rel="next">Message History in SSIP</a>, Previous: <a href="#History-Handling-Commands" accesskey="p" rel="prev">History Handling</a>, Up: <a href="#History-Handling-Commands" accesskey="u" rel="up">History Handling</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Purpose-of-Message-History-1"></span><h4 class="subsection">4.8.1 Purpose of Message History</h4>
+<h4 class="subsection" id="Purpose-of-Message-History-1">4.8.1 Purpose of Message History</h4>
 
 <p>It seems a good feature for the blind and visually impaired to
 provide the possibility to browse, through some simple client, the
@@ -1569,7 +1576,7 @@ than speech output can possibly provide.
 </p>
 <p>For this reason, SSIP defines a set of commands that allow client
 applications to browse through the history of previously received
-messages saved on the server. The idea is that <em>each</em> message
+messages saved on the server. The idea is that <em class="emph">each</em> message
 received by the server should be accessible through the history and
 the user can search for it later by time, keywords or using other
 methods.
@@ -1582,16 +1589,16 @@ that come from the same client connection are accessible.
 </p>
 <hr>
 </div>
-<div class="subsection" id="Message-History-in-SSIP">
-<div class="header">
+<div class="subsection-level-extent" id="Message-History-in-SSIP">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Purpose-of-Message-History" accesskey="p" rel="prev">Purpose of Message History</a>, Up: <a href="#History-Handling-Commands" accesskey="u" rel="up">History Handling</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Message-History-in-SSIP-1"></span><h4 class="subsection">4.8.2 Message History in SSIP</h4>
+<h4 class="subsection" id="Message-History-in-SSIP-1">4.8.2 Message History in SSIP</h4>
 
-<p>History is handled by the <code>HISTORY</code> command.  It can take many
+<p>History is handled by the <code class="code">HISTORY</code> command.  It can take many
 forms, described below, that allow browsing, retrieving and repeating
-stored messages.  In each invocation of the <code>HISTORY</code> command
+stored messages.  In each invocation of the <code class="code">HISTORY</code> command
 there is no difference between processing spoken or not spoken
 messages, all the received messages are processed.
 </p>
@@ -1600,70 +1607,70 @@ implementation of SSIP is still under
 way. If you want to use them, please contact us to see the
 current status.
 </p>
-<p>There is a <em>history cursor</em> pointing to some message in the
+<p>There is a <em class="dfn">history cursor</em> pointing to some message in the
 history.  You can move it across history messages and retrieve the
-message the cursor is pointing to, using the <code>HISTORY CURSOR</code> set
+message the cursor is pointing to, using the <code class="code">HISTORY CURSOR</code> set
 of command arguments described below.
 </p>
-<dl compact="compact">
-<dt><span><code>HISTORY GET CLIENT_LIST</code></span></dt>
+<dl class="table">
+<dt><code class="code">HISTORY GET CLIENT_LIST</code></dt>
 <dd><p>List known client names, their identifiers and status.  Each connection is
 listed on a separate line in the following format:
 </p>
 <div class="example">
-<pre class="example"><var>id</var> <var>name</var> <var>status</var>
+<pre class="example-preformatted"><var class="var">id</var> <var class="var">name</var> <var class="var">status</var>
 </pre></div>
 
-<p>where <var>id</var> is a client id that can be used in other history
+<p>where <var class="var">id</var> is a client id that can be used in other history
 handling requests or in the speech output control commands
-(see <a href="#Speech-Output-Control-Commands">Controlling Speech Output</a>), <var>name</var> is the client
-name as set through the <code>SET SELF CLIENT_NAME</code> command, and
-<var>status</var> is <code>1</code> for connected clients and <code>0</code> for
-disconnected clients.  <var>id</var>s are unique within a single run of
+(see <a class="pxref" href="#Speech-Output-Control-Commands">Controlling Speech Output</a>), <var class="var">name</var> is the client
+name as set through the <code class="code">SET SELF CLIENT_NAME</code> command, and
+<var class="var">status</var> is <code class="code">1</code> for connected clients and <code class="code">0</code> for
+disconnected clients.  <var class="var">id</var>s are unique within a single run of
 Speech Server.
 </p>
 <p>Sample SSIP reply:
 </p>
 <div class="example">
-<pre class="example">240-0 joe:speechd_client:main 0
+<pre class="example-preformatted">240-0 joe:speechd_client:main 0
 240-1 joe:speechd_client:status 0
 240-2 unknown:unknown:unknown 1
 240 OK CLIENTS LIST SENT
 </pre></div>
 
 </dd>
-<dt><span><code>HISTORY GET CLIENT_ID</code></span></dt>
+<dt><code class="code">HISTORY GET CLIENT_ID</code></dt>
 <dd><p>Return id of the client itself.
 </p>
 <p>The id is listed on a separate line in the following format:
 </p>
 <div class="example">
-<pre class="example"><var>id</var>
+<pre class="example-preformatted"><var class="var">id</var>
 </pre></div>
 
 <p>Example:
 </p><div class="example">
-<pre class="example">200-123
+<pre class="example-preformatted">200-123
 200 OK CLIENT ID SENT
 </pre></div>
 
 </dd>
-<dt><span><code>HISTORY GET CLIENT_MESSAGES { <var>id</var> | all | self } <var>start</var> <var>number</var></code></span></dt>
+<dt><code class="code">HISTORY GET CLIENT_MESSAGES { <var class="var">id</var> | all | self } <var class="var">start</var> <var class="var">number</var></code></dt>
 <dd><p>List identifiers of messages sent by the client identified by
-<var>id</var>.  If the special identifier <code>all</code> is used, identifiers
+<var class="var">id</var>.  If the special identifier <code class="code">all</code> is used, identifiers
 of messages sent by all clients are listed; if the special identifier
-<code>self</code> is used, identifiers of messages sent by this client are
+<code class="code">self</code> is used, identifiers of messages sent by this client are
 listed.
 </p>
-<p><var>number</var> of messages is listed, starting from the message numbered
-<var>start</var>.  Both <var>number</var> and <var>start</var> must be positive
+<p><var class="var">number</var> of messages is listed, starting from the message numbered
+<var class="var">start</var>.  Both <var class="var">number</var> and <var class="var">start</var> must be positive
 integers.  The first message is numbered 1, the second 2, etc.  If the
 given range exceeds the range of available messages, no error is
 signaled and the given range is restricted to the available range of
 messages.
 </p>
 <p>Messages are sorted by the criterion used in the last client&rsquo;s
-invocation of the <code>HISTORY SORT</code> command.  If no <code>HISTORY
+invocation of the <code class="code">HISTORY SORT</code> command.  If no <code class="code">HISTORY
 SET</code> has been invoked yet, the messages are sorted from the oldest to
 the newest, according to their time of arrival at Speech Server.
 </p>
@@ -1671,20 +1678,20 @@ the newest, according to their time of arrival at Speech Server.
 separate line, in the following format:
 </p>
 <div class="example">
-<pre class="example"><var>id</var> <var>client-id</var> <var>client-name</var> &quot;<var>time</var>&quot; <var>priority</var> &quot;<var>intro</var>&quot;
+<pre class="example-preformatted"><var class="var">id</var> <var class="var">client-id</var> <var class="var">client-name</var> &quot;<var class="var">time</var>&quot; <var class="var">priority</var> &quot;<var class="var">intro</var>&quot;
 </pre></div>
 
-<p><var>client-id</var> is a numeric identifier of the client which sent the
-message, <var>client-name</var> is its name as set by the <code>SET SELF
-CLIENT_NAME</code> command (see <a href="#Parameter-Setting-Commands">Parameter Setting</a>).
-<var>time</var> is the time of arrival of the message, in the fixed length
-<code>YYYY-MM-DD HH:MM:SS</code> format.  <var>priority</var> is the priority of
-the message, one of the values accepted by the <code>SET SELF PRIORITY</code>
-command (see <a href="#Parameter-Setting-Commands">Parameter Setting</a>).
+<p><var class="var">client-id</var> is a numeric identifier of the client which sent the
+message, <var class="var">client-name</var> is its name as set by the <code class="code">SET SELF
+CLIENT_NAME</code> command (see <a class="pxref" href="#Parameter-Setting-Commands">Parameter Setting</a>).
+<var class="var">time</var> is the time of arrival of the message, in the fixed length
+<code class="code">YYYY-MM-DD HH:MM:SS</code> format.  <var class="var">priority</var> is the priority of
+the message, one of the values accepted by the <code class="code">SET SELF PRIORITY</code>
+command (see <a class="pxref" href="#Parameter-Setting-Commands">Parameter Setting</a>).
 </p>
-<p><var>intro</var> is the introductory part of the message of a certain
-maximum length, see the <code>HISTORY SET SHORT_MESSAGE_LENGTH</code>
-command.  <var>intro</var> does not contain any double quotes nor the line
+<p><var class="var">intro</var> is the introductory part of the message of a certain
+maximum length, see the <code class="code">HISTORY SET SHORT_MESSAGE_LENGTH</code>
+command.  <var class="var">intro</var> does not contain any double quotes nor the line
 feed character.
 </p>
 <p>All the message identifiers in the history, regardless of clients that
@@ -1692,102 +1699,102 @@ issued them, are unique within a single run of Speech Server and
 remain unchanged.
 </p>
 </dd>
-<dt><span><code>HISTORY GET LAST</code></span></dt>
+<dt><code class="code">HISTORY GET LAST</code></dt>
 <dd><p>List the id of the last message sent by the client.
 </p>
 <p>The id is listed on a separate line of the following format:
 </p>
 <div class="example">
-<pre class="example"><var>id</var>
+<pre class="example-preformatted"><var class="var">id</var>
 </pre></div>
 
 <p>If the client hasn&rsquo;t sent any message yet, return an error code.
 </p>
 </dd>
-<dt><span><code>HISTORY GET MESSAGE <var>id</var></code></span></dt>
-<dd><p>Return the text of the history message identified by <var>id</var>.  If
-<var>id</var> doesn&rsquo;t refer to any message, return an error code instead.
+<dt><code class="code">HISTORY GET MESSAGE <var class="var">id</var></code></dt>
+<dd><p>Return the text of the history message identified by <var class="var">id</var>.  If
+<var class="var">id</var> doesn&rsquo;t refer to any message, return an error code instead.
 The text is sent as a multi-line message, with no escaping or special
 transformation.
 </p>
 <p>An example SSIP response to the command:
 </p>
 <div class="example">
-<pre class="example">200-Hello, world!
+<pre class="example-preformatted">200-Hello, world!
 200-How are you?
 200 OK MESSAGE SENT
 </pre></div>
 
 </dd>
-<dt><span><code>HISTORY CURSOR GET</code></span></dt>
+<dt><code class="code">HISTORY CURSOR GET</code></dt>
 <dd><p>Get the id of the message the history cursor is pointing to.
 </p>
 <p>The id is listed on a separate line.  Sample SSIP reply to
 this command:
 </p>
 <div class="example">
-<pre class="example">243-42
+<pre class="example-preformatted">243-42
 243 OK CURSOR POSITION RETURNED
 </pre></div>
 
 </dd>
-<dt><span><code>HISTORY CURSOR SET { <var>id</var> | all | self } { first | last | pos <var>n</var> }</code></span></dt>
+<dt><code class="code">HISTORY CURSOR SET { <var class="var">id</var> | all | self } { first | last | pos <var class="var">n</var> }</code></dt>
 <dd><p>Set the history cursor to the given position.  The meaning of the
-first argument after <code>SET</code> is the same as in the <code>HISTORY
-GET CLIENT_MESSAGES</code> command.  The argument <code>first</code> asks to set
-the cursor on the first position and the argument <code>last</code> asks to
+first argument after <code class="code">SET</code> is the same as in the <code class="code">HISTORY
+GET CLIENT_MESSAGES</code> command.  The argument <code class="code">first</code> asks to set
+the cursor on the first position and the argument <code class="code">last</code> asks to
 set the cursor on the last position of the history of the given
-client.  If the argument <code>pos</code> is used, the position is set to
-<var>n</var>, where <var>n</var> is a positive integer.  It is an error if
-<var>id</var> doesn&rsquo;t identify any client or if <var>n</var> doesn&rsquo;t point to
+client.  If the argument <code class="code">pos</code> is used, the position is set to
+<var class="var">n</var>, where <var class="var">n</var> is a positive integer.  It is an error if
+<var class="var">id</var> doesn&rsquo;t identify any client or if <var class="var">n</var> doesn&rsquo;t point to
 any existing position in the history.
 </p>
 <p>As for the order and numbering of the messages in the history, the
-same rules apply as in <code>HISTORY GET CLIENT_MESSAGES</code>. See above.
+same rules apply as in <code class="code">HISTORY GET CLIENT_MESSAGES</code>. See above.
 </p>
 </dd>
-<dt><span><code>HISTORY CURSOR { forward | backward }</code></span></dt>
-<dd><p>Move the cursor one position <code>forward</code>, resp. <code>backward</code>,
-within the messages of the client specified in the last <code>HISTORY
+<dt><code class="code">HISTORY CURSOR { forward | backward }</code></dt>
+<dd><p>Move the cursor one position <code class="code">forward</code>, resp. <code class="code">backward</code>,
+within the messages of the client specified in the last <code class="code">HISTORY
 CURSOR SET</code> command.  If there is no next, resp. previous, message,
 don&rsquo;t move the cursor and return an error code.
 </p>
 </dd>
-<dt><span><code>HISTORY SAY <var>id</var></code></span></dt>
-<dd><p>Speak the message from history identified by <var>id</var>.  If <var>id</var>
+<dt><code class="code">HISTORY SAY <var class="var">id</var></code></dt>
+<dd><p>Speak the message from history identified by <var class="var">id</var>.  If <var class="var">id</var>
 doesn&rsquo;t refer to any message, return an error code instead.
 </p>
 <p>The message is spoken as it would be sent by its originating command
-(<code>SPEAK</code> or <code>SOUND_ICON</code>), but the <em>current</em> settings
+(<code class="code">SPEAK</code> or <code class="code">SOUND_ICON</code>), but the <em class="emph">current</em> settings
 (priority, etc.) apply.
 </p>
 </dd>
-<dt><span><code>HISTORY SORT { asc | desc } { time | user | client_name | priority | message_type }</code></span></dt>
+<dt><code class="code">HISTORY SORT { asc | desc } { time | user | client_name | priority | message_type }</code></dt>
 <dd><p>Sort the messages in history according to the given criteria.  If the
-second command argument is <code>asc</code>, sort in ascending order, if
-it is <code>desc</code>, sort in descending order.  The third command
+second command argument is <code class="code">asc</code>, sort in ascending order, if
+it is <code class="code">desc</code>, sort in descending order.  The third command
 argument specifies the message property to order by:
 </p>
-<dl compact="compact">
-<dt><span><code>time</code></span></dt>
+<dl class="table">
+<dt><code class="code">time</code></dt>
 <dd><p>Time of arrival of the message.
 </p>
 </dd>
-<dt><span><code>user</code></span></dt>
+<dt><code class="code">user</code></dt>
 <dd><p>User name.
 </p>
 </dd>
-<dt><span><code>client_name</code></span></dt>
+<dt><code class="code">client_name</code></dt>
 <dd><p>Client name, excluding user name.
 </p>
 </dd>
-<dt><span><code>priority</code></span></dt>
+<dt><code class="code">priority</code></dt>
 <dd><p>Priority.
 </p>
 </dd>
-<dt><span><code>message_type</code></span></dt>
+<dt><code class="code">message_type</code></dt>
 <dd><p>Type of the message (text, sound icon, character, key), in the order
-specified in the Speech Server configuration or by the <code>HISTORY
+specified in the Speech Server configuration or by the <code class="code">HISTORY
 SET MESSAGE_TYPE_ORDERING</code> command.
 </p></dd>
 </dl>
@@ -1799,80 +1806,80 @@ the given ordering remains the same.
 connections are unaffected by invocation of this command.
 </p>
 </dd>
-<dt><span><code>HISTORY SET SHORT_MESSAGE_LENGTH <var>length</var></code></span></dt>
+<dt><code class="code">HISTORY SET SHORT_MESSAGE_LENGTH <var class="var">length</var></code></dt>
 <dd><p>Set the maximum length of short versions of history messages to
-<var>length</var> characters.  <var>length</var> must be a non-negative integer.
+<var class="var">length</var> characters.  <var class="var">length</var> must be a non-negative integer.
 </p>
 <p>Short (truncated) versions of history messages are used e.g. in the
-answer to the <code>HISTORY GET CLIENT_MESSAGES</code> format.
+answer to the <code class="code">HISTORY GET CLIENT_MESSAGES</code> format.
 </p>
 </dd>
-<dt><span><code>HISTORY SET MESSAGE_TYPE_ORDERING &quot;<var>ordering</var>&quot;</code></span></dt>
+<dt><code class="code">HISTORY SET MESSAGE_TYPE_ORDERING &quot;<var class="var">ordering</var>&quot;</code></dt>
 <dd><p>Set the ordering of the message types, from the minimum to the
-maximum.  <var>ordering</var> is a sequence of the following symbols,
-separated by spaces: <code>text</code>, <code>sound_icon</code>, <code>char</code>,
-<code>key</code>.  The symbols are case insensitive and each of them must be
-present in <var>ordering</var> exactly once.
+maximum.  <var class="var">ordering</var> is a sequence of the following symbols,
+separated by spaces: <code class="code">text</code>, <code class="code">sound_icon</code>, <code class="code">char</code>,
+<code class="code">key</code>.  The symbols are case insensitive and each of them must be
+present in <var class="var">ordering</var> exactly once.
 </p>
-<p>The specified ordering can be used by the <code>HISTORY SORT</code> command.
+<p>The specified ordering can be used by the <code class="code">HISTORY SORT</code> command.
 </p>
 </dd>
-<dt><span><code>HISTORY SEARCH { <var>id</var> | all | self } &quot;<var>condition</var>&quot;</code></span></dt>
-<dd><p>Return the list of history messages satisfying <var>condition</var>.  The
+<dt><code class="code">HISTORY SEARCH { <var class="var">id</var> | all | self } &quot;<var class="var">condition</var>&quot;</code></dt>
+<dd><p>Return the list of history messages satisfying <var class="var">condition</var>.  The
 command allows searching messages by given words.  The output format
-is the same as the <code>HISTORY GET CLIENT_MESSAGES</code> command.
+is the same as the <code class="code">HISTORY GET CLIENT_MESSAGES</code> command.
 </p>
-<p>The meaning of the first argument after <code>SEARCH</code> is the same as
-the <code>HISTORY GET CLIENT_MESSAGES</code> command.
+<p>The meaning of the first argument after <code class="code">SEARCH</code> is the same as
+the <code class="code">HISTORY GET CLIENT_MESSAGES</code> command.
 </p>
-<p><var>condition</var> is constructed according to the following grammar
+<p><var class="var">condition</var> is constructed according to the following grammar
 rules:
 </p>
-<dl compact="compact">
-<dt><span><code><var>condition</var> :: <var>word</var></code></span></dt>
-<dd><p>Matches messages containing <var>word</var>.
+<dl class="table">
+<dt><code class="code"><var class="var">condition</var> :: <var class="var">word</var></code></dt>
+<dd><p>Matches messages containing <var class="var">word</var>.
 </p>
 </dd>
-<dt><span><code><var>condition</var> :: ( ! <var>condition</var> )</code></span></dt>
+<dt><code class="code"><var class="var">condition</var> :: ( ! <var class="var">condition</var> )</code></dt>
 <dd><p>Negation of the given condition.
 </p>
 </dd>
-<dt><span><code><var>condition</var> :: ( <var>condition</var> [ &amp; <var>condition</var> ... ] )</code></span></dt>
+<dt><code class="code"><var class="var">condition</var> :: ( <var class="var">condition</var> [ &amp; <var class="var">condition</var> ... ] )</code></dt>
 <dd><p>Logical AND &mdash; all the conditions must be satisfied.
 </p>
 </dd>
-<dt><span><code><var>condition</var> :: ( <var>condition</var> [ | <var>condition</var> ... ] )</code></span></dt>
+<dt><code class="code"><var class="var">condition</var> :: ( <var class="var">condition</var> [ | <var class="var">condition</var> ... ] )</code></dt>
 <dd><p>Logical OR &mdash; at least one of the conditions must be satisfied.
 </p></dd>
 </dl>
 
 <p>Spaces within the condition are insignificant and ignored.
 </p>
-<p>The following rules apply to <var>word</var>s:
+<p>The following rules apply to <var class="var">word</var>s:
 </p>
-<ul class="no-bullet">
-<li>- <var>word</var> is a sequence of adjacent alphanumeric characters.
+<ul class="itemize mark-minus">
+<li><var class="var">word</var> is a sequence of adjacent alphanumeric characters.
 
-</li><li>- If <var>word</var> contains any upper-case letter, the search for the word
+</li><li>If <var class="var">word</var> contains any upper-case letter, the search for the word
 is case sensitive, otherwise it&rsquo;s case insensitive.
 
-</li><li>- <var>word</var> must match whole word, not only its substring.
+</li><li><var class="var">word</var> must match whole word, not only its substring.
 
-</li><li>- <var>word</var> can contain the wild card characters <code>?</code>, substituting
-any single alphanumeric character, and <code>*</code>, substituting any
+</li><li><var class="var">word</var> can contain the wild card characters <code class="code">?</code>, substituting
+any single alphanumeric character, and <code class="code">*</code>, substituting any
 number (incl. zero) of alphanumeric characters.
 </li></ul>
 
 <p>Returned messages are sorted by the following rules:
 </p>
-<ol>
+<ol class="enumerate">
 <li> The primary sorting is defined by the number of the satisfied
 subconditions on the top level of the given condition, from the
 highest (best matching messages first) to the lowest.  This takes
 effect only if the given condition is the OR rule.
 
 </li><li> The criterion used in the last client&rsquo;s invocation of the
-<code>HISTORY SORT</code> command.  If no <code>HISTORY SORT</code> has been
+<code class="code">HISTORY SORT</code> command.  If no <code class="code">HISTORY SORT</code> has been
 invoked yet, the messages are sorted from the oldest to the newest,
 according to their time of arrival.
 </li></ol>
@@ -1882,19 +1889,19 @@ according to their time of arrival.
 <hr>
 </div>
 </div>
-<div class="section" id="Other-Commands">
-<div class="header">
+<div class="section-level-extent" id="Other-Commands">
+<div class="nav-panel">
 <p>
 Previous: <a href="#History-Handling-Commands" accesskey="p" rel="prev">History Handling</a>, Up: <a href="#SSIP-Commands" accesskey="u" rel="up">SSIP Commands</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Other-Commands-1"></span><h3 class="section">4.9 Other Commands</h3>
+<h3 class="section" id="Other-Commands-1">4.9 Other Commands</h3>
 
-<dl compact="compact">
-<dt><span><code>QUIT</code></span></dt>
+<dl class="table">
+<dt><code class="code">QUIT</code></dt>
 <dd><p>Close the connection.
 </p>
 </dd>
-<dt><span><code>HELP</code></span></dt>
+<dt><code class="code">HELP</code></dt>
 <dd><p>Print a short list of all SSIP commands, as a multi-line message.
 </p></dd>
 </dl>
@@ -1902,56 +1909,56 @@ Previous: <a href="#History-Handling-Commands" accesskey="p" rel="prev">History 
 <hr>
 </div>
 </div>
-<div class="chapter" id="Return-Codes">
-<div class="header">
+<div class="chapter-level-extent" id="Return-Codes">
+<div class="nav-panel">
 <p>
 Next: <a href="#Appendices" accesskey="n" rel="next">Appendices</a>, Previous: <a href="#SSIP-Commands" accesskey="p" rel="prev">SSIP Commands</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Return-Codes-1"></span><h2 class="chapter">5 Return Codes</h2>
+<h2 class="chapter" id="Return-Codes-1">5 Return Codes</h2>
 
 <p>Each line of the SSIP output starts with a three-digit numeric code of
-the form <var>NXX</var> where <var>N</var> determines the result group and
-<var>xx</var> denotes the finer classification of the result.
+the form <var class="var">NXX</var> where <var class="var">N</var> determines the result group and
+<var class="var">xx</var> denotes the finer classification of the result.
 </p>
 <p>SSIP defines the following result groups:
 </p>
-<dl compact="compact">
-<dt><span><var>1xx</var></span></dt>
+<dl class="table">
+<dt><var class="var">1xx</var></dt>
 <dd><p>Informative response &mdash; general information about the protocol, help
 messages.
 </p>
 </dd>
-<dt><span><var>2xx</var></span></dt>
+<dt><var class="var">2xx</var></dt>
 <dd><p>Operation was completely successful.
 </p>
 </dd>
-<dt><span><var>3xx</var></span></dt>
+<dt><var class="var">3xx</var></dt>
 <dd><p>Server error, problem on the server side.
 </p>
 </dd>
-<dt><span><var>4xx</var></span></dt>
+<dt><var class="var">4xx</var></dt>
 <dd><p>Client error, invalid arguments or parameters received.
 </p>
 </dd>
-<dt><span><var>5xx</var></span></dt>
+<dt><var class="var">5xx</var></dt>
 <dd><p>Client error, invalid command syntax, unparseable input.
 </p>
 </dd>
-<dt><span><var>7xx</var></span></dt>
-<dd><p>Event notifications. See See <a href="#Events-Notifications-in-SSIP">Events Notification in SSIP</a>.
+<dt><var class="var">7xx</var></dt>
+<dd><p>Event notifications. See See <a class="xref" href="#Events-Notifications-in-SSIP">Events Notification in SSIP</a>.
 </p></dd>
 </dl>
 
-<p>Result groups <var>1xx</var> and <var>2xx</var> correspond to successful
+<p>Result groups <var class="var">1xx</var> and <var class="var">2xx</var> correspond to successful
 actions, other groups to unsuccessful actions.  Only the groups
 defined here may be returned in an SSIP connection.
 </p>
-<p>Currently, for return codes in the range <code>100</code>&ndash;<code>599</code>, only the meaning of
+<p>Currently, for return codes in the range <code class="code">100</code>&ndash;<code class="code">599</code>, only the meaning of
 the first digit of the result code is defined.  The last two digits are
 insignificant and can be of any value.  Clients shouldn&rsquo;t rely on the
 unspecified digits in any way.
 </p>
-<p>However, the return codes in the range <code>700</code>&ndash;<code>800</code>,
+<p>However, the return codes in the range <code class="code">700</code>&ndash;<code class="code">800</code>,
 reserved for events notification, are well defined in the appropriate
 section of SSIP documentation and client applications can rely on
 them.
@@ -1960,16 +1967,16 @@ them.
 rely on them.
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Sample-SSIP-Dialog" accesskey="1">Example of an SSIP Dialog</a></li>
 </ul>
 <hr>
-<div class="section" id="Sample-SSIP-Dialog">
-<div class="header">
+<div class="section-level-extent" id="Sample-SSIP-Dialog">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Return-Codes" accesskey="p" rel="prev">Return Codes</a>, Up: <a href="#Return-Codes" accesskey="u" rel="up">Return Codes</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Example-of-an-SSIP-Dialog"></span><h3 class="section">5.1 Example of an SSIP Dialog</h3>
+<h3 class="section" id="Example-of-an-SSIP-Dialog">5.1 Example of an SSIP Dialog</h3>
 
 <p>The following example illustrates a sample dialog with SSIP.  The
 client connects to a Speech Server, sets all the common parameters,
@@ -1979,7 +1986,7 @@ Lines starting with a numeric code are response lines of the server,
 other lines are the lines sent by the client.
 </p>
 <div class="example">
-<pre class="example">SET SELF CLIENT_NAME joe:vi:default
+<pre class="example-preformatted">SET SELF CLIENT_NAME joe:vi:default
 208 OK CLIENT NAME SET
 SET SELF PRIORITY MESSAGE
 202 OK PRIORITY SET
@@ -2014,181 +2021,181 @@ QUIT
 <hr>
 </div>
 </div>
-<div class="appendix" id="Appendices">
-<div class="header">
+<div class="appendix-level-extent" id="Appendices">
+<div class="nav-panel">
 <p>
 Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Return-Codes" accesskey="p" rel="prev">Return Codes</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Appendices-1"></span><h2 class="appendix">Appendix A Appendices</h2>
+<h2 class="appendix" id="Appendices-1">Appendix A Appendices</h2>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Key-Names" accesskey="1">Key Names</a></li>
 <li><a href="#Standard-Sound-Icons" accesskey="2">Standard Sound Icons</a></li>
 <li><a href="#Standard-Voices" accesskey="3">Standard Voices</a></li>
 </ul>
 <hr>
-<div class="appendixsec" id="Key-Names">
-<div class="header">
+<div class="appendixsec-level-extent" id="Key-Names">
+<div class="nav-panel">
 <p>
 Next: <a href="#Standard-Sound-Icons" accesskey="n" rel="next">Standard Sound Icons</a>, Previous: <a href="#Appendices" accesskey="p" rel="prev">Appendices</a>, Up: <a href="#Appendices" accesskey="u" rel="up">Appendices</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Key-Names-1"></span><h3 class="appendixsec">A.1 Key Names</h3>
+<h3 class="appendixsec" id="Key-Names-1">A.1 Key Names</h3>
 
 <p>This appendix defines all the recognized symbolic key names.  The
 names are case sensitive.
 </p>
-<span id="Special-Key-Names"></span><h4 class="subheading">Special Key Names</h4>
+<h4 class="subheading" id="Special-Key-Names">Special Key Names</h4>
 
-<dl compact="compact">
-<dt><span><code>space</code></span></dt>
-<dt><span><code>underscore</code></span></dt>
-<dt><span><code>double-quote</code></span></dt>
+<dl class="table">
+<dt><code class="code">space</code></dt>
+<dt><code class="code">underscore</code></dt>
+<dt><code class="code">double-quote</code></dt>
 </dl>
 
-<span id="Auxiliary-Keys"></span><h4 class="subheading">Auxiliary Keys</h4>
+<h4 class="subheading" id="Auxiliary-Keys">Auxiliary Keys</h4>
 
-<dl compact="compact">
-<dt><span><code>alt</code></span></dt>
-<dt><span><code>control</code></span></dt>
-<dt><span><code>hyper</code></span></dt>
-<dt><span><code>meta</code></span></dt>
-<dt><span><code>shift</code></span></dt>
-<dt><span><code>super</code></span></dt>
+<dl class="table">
+<dt><code class="code">alt</code></dt>
+<dt><code class="code">control</code></dt>
+<dt><code class="code">hyper</code></dt>
+<dt><code class="code">meta</code></dt>
+<dt><code class="code">shift</code></dt>
+<dt><code class="code">super</code></dt>
 </dl>
 
-<span id="Control-Character-Keys"></span><h4 class="subheading">Control Character Keys</h4>
+<h4 class="subheading" id="Control-Character-Keys">Control Character Keys</h4>
 
-<dl compact="compact">
-<dt><span><code>backspace</code></span></dt>
-<dt><span><code>break</code></span></dt>
-<dt><span><code>delete</code></span></dt>
-<dt><span><code>down</code></span></dt>
-<dt><span><code>end</code></span></dt>
-<dt><span><code>enter</code></span></dt>
-<dt><span><code>escape</code></span></dt>
-<dt><span><code>f1</code></span></dt>
-<dt><span><code>f2</code></span></dt>
-<dt><span><code>f3</code></span></dt>
-<dt><span><code>f4</code></span></dt>
-<dt><span><code>f5</code></span></dt>
-<dt><span><code>f6</code></span></dt>
-<dt><span><code>f7</code></span></dt>
-<dt><span><code>f8</code></span></dt>
-<dt><span><code>f9</code></span></dt>
-<dt><span><code>f10</code></span></dt>
-<dt><span><code>f11</code></span></dt>
-<dt><span><code>f12</code></span></dt>
-<dt><span><code>f13</code></span></dt>
-<dt><span><code>f14</code></span></dt>
-<dt><span><code>f15</code></span></dt>
-<dt><span><code>f16</code></span></dt>
-<dt><span><code>f17</code></span></dt>
-<dt><span><code>f18</code></span></dt>
-<dt><span><code>f19</code></span></dt>
-<dt><span><code>f20</code></span></dt>
-<dt><span><code>f21</code></span></dt>
-<dt><span><code>f22</code></span></dt>
-<dt><span><code>f23</code></span></dt>
-<dt><span><code>f24</code></span></dt>
-<dt><span><code>home</code></span></dt>
-<dt><span><code>insert</code></span></dt>
-<dt><span><code>kp-*</code></span></dt>
-<dt><span><code>kp-+</code></span></dt>
-<dt><span><code>kp--</code></span></dt>
-<dt><span><code>kp-.</code></span></dt>
-<dt><span><code>kp-/</code></span></dt>
-<dt><span><code>kp-0</code></span></dt>
-<dt><span><code>kp-1</code></span></dt>
-<dt><span><code>kp-2</code></span></dt>
-<dt><span><code>kp-3</code></span></dt>
-<dt><span><code>kp-4</code></span></dt>
-<dt><span><code>kp-5</code></span></dt>
-<dt><span><code>kp-6</code></span></dt>
-<dt><span><code>kp-7</code></span></dt>
-<dt><span><code>kp-8</code></span></dt>
-<dt><span><code>kp-9</code></span></dt>
-<dt><span><code>kp-enter</code></span></dt>
-<dt><span><code>left</code></span></dt>
-<dt><span><code>menu</code></span></dt>
-<dt><span><code>next</code></span></dt>
-<dt><span><code>num-lock</code></span></dt>
-<dt><span><code>pause</code></span></dt>
-<dt><span><code>print</code></span></dt>
-<dt><span><code>prior</code></span></dt>
-<dt><span><code>return</code></span></dt>
-<dt><span><code>right</code></span></dt>
-<dt><span><code>scroll-lock</code></span></dt>
-<dt><span><code>space</code></span></dt>
-<dt><span><code>tab</code></span></dt>
-<dt><span><code>up</code></span></dt>
-<dt><span><code>window</code></span></dt>
+<dl class="table">
+<dt><code class="code">backspace</code></dt>
+<dt><code class="code">break</code></dt>
+<dt><code class="code">delete</code></dt>
+<dt><code class="code">down</code></dt>
+<dt><code class="code">end</code></dt>
+<dt><code class="code">enter</code></dt>
+<dt><code class="code">escape</code></dt>
+<dt><code class="code">f1</code></dt>
+<dt><code class="code">f2</code></dt>
+<dt><code class="code">f3</code></dt>
+<dt><code class="code">f4</code></dt>
+<dt><code class="code">f5</code></dt>
+<dt><code class="code">f6</code></dt>
+<dt><code class="code">f7</code></dt>
+<dt><code class="code">f8</code></dt>
+<dt><code class="code">f9</code></dt>
+<dt><code class="code">f10</code></dt>
+<dt><code class="code">f11</code></dt>
+<dt><code class="code">f12</code></dt>
+<dt><code class="code">f13</code></dt>
+<dt><code class="code">f14</code></dt>
+<dt><code class="code">f15</code></dt>
+<dt><code class="code">f16</code></dt>
+<dt><code class="code">f17</code></dt>
+<dt><code class="code">f18</code></dt>
+<dt><code class="code">f19</code></dt>
+<dt><code class="code">f20</code></dt>
+<dt><code class="code">f21</code></dt>
+<dt><code class="code">f22</code></dt>
+<dt><code class="code">f23</code></dt>
+<dt><code class="code">f24</code></dt>
+<dt><code class="code">home</code></dt>
+<dt><code class="code">insert</code></dt>
+<dt><code class="code">kp-*</code></dt>
+<dt><code class="code">kp-+</code></dt>
+<dt><code class="code">kp--</code></dt>
+<dt><code class="code">kp-.</code></dt>
+<dt><code class="code">kp-/</code></dt>
+<dt><code class="code">kp-0</code></dt>
+<dt><code class="code">kp-1</code></dt>
+<dt><code class="code">kp-2</code></dt>
+<dt><code class="code">kp-3</code></dt>
+<dt><code class="code">kp-4</code></dt>
+<dt><code class="code">kp-5</code></dt>
+<dt><code class="code">kp-6</code></dt>
+<dt><code class="code">kp-7</code></dt>
+<dt><code class="code">kp-8</code></dt>
+<dt><code class="code">kp-9</code></dt>
+<dt><code class="code">kp-enter</code></dt>
+<dt><code class="code">left</code></dt>
+<dt><code class="code">menu</code></dt>
+<dt><code class="code">next</code></dt>
+<dt><code class="code">num-lock</code></dt>
+<dt><code class="code">pause</code></dt>
+<dt><code class="code">print</code></dt>
+<dt><code class="code">prior</code></dt>
+<dt><code class="code">return</code></dt>
+<dt><code class="code">right</code></dt>
+<dt><code class="code">scroll-lock</code></dt>
+<dt><code class="code">space</code></dt>
+<dt><code class="code">tab</code></dt>
+<dt><code class="code">up</code></dt>
+<dt><code class="code">window</code></dt>
 </dl>
 
 <hr>
 </div>
-<div class="appendixsec" id="Standard-Sound-Icons">
-<div class="header">
+<div class="appendixsec-level-extent" id="Standard-Sound-Icons">
+<div class="nav-panel">
 <p>
 Next: <a href="#Standard-Voices" accesskey="n" rel="next">Standard Voices</a>, Previous: <a href="#Key-Names" accesskey="p" rel="prev">Key Names</a>, Up: <a href="#Appendices" accesskey="u" rel="up">Appendices</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Standard-Sound-Icons-1"></span><h3 class="appendixsec">A.2 Standard Sound Icons</h3>
+<h3 class="appendixsec" id="Standard-Sound-Icons-1">A.2 Standard Sound Icons</h3>
 
 <p>There are none currently.
 </p>
 <hr>
 </div>
-<div class="appendixsec" id="Standard-Voices">
-<div class="header">
+<div class="appendixsec-level-extent" id="Standard-Voices">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Standard-Sound-Icons" accesskey="p" rel="prev">Standard Sound Icons</a>, Up: <a href="#Appendices" accesskey="u" rel="up">Appendices</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="Standard-Voices-1"></span><h3 class="appendixsec">A.3 Standard Voices</h3>
+<h3 class="appendixsec" id="Standard-Voices-1">A.3 Standard Voices</h3>
 
 <p>The following voice names are always present in the output of the
-<code>LIST VOICES</code> command (see <a href="#Information-Retrieval-Commands">Retrieving Information</a>):
+<code class="code">LIST VOICES</code> command (see <a class="pxref" href="#Information-Retrieval-Commands">Retrieving Information</a>):
 </p>
-<dl compact="compact">
-<dt><span><code>MALE1</code></span></dt>
-<dt><span><code>MALE2</code></span></dt>
-<dt><span><code>MALE3</code></span></dt>
-<dt><span><code>FEMALE1</code></span></dt>
-<dt><span><code>FEMALE2</code></span></dt>
-<dt><span><code>FEMALE3</code></span></dt>
-<dt><span><code>CHILD_MALE</code></span></dt>
-<dt><span><code>CHILD_FEMALE</code></span></dt>
+<dl class="table">
+<dt><code class="code">MALE1</code></dt>
+<dt><code class="code">MALE2</code></dt>
+<dt><code class="code">MALE3</code></dt>
+<dt><code class="code">FEMALE1</code></dt>
+<dt><code class="code">FEMALE2</code></dt>
+<dt><code class="code">FEMALE3</code></dt>
+<dt><code class="code">CHILD_MALE</code></dt>
+<dt><code class="code">CHILD_FEMALE</code></dt>
 </dl>
 
 <p>The actual presence of any of these voices is not guaranteed.  But the
-command <code>SET VOICE</code> (see <a href="#Parameter-Setting-Commands">Parameter Setting</a>) must
+command <code class="code">SET VOICE</code> (see <a class="pxref" href="#Parameter-Setting-Commands">Parameter Setting</a>) must
 accept any of them.  If the given voice is not available, it is mapped
 to another voice by the output module.
 </p>
 <hr>
 </div>
 </div>
-<div class="appendix" id="GNU-Free-Documentation-License">
-<div class="header">
+<div class="appendix-level-extent" id="GNU-Free-Documentation-License">
+<div class="nav-panel">
 <p>
 Next: <a href="#GNU-General-Public-Licence" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#Appendices" accesskey="p" rel="prev">Appendices</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="GNU-Free-Documentation-License-1"></span><h2 class="appendix">Appendix B GNU Free Documentation License</h2>
-<div align="center">Version 1.2, November 2002
-</div><span id="index-FDL_002c-GNU-Free-Documentation-License"></span>
+<h2 class="appendix" id="GNU-Free-Documentation-License-1">Appendix B GNU Free Documentation License</h2>
+<div class="center">Version 1.2, November 2002
+</div><a class="index-entry-id" id="index-FDL_002c-GNU-Free-Documentation-License"></a>
 
 <div class="display">
-<pre class="display">Copyright &copy; 2000,2001,2002 Free Software Foundation, Inc.
+<pre class="display-preformatted">Copyright &copy; 2000,2001,2002 Free Software Foundation, Inc.
 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol start="0">
+<ol class="enumerate" start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <em>free</em> in the sense of freedom: to
+functional and useful document <em class="dfn">free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
 with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
@@ -2262,16 +2269,16 @@ An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not &ldquo;Transparent&rdquo; is called &ldquo;Opaque&rdquo;.
 </p>
 <p>Examples of suitable formats for Transparent copies include plain
-<small>ASCII</small> without markup, Texinfo input format, LaTeX input
-format, <acronym>SGML</acronym> or <acronym>XML</acronym> using a publicly available
-<acronym>DTD</acronym>, and standard-conforming simple <acronym>HTML</acronym>,
-PostScript or <acronym>PDF</acronym> designed for human modification.  Examples
-of transparent image formats include <acronym>PNG</acronym>, <acronym>XCF</acronym> and
-<acronym>JPG</acronym>.  Opaque formats include proprietary formats that can be
-read and edited only by proprietary word processors, <acronym>SGML</acronym> or
-<acronym>XML</acronym> for which the <acronym>DTD</acronym> and/or processing tools are
-not generally available, and the machine-generated <acronym>HTML</acronym>,
-PostScript or <acronym>PDF</acronym> produced by some word processors for
+<small class="sc">ASCII</small> without markup, Texinfo input format, LaTeX input
+format, <abbr class="acronym">SGML</abbr> or <abbr class="acronym">XML</abbr> using a publicly available
+<abbr class="acronym">DTD</abbr>, and standard-conforming simple <abbr class="acronym">HTML</abbr>,
+PostScript or <abbr class="acronym">PDF</abbr> designed for human modification.  Examples
+of transparent image formats include <abbr class="acronym">PNG</abbr>, <abbr class="acronym">XCF</abbr> and
+<abbr class="acronym">JPG</abbr>.  Opaque formats include proprietary formats that can be
+read and edited only by proprietary word processors, <abbr class="acronym">SGML</abbr> or
+<abbr class="acronym">XML</abbr> for which the <abbr class="acronym">DTD</abbr> and/or processing tools are
+not generally available, and the machine-generated <abbr class="acronym">HTML</abbr>,
+PostScript or <abbr class="acronym">PDF</abbr> produced by some word processors for
 output purposes only.
 </p>
 <p>The &ldquo;Title Page&rdquo; means, for a printed book, the title page itself,
@@ -2357,7 +2364,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol type="A" start="1">
+<ol class="enumerate" type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -2540,7 +2547,7 @@ parties remain in full compliance.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a class="uref" href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
@@ -2552,34 +2559,34 @@ number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.
 </p></li></ol>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents" accesskey="1">ADDENDUM: How to use this License for your documents</a></li>
 </ul>
-<div class="appendixsec" id="ADDENDUM_003a-How-to-use-this-License-for-your-documents">
+<div class="appendixsec-level-extent" id="ADDENDUM_003a-How-to-use-this-License-for-your-documents">
 <h3 class="appendixsec">B.1 ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
 </p>
-<div class="example">
-<pre class="example">  Copyright (C)  <var>year</var>  <var>your name</var>.
+<div class="example smallexample">
+<div class="group"><pre class="example-preformatted">  Copyright (C)  <var class="var">year</var>  <var class="var">your name</var>.
   Permission is granted to copy, distribute and/or modify this document
   under the terms of the GNU Free Documentation License, Version 1.2
   or any later version published by the Free Software Foundation;
   with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
   A copy of the license is included in the section entitled ``GNU
   Free Documentation License''.
-</pre></div>
+</pre></div></div>
 
 <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
 replace the &ldquo;with...Texts.&rdquo; line with this:
 </p>
-<div class="example">
-<pre class="example">    with the Invariant Sections being <var>list their titles</var>, with
-    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-    being <var>list</var>.
-</pre></div>
+<div class="example smallexample">
+<div class="group"><pre class="example-preformatted">    with the Invariant Sections being <var class="var">list their titles</var>, with
+    the Front-Cover Texts being <var class="var">list</var>, and with the Back-Cover Texts
+    being <var class="var">list</var>.
+</pre></div></div>
 
 <p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
@@ -2595,27 +2602,27 @@ to permit their use in free software.
 <hr>
 </div>
 </div>
-<div class="appendix" id="GNU-General-Public-Licence">
-<div class="header">
+<div class="appendix-level-extent" id="GNU-General-Public-Licence">
+<div class="nav-panel">
 <p>
 Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</p>
 </div>
-<span id="GNU-General-Public-License"></span><h2 class="appendix">Appendix C GNU General Public License</h2>
-<div align="center">Version 2, June 1991
-</div><span id="index-GNU-General-Public-License"></span>
+<h2 class="appendix" id="GNU-General-Public-License">Appendix C GNU General Public License</h2>
+<div class="center">Version 2, June 1991
+</div><a class="index-entry-id" id="index-GNU-General-Public-License"></a>
 
-<div align="center">Version 2, June 1991
+<div class="center">Version 2, June 1991
 </div>
 
 <div class="display">
-<pre class="display">Copyright &copy; 1989, 1991 Free Software Foundation, Inc.
+<pre class="display-preformatted">Copyright &copy; 1989, 1991 Free Software Foundation, Inc.
 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<span id="Preamble"></span><h3 class="heading">Preamble</h3>
+<h3 class="heading" id="Preamble">Preamble</h3>
 
 <p>The licenses for most software are designed to take away your
 freedom to share and change it.  By contrast, the GNU General Public
@@ -2665,9 +2672,9 @@ patent must be licensed for everyone&rsquo;s free use or not licensed at all.
 <p>The precise terms and conditions for copying, distribution and
 modification follow.
 </p>
-<span id="TERMS-AND-CONDITIONS-FOR-COPYING_002c-DISTRIBUTION-AND-MODIFICATION"></span><h3 class="heading">TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</h3>
+<h3 class="heading" id="TERMS-AND-CONDITIONS-FOR-COPYING_002c-DISTRIBUTION-AND-MODIFICATION">TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</h3>
 
-<ol start="0">
+<ol class="enumerate" start="0">
 <li> This License applies to any program or other work which contains
 a notice placed by the copyright holder saying it may be distributed
 under the terms of this General Public License.  The &ldquo;Program&rdquo;, below,
@@ -2701,7 +2708,7 @@ of it, thus forming a work based on the Program, and copy and
 distribute such modifications or work under the terms of Section 1
 above, provided that you also meet all of these conditions:
 
-<ol type="a" start="1">
+<ol class="enumerate" type="a" start="1">
 <li> You must cause the modified files to carry prominent notices
 stating that you changed the files and the date of any change.
 
@@ -2746,7 +2753,7 @@ the scope of this License.
 under Section 2) in object code or executable form under the terms of
 Sections 1 and 2 above provided that you also do one of the following:
 
-<ol type="a" start="1">
+<ol class="enumerate" type="a" start="1">
 <li> Accompany it with the complete corresponding machine-readable
 source code, which must be distributed under the terms of Sections
 1 and 2 above on a medium customarily used for software interchange; or,
@@ -2891,7 +2898,7 @@ POSSIBILITY OF SUCH DAMAGES.
 </li></ol>
 
 
-<span id="Appendix_003a-How-to-Apply-These-Terms-to-Your-New-Programs"></span><h3 class="heading">Appendix: How to Apply These Terms to Your New Programs</h3>
+<h3 class="heading" id="Appendix_003a-How-to-Apply-These-Terms-to-Your-New-Programs">Appendix: How to Apply These Terms to Your New Programs</h3>
 
 <p>If you develop a new program, and you want it to be of the greatest
 possible use to the public, the best way to achieve this is to make it
@@ -2902,9 +2909,9 @@ to attach them to the start of each source file to most effectively
 convey the exclusion of warranty; and each file should have at least
 the &ldquo;copyright&rdquo; line and a pointer to where the full notice is found.
 </p>
-<div class="example">
-<pre class="example"><var>one line to give the program's name and a brief idea of what it does.</var>
-Copyright (C) <var>yyyy</var>  <var>name of author</var>
+<div class="example smallexample">
+<pre class="example-preformatted"><var class="var">one line to give the program's name and a brief idea of what it does.</var>
+Copyright (C) <var class="var">yyyy</var>  <var class="var">name of author</var>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -2925,17 +2932,17 @@ along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
 <p>If the program is interactive, make it output a short notice like this
 when it starts in an interactive mode:
 </p>
-<div class="example">
-<pre class="example">Gnomovision version 69, Copyright (C) <var>year</var> <var>name of author</var>
+<div class="example smallexample">
+<pre class="example-preformatted">Gnomovision version 69, Copyright (C) <var class="var">year</var> <var class="var">name of author</var>
 Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
 This is free software, and you are welcome to redistribute it
 under certain conditions; type `show c' for details.
 </pre></div>
 
-<p>The hypothetical commands &lsquo;<samp>show w</samp>&rsquo; and &lsquo;<samp>show c</samp>&rsquo; should show
+<p>The hypothetical commands &lsquo;<samp class="samp">show w</samp>&rsquo; and &lsquo;<samp class="samp">show c</samp>&rsquo; should show
 the appropriate parts of the General Public License.  Of course, the
-commands you use may be called something other than &lsquo;<samp>show w</samp>&rsquo; and
-&lsquo;<samp>show c</samp>&rsquo;; they could even be mouse-clicks or menu items&mdash;whatever
+commands you use may be called something other than &lsquo;<samp class="samp">show w</samp>&rsquo; and
+&lsquo;<samp class="samp">show c</samp>&rsquo;; they could even be mouse-clicks or menu items&mdash;whatever
 suits your program.
 </p>
 <p>You should also get your employer (if you work as a programmer) or your
@@ -2943,10 +2950,10 @@ school, if any, to sign a &ldquo;copyright disclaimer&rdquo; for the program, if
 necessary.  Here is a sample; alter the names:
 </p>
 <div class="example">
-<pre class="example">Yoyodyne, Inc., hereby disclaims all copyright interest in the program
+<pre class="example-preformatted">Yoyodyne, Inc., hereby disclaims all copyright interest in the program
 `Gnomovision' (which makes passes at compilers) written by James Hacker.
 
-<var>signature of Ty Coon</var>, 1 April 1989
+<var class="var">signature of Ty Coon</var>, 1 April 1989
 Ty Coon, President of Vice
 </pre></div>
 

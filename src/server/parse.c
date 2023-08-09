@@ -957,12 +957,20 @@ char *parse_list(const char *buf, const int bytes, const int fd,
 		GString *result;
 		int i;
 		char *helper;
+		char *language;
+		char *variant;
 
 		uid = get_client_uid_by_fd(fd);
 		settings = get_client_settings_by_uid(uid);
 		if (settings == NULL)
 			return g_strdup(ERR_INTERNAL);
-		voices = output_list_voices(settings->output_module);
+
+		language = get_param(buf, 2, bytes, NO_CONV);
+		variant = get_param(buf, 3, bytes, NO_CONV);
+
+		voices = output_list_voices(settings->output_module, language, variant);
+		g_free(language);
+		g_free(variant);
 		if (voices == NULL)
 			return g_strdup(ERR_CANT_REPORT_VOICES);
 

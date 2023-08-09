@@ -444,7 +444,7 @@ static void free_voice(gpointer data)
 	}
 }
 
-SPDVoice **output_get_voices(OutputModule * module)
+SPDVoice **output_get_voices(OutputModule * module, const char *language, const char *variant)
 {
 	SPDVoice **voice_dscr;
 	SPDVoice *voice;
@@ -456,6 +456,7 @@ SPDVoice **output_get_voices(OutputModule * module)
 	int numvoices = 0;
 	gboolean errors = FALSE;
 	int err;
+	char *command;
 
 	output_lock();
 
@@ -463,10 +464,20 @@ SPDVoice **output_get_voices(OutputModule * module)
 		MSG(1, "ERROR: Can't list voices for broken output module");
 		OL_RET(NULL);
 	}
-	err = output_send_data("LIST VOICES\n", module, 0);
+	command = g_strdup_printf("LIST VOICES%s%s%s%s\n",
+				  language ? " " : "",
+				  language ? language : "",
+				  language && variant ? " " : "",
+				  variant ? variant : "");
+	err = output_send_data(command, module, 0);
+	free(command);
 	if (err < 0) {
-		output_unlock();
-		return NULL;
+		/* Old module that doesn't support filtering? Try to get it all instead */
+		err = output_send_data("LIST VOICES\n", module, 0);
+		if (err < 0) {
+			output_unlock();
+			return NULL;
+		}
 	}
 	reply = output_read_reply(module);
 
@@ -529,14 +540,14 @@ SPDVoice **output_get_voices(OutputModule * module)
 	return voice_dscr;
 }
 
-SPDVoice **output_list_voices(const char *module_name)
+SPDVoice **output_list_voices(const char *module_name, const char *language, const char *variant)
 {
 	OutputModule *module = get_some_output_module_by_name(module_name);
 	if (module == NULL) {
 		MSG(1, "ERROR: Can't list voices for module %s", module_name ? module_name : "default");
 		return NULL;
 	}
-	return output_get_voices(module);
+	return output_get_voices(module, language, variant);
 }
 
 #define SEND_CMD_N(cmd) \

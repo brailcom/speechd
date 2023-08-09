@@ -597,7 +597,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	}
 
 	/* Try to get the list of voices */
-	SPDVoice **voices = output_get_voices(module);
+	SPDVoice **voices = output_get_voices(module, NULL, NULL);
 	if (!voices) {
 		/* No list of voices, that would surprise clients, let's give up
 		 * on this module */

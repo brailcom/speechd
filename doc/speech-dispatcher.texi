@@ -1985,7 +1985,7 @@ effect until the output module in use is changed (via
 
 @code{connection} is the SPDConnection* connection created by spd_open().
 
-@code{voice_name} is any of the voice name values retrieved by @xref{spd_list_synthesis_voices}.
+@code{voice_name} is any of the voice name values retrieved by @xref{spd_list_synthesis_voices} or @xref{spd_list_synthesis_voices}.
 
 @end deffn
 
@@ -2107,7 +2107,7 @@ Please note that this is a fixed list independent of the synthesizer
 in use. The given voices can be mapped to specific synthesizer voices
 according to user wish or may, for example, all be mapped to the same
 voice. To choose directly from the raw list of voices as implemented
-in the synthesizer, @xref{spd_list_synthesis_voices}.
+in the synthesizer, @xref{spd_list_synthesis_voices2} can be used.
 
 In case of error, the return value is a NULL pointer.
 
@@ -2117,14 +2117,18 @@ The caller has to call @code{free_spd_symbolic_voices} to free the returned arra
 
 @end deffn
 
-@deffn {C API function}  char** spd_list_synthesis_voices(SPDConnection* connection)
-@findex spd_list_synthesis_voices()
-@anchor{spd_list_synthesis_voices}
+@deffn {C API function}  char** spd_list_synthesis_voices2(SPDConnection* connection, const char *language, const char *variant)
+@findex spd_list_synthesis_voices2()
+@anchor{spd_list_synthesis_voices2}
 
 Returns a null-terminated array of identification names of
 @code{SPDVoice*} structures describing the available voices as given
 by the synthesizer. You can subsequently set the desired voice with
 @code{spd_set_synthesis_voice()}.
+
+When @code{language} is non-@code{NULL}, only the voices matching this language
+will be returned. When additionally @code{variant} is non-@code{NULL}, only the
+voices matching this language and this variant will be returned.
 
 @example
 typedef struct@{
@@ -2146,6 +2150,14 @@ In case of error, the return value is a NULL pointer.
 @code{connection} is the SPDConnection* connection created by spd_open().
 
 The caller has to call @code{free_spd_voices} to free the returned array.
+
+@end deffn
+
+@deffn {C API function}  char** spd_list_synthesis_voices(SPDConnection* connection, const char *language, const char *variant)
+@findex spd_list_synthesis_voices()
+@anchor{spd_list_synthesis_voices}
+
+This is equivalent to calling @code{spd_list_synthesis_voices2(connection, NULL, NULL)}.
 
 @end deffn
 

@@ -40,8 +40,8 @@ int output_send_data(const char *cmd, OutputModule * output, int wfr);
 int output_send_settings(TSpeechDMessage * msg, OutputModule * output);
 int output_send_audio_settings(OutputModule * output);
 int output_send_loglevel_setting(OutputModule * output);
-SPDVoice **output_get_voices(OutputModule * output);
+SPDVoice **output_get_voices(OutputModule * output, const char *language, const char *variant);
 int waitpid_with_timeout(pid_t pid, int *status_ptr, int options,
 			 size_t timeout);
 int output_close(OutputModule * module);
-SPDVoice **output_list_voices(const char *module_name);
+SPDVoice **output_list_voices(const char *module_name, const char *language, const char *variant);

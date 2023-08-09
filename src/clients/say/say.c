@@ -196,7 +196,7 @@ int main(int argc, char **argv)
 		SPDVoice **list;
 		int i;
 
-		list = spd_list_synthesis_voices(conn);
+		list = spd_list_synthesis_voices2(conn, language, NULL);
 		if (list != NULL) {
 			printf("%25s%25s%25s\n", "NAME", "LANGUAGE", "VARIANT");
 			for (i = 0; list[i]; i++) {

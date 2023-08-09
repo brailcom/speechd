@@ -1122,7 +1122,7 @@ LIST VOICES
 249 OK VOICE LIST SENT
 @end example
 
-@item LIST SYNTHESIS_VOICES
+@item LIST SYNTHESIS_VOICES [@var{language} [@var{variant}]]
 
 Lists the available voices for the current synthesizer in use. These
 names differ from those obtained by @code{LIST VOICES} in that they
@@ -1147,6 +1147,23 @@ LIST SYNTHESIS_VOICES
 249-en-rhotic	en	r
 249-lancashire	en	uk-north
 249 OK VOICE LIST SENT
+@end example
+
+Optionally, the language, and possibly even the variant, can be specified, to
+filter out other languages or variants.
+
+Example:
+@example
+LIST SYNTHESIS_VOICES fr
+249-French (Belgium)	fr-BE	none
+249-French (Switzerland)	fr-CH	none
+249-French (France)	fr-FR	none
+249 OK VOICE LIST SENT
+LIST SYNTHESIS_VOICES fr-FR
+249-French (France)	fr-FR	none
+249 OK VOICE LIST SENT
+LIST SYNTHESIS_VOICES fr-CA
+304 CANT LIST VOICES
 @end example
 
 @end table

@@ -1,6 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<!-- Created by GNU Texinfo 6.8, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
 <title>Speech Dispatcher</title>
@@ -20,29 +20,27 @@
 <link href="dir.html#Top" rel="prev" title="(dir)">
 <style type="text/css">
 <!--
-a.copiable-anchor {visibility: hidden; text-decoration: none; line-height: 0em}
-a.summary-letter {text-decoration: none}
-blockquote.indentedblock {margin-right: 0em}
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+a.summary-letter-printindex {text-decoration: none}
+div.center {text-align:center}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
-kbd {font-style: oblique}
-pre.display {font-family: inherit}
-pre.format {font-family: inherit}
-pre.menu-comment {font-family: serif}
-pre.menu-preformatted {font-family: serif}
-span.nolinebreak {white-space: nowrap}
-span.roman {font-family: initial; font-weight: normal}
-span.sansserif {font-family: sans-serif; font-weight: normal}
-span:hover a.copiable-anchor {visibility: visible}
-ul.no-bullet {list-style: none}
+pre.display-preformatted {font-family: inherit}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+td.printindex-index-entry {vertical-align: top}
+td.printindex-index-section {vertical-align: top}
+th.entries-header-printindex {text-align:left}
+th.sections-header-printindex {text-align:left}
+ul.mark-bullet {list-style-type: disc}
+ul.toc-numbered-mark {list-style: none}
 -->
 </style>
 
 
 </head>
 
-<body lang="cs">
-<h1 class="settitle" align="center">Speech Dispatcher</h1>
+<body lang="en">
 
 
 
@@ -50,12 +48,12 @@ ul.no-bullet {list-style: none}
 
 
 
-<div class="top" id="Top">
-<div class="header">
+<div class="top-level-extent" id="Top">
+<div class="nav-panel">
 <p>
 Next: <a href="#g_t_010f_017c_02ddvod" accesskey="n" rel="next">ďż˝vod</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Speech-Dispatcher"></span><h1 class="top">Speech Dispatcher</h1>
+<h1 class="top" id="Speech-Dispatcher">Speech Dispatcher</h1>
 
 <p>Tento manuďż˝l se vzathuje ke Speech Dispatcher, verze 0.11.4+dev.  Jednďż˝ se
 vďż˝ak pouze o uďż˝ivatelskou ďż˝ďż˝st dokumentace a upozorďż˝ujeme, ďż˝e tento pďż˝eklad jiďż˝
@@ -66,7 +64,7 @@ technickďż˝ detaily zde uvedenďż˝, protoďż˝e mnoho vďż˝cďż˝ je jiďż˝ dnes jinak.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003 Brailcom, o.p.s.
 </p>
-<blockquote>
+<blockquote class="quotation">
 <p>Dďż˝vďż˝me povolenďż˝ kopďż˝rovat, distribuovat a/nebo modifikovate tento dokument pod
 podmďż˝nkami GNU Free Documentation License, Verze 1.2 nebo jakďż˝koliv novďż˝jďż˝ďż˝
 verze vydanďż˝ Free Software Foundation; bez jakďż˝chkoliv Invariant Sections
@@ -75,50 +73,50 @@ Back-Cover Texts (texty na zadnďż˝ stranďż˝ obďż˝lky).  Kopie tďż˝to licence je
 pďż˝iloďż˝ena v sekci nazvanďż˝ ,,GNU Free Documentation License&rdquo;.
 </p></blockquote>
 
-<span id="Menu"></span><h3 class="heading">Menu</h3>
+<h3 class="heading" id="Menu">Menu</h3>
 
 
-<div class="Contents_element" id="SEC_Contents">
+<div class="element-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
   <li><a id="toc-dz_0022vod" href="#g_t_010f_017c_02ddvod">1 ďż˝vod</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-Motivace-1" href="#Motivace">1.1 Motivace</a></li>
     <li><a id="toc-Zdz_0022kladndz_0022-design" href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design">1.2 Zďż˝kladnďż˝ design</a></li>
     <li><a id="toc-Pdz_0022ehled-zdz_0022kladndz_0022ch-rysdz_0022" href="#P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd">1.3 Pďż˝ehled zďż˝kladnďż˝ch rysďż˝</a></li>
     <li><a id="toc-Soudz_0022asndz_0022-stav" href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav">1.4 Souďż˝asnďż˝ stav</a></li>
   </ul></li>
   <li><a id="toc-Udz_0022ivatelskdz_0022-dokumentace" href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace">2 Uďż˝ivatelskďż˝ dokumentace</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-Zdz_0022kladndz_0022-funkce" href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce">2.1 Zďż˝kladnďż˝ funkce</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-Model-priorit-zprdz_0022v" href="#Model-priorit-zpr_010f_017c_02ddv">2.1.1 Model priorit zprďż˝v</a>
-      <ul class="no-bullet">
+      <ul class="toc-numbered-mark">
         <li><a id="toc-Priority-Categories" href="#Typy-priorit">2.1.1.1 Priority Categories</a></li>
         <li><a id="toc-Diagram-priorit-1" href="#Diagram-priorit">2.1.1.2 Diagram priorit</a></li>
         <li><a id="toc-Pdz_0022dz_0022klady-vyudz_0022itdz_0022-priorit" href="#P_010f_017c_02dd_010f_017c_02ddklady-vyu_010f_017c_02ddit_010f_017c_02dd-priorit">2.1.1.3 Pďż˝ďż˝klady vyuďż˝itďż˝ priorit</a></li>
       </ul></li>
       <li><a id="toc-Historie-zprdz_0022v" href="#Historie-zpr_010f_017c_02ddv">2.1.2 Historie zprďż˝v</a>
-      <ul class="no-bullet">
+      <ul class="toc-numbered-mark">
         <li><a id="toc-Access-Rights" href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">2.1.2.1 Access Rights</a></li>
       </ul></li>
       <li><a id="toc-Vdz_0022ce-vdz_0022stupndz_0022ch-moduldz_0022" href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">2.1.3 Vďż˝ce vďż˝stupnďż˝ch modulďż˝</a></li>
       <li><a id="toc-Autentifikace-udz_0022ivateldz_0022" href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">2.1.4 Autentifikace uďż˝ivatelďż˝</a></li>
     </ul></li>
     <li><a id="toc-Invoking" href="#Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd">2.2 Invoking</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-Potdz_0022ebndz_0022-privilegia" href="#Potdz_0022ebndz_0022-privilegia">2.2.1 Potďż˝ebnďż˝ privilegia</a></li>
       <li><a id="toc-Volby-pdz_0022dz_0022kazovdz_0022-dz_0022dz_0022dky" href="#Volby-pdz_0022dz_0022kazovdz_0022-dz_0022dz_0022dky">2.2.2 Volby pďż˝ďż˝kazovďż˝ ďż˝ďż˝dky</a></li>
     </ul></li>
     <li><a id="toc-konfigurace" href="#Konfigurace">2.3 konfigurace</a>
-    <ul class="no-bullet">
+    <ul class="toc-numbered-mark">
       <li><a id="toc-Syntaxe-konfiguradz_0022ndz_0022ho-souboru" href="#Syntaxe-konfigura_010f_017c_02ddn_010f_017c_02ddho-souboru">2.3.1 Syntaxe konfiguraďż˝nďż˝ho souboru</a></li>
       <li><a id="toc-Configuration-options" href="#Volby-v-konfiguraci">2.3.2 Configuration options</a></li>
       <li><a id="toc-Output-Modules-Configuration" href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">2.3.3 Output Modules Configuration</a>
-      <ul class="no-bullet">
+      <ul class="toc-numbered-mark">
         <li><a id="toc-Natahovdz_0022ndz_0022-moduldz_0022-ve-speechd_002econf" href="#Natahov_010f_017c_02ddn_010f_017c_02dd-modul_010f_017c_02dd-ve-speechd_002econf">2.3.3.1 Natahovďż˝nďż˝ modulďż˝ ve speechd.conf</a></li>
         <li><a id="toc-Konfiguradz_0022ndz_0022-soubory-vdz_0022stupndz_0022ch-moduldz_0022" href="#Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">2.3.3.2 Konfiguraďż˝nďż˝ soubory vďż˝stupnďż˝ch modulďż˝</a></li>
         <li><a id="toc-Konfigurace-generickdz_0022ho-vdz_0022stupndz_0022ho-modulu" href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">2.3.3.3 Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></li>
@@ -129,18 +127,18 @@ pďż˝iloďż˝ena v sekci nazvanďż˝ ,,GNU Free Documentation License&rdquo;.
   <li><a id="toc-Standardndz_0022-hlasy" href="#Standardndz_0022-hlasy">Appendix A Standardnďż˝ hlasy</a></li>
   <li><a id="toc-GNU-General-Public-License-1" href="#GNU-General-Public-License">Appendix B GNU General Public License</a></li>
   <li><a id="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix C GNU Free Documentation License</a>
-  <ul class="no-bullet">
+  <ul class="toc-numbered-mark">
     <li><a id="toc-ADDENDUM_003a-How-to-use-this-License-for-your-documents" href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents">C.1 ADDENDUM: How to use this License for your documents</a></li>
   </ul></li>
   <li><a id="toc-Index-of-Concepts-1" href="#Index-of-Concepts" rel="index">Index of Concepts</a></li>
 </ul>
 </div>
 </div>
-<div class="Overview_element" id="SEC_Overview">
+<div class="element-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
-<ul class="no-bullet">
+<ul class="toc-numbered-mark">
 <li><a id="stoc-dz_0022vod" href="#toc-dz_0022vod">1 ďż˝vod</a></li>
 <li><a id="stoc-Udz_0022ivatelskdz_0022-dokumentace" href="#toc-Udz_0022ivatelskdz_0022-dokumentace">2 Uďż˝ivatelskďż˝ dokumentace</a></li>
 <li><a id="stoc-Standardndz_0022-hlasy" href="#toc-Standardndz_0022-hlasy">Appendix A Standardnďż˝ hlasy</a></li>
@@ -151,29 +149,29 @@ pďż˝iloďż˝ena v sekci nazvanďż˝ ,,GNU Free Documentation License&rdquo;.
 </div>
 </div>
 <hr>
-<div class="chapter" id="g_t_010f_017c_02ddvod">
-<div class="header">
+<div class="chapter-level-extent" id="g_t_010f_017c_02ddvod">
+<div class="nav-panel">
 <p>
 Next: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="n" rel="next">Uďż˝ivatelskďż˝ dokumentace</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Speech Dispatcher</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="dz_0022vod"></span><h2 class="chapter">1 ďż˝vod</h2>
+<h2 class="chapter" id="dz_0022vod">1 ďż˝vod</h2>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Motivace" accesskey="1">Motivace</a></li>
 <li><a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design" accesskey="2">Zďż˝kladnďż˝ design</a></li>
 <li><a href="#P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd" accesskey="3">Pďż˝ehled zďż˝kladnďż˝ch rysďż˝</a></li>
 <li><a href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav" accesskey="4">Souďż˝asnďż˝ stav</a></li>
 </ul>
 <hr>
-<div class="section" id="Motivace">
-<div class="header">
+<div class="section-level-extent" id="Motivace">
+<div class="nav-panel">
 <p>
 Next: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design" accesskey="n" rel="next">Zďż˝kladnďż˝ design</a>, Previous: <a href="#g_t_010f_017c_02ddvod" accesskey="p" rel="prev">ďż˝vod</a>, Up: <a href="#g_t_010f_017c_02ddvod" accesskey="u" rel="up">ďż˝vod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Motivace-1"></span><h3 class="section">1.1 Motivace</h3>
-<span id="index-Hlavndz_0022-mydz_0022lenky_002c-Motivace"></span>
-<span id="index-Filosofie"></span>
+<h3 class="section" id="Motivace-1">1.1 Motivace</h3>
+<a class="index-entry-id" id="index-Hlavndz_0022-mydz_0022lenky_002c-Motivace"></a>
+<a class="index-entry-id" id="index-Filosofie"></a>
 
 <p>Projekt Speech Dispatcher se snaďż˝ďż˝ poskytnout na zaďż˝ďż˝zenďż˝ nezďż˝vislou vrstvu pro
 ďż˝eďż˝ovou syntďż˝zu.  Mďż˝l by poskytovat jednoduchďż˝ rozhranďż˝ pro klientskďż˝ aplikace
@@ -218,13 +216,13 @@ krďż˝ďż˝ky...
 </p>
 <hr>
 </div>
-<div class="section" id="Z_010f_017c_02ddkladn_010f_017c_02dd-design">
-<div class="header">
+<div class="section-level-extent" id="Z_010f_017c_02ddkladn_010f_017c_02dd-design">
+<div class="nav-panel">
 <p>
 Next: <a href="#P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd" accesskey="n" rel="next">Pďż˝ehled zďż˝kladnďż˝ch rysďż˝</a>, Previous: <a href="#Motivace" accesskey="p" rel="prev">Motivace</a>, Up: <a href="#g_t_010f_017c_02ddvod" accesskey="u" rel="up">ďż˝vod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Zdz_0022kladndz_0022-design"></span><h3 class="section">1.2 Zďż˝kladnďż˝ design</h3>
-<span id="index-Design"></span>
+<h3 class="section" id="Zdz_0022kladndz_0022-design">1.2 Zďż˝kladnďż˝ design</h3>
+<a class="index-entry-id" id="index-Design"></a>
 
 <p>V komunikaci mezi vďż˝emi rďż˝znďż˝mi aplikacemi a syntetizďż˝ry je obrovskďż˝ nepoďż˝ďż˝dek.
 Proto jsme chtďż˝li, aby byl Speech Dispatcher vrstva oddďż˝lujďż˝cďż˝ aplikace a
@@ -232,7 +230,7 @@ syntetizďż˝ry tak, aby se aplikace nemusely starat o syntetizďż˝ry a syntetizďż˝
 nemusely starat o interakci s aplikacemi.
 </p>
 <p>Rozhodli jsme se implementovat Speech Dispatcher jako server, kterďż˝ pďż˝ijďż˝mďż˝ od
-aplikacďż˝ pďż˝ďż˝kazy pďż˝es protokol nazvanďż˝ <code>SSIP</code>, zpracovďż˝vďż˝ je a, pokud je
+aplikacďż˝ pďż˝ďż˝kazy pďż˝es protokol nazvanďż˝ <code class="code">SSIP</code>, zpracovďż˝vďż˝ je a, pokud je
 to nutnďż˝, zavolďż˝ pďż˝ďż˝sluďż˝nou funkci danďż˝ho vďż˝stupnďż˝ho modulu, kterďż˝ pak
 komunikuje s nďż˝kterďż˝m z rďż˝znďż˝ch syntetizďż˝torďż˝.
 </p>
@@ -247,92 +245,92 @@ syntetizďż˝ru zprďż˝vu nechďż˝ pďż˝emluvit.  Tyto poďż˝adavky na mluvenďż˝ jsou 
 zpracovďż˝vďż˝ny vďż˝stupnďż˝mi moduly (pluginy) pro rďż˝znďż˝ hardwarovďż˝ a softwarovďż˝
 syntetizďż˝ry a pďż˝eďż˝ďż˝kďż˝ny nahlas.
 </p>
-<img src="figures/architecture.png" alt="Architektura Speech Dispatchera">
+<img class="image" src="figures/architecture.png" alt="Architektura Speech Dispatchera">
 
 <p>Detailnďż˝ popis programovďż˝nďż˝ klientďż˝ i serveru je k dispozici v anglickďż˝m
 manuďż˝lu.
 </p>
 <hr>
 </div>
-<div class="section" id="P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd">
-<div class="header">
+<div class="section-level-extent" id="P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd">
+<div class="nav-panel">
 <p>
 Next: <a href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav" accesskey="n" rel="next">Souďż˝asnďż˝ stav</a>, Previous: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design" accesskey="p" rel="prev">Zďż˝kladnďż˝ design</a>, Up: <a href="#g_t_010f_017c_02ddvod" accesskey="u" rel="up">ďż˝vod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Pdz_0022ehled-zdz_0022kladndz_0022ch-rysdz_0022"></span><h3 class="section">1.3 Pďż˝ehled zďż˝kladnďż˝ch rysďż˝</h3>
+<h3 class="section" id="Pdz_0022ehled-zdz_0022kladndz_0022ch-rysdz_0022">1.3 Pďż˝ehled zďż˝kladnďż˝ch rysďż˝</h3>
 
 <p>Speech Dispatcher z pohledu uďż˝ivatele:
 </p>
-<ul>
-<li> snadnďż˝ konfigurace rďż˝znďż˝ch mluvďż˝cďż˝ch aplikacďż˝, centrďż˝lnďż˝ sprďż˝va
-</li><li> moďż˝nost volnďż˝ rozhodovat, jakďż˝ aplikace bude mluvit s jakďż˝m syntetizďż˝rem
-</li><li> mďż˝nďż˝ ďż˝asu vďż˝novanďż˝ho konfiguraci a ladďż˝nďż˝ rďż˝znďż˝ch aplikacďż˝ vyuďż˝ďż˝vajďż˝cďż˝ch syntďż˝zu
-</li><li> historie zprďż˝v pro zrakovďż˝ postiďż˝enďż˝ uďż˝ivatele
+<ul class="itemize mark-bullet">
+<li>snadnďż˝ konfigurace rďż˝znďż˝ch mluvďż˝cďż˝ch aplikacďż˝, centrďż˝lnďż˝ sprďż˝va
+</li><li>moďż˝nost volnďż˝ rozhodovat, jakďż˝ aplikace bude mluvit s jakďż˝m syntetizďż˝rem
+</li><li>mďż˝nďż˝ ďż˝asu vďż˝novanďż˝ho konfiguraci a ladďż˝nďż˝ rďż˝znďż˝ch aplikacďż˝ vyuďż˝ďż˝vajďż˝cďż˝ch syntďż˝zu
+</li><li>historie zprďż˝v pro zrakovďż˝ postiďż˝enďż˝ uďż˝ivatele
 </li></ul>
 
 <p>Speech Dispatcher z pohledu programďż˝tora aplikace:
 </p>
-<ul>
-<li> snadnďż˝ cesta, jak aplikaci rozmluvit
-</li><li> jednotnďż˝ rozhranďż˝ k rďż˝znďż˝m syntetizďż˝rďż˝m
-</li><li> synchronizace zprďż˝v na vyďż˝ďż˝ďż˝ ďż˝rovni (kategorizace pomocďż˝ priorit)
-</li><li> moďż˝nost nemuset se starat o konfiguraci parametrďż˝ hlasu
+<ul class="itemize mark-bullet">
+<li>snadnďż˝ cesta, jak aplikaci rozmluvit
+</li><li>jednotnďż˝ rozhranďż˝ k rďż˝znďż˝m syntetizďż˝rďż˝m
+</li><li>synchronizace zprďż˝v na vyďż˝ďż˝ďż˝ ďż˝rovni (kategorizace pomocďż˝ priorit)
+</li><li>moďż˝nost nemuset se starat o konfiguraci parametrďż˝ hlasu
 </li></ul>
 
 <hr>
 </div>
-<div class="section" id="Sou_010f_017c_02ddasn_010f_017c_02dd-stav">
-<div class="header">
+<div class="section-level-extent" id="Sou_010f_017c_02ddasn_010f_017c_02dd-stav">
+<div class="nav-panel">
 <p>
 Previous: <a href="#P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd" accesskey="p" rel="prev">Pďż˝ehled zďż˝kladnďż˝ch rysďż˝</a>, Up: <a href="#g_t_010f_017c_02ddvod" accesskey="u" rel="up">ďż˝vod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Soudz_0022asndz_0022-stav"></span><h3 class="section">1.4 Souďż˝asnďż˝ stav</h3>
-<span id="index-Syntetizdz_0022ry"></span>
-<span id="index-Ostatndz_0022-programy"></span>
+<h3 class="section" id="Soudz_0022asndz_0022-stav">1.4 Souďż˝asnďż˝ stav</h3>
+<a class="index-entry-id" id="index-Syntetizdz_0022ry"></a>
+<a class="index-entry-id" id="index-Ostatndz_0022-programy"></a>
 
 <p>TODO:
 </p>
 <hr>
 </div>
 </div>
-<div class="chapter" id="U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace">
-<div class="header">
+<div class="chapter-level-extent" id="U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace">
+<div class="nav-panel">
 <p>
 Next: <a href="#GNU-General-Public-License" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#g_t_010f_017c_02ddvod" accesskey="p" rel="prev">ďż˝vod</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Udz_0022ivatelskdz_0022-dokumentace"></span><h2 class="chapter">2 Uďż˝ivatelskďż˝ dokumentace</h2>
+<h2 class="chapter" id="Udz_0022ivatelskdz_0022-dokumentace">2 Uďż˝ivatelskďż˝ dokumentace</h2>
 
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="1">Zďż˝kladnďż˝ funkce</a></li>
 <li><a href="#Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd" accesskey="2">Invoking</a></li>
 <li><a href="#Konfigurace" accesskey="3">konfigurace</a></li>
 </ul>
 <hr>
-<div class="section" id="Z_010f_017c_02ddkladn_010f_017c_02dd-funkce">
-<div class="header">
+<div class="section-level-extent" id="Z_010f_017c_02ddkladn_010f_017c_02dd-funkce">
+<div class="nav-panel">
 <p>
 Next: <a href="#Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd" accesskey="n" rel="next">Invoking</a>, Previous: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="p" rel="prev">Uďż˝ivatelskďż˝ dokumentace</a>, Up: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="u" rel="up">Uďż˝ivatelskďż˝ dokumentace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Zdz_0022kladndz_0022-funkce"></span><h3 class="section">2.1 Zďż˝kladnďż˝ funkce</h3>
+<h3 class="section" id="Zdz_0022kladndz_0022-funkce">2.1 Zďż˝kladnďż˝ funkce</h3>
 
 <p>V tďż˝to sekci je detailnďż˝jďż˝ďż˝ popis zďż˝kladnďż˝ch funkcďż˝ Speech Dispatcheru.
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="1">Model priorit zprďż˝v</a></li>
 <li><a href="#Historie-zpr_010f_017c_02ddv" accesskey="2">Historie zprďż˝v</a></li>
 <li><a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="3">Vďż˝ce vďż˝stupnďż˝ch modulďż˝</a></li>
 <li><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd" accesskey="4">Autentifikace uďż˝ivatelďż˝</a></li>
 </ul>
 <hr>
-<div class="subsection" id="Model-priorit-zpr_010f_017c_02ddv">
-<div class="header">
+<div class="subsection-level-extent" id="Model-priorit-zpr_010f_017c_02ddv">
+<div class="nav-panel">
 <p>
 Next: <a href="#Historie-zpr_010f_017c_02ddv" accesskey="n" rel="next">Historie zprďż˝v</a>, Previous: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="p" rel="prev">Zďż˝kladnďż˝ funkce</a>, Up: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="u" rel="up">Zďż˝kladnďż˝ funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Model-priorit-zprdz_0022v"></span><h4 class="subsection">2.1.1 Model priorit zprďż˝v</h4>
-<span id="index-priority"></span>
+<h4 class="subsection" id="Model-priorit-zprdz_0022v">2.1.1 Model priorit zprďż˝v</h4>
+<a class="index-entry-id" id="index-priority"></a>
 
 <p>Speech Dispatcher nemďż˝ďż˝e syntetizovat vďż˝echny zprďż˝vy, kterďż˝ do nďż˝j pďż˝ichďż˝zďż˝ z
 prostďż˝ho dďż˝vodu, ďż˝e zprďż˝vy pďż˝ichďż˝zejďż˝ obyďż˝ejnďż˝ rychleji, neďż˝ je syntetickďż˝ hlas
@@ -347,165 +345,165 @@ klientďż˝) potom bude zajiďż˝tďż˝no aplikovďż˝nďż˝m urďż˝itďż˝ch pravidel ve Spe
 Dispatcheru.
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Typy-priorit" accesskey="1">Priority Categories</a></li>
 <li><a href="#Diagram-priorit" accesskey="2">Diagram priorit</a></li>
 <li><a href="#P_010f_017c_02dd_010f_017c_02ddklady-vyu_010f_017c_02ddit_010f_017c_02dd-priorit" accesskey="3">Pďż˝ďż˝klady vyuďż˝itďż˝ priorit</a></li>
 </ul>
 <hr>
-<div class="subsubsection" id="Typy-priorit">
-<div class="header">
+<div class="subsubsection-level-extent" id="Typy-priorit">
+<div class="nav-panel">
 <p>
 Next: <a href="#Diagram-priorit" accesskey="n" rel="next">Diagram priorit</a>, Previous: <a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="p" rel="prev">Model priorit zprďż˝v</a>, Up: <a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="u" rel="up">Model priorit zprďż˝v</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Priority-Categories"></span><h4 class="subsubsection">2.1.1.1 Priority Categories</h4>
+<h4 class="subsubsection" id="Priority-Categories">2.1.1.1 Priority Categories</h4>
                   
 <p>Speech Dispatcher poskytuje systďż˝m pďż˝ti priorit.  Kaďż˝dďż˝ zprďż˝va obsahuje buďż˝
 explicitnďż˝ informaci o prioritďż˝, nebo jďż˝ je pďż˝iďż˝azena vďż˝chozďż˝ priorita.
 </p>
 <p>Prosďż˝m podďż˝vejte se takďż˝ na pďż˝iloďż˝enďż˝ diagram (dole).
 </p>
-<span id="Priorita-important"></span><h4 class="subsubheading">Priorita <code>important</code></h4>
-<span id="index-Priorita-important"></span>
+<h4 class="subsubheading" id="Priorita-important">Priorita <code class="code">important</code></h4>
+<a class="index-entry-id" id="index-Priorita-important"></a>
 
 <p>Tato zprďż˝va bude pďż˝eďż˝ďż˝kďż˝na okamďż˝itďż˝, jak dorazďż˝ do serveru.  Nenďż˝ nikdy
 pďż˝eruďż˝ena.  Kdyďż˝ server obdrďż˝ďż˝ souďż˝asnďż˝ nďż˝kolik rďż˝znďż˝ch zprďż˝v tďż˝to priority, ty
 jsou uloďż˝eny a pďż˝eďż˝ďż˝kďż˝ny v poďż˝adďż˝, ve kterďż˝m pďż˝iďż˝ly.
 </p>
-<p>Kdyďż˝ pďż˝ijde novďż˝ zprďż˝va priority <code>important</code> a zrovna se ďż˝ďż˝kďż˝ nďż˝jakďż˝ jinďż˝
+<p>Kdyďż˝ pďż˝ijde novďż˝ zprďż˝va priority <code class="code">important</code> a zrovna se ďż˝ďż˝kďż˝ nďż˝jakďż˝ jinďż˝
 zprďż˝va, tato jinďż˝ zprďż˝va je zahozena.  Dalďż˝ďż˝ zprďż˝vy niďż˝ďż˝ďż˝ch priorit jsou buďż˝
-pozdrďż˝eny (priorita <code>message</code> a <code>text</code>) neďż˝ jiďż˝ neďż˝ekajďż˝ na pďż˝eďż˝ďż˝kďż˝nďż˝
-ďż˝ďż˝dnďż˝ zprďż˝vy priority <code>important</code>, nebo jsou zahozeny (priority
-<code>notification</code> a <code>progress</code>).
+pozdrďż˝eny (priorita <code class="code">message</code> a <code class="code">text</code>) neďż˝ jiďż˝ neďż˝ekajďż˝ na pďż˝eďż˝ďż˝kďż˝nďż˝
+ďż˝ďż˝dnďż˝ zprďż˝vy priority <code class="code">important</code>, nebo jsou zahozeny (priority
+<code class="code">notification</code> a <code class="code">progress</code>).
 </p>
 <p>Tyto zprďż˝vy by mďż˝ly bďż˝t tak krďż˝tkďż˝, jak je to jen moďż˝nďż˝, a mďż˝ly by bďż˝t
 pouďż˝ďż˝vďż˝ny pouze zďż˝ďż˝dka, protoďż˝e blokujďż˝ vďż˝stup vďż˝ech ostatnďż˝ch zprďż˝v.
 </p>
-<span id="Priorita-message"></span><h4 class="subsubheading">Priorita <code>message</code></h4>
-<span id="index-Priorita-message"></span>
+<h4 class="subsubheading" id="Priorita-message">Priorita <code class="code">message</code></h4>
+<a class="index-entry-id" id="index-Priorita-message"></a>
 
 <p>Tato zprďż˝va bude pďż˝eďż˝ďż˝kďż˝na, pokud jiďż˝ ve frontďż˝ neďż˝ekďż˝ ďż˝ďż˝dnďż˝ jinďż˝ zprďż˝va
-priority <code>important</code> nebo <code>message</code>.  V opaďż˝nďż˝m pďż˝ďż˝padďż˝ je tato
+priority <code class="code">important</code> nebo <code class="code">message</code>.  V opaďż˝nďż˝m pďż˝ďż˝padďż˝ je tato
 zprďż˝va pozdrďż˝ena dokud nebudou vďż˝echny pďż˝eďż˝ďż˝kďż˝ny.  To znamenďż˝, ďż˝e priorita
-<code>message</code> nezastavuje sama sebe.  Kdyďż˝ ve frontďż˝ ďż˝ekajďż˝ zprďż˝vy priorit
-<code>notification</code> nebo <code>progress</code> nebo <code>text</code> kdyďż˝ pďż˝ijde zprďż˝va
-priority <code>message</code>, jsou zahozeny.
+<code class="code">message</code> nezastavuje sama sebe.  Kdyďż˝ ve frontďż˝ ďż˝ekajďż˝ zprďż˝vy priorit
+<code class="code">notification</code> nebo <code class="code">progress</code> nebo <code class="code">text</code> kdyďż˝ pďż˝ijde zprďż˝va
+priority <code class="code">message</code>, jsou zahozeny.
 </p>
-<span id="Priorita-text"></span><h4 class="subsubheading">Priorita <code>text</code></h4>
-<span id="index-Priorita-text"></span>
+<h4 class="subsubheading" id="Priorita-text">Priorita <code class="code">text</code></h4>
+<a class="index-entry-id" id="index-Priorita-text"></a>
 
 <p>Tato zprďż˝va bude pďż˝eďż˝ďż˝kďż˝na, kdyďż˝ ve frontďż˝ neďż˝ekďż˝ ďż˝ďż˝dnďż˝ zprďż˝va priority
-<code>important</code> nebo <code>message</code>.  Pokud ďż˝ekďż˝, tato novďż˝ zprďż˝va je
+<code class="code">important</code> nebo <code class="code">message</code>.  Pokud ďż˝ekďż˝, tato novďż˝ zprďż˝va je
 pozdrďż˝ena dokud nebudou pďż˝edchozďż˝ zprďż˝vy pďż˝eďż˝ďż˝kďż˝ny.
 </p>
 <p>Priorita text pďż˝erquďż˝uje sama sebe.  To znamenďż˝, ďż˝e kdyďż˝ pďż˝ijde nďż˝kolik zprďż˝v
 priority text, ty nejsou pďż˝eďż˝ďż˝kďż˝ny v poďż˝adďż˝, ve kterďż˝m pďż˝iďż˝ly, ale bude vyďż˝ďż˝ena
 pouze poslednďż˝ z nich a ostatnďż˝ jsou pďż˝eruďż˝eny a zahozeny.
 </p>
-<p>Pokud jsou ve frontďż˝ zprďż˝vy priorit <code>notification</code> nebo <code>progress</code>
+<p>Pokud jsou ve frontďż˝ zprďż˝vy priorit <code class="code">notification</code> nebo <code class="code">progress</code>
 nebo se prďż˝vďż˝ pďż˝eďż˝ďż˝kďż˝vajďż˝, jsou zahozeny.
 </p>
-<span id="Priorita-notification"></span><h4 class="subsubheading">Priorita <code>notification</code></h4>
-<span id="index-Priorita-notification"></span>
+<h4 class="subsubheading" id="Priorita-notification">Priorita <code class="code">notification</code></h4>
+<a class="index-entry-id" id="index-Priorita-notification"></a>
 
 <p>Toto je zprďż˝va nďż˝zkďż˝ priority.  Pokud ve frontďż˝ ďż˝ekajďż˝ zprďż˝vy priorit
-<code>important</code>, <code>messages</code>, <code>text</code> nebo <code>progress</code> nebo jsou
-prďż˝vďż˝ pďż˝eďż˝ďż˝kďż˝vďż˝ny, tato novďż˝ zprďż˝va priority <code>notification</code> je zruďż˝ena.
+<code class="code">important</code>, <code class="code">messages</code>, <code class="code">text</code> nebo <code class="code">progress</code> nebo jsou
+prďż˝vďż˝ pďż˝eďż˝ďż˝kďż˝vďż˝ny, tato novďż˝ zprďż˝va priority <code class="code">notification</code> je zruďż˝ena.
 </p>
 <p>Tato priorita pďż˝eruďż˝uje sama sebe, takďż˝e kdyďż˝ pďż˝ijde najednou vďż˝ce zprďż˝v s
-prioritou <code>notification</code>, pďż˝eďż˝ďż˝kďż˝ se pouze poslednďż˝ z nich.
+prioritou <code class="code">notification</code>, pďż˝eďż˝ďż˝kďż˝ se pouze poslednďż˝ z nich.
 </p>
-<span id="Priority-progress"></span><h4 class="subsubheading">Priority <code>progress</code></h4>
+<h4 class="subsubheading" id="Priority-progress">Priority <code class="code">progress</code></h4>
 
 <p>Toto je speciďż˝lnďż˝ priorita pro zprďż˝vy, kterďż˝ pďż˝ichďż˝zejďż˝ krďż˝tce po sobďż˝ a nesou
-informaci o nďż˝jakďż˝ probďż˝hajďż˝cďż˝ ďż˝innosti (napďż˝.&nbsp;<code>Dokonďż˝eno 45%</code>).
+informaci o nďż˝jakďż˝ probďż˝hajďż˝cďż˝ ďż˝innosti (napďż˝.&nbsp;<code class="code">Dokonďż˝eno 45%</code>).
 </p>
 <p>Kdyby novďż˝ zprďż˝vy pďż˝eruďż˝ovaly ostatnďż˝ (viz. priorita Notification), uďż˝ivatel by
 nemusel slyďż˝et ani jednu zprďż˝vu do konce.
 </p>
-<p>Tato priorita se chovďż˝ stejnďż˝ jako <code>notification</code> s vďż˝jimkou dvou vďż˝cďż˝.
+<p>Tato priorita se chovďż˝ stejnďż˝ jako <code class="code">notification</code> s vďż˝jimkou dvou vďż˝cďż˝.
 </p>
-<ul>
-<li> Zprďż˝vy tďż˝to priority nepďż˝eruďż˝ujďż˝ jedna druhou.  Mďż˝sto toho, pokud je zrovna
+<ul class="itemize mark-bullet">
+<li>Zprďż˝vy tďż˝to priority nepďż˝eruďż˝ujďż˝ jedna druhou.  Mďż˝sto toho, pokud je zrovna
 pďż˝eďż˝ďż˝kďż˝vďż˝na jinďż˝ zprďż˝va tďż˝to priority, novďż˝ pďż˝ďż˝chozďż˝ zprďż˝va je zahozena.
-</li><li> Speech Dispatcher se snaďż˝ďż˝ detekovat poslednďż˝ zprďż˝vu v sďż˝rii pďż˝ďż˝chozďż˝ch zprďż˝v a
-zaruďż˝it jejďż˝ pďż˝eďż˝ďż˝kďż˝nďż˝ (pro uďż˝ivatele je dďż˝leďż˝itďż˝ slyďż˝et zprďż˝vu <code>Completed
+</li><li>Speech Dispatcher se snaďż˝ďż˝ detekovat poslednďż˝ zprďż˝vu v sďż˝rii pďż˝ďż˝chozďż˝ch zprďż˝v a
+zaruďż˝it jejďż˝ pďż˝eďż˝ďż˝kďż˝nďż˝ (pro uďż˝ivatele je dďż˝leďż˝itďż˝ slyďż˝et zprďż˝vu <code class="code">Completed
 100%</code>, aby vďż˝dďż˝l, ďż˝e proces jiďż˝ skonďż˝il).  Vďż˝dy, kdyďż˝ ve frontďż˝ jiďż˝ neďż˝ekďż˝
 ďż˝ďż˝dnďż˝ novďż˝ zprďż˝va tďż˝to priority a poslednďż˝ pďż˝ďż˝chozďż˝ zprďż˝va jeďż˝tďż˝ nebyla
-pďż˝eďż˝ďż˝kďż˝na, je jejďż˝ pďż˝eďż˝ďż˝kďż˝nďż˝ vynuceno s prioritou <code>message</code>.
+pďż˝eďż˝ďż˝kďż˝na, je jejďż˝ pďż˝eďż˝ďż˝kďż˝nďż˝ vynuceno s prioritou <code class="code">message</code>.
 </li></ul>
 
 <hr>
 </div>
-<div class="subsubsection" id="Diagram-priorit">
-<div class="header">
+<div class="subsubsection-level-extent" id="Diagram-priorit">
+<div class="nav-panel">
 <p>
 Next: <a href="#P_010f_017c_02dd_010f_017c_02ddklady-vyu_010f_017c_02ddit_010f_017c_02dd-priorit" accesskey="n" rel="next">Pďż˝ďż˝klady vyuďż˝itďż˝ priorit</a>, Previous: <a href="#Typy-priorit" accesskey="p" rel="prev">Priority Categories</a>, Up: <a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="u" rel="up">Model priorit zprďż˝v</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Diagram-priorit-1"></span><h4 class="subsubsection">2.1.1.2 Diagram priorit</h4>
+<h4 class="subsubsection" id="Diagram-priorit-1">2.1.1.2 Diagram priorit</h4>
 
-<img src="figures/priorities.png" alt="Speech Dispatcher architecture">
+<img class="image" src="figures/priorities.png" alt="Speech Dispatcher architecture">
 
 <hr>
 </div>
-<div class="subsubsection" id="P_010f_017c_02dd_010f_017c_02ddklady-vyu_010f_017c_02ddit_010f_017c_02dd-priorit">
-<div class="header">
+<div class="subsubsection-level-extent" id="P_010f_017c_02dd_010f_017c_02ddklady-vyu_010f_017c_02ddit_010f_017c_02dd-priorit">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Diagram-priorit" accesskey="p" rel="prev">Diagram priorit</a>, Up: <a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="u" rel="up">Model priorit zprďż˝v</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Pdz_0022dz_0022klady-vyudz_0022itdz_0022-priorit"></span><h4 class="subsubsection">2.1.1.3 Pďż˝ďż˝klady vyuďż˝itďż˝ priorit</h4>
+<h4 class="subsubsection" id="Pdz_0022dz_0022klady-vyudz_0022itdz_0022-priorit">2.1.1.3 Pďż˝ďż˝klady vyuďż˝itďż˝ priorit</h4>
 
-<p>Pďż˝ďż˝klady pouďż˝itďż˝ priority <code>important</code> jsou:
+<p>Pďż˝ďż˝klady pouďż˝itďż˝ priority <code class="code">important</code> jsou:
 </p> 
-<ul>
-<li> chybovďż˝ hlďż˝ky
-</li><li> velmi dďż˝leďż˝itďż˝ zprďż˝vy
-</li><li> ...
+<ul class="itemize mark-bullet">
+<li>chybovďż˝ hlďż˝ky
+</li><li>velmi dďż˝leďż˝itďż˝ zprďż˝vy
+</li><li>...
 </li></ul>
 
-<p>Pďż˝ďż˝klady pouďż˝itďż˝ priority <code>message</code> jsou:
+<p>Pďż˝ďż˝klady pouďż˝itďż˝ priority <code class="code">message</code> jsou:
 </p>
-<ul>
-<li> bďż˝nďż˝ zprďż˝vy programu
-</li><li> varovďż˝nďż˝
-</li><li> ...
+<ul class="itemize mark-bullet">
+<li>bďż˝nďż˝ zprďż˝vy programu
+</li><li>varovďż˝nďż˝
+</li><li>...
 </li></ul>
 
-<p>Pďż˝ďż˝klady pouďż˝itďż˝ priority <code>text</code> jsou:
+<p>Pďż˝ďż˝klady pouďż˝itďż˝ priority <code class="code">text</code> jsou:
 </p>
-<ul>
-<li> text, na kterďż˝m uďż˝ivatel pracuje
-</li><li> pďż˝edďż˝ďż˝tanďż˝ text
-</li><li> poloďż˝ky menu
-</li><li> ...
+<ul class="itemize mark-bullet">
+<li>text, na kterďż˝m uďż˝ivatel pracuje
+</li><li>pďż˝edďż˝ďż˝tanďż˝ text
+</li><li>poloďż˝ky menu
+</li><li>...
 </li></ul>
 
-<p>Pďż˝ďż˝klady pouďż˝itďż˝ priority <code>notification</code> jsou:
+<p>Pďż˝ďż˝klady pouďż˝itďż˝ priority <code class="code">notification</code> jsou:
 </p>
-<ul>
-<li> mďż˝nďż˝ dďż˝leďż˝itďż˝ informace
-</li><li> pďż˝smenka pďż˝i vklďż˝dďż˝nďż˝
-</li><li> run-time nďż˝povďż˝da
-</li><li> ...
+<ul class="itemize mark-bullet">
+<li>mďż˝nďż˝ dďż˝leďż˝itďż˝ informace
+</li><li>pďż˝smenka pďż˝i vklďż˝dďż˝nďż˝
+</li><li>run-time nďż˝povďż˝da
+</li><li>...
 </li></ul>
 
-<p>Pďż˝ďż˝klady pouďż˝itďż˝ priority <code>progress</code> jsou:
+<p>Pďż˝ďż˝klady pouďż˝itďż˝ priority <code class="code">progress</code> jsou:
 </p>
-<ul>
-<li> &ldquo;dokonďż˝eno 15%&rdquo;, &ldquo;dokonďż˝eno 16%&rdquo;, &ldquo;dokonďż˝eno 17%&rdquo;
-</li><li> &ldquo;Naďż˝ďż˝tďż˝m zvuky&rdquo;, &ldquo;Naďż˝ďż˝tďż˝m grafiku&rdquo;, &ldquo;Naďż˝ďż˝tďż˝m ai&rdquo;, ...
+<ul class="itemize mark-bullet">
+<li>&ldquo;dokonďż˝eno 15%&rdquo;, &ldquo;dokonďż˝eno 16%&rdquo;, &ldquo;dokonďż˝eno 17%&rdquo;
+</li><li>&ldquo;Naďż˝ďż˝tďż˝m zvuky&rdquo;, &ldquo;Naďż˝ďż˝tďż˝m grafiku&rdquo;, &ldquo;Naďż˝ďż˝tďż˝m ai&rdquo;, ...
 </li></ul>
 
 <hr>
 </div>
 </div>
-<div class="subsection" id="Historie-zpr_010f_017c_02ddv">
-<div class="header">
+<div class="subsection-level-extent" id="Historie-zpr_010f_017c_02ddv">
+<div class="nav-panel">
 <p>
 Next: <a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="n" rel="next">Vďż˝ce vďż˝stupnďż˝ch modulďż˝</a>, Previous: <a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="p" rel="prev">Model priorit zprďż˝v</a>, Up: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="u" rel="up">Zďż˝kladnďż˝ funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Historie-zprdz_0022v"></span><h4 class="subsection">2.1.2 Historie zprďż˝v</h4>
-<span id="index-history"></span>
+<h4 class="subsection" id="Historie-zprdz_0022v">2.1.2 Historie zprďż˝v</h4>
+<a class="index-entry-id" id="index-history"></a>
 
 <p>Pro nevidomďż˝ a zrakovďż˝ postiďż˝enďż˝ je dobrou vlastnostďż˝, pokud majďż˝ moďż˝nost
 nďż˝jakďż˝m jednoduchďż˝m klientem prochďż˝zet historii vyslovenďż˝ch zprďż˝v.
@@ -518,53 +516,53 @@ z hlavnďż˝ch dďż˝vodďż˝, proďż˝ je vďż˝hodnďż˝ udrďż˝ovat historii pďż˝ijatďż˝ch
 mohl uďż˝ivatel podďż˝vat, zda mu neuďż˝lo nďż˝co dďż˝leďż˝itďż˝ho.
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva" accesskey="1">Access Rights</a></li>
 </ul>
 <hr>
-<div class="subsubsection" id="P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">
-<div class="header">
+<div class="subsubsection-level-extent" id="P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Historie-zpr_010f_017c_02ddv" accesskey="p" rel="prev">Historie zprďż˝v</a>, Up: <a href="#Historie-zpr_010f_017c_02ddv" accesskey="u" rel="up">Historie zprďż˝v</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Access-Rights"></span><h4 class="subsubsection">2.1.2.1 Access Rights</h4>
-<span id="index-access-rights"></span>
+<h4 class="subsubsection" id="Access-Rights">2.1.2.1 Access Rights</h4>
+<a class="index-entry-id" id="index-access-rights"></a>
 
 <p>Aby bylo ochrďż˝nďż˝no soukromďż˝ uďż˝ivatelďż˝, Speech Dispatcher omezuje pďż˝ďż˝stup k
 historii na urďż˝itou podmnoďż˝inu pďż˝ijatďż˝ch zprďż˝v.  Platďż˝ nďż˝sledujďż˝cďż˝ pravidla:
 </p>
-<ul>
-<li> Vďż˝echny zprďż˝vy pďż˝ijatďż˝ od urďż˝itďż˝ho klientskďż˝ho spojenďż˝ jsou tomuto spojenďż˝
+<ul class="itemize mark-bullet">
+<li>Vďż˝echny zprďż˝vy pďż˝ijatďż˝ od urďż˝itďż˝ho klientskďż˝ho spojenďż˝ jsou tomuto spojenďż˝
 pďż˝ďż˝stupny i v historii.
 
-</li><li> Vďż˝echny zprďż˝vy odeslanďż˝ urďż˝itďż˝m uďż˝ivatelem jsou tomuto uďż˝ivateli pďż˝ďż˝stupny i v
+</li><li>Vďż˝echny zprďż˝vy odeslanďż˝ urďż˝itďż˝m uďż˝ivatelem jsou tomuto uďż˝ivateli pďż˝ďż˝stupny i v
 historii.
 
-</li><li> <span id="index-speechd-udz_0022ivatel"></span>
-<span id="index-speechd-skupina"></span>
-Vďż˝echny zprďż˝vy zaslanďż˝ uďż˝ivatelem <code>speechd</code> jsou pďż˝ďż˝stupny vďż˝em uďż˝ivatelďż˝m
-na danďż˝m systďż˝mu, pod kterďż˝m bďż˝ďż˝ Speech Dispatcher ve skupinďż˝ <code>speechd</code>.
+</li><li><a class="index-entry-id" id="index-speechd-udz_0022ivatel"></a>
+<a class="index-entry-id" id="index-speechd-skupina"></a>
+Vďż˝echny zprďż˝vy zaslanďż˝ uďż˝ivatelem <code class="code">speechd</code> jsou pďż˝ďż˝stupny vďż˝em uďż˝ivatelďż˝m
+na danďż˝m systďż˝mu, pod kterďż˝m bďż˝ďż˝ Speech Dispatcher ve skupinďż˝ <code class="code">speechd</code>.
 
-</li><li> ďż˝ďż˝dnďż˝ dalďż˝ďż˝ zprďż˝vy nejsou pďż˝ďż˝stupnďż˝.
+</li><li>ďż˝ďż˝dnďż˝ dalďż˝ďż˝ zprďż˝vy nejsou pďż˝ďż˝stupnďż˝.
 </li></ul>
 
 <p>Dvďż˝ zprďż˝vy jsou povaďż˝ovďż˝ny za identickďż˝ jestliďż˝e jejich spojenďż˝ pochďż˝zejďż˝ z
 toho samďż˝ho poďż˝ďż˝taďż˝e, uďż˝ivatelskďż˝ jmďż˝na jsou stejnďż˝ a jejich identita mďż˝ďż˝e bďż˝t
-ovďż˝ďż˝ena, jak je popsďż˝no v <a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace uďż˝ivatelďż˝</a>.  Pokud nemďż˝ďż˝e bďż˝t
+ovďż˝ďż˝ena, jak je popsďż˝no v <a class="ref" href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace uďż˝ivatelďż˝</a>.  Pokud nemďż˝ďż˝e bďż˝t
 uďż˝ivatelova identita ovďż˝ďż˝ena, tento uďż˝ivatel je povaďż˝ovďż˝n za jinďż˝ho neďż˝ vďż˝ichni
 pďż˝ipojenďż˝ nebo dďż˝ďż˝ve pďż˝ipojenďż˝ uďż˝ivatelďż˝.
 </p>
 <hr>
 </div>
 </div>
-<div class="subsection" id="V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">
-<div class="header">
+<div class="subsection-level-extent" id="V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">
+<div class="nav-panel">
 <p>
 Next: <a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd" accesskey="n" rel="next">Autentifikace uďż˝ivatelďż˝</a>, Previous: <a href="#Historie-zpr_010f_017c_02ddv" accesskey="p" rel="prev">Historie zprďż˝v</a>, Up: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="u" rel="up">Zďż˝kladnďż˝ funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Vdz_0022ce-vdz_0022stupndz_0022ch-moduldz_0022"></span><h4 class="subsection">2.1.3 Vďż˝ce vďż˝stupnďż˝ch modulďż˝</h4>
-<span id="index-vdz_0022stupndz_0022-modul"></span>
-<span id="index-syntetizdz_0022tory"></span>
+<h4 class="subsection" id="Vdz_0022ce-vdz_0022stupndz_0022ch-moduldz_0022">2.1.3 Vďż˝ce vďż˝stupnďż˝ch modulďż˝</h4>
+<a class="index-entry-id" id="index-vdz_0022stupndz_0022-modul"></a>
+<a class="index-entry-id" id="index-syntetizdz_0022tory"></a>
 
 <p>Speech Dispatcher podporuje soubďż˝nďż˝ pouďż˝ďż˝vďż˝nďż˝ vďż˝ce vďż˝stupnďż˝ch modulďż˝.  Pokud
 tyto moduly poskytujďż˝ dobrou synchronizaci, lze je pďż˝i ďż˝tenďż˝ zprďż˝v kombinovat.
@@ -572,19 +570,19 @@ Pokud napďż˝. modul1 mluvďż˝ anglicky a ďż˝esky, zatďż˝mco modul2 mluvďż˝ pouze 
 tak pokud pďż˝ijde nďż˝jakďż˝ zprďż˝va v nďż˝mďż˝inďż˝, pouďż˝ije se modul2, zatďż˝mco pro
 ostatnďż˝ jazyky se pouďż˝ije modul1.  Na druhďż˝ stranďż˝ jazyk nenďż˝ jedinďż˝m kritďż˝riem
 pro takovďż˝ rozhodnutďż˝.  Pďż˝esnďż˝ pravidla pro vďż˝bďż˝r vďż˝stupďż˝ho modulu mohou bďż˝t
-ovlivnďż˝na v konfiguraďż˝nďż˝m souboru <samp>speechd.conf</samp>.
+ovlivnďż˝na v konfiguraďż˝nďż˝m souboru <samp class="file">speechd.conf</samp>.
 </p>
 <hr>
 </div>
-<div class="subsection" id="Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">
-<div class="header">
+<div class="subsection-level-extent" id="Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">
+<div class="nav-panel">
 <p>
 Previous: <a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="p" rel="prev">Vďż˝ce vďż˝stupnďż˝ch modulďż˝</a>, Up: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="u" rel="up">Zďż˝kladnďż˝ funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Autentifikace-udz_0022ivateldz_0022"></span><h4 class="subsection">2.1.4 Autentifikace uďż˝ivatelďż˝</h4>
-<span id="index-Identification-Protocol"></span>
-<span id="index-identd"></span>
-<span id="index-RFC-1413"></span>
+<h4 class="subsection" id="Autentifikace-udz_0022ivateldz_0022">2.1.4 Autentifikace uďż˝ivatelďż˝</h4>
+<a class="index-entry-id" id="index-Identification-Protocol"></a>
+<a class="index-entry-id" id="index-identd"></a>
+<a class="index-entry-id" id="index-RFC-1413"></a>
 
 <p>NOTE: Na implementaci tďż˝to vlastnosti se pracuje, ale souďż˝asnďż˝ verze ji
 nepodporuje.
@@ -593,26 +591,26 @@ nepodporuje.
 ovďż˝ďż˝enďż˝ identity uďż˝ivatlďż˝ pouďż˝ďż˝vďż˝me Identification Protocol definovanďż˝ v RFC
 1413.
 </p>
-<span id="index-mapovdz_0022ndz_0022-udz_0022ivatldz_0022"></span>
+<a class="index-entry-id" id="index-mapovdz_0022ndz_0022-udz_0022ivatldz_0022"></a>
 <p>V konfiguraci je moďż˝nďż˝ specifikovat mapovďż˝nďż˝ uďż˝ivatelďż˝. To umoďż˝ďż˝uje jednat s
 urďż˝itďż˝mi uďż˝ivateli jako s jednďż˝m a pďż˝idďż˝lit jim stejnďż˝ prďż˝va (napďż˝. prochďż˝zet
-jejich <a href="#Historie-zpr_010f_017c_02ddv">Historie zprďż˝v</a>).
+jejich <a class="ref" href="#Historie-zpr_010f_017c_02ddv">Historie zprďż˝v</a>).
 </p>
 <hr>
 </div>
 </div>
-<div class="section" id="Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd">
-<div class="header">
+<div class="section-level-extent" id="Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd">
+<div class="nav-panel">
 <p>
 Next: <a href="#Konfigurace" accesskey="n" rel="next">konfigurace</a>, Previous: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="p" rel="prev">Zďż˝kladnďż˝ funkce</a>, Up: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="u" rel="up">Uďż˝ivatelskďż˝ dokumentace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Invoking"></span><h3 class="section">2.2 Invoking</h3>
+<h3 class="section" id="Invoking">2.2 Invoking</h3>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Potdz_0022ebndz_0022-privilegia" accesskey="1">Potďż˝ebnďż˝ privilegia</a></li>
 <li><a href="#Volby-pdz_0022dz_0022kazovdz_0022-dz_0022dz_0022dky" accesskey="2">Volby pďż˝ďż˝kazovďż˝ ďż˝ďż˝dky</a></li>
 </ul>
-<div class="subsection" id="Potdz_0022ebndz_0022-privilegia">
+<div class="subsection-level-extent" id="Potdz_0022ebndz_0022-privilegia">
 <h4 class="subsection">2.2.1 Potďż˝ebnďż˝ privilegia</h4>
 
 <p>Speech Dispatcher mďż˝ďż˝e bďż˝t obecnďż˝ spouďż˝tďż˝n pod obyďż˝ejnďż˝m uďż˝ivatelem.  Snaďż˝ili
@@ -622,38 +620,38 @@ jej spouďż˝tďż˝t jako root nebo pod jinďż˝m vysoce privilegovanďż˝m uďż˝ivatelem
 </p>
 <p>Jedinďż˝ omezenďż˝ jsou tyto:
 </p>
-<ul>
-<li> Speech Dispatcher vytvďż˝ďż˝ďż˝ PID file standardnďż˝ ve
-<samp>/var/run/speech-dispatcher.pid</samp>, takďż˝e <samp>/var/run/</samp> musďż˝ bďż˝t danďż˝mu
+<ul class="itemize mark-bullet">
+<li>Speech Dispatcher vytvďż˝ďż˝ďż˝ PID file standardnďż˝ ve
+<samp class="file">/var/run/speech-dispatcher.pid</samp>, takďż˝e <samp class="file">/var/run/</samp> musďż˝ bďż˝t danďż˝mu
 uďż˝ivateli pďż˝ďż˝stupnďż˝ k zďż˝pisu.  To mďż˝ďż˝e bďż˝t zmďż˝nďż˝no nastavenďż˝m volby
-<code>pidpath</code> pďż˝i volďż˝nďż˝ skriptu <code>./configure</code> pďż˝i kompilaci.
-</li><li> Kdyďż˝ je zapnuto logovďż˝nďż˝, vďż˝chozďż˝ cesta, kam Speech Dispatcher zapisuje svďż˝j
-log, je <samp>/var/log/speech-dispatcher.log</samp>.  To ale mďż˝ďż˝e bďż˝t kdykoliv
+<code class="code">pidpath</code> pďż˝i volďż˝nďż˝ skriptu <code class="code">./configure</code> pďż˝i kompilaci.
+</li><li>Kdyďż˝ je zapnuto logovďż˝nďż˝, vďż˝chozďż˝ cesta, kam Speech Dispatcher zapisuje svďż˝j
+log, je <samp class="file">/var/log/speech-dispatcher.log</samp>.  To ale mďż˝ďż˝e bďż˝t kdykoliv
 pďż˝enastaveno v hlavnďż˝m konfiguraďż˝nďż˝m souboru.
 </li></ul>
 
 </div>
-<div class="subsection" id="Volby-pdz_0022dz_0022kazovdz_0022-dz_0022dz_0022dky">
+<div class="subsection-level-extent" id="Volby-pdz_0022dz_0022kazovdz_0022-dz_0022dz_0022dky">
 <h4 class="subsection">2.2.2 Volby pďż˝ďż˝kazovďż˝ ďż˝ďż˝dky</h4>
 
 <p>Speech Dispatcher mďż˝ďż˝e bďż˝t spuďż˝tďż˝n s tďż˝mito volbami:
 </p>
-<p><code>speech-dispatcher [-{d|s}] [-l {1|2|3|4|5}] [-p=port] | [-v] | [-h]</code>
+<p><code class="code">speech-dispatcher [-{d|s}] [-l {1|2|3|4|5}] [-p=port] | [-v] | [-h]</code>
 </p>
-<dl compact="compact">
-<dt><span><code>-d or --run-daemon</code></span></dt>
+<dl class="table">
+<dt><code class="code">-d or --run-daemon</code></dt>
 <dd><p>Spustďż˝ program jako dďż˝mona (bďż˝ďż˝ v pozadďż˝, odpojďż˝ se od terminďż˝lu, atd.)  Toto
 je vďż˝chozďż˝ chovďż˝nďż˝.
 </p>
 </dd>
-<dt><span><code>-s or --run-single</code></span></dt>
+<dt><code class="code">-s or --run-single</code></dt>
 <dd><p>Spustďż˝ program jako bďż˝nou aplikaci bďż˝ďż˝cďż˝ na popďż˝edďż˝.
 </p>
 </dd>
-<dt><span><code>-l level or --log-level=level</code></span></dt>
+<dt><code class="code">-l level or --log-level=level</code></dt>
 <dd><p>Vybere poďż˝adovanďż˝ logovacďż˝ ďż˝roveďż˝. Logovacďż˝ ďż˝roveďż˝ je ďż˝ďż˝slo mezi 0 a 5 (0
 znamenďż˝ neloguj nic, 5 znamenďż˝ zapisuj tďż˝mďż˝ďż˝ vďż˝e vďż˝etnďż˝ zpracovďż˝vanďż˝ho textu.)
-Standardnďż˝ je 3. See <a href="#g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd">ďż˝rovnďż˝ logovďż˝nďż˝</a>.
+Standardnďż˝ je 3. See <a class="xref" href="#g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd">ďż˝rovnďż˝ logovďż˝nďż˝</a>.
 </p>
 <p>Logovacďż˝ ďż˝roveďż˝ 5 by nemďż˝la bďż˝t pouďż˝ďż˝vďż˝na k jinďż˝m ďż˝ďż˝elďż˝m, neďż˝ pro hledďż˝nďż˝ chyb
 a to pouze krďż˝tkodobďż˝.  Logy, kterďż˝ produkuje mohou narďż˝st do obrovskďż˝
@@ -662,16 +660,16 @@ prďż˝vech, jak platďż˝ pro historii.  Spouďż˝tďż˝t server s touto ďż˝rovnďż˝ log
 mďż˝ďż˝e snadno vďż˝st k naruďż˝enďż˝ soukromďż˝.
 </p>
 </dd>
-<dt><span><code>-p or --port</code></span></dt>
+<dt><code class="code">-p or --port</code></dt>
 <dd><p>Zadďż˝ port, na kterďż˝m by mďż˝l server ďż˝ekat na klienty.  Vďż˝chozďż˝ je 6560.
 </p>
 </dd>
-<dt><span><code>-v or --version</code></span></dt>
+<dt><code class="code">-v or --version</code></dt>
 <dd><p>Vypďż˝ďż˝e informace o verzi Speech Dispatchera.  Takďż˝ oznďż˝mďż˝ zďż˝kladnďż˝ informace o
 copyrightu.
 </p>
 </dd>
-<dt><span><code>-h or --help</code></span></dt>
+<dt><code class="code">-h or --help</code></dt>
 <dd><p>Vypďż˝ďż˝e nďż˝povďż˝du o volbďż˝ch pďż˝ďż˝kazovďż˝ ďż˝ďż˝dky, upozornďż˝nďż˝ o copyrightu
 a emailovou adresu pro zasďż˝lďż˝nďż˝ oznďż˝menďż˝ o chybďż˝ch.
 </p></dd>
@@ -681,13 +679,13 @@ a emailovou adresu pro zasďż˝lďż˝nďż˝ oznďż˝menďż˝ o chybďż˝ch.
 <hr>
 </div>
 </div>
-<div class="section" id="Konfigurace">
-<div class="header">
+<div class="section-level-extent" id="Konfigurace">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd" accesskey="p" rel="prev">Invoking</a>, Up: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="u" rel="up">Uďż˝ivatelskďż˝ dokumentace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="konfigurace"></span><h3 class="section">2.3 konfigurace</h3>
-<span id="index-konfigurace"></span>
+<h3 class="section" id="konfigurace">2.3 konfigurace</h3>
+<a class="index-entry-id" id="index-konfigurace"></a>
 
 <p>Speech Dispatcher mďż˝ďż˝e bďż˝t konfigurovďż˝n na nďż˝kolika rďż˝znďż˝ch ďż˝rovnďż˝ch.  Jedna z
 nich je nastavovďż˝nďż˝ globďż˝lnďż˝ch parametrďż˝ pďż˝es serverovďż˝ konfiguraďż˝nďż˝ soubor.
@@ -701,72 +699,72 @@ dokumentace danďż˝ho programu.
 konfiguraďż˝nďż˝ soubor.
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Syntaxe-konfigura_010f_017c_02ddn_010f_017c_02ddho-souboru" accesskey="1">Syntaxe konfiguraďż˝nďż˝ho souboru</a></li>
 <li><a href="#Volby-v-konfiguraci" accesskey="2">Configuration options</a></li>
 <li><a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="3">Output Modules Configuration</a></li>
 <li><a href="#g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd" accesskey="4">ďż˝rovnďż˝ logovďż˝nďż˝</a></li>
 </ul>
 <hr>
-<div class="subsection" id="Syntaxe-konfigura_010f_017c_02ddn_010f_017c_02ddho-souboru">
-<div class="header">
+<div class="subsection-level-extent" id="Syntaxe-konfigura_010f_017c_02ddn_010f_017c_02ddho-souboru">
+<div class="nav-panel">
 <p>
 Next: <a href="#Volby-v-konfiguraci" accesskey="n" rel="next">Configuration options</a>, Previous: <a href="#Konfigurace" accesskey="p" rel="prev">konfigurace</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Syntaxe-konfiguradz_0022ndz_0022ho-souboru"></span><h4 class="subsection">2.3.1 Syntaxe konfiguraďż˝nďż˝ho souboru</h4>
+<h4 class="subsection" id="Syntaxe-konfiguradz_0022ndz_0022ho-souboru">2.3.1 Syntaxe konfiguraďż˝nďż˝ho souboru</h4>
 
 <p>Pro naďż˝ďż˝tďż˝nďż˝ configurace zaloďż˝enďż˝ na textovďż˝ch souborech pouďż˝ďż˝vďż˝me knihovnu
 DotConf, takďż˝e bude syntaxe nejspďż˝ďż˝ mnoha uďż˝ivatelďż˝m povďż˝domďż˝.
 </p>
 <p>Kaďż˝dďż˝ z ďż˝etďż˝zcovďż˝ch konstant, pokud nenďż˝ uvedeno jinak, by mďż˝la bďż˝t zakďż˝dovďż˝na
 v UTF-8.  Jmďż˝na voleb nepouďż˝ďż˝vajďż˝ jinďż˝ znaky neďż˝ standardnďż˝ ASCII sadu omezenou
-na znaky (<code>a</code>, <code>b</code>, ...), pomlďż˝ky (<code>-</code>) a podtrďż˝ďż˝tka <code>_</code>.
+na znaky (<code class="code">a</code>, <code class="code">b</code>, ...), pomlďż˝ky (<code class="code">-</code>) a podtrďż˝ďż˝tka <code class="code">_</code>.
 </p>
-<p>Komentďż˝ďż˝e a doďż˝asnďż˝ neaktivnďż˝ volby zaďż˝ďż˝najďż˝ znakem <code>#</code>.  Pokud chcete
+<p>Komentďż˝ďż˝e a doďż˝asnďż˝ neaktivnďż˝ volby zaďż˝ďż˝najďż˝ znakem <code class="code">#</code>.  Pokud chcete
 takovu volbu zapnout, staďż˝ďż˝ smazat znak komentďż˝ďż˝e a nastavit volbu na
 poďż˝adovanou hodnotu.
 </p><div class="example">
-<pre class="example"># toto je komentar
+<pre class="example-preformatted"># toto je komentar
 # InactiveOption &quot;tato volba je zatim vypla komentarem&quot;
 </pre></div>
 
 <p>ďż˝etďż˝zce jsou uzavďż˝eny v uvozovkďż˝ch.
 </p><div class="example">
-<pre class="example">LogFile  &quot;/var/log/speech-dispatcher.log&quot;
+<pre class="example-preformatted">LogFile  &quot;/var/log/speech-dispatcher.log&quot;
 </pre></div>
 
 <p>ďż˝ďż˝sla jsou zapsďż˝na bez uvozovek.
 </p><div class="example">
-<pre class="example">Port 6560
+<pre class="example-preformatted">Port 6560
 </pre></div>
 
 <p>Pďż˝epďż˝naďż˝e pouďż˝ďż˝vajďż˝ On (zapnuto) a Off (vypnuto).
 </p><div class="example">
-<pre class="example">Debug Off
+<pre class="example-preformatted">Debug Off
 </pre></div>
 
 <hr>
 </div>
-<div class="subsection" id="Volby-v-konfiguraci">
-<div class="header">
+<div class="subsection-level-extent" id="Volby-v-konfiguraci">
+<div class="nav-panel">
 <p>
 Next: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="n" rel="next">Output Modules Configuration</a>, Previous: <a href="#Syntaxe-konfigura_010f_017c_02ddn_010f_017c_02ddho-souboru" accesskey="p" rel="prev">Syntaxe konfiguraďż˝nďż˝ho souboru</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Configuration-options"></span><h4 class="subsection">2.3.2 Configuration options</h4>
+<h4 class="subsection" id="Configuration-options">2.3.2 Configuration options</h4>
 
 <p>Vďż˝echny dostupnďż˝ volby jsou zdokumentovďż˝ny pďż˝ďż˝mo v konfiguraďż˝nďż˝m souboru a jsou
 k nim uvedeny i pďż˝ďż˝klady. Vďż˝tďż˝ina voleb je nastavena na vďż˝chozďż˝ hodnotu a
 zakomentovďż˝na.  Pokud je chcete zmďż˝nit, postaďż˝ďż˝ modifikovat jejich hodnotu a
-smazat symbol komentďż˝ďż˝e <code>#</code>.
+smazat symbol komentďż˝ďż˝e <code class="code">#</code>.
 </p>
 <hr>
 </div>
-<div class="subsection" id="Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">
-<div class="header">
+<div class="subsection-level-extent" id="Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">
+<div class="nav-panel">
 <p>
 Next: <a href="#g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd" accesskey="n" rel="next">ďż˝rovnďż˝ logovďż˝nďż˝</a>, Previous: <a href="#Volby-v-konfiguraci" accesskey="p" rel="prev">Configuration options</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Output-Modules-Configuration"></span><h4 class="subsection">2.3.3 Output Modules Configuration</h4>
+<h4 class="subsection" id="Output-Modules-Configuration">2.3.3 Output Modules Configuration</h4>
 
 <p>Kaďż˝dďż˝ uďż˝ivatel by si mďż˝l zapnout ve svďż˝ konfiguraci alespoďż˝ jeden vďż˝stupnďż˝
 modul, pokud chce, aby Speech Dispatcher produkoval nďż˝jakďż˝ zvukovďż˝ vďż˝stup.
@@ -775,59 +773,59 @@ komunikovat s klienty a logovat zprďż˝vy do historie, ale nebude produkovat ďż˝ď
 zvuk.
 </p>
 <p>Kaďż˝dďż˝ vďż˝stupnďż˝ modul je tďż˝eba do Speech Dispatchera natďż˝hnout jednou ďż˝ďż˝dkou
-&ldquo;AddModule&rdquo; v <samp>etc/speechd.conf</samp>.  Navďż˝c, kaďż˝dďż˝ vďż˝stupnďż˝ modul mďż˝
+&ldquo;AddModule&rdquo; v <samp class="file">etc/speechd.conf</samp>.  Navďż˝c, kaďż˝dďż˝ vďż˝stupnďż˝ modul mďż˝
 pďż˝iďż˝azen vlastnďż˝ konfiguraďż˝nďż˝ soubor.
 </p>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#Natahov_010f_017c_02ddn_010f_017c_02dd-modul_010f_017c_02dd-ve-speechd_002econf" accesskey="1">Natahovďż˝nďż˝ modulďż˝ ve speechd.conf</a></li>
 <li><a href="#Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="2">Konfiguraďż˝nďż˝ soubory vďż˝stupnďż˝ch modulďż˝</a></li>
 <li><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu" accesskey="3">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></li>
 </ul>
 <hr>
-<div class="subsubsection" id="Natahov_010f_017c_02ddn_010f_017c_02dd-modul_010f_017c_02dd-ve-speechd_002econf">
-<div class="header">
+<div class="subsubsection-level-extent" id="Natahov_010f_017c_02ddn_010f_017c_02dd-modul_010f_017c_02dd-ve-speechd_002econf">
+<div class="nav-panel">
 <p>
 Next: <a href="#Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="n" rel="next">Konfiguraďż˝nďż˝ soubory vďż˝stupnďż˝ch modulďż˝</a>, Previous: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Natahovdz_0022ndz_0022-moduldz_0022-ve-speechd_002econf"></span><h4 class="subsubsection">2.3.3.1 Natahovďż˝nďż˝ modulďż˝ ve speechd.conf</h4>
+<h4 class="subsubsection" id="Natahovdz_0022ndz_0022-moduldz_0022-ve-speechd_002econf">2.3.3.1 Natahovďż˝nďż˝ modulďż˝ ve speechd.conf</h4>
 
-<span id="AddModule"></span><p>Kaďż˝dďż˝ modul, kterďż˝ by se mďż˝l spustit pďż˝i startu Speech
-Dispatchera, musďż˝ bďż˝t nataďż˝en pďż˝ďż˝kazem <code>AddModule</code> v konfiguraci.
+<a class="anchor" id="AddModule"></a><p>Kaďż˝dďż˝ modul, kterďż˝ by se mďż˝l spustit pďż˝i startu Speech
+Dispatchera, musďż˝ bďż˝t nataďż˝en pďż˝ďż˝kazem <code class="code">AddModule</code> v konfiguraci.
 Vďż˝imnďż˝te si, ďż˝e lze natďż˝hnout jeden binďż˝rnďż˝ modul vďż˝cekrďż˝t s rďż˝znďż˝mi
 konfiguraďż˝nďż˝mi soubory a pod jinďż˝mi jmďż˝ny.  To je uďż˝iteďż˝nďż˝ hlavnďż˝ pro
-natahovďż˝nďż˝ generickďż˝ch vďż˝stupnďż˝ch modulďż˝.  See <a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a>.
+natahovďż˝nďż˝ generickďż˝ch vďż˝stupnďż˝ch modulďż˝.  See <a class="xref" href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a>.
 </p>
 <div class="example">
-<pre class="example">AddModule &quot;<var>module_name</var>&quot; &quot;<var>module_binary</var>&quot; &quot;<var>module_config</var>&quot;
+<pre class="example-preformatted">AddModule &quot;<var class="var">module_name</var>&quot; &quot;<var class="var">module_binary</var>&quot; &quot;<var class="var">module_config</var>&quot;
 </pre></div>
 
-<p><var>module_name</var> je jmďż˝no danďż˝ho vďż˝stupnďż˝ho modulu.
+<p><var class="var">module_name</var> je jmďż˝no danďż˝ho vďż˝stupnďż˝ho modulu.
 </p>
-<p><var>module_binary</var> je jmďż˝no binďż˝rnďż˝ho spustitelnďż˝ho souboru tohoto vďż˝stupnďż˝ho
+<p><var class="var">module_binary</var> je jmďż˝no binďż˝rnďż˝ho spustitelnďż˝ho souboru tohoto vďż˝stupnďż˝ho
 modulu.  To mďż˝ďż˝e bďż˝t buďż˝ cesta absolutnďż˝ nebo relativnďż˝ k
-<samp>bin/speechd-modules/</samp>.
+<samp class="file">bin/speechd-modules/</samp>.
 </p>
-<p><var>module_config</var> je soubor s konfiguracďż˝ pro tento konkrďż˝tnďż˝ vďż˝stupnďż˝ modul.
-Cesta mďż˝ďż˝e bďż˝t absolutnďż˝ i relativnďż˝ k <samp>etc/speech-dispatcher/modules/</samp>.
+<p><var class="var">module_config</var> je soubor s konfiguracďż˝ pro tento konkrďż˝tnďż˝ vďż˝stupnďż˝ modul.
+Cesta mďż˝ďż˝e bďż˝t absolutnďż˝ i relativnďż˝ k <samp class="file">etc/speech-dispatcher/modules/</samp>.
 Tento parametr je volitelnďż˝ (nenďż˝ tďż˝eba jej uvďż˝dďż˝t).
 </p>
 <hr>
 </div>
-<div class="subsubsection" id="Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">
-<div class="header">
+<div class="subsubsection-level-extent" id="Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">
+<div class="nav-panel">
 <p>
 Next: <a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu" accesskey="n" rel="next">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a>, Previous: <a href="#Natahov_010f_017c_02ddn_010f_017c_02dd-modul_010f_017c_02dd-ve-speechd_002econf" accesskey="p" rel="prev">Natahovďż˝nďż˝ modulďż˝ ve speechd.conf</a>, Up: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Konfiguradz_0022ndz_0022-soubory-vdz_0022stupndz_0022ch-moduldz_0022"></span><h4 class="subsubsection">2.3.3.2 Konfiguraďż˝nďż˝ soubory vďż˝stupnďż˝ch modulďż˝</h4>
+<h4 class="subsubsection" id="Konfiguradz_0022ndz_0022-soubory-vdz_0022stupndz_0022ch-moduldz_0022">2.3.3.2 Konfiguraďż˝nďż˝ soubory vďż˝stupnďż˝ch modulďż˝</h4>
 
 <p>Kaďż˝dďż˝ vďż˝stupnďż˝ modul je odliďż˝nďż˝ a proto mďż˝ odliďż˝nďż˝ volby v konfiguraci.  Prosďż˝m
 prostudujte si komentďż˝ďż˝e v danďż˝m konfiguraďż˝nďż˝m souboru.  Zde je popsďż˝no pouze
 nďż˝kolik voleb, kterďż˝ jsou pro nďż˝kterďż˝ vďż˝stupnďż˝ moduly spoleďż˝nďż˝.
 </p>
-<dl compact="compact">
-<dt><span><code>AddVoice &quot;<var>language</var>&quot; &quot;<var>symbolicname</var>&quot; &quot;<var>name</var>&quot;</code></span></dt>
-<dd><span id="AddVoice"></span>
+<dl class="table">
+<dt><code class="code">AddVoice &quot;<var class="var">language</var>&quot; &quot;<var class="var">symbolicname</var>&quot; &quot;<var class="var">name</var>&quot;</code></dt>
+<dd><a class="anchor" id="AddVoice"></a>
 <p>Kaďż˝dďż˝ vďż˝stupnďż˝ modul poskytuje nďż˝jakďż˝ hlasy a nďż˝kdy dokonce podporuje rďż˝znďż˝
 jazyky.  Z toho dďż˝vodu byl zaveden spoleďż˝nďż˝ mechanismus, kterďż˝m mďż˝ďż˝ou bďż˝t tyto
 hlasy definovďż˝ny v konfiguraci.  ďż˝ďż˝dnďż˝ modul ovďż˝em nenďż˝ povinen tuto volbu
@@ -835,15 +833,15 @@ pouďż˝ďż˝vat.  Nďż˝kterďż˝ syntetizďż˝tory, napďż˝. Festival, podporujďż˝ symbol
 SSIP pďż˝ďż˝mo, takďż˝e konfigurace konkrďż˝tnďż˝ch hlasďż˝ se provďż˝dďż˝ v syntetizďż˝toru
 samotnďż˝m.
 </p>
-<p>Kaďż˝dďż˝mu definovanďż˝mu hlasu odpovďż˝dďż˝ pďż˝esnďż˝ jedna ďż˝ďż˝dka <code>AddVoice</code>.
+<p>Kaďż˝dďż˝mu definovanďż˝mu hlasu odpovďż˝dďż˝ pďż˝esnďż˝ jedna ďż˝ďż˝dka <code class="code">AddVoice</code>.
 </p>
-<p><var>language</var> je ISO kďż˝d jazyka tohoto hlasu (en, cs, de, en-US, ...)
+<p><var class="var">language</var> je ISO kďż˝d jazyka tohoto hlasu (en, cs, de, en-US, ...)
 </p>
-<p><var>symbolicname</var> je symbolickďż˝ jmďż˝no, pod kterďż˝m chcete, aby byl tento hlas
-dostupnďż˝.  See <a href="#Standardn_010f_017c_02dd-hlasy">Standardnďż˝ hlasy</a>, pro seznam symbolickďż˝ch jmen, kterďż˝ mďż˝ďż˝ete
+<p><var class="var">symbolicname</var> je symbolickďż˝ jmďż˝no, pod kterďż˝m chcete, aby byl tento hlas
+dostupnďż˝.  See <a class="xref" href="#Standardn_010f_017c_02dd-hlasy">Standardnďż˝ hlasy</a>, pro seznam symbolickďż˝ch jmen, kterďż˝ mďż˝ďż˝ete
 pouďż˝ďż˝t.
 </p>
-<p><var>name</var> je jmďż˝no specifickďż˝ pro danďż˝ vďż˝stupnďż˝ modul.  Prosďż˝m podďż˝vejte se na
+<p><var class="var">name</var> je jmďż˝no specifickďż˝ pro danďż˝ vďż˝stupnďż˝ modul.  Prosďż˝m podďż˝vejte se na
 komentďż˝ďż˝e v pďż˝ďż˝sluďż˝nďż˝m konfiguraďż˝nďż˝m souboru v sekci AddModule pro detailnďż˝jďż˝ďż˝
 informace.
 </p>
@@ -851,12 +849,12 @@ informace.
 takto:
 </p>
 <div class="example">
-<pre class="example">        AddVoice        &quot;cs&quot;  &quot;male1&quot;   &quot;kadlec&quot;
+<pre class="example-preformatted">        AddVoice        &quot;cs&quot;  &quot;male1&quot;   &quot;kadlec&quot;
         AddVoice        &quot;sk&quot;  &quot;male1&quot;   &quot;bob&quot;
 </pre></div>
 
 </dd>
-<dt><span><code>ModuleDelimiters &quot;<var>delimiters</var>&quot;, ModuleMaxChunkLength <var>length</var></code></span></dt>
+<dt><code class="code">ModuleDelimiters &quot;<var class="var">delimiters</var>&quot;, ModuleMaxChunkLength <var class="var">length</var></code></dt>
 <dd>
 <p>ďż˝asto se vďż˝stupnďż˝ modul nesnaďż˝ďż˝ vysyntetizovat celďż˝ pďż˝ďż˝chozďż˝ text najednou, ale
 mďż˝sto toho jej nejprve rozďż˝eďż˝e na menďż˝ďż˝ kousky (vďż˝ty, ďż˝ďż˝sti vďż˝t) a ty potom
@@ -865,24 +863,24 @@ moduly, je mnohem rychlejďż˝ďż˝, ale na druhďż˝ stranďż˝ zase limituje schopnost
 syntetizďż˝ru poskytnout dobrou intonaci.
 </p>
 <p>Z toho dďż˝vodu mďż˝te obyďż˝ejnďż˝ moďż˝nost zkonfigurovat si na jakďż˝ch znacďż˝ch
-(<var>delimiters</var>) by se mďż˝l text rozdďż˝lit na menďż˝ďż˝ ďż˝ďż˝sti (pokud jsou
-nďż˝sledovďż˝ny nďż˝jakďż˝m whitespace znakem).  Druhďż˝ volba (<var>length</var>) udďż˝vďż˝, po
+(<var class="var">delimiters</var>) by se mďż˝l text rozdďż˝lit na menďż˝ďż˝ ďż˝ďż˝sti (pokud jsou
+nďż˝sledovďż˝ny nďż˝jakďż˝m whitespace znakem).  Druhďż˝ volba (<var class="var">length</var>) udďż˝vďż˝, po
 kolika znacďż˝ch by se mďż˝l text nďż˝silnďż˝ rozdďż˝lit, pokud nebyl nalezen ďż˝ďż˝dnďż˝
 delimiter.
 </p>
 <p>Pokud tato dvďż˝ pravidla zpďż˝ďż˝snďż˝te, dostanete lepďż˝ďż˝ rychlost, ale vzdďż˝te se
 urďż˝itďż˝ ďż˝ďż˝sti kvality intonace.  Takďż˝e napďż˝ďż˝klad pro pomalejďż˝ďż˝ poďż˝ďż˝taďż˝e
-doporuďż˝ujeme do <var>delimiters</var> vloďż˝it i ďż˝ďż˝rku (,), aby byl text rozdďż˝len i na
+doporuďż˝ujeme do <var class="var">delimiters</var> vloďż˝it i ďż˝ďż˝rku (,), aby byl text rozdďż˝len i na
 ďż˝ďż˝stech vďż˝ty, zatďż˝mco na rychlejďż˝ďż˝ch poďż˝ďż˝taďż˝ďż˝ch je lepďż˝ďż˝ tam ďż˝ďż˝rku nedďż˝vat,
 takďż˝e do syntetizďż˝ru vďż˝dy dorazďż˝ celďż˝ souvďż˝tďż˝.
 </p>
-<p>To samďż˝ platďż˝ o <code>MaxChunkLength</code>. Pro rychlejďż˝ďż˝ poďż˝ďż˝taďż˝e
+<p>To samďż˝ platďż˝ o <code class="code">MaxChunkLength</code>. Pro rychlejďż˝ďż˝ poďż˝ďż˝taďż˝e
 je lepďż˝ďż˝ nastavit vďż˝tďż˝ďż˝ hodnotu.
 </p>
 <p>Napďż˝ďż˝klad vďż˝chozďż˝ hodnoty ve vďż˝stupnďż˝m modulu pro Festival jsou:
 </p>
 <div class="example">
-<pre class="example">    FestivalMaxChunkLength  300
+<pre class="example-preformatted">    FestivalMaxChunkLength  300
     FestivalDelimiters  &quot;.?!;,:&quot;
 </pre></div>
 
@@ -895,97 +893,97 @@ fell.&rdquo;  by rozdďż˝lena byla (to je mimochodem velmi zajďż˝mavďż˝ vďż˝ta).
 
 <hr>
 </div>
-<div class="subsubsection" id="Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">
-<div class="header">
+<div class="subsubsection-level-extent" id="Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="p" rel="prev">Konfiguraďż˝nďż˝ soubory vďż˝stupnďż˝ch modulďż˝</a>, Up: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Konfigurace-generickdz_0022ho-vdz_0022stupndz_0022ho-modulu"></span><h4 class="subsubsection">2.3.3.3 Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</h4>
+<h4 class="subsubsection" id="Konfigurace-generickdz_0022ho-vdz_0022stupndz_0022ho-modulu">2.3.3.3 Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</h4>
 
 <p>Generickďż˝ vďż˝stupnďż˝ modul uďż˝ivatelďż˝m dovoluje jednoduďż˝e si napsat vlastnďż˝
 jednoduchďż˝ vďż˝stupnďż˝ modul pro syntetizďż˝ry, kterďż˝ majďż˝ rozhranďż˝ ve formďż˝
 jednoduchďż˝ho ďż˝ďż˝dkovďż˝ho klienta, pouze modifikacďż˝ konfiguraďż˝nďż˝ho souboru.  Tďż˝mto
 zpďż˝sobem nemusďż˝ psďż˝t ďż˝ďż˝dnďż˝ specifickďż˝ kďż˝d v C a uďż˝ivatelďż˝ si mohou pďż˝idďż˝vat
-podporu pro vďż˝stupnďż˝ zaďż˝ďż˝zenďż˝ i kdyďż˝ neumďż˝ programovat.  See <a href="#AddModule">AddModule</a>.
+podporu pro vďż˝stupnďż˝ zaďż˝ďż˝zenďż˝ i kdyďż˝ neumďż˝ programovat.  See <a class="xref" href="#AddModule">AddModule</a>.
 </p>
 <p>Klďż˝ďż˝ovďż˝ ďż˝ďż˝st kaďż˝dďż˝ho generickďż˝ho vďż˝stupnďż˝ho modulu je definice ďż˝etďż˝zce, kterďż˝
 se mďż˝ spouďż˝tďż˝t.
 </p>
-<dl class="def">
-<dt id="index-GenericExecuteSynth"><span class="category">Konfigurace generickďż˝ho modulu: </span><span><strong>GenericExecuteSynth</strong> <em>&quot;<var>execution_string</var>&quot;</em><a href='#index-GenericExecuteSynth' class='copiable-anchor'> &para;</a></span></dt>
+<dl class="first-defvr">
+<dt class="defvr" id="index-GenericExecuteSynth"><span class="category-def">Konfigurace generickďż˝ho modulu: </span><span><strong class="def-name">GenericExecuteSynth</strong> <var class="def-var-arguments">&quot;<var class="var">execution_string</var>&quot;</var><a class="copiable-link" href='#index-GenericExecuteSynth'> &para;</a></span></dt>
 <dd>
-<p><code>execution_string</code> je pďż˝ďż˝kaz, kterďż˝ by mďż˝l bďż˝t zavolďż˝n v shellu, kdyďż˝ je
+<p><code class="code">execution_string</code> je pďż˝ďż˝kaz, kterďż˝ by mďż˝l bďż˝t zavolďż˝n v shellu, kdyďż˝ je
 potďż˝eba nďż˝co ďż˝ďż˝ct.  Ve skuteďż˝nosti to mďż˝ďż˝e bďż˝t vďż˝ce jak jeden pďż˝ďż˝kaz, dohromady
-zďż˝etďż˝zenďż˝ operďż˝torem <code>&amp;&amp;</code>.  Kdyďż˝ bude vďż˝stupnďż˝ modul chtďż˝t pďż˝eďż˝ďż˝kďż˝vďż˝nďż˝
+zďż˝etďż˝zenďż˝ operďż˝torem <code class="code">&amp;&amp;</code>.  Kdyďż˝ bude vďż˝stupnďż˝ modul chtďż˝t pďż˝eďż˝ďż˝kďż˝vďż˝nďż˝
 zprďż˝vy zastavit, zaďż˝le tďż˝mto procesďż˝m signďż˝l KILL, takďż˝e je dďż˝leďż˝itďż˝, aby
 pouďż˝itďż˝ pďż˝ďż˝kazy po obdrďż˝enďż˝ KILL okamďż˝itďż˝ pďż˝estaly mluvit. (Na vďż˝tďż˝inďż˝
-GNU/Linuxovďż˝ch systďż˝mďż˝ mďż˝ tuto vlastnost utilita <code>play</code>)
+GNU/Linuxovďż˝ch systďż˝mďż˝ mďż˝ tuto vlastnost utilita <code class="code">play</code>)
 </p>
-<p>V <code>execution_string</code> mďż˝ďż˝ete vyuďż˝ďż˝t tďż˝chto promďż˝nnďż˝ch, kterďż˝ budou
+<p>V <code class="code">execution_string</code> mďż˝ďż˝ete vyuďż˝ďż˝t tďż˝chto promďż˝nnďż˝ch, kterďż˝ budou
 nahrazeny poďż˝adovanďż˝mi hodnotami, neďż˝ bude pďż˝ďż˝kaz vykonďż˝n.
 </p>
-<ul>
-<li> <code>$DATA</code>
+<ul class="itemize mark-bullet">
+<li><code class="code">$DATA</code>
 Text, kterďż˝ by mďż˝l bďż˝t pďż˝eďż˝ďż˝kďż˝n.  Znaky ďż˝etďż˝zce, kterďż˝ by nďż˝jak interferovali
 se zpracovďż˝nďż˝m v bashi budou automaticky nahrazeny odpovďż˝dajďż˝cďż˝mi escape
 sekvencemi.  Asi bude ale nutnďż˝ uvďż˝st kolem tďż˝to promďż˝nnďż˝ uvozovky
-(napďż˝. takto: <code>\&quot;$DATA\&quot;</code>).
-</li><li> <code>$LANG</code>
+(napďż˝. takto: <code class="code">\&quot;$DATA\&quot;</code>).
+</li><li><code class="code">$LANG</code>
 Identifikaďż˝nďż˝ ďż˝etďż˝zec jazyka (ten je definovďż˝n pomocďż˝ GenericLanguage).
-</li><li> <code>$VOICE</code>
+</li><li><code class="code">$VOICE</code>
 Identifikaďż˝nďż˝ ďż˝etďż˝zec hlasu (ten je definovďż˝n pomocďż˝ AddVoice).
-</li><li> <code>$PITCH</code>
+</li><li><code class="code">$PITCH</code>
 Poďż˝adovanďż˝ vďż˝ďż˝ka hlasu (desetinnďż˝ ďż˝ďż˝slo definovanďż˝ v GenericPitchAdd a v
 GenericPitchMultiply)
-</li><li> <code>$RATE</code>
+</li><li><code class="code">$RATE</code>
 Poďż˝adovanďż˝ rychlost hlasu (desetinnďż˝ ďż˝ďż˝slo definovanďż˝ v GenericRateAdd a v
 GenericRateMultiply)
 </li></ul>
 
-<p>Tady je pďż˝ďż˝klad z <samp>etc/speech-dispatcher/modules/epos-generic.conf</samp>
+<p>Tady je pďż˝ďż˝klad z <samp class="file">etc/speech-dispatcher/modules/epos-generic.conf</samp>
 </p><div class="example">
-<pre class="example">GenericExecuteSynth \
+<pre class="example-preformatted">GenericExecuteSynth \
 &quot;epos-say -o --language $LANG --voice $VOICE --init_f $PITCH --init_t $RATE \
 \&quot;$DATA\&quot; | sed -e s+unknown.*$++ &gt;/tmp/epos-said.wav &amp;&amp; play /tmp/epos-said.wav &gt;/dev/null&quot;
 </pre></div>
 </dd></dl>
 
-<dl class="def">
-<dt id="index-AddVoice"><span class="category">Konfigurace generickďż˝ho modulu: </span><span><strong>AddVoice</strong> <em>&quot;<var>language</var>&quot; &quot;<var>symbolicname</var>&quot; &quot;<var>name</var>&quot;</em><a href='#index-AddVoice' class='copiable-anchor'> &para;</a></span></dt>
-<dd><p>See <a href="#AddVoice">AddVoice</a>.
+<dl class="first-defvr">
+<dt class="defvr" id="index-AddVoice"><span class="category-def">Konfigurace generickďż˝ho modulu: </span><span><strong class="def-name">AddVoice</strong> <var class="def-var-arguments">&quot;<var class="var">language</var>&quot; &quot;<var class="var">symbolicname</var>&quot; &quot;<var class="var">name</var>&quot;</var><a class="copiable-link" href='#index-AddVoice'> &para;</a></span></dt>
+<dd><p>See <a class="xref" href="#AddVoice">AddVoice</a>.
 </p></dd></dl>
 
-<dl class="def">
-<dt id="index-GenericLanguage"><span class="category">Konfigurace generickďż˝ho modulu: </span><span><strong>GenericLanguage</strong> <em>&quot;iso-code&quot; &quot;string-subst&quot;</em><a href='#index-GenericLanguage' class='copiable-anchor'> &para;</a></span></dt>
+<dl class="first-defvr">
+<dt class="defvr" id="index-GenericLanguage"><span class="category-def">Konfigurace generickďż˝ho modulu: </span><span><strong class="def-name">GenericLanguage</strong> <var class="def-var-arguments">&quot;iso-code&quot; &quot;string-subst&quot;</var><a class="copiable-link" href='#index-GenericLanguage'> &para;</a></span></dt>
 <dd>
-<p>Definuje, jakďż˝ ďż˝etďż˝zec <code>string-subst</code> by mďż˝l bďż˝t nahrazen za <code>$LANG</code>
-pro danďż˝ <code>iso-code</code> ISO kďż˝d jazyka.
+<p>Definuje, jakďż˝ ďż˝etďż˝zec <code class="code">string-subst</code> by mďż˝l bďż˝t nahrazen za <code class="code">$LANG</code>
+pro danďż˝ <code class="code">iso-code</code> ISO kďż˝d jazyka.
 </p>
 <p>Opďż˝t pďż˝ďż˝klad z Epos generic:
 </p><div class="example">
-<pre class="example">GenericLanguage &quot;en-US&quot; &quot;english-US&quot;
+<pre class="example-preformatted">GenericLanguage &quot;en-US&quot; &quot;english-US&quot;
 GenericLanguage &quot;cs&quot; &quot;czech&quot;
 GenericLanguage &quot;sk&quot; &quot;slovak&quot;
 </pre></div>
 </dd></dl>
 
-<dl class="def">
-<dt id="index-GenericRateAdd"><span class="category">Konfigurace generickďż˝ho modulu: </span><span><strong>GenericRateAdd</strong> <em><var>num</var></em><a href='#index-GenericRateAdd' class='copiable-anchor'> &para;</a></span></dt>
+<dl class="first-defvr">
+<dt class="defvr" id="index-GenericRateAdd"><span class="category-def">Konfigurace generickďż˝ho modulu: </span><span><strong class="def-name">GenericRateAdd</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href='#index-GenericRateAdd'> &para;</a></span></dt>
 </dl>
-<dl class="def">
-<dt id="index-GenericRateMultiply"><span class="category">Konfigurace generickďż˝ho modulu: </span><span><strong>GenericRateMultiply</strong> <em><var>num</var></em><a href='#index-GenericRateMultiply' class='copiable-anchor'> &para;</a></span></dt>
+<dl class="first-defvr">
+<dt class="defvr" id="index-GenericRateMultiply"><span class="category-def">Konfigurace generickďż˝ho modulu: </span><span><strong class="def-name">GenericRateMultiply</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href='#index-GenericRateMultiply'> &para;</a></span></dt>
 </dl>
-<dl class="def">
-<dt id="index-GenericPitchAdd"><span class="category">Konfigurace generickďż˝ho modulu: </span><span><strong>GenericPitchAdd</strong> <em><var>num</var></em><a href='#index-GenericPitchAdd' class='copiable-anchor'> &para;</a></span></dt>
+<dl class="first-defvr">
+<dt class="defvr" id="index-GenericPitchAdd"><span class="category-def">Konfigurace generickďż˝ho modulu: </span><span><strong class="def-name">GenericPitchAdd</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href='#index-GenericPitchAdd'> &para;</a></span></dt>
 </dl>
-<dl class="def">
-<dt id="index-GenericPitchMultiply"><span class="category">Konfigurace generickďż˝ho modulu: </span><span><strong>GenericPitchMultiply</strong> <em><var>num</var></em><a href='#index-GenericPitchMultiply' class='copiable-anchor'> &para;</a></span></dt>
+<dl class="first-defvr">
+<dt class="defvr" id="index-GenericPitchMultiply"><span class="category-def">Konfigurace generickďż˝ho modulu: </span><span><strong class="def-name">GenericPitchMultiply</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href='#index-GenericPitchMultiply'> &para;</a></span></dt>
 <dd><p>Tyto parametry nastavujďż˝ konverzi pro vďż˝poďż˝et rychlosti a vďż˝ďż˝ky.
-(<code>$RATE</code> a <code>$PITCH</code>). 
+(<code class="code">$RATE</code> a <code class="code">$PITCH</code>). 
 </p>
 <p>Vďż˝slednďż˝ rychlost (nebo vďż˝ďż˝ka) je dďż˝na nďż˝sledujďż˝cďż˝m vzorcem:
 </p><div class="example">
-<pre class="example">   (speechd_rate * GenericRateMultiply) + GenericRateAdd
+<pre class="example-preformatted">   (speechd_rate * GenericRateMultiply) + GenericRateAdd
 </pre></div>
 <p>kde speechd_rate je hodnota mezi -100 (nejniďż˝ďż˝ďż˝) a +100 (nejvyďż˝ďż˝ďż˝).  Je tďż˝eba
 definovat nďż˝jakou rozumnou konverzi pro danďż˝ syntetizďż˝r.
@@ -997,102 +995,102 @@ DotConfu nepodporuje desetinnďż˝ ďż˝ďż˝sla.  Mďż˝ďż˝ete tedy psďż˝t 0.85 jako 85
 <hr>
 </div>
 </div>
-<div class="subsection" id="g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd">
-<div class="header">
+<div class="subsection-level-extent" id="g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd">
+<div class="nav-panel">
 <p>
 Previous: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="dz_0022rovndz_0022-logovdz_0022ndz_0022"></span><h4 class="subsection">2.3.4 ďż˝rovnďż˝ logovďż˝nďż˝</h4>
+<h4 class="subsection" id="dz_0022rovndz_0022-logovdz_0022ndz_0022">2.3.4 ďż˝rovnďż˝ logovďż˝nďż˝</h4>
 
 <p>Ve Speech Dispatcheru je 6 rďż˝znďż˝ch ďż˝rovnďż˝ logovďż˝nďż˝.  0 znamenďż˝ ďż˝ďż˝dnďż˝ logovďż˝nďż˝,
 zatďż˝mco 5 znamenďż˝ vypisovat tďż˝mďż˝ďż˝ vďż˝echny dostupnďż˝ informace.
 </p>
-<ul>
-<li> ďż˝roveďż˝ 0
-<ul>
-<li> ďż˝ďż˝dnďż˝ informace
+<ul class="itemize mark-bullet">
+<li>ďż˝roveďż˝ 0
+<ul class="itemize mark-bullet">
+<li>ďż˝ďż˝dnďż˝ informace
 </li></ul>
 
-</li><li> ďż˝roveďż˝ 1
-<ul>
-<li> Informace o startu a vypďż˝nďż˝nďż˝.
+</li><li>ďż˝roveďż˝ 1
+<ul class="itemize mark-bullet">
+<li>Informace o startu a vypďż˝nďż˝nďż˝.
 </li></ul>
 
-</li><li> ďż˝roveďż˝ 2
-<ul>
-<li> Informace o chybďż˝ch, kterďż˝ nastaly.
-</li><li> Alokace a uvolďż˝ovďż˝nďż˝ zdrojďż˝ pďż˝i startu a pďż˝i exitu.
+</li><li>ďż˝roveďż˝ 2
+<ul class="itemize mark-bullet">
+<li>Informace o chybďż˝ch, kterďż˝ nastaly.
+</li><li>Alokace a uvolďż˝ovďż˝nďż˝ zdrojďż˝ pďż˝i startu a pďż˝i exitu.
 </li></ul>
 
-</li><li> ďż˝roveďż˝ 3
-<ul>
-<li> Informace o pďż˝ijďż˝mďż˝nďż˝/odepďż˝rďż˝nďż˝/zavďż˝rďż˝nďż˝ klientskďż˝ch spojenďż˝.
-</li><li> Informace o neplatnďż˝ch SSIP pďż˝ďż˝kazech od klientďż˝.
+</li><li>ďż˝roveďż˝ 3
+<ul class="itemize mark-bullet">
+<li>Informace o pďż˝ijďż˝mďż˝nďż˝/odepďż˝rďż˝nďż˝/zavďż˝rďż˝nďż˝ klientskďż˝ch spojenďż˝.
+</li><li>Informace o neplatnďż˝ch SSIP pďż˝ďż˝kazech od klientďż˝.
 </li></ul>
 
-</li><li> ďż˝roveďż˝ 4
-<ul>
-<li> Je vypisovďż˝n kaďż˝dďż˝ pďż˝ijatďż˝ pďż˝ďż˝kaz
-</li><li> Informace o zpracovďż˝vďż˝nďż˝ vstupu
-</li><li> Informace o uklďż˝dďż˝nďż˝ zprďż˝v do front
-</li><li> Informace o fungovďż˝nďż˝ historie, zvukovďż˝ch ikon, atd.
+</li><li>ďż˝roveďż˝ 4
+<ul class="itemize mark-bullet">
+<li>Je vypisovďż˝n kaďż˝dďż˝ pďż˝ijatďż˝ pďż˝ďż˝kaz
+</li><li>Informace o zpracovďż˝vďż˝nďż˝ vstupu
+</li><li>Informace o uklďż˝dďż˝nďż˝ zprďż˝v do front
+</li><li>Informace o fungovďż˝nďż˝ historie, zvukovďż˝ch ikon, atd.
 facilities.
-</li><li> Informace o prďż˝ci vlďż˝kna speak()
+</li><li>Informace o prďż˝ci vlďż˝kna speak()
 </li></ul>
 
-</li><li> ďż˝roveďż˝ 5
+</li><li>ďż˝roveďż˝ 5
 (Ta slouďż˝ďż˝ pouze pro ladďż˝cďż˝ ďż˝ďż˝ely a mďż˝ďż˝e vypisovat opravdu *mnoho*
 dat. Pouďż˝ďż˝vejte opatrnďż˝.)
-<ul>
-<li> Vďż˝echna obdrďż˝enďż˝ data jsou vypisovďż˝na (zprďż˝vy od klientďż˝)
-</li><li> Ladďż˝cďż˝ informace.
+<ul class="itemize mark-bullet">
+<li>Vďż˝echna obdrďż˝enďż˝ data jsou vypisovďż˝na (zprďż˝vy od klientďż˝)
+</li><li>Ladďż˝cďż˝ informace.
 </li></ul>
 </li></ul>
 
 </div>
 </div>
 </div>
-<div class="appendix" id="Standardndz_0022-hlasy">
+<div class="appendix-level-extent" id="Standardndz_0022-hlasy">
 <h2 class="appendix">Appendix A Standardnďż˝ hlasy</h2>
-<span id="Standardn_010f_017c_02dd-hlasy"></span>
-<dl compact="compact">
-<dt><span><code>MALE1</code></span></dt>
-<dt><span><code>MALE2</code></span></dt>
-<dt><span><code>MALE3</code></span></dt>
-<dt><span><code>FEMALE1</code></span></dt>
-<dt><span><code>FEMALE2</code></span></dt>
-<dt><span><code>FEMALE3</code></span></dt>
-<dt><span><code>CHILD_MALE</code></span></dt>
-<dt><span><code>CHILD_FEMALE</code></span></dt>
+<a class="anchor" id="Standardn_010f_017c_02dd-hlasy"></a>
+<dl class="table">
+<dt><code class="code">MALE1</code></dt>
+<dt><code class="code">MALE2</code></dt>
+<dt><code class="code">MALE3</code></dt>
+<dt><code class="code">FEMALE1</code></dt>
+<dt><code class="code">FEMALE2</code></dt>
+<dt><code class="code">FEMALE3</code></dt>
+<dt><code class="code">CHILD_MALE</code></dt>
+<dt><code class="code">CHILD_FEMALE</code></dt>
 </dl>
 
-<p>Skuteďż˝nďż˝ dostupnost tďż˝chto hlasďż˝ nenďż˝ zaruďż˝ena, ale pďż˝ďż˝kaz <code>SET SELF
+<p>Skuteďż˝nďż˝ dostupnost tďż˝chto hlasďż˝ nenďż˝ zaruďż˝ena, ale pďż˝ďż˝kaz <code class="code">SET SELF
 VOICE</code> musďż˝ akceptovat jakďż˝koliv z nich.  Pokud nenďż˝ danďż˝ hlas dostupnďż˝, je
 mapovďż˝n na jinďż˝ hlas vďż˝stupnďż˝m modulem.
 </p>
 <hr>
 </div>
-<div class="appendix" id="GNU-General-Public-License">
-<div class="header">
+<div class="appendix-level-extent" id="GNU-General-Public-License">
+<div class="nav-panel">
 <p>
 Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="p" rel="prev">Uďż˝ivatelskďż˝ dokumentace</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="GNU-General-Public-License-1"></span><h2 class="appendix">Appendix B GNU General Public License</h2>
-<div align="center">Version 2, June 1991
-</div><span id="index-GPL_002c-GNU-General-Public-License"></span>
+<h2 class="appendix" id="GNU-General-Public-License-1">Appendix B GNU General Public License</h2>
+<div class="center">Version 2, June 1991
+</div><a class="index-entry-id" id="index-GPL_002c-GNU-General-Public-License"></a>
 
-<div align="center">Version 2, June 1991
+<div class="center">Version 2, June 1991
 </div>
 
 <div class="display">
-<pre class="display">Copyright &copy; 1989, 1991 Free Software Foundation, Inc.
+<pre class="display-preformatted">Copyright &copy; 1989, 1991 Free Software Foundation, Inc.
 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<span id="Preamble"></span><h3 class="heading">Preamble</h3>
+<h3 class="heading" id="Preamble">Preamble</h3>
 
 <p>The licenses for most software are designed to take away your
 freedom to share and change it.  By contrast, the GNU General Public
@@ -1142,9 +1140,9 @@ patent must be licensed for everyone&rsquo;s free use or not licensed at all.
 <p>The precise terms and conditions for copying, distribution and
 modification follow.
 </p>
-<span id="TERMS-AND-CONDITIONS-FOR-COPYING_002c-DISTRIBUTION-AND-MODIFICATION"></span><h3 class="heading">TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</h3>
+<h3 class="heading" id="TERMS-AND-CONDITIONS-FOR-COPYING_002c-DISTRIBUTION-AND-MODIFICATION">TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION</h3>
 
-<ol start="0">
+<ol class="enumerate" start="0">
 <li> This License applies to any program or other work which contains
 a notice placed by the copyright holder saying it may be distributed
 under the terms of this General Public License.  The &ldquo;Program&rdquo;, below,
@@ -1178,7 +1176,7 @@ of it, thus forming a work based on the Program, and copy and
 distribute such modifications or work under the terms of Section 1
 above, provided that you also meet all of these conditions:
 
-<ol type="a" start="1">
+<ol class="enumerate" type="a" start="1">
 <li> You must cause the modified files to carry prominent notices
 stating that you changed the files and the date of any change.
 
@@ -1223,7 +1221,7 @@ the scope of this License.
 under Section 2) in object code or executable form under the terms of
 Sections 1 and 2 above provided that you also do one of the following:
 
-<ol type="a" start="1">
+<ol class="enumerate" type="a" start="1">
 <li> Accompany it with the complete corresponding machine-readable
 source code, which must be distributed under the terms of Sections
 1 and 2 above on a medium customarily used for software interchange; or,
@@ -1368,7 +1366,7 @@ POSSIBILITY OF SUCH DAMAGES.
 </li></ol>
 
 
-<span id="Appendix_003a-How-to-Apply-These-Terms-to-Your-New-Programs"></span><h3 class="heading">Appendix: How to Apply These Terms to Your New Programs</h3>
+<h3 class="heading" id="Appendix_003a-How-to-Apply-These-Terms-to-Your-New-Programs">Appendix: How to Apply These Terms to Your New Programs</h3>
 
 <p>If you develop a new program, and you want it to be of the greatest
 possible use to the public, the best way to achieve this is to make it
@@ -1379,9 +1377,9 @@ to attach them to the start of each source file to most effectively
 convey the exclusion of warranty; and each file should have at least
 the &ldquo;copyright&rdquo; line and a pointer to where the full notice is found.
 </p>
-<div class="example">
-<pre class="example"><var>one line to give the program's name and a brief idea of what it does.</var>
-Copyright (C) <var>yyyy</var>  <var>name of author</var>
+<div class="example smallexample">
+<pre class="example-preformatted"><var class="var">one line to give the program's name and a brief idea of what it does.</var>
+Copyright (C) <var class="var">yyyy</var>  <var class="var">name of author</var>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -1402,17 +1400,17 @@ along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
 <p>If the program is interactive, make it output a short notice like this
 when it starts in an interactive mode:
 </p>
-<div class="example">
-<pre class="example">Gnomovision version 69, Copyright (C) <var>year</var> <var>name of author</var>
+<div class="example smallexample">
+<pre class="example-preformatted">Gnomovision version 69, Copyright (C) <var class="var">year</var> <var class="var">name of author</var>
 Gnomovision comes with ABSOLUTELY NO WARRANTY; for details type `show w'.
 This is free software, and you are welcome to redistribute it
 under certain conditions; type `show c' for details.
 </pre></div>
 
-<p>The hypothetical commands &lsquo;<samp>show w</samp>&rsquo; and &lsquo;<samp>show c</samp>&rsquo; should show
+<p>The hypothetical commands &lsquo;<samp class="samp">show w</samp>&rsquo; and &lsquo;<samp class="samp">show c</samp>&rsquo; should show
 the appropriate parts of the General Public License.  Of course, the
-commands you use may be called something other than &lsquo;<samp>show w</samp>&rsquo; and
-&lsquo;<samp>show c</samp>&rsquo;; they could even be mouse-clicks or menu items&mdash;whatever
+commands you use may be called something other than &lsquo;<samp class="samp">show w</samp>&rsquo; and
+&lsquo;<samp class="samp">show c</samp>&rsquo;; they could even be mouse-clicks or menu items&mdash;whatever
 suits your program.
 </p>
 <p>You should also get your employer (if you work as a programmer) or your
@@ -1420,10 +1418,10 @@ school, if any, to sign a &ldquo;copyright disclaimer&rdquo; for the program, if
 necessary.  Here is a sample; alter the names:
 </p>
 <div class="example">
-<pre class="example">Yoyodyne, Inc., hereby disclaims all copyright interest in the program
+<pre class="example-preformatted">Yoyodyne, Inc., hereby disclaims all copyright interest in the program
 `Gnomovision' (which makes passes at compilers) written by James Hacker.
 
-<var>signature of Ty Coon</var>, 1 April 1989
+<var class="var">signature of Ty Coon</var>, 1 April 1989
 Ty Coon, President of Vice
 </pre></div>
 
@@ -1436,28 +1434,28 @@ Public License instead of this License.
 
 <hr>
 </div>
-<div class="appendix" id="GNU-Free-Documentation-License">
-<div class="header">
+<div class="appendix-level-extent" id="GNU-Free-Documentation-License">
+<div class="nav-panel">
 <p>
 Next: <a href="#Index-of-Concepts" accesskey="n" rel="next">Index of Concepts</a>, Previous: <a href="#GNU-General-Public-License" accesskey="p" rel="prev">GNU General Public License</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="GNU-Free-Documentation-License-1"></span><h2 class="appendix">Appendix C GNU Free Documentation License</h2>
-<div align="center">Version 1.2, November 2002
-</div><span id="index-FDL_002c-GNU-Free-Documentation-License"></span>
+<h2 class="appendix" id="GNU-Free-Documentation-License-1">Appendix C GNU Free Documentation License</h2>
+<div class="center">Version 1.2, November 2002
+</div><a class="index-entry-id" id="index-FDL_002c-GNU-Free-Documentation-License"></a>
 
 <div class="display">
-<pre class="display">Copyright &copy; 2000,2001,2002 Free Software Foundation, Inc.
+<pre class="display-preformatted">Copyright &copy; 2000,2001,2002 Free Software Foundation, Inc.
 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
 
 Everyone is permitted to copy and distribute verbatim copies
 of this license document, but changing it is not allowed.
 </pre></div>
 
-<ol start="0">
+<ol class="enumerate" start="0">
 <li> PREAMBLE
 
 <p>The purpose of this License is to make a manual, textbook, or other
-functional and useful document <em>free</em> in the sense of freedom: to
+functional and useful document <em class="dfn">free</em> in the sense of freedom: to
 assure everyone the effective freedom to copy and redistribute it,
 with or without modifying it, either commercially or noncommercially.
 Secondarily, this License preserves for the author and publisher a way
@@ -1531,16 +1529,16 @@ An image format is not Transparent if used for any substantial amount
 of text.  A copy that is not &ldquo;Transparent&rdquo; is called &ldquo;Opaque&rdquo;.
 </p>
 <p>Examples of suitable formats for Transparent copies include plain
-<small>ASCII</small> without markup, Texinfo input format, LaTeX input
-format, <acronym>SGML</acronym> or <acronym>XML</acronym> using a publicly available
-<acronym>DTD</acronym>, and standard-conforming simple <acronym>HTML</acronym>,
-PostScript or <acronym>PDF</acronym> designed for human modification.  Examples
-of transparent image formats include <acronym>PNG</acronym>, <acronym>XCF</acronym> and
-<acronym>JPG</acronym>.  Opaque formats include proprietary formats that can be
-read and edited only by proprietary word processors, <acronym>SGML</acronym> or
-<acronym>XML</acronym> for which the <acronym>DTD</acronym> and/or processing tools are
-not generally available, and the machine-generated <acronym>HTML</acronym>,
-PostScript or <acronym>PDF</acronym> produced by some word processors for
+<small class="sc">ASCII</small> without markup, Texinfo input format, LaTeX input
+format, <abbr class="acronym">SGML</abbr> or <abbr class="acronym">XML</abbr> using a publicly available
+<abbr class="acronym">DTD</abbr>, and standard-conforming simple <abbr class="acronym">HTML</abbr>,
+PostScript or <abbr class="acronym">PDF</abbr> designed for human modification.  Examples
+of transparent image formats include <abbr class="acronym">PNG</abbr>, <abbr class="acronym">XCF</abbr> and
+<abbr class="acronym">JPG</abbr>.  Opaque formats include proprietary formats that can be
+read and edited only by proprietary word processors, <abbr class="acronym">SGML</abbr> or
+<abbr class="acronym">XML</abbr> for which the <abbr class="acronym">DTD</abbr> and/or processing tools are
+not generally available, and the machine-generated <abbr class="acronym">HTML</abbr>,
+PostScript or <abbr class="acronym">PDF</abbr> produced by some word processors for
 output purposes only.
 </p>
 <p>The &ldquo;Title Page&rdquo; means, for a printed book, the title page itself,
@@ -1626,7 +1624,7 @@ Version filling the role of the Document, thus licensing distribution
 and modification of the Modified Version to whoever possesses a copy
 of it.  In addition, you must do these things in the Modified Version:
 </p>
-<ol type="A" start="1">
+<ol class="enumerate" type="A" start="1">
 <li> Use in the Title Page (and on the covers, if any) a title distinct
 from that of the Document, and from those of previous versions
 (which should, if there were any, be listed in the History section
@@ -1809,7 +1807,7 @@ parties remain in full compliance.
 of the GNU Free Documentation License from time to time.  Such new
 versions will be similar in spirit to the present version, but may
 differ in detail to address new problems or concerns.  See
-<a href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
+<a class="uref" href="http://www.gnu.org/copyleft/">http://www.gnu.org/copyleft/</a>.
 </p>
 <p>Each version of the License is given a distinguishing version number.
 If the Document specifies that a particular numbered version of this
@@ -1821,34 +1819,34 @@ number of this License, you may choose any version ever published (not
 as a draft) by the Free Software Foundation.
 </p></li></ol>
 
-<ul class="section-toc">
+<ul class="mini-toc">
 <li><a href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents" accesskey="1">ADDENDUM: How to use this License for your documents</a></li>
 </ul>
-<div class="appendixsec" id="ADDENDUM_003a-How-to-use-this-License-for-your-documents">
+<div class="appendixsec-level-extent" id="ADDENDUM_003a-How-to-use-this-License-for-your-documents">
 <h3 class="appendixsec">C.1 ADDENDUM: How to use this License for your documents</h3>
 
 <p>To use this License in a document you have written, include a copy of
 the License in the document and put the following copyright and
 license notices just after the title page:
 </p>
-<div class="example">
-<pre class="example">  Copyright (C)  <var>year</var>  <var>your name</var>.
+<div class="example smallexample">
+<div class="group"><pre class="example-preformatted">  Copyright (C)  <var class="var">year</var>  <var class="var">your name</var>.
   Permission is granted to copy, distribute and/or modify this document
   under the terms of the GNU Free Documentation License, Version 1.2
   or any later version published by the Free Software Foundation;
   with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
   A copy of the license is included in the section entitled ``GNU
   Free Documentation License''.
-</pre></div>
+</pre></div></div>
 
 <p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
 replace the &ldquo;with...Texts.&rdquo; line with this:
 </p>
-<div class="example">
-<pre class="example">    with the Invariant Sections being <var>list their titles</var>, with
-    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
-    being <var>list</var>.
-</pre></div>
+<div class="example smallexample">
+<div class="group"><pre class="example-preformatted">    with the Invariant Sections being <var class="var">list their titles</var>, with
+    the Front-Cover Texts being <var class="var">list</var>, and with the Back-Cover Texts
+    being <var class="var">list</var>.
+</pre></div></div>
 
 <p>If you have Invariant Sections without Cover Texts, or some other
 combination of the three, merge those two alternatives to suit the
@@ -1864,135 +1862,137 @@ to permit their use in free software.
 <hr>
 </div>
 </div>
-<div class="unnumbered" id="Index-of-Concepts">
-<div class="header">
+<div class="unnumbered-level-extent" id="Index-of-Concepts">
+<div class="nav-panel">
 <p>
 Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<span id="Index-of-Concepts-1"></span><h2 class="unnumbered">Index of Concepts</h2>
+<h2 class="unnumbered" id="Index-of-Concepts-1">Index of Concepts</h2>
 
-<span id="index-tail-recursion"></span>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Concepts_cp_letter-A"><b>A</b></a>
+<a class="index-entry-id" id="index-tail-recursion"></a>
+<div class="printindex cp-printindex">
+<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-D"><b>D</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-G"><b>G</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-G"><b>G</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-H"><b>H</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-H"><b>H</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-I"><b>I</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-I"><b>I</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-K"><b>K</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-K"><b>K</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-M"><b>M</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-M"><b>M</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-O"><b>O</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-O"><b>O</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-P"><b>P</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-P"><b>P</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-R"><b>R</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-R"><b>R</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-S"><b>S</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-S"><b>S</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-T"><b>T</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-V"><b>V</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="index-cp" border="0">
-<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<table class="cp-entries-printindex" border="0">
+<tr><td></td><th class="entries-header-printindex">Index Entry</th><td>&nbsp;</td><th class="sections-header-printindex"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-A">A</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-access-rights">access rights</a>:</td><td>&nbsp;</td><td valign="top"><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">Pďż˝ďż˝stupovďż˝ prďż˝va</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-AddVoice"><code>AddVoice</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-access-rights">access rights</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">Pďż˝ďż˝stupovďż˝ prďż˝va</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-AddVoice"><code>AddVoice</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-D">D</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Design">Design</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design">Zďż˝kladnďż˝ design</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Design">Design</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design">Zďż˝kladnďż˝ design</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-F">F</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-FDL_002c-GNU-Free-Documentation-License">FDL, GNU Free Documentation License</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Filosofie">Filosofie</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Motivace">Motivace</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-FDL_002c-GNU-Free-Documentation-License">FDL, GNU Free Documentation License</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Filosofie">Filosofie</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Motivace">Motivace</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-G">G</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GenericExecuteSynth"><code>GenericExecuteSynth</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GenericLanguage"><code>GenericLanguage</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GenericPitchAdd"><code>GenericPitchAdd</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GenericPitchMultiply"><code>GenericPitchMultiply</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GenericRateAdd"><code>GenericRateAdd</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GenericRateMultiply"><code>GenericRateMultiply</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-GPL_002c-GNU-General-Public-License">GPL, GNU General Public License</a>:</td><td>&nbsp;</td><td valign="top"><a href="#GNU-General-Public-License">GNU General Public License</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericExecuteSynth"><code>GenericExecuteSynth</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericLanguage"><code>GenericLanguage</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericPitchAdd"><code>GenericPitchAdd</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericPitchMultiply"><code>GenericPitchMultiply</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericRateAdd"><code>GenericRateAdd</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericRateMultiply"><code>GenericRateMultiply</code></a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generickďż˝ho vďż˝stupnďż˝ho modulu</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-GPL_002c-GNU-General-Public-License">GPL, GNU General Public License</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#GNU-General-Public-License">GNU General Public License</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-H">H</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-history">history</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Historie-zpr_010f_017c_02ddv">Historie zprďż˝v</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Hlavndz_0022-mydz_0022lenky_002c-Motivace">Hlavnďż˝ myďż˝lenky, Motivace</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Motivace">Motivace</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-history">history</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Historie-zpr_010f_017c_02ddv">Historie zprďż˝v</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Hlavndz_0022-mydz_0022lenky_002c-Motivace">Hlavnďż˝ myďż˝lenky, Motivace</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Motivace">Motivace</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-I">I</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-identd">identd</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace uďż˝ivatelďż˝</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Identification-Protocol">Identification Protocol</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace uďż˝ivatelďż˝</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-identd">identd</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace uďż˝ivatelďż˝</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Identification-Protocol">Identification Protocol</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace uďż˝ivatelďż˝</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-K">K</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-konfigurace">konfigurace</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Konfigurace">Konfigurace</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-konfigurace">konfigurace</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Konfigurace">Konfigurace</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-M">M</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-mapovdz_0022ndz_0022-udz_0022ivatldz_0022">mapovďż˝nďż˝ uďż˝ivatlďż˝</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace uďż˝ivatelďż˝</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-mapovdz_0022ndz_0022-udz_0022ivatldz_0022">mapovďż˝nďż˝ uďż˝ivatlďż˝</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace uďż˝ivatelďż˝</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-O">O</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Ostatndz_0022-programy">Ostatnďż˝ programy</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav">Souďż˝asnďż˝ stav</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Ostatndz_0022-programy">Ostatnďż˝ programy</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav">Souďż˝asnďż˝ stav</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-P">P</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Priorita-important">Priorita important</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Typy-priorit">Typy priorit</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Priorita-message">Priorita message</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Typy-priorit">Typy priorit</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Priorita-notification">Priorita notification</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Typy-priorit">Typy priorit</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Priorita-text">Priorita text</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Typy-priorit">Typy priorit</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-priority">priority</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Model-priorit-zpr_010f_017c_02ddv">Model priorit zprďż˝v</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Priorita-important">Priorita important</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Priorita-message">Priorita message</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Priorita-notification">Priorita notification</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Priorita-text">Priorita text</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-priority">priority</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Model-priorit-zpr_010f_017c_02ddv">Model priorit zprďż˝v</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-R">R</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-RFC-1413">RFC 1413</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace uďż˝ivatelďż˝</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-RFC-1413">RFC 1413</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace uďż˝ivatelďż˝</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-S">S</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-speechd-skupina"><code>speechd</code> skupina</a>:</td><td>&nbsp;</td><td valign="top"><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">Pďż˝ďż˝stupovďż˝ prďż˝va</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-speechd-udz_0022ivatel"><code>speechd</code> uďż˝ivatel</a>:</td><td>&nbsp;</td><td valign="top"><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">Pďż˝ďż˝stupovďż˝ prďż˝va</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-Syntetizdz_0022ry">Syntetizďż˝ry</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav">Souďż˝asnďż˝ stav</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-syntetizdz_0022tory">syntetizďż˝tory</a>:</td><td>&nbsp;</td><td valign="top"><a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">Vďż˝ce vďż˝stupnďż˝ch modulďż˝</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-speechd-skupina"><code class="code">speechd</code> skupina</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">Pďż˝ďż˝stupovďż˝ prďż˝va</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-speechd-udz_0022ivatel"><code class="code">speechd</code> uďż˝ivatel</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">Pďż˝ďż˝stupovďż˝ prďż˝va</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-Syntetizdz_0022ry">Syntetizďż˝ry</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav">Souďż˝asnďż˝ stav</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-syntetizdz_0022tory">syntetizďż˝tory</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">Vďż˝ce vďż˝stupnďż˝ch modulďż˝</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-T">T</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-tail-recursion">tail recursion</a>:</td><td>&nbsp;</td><td valign="top"><a href="#Index-of-Concepts">Index of Concepts</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-tail-recursion">tail recursion</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#Index-of-Concepts">Index of Concepts</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-V">V</th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-vdz_0022stupndz_0022-modul">vďż˝stupnďż˝ modul</a>:</td><td>&nbsp;</td><td valign="top"><a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">Vďż˝ce vďż˝stupnďż˝ch modulďż˝</a></td></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-vdz_0022stupndz_0022-modul">vďż˝stupnďż˝ modul</a>:</td><td>&nbsp;</td><td class="printindex-index-section"><a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">Vďż˝ce vďż˝stupnďż˝ch modulďż˝</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Concepts_cp_letter-A"><b>A</b></a>
+<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-A"><b>A</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-D"><b>D</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-D"><b>D</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-F"><b>F</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-F"><b>F</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-G"><b>G</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-G"><b>G</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-H"><b>H</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-H"><b>H</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-I"><b>I</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-I"><b>I</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-K"><b>K</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-K"><b>K</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-M"><b>M</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-M"><b>M</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-O"><b>O</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-O"><b>O</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-P"><b>P</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-P"><b>P</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-R"><b>R</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-R"><b>R</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-S"><b>S</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-S"><b>S</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-T"><b>T</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-T"><b>T</b></a>
  &nbsp; 
-<a class="summary-letter" href="#Index-of-Concepts_cp_letter-V"><b>V</b></a>
+<a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
+</div>
 
 </div>
 </div>

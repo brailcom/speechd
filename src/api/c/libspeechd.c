@@ -1493,14 +1493,18 @@ void free_spd_symbolic_voices(char **voices)
 	free(voices);
 }
 
-SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
+SPDVoice **spd_list_synthesis_voices2(SPDConnection * connection, const char *language, const char *variant)
 {
 	char **svoices_str;
 	SPDVoice **svoices;
 	int i, num_items;
-	svoices_str =
-	    spd_execute_command_with_list_reply(connection,
-						"LIST SYNTHESIS_VOICES");
+	char *command = g_strdup_printf("LIST SYNTHESIS_VOICES%s%s%s%s",
+					language ? " " : "",
+					language ? language : "",
+					language && variant ? " " : "",
+					variant ? variant : "");
+	svoices_str = spd_execute_command_with_list_reply(connection, command);
+	free(command);
 
 	if (svoices_str == NULL)
 		return NULL;
@@ -1530,6 +1534,11 @@ SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
 	svoices[num_items] = NULL;
 
 	return svoices;
+}
+
+SPDVoice **spd_list_synthesis_voices(SPDConnection * connection)
+{
+	return spd_list_synthesis_voices2(connection, NULL, NULL);
 }
 
 void free_spd_voices(SPDVoice ** voices)
