@@ -519,7 +519,11 @@ spd_audio_plugin_t *oss_plugin_get(void)
 	return &oss_functions;
 }
 
-spd_audio_plugin_t *SPD_AUDIO_PLUGIN_ENTRY(void)
-    __attribute__ ((weak, alias("oss_plugin_get")));
+spd_audio_plugin_t *
+    __attribute__ ((weak))
+    SPD_AUDIO_PLUGIN_ENTRY(void)
+{
+	return &oss_functions;
+}
 #undef MSG
 #undef ERR
