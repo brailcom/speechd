@@ -356,8 +356,12 @@ spd_audio_plugin_t *pulse_plugin_get(void)
 	return &pulse_functions;
 }
 
-spd_audio_plugin_t *SPD_AUDIO_PLUGIN_ENTRY(void)
-    __attribute__ ((weak, alias("pulse_plugin_get")));
+spd_audio_plugin_t *
+    __attribute__ ((weak))
+    SPD_AUDIO_PLUGIN_ENTRY(void)
+{
+	return &pulse_functions;
+}
 
 #undef MSG
 #undef ERR
