@@ -256,7 +256,11 @@ spd_audio_plugin_t *libao_plugin_get(void)
 	return &libao_functions;
 }
 
-spd_audio_plugin_t *SPD_AUDIO_PLUGIN_ENTRY(void)
-    __attribute__ ((weak, alias("libao_plugin_get")));
+spd_audio_plugin_t *
+    __attribute__ ((weak))
+    SPD_AUDIO_PLUGIN_ENTRY(void)
+{
+	return &libao_functions;
+}
 #undef MSG
 #undef ERR
