@@ -100,6 +100,13 @@ then
 		[AC_MSG_FAILURE([dlopen missing])])
 fi
 
+case "$host" in
+	*-*darwin*)
+		darwin_host=yes
+		;;
+esac
+AM_CONDITIONAL(DARWIN_HOST, test "$darwin_host" = yes)
+
 PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.36])
 AC_SUBST([GLIB_CFLAGS])
 AC_SUBST([GLIB_LIBS])
