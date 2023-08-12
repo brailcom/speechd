@@ -100,9 +100,17 @@ then
 		[AC_MSG_FAILURE([dlopen missing])])
 fi
 
+if test x$enable_shared = xyes;
+then
+	default_shim=shim
+else
+	default_shim=no
+fi
+
 case "$host" in
 	*-*darwin*)
 		darwin_host=yes
+		default_shim=no
 		;;
 esac
 AM_CONDITIONAL(DARWIN_HOST, test "$darwin_host" = yes)
@@ -290,10 +298,7 @@ AS_IF([test $with_ibmtts = yes -o $with_ibmtts = check],
 		ibmtts_include="-I/opt/IBM/ibmtts/inc/"],
 		[AS_IF([test $with_ibmtts = "yes"],
 			[AC_MSG_FAILURE([IBMTTS is not available])])
-		 with_ibmtts=shim])])
-if test "$with_ibmtts" = shim -a $enable_shared = no; then
-  with_ibmtts=no
-fi
+		 with_ibmtts=$default_shim])])
 AM_CONDITIONAL([ibmtts_support], [test $with_ibmtts != no])
 AM_CONDITIONAL([ibmtts_shim], [test $with_ibmtts = shim])
 AC_SUBST([ibmtts_include])
@@ -309,10 +314,7 @@ AS_IF([test $with_voxin = yes -o $with_voxin = check],
 		[with_voxin=yes],
 		[AS_IF([test "$with_voxin" = yes],
 			[AC_MSG_FAILURE([Voxin is not available])])
-		 with_voxin=shim])])
-if test "$with_voxin" = shim -a $enable_shared = no; then
-  with_voxin=no
-fi
+		 with_voxin=$default_shim])])
 AM_CONDITIONAL([voxin_support], [test "$with_voxin" != no])
 AM_CONDITIONAL([voxin_shim], [test "$with_voxin" = shim])
 AS_IF([test "$with_voxin" != no], [output_modules="${output_modules} voxin"])
@@ -353,10 +355,7 @@ AS_IF([test "$with_baratinoo" = yes -o "$with_baratinoo" = check],
 		[with_baratinoo=yes],
 		[AS_IF([test "$with_baratinoo" = yes],
 			[AC_MSG_FAILURE([Voxygen Baratinoo is not available])])
-		 with_baratinoo=shim])])
-if test "$with_baratinoo" = shim -a $enable_shared = no; then
-  with_baratinoo=no
-fi
+		 with_baratinoo=$default_shim])])
 AM_CONDITIONAL([baratinoo_support], [test "$with_baratinoo" != no])
 AM_CONDITIONAL([baratinoo_shim], [test "$with_baratinoo" = shim])
 AS_IF([test "$with_baratinoo" != no], [output_modules="${output_modules} baratinoo"])
@@ -371,11 +370,8 @@ AS_IF([test $with_kali = yes -o $with_kali = check],
 		[with_kali=yes],
 		[AS_IF([test $with_kali = "yes"],
 			[AC_MSG_FAILURE([Kali is not available])])
-		 with_kali=shim],
+		 with_kali=$default_shim],
 		[-lKGlobal -lKTrans -lKParle -lKAnalyse])])
-if test "$with_kali" = shim -a $enable_shared = no; then
-  with_kali=no
-fi
 AM_CONDITIONAL([kali_support], [test $with_kali != no])
 AM_CONDITIONAL([kali_shim], [test $with_kali = shim])
 AS_IF([test $with_kali != no], [output_modules="${output_modules} kali"])
