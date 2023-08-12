@@ -29,6 +29,11 @@ CLEANFILES = dummy-message.wav
 inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/common
 common_SOURCES = module_main.c module_readline.c module_process.c module_config.c module_utils.c module_utils.h
 common_LDADD = $(DOTCONF_LIBS) $(GLIB_LIBS) $(audio_dlopen) -lpthread
+LDFLAGS =
+
+if DARWIN_HOST
+LDFLAGS += -Wl,-U,_module_speak -Wl,-U,_module_speak_sync
+endif
 
 AM_CFLAGS = $(ERROR_CFLAGS)
 AM_CXXFLAGS = $(ERROR_CFLAGS)
