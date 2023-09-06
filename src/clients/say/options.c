@@ -129,7 +129,8 @@ void options_print_help(char *argv[])
 	printf("\n");
 
 	printf("  -e, --pipe-mode                 ");
-	printf(_("Pipe from stdin to stdout plus Speech Dispatcher\n"));
+	printf(_("Read text to be spoken on stdin, write it on stdout unchanged, and the\n"));
+	printf(_("corresponding speech through Speech Dispatcher.\n"));
 
 	printf("  -P, --priority                  ");
 	printf(_("Set priority of the message "));
