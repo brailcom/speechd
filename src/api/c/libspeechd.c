@@ -129,6 +129,7 @@ char *strndup(const char *s, size_t n)
 
     Unlike getline, this does not handle embedded \0 bytes.
 */
+static
 char *get_line(SPDConnection * conn, int *n)
 {
 	int bytes;
