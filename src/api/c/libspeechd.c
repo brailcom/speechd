@@ -76,8 +76,8 @@ static int ret_ok(char *reply);
 static void SPD_DBG(char *format, ...);
 static void *spd_events_handler(void *);
 
-const int range_low = -100;
-const int range_high = 100;
+static const int range_low = -100;
+static const int range_high = 100;
 
 pthread_mutex_t spd_logging_mutex = PTHREAD_MUTEX_INITIALIZER;
 
