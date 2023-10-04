@@ -1,3 +1,8 @@
+Version 0.12
+* Add socket activation
+* libspeechd: Simplify buffer management.
+* Add language and variant parameters to "list voice" command.
+
 Version 0.11.5
 * Update CLDR to version 43 and symbols from NVDA.
 * Fix parsing and emitting space character.
