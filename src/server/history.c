@@ -50,7 +50,6 @@ char *history_get_client_list()
 	TFDSetElement *client;
 	GString *clist;
 	int i;
-	char *ret;
 
 	clist = g_string_new("");
 
@@ -67,17 +66,13 @@ char *history_get_client_list()
 	}
 	g_string_append_printf(clist, OK_CLIENT_LIST_SENT);
 
-	ret = clist->str;
-	g_string_free(clist, FALSE);
-
-	return ret;
+	return g_string_free(clist, FALSE);
 }
 
 char *history_get_client_id(int fd)
 {
 	GString *cid;
 	int uid;
-	char *ret;
 
 	uid = get_client_uid_by_fd(fd);
 	if (uid == 0)
@@ -86,10 +81,8 @@ char *history_get_client_id(int fd)
 	cid = g_string_new("");
 	g_string_append_printf(cid, C_OK_CLIENT_ID "-%d\r\n", uid);
 	g_string_append_printf(cid, OK_CLIENT_ID_SENT);
-	ret = cid->str;
-	g_string_free(cid, FALSE);
 
-	return ret;
+	return g_string_free(cid, FALSE);
 }
 
 char *history_get_message(int uid)
@@ -142,7 +135,6 @@ char *history_get_message_list(guint client_id, int from, int num)
 	TFDSetElement *client_settings;
 	GList *client_msgs;
 	int i;
-	char *ret;
 
 	MSG(4, "message_list: from %d num %d, client %d\n", from, num,
 	    client_id);
@@ -159,9 +151,7 @@ char *history_get_message_list(guint client_id, int from, int num)
 		gl = g_list_nth(client_msgs, i);
 		if (gl == NULL) {
 			g_string_append_printf(mlist, OK_MSGS_LIST_SENT);
-			ret = mlist->str;
-			g_string_free(mlist, FALSE);
-			return ret;
+			return g_string_free(mlist, FALSE);
 		}
 		message = gl->data;
 
@@ -178,9 +168,8 @@ char *history_get_message_list(guint client_id, int from, int num)
 	}
 
 	g_string_append_printf(mlist, OK_MSGS_LIST_SENT);
-	ret = mlist->str;
-	g_string_free(mlist, FALSE);
-	return ret;
+
+	return g_string_free(mlist, FALSE);
 }
 
 char *history_get_last(int fd)
@@ -188,7 +177,6 @@ char *history_get_last(int fd)
 	TSpeechDMessage *message;
 	GString *lastm;
 	GList *gl;
-	char *ret;
 
 	gl = g_list_last(message_history);
 	if (gl == NULL)
@@ -198,9 +186,8 @@ char *history_get_last(int fd)
 	lastm = g_string_new("");
 	g_string_append_printf(lastm, C_OK_LAST_MSG "-%d\r\n", message->id);
 	g_string_append_printf(lastm, OK_LAST_MSG);
-	ret = lastm->str;
-	g_string_free(lastm, FALSE);
-	return ret;
+
+	return g_string_free(lastm, FALSE);
 }
 
 char *history_cursor_set_last(int fd, guint client_id)
@@ -292,7 +279,6 @@ char *history_cursor_get(int fd)
 	TSpeechDMessage *new;
 	GString *reply;
 	GList *gl, *client_msgs;
-	char *ret;
 
 	settings = get_client_settings_by_fd(fd);
 	if (settings == NULL)
@@ -306,9 +292,8 @@ char *history_cursor_get(int fd)
 
 	reply = g_string_new("");
 	g_string_printf(reply, C_OK_CUR_POS "-%d\r\n" OK_CUR_POS_RET, new->id);
-	ret = reply->str;
-	g_string_free(reply, FALSE);
-	return ret;
+
+	return g_string_free(reply, FALSE);
 }
 
 char *history_say_id(int fd, int id)

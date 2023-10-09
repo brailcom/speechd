@@ -1418,8 +1418,7 @@ static char *search_for_sound_icon(const char *icon_name)
 	 * situation the string filename must be freed, including its character
 	 * data.
 	 */
-	g_string_free(filename, (fn == NULL));
-	return fn;
+	return g_string_free(filename, (fn == NULL));
 }
 
 #ifdef VOXIN

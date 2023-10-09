@@ -120,9 +120,7 @@ void insert_index_marks(TSpeechDMessage * msg, SPDDataMode ssml_mode)
 		g_string_append_printf(marked_text, "</speak>");
 
 	g_free(msg->buf);
-	msg->buf = marked_text->str;
-
-	g_string_free(marked_text, 0);
+	msg->buf = g_string_free(marked_text, 0);
 
 	MSG2(5, "index_marking", "MSG after index marking: |%s|", msg->buf);
 }
@@ -196,8 +194,7 @@ char *strip_index_marks(const char *buf, SPDDataMode ssml_mode)
 			*p_str = 0;
 	}
 
-	strret = str->str;
-	g_string_free(str, 0);
+	strret = g_string_free(str, 0);
 
 	MSG2(5, "index_marking", "Message after stripping index marks: |%s|",
 	     strret);

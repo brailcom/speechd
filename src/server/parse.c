@@ -69,7 +69,6 @@ char *parse(const char *buf, const int bytes, const int fd)
 	int reparted;
 	int msg_uid;
 	GString *ok_queued_reply;
-	char *reply;
 	TSpeechDSock *speechd_socket = speechd_socket_get_by_fd(fd);
 	assert(speechd_socket);
 
@@ -201,9 +200,7 @@ enddata:
 			g_string_printf(ok_queued_reply,
 					C_OK_MESSAGE_QUEUED "-%d" NEWLINE
 					OK_MESSAGE_QUEUED, msg_uid);
-			reply = ok_queued_reply->str;
-			g_string_free(ok_queued_reply, 0);
-			return reply;
+			return g_string_free(ok_queued_reply, 0);
 		}
 
 		{
@@ -931,7 +928,6 @@ char *parse_list(const char *buf, const int bytes, const int fd,
 		return voice_list;
 	} else if (TEST_CMD(list_type, "output_modules")) {
 		GString *result = g_string_new("");
-		char *helper;
 		OutputModule *mod;
 		int i, len;
 
@@ -946,17 +942,13 @@ char *parse_list(const char *buf, const int bytes, const int fd,
 		}
 
 		g_string_append(result, OK_MODULES_LIST_SENT);
-		helper = result->str;
-		g_string_free(result, 0);
-
-		return helper;
+		return g_string_free(result, 0);
 	} else if (TEST_CMD(list_type, "synthesis_voices")) {
 		int uid;
 		TFDSetElement *settings;
 		SPDVoice **voices;
 		GString *result;
 		int i;
-		char *helper;
 		char *language;
 		char *variant;
 
@@ -989,10 +981,8 @@ char *parse_list(const char *buf, const int bytes, const int fd,
 			g_free(voices[i]);
 		}
 		g_string_append(result, OK_VOICE_LIST_SENT);
-		helper = result->str;
-		g_string_free(result, 0);
 		g_free(voices);
-		return helper;
+		return g_string_free(result, 0);
 	} else {
 		g_free(list_type);
 		return g_strdup(ERR_PARAMETER_INVALID);
@@ -1004,7 +994,6 @@ char *parse_get(const char *buf, const int bytes, const int fd,
 {
 	char *get_type;
 	GString *result;
-	char *helper;
 
 	TFDSetElement *settings;
 
@@ -1072,9 +1061,7 @@ char *parse_get(const char *buf, const int bytes, const int fd,
 		g_free(get_type);
 		g_string_append(result, ERR_PARAMETER_INVALID);
 	}
-	helper = result->str;
-	g_string_free(result, 0);
-	return helper;
+	return g_string_free(result, 0);
 }
 
 char *parse_help(const char *buf, const int bytes, const int fd,
