@@ -256,7 +256,6 @@ static gchar *escape_ssml_text(const gchar *text, struct tags **tags_ret, gint *
 	const gchar *cur, *curtag = NULL;
 	struct tags *tags;
 	GString *str;
-	gchar *result;
 	gchar name[7];		/* Current tag name, only need to recognize against "mark", "/mark", "!--" for now */
 	gsize namepos = 0;
 
@@ -408,10 +407,7 @@ static gchar *escape_ssml_text(const gchar *text, struct tags **tags_ret, gint *
 	*tags_ret = tags;
 	*ntags_ret = ntags;
 
-	result = str->str;
-	g_string_free(str, FALSE);
-
-	return result;
+	return g_string_free(str, FALSE);
 }
 
 /* Put back tags into the text */
@@ -419,7 +415,6 @@ static gchar *unescape_ssml_text(const gchar *text, struct tags *tags, gint ntag
 {
 	GString *str;
 	const gchar *cur;
-	gchar *result;
 	struct tags *curtags = tags;
 
 	str = g_string_sized_new(strlen(text));
@@ -460,10 +455,7 @@ static gchar *unescape_ssml_text(const gchar *text, struct tags *tags, gint ntag
 
 	free(tags);
 
-	result = str->str;
-	g_string_free(str, FALSE);
-
-	return result;
+	return g_string_free(str, FALSE);
 }
 
 /*----------------- Speech symbol representation and loading ----------------*/

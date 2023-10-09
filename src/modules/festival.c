@@ -222,8 +222,7 @@ int module_load(void)
 }
 
 #define ABORT(msg) g_string_append(info, msg); \
-	*status_info = info->str; \
-	g_string_free(info, 0); \
+	*status_info = g_string_free(info, 0); \
 	return -1;
 
 int module_init(char **status_info)
@@ -277,8 +276,7 @@ int module_init(char **status_info)
 
 	festival_speaking = 0;
 
-	*status_info = info->str;
-	g_string_free(info, 0);
+	*status_info = g_string_free(info, 0);
 
 	return 0;
 }
