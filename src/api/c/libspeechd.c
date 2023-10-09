@@ -1865,9 +1865,8 @@ static char *get_reply(SPDConnection * connection)
 		reply = NULL;
 	} else {
 		/* The resulting message received from the socket is stored in reply */
-		reply = data.str->str;
 		/* Free the GString, but not its character data. */
-		g_string_free(data.str, FALSE);
+		reply = g_string_free(data.str, FALSE);
 	}
 
 	return reply;
