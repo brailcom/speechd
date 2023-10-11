@@ -28,6 +28,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 #include <semaphore.h>
 #include <errno.h>
 #include <getopt.h>
@@ -47,12 +49,12 @@
 
 #define MAX_LINELEN 16384
 
-sem_t semaphore;
+sem_t *semaphore;
 
 /* Callback for Speech Dispatcher notifications */
 void end_of_speech(size_t msg_id, size_t client_id, SPDNotificationType type)
 {
-	sem_post(&semaphore);
+	sem_post(semaphore);
 }
 
 void index_mark(size_t msg_id, size_t client_id, SPDNotificationType type, char *index_mark)
@@ -281,12 +283,15 @@ int main(int argc, char **argv)
 			printf("Invalid sound_icon!\n");
 
 	if (wait_till_end) {
-		ret = sem_init(&semaphore, 0, 0);
-		if (ret < 0) {
+		char name[64];
+		snprintf(name, sizeof(name), "/speechd-say-%d", getpid());
+		semaphore = sem_open(name, O_CREAT | O_EXCL, S_IRUSR | S_IWUSR, 0);
+		if (semaphore == SEM_FAILED) {
 			fprintf(stderr, "Can't initialize semaphore: %s",
 				strerror(errno));
 			return 0;
 		}
+		sem_unlink(name);
 
 		/* Notify when the message is canceled or the speech terminates */
 		conn->callback_end = end_of_speech;
@@ -311,7 +316,7 @@ int main(int argc, char **argv)
 
 			/* Wait till the callback is called */
 			if (wait_till_end)
-				sem_wait(&semaphore);
+				sem_wait(semaphore);
 		}
 	}
 	else if (key) {
@@ -328,7 +333,7 @@ int main(int argc, char **argv)
 
 			/* Wait till the callback is called */
 			if (wait_till_end)
-				sem_wait(&semaphore);
+				sem_wait(semaphore);
 		}
 	}
 	else if (pipe_mode == 1) {
@@ -343,7 +348,7 @@ int main(int argc, char **argv)
 			} else {
 				spd_say(conn, spd_priority, line);
 				if (wait_till_end)
-					sem_wait(&semaphore);
+					sem_wait(semaphore);
 			}
 		}
 		free(line);
@@ -362,7 +367,7 @@ int main(int argc, char **argv)
 
 			/* Wait till the callback is called */
 			if (wait_till_end)
-				sem_wait(&semaphore);
+				sem_wait(semaphore);
 		}
 	}
 
