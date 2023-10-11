@@ -46,7 +46,7 @@ static int initialized = 0;
 static int cicero_speaking = 0;
 
 static pthread_t cicero_speaking_thread;
-static sem_t cicero_semaphore;
+static sem_t *cicero_semaphore;
 
 static char *cicero_message;
 static SPDMessageType cicero_message_type;
@@ -215,7 +215,10 @@ int module_init(char **status_info)
 
 	cicero_message = NULL;
 
-	sem_init(&cicero_semaphore, 0, 0);
+	char name[64];
+	snprintf(name, sizeof(name), "/speechd-modules-cicero-%d", getpid());
+	cicero_semaphore = sem_open(name, O_CREAT | O_EXCL, S_IRUSR | S_IWUSR, 0);
+	sem_unlink(name);
 
 	DBG("Cicero: creating new thread for cicero_tracking\n");
 	cicero_speaking = 0;
@@ -275,7 +278,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	/* Send semaphore signal to the speaking thread */
 	cicero_speaking = 1;
-	sem_post(&cicero_semaphore);
+	sem_post(cicero_semaphore);
 
 	DBG("Cicero: leaving module_speak() normally\n\r");
 	return bytes;
@@ -317,7 +320,7 @@ int module_close(void)
 	if (module_terminate_thread(cicero_speaking_thread) != 0)
 		return -1;
 
-	sem_destroy(&cicero_semaphore);
+	sem_close(cicero_semaphore);
 
 	initialized = 0;
 	return 0;
@@ -339,7 +342,7 @@ void *_cicero_speak(void *nothing)
 	/* Make interruptible */
 	set_speaking_thread_parameters();
 	while (1) {
-		sem_wait(&cicero_semaphore);
+		sem_wait(cicero_semaphore);
 		DBG("Semaphore on\n");
 		len = strlen(cicero_message);
 		cicero_stop = 0;

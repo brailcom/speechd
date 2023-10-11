@@ -28,6 +28,8 @@
 #endif
 
 #include <glib.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 #include <semaphore.h>
 
 #include <speechd_types.h>
@@ -44,7 +46,7 @@ static int dummy_speaking = 0;
 
 static pthread_t dummy_speak_thread;
 static pid_t dummy_pid;
-static sem_t dummy_semaphore;
+static sem_t *dummy_semaphore;
 static gboolean initialized = FALSE;
 
 /* Internal functions prototypes */
@@ -70,7 +72,10 @@ int module_init(char **status_info)
 
 	*status_info = NULL;
 
-	sem_init(&dummy_semaphore, 0, 0);
+	char name[64];
+	snprintf(name, sizeof(name), "/speechd-modules-dummy-%d", getpid());
+	dummy_semaphore = sem_open(name, O_CREAT | O_EXCL, S_IRUSR | S_IWUSR, 0);
+	sem_unlink(name);
 
 	DBG("Dummy: creating new thread for dummy_speak\n");
 	dummy_speaking = 0;
@@ -116,7 +121,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	/* Send semaphore signal to the speaking thread */
 	dummy_speaking = 1;
-	sem_post(&dummy_semaphore);
+	sem_post(dummy_semaphore);
 
 	DBG("Dummy: leaving write() normally\n\r");
 	return bytes;
@@ -165,7 +170,7 @@ int module_close(void)
 	if (module_terminate_thread(dummy_speak_thread) != 0)
 		return -1;
 
-	sem_destroy(&dummy_semaphore);
+	sem_close(dummy_semaphore);
 
 	initialized = FALSE;
 	return 0;
@@ -183,7 +188,7 @@ void *_dummy_speak(void *nothing)
 	set_speaking_thread_parameters();
 
 	while (1) {
-		sem_wait(&dummy_semaphore);
+		sem_wait(dummy_semaphore);
 		DBG("Semaphore on\n");
 		module_report_event_begin();
 

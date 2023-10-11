@@ -27,18 +27,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 #include <semaphore.h>
 
 #include "speechd_types.h"
 #include "libspeechd.h"
 
 #ifdef THOROUGH
-static sem_t semaphore;
+static sem_t *semaphore;
 
 /* Callback for Speech Dispatcher notifications */
 static void end_of_speech(size_t msg_id, size_t client_id, SPDNotificationType type)
 {
-	sem_post(&semaphore);
+	sem_post(semaphore);
 }
 #endif
 
@@ -84,7 +86,10 @@ int main()
 	printf("OK\n");
 
 #ifdef THOROUGH
-	sem_init(&semaphore, 0, 0);
+	char name[64];
+	snprintf(name, sizeof(name), "/speechd-tests-clibrary2-%d", getpid());
+	semaphore = sem_open(name, O_CREAT | O_EXCL, S_IRUSR | S_IWUSR, 0);
+	sem_unlink(name);
 	conn->callback_end = conn->callback_cancel = end_of_speech;
 	spd_set_notification_on(conn, SPD_END);
 	spd_set_notification_on(conn, SPD_CANCEL);
@@ -202,7 +207,7 @@ int main()
 				exit(1);
 			}
 #ifdef THOROUGH
-			sem_wait(&semaphore);
+			sem_wait(semaphore);
 #else
 			sleep(1);
 #endif
