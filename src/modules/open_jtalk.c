@@ -98,10 +98,10 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 		goto FINISH;
 	}
 
-	// do not need fd
+	/* do not need fd */
 	close(tmp_fd);
 
-	// construct command line
+	/* construct command line */
 	char cmd[1024];
 	snprintf(cmd, sizeof(cmd), "open_jtalk -x /var/lib/mecab/dic/open-jtalk/naist-jdic -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -ow %s", template);
 
@@ -114,7 +114,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 
 	fprintf(oj_fp, "%s", plain_data);
 
-	// wait for finish
+	/* wait for finish */
 	int status = pclose(oj_fp);
 	if (status != 0)
 	{
@@ -122,7 +122,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 		goto FINISH;
 	}
 
-	// play the output wav
+	/* play the output wav */
 	DBG("output to %s", template);
 
 	AudioTrack track;
