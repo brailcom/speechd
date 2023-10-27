@@ -275,7 +275,17 @@ module_get_message_part(const char *message, char *part, unsigned int *pos,
 	}
 
 	for (i = 0; i <= maxlen - 1; i++) {
-		part[i] = message[*pos];
+		unsigned char c = message[*pos];
+
+		// Stop at UTF-8 boundaries
+		if (((c & 0xe0) == 0xc0 && i >= maxlen - 1) // Will need one more byte, can't put it.
+		 || ((c & 0xf0) == 0xe0 && i >= maxlen - 2) // Will need two more bytes, can't put it.
+		 || ((c & 0xf8) == 0xf0 && i >= maxlen - 3) // Will need three more bytes, can't put it.
+		 || ((c & 0xfc) == 0xf8 && i >= maxlen - 4) // Will need four more bytes, can't put it.
+		 || ((c & 0xfe) == 0xfc && i >= maxlen - 5)) // Will need five more bytes, can't put it.
+			c = 0;
+
+		part[i] = c;
 
 		if (part[i] == 0) {
 			return i;
