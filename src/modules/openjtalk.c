@@ -33,6 +33,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <assert.h>
+#include <linux/limits.h>
 
 #include "module_main.h"
 #include "module_utils.h"
@@ -42,24 +43,32 @@
 
 DECLARE_DEBUG();
 
-int module_config(const char *configfile)
-{
-	/* Optional: Open and parse configfile */
-	DBG("opening %s", configfile);
-
-	return 0;
-}
+MOD_OPTION_1_STR(OpenjtalkDictionaryDirectory);
+MOD_OPTION_1_STR(OpenjtalkVoice);
 
 int module_init(char **msg)
 {
 	fprintf(stderr, "initializing\n");
 
+	*msg = strdup("ok!");
+
+	return 0;
+}
+
+int module_load(void)
+{
 	INIT_SETTINGS_TABLES();
 	REGISTER_DEBUG();
 
-	module_audio_set_server();
+	MOD_OPTION_1_STR_REG(OpenjtalkDictionaryDirectory,
+			     "/var/lib/mecab/dic/open-jtalk");
+	MOD_OPTION_1_STR_REG(OpenjtalkVoice,
+			     "/usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice");
 
-	*msg = strdup("ok!");
+	DBG("OpenjtalkDictionaryDirectory: %s", OpenjtalkDictionaryDirectory);
+	DBG("OpenjtalkVoice: %s", OpenjtalkVoice);
+
+	module_audio_set_server();
 
 	return 0;
 }
@@ -87,13 +96,12 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 
 	module_report_event_begin();
 
-	/* Strip SSML (Open JTalk does not support it.)*/
+	/* Strip SSML (Open JTalk does not support it.) */
 	char *plain_data = module_strip_ssml(data);
 
 	char template[] = "/tmp/speechd-openjtalk-XXXXXX";
 	int tmp_fd = mkstemp(template);
-	if (tmp_fd == -1)
-	{
+	if (tmp_fd == -1) {
 		DBG("temporary .wav file creation failed");
 		goto FINISH;
 	}
@@ -102,12 +110,13 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	close(tmp_fd);
 
 	/* construct command line */
-	char cmd[1024];
-	snprintf(cmd, sizeof(cmd), "open_jtalk -x /var/lib/mecab/dic/open-jtalk/naist-jdic -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -ow %s", template);
+	char cmd[PATH_MAX * 4];
+	snprintf(cmd, sizeof(cmd),
+		 "open_jtalk -x /var/lib/mecab/dic/open-jtalk/naist-jdic -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -ow %s",
+		 template);
 
 	FILE *oj_fp = popen(cmd, "w");
-	if (oj_fp == NULL)
-	{
+	if (oj_fp == NULL) {
 		DBG("failed to execute open_jtalk");
 		goto FINISH;
 	}
@@ -116,8 +125,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 
 	/* wait for finish */
 	int status = pclose(oj_fp);
-	if (status != 0)
-	{
+	if (status != 0) {
 		DBG("open_jtalk exited with non-zero code");
 		goto FINISH;
 	}
@@ -129,8 +137,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	AudioFormat format = SPD_AUDIO_LE;
 
 	FILE *audio_fp = fopen(template, "rb");
-	if (audio_fp == NULL)
-	{
+	if (audio_fp == NULL) {
 		DBG("failed to open wav file");
 		goto FINISH;
 	}
@@ -138,8 +145,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 
 	fseek(audio_fp, 34, SEEK_SET);
 	size_t ret = fread(&track.bits, 2, 1, audio_fp);
-	if (ret != 1)
-	{
+	if (ret != 1) {
 		DBG("failed to read track.bits");
 		goto FP_FINISH;
 	}
@@ -147,8 +153,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 
 	fseek(audio_fp, 22, SEEK_SET);
 	ret = fread(&track.num_channels, 2, 1, audio_fp);
-	if (ret != 1)
-	{
+	if (ret != 1) {
 		DBG("failed to read track.num_channels");
 		goto FP_FINISH;
 	}
@@ -156,8 +161,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 
 	fseek(audio_fp, 24, SEEK_SET);
 	ret = fread(&track.sample_rate, 4, 1, audio_fp);
-	if (ret != 1)
-	{
+	if (ret != 1) {
 		DBG("failed to read track.sample_rate");
 		goto FP_FINISH;
 	}
@@ -165,26 +169,33 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 
 	fseek(audio_fp, 40, SEEK_SET);
 	ret = fread(&track.num_samples, 4, 1, audio_fp);
-	if (ret != 1)
-	{
+	if (ret != 1) {
 		DBG("failed to read track.num_samples");
 		goto FP_FINISH;
 	}
-	track.num_samples = track.num_samples / (track.num_channels) / (track.bits / 8);
+	track.num_samples =
+	    track.num_samples / (track.num_channels) / (track.bits / 8);
 	DBG("read track.num_samples");
-	DBG("bits: %d num_channels: %d sample_rate: %d num_samples: %d", track.bits, track.num_channels, track.sample_rate, track.num_samples);
+	DBG("bits: %d num_channels: %d sample_rate: %d num_samples: %d",
+	    track.bits, track.num_channels, track.sample_rate,
+	    track.num_samples);
 
 	fseek(audio_fp, 44, SEEK_SET);
-	track.samples = malloc(track.num_samples * track.num_channels * track.bits / 8);
-	ret = fread(track.samples, track.bits / 8, track.num_samples * track.num_channels, audio_fp);
-	if (ret != track.num_samples * track.num_channels)
-	{
+	track.samples =
+	    malloc(track.num_samples * track.num_channels * track.bits / 8);
+	ret =
+	    fread(track.samples, track.bits / 8,
+		  track.num_samples * track.num_channels, audio_fp);
+	if (ret != track.num_samples * track.num_channels) {
 		DBG("failed to read track.samples");
+		free(track.samples);
 		goto FP_FINISH;
 	}
 	DBG("read track.samples");
 
 	module_tts_output_server(&track, format);
+
+	free(track.samples);
 
 FP_FINISH:
 	fclose(audio_fp);
@@ -217,5 +228,3 @@ int module_close(void)
 
 	return 0;
 }
-
-#include "module_main.c"
