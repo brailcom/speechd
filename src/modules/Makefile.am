@@ -258,8 +258,7 @@ if openjtalk_support
 modulebin_PROGRAMS += sd_openjtalk
 sd_openjtalk_SOURCES = openjtalk.c $(common_SOURCES)
 sd_openjtalk_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(common_LDADD) \
-	$(SNDFILE_LIBS)
+	$(common_LDADD)
 sd_openjtalk_CPPFLAGS = $(AM_CPPFLAGS) \
 	$(DOTCONF_CFLAGS)
 endif
