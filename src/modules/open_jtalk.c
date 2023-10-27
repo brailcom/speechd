@@ -40,75 +40,33 @@
 #include <assert.h>
 
 #include "module_main.h"
+#include "module_utils.h"
 
 #define MODULE_NAME "open_jtalk"
 #define MODULE_VERSION "0.1"
 
+DECLARE_DEBUG();
+
 static int stop_requested;
-static FILE *dump_fp;
-
-static char *module_strip_ssml(const char *message)
-{
-
-	int len;
-	char *out;
-	int i, n;
-	int omit = 0;
-
-	assert(message != NULL);
-
-	len = strlen(message);
-	out = (char *)malloc(sizeof(char) * (len + 1));
-
-	for (i = 0, n = 0; i <= len; i++) {
-
-		if (message[i] == '<') {
-			omit = 1;
-			continue;
-		}
-		if (message[i] == '>') {
-			omit = 0;
-			continue;
-		}
-		if (!strncmp(&(message[i]), "&lt;", 4)) {
-			i += 3;
-			out[n++] = '<';
-		} else if (!strncmp(&(message[i]), "&gt;", 4)) {
-			i += 3;
-			out[n++] = '>';
-		} else if (!strncmp(&(message[i]), "&amp;", 5)) {
-			i += 4;
-			out[n++] = '&';
-		} else if (!strncmp(&(message[i]), "&quot;", 6)) {
-			i += 5;
-			out[n++] = '"';
-		} else if (!strncmp(&(message[i]), "&apos;", 6)) {
-			i += 5;
-			out[n++] = '\'';
-		} else if (!omit || i == len)
-			out[n++] = message[i];
-	}
-	fprintf(stderr, "In stripping ssml: |%s|\n", out);
-
-	return out;
-}
 
 int module_config(const char *configfile)
 {
 	/* Optional: Open and parse configfile */
-	fprintf(stderr, "opening %s\n", configfile);
+	DBG("opening %s\n", configfile);
 
 	return 0;
 }
 
 int module_init(char **msg)
 {
-	/* TODO: Actually initialize synthesizer */
 	fprintf(stderr, "initializing\n");
 
+	INIT_SETTINGS_TABLES();
+	REGISTER_DEBUG();
+
+	module_audio_set_server();
+
 	*msg = strdup("ok!");
-	
-	dump_fp = NULL;
 
 	return 0;
 }
@@ -116,7 +74,7 @@ int module_init(char **msg)
 SPDVoice **module_list_voices(void)
 {
 	/* TODO: Return list of voices */
-	SPDVoice **ret = malloc(2*sizeof(*ret));
+	SPDVoice **ret = malloc(2 * sizeof(*ret));
 
 	ret[0] = malloc(sizeof(*(ret[0])));
 	ret[0]->name = strdup("Default");
@@ -124,132 +82,6 @@ SPDVoice **module_list_voices(void)
 	ret[0]->variant = NULL;
 
 	ret[1] = NULL;
-
-	return ret;
-}
-
-
-int module_set(const char *var, const char *val)
-{
-	/* Optional: accept parameter */
-
-	fprintf(stderr,"got var '%s' to be set to '%s'\n", var, val);
-
-	if (!strcmp(var, "voice")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "synthesis_voice")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "language")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "rate")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "pitch")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "pitch_range")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "volume")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "punctuation_mode")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "spelling_mode")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "cap_let_recogn")) {
-		/* TODO */
-		return 0;
-	}
-	return -1;
-}
-
-int module_audio_set(const char *var, const char *val)
-{
-	/* Optional: interpret audio parameter */
-	if (!strcmp(var, "audio_output_method")) {
-		if (strcmp(val, "server"))
-			return -1;
-		/* TODO: respect configuration */
-		return 0;
-	} else if (!strcmp(var, "audio_oss_device")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "audio_alsa_device")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "audio_nas_server")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "audio_pulse_device")) {
-		/* TODO */
-		return 0;
-	} else if (!strcmp(var, "audio_pulse_min_length")) {
-		/* TODO */
-		return 0;
-	}
-	return -1;
-}
-
-int module_audio_init(char **status)
-{
-	fprintf(stderr, "audio_init\n");
-	return 0;
-}
-
-int module_loglevel_set(const char *var, const char *val)
-{
-	/* Optional: accept loglevel change */
-	return 0;
-}
-
-int module_debug(int enable, const char *file)
-{
-	if (enable)
-	{
-		dump_fp = fopen(file, "w");
-		if (dump_fp == NULL)
-		{
-			return -1;
-		}
-	}
-	else
-	{
-		if (dump_fp != NULL)
-		{
-			fclose(dump_fp);
-			dump_fp = NULL;
-		}
-	}
-
-	return 0;
-}
-
-int module_loop(void)
-{
-	/* Main loop */
-	fprintf(stderr, "main loop\n");
-
-	/* Let module_process run the protocol */
-	/* You may want to monitor STDIN_FILENO yourself, to be able to also
-	 * monitor other FDs. */
-	int ret = module_process(STDIN_FILENO, 1);
-
-	if (ret != 0)
-		fprintf(stderr, "Broken pipe, exiting...\n");
-
-	fprintf(stderr, "exit with code %d\n", ret);
-
-	if (dump_fp != NULL)
-	{
-		fclose(dump_fp);
-		dump_fp = NULL;
-	}
 
 	return ret;
 }
@@ -266,7 +98,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 
 	module_speak_ok();
 
-	fprintf(stderr, "speaking '%s'\n", data);
+	DBG("speaking '%s'\n", data);
 
 	/* TODO: start synthesis */
 
@@ -279,7 +111,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	int tmp_fd = mkstemp(template);
 	if (tmp_fd == -1)
 	{
-		fprintf(stderr, "temporary .wav file creation failed\n");
+		DBG("temporary .wav file creation failed\n");
 		goto FINISH;
 	}
 
@@ -293,7 +125,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	FILE *oj_fp = popen(cmd, "w");
 	if (oj_fp == NULL)
 	{
-		fprintf(stderr, "failed to execute open_jtalk\n");
+		DBG("failed to execute open_jtalk\n");
 		goto FINISH;
 	}
 
@@ -303,83 +135,71 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	int status = pclose(oj_fp);
 	if (status != 0)
 	{
-		fprintf(stderr, "open_jtalk exited with non-zero code\n");
+		DBG("open_jtalk exited with non-zero code\n");
 		goto FINISH;
 	}
 
 	// play the output wav
-	fprintf(stderr, "output to %s\n", template);
+	DBG("output to %s\n", template);
 
 	AudioTrack track;
-#if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
-	AudioFormat format = SPD_AUDIO_BE;
-#else
 	AudioFormat format = SPD_AUDIO_LE;
-#endif
 
-// typedef struct {
-// 	int bits;
-// 	int num_channels;
-// 	int sample_rate;
-
-// 	int num_samples;
-// 	signed short *samples;
-// } AudioTrack;
 	FILE *audio_fp = fopen(template, "rb");
 	if (audio_fp == NULL)
 	{
-		fprintf(stderr, "failed to open wav file\n");
+		DBG("failed to open wav file\n");
 		goto FINISH;
 	}
-	fprintf(stderr, "opened wav file\n");
-	
+	DBG("opened wav file\n");
+
 	fseek(audio_fp, 34, SEEK_SET);
 	size_t ret = fread(&track.bits, 2, 1, audio_fp);
 	if (ret != 1)
 	{
-		fprintf(stderr, "failed to read track.bits\n");
+		DBG("failed to read track.bits\n");
 		goto FP_FINISH;
 	}
-	fprintf(stderr, "read track.bits\n");
+	DBG("read track.bits\n");
 
 	fseek(audio_fp, 22, SEEK_SET);
 	ret = fread(&track.num_channels, 2, 1, audio_fp);
 	if (ret != 1)
 	{
-		fprintf(stderr, "failed to read track.num_channels\n");
+		DBG("failed to read track.num_channels\n");
 		goto FP_FINISH;
 	}
-	fprintf(stderr, "read track.num_channels\n");
+	DBG("read track.num_channels\n");
 
 	fseek(audio_fp, 24, SEEK_SET);
 	ret = fread(&track.sample_rate, 4, 1, audio_fp);
 	if (ret != 1)
 	{
-		fprintf(stderr, "failed to read track.sample_rate\n");
+		DBG("failed to read track.sample_rate\n");
 		goto FP_FINISH;
 	}
-	fprintf(stderr, "read track.sample_rate\n");
+	DBG("read track.sample_rate\n");
 
 	fseek(audio_fp, 40, SEEK_SET);
 	ret = fread(&track.num_samples, 4, 1, audio_fp);
 	if (ret != 1)
 	{
-		fprintf(stderr, "failed to read track.num_samples\n");
+		DBG("failed to read track.num_samples\n");
 		goto FP_FINISH;
 	}
-	track.num_samples = track.num_samples / (track.num_channels) / (track.bits/8);
-	fprintf(stderr, "read track.num_samples\n");
-	fprintf(stderr, "bits: %d num_channels: %d sample_rate: %d num_samples: %d\n", track.bits, track.num_channels, track.sample_rate, track.num_samples);
+	track.num_samples = track.num_samples / (track.num_channels) / (track.bits / 8);
+	DBG("read track.num_samples\n");
+	DBG("bits: %d num_channels: %d sample_rate: %d num_samples: %d\n", track.bits, track.num_channels, track.sample_rate, track.num_samples);
 
 	fseek(audio_fp, 44, SEEK_SET);
 	track.samples = malloc(track.num_samples * track.num_channels * track.bits / 8);
 	ret = fread(track.samples, track.bits / 8, track.num_samples * track.num_channels, audio_fp);
 	if (ret != track.num_samples * track.num_channels)
 	{
-		fprintf(stderr, "failed to read track.samples\n");
+		DBG("failed to read track.samples\n");
 		goto FP_FINISH;
 	}
-	fprintf(stderr, "read track.samples\n");
+	DBG("read track.samples\n");
 
 	module_tts_output_server(&track, format);
 
@@ -397,7 +217,7 @@ FINISH:
 int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 {
 	/* TODO: Speak the provided data asynchronously in another thread */
-	fprintf(stderr, "speaking '%s'\n", data);
+	DBG("speaking '%s'\n", data);
 	/* TODO: asynchronous processing should call module_report_event_begin()
 	 * when starting to produce audio, and module_report_event_end() when
 	 * finished with producing audio. */
@@ -407,31 +227,27 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 
 size_t module_pause(void)
 {
-	/* TODO: Pause playing */
-	fprintf(stderr, "pausing\n");
+	/* not supported */
+	DBG("pausing\n");
 	stop_requested = 1;
 
-	module_report_event_stop();
-
-	return 0;
+	return -1;
 }
 
 int module_stop(void)
 {
-	/* TODO: Stop any current synth */
-	fprintf(stderr, "stopping\n");
+	/* not supported */
+	DBG("stopping\n");
 	stop_requested = 1;
-
-	module_report_event_stop();
 
 	return 0;
 }
 
 int module_close(void)
 {
-	fprintf(stderr, "closing\n");
+	DBG("closing\n");
 
-	fprintf(stderr, "closed\n");
+	DBG("closed\n");
 
 	return 0;
 }
