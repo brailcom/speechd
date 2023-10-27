@@ -1,7 +1,8 @@
 /*
- * skeleton0.c - Trivial module example
+ * open_jtalk.c - Speech Dispatcher backend for Open JTalk
  *
  * Copyright (C) 2020-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2023 tinaxd
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,12 +27,6 @@
  * SUCH DAMAGE.
  */
 
-/*
- * This module example is the simplest that can be used as a basis for writing
- * your module (which can be proprietary since this is provided under the BSD
- * licence).
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -47,12 +42,10 @@
 
 DECLARE_DEBUG();
 
-static int stop_requested;
-
 int module_config(const char *configfile)
 {
 	/* Optional: Open and parse configfile */
-	DBG("opening %s\n", configfile);
+	DBG("opening %s", configfile);
 
 	return 0;
 }
@@ -73,7 +66,7 @@ int module_init(char **msg)
 
 SPDVoice **module_list_voices(void)
 {
-	/* TODO: Return list of voices */
+	/* TODO: Allow users to choose htsvoice */
 	SPDVoice **ret = malloc(2 * sizeof(*ret));
 
 	ret[0] = malloc(sizeof(*(ret[0])));
@@ -86,21 +79,11 @@ SPDVoice **module_list_voices(void)
 	return ret;
 }
 
-#if 1
-/* Synchronous version, when the synthesis doesn't implement asynchronous
- * processing in another thread. */
 void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 {
-	/* TODO: first make quick check over data, on error call
-	 * module_speak_error and return. */
-
-	stop_requested = 0;
-
 	module_speak_ok();
 
-	DBG("speaking '%s'\n", data);
-
-	/* TODO: start synthesis */
+	DBG("speaking '%s'", data);
 
 	module_report_event_begin();
 
@@ -111,7 +94,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	int tmp_fd = mkstemp(template);
 	if (tmp_fd == -1)
 	{
-		DBG("temporary .wav file creation failed\n");
+		DBG("temporary .wav file creation failed");
 		goto FINISH;
 	}
 
@@ -125,7 +108,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	FILE *oj_fp = popen(cmd, "w");
 	if (oj_fp == NULL)
 	{
-		DBG("failed to execute open_jtalk\n");
+		DBG("failed to execute open_jtalk");
 		goto FINISH;
 	}
 
@@ -135,12 +118,12 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	int status = pclose(oj_fp);
 	if (status != 0)
 	{
-		DBG("open_jtalk exited with non-zero code\n");
+		DBG("open_jtalk exited with non-zero code");
 		goto FINISH;
 	}
 
 	// play the output wav
-	DBG("output to %s\n", template);
+	DBG("output to %s", template);
 
 	AudioTrack track;
 	AudioFormat format = SPD_AUDIO_LE;
@@ -148,58 +131,58 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	FILE *audio_fp = fopen(template, "rb");
 	if (audio_fp == NULL)
 	{
-		DBG("failed to open wav file\n");
+		DBG("failed to open wav file");
 		goto FINISH;
 	}
-	DBG("opened wav file\n");
+	DBG("opened wav file");
 
 	fseek(audio_fp, 34, SEEK_SET);
 	size_t ret = fread(&track.bits, 2, 1, audio_fp);
 	if (ret != 1)
 	{
-		DBG("failed to read track.bits\n");
+		DBG("failed to read track.bits");
 		goto FP_FINISH;
 	}
-	DBG("read track.bits\n");
+	DBG("read track.bits");
 
 	fseek(audio_fp, 22, SEEK_SET);
 	ret = fread(&track.num_channels, 2, 1, audio_fp);
 	if (ret != 1)
 	{
-		DBG("failed to read track.num_channels\n");
+		DBG("failed to read track.num_channels");
 		goto FP_FINISH;
 	}
-	DBG("read track.num_channels\n");
+	DBG("read track.num_channels");
 
 	fseek(audio_fp, 24, SEEK_SET);
 	ret = fread(&track.sample_rate, 4, 1, audio_fp);
 	if (ret != 1)
 	{
-		DBG("failed to read track.sample_rate\n");
+		DBG("failed to read track.sample_rate");
 		goto FP_FINISH;
 	}
-	DBG("read track.sample_rate\n");
+	DBG("read track.sample_rate");
 
 	fseek(audio_fp, 40, SEEK_SET);
 	ret = fread(&track.num_samples, 4, 1, audio_fp);
 	if (ret != 1)
 	{
-		DBG("failed to read track.num_samples\n");
+		DBG("failed to read track.num_samples");
 		goto FP_FINISH;
 	}
 	track.num_samples = track.num_samples / (track.num_channels) / (track.bits / 8);
-	DBG("read track.num_samples\n");
-	DBG("bits: %d num_channels: %d sample_rate: %d num_samples: %d\n", track.bits, track.num_channels, track.sample_rate, track.num_samples);
+	DBG("read track.num_samples");
+	DBG("bits: %d num_channels: %d sample_rate: %d num_samples: %d", track.bits, track.num_channels, track.sample_rate, track.num_samples);
 
 	fseek(audio_fp, 44, SEEK_SET);
 	track.samples = malloc(track.num_samples * track.num_channels * track.bits / 8);
 	ret = fread(track.samples, track.bits / 8, track.num_samples * track.num_channels, audio_fp);
 	if (ret != track.num_samples * track.num_channels)
 	{
-		DBG("failed to read track.samples\n");
+		DBG("failed to read track.samples");
 		goto FP_FINISH;
 	}
-	DBG("read track.samples\n");
+	DBG("read track.samples");
 
 	module_tts_output_server(&track, format);
 
@@ -211,25 +194,11 @@ FINISH:
 
 	module_report_event_end();
 }
-#else
-/* Asynchronous version, when the synthesis implements asynchronous
- * processing in another thread. */
-int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
-{
-	/* TODO: Speak the provided data asynchronously in another thread */
-	DBG("speaking '%s'\n", data);
-	/* TODO: asynchronous processing should call module_report_event_begin()
-	 * when starting to produce audio, and module_report_event_end() when
-	 * finished with producing audio. */
-	return 1;
-}
-#endif
 
 size_t module_pause(void)
 {
 	/* not supported */
-	DBG("pausing\n");
-	stop_requested = 1;
+	DBG("pausing (not supported)");
 
 	return -1;
 }
@@ -237,17 +206,14 @@ size_t module_pause(void)
 int module_stop(void)
 {
 	/* not supported */
-	DBG("stopping\n");
-	stop_requested = 1;
+	DBG("stopping (not supported)");
 
 	return 0;
 }
 
 int module_close(void)
 {
-	DBG("closing\n");
-
-	DBG("closed\n");
+	DBG("closing");
 
 	return 0;
 }
