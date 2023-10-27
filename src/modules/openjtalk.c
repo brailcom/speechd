@@ -112,8 +112,8 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	/* construct command line */
 	char cmd[PATH_MAX * 4];
 	snprintf(cmd, sizeof(cmd),
-		 "open_jtalk -x /var/lib/mecab/dic/open-jtalk/naist-jdic -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice -ow %s",
-		 template);
+		 "open_jtalk -x %s -m %s -ow %s", OpenjtalkDictionaryDirectory,
+		 OpenjtalkVoice, template);
 
 	FILE *oj_fp = popen(cmd, "w");
 	if (oj_fp == NULL) {
@@ -133,7 +133,13 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	/* play the output wav */
 	DBG("output to %s", template);
 
-	AudioTrack track;
+	AudioTrack track = {
+		.bits = 0,
+		.num_channels = 0,
+		.sample_rate = 0,
+		.num_samples = 0,
+		.samples = NULL
+	};
 	AudioFormat format = SPD_AUDIO_LE;
 
 	FILE *audio_fp = fopen(template, "rb");
@@ -199,6 +205,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 
 FP_FINISH:
 	fclose(audio_fp);
+	unlink(template);
 
 FINISH:
 	free(plain_data);
