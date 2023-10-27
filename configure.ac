@@ -376,6 +376,14 @@ AM_CONDITIONAL([kali_support], [test $with_kali != no])
 AM_CONDITIONAL([kali_shim], [test $with_kali = shim])
 AS_IF([test $with_kali != no], [output_modules="${output_modules} kali"])
 
+# check for Open JTalk support
+AC_ARG_WITH([openjtalk],
+	[AS_HELP_STRING([--with-openjtalk], [include Open JTalk support])],
+	[with_openjtalk=yes],
+	[])
+AM_CONDITIONAL([openjtalk_support], [test "$with_openjtalk" = yes])
+AS_IF([test $with_openjtalk = yes], [output_modules="${output_modules} openjtalk"])
+
 audio_dlopen='-dlopen force'
 audio_dlopen_modules=
 
