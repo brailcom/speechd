@@ -2,7 +2,7 @@
  * open_jtalk.c - Speech Dispatcher backend for Open JTalk
  *
  * Copyright (C) 2020-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
- * Copyright (C) 2023 tinaxd
+ * Copyright (C) 2023 Chinamu Kawano <tinaxd@protonmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
