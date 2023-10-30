@@ -200,7 +200,7 @@ AS_IF([test $enable_python != "no"],
 			[AC_MSG_FAILURE([python 3 or greater is not available])])])])
 AM_CONDITIONAL([HAVE_PYTHON], [test $enable_python = "yes"])
 
-output_modules="cicero dummy festival generic"
+output_modules="cicero dummy festival openjtalk generic"
 # checks for output modules
 # check for espeak support
 AC_ARG_WITH([espeak],
@@ -375,10 +375,6 @@ AS_IF([test $with_kali = yes -o $with_kali = check],
 AM_CONDITIONAL([kali_support], [test $with_kali != no])
 AM_CONDITIONAL([kali_shim], [test $with_kali = shim])
 AS_IF([test $with_kali != no], [output_modules="${output_modules} kali"])
-
-# Open JTalk is always enabled
-# since it only depends on the open_jtalk binary at runtime
-output_modules="${output_modules} openjtalk"
 
 audio_dlopen='-dlopen force'
 audio_dlopen_modules=
