@@ -43,6 +43,12 @@
 #define MODULE_NAME "open_jtalk"
 #define MODULE_VERSION "0.1"
 
+#define WAV_START_BITS_PER_SAMPLE 34
+#define WAV_START_NUM_CHANNELS 22
+#define WAV_START_SAMPLE_RATE 24
+#define WAV_START_SIZE_OF_SAMPLES 40
+#define WAV_START_SAMPLES 44
+
 DECLARE_DEBUG();
 
 MOD_OPTION_1_STR(OpenjtalkDictionaryDirectory);
@@ -157,7 +163,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	}
 	DBG("opened wav file");
 
-	fseek(audio_fp, 34, SEEK_SET);
+	fseek(audio_fp, WAV_START_BITS_PER_SAMPLE, SEEK_SET);
 	size_t ret = fread(&track.bits, 2, 1, audio_fp);
 	if (ret != 1) {
 		DBG("failed to read track.bits");
@@ -165,7 +171,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	}
 	DBG("read track.bits");
 
-	fseek(audio_fp, 22, SEEK_SET);
+	fseek(audio_fp, WAV_START_NUM_CHANNELS, SEEK_SET);
 	ret = fread(&track.num_channels, 2, 1, audio_fp);
 	if (ret != 1) {
 		DBG("failed to read track.num_channels");
@@ -173,7 +179,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	}
 	DBG("read track.num_channels");
 
-	fseek(audio_fp, 24, SEEK_SET);
+	fseek(audio_fp, WAV_START_SAMPLE_RATE, SEEK_SET);
 	ret = fread(&track.sample_rate, 4, 1, audio_fp);
 	if (ret != 1) {
 		DBG("failed to read track.sample_rate");
@@ -181,7 +187,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	}
 	DBG("read track.sample_rate");
 
-	fseek(audio_fp, 40, SEEK_SET);
+	fseek(audio_fp, WAV_START_SIZE_OF_SAMPLES, SEEK_SET);
 	ret = fread(&track.num_samples, 4, 1, audio_fp);
 	if (ret != 1) {
 		DBG("failed to read track.num_samples");
@@ -194,7 +200,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	    track.bits, track.num_channels, track.sample_rate,
 	    track.num_samples);
 
-	fseek(audio_fp, 44, SEEK_SET);
+	fseek(audio_fp, WAV_START_SAMPLES, SEEK_SET);
 	track.samples =
 	    malloc(track.num_samples * track.num_channels * track.bits / 8);
 	ret =
