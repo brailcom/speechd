@@ -34,6 +34,7 @@
 #include <string.h>
 #include <assert.h>
 #include <linux/limits.h>
+#include <sys/stat.h>
 
 #include "module_main.h"
 #include "module_utils.h"
@@ -100,6 +101,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	char *plain_data = module_strip_ssml(data);
 
 	char template[] = "/tmp/speechd-openjtalk-XXXXXX";
+	umask(0077);
 	int tmp_fd = mkstemp(template);
 	if (tmp_fd == -1) {
 		DBG("temporary .wav file creation failed");
