@@ -27,6 +27,7 @@
  * SUCH DAMAGE.
  */
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -112,12 +113,17 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	close(tmp_fd);
 
 	/* construct command line */
-	char cmd[PATH_MAX * 4];
-	snprintf(cmd, sizeof(cmd),
-		 "open_jtalk -x %s -m %s -ow %s", OpenjtalkDictionaryDirectory,
-		 OpenjtalkVoice, template);
+	char *cmd;
+	if (asprintf(&cmd,
+		     "open_jtalk -x %s -m %s -ow %s",
+		     OpenjtalkDictionaryDirectory, OpenjtalkVoice,
+		     template) == -1) {
+		DBG("failed to construct command line");
+		goto FINISH;
+	}
 
 	FILE *oj_fp = popen(cmd, "w");
+	free(cmd);
 	if (oj_fp == NULL) {
 		DBG("failed to execute open_jtalk");
 		goto FINISH;
