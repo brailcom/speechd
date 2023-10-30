@@ -125,14 +125,14 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 		     OpenjtalkDictionaryDirectory, OpenjtalkVoice,
 		     template) == -1) {
 		DBG("failed to construct command line");
-		goto FINISH;
+		goto TEMPLATE_FINISH;
 	}
 
 	FILE *oj_fp = popen(cmd, "w");
 	free(cmd);
 	if (oj_fp == NULL) {
 		DBG("failed to execute open_jtalk");
-		goto FINISH;
+		goto TEMPLATE_FINISH;
 	}
 
 	fprintf(oj_fp, "%s", plain_data);
@@ -141,7 +141,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	int status = pclose(oj_fp);
 	if (status != 0) {
 		DBG("open_jtalk exited with non-zero code");
-		goto FINISH;
+		goto TEMPLATE_FINISH;
 	}
 
 	/* play the output wav */
@@ -159,7 +159,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	FILE *audio_fp = fopen(template, "rb");
 	if (audio_fp == NULL) {
 		DBG("failed to open wav file");
-		goto FINISH;
+		goto TEMPLATE_FINISH;
 	}
 	DBG("opened wav file");
 
@@ -219,6 +219,8 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 
 FP_FINISH:
 	fclose(audio_fp);
+
+TEMPLATE_FINISH:
 	unlink(template);
 
 FINISH:
