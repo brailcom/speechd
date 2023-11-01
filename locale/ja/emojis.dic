@@ -314,6 +314,8 @@ symbols:
 😮‍💨	息を吐く顔	none
 🤥	うそつきの顔	none
 🫨	震えている顔	none
+🙂‍↔	首を横に振る	none
+🙂‍↕	首を縦に振る	none
 😌	ほっとした顔	none
 😔	しょぼーん	none
 😪	眠い	none
@@ -744,11 +746,15 @@ symbols:
 👬	手をつなぐ男性	none
 💏	2人でキス	none
 💑	カップルとハート	none
-👪	家族	none
 🗣	話す人のシルエット	none
 👤	人のシルエット	none
 👥	2人のシルエット	none
 🫂	ハグする人	none
+👪	家族	none
+🧑‍🧑‍🧒	家族 大人二人と子供一人	none
+🧑‍🧑‍🧒‍🧒	家族 大人二人と子供二人	none
+🧑‍🧒	家族 大人一人と子供一人	none
+🧑‍🧒‍🧒	家族 大人一人と子供二人	none
 👣	足あと	none
 🦰	赤毛	none
 🦱	巻き毛	none
@@ -839,7 +845,9 @@ symbols:
 🦚	クジャク	none
 🦜	オウム	none
 🪽	翼	none
+🐦‍⬛	黒い鳥	none
 🪿	ガチョウ	none
+🐦‍🔥	フェニックス	none
 🐸	カエルの顔	none
 🐊	ワニ	none
 🐢	カメ	none
@@ -910,6 +918,7 @@ symbols:
 🍉	スイカ	none
 🍊	みかん	none
 🍋	レモン	none
+🍋‍🟩	ライム	none
 🍌	バナナ	none
 🍍	パイナップル	none
 🥭	マンゴー	none
@@ -941,6 +950,7 @@ symbols:
 🌰	くり	none
 🫚	ショウガ	none
 🫛	エンドウ豆	none
+🍄‍🟫	きのこ	none
 🍞	食パン	none
 🥐	クロワッサン	none
 🥖	バゲット	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	天秤	none
 🦯	白杖	none
 🔗	リンクシンボル	none
+⛓‍💥	壊れた鎖	none
 ⛓	鎖	none
 🪝	フック	none
 🧰	工具箱	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	旗 ウェールズ	none
 ₡	コスタリカ コロン	none
 ₦	ナイジェリア ナイラ	none
-₧	スペイン ペセタ	none
 ₪	イスラエル新シェケル	none
 ₫	ベトナム ドン	none
 ₭	ラオス キープ	none
@@ -3914,6 +3924,7 @@ symbols:
 ₴	ウクライナ グリブナ	none
 ₵	ガーナ セディ	none
 ₸	カザフスタン テンゲ	none
-₺	新トルコリラ	none
+₺	トルコ リラ	none
 ₼	アゼルバイジャン マナト	none
 ₾	ジョージア ラリ	none
+₧	スペイン ペセタ	none

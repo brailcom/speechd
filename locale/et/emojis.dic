@@ -10,14 +10,48 @@ symbols:
 🏿	tume nahatoon	none
 ℗	helisalvestise autoriõigus	none
 ←	vasaknool	none
+↚	sirge vasaknool	none
 →	paremnool	none
+↛	sirge paremnool	none
 ↑	ülesnool	none
 ↓	allanool	none
 ↜	laineline vasaknool	none
 ↝	laineline paremnool	none
+↞	kahe peaga vasaknool	none
+↟	kahe peaga ülesnool	none
+↠	kahe peaga paremnool	none
+↡	kahe peaga allanool	none
 ↢	sabaga vasaknool	none
 ↣	sabaga paremnool	none
+↤	vasakule nool ribast	none
+↥	ülesnool ribast	none
+↦	paremale nool ribast	none
+↧	allanool ribast	none
+↨	ülesnool alusega	none
+↫	vasakule noolega silmus	none
+↬	paremale noolega silmus	none
+↭	vasakule-paremale laineline nool	none
 ↯	sakiline allanool	none
+↰	üles vasakule pöörav nool	none
+↱	üles paremale pöörav nool	none
+↲	alla vasakule pöörav nool	none
+↳	alla paremale pöörav nool	none
+↴	paremale nurgaga alla nool	none
+↵	alla nurgaga vasakule nool	none
+↶	vastupäeva ülemise poolkaarega nool	none
+↷	päripäeva ülemise poolkaarega nool	none
+↸	loodesse nool pika ribaga	none
+↹	ribaga vasaknool ribaga paremnoole peal	none
+↺	vastupäeva avatud ringiga nool	none
+↻	päripäeva avatud ringiga nool	none
+↼	vasakule harpuun ülemise kiskuga	none
+↽	vasakule harpuun alumise kiskuga	none
+↾	üles harpuun parema kiskuga	none
+↿	üles harpuun vasaku kiskuga	none
+⇀	paremale harpuun ülemise kiskuga	none
+⇁	paremale harpuun alumise kiskuga	none
+⇂	alla harpuun parema kiskuga	none
+⇃	alla harpuun vasaku kiskuga	none
 ⇄	paremnool vasaknoole kohal	none
 ⇅	ülesnool ja allanool	none
 ⇆	vasaknool paremnoole kohal	none
@@ -25,6 +59,39 @@ symbols:
 ⇈	paaris ülesnooled	none
 ⇉	paaris paremnooled	none
 ⇊	paaris allanooled	none
+⇋	vasakharpuun paremharpuuni peal	none
+⇌	paremharpuun vasakharpuuni peal	none
+⇐	topelt-vasaknool	none
+⇍	läbikriipsutatud topelt-vasaknool	none
+⇑	topelt-ülesnool	none
+⇒	topelt-paremnool	none
+⇏	läbikriipsutatud topelt-paremnool	none
+⇓	topelt-allanool	none
+⇔	vasakule-paremale topeltnool	none
+⇎	vasak-parem läbikriipsutatud topeltnool	none
+⇖	topeltnool loodesse	none
+⇗	topeltnool kirdesse	none
+⇘	topeltnool kagusse	none
+⇙	topeltnool edelasse	none
+⇚	kolmiknool vasakule	none
+⇛	kolmiknool paremale	none
+⇜	väänlev vasaknool	none
+⇝	väänlev paremnool	none
+⇞	topeltkriipsudega ülesnool	none
+⇟	topeltkriipsudega allanool	none
+⇠	katkendlik vasaknool	none
+⇡	katkendlik ülesnool	none
+⇢	katkendlik paremnool	none
+⇣	katkendlik allanool	none
+⇤	vasaknool ribani	none
+⇥	paremnool ribani	none
+⇦	seest tühi vasaknool	none
+⇧	seest tühi ülesnool	none
+⇨	seest tühi paremnool	none
+⇩	seest tühi allanool	none
+⇪	seest tühi ülesnool tulbast	none
+⇵	allanool vasakul ülesnool paremal	none
+∀	kõigi jaoks	none
 ∂	osatuletis	none
 ∃	on olemas	none
 ∅	tühihulk	none
@@ -42,7 +109,9 @@ symbols:
 −	miinusmärk	none
 ⁻	ülamiinus	none
 ∓	miinus või pluss	none
+∕	jagamise kaldkriips	none
 ∗	tärnimärk	none
+∘	ringimärk	none
 ∙	täppmärk	none
 √	ruutjuur	none
 ∝	proportsionaalne	none
@@ -63,6 +132,8 @@ symbols:
 ∷	proportsioon	none
 ∼	tehtemärk tilde	none
 ∽	tagurpidi tilde	none
+∾	horisontaal- ja pöördasendis s	none
+≃	asümptootiliselt võrdne	none
 ≅	ligikaudu võrdne	none
 ≈	võrdub ligikaudu	none
 ≌	kõik võrdsed	none
@@ -89,18 +160,108 @@ symbols:
 ⊖	miinusmärk ringis	none
 ⊗	korrutusmärk ringis	none
 ⊘	jagamismärk ringis	none
+⊙	punkt ringis operaator	none
+⊚	ring ringis operaator	none
+⊛	tärn ringis operaator	none
+⊞	pluss ruudus	none
+⊟	miinus ruudus	none
+⊥	falsum	none
+⊮	ei sunni	none
+⊰	eelneb suhte all	none
+⊱	järgneb suhte all	none
+⋭	ei sisalda nagu tavaline alarühma võrdne	none
+⊶	originaal	none
+⊹	hermiitiline kaasmaatriks	none
+⊿	täisnurkne kolmnurk	none
 ⋁	loogiline või	none
 ⋂	hulkade ühisosa	none
 ⋃	hulkade ühend	none
+⋅	täpi operaator	none
+⋆	tähe operaator	none
+⋈	naturaalne liide	none
+⋒	kahekordne lõikepunkt	none
 ⋘	väga palju väiksem kui	none
 ⋙	väga palju suurem kui	none
+⋮	vertikaalsed kolm punkti	none
+⋯	keskjoone horisontaalsed kolm punkti	none
+⋰	paremale üles digonaalsed kolm punkti	none
+⋱	paremale alla diagonaalsed kolm punkti	none
+■	täidetud ruut	none
+□	seest tühi ruut	none
+▢	ümarate nurkadega seest tühi ruut	none
+▣	täidetud ruut seest tühja ruudu sees	none
+▤	rõhtsate triipudega ruut	none
+▥	püstiste triipudega ruut	none
+▦	ortogonaalse ristviirutusega ruut	none
+▧	ülevalt vasakult alla paremale viirutusega ruut	none
+▨	ülevalt paremalt alla vasakule viirutusega ruut	none
+▩	diagonaalse ristviirutusega ruut	none
+▬	täidetud ristkülik	none
+▭	seest tühi ristkülik	none
+▮	täidetud püstine ristkülik	none
+▰	täidetud rööpkülik	none
 ▲	täidetud üles-kolmnurk	none
+△	seest tühi kolmnurk tipuga üleval	none
+▴	täidetud väike kolmnurk tipuga üleval	none
+▵	seest tühi väike kolmnurk tipuga üleval	none
+▷	seest tühi kolmnurk tipuga paremal	none
+▸	täidetud väike kolmnurk tipuga paremal	none
+▹	seest tühi väike kolmnurk tipuga paremal	none
+►	täidetud viit paremale	none
+▻	seest tühi viit paremale	none
 ▼	täidetud alla-kolmnurk	none
+▽	seest tühi kolmnurk tipuga all	none
+▾	täidetud väike kolmnurk tipuga all	none
+▿	seest tühi väike kolmnurk tipuga all	none
+◁	seest tühi kolmnurk tipuga vasakul	none
+◂	täidetud väike kolmnurk tipuga vasakul	none
+◃	seest tühi väike kolmnurk tipuga vasakul	none
+◄	täidetud viit vasakule	none
+◅	seest tühi viit vasakule	none
+◆	täidetud teemant	none
+◇	seest tühi teemant	none
+◈	seest tühjas teemantis on täidetud teemant	none
+◉	seest tühjas ringis on täidetud ring	none
 ◊	romb	none
 ○	tühi ring	none
+◌	katkendlik ring	none
+◍	püstiste triipudega ring	none
+◎	kontsentrilised ringid	none
 ●	täidetud ring	none
+◐	täidetud vasaku poolega ring	none
+◑	täidetud parema poolega ring	none
+◒	täidetud alumise poolega ring	none
+◓	täidetud ülemise poolega ring	none
+◔	täidetud ülemise parema veerandiga ring	none
+◕	täidetud ring tühja ülemise vasaku veerandiga	none
+◖	täidetud vasak poolring	none
+◗	täidetud parem poolring	none
+◘	pöördtäpp	none
+◙	täidetud ruudus on seest tühi ring	none
+◜	ringikujulise kaare ülemine vasak veerand	none
+◝	ringikujulise kaare ülemine parem veerand	none
+◞	ringikujulise kaare alumine parem veerand	none
+◟	ringikujulise kaare alumine vasak veerand	none
+◠	ülemine poolring	none
+◡	alumine poolring	none
+◢	täidetud kolmnurk all paremal	none
+◣	täidetud kolmnurk all vasakul	none
+◤	täidetud kolmnurk üleval vasakul	none
+◥	täidetud kolmnurk üleval paremal	none
+◦	seest tühi täpp	none
 ◯	suur tühi ring	none
+◳	tühja ruudu sees on ruut üleval paremal	none
+◷	tühja ringi sees on ruut üleval paremal	none
+◿	kolmnurk all paremal	none
 ♪	kaheksandiknoot	none
+⨧	pluss alaindeks kaks	none
+⨯	ristkorrutis	none
+⨼	sisekorrutis	none
+⩣	loogiline või kahekordne allkriips	none
+⩽	vähem kui kaldus võrdne	none
+⪍	vähem kui sarnane võrdne kohal	none
+⪚	kahejooneline võrdusmärk suurem kui	none
+⪺	järgneb pole peaaegu võrdne kohal	none
 ♭	bemoll	none
 ♯	diees	none
 😀	laia naeratusega nägu	none
@@ -153,6 +314,8 @@ symbols:
 😮‍💨	väljahingav nägu	none
 🤥	valetav nägu	none
 🫨	värisev nägu	none
+🙂‍↔	pearaputus	none
+🙂‍↕	peanoogutus	none
 😌	kergendust tundev nägu	none
 😔	mõtlik nägu	none
 😪	unine nägu	none
@@ -583,11 +746,15 @@ symbols:
 👬	käest kinni hoidvad mehed	none
 💏	musi	none
 💑	paarike südamega	none
-👪	perekond	none
 🗣	kõnelev pea	none
 👤	büsti siluett	none
 👥	büstide siluetid	none
 🫂	kallistavad inimesed	none
+👪	perekond	none
+🧑‍🧑‍🧒	perekond täiskasvanu, täiskasvanu, laps	none
+🧑‍🧑‍🧒‍🧒	perekond täiskasvanu, täiskasvanu, laps, laps	none
+🧑‍🧒	perekond täiskasvanu, laps	none
+🧑‍🧒‍🧒	perekond täiskasvanu, laps, laps	none
 👣	jalajäljed	none
 🦰	punased juuksed	none
 🦱	lokkis juuksed	none
@@ -678,7 +845,9 @@ symbols:
 🦚	paabulind	none
 🦜	papagoi	none
 🪽	tiib	none
+🐦‍⬛	must lind	none
 🪿	hani	none
+🐦‍🔥	fööniks	none
 🐸	konn	none
 🐊	krokodill	none
 🐢	kilpkonn	none
@@ -749,6 +918,7 @@ symbols:
 🍉	arbuus	none
 🍊	mandariin	none
 🍋	sidrun	none
+🍋‍🟩	laim	none
 🍌	banaan	none
 🍍	ananass	none
 🥭	mango	none
@@ -780,6 +950,7 @@ symbols:
 🌰	kastan	none
 🫚	ingver	none
 🫛	hernekaun	none
+🍄‍🟫	šampinjon	none
 🍞	leib	none
 🥐	sarvesai	none
 🥖	baguette	none
@@ -1388,6 +1559,7 @@ symbols:
 ⚖	kaalukausid	none
 🦯	valge kepp	none
 🔗	lüli	none
+⛓‍💥	katkine kett	none
 ⛓	ahelad	none
 🪝	konks	none
 🧰	tööriistakast	none
@@ -1477,6 +1649,7 @@ symbols:
 ↖	nool üles vasakule	none
 ↕	nool üles-alla	none
 ↔	nool paremale-vasakule	none
+↮	sirge vasak-paremnool	none
 ↩	kaardus nool vasakule	none
 ↪	kaardus nool paremale	none
 ⤴	kaardus nool üles	none
@@ -3510,7 +3683,7 @@ symbols:
 🇧🇲	lipp Bermuda	none
 🇧🇳	lipp Brunei	none
 🇧🇴	lipp Boliivia	none
-🇧🇶	lipp Hollandi Kariibi mere saared	none
+🇧🇶	lipp Kariibi Madalmaad	none
 🇧🇷	lipp Brasiilia	none
 🇧🇸	lipp Bahama	none
 🇧🇹	lipp Bhutan	none
@@ -3524,7 +3697,7 @@ symbols:
 🇨🇫	lipp Kesk-Aafrika Vabariik	none
 🇨🇬	lipp Kongo Vabariik	none
 🇨🇭	lipp Šveits	none
-🇨🇮	lipp Côte d’Ivoire	none
+🇨🇮	lipp Elevandiluurannik	none
 🇨🇰	lipp Cooki saared	none
 🇨🇱	lipp Tšiili	none
 🇨🇲	lipp Kamerun	none
@@ -3743,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	lipp Wales	none
 ₡	Costa Rica koloon	none
 ₦	Nigeeria naira	none
-₧	Hispaania peseeta	none
 ₪	Iisraeli uus seekel	none
 ₫	Vietnami dong	none
 ₭	Laose kiip	none
@@ -3755,3 +3927,4 @@ symbols:
 ₺	Türgi liir	none
 ₼	Aserbaidžaani manat	none
 ₾	Gruusia lari	none
+₧	Hispaania peseeta	none

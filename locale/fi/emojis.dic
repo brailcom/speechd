@@ -16,7 +16,7 @@ symbols:
 ↑	ylös osoittava nuoli	none
 ↓	alas osoittava nuoli	none
 ↜	aaltonuoli vasemmalle	none
-↝	aaltonuoli oikeaan	none
+↝	aaltonuoli oikealle	none
 ↞	kaksipäinen nuoli vasemmalle	none
 ↟	kaksipäinen nuoli ylös	none
 ↠	kaksipäinen nuoli oikealle	none
@@ -126,8 +126,8 @@ symbols:
 ∫	integraali	none
 ∬	kaksoisintegraali	none
 ∮	käyräintegraali	none
-∴	koska	none
-∵	siis	none
+∴	siis	none
+∵	koska	none
 ∶	suhde	none
 ∷	suhteellisuus	none
 ∼	tildeoperaattori	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	hämmästynyt	none
 🤥	valehteleva	none
 🫨	tärisevä	none
+🙂‍↔	ravistaa päätä vaakasuunnassa	none
+🙂‍↕	ravistaa päätä pystysuunnassa	none
 😌	helpottunut	none
 😔	pohdiskeleva	none
 😪	unelias	none
@@ -744,11 +746,15 @@ symbols:
 👬	kaksi miestä käsi kädessä	none
 💏	pusu	none
 💑	pariskunta ja sydän	none
-👪	perhe	none
 🗣	puhuva pää	none
 👤	rintasiluetti	none
 👥	kaksi rintasiluettia	none
 🫂	halaus	none
+👪	perhe	none
+🧑‍🧑‍🧒	perhe aikuinen, aikuinen, lapsi	none
+🧑‍🧑‍🧒‍🧒	perhe aikuinen, aikuinen, lapsi, lapsi	none
+🧑‍🧒	perhe aikuinen, lapsi	none
+🧑‍🧒‍🧒	perhe aikuinen, lapsi, lapsi	none
 👣	jalanjäljet	none
 🦰	punatukkainen	none
 🦱	kiharatukkainen	none
@@ -841,6 +847,7 @@ symbols:
 🪽	siipi	none
 🐦‍⬛	mustarastas	none
 🪿	hanhi	none
+🐦‍🔥	feeniks	none
 🐸	sammakko	none
 🐊	krokotiili	none
 🐢	kilpikonna	none
@@ -911,6 +918,7 @@ symbols:
 🍉	vesimeloni	none
 🍊	mandariini	none
 🍋	sitruuna	none
+🍋‍🟩	limetti	none
 🍌	banaani	none
 🍍	ananas	none
 🥭	mango	none
@@ -942,6 +950,7 @@ symbols:
 🌰	kastanja	none
 🫚	inkivääri	none
 🫛	herneenpalko	none
+🍄‍🟫	ruskea herkkusieni	none
 🍞	leipä	none
 🥐	voisarvi	none
 🥖	patonki	none
@@ -1550,6 +1559,7 @@ symbols:
 ⚖	vaaka	none
 🦯	valkoinen keppi	none
 🔗	lenkki	none
+⛓‍💥	katkennut ketju	none
 ⛓	ketjut	none
 🪝	koukku	none
 🧰	työkalulaatikko	none
@@ -3849,7 +3859,7 @@ symbols:
 🇸🇬	lippu Singapore	none
 🇸🇭	lippu Saint Helena	none
 🇸🇮	lippu Slovenia	none
-🇸🇯	lippu Svalbard ja Jan Mayen	none
+🇸🇯	lippu Huippuvuoret ja Jan Mayen	none
 🇸🇰	lippu Slovakia	none
 🇸🇱	lippu Sierra Leone	none
 🇸🇲	lippu San Marino	none
@@ -3906,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	lippu Wales	none
 ₡	Costa Rican colón	none
 ₦	Nigerian naira	none
-₧	Espanjan peseta	none
 ₪	Israelin uusi sekeli	none
 ₫	Vietnamin dong	none
 ₭	Laosin kip	none
@@ -3918,3 +3927,4 @@ symbols:
 ₺	Turkin liira	none
 ₼	Azerbaidžanin manat	none
 ₾	Georgian lari	none
+₧	Espanjan peseta	none

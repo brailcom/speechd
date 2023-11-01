@@ -314,6 +314,8 @@ symbols:
 😮‍💨	face exhaling	none
 🤥	lying face	none
 🫨	shaking face	none
+🙂‍↔	head shaking horizontally	none
+🙂‍↕	head shaking vertically	none
 😌	relieved face	none
 😔	pensive face	none
 😪	sleepy face	none
@@ -744,11 +746,15 @@ symbols:
 👬	men holding hands	none
 💏	kiss	none
 💑	couple with heart	none
-👪	family	none
 🗣	speaking head	none
 👤	bust in silhouette	none
 👥	busts in silhouette	none
 🫂	people hugging	none
+👪	family	none
+🧑‍🧑‍🧒	family adult, adult, child	none
+🧑‍🧑‍🧒‍🧒	family adult, adult, child, child	none
+🧑‍🧒	family adult, child	none
+🧑‍🧒‍🧒	family adult, child, child	none
 👣	footprints	none
 🦰	red hair	none
 🦱	curly hair	none
@@ -841,6 +847,7 @@ symbols:
 🪽	wing	none
 🐦‍⬛	black bird	none
 🪿	goose	none
+🐦‍🔥	phoenix	none
 🐸	frog	none
 🐊	crocodile	none
 🐢	turtle	none
@@ -911,6 +918,7 @@ symbols:
 🍉	watermelon	none
 🍊	tangerine	none
 🍋	lemon	none
+🍋‍🟩	lime	none
 🍌	banana	none
 🍍	pineapple	none
 🥭	mango	none
@@ -942,6 +950,7 @@ symbols:
 🌰	chestnut	none
 🫚	ginger root	none
 🫛	pea pod	none
+🍄‍🟫	brown mushroom	none
 🍞	bread	none
 🥐	croissant	none
 🥖	baguette bread	none
@@ -1550,6 +1559,7 @@ symbols:
 ⚖	balance scale	none
 🦯	white cane	none
 🔗	link	none
+⛓‍💥	broken chain	none
 ⛓	chains	none
 🪝	hook	none
 🧰	toolbox	none
@@ -3906,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	flag Wales	none
 ₡	Costa Rican Colón	none
 ₦	Nigerian Naira	none
-₧	Spanish Peseta	none
 ₪	Israeli New Shekel	none
 ₫	Vietnamese Dong	none
 ₭	Laotian Kip	none
@@ -3918,3 +3927,4 @@ symbols:
 ₺	Turkish Lira	none
 ₼	Azerbaijani Manat	none
 ₾	Georgian Lari	none
+₧	Spanish Peseta	none

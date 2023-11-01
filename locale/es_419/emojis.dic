@@ -5,10 +5,7 @@
 symbols:
 ↴	flecha hacia abajo con punta hacia la esquina derecha	none
 ↵	flecha hacia abajo con punta hacia la esquina izquierda	none
-↶	flecha en sentido antihorario	none
-↷	flecha en sentido horario	none
 ↸	flecha hacia noroeste con barra	none
-↹	flecha hacia la izquierda con barra sobre flecha hacia la derecha con barra	none
 ⇀	arpón hacia la derecha con flecha por arriba	none
 ⇁	arpón hacia la derecha con flecha por debajo	none
 ⇄	flecha a la derecha sobre flecha a la izquierda	none
@@ -20,58 +17,27 @@ symbols:
 ⇊	par de flechas hacia abajo	none
 ⇋	arpón a la izquierda sobre arpón a la derecha	none
 ⇌	arpón a la derecha sobre arpón a la izquierda	none
-⇠	flecha discontinua hacia la izquierda	none
-⇢	flecha discontinua hacia la derecha	none
-⇦	flecha vacía hacia la izquierda	none
-⇧	flecha vacía hacia arriba	none
-⇨	flecha vacía hacia la derecha	none
-⇩	flecha vacía hacia abajo	none
-⇪	flecha vacía hacia arriba desde barra	none
-⇵	flecha hacia abajo y flecha hacia arriba	none
 ∉	no es un elemento de	none
 ∋	es un elemento de	none
 ∓	menos-más	none
-∟	ángulo derecho	none
+∠	ángulo agudo	none
+∴	por lo tanto	none
+⋁	o lógico n-ario	none
 ⋮	elipsis vertical	none
 ⋯	elipsis horizontal de línea media	none
 ⋰	elipsis en diagonal hacia la derecha	none
 ⋱	elipsis en diagonal hacia la izquierda	none
-□	cuadrado vacío	none
-▢	cuadrado vacío con bordes redondos	none
-▣	cuadrado vacío con cuadrado relleno dentro	none
-▭	rectángulo vacío	none
-△	triángulo vacío que apunta hacia arriba	none
-▴	triángulo pequeño relleno hacia arriba	none
-▵	triángulo pequeño vacío hacia arriba	none
-▷	triángulo vacío hacia la derecha	none
-▸	triángulo pequeño relleno hacia la derecha	none
-▹	triángulo pequeño vacío hacia la derecha	none
-►	puntero relleno hacia la derecha	none
-▻	puntero vacío hacia la derecha	none
-▽	triángulo vacío hacia abajo	none
-▾	triángulo pequeño relleno hacia abajo	none
-▿	triángulo pequeño vacío hacia abajo	none
-◁	triángulo vacío hacia la izquierda	none
-◂	triángulo pequeño relleno hacia la izquierda	none
-◃	triángulo pequeño vacío hacia la izquierda	none
-◄	puntero relleno hacia la izquierda	none
-◅	puntero vacío hacia la izquierda	none
-◇	diamante vacío	none
-◈	diamante vacío con diamante relleno dentro	none
-◉	círculo vacío con círculo relleno dentro	none
 ○	círculo vacío	none
-◔	círculo con cuadrante superior derecho relleno	none
 ◘	viñeta invertida	none
 ◙	cuadrado relleno con círculo vacío dentro	none
 ◜	arco de cuadrante superior izquierdo	none
 ◝	arco de cuadrante superior derecho	none
 ◞	arco de cuadrante inferior derecho	none
 ◟	arco de cuadrante inferior izquierdo	none
-◦	viñeta vacía	none
 ◯	círculo vacío grande	none
-◳	cuadrado vacío con cuadrante superior derecho	none
-◷	círculo vacío con cuadrante superior derecho	none
 ⨯	producto vectorial	none
+⩣	o lógico sobre doble barra	none
+⪺	sucede sobre no igual	none
 😀	cara feliz	none
 😃	sonrisa con boca abierta	none
 😄	boca y ojos sonrientes	none
@@ -84,13 +50,13 @@ symbols:
 😉	cara con guiño	none
 😊	cara alegre	none
 😗	cara dando un beso	none
-😚	beso con ojos cerrados	none
 😋	cara de broma	none
 😝	cara con los ojos bien cerrados y sacando la lengua	none
 🤔	cara pensante	none
 🤐	cara con la boca cerrada con cierre	none
 🙄	cara revoleando los ojos	none
 🫨	cara que vibra	none
+🙂‍↔	cabeza en movimiento horizontal	none
 😷	cara con barbijo	none
 🤕	cabeza vendada	none
 🤧	cara de estornudo	none
@@ -98,7 +64,6 @@ symbols:
 😎	cara sonriendo con lentes de sol	none
 🤓	cara de nerd	none
 😟	cara de preocupación	none
-😮	cara con boca abierta	none
 😦	cara boquiabierta	none
 😧	cara de angustia	none
 😨	cara de miedo	none
@@ -119,8 +84,6 @@ symbols:
 👺	cara de demonio japonés	none
 👽	extraterrestre	none
 👾	monstruo extraterrestre	none
-😺	gato sonriente	none
-😻	gato sonriente con corazones	none
 😼	gato sarcástico	none
 😽	gato mandando un beso	none
 😾	cara de gato enfadado	none
@@ -451,6 +414,7 @@ symbols:
 ✔	marca de verificación grande	none
 ❌	cruz	none
 ❎	cruz con recuadro	none
+™	marca comercial	none
 🆑	botón CL	none
 🆓	gratis	none
 Ⓜ	letra m en un círculo	none
@@ -871,7 +835,7 @@ symbols:
 🇬🇵	bandera Guadalupe	none
 🇬🇶	bandera Guinea Ecuatorial	none
 🇬🇷	bandera Grecia	none
-🇬🇸	bandera Islas Georgia del Sur y Sandwich del Sur	none
+🇬🇸	bandera Islas Georgia del Sur y Sándwich del Sur	none
 🇬🇹	bandera Guatemala	none
 🇬🇺	bandera Guam	none
 🇬🇼	bandera Guinea-Bisáu	none
@@ -971,11 +935,11 @@ symbols:
 🇵🇾	bandera Paraguay	none
 🇶🇦	bandera Catar	none
 🇷🇪	bandera Reunión	none
-🇷🇴	bandera Rumanía	none
+🇷🇴	bandera Rumania	none
 🇷🇸	bandera Serbia	none
 🇷🇺	bandera Rusia	none
 🇷🇼	bandera Ruanda	none
-🇸🇦	bandera Arabia Saudí	none
+🇸🇦	bandera Arabia Saudita	none
 🇸🇧	bandera Islas Salomón	none
 🇸🇨	bandera Seychelles	none
 🇸🇩	bandera Sudán	none
@@ -996,7 +960,7 @@ symbols:
 🇸🇽	bandera Sint Maarten	none
 🇸🇾	bandera Siria	none
 🇸🇿	bandera Esuatini	none
-🇹🇦	bandera Tristán da Cunha	none
+🇹🇦	bandera Tristán de Acuña	none
 🇹🇨	bandera Islas Turcas y Caicos	none
 🇹🇩	bandera Chad	none
 🇹🇫	bandera Territorios Australes Franceses	none
@@ -1004,7 +968,7 @@ symbols:
 🇹🇭	bandera Tailandia	none
 🇹🇯	bandera Tayikistán	none
 🇹🇰	bandera Tokelau	none
-🇹🇱	bandera Timor-Leste	none
+🇹🇱	bandera Timor Oriental	none
 🇹🇲	bandera Turkmenistán	none
 🇹🇳	bandera Túnez	none
 🇹🇴	bandera Tonga	none

@@ -256,7 +256,7 @@ symbols:
 ♪	agstenoot	none
 ⨧	plusteken met onderskrif twee	none
 ⨯	vektor kruisproduk	none
-⨼	interiorproduk	none
+⨼	binneproduk	none
 ⩣	logiese of dubbele onderbalk	none
 ⩽	kleiner-as skuins gelyk aan	none
 ⪍	kleiner-as bo-op soortgelyke gelyk aan	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	gesig asem uit	none
 🤥	gesig wat jok	none
 🫨	gesig wat skud	none
+🙂‍↔	kop wat horisontaal skud	none
+🙂‍↕	kop wat vertikaal skud	none
 😌	verligte gesig	none
 😔	peinsende gesig	none
 😪	vaak gesig	none
@@ -744,11 +746,15 @@ symbols:
 👬	twee mans wat hande vashou	none
 💏	soen	none
 💑	paartjie met hartjie	none
-👪	gesin	none
 🗣	kop wat praat	none
 👤	borssilhoeët	none
 👥	borssilhoeëtte	none
 🫂	mense wat mekaar druk	none
+👪	gesin	none
+🧑‍🧑‍🧒	gesin grootmens, volwasse, kind	none
+🧑‍🧑‍🧒‍🧒	gesin grootmens, volwasse, kind, kind	none
+🧑‍🧒	gesin grootmens, kind	none
+🧑‍🧒‍🧒	gesin grootmens, kind, kind	none
 👣	voetspore	none
 🦰	rooi hare	none
 🦱	krulhare	none
@@ -839,7 +845,9 @@ symbols:
 🦚	pou	none
 🦜	papegaai	none
 🪽	vlerk	none
+🐦‍⬛	swart voël	none
 🪿	gans	none
+🐦‍🔥	feniks	none
 🐸	padda	none
 🐊	krokodil	none
 🐢	waterskilpad	none
@@ -910,6 +918,7 @@ symbols:
 🍉	waatlemoen	none
 🍊	nartjie	none
 🍋	suurlemoen	none
+🍋‍🟩	lemmetjie	none
 🍌	piesang	none
 🍍	pynappel	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kastaiing	none
 🫚	gemmerwortel	none
 🫛	ertjiepeul	none
+🍄‍🟫	bruin sampioen	none
 🍞	brood	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1038,12 +1048,12 @@ symbols:
 🔪	kombuismes	none
 🫙	fles	none
 🏺	amfoor	none
-🌍	aardbol met europa-afrika	none
-🌎	aardbol met amerikas	none
-🌏	aardbol met asië-australië	none
+🌍	aardbol met Europa en Afrika	none
+🌎	aardbol met Amerikas	none
+🌏	aardbol met Asië en Australië	none
 🌐	aardbol met kringlyne	none
 🗺	wêreldkaart	none
-🗾	kaart van japan	none
+🗾	kaart van Japan	none
 🧭	kompas	none
 🏔	berg met sneeu op	none
 ⛰	berg	none
@@ -1076,17 +1086,17 @@ symbols:
 🏫	skool	none
 🏬	afdelingswinkel	none
 🏭	fabriek	none
-🏯	japanse kasteel	none
+🏯	Japanse kasteel	none
 🏰	kasteel	none
 💒	troue	none
-🗼	tokio-toring	none
+🗼	Tokio-toring	none
 🗽	vryheidstandbeeld	none
 ⛪	kerk	none
 🕌	moskee	none
 🛕	Hindoetempel	none
 🕍	sinagoge	none
 ⛩	sjinto-altaar	none
-🕋	kaäba	none
+🕋	Kaäba	none
 ⛲	fontein	none
 ⛺	tent	none
 🌁	mistig	none
@@ -1267,7 +1277,7 @@ symbols:
 🎊	konfettibal	none
 🎋	tanabataboom	none
 🎍	denneversiering	none
-🎎	japanse poppe	none
+🎎	Japanse poppe	none
 🎏	karpbanier	none
 🎐	windklokkie	none
 🎑	maankykseremonie	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	weegskaal	none
 🦯	gidsstok	none
 🔗	skakel	none
+⛓‍💥	gebreekte ketting	none
 ⛓	kettings	none
 🪝	hoek	none
 🧰	gereedskaptrommel	none

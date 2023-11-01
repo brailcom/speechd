@@ -10,13 +10,13 @@ symbols:
 🏿	hudtype 6	none
 ℗	opphavsrett for lydopptak	none
 ←	pil mot venstre	none
-↚	pil venstre med strek	none
+↚	pil venstre med skråstrek	none
 →	pil mot høyre	none
-↛	pil høyre med strek	none
+↛	pil høyre med skråstrek	none
 ↑	pil oppover	none
 ↓	pil nedover	none
-↜	bølgepil mot venstre med strek	none
-↝	bølgepil mot høyre med strek	none
+↜	bølgepil mot venstre	none
+↝	bølgepil mot høyre	none
 ↞	pil venstre med to mothaker	none
 ↟	pil opp med to mothaker	none
 ↠	pil høyre med to mothaker	none
@@ -41,7 +41,7 @@ symbols:
 ↶	halvsirkelpil mot klokken	none
 ↷	halvsirkelpil med klokken	none
 ↸	pil mot nordvest med strek over	none
-↹	pil venstre mot loddrett strek over pil høyre mot loddrett strek	none
+↹	pil venstre over pil høyre mot loddrette streker	none
 ↺	pil åpen sirkel mot klokken	none
 ↻	pil åpen sirkel med klokken	none
 ↼	harpunpil venstre med mothake opp	none
@@ -59,8 +59,8 @@ symbols:
 ⇈	parallelle piler opp	none
 ⇉	parallelle piler mot høyre	none
 ⇊	parallelle piler ned	none
-⇋	harpunpil mot venstre over harpunpil mot høyre	none
-⇌	harpunpil mot høyre over harpunpil mot venstre	none
+⇋	harpunpil venstre over harpunpil høyre	none
+⇌	harpunpil høyre over harpunpil venstre	none
 ⇐	dobbeltpil venstre	none
 ⇍	dobbeltpil venstre med strek	none
 ⇑	dobbeltpil opp	none
@@ -68,7 +68,7 @@ symbols:
 ⇏	dobbeltpil høyre med strek	none
 ⇓	dobbeltpil ned	none
 ⇔	dobbeltpil begge veier	none
-⇎	dobbeltpil med strek begge veier	none
+⇎	dobbeltpil begge veier med strek	none
 ⇖	dobbeltpil nordvest	none
 ⇗	dobbeltpil nordøst	none
 ⇘	dobbeltpil sørøst	none
@@ -90,183 +90,183 @@ symbols:
 ⇨	hul pil høyre	none
 ⇩	hul pil ned	none
 ⇪	hul pil opp fra vannrett strek	none
-⇵	pil ned til høyre for pil opp	none
+⇵	pil ned til venstre for pil opp	none
 ∀	allkvantor	none
-∂	partielt derivert	none
+∂	partiellderivert	none
 ∃	eksistenskvantor	none
 ∅	den tomme mengden	none
 ∆	matematisk endring	none
 ∇	nabla	none
 ∈	element i	none
-∉	ikke element i	none
+∉	er ikke element i	none
 ∋	inneholder som medlem	none
 ∎	slutt på bevis	none
-∏	produktserie	none
-∑	sum av en rekke	none
-≮	ikke mindre enn	none
+∏	produkt	none
+∑	sum	none
+≮	er ikke mindre enn	none
 ≠	er ikke lik	none
-≯	ikke større enn	none
+≯	er ikke større enn	none
 −	minustegn	none
 ⁻	hevet minustegn	none
-∓	minus-eller-pluss	none
-∕	divisjonstegn	none
+∓	minus-pluss	none
+∕	skråstrek for divisjon	none
 ∗	asteriskoperator	none
 ∘	ringoperator	none
 ∙	punktoperator	none
 √	kvadratrot	none
-∝	proporsjonal med	none
+∝	er proporsjonal med	none
 ∞	uendelighetstegn	none
 ∟	rett vinkel	none
 ∠	vinkel	none
 ∣	divisor	none
 ∥	parallell	none
-∧	og-junktor	none
+∧	logisk og	none
 ∩	snitt	none
 ∪	union	none
-∫	integraltegn	none
-∬	dobbeltintegraltegn	none
-∮	sirkulasjonsintegral	none
+∫	integral	none
+∬	dobbelt integral	none
+∮	konturintegral	none
 ∴	derfor	none
 ∵	fordi	none
 ∶	forhold	none
 ∷	proporsjon	none
 ∼	tildeoperator	none
 ∽	omvendt tilde	none
-∾	omvendt doven s	none
+∾	speilvendt liggende s	none
 ≃	asymptotisk lik	none
-≅	isomorfisk lik	none
+≅	tilnærmet lik	none
 ≈	er tilnærmet lik	none
 ≌	kongruent	none
 ≒	tilnærmet lik bildet	none
 ≖	ring i likhetstegn	none
 ≡	identisk lik	none
-≣	identisk med	none
+≣	strengt ekvivalent	none
 ≤	er mindre enn eller lik	none
 ≥	er større enn eller lik	none
-≦	mindre enn over lihetstegn	none
-≧	større enn over lihetstegn	none
+≦	mindre enn over likhetstegn	none
+≧	større enn over likhetstegn	none
 ≪	mye mindre enn	none
 ≫	mye større enn	none
 ≬	mellom	none
-≳	større enn tilnærmet lik	none
-≺	foregår	none
-≻	etterfølger	none
-⊁	etterfølger ikke	none
+≳	tilnærmet større enn	none
+≺	kommer før	none
+≻	kommer etter	none
+⊁	kommer ikke etter	none
 ⊂	delmengde av	none
 ⊃	supermengde	none
 ⊆	delmengde lik	none
 ⊇	supermengde lik	none
-⊕	innsirklet plusstegn	none
-⊖	innsirklet minustegn	none
-⊗	innsirklet multipliseringstegn	none
-⊘	innsirklet divisjonstegn	none
-⊙	innsirklet prikkoperator	none
-⊚	innsirklet ringoperator	none
-⊛	innsirklet asteriskoperator	none
+⊕	plusstegn i sirkel	none
+⊖	minustegn i sirkel	none
+⊗	multipliseringstegn i sirkel	none
+⊘	skråstrek for divisjon i sirkel	none
+⊙	prikkoperator i sirkel	none
+⊚	ringoperator i sirkel	none
+⊛	stjerneoperator i sirkel	none
 ⊞	plusstegn i firkant	none
 ⊟	minustegn i firkant	none
 ⊥	falsum	none
 ⊮	tvinger ikke	none
-⊰	foregår under relasjon	none
-⊱	etterfølger under relasjon	none
+⊰	kommer før under relasjon	none
+⊱	kommer etter under relasjon	none
 ⋭	inneholder ikke som normal delgruppe lik	none
 ⊶	original	none
 ⊹	hermitisk konjugert matrise	none
-⊿	rettvinklet triangel	none
+⊿	rettvinklet trekant	none
 ⋁	n-ær logisk eller	none
 ⋂	n-ært snitt	none
 ⋃	n-ær union	none
 ⋅	prikkoperator	none
 ⋆	stjerneoperator	none
-⋈	naturlig forening	none
+⋈	naturlig skjøt	none
 ⋒	dobbelt snitt	none
 ⋘	veldig mye mindre enn	none
 ⋙	veldig mye større enn	none
 ⋮	loddrett ellipse	none
 ⋯	sentrert vannrett ellipse	none
-⋰	diagonal ellipse oppover mot høyre	none
-⋱	diagonal ellipse nedover mot høyre	none
-■	fylt firkant	none
-□	hul firkant	none
-▢	hul firkant med avrundede hjørner	none
-▣	hul firkant med en fylt firkant inni	none
-▤	firkant med vannrette streker inni	none
-▥	firkant med loddrette streker inni	none
-▦	firkant med ortogonalt rutemønster inni	none
-▧	firkant med diagonale streker fra øverst til venstre mot nederst til høyre inni	none
-▨	firkant med diagonale streker fra øverst til høyre mot nederst til venstre inni	none
-▩	firkant med diagonalt rutemønster inni	none
+⋰	diagonal ellipse opp mot høyre	none
+⋱	diagonal ellipse ned mot høyre	none
+■	fylt kvadrat	none
+□	hult kvadrat	none
+▢	hult kvadrat med avrundede hjørner	none
+▣	hult kvadrat rundt et fylt kvadrat	none
+▤	kvadrat med vannrett fyll	none
+▥	kvadrat med loddrett fyll	none
+▦	kvadrat med rettvinklet rutefyll	none
+▧	kvadrat med diagonalt fyll ned mot høyre	none
+▨	kvadrat med diagonalt fyll ned mot venstre	none
+▩	kvadrat med diagonalt rutefyll	none
 ▬	fylt rektangel	none
 ▭	hult rektangel	none
 ▮	fylt vertikalt rektangel	none
 ▰	fylt parallellogram	none
 ▲	fylt trekant som peker opp	none
-△	hult triangel som peker oppover	none
-▴	lite, fylt triangel som peker oppover	none
-▵	lite, hult triangel som peker oppover	none
-▷	hult triangel som peker mot høyre	none
-▸	lite, fylt triangel som peker mot høyre	none
-▹	lite, hult triangel som peker mot høyre	none
+△	hul trekant som peker opp	none
+▴	liten fylt trekant som peker opp	none
+▵	liten hul trekant som peker opp	none
+▷	hul trekant som peker mot høyre	none
+▸	liten fylt trekant som peker mot høyre	none
+▹	liten hul trekant som peker mot høyre	none
 ►	fylt peker som peker mot høyre	none
 ▻	hul peker som peker mot høyre	none
 ▼	fylt trekant som peker ned	none
-▽	hult triangel som peker nedover	none
-▾	lite, fylt triangel som peker nedover	none
-▿	lite, hult triangel som peker nedover	none
-◁	hult triangel som peker mot venstre	none
-◂	lite, fylt triangel som peker mot venstre	none
-◃	lite, hult triangel som peker mot venstre	none
+▽	hul trekant som peker ned	none
+▾	liten fylt trekant som peker ned	none
+▿	liten hul trekant som peker ned	none
+◁	hul trekant som peker mot venstre	none
+◂	liten fylt trekant som peker mot venstre	none
+◃	liten hul trekant som peker mot venstre	none
 ◄	fylt peker som peker mot venstre	none
 ◅	hul peker som peker mot venstre	none
 ◆	fylt rutersymbol	none
 ◇	hult rutersymbol	none
-◈	hult rutersymbol med fylt rutersymbol inni	none
-◉	hul sirkel med fylt sirkel inni	none
+◈	hult rutersymbol rundt fylt rutersymbol	none
+◉	hul sirkel rundt fylt sirkel	none
 ◊	hult rombesymbol	none
 ○	hul sirkel	none
 ◌	stiplet sirkel	none
-◍	sirkel med loddrette streker inni	none
-◎	hul sirkel med hul sirkel inni	none
+◍	sirkel med loddrett fyll	none
+◎	konsentriske sirkler	none
 ●	fylt sirkel	none
 ◐	sirkel med venstre halvdel fylt	none
 ◑	sirkel med høyre halvdel fylt	none
 ◒	sirkel med nedre halvdel fylt	none
 ◓	sirkel med øvre halvdel fylt	none
-◔	sirkel med fjerdedelen øverst til høyre fylt	none
-◕	sirkel med alt bortsett fra fjerdedelen øverst til venstre fylt	none
+◔	sirkel med øvre høyre kvadrant fylt	none
+◕	sirkel med alt unntatt øvre venstre kvadrant fylt	none
 ◖	fylt venstre halvsirkel	none
 ◗	fylt høyre halvsirkel	none
-◘	invertert punktlistepunkt	none
-◙	fylt firkant med hul sirkel inni	none
-◜	sirkelbue av fjerdedelen øverst til venstre i en sirkel	none
-◝	sirkelbue av fjerdedelen øverst til høyre i en sirkel	none
-◞	sirkelbue av fjerdedelen nederst til høyre i en sirkel	none
-◟	sirkelbue av fjerdedelen nederst til venstre i en sirkel	none
+◘	invertert punkttegn	none
+◙	fylt kvadrat rundt hul sirkel	none
+◜	sirkelbue øvre venstre kvadrant	none
+◝	sirkelbue øvre høyre kvadrant	none
+◞	sirkelbue nedre høyre kvadrant	none
+◟	sirkelbue nedre venstre kvadrant	none
 ◠	øvre halvsirkel	none
 ◡	nedre halvsirkel	none
-◢	fylt triangel med rett vinkel nederst til høyre	none
-◣	fylt triangel med rett vinkel nederst til venstre	none
-◤	fylt triangel med rett vinkel øverst til venstre	none
-◥	fylt triangel med rett vinkel øverst til høyre	none
-◦	hult punktlistepunkt	none
+◢	fylt trekant med rett vinkel nede til høyre	none
+◣	fylt trekant med rett vinkel nede til venstre	none
+◤	fylt trekant med rett vinkel oppe til venstre	none
+◥	fylt trekant med rett vinkel oppe til høyre	none
+◦	hult punkttegn	none
 ◯	stor hul sirkel	none
-◳	hul firkant med hul firkant øverst til høyre	none
-◷	hul sirkel med hul sektor øverst til høyre	none
-◿	hult triangel med rett vinkel nederst til høyre	none
+◳	hult kvadrat øvre høyre kvadrant	none
+◷	hul sirkel øvre høyre kvadrant	none
+◿	hul trekant med rett vinkel nede til høyre	none
 ♪	åttendelsnote	none
 ⨧	plusstegn med senket totall	none
 ⨯	kryssprodukt av vektorer	none
-⨼	interiørprodukt	none
-⩣	logisk Eller med dobbel understrek	none
+⨼	indreprodukt	none
+⩣	logisk eller dobbelt understreket	none
 ⩽	mindre enn eller lik med likhetstegn på skrå	none
 ⪍	mindre enn eller lik over asymptotisk lik	none
 ⪚	likhetstegn over større enn	none
-⪺	etterfølger over ikke tilnærmet lik	none
+⪺	kommer etter over ikke tilnærmet lik	none
 ♭	note-b	none
 ♯	note-kryss	none
 😀	glisefjes	none
 😃	glisende fjes med vidåpne øyne	none
-😄	smilefjes med åpen munn og smilende øyne	none
+😄	glisende fjes med smilende øyne	none
 😁	glisefjes med smilende øyne	none
 😆	smil med sammenknepne øyne	none
 😅	glisende fjes som svetter	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	puster ut	none
 🤥	lyver	none
 🫨	skjelvende fjes	none
+🙂‍↔	ristende hode	none
+🙂‍↕	nikkende hode	none
 😌	lettet	none
 😔	tankefull	none
 😪	søvnig	none
@@ -744,11 +746,15 @@ symbols:
 👬	menn som leier	none
 💏	kyss	none
 💑	par med hjerte	none
-👪	familie	none
 🗣	snakkende hode i profil	none
 👤	silhuett av byste	none
 👥	silhuett av byster	none
 🫂	klem	none
+👪	familie	none
+🧑‍🧑‍🧒	familie voksen, voksen, barn	none
+🧑‍🧑‍🧒‍🧒	familie voksen, voksen, barn, barn	none
+🧑‍🧒	familie voksen, barn	none
+🧑‍🧒‍🧒	familie voksen, barn, barn	none
 👣	fotavtrykk	none
 🦰	rødt hår	none
 🦱	kruset hår	none
@@ -839,7 +845,9 @@ symbols:
 🦚	påfugl	none
 🦜	papegøye	none
 🪽	vinge	none
+🐦‍⬛	svart fugl	none
 🪿	gås	none
+🐦‍🔥	føniks	none
 🐸	frosk	none
 🐊	krokodille	none
 🐢	skilpadde	none
@@ -910,6 +918,7 @@ symbols:
 🍉	vannmelon	none
 🍊	mandarin	none
 🍋	sitron	none
+🍋‍🟩	lime	none
 🍌	banan	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kastanje	none
 🫚	ingefærrot	none
 🫛	ertebelg	none
+🍄‍🟫	brun sopp	none
 🍞	brød	none
 🥐	croissant	none
 🥖	bagett	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	likearmet skålvekt	none
 🦯	blindestokk	none
 🔗	lenke	none
+⛓‍💥	brutt lenke	none
 ⛓	kjetting	none
 🪝	krok	none
 🧰	verktøykasse	none
@@ -1638,7 +1649,7 @@ symbols:
 ↖	pil opp-venstre	none
 ↕	pil opp og ned	none
 ↔	pil venstre-høyre	none
-↮	pil begge veier med strek	none
+↮	pil begge veier med skråstrek	none
 ↩	pil som bøyer mot venstre	none
 ↪	pil som bøyer mot høyre	none
 ⤴	pil som bøyer opp	none
@@ -1772,14 +1783,14 @@ symbols:
 🟦	blått kvadrat	none
 🟪	lilla kvadrat	none
 🟫	brunt kvadrat	none
-⬛	stor svart firkant	none
-⬜	stor hvit firkant	none
-◼	mellomstor svart firkant	none
-◻	mellomstor hvit firkant	none
-◾	liten/mellomstor svart firkant	none
-◽	liten/mellomstor hvit firkant	none
-▪	liten svart firkant	none
-▫	liten hvit firkant	none
+⬛	stort svart kvadrat	none
+⬜	stort hvitt kvadrat	none
+◼	mellomstort svart kvadrat	none
+◻	mellomstort hvitt kvadrat	none
+◾	lite/mellomstort svart kvadrat	none
+◽	lite/mellomstort hvitt kvadrat	none
+▪	lite, svart kvadrat	none
+▫	lite, hvitt kvadrat	none
 🔶	stort oransje rutersymbol	none
 🔷	stort blått rutersymbol	none
 🔸	lite oransje rutersymbol	none
@@ -1799,12 +1810,12 @@ symbols:
 🏳‍⚧	transpersonflagg	none
 🏴‍☠	sjørøverflagg	none
 ₢	cruzeiro	none
-₣	franske franc	none
+₣	fransk franc	none
 ₤	lire	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
-₰	tyske pfennig	none
+₰	tysk pfennig	none
 ₱	peso	none
 ₳	austral	none
 ₶	livre tournois	none
@@ -1812,7 +1823,7 @@ symbols:
 ₹	indiske rupi	none
 ₽	rubler	none
 ₿	bitcoin	none
-₨	rupier	none
+₨	rupi	none
 👋🏻	vinkende hånd hudtype 1–2	none
 👋🏼	vinkende hånd hudtype 3	none
 👋🏽	vinkende hånd hudtype 4	none
@@ -3678,7 +3689,7 @@ symbols:
 🇧🇹	flagg Bhutan	none
 🇧🇻	flagg Bouvetøya	none
 🇧🇼	flagg Botswana	none
-🇧🇾	flagg Hviterussland	none
+🇧🇾	flagg Belarus	none
 🇧🇿	flagg Belize	none
 🇨🇦	flagg Canada	none
 🇨🇨	flagg Kokosøyene	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	flagg Wales	none
 ₡	costaricanske colón	none
 ₦	nigerianske naira	none
-₧	spanske peseta	none
 ₪	nye israelske shekler	none
 ₫	vietnamesiske dong	none
 ₭	laotiske kip	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	tyrkiske lire	none
 ₼	aserbajdsjanske manat	none
 ₾	georgiske lari	none
+₧	spanske peseta	none

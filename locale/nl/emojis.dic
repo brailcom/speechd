@@ -143,7 +143,7 @@ symbols:
 ≣	strict gelijk	none
 ≤	kleiner dan of gelijk aan	none
 ≥	groter dan of gelijk aan	none
-≦	is minder dan of gelijk aan	none
+≦	minder dan boven gelijk aan	none
 ≧	groter dan boven gelijk aan	none
 ≪	veel minder dan	none
 ≫	veel groter dan	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	gezicht dat uitademt	none
 🤥	liegend gezicht	none
 🫨	schuddend gezicht	none
+🙂‍↔	hoofd dat horizontaal beweegt	none
+🙂‍↕	hoofd dat verticaal beweegt	none
 😌	opgelucht gezicht	none
 😔	peinzend gezicht	none
 😪	slaperig gezicht	none
@@ -744,11 +746,15 @@ symbols:
 👬	mannen hand in hand	none
 💏	kus	none
 💑	stel met hart	none
-👪	gezin	none
 🗣	silhouet van sprekend hoofd	none
 👤	silhouet van persoon	none
 👥	silhouet van twee personen	none
 🫂	personen in een omhelzing	none
+👪	gezin	none
+🧑‍🧑‍🧒	gezin volwassene, volwassene, kind	none
+🧑‍🧑‍🧒‍🧒	gezin volwassene, volwassene, kind, kind	none
+🧑‍🧒	gezin volwassene, kind	none
+🧑‍🧒‍🧒	gezin volwassene, kind, kind	none
 👣	voetafdrukken	none
 🦰	rood haar	none
 🦱	krullend haar	none
@@ -761,7 +767,7 @@ symbols:
 🐶	hondengezicht	none
 🐕	hond	none
 🦮	blindengeleidehond	none
-🐕‍🦺	as­sis­ten­tie­hond	none
+🐕‍🦺	assistentiehond	none
 🐩	poedel	none
 🐺	wolf	none
 🦊	vos	none
@@ -839,7 +845,9 @@ symbols:
 🦚	pauw	none
 🦜	papegaai	none
 🪽	vleugel	none
+🐦‍⬛	merel	none
 🪿	gans	none
+🐦‍🔥	feniks	none
 🐸	kikker	none
 🐊	krokodil	none
 🐢	schildpad	none
@@ -910,6 +918,7 @@ symbols:
 🍉	watermeloen	none
 🍊	mandarijn	none
 🍋	citroen	none
+🍋‍🟩	limoen	none
 🍌	banaan	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kastanje	none
 🫚	gemberwortel	none
 🫛	erwtendop	none
+🍄‍🟫	bruine paddestoel	none
 🍞	brood	none
 🥐	croissant	none
 🥖	stokbrood	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	weegschaal	none
 🦯	taststok	none
 🔗	schakels	none
+⛓‍💥	gebroken ketting	none
 ⛓	kettingen	none
 🪝	haak	none
 🧰	gereedschapskist	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	vlag Wales	none
 ₡	Costa Ricaanse colon	none
 ₦	Nigeriaanse naira	none
-₧	Spaanse peseta	none
 ₪	Israëlische nieuwe shekel	none
 ₫	Vietnamese dong	none
 ₭	Laotiaanse kip	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	Turkse lira	none
 ₼	Azerbeidzjaanse manat	none
 ₾	Georgische lari	none
+₧	Spaanse peseta	none

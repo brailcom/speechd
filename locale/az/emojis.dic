@@ -314,6 +314,8 @@ symbols:
 😮‍💨	nəfəs alan üz	none
 🤥	yalançı adam üzü	none
 🫨	silkələnən üz	none
+🙂‍↔	başı üfüqi silkələmək	none
+🙂‍↕	başı şaquli silkələmək	none
 😌	rahat üz	none
 😔	fikirli üz	none
 😪	yuxulu üz	none
@@ -744,11 +746,15 @@ symbols:
 👬	əl-ələ tutan iki kişi	none
 💏	öpüş	none
 💑	ürəkli cütlük	none
-👪	ailə	none
 🗣	danışan baş	none
 👤	büst silueti	none
 👥	büst siluetləri	none
 🫂	qucaqlaşan insanlar	none
+👪	ailə	none
+🧑‍🧑‍🧒	ailə yetkin, yetkin, uşaq	none
+🧑‍🧑‍🧒‍🧒	ailə yetkin, yetkin, uşaq, uşaq	none
+🧑‍🧒	ailə yetkin, uşaq	none
+🧑‍🧒‍🧒	ailə yetkin, uşaq, uşaq	none
 👣	ayaq izləri	none
 🦰	qırmızı saç	none
 🦱	buruq saç	none
@@ -839,7 +845,9 @@ symbols:
 🦚	tovuz	none
 🦜	tutuquşu	none
 🪽	qanad	none
+🐦‍⬛	qara quş	none
 🪿	qaz	none
+🐦‍🔥	feniks	none
 🐸	qurbağa üzü	none
 🐊	timsah	none
 🐢	tısbağa	none
@@ -910,6 +918,7 @@ symbols:
 🍉	qarpız	none
 🍊	mandarin	none
 🍋	limon	none
+🍋‍🟩	laym	none
 🍌	banan	none
 🍍	ananas	none
 🥭	manqo	none
@@ -941,6 +950,7 @@ symbols:
 🌰	şabalıd	none
 🫚	zəncəfil kökü	none
 🫛	noxud qabığı	none
+🍄‍🟫	qəhvəyi göbələk	none
 🍞	çörək	none
 🥐	kruasan	none
 🥖	kərpic çörək	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	tarazlıq tərəzisi	none
 🦯	zond	none
 🔗	zəncir	none
+⛓‍💥	qırılmış zəncir	none
 ⛓	zəncirlər	none
 🪝	qarmaq	none
 🧰	alətlər qutusu	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bayraq Uels	none
 ₡	Kosta Rika Kolonu	none
 ₦	Nigeriya Nairası	none
-₧	İspan Pesetası	none
 ₪	İsrail Yeni Şekeli	none
 ₫	Vyetnam Donqu	none
 ₭	Laos Kipi	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	Türkiyə Lirəsi	none
 ₼	Azərbaycan Manatı	none
 ₾	Gürcüstan Larisi	none
+₧	İspan Pesetası	none

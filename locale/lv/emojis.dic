@@ -123,9 +123,9 @@ symbols:
 ∧	loģiski un	none
 ∩	šķēlums	none
 ∪	kopums	none
-∫	neatņemama sastāvdaļa	none
-∬	dubults neatņemama sastāvdaļa	none
-∮	kontūras neatņemama sastāvdaļa	none
+∫	integrālis	none
+∬	dubults integrālis	none
+∮	kontūras integrālis	none
 ∴	tāpēc	none
 ∵	jo	none
 ∶	attiecība	none
@@ -143,23 +143,35 @@ symbols:
 ≣	stingri līdzvērtīgi	none
 ≤	mazāks nekā vai vienāds ar	none
 ≥	lielāks nekā vai vienāds ar	none
-≦	mazāk nekā vairāk par vienādu	none
-≧	lielāks nekā vienāds	none
+≦	mazāks vai vienāds	none
+≧	lielāks vai vienāds	none
 ≪	daudz mazāk nekā	none
 ≫	daudz lielāks-nekā	none
 ≬	starp	none
 ≳	lielāks nekā ekvivalents	none
 ≺	pirms	none
 ≻	seko	none
-⊁	nepaveicas	none
+⊁	neseko	none
 ⊂	apakškopa no	none
-⊃	reālā apakškopa	none
-⊆	apakškopa	none
-⊇	pārmērība	none
+⊃	virskopa	none
+⊆	sakrītoša apakškopa	none
+⊇	sakrītoša virskopa	none
 ⊕	pluszīme apļveida ietvarā	none
 ⊖	mīnuszīme apļveida ietvarā	none
-⊗	plus zīme lokā	none
+⊗	reizināšanas zīme apļveida ietvarā	none
+⊘	dalīšanas zīme apļveida ietvarā	none
+⊙	punkta operators apļveida ietvarā	none
+⊚	gredzena operators apļveida ietvarā	none
+⊛	zvaigznīte apļveida ietvarā	none
+⊞	pluss kvadrātveida ietvarā	none
+⊟	mīnuss kvadrātveida ietvarā	none
+⊥	piespraude uz augšu	none
+⊮	neuzspiež	none
+⊰	atrodas pirms attiecības	none
+⊱	atrodas pēc attiecības	none
+⋭	nesatur kā parasto apakšgrupu, kas vienāda	none
 ⊶	oriģināls	none
+⊹	hermita konjugāta matrica	none
 ⊿	taisnleņķa trīsstūris	none
 ⋁	n-āri loģisks vai	none
 ⋂	n-āra krustošanās	none
@@ -175,33 +187,81 @@ symbols:
 ⋰	augšupvērsta diagonāla daudzpunkte	none
 ⋱	lejupvērsta diagonāla daudzpunkte	none
 ■	pilns kvadrāts	none
-□	balts kvadrāts	none
-▢	balts kvadrāts ar noapaļotiem stūriem	none
-▣	balts kvadrāts ietver pilnu kvadrātu	none
+□	tukšs kvadrāts	none
+▢	tukšs kvadrāts ar noapaļotiem stūriem	none
+▣	tukšs kvadrāts ietver pilnu kvadrātu	none
 ▤	kvadrāts ar horizontālu aizpildījumu	none
+▥	kvadrāts ar vertikālu aizpildījumu	none
+▦	ortogonāli šķērssvītroti aizpildīts kvadrāts	none
+▧	slīpi no kreisās puses uz labo no augšas uz apakšu aizpildīts kvadrāts	none
+▨	slīpi no kreisās puses uz labo no apakšas uz augšu aizpildīts kvadrāts	none
+▩	pa diagonāli šķērssvītroti aizpildīts kvadrāts	none
 ▬	pilns taisnstūris	none
-▭	balts taisnstūris	none
+▭	tukšs taisnstūris	none
 ▮	pilns vertikāls taisnstūris	none
 ▰	pilns paralelograms	none
 ▲	pilns augšupvērsts trīsstūris	none
+△	tukšs uz augšu vērsts trīsstūris	none
+▴	pilns uz augšu vērsts mazs trīsstūris	none
+▵	tukšs uz augšu vērsts mazs trīsstūris	none
+▷	tukšs pa labi vērsts trīsstūris	none
+▸	pilns pa labi vērsts mazs trīsstūris	none
+▹	tukšs pa labi vērsts mazs trīsstūris	none
+►	pilns pa labi vērsts rādītājs	none
+▻	tukšs pa labi vērsts rādītājs	none
 ▼	pilns lejupvērsts trīsstūris	none
+▽	tukšs uz leju vērsts trīsstūris	none
+▾	pilns uz leju vērsts mazs trīsstūris	none
+▿	tukšs uz leju vērsts mazs trīsstūris	none
+◁	tukšs pa kreisi vērsts trīsstūris	none
+◂	pilns pa kreisi vērsts mazs trīsstūris	none
+◃	tukšs pa kreisi vērsts mazs trīsstūris	none
+◄	pilns pa kreisi vērsts rādītājs	none
+◅	tukšs pa kreisi vērsts rādītājs	none
 ◆	pilns rombs	none
-◇	balts rombs	none
-◈	balts rombs ietver pilnu rombu	none
-◉	balts aplis ietver pilnu apli	none
+◇	tukšs rombs	none
+◈	tukšs rombs ietver pilnu rombu	none
+◉	tukšs aplis ietver pilnu apli	none
 ◊	rombs	none
 ○	tukšs riņķis	none
+◌	punktots aplis	none
+◍	aplis ar vertikālu aizpildījumu	none
+◎	koncentriski apļi	none
 ●	pilns riņķis	none
+◐	aplis ar aizpildītu kreiso pusi	none
+◑	aplis ar aizpildītu labo pusi	none
+◒	aplis ar aizpildītu apakšpusi	none
+◓	aplis ar aizpildītu augšpusi	none
+◔	aplis ar aizpildītu augšējo labo kvadrantu	none
+◕	aplis ar neaizpildītu augšējo kreiso kvadrantu	none
+◖	aizpildīts kreisais pusaplis	none
+◗	aizpildīts labais pusaplis	none
 ◘	inversā aizzīme	none
-◙	pilns kvadrāts ietver baltu riņķi	none
+◙	pilns kvadrāts ietver tukšu riņķi	none
+◜	augšējā kreisā kvadranta apļveida loks	none
+◝	augšējā labā kvadranta apļveida loks	none
+◞	apakšējā labā kvadranta apļveida loks	none
+◟	apakšējā kreisā kvadranta apļveida loks	none
 ◠	augšējais pusaplis	none
 ◡	apakšējais pusaplis	none
-◦	balta aizzīme	none
+◢	aizpildīts apakšējais labais trīsstūris	none
+◣	aizpildīts apakšējais kreisais trīsstūris	none
+◤	aizpildīts augšējais kreisais trīsstūris	none
+◥	aizpildīts augšējais labais trīsstūris	none
+◦	tukša aizzīme	none
 ◯	liels tukšs riņķis	none
-◳	balts kvadrāts ar augšējo labo kvadrantu	none
-◷	balts aplis ar augšējo labo kvadrantu	none
+◳	tukšs kvadrāts ar augšējo labo kvadrantu	none
+◷	tukšs aplis ar augšējo labo kvadrantu	none
+◿	apakšējais labais trīsstūris	none
 ♪	astotdaļnots	none
+⨧	plus divi apakšrakstā	none
+⨯	vektoriālais reizinājums	none
+⨼	iekšējais reizinājums	none
+⩣	loģisks ar dubultu pasvītrojumu	none
+⩽	mazāks par vai vienāds ar	none
+⪍	mazāks par virs vienāds vai līdzvērtīgs	none
 ⪚	dubultlīnija ir vienāda ar lielāku par	none
+⪺	iekļauts virs nav gandrīz vienāds	none
 ♭	bemols	none
 ♯	diēzs	none
 😀	smiekli	none
@@ -251,9 +311,11 @@ symbols:
 😒	saīgusi seja	none
 🙄	seja ar pārgrieztām acīm	none
 😬	saviebta seja	none
-😮‍💨	seja nopūšas	none
+😮‍💨	nopūta	none
 🤥	melojoša seja	none
 🫨	trīcoša seja	none
+🙂‍↔	krata galvu horizontāli	none
+🙂‍↕	krata galvu vertikāli	none
 😌	seja ar atvieglojuma izteiksmi	none
 😔	domās iegrimusi seja	none
 😪	miegaina seja	none
@@ -613,7 +675,7 @@ symbols:
 👨‍🦼	vīrietis motorizētā ratiņkrēslā	none
 👩‍🦼	sieviete motorizētā ratiņkrēslā	none
 🧑‍🦽	persona manuālajā ratiņkrēslā	none
-👨‍🦽	vīretis manuālā ratiņkrēslā	none
+👨‍🦽	vīrietis manuālā ratiņkrēslā	none
 👩‍🦽	sieviete manuālā ratiņkrēslā	none
 🏃	skrējējs	none
 🏃‍♂	vīrietis skrien	none
@@ -684,11 +746,15 @@ symbols:
 👬	vīrieši sadevušies rokās	none
 💏	skūpsts	none
 💑	pāris ar sirdi	none
-👪	ģimene	none
 🗣	runājoša galva	none
 👤	krūšutēla siluets	none
 👥	divu krūšutēlu silueti	none
 🫂	cilvēki apkampjas	none
+👪	ģimene	none
+🧑‍🧑‍🧒	ģimene pieaugušais, pieaugušais, bērns	none
+🧑‍🧑‍🧒‍🧒	ģimene pieaugušais, pieaugušais, bērns, bērns	none
+🧑‍🧒	ģimene pieaugušais, bērns	none
+🧑‍🧒‍🧒	ģimene pieaugušais, bērns, bērns	none
 👣	pēdu nospiedumi	none
 🦰	sarkani mati	none
 🦱	sprogaini mati	none
@@ -779,7 +845,9 @@ symbols:
 🦚	pāvs	none
 🦜	papagailis	none
 🪽	spārns	none
+🐦‍⬛	melns putns	none
 🪿	zoss	none
+🐦‍🔥	fēnikss	none
 🐸	varde	none
 🐊	krokodils	none
 🐢	bruņurupucis	none
@@ -850,6 +918,7 @@ symbols:
 🍉	arbūzs	none
 🍊	mandarīns	none
 🍋	citrons	none
+🍋‍🟩	laims	none
 🍌	banāns	none
 🍍	ananass	none
 🥭	mango	none
@@ -881,6 +950,7 @@ symbols:
 🌰	kastanis	none
 🫚	ingvera sakne	none
 🫛	zirņu pāksts	none
+🍄‍🟫	brūna sēne	none
 🍞	maize	none
 🥐	kruasāns	none
 🥖	bagete	none
@@ -1489,6 +1559,7 @@ symbols:
 ⚖	svari	none
 🦯	baltais atbalsta spieķis	none
 🔗	ķēdes posms	none
+⛓‍💥	saplēsta ķēde	none
 ⛓	ķēdes	none
 🪝	āķis	none
 🧰	darbarīku kaste	none
@@ -1739,18 +1810,20 @@ symbols:
 🏳‍⚧	zils, rozā un balts karogs	none
 🏴‍☠	pirātu karogs	none
 ₢	cruzeiro	none
-₣	franču franks	none
+₣	Francijas franks	none
 ₤	lira	none
 ₥	miljems	none
 ₩	vona	none
 €	eiro	none
-₰	vācu penss	none
+₰	vācu feniņš	none
 ₱	peso	none
-₳	austral	none
-₶	livre tournois	none
+₳	austrāls	none
+₶	tūras lira	none
+₷	spesmilo	none
 ₹	Indijas rūpija	none
 ₽	rublis	none
 ₿	bitmonēta	none
+₨	rūpija	none
 👋🏻	mājoša roka gaišs ādas tonis	none
 👋🏼	mājoša roka vidēji gaišs ādas tonis	none
 👋🏽	mājoša roka vidējs ādas tonis	none
@@ -3153,11 +3226,11 @@ symbols:
 🧑🏽‍🦽	persona manuālajā ratiņkrēslā vidējs ādas tonis	none
 🧑🏾‍🦽	persona manuālajā ratiņkrēslā vidēji tumšs ādas tonis	none
 🧑🏿‍🦽	persona manuālajā ratiņkrēslā tumšs ādas tonis	none
-👨🏻‍🦽	vīretis manuālā ratiņkrēslā gaišs ādas tonis	none
-👨🏼‍🦽	vīretis manuālā ratiņkrēslā vidēji gaišs ādas tonis	none
-👨🏽‍🦽	vīretis manuālā ratiņkrēslā vidējs ādas tonis	none
-👨🏾‍🦽	vīretis manuālā ratiņkrēslā vidēji tumšs ādas tonis	none
-👨🏿‍🦽	vīretis manuālā ratiņkrēslā tumšs ādas tonis	none
+👨🏻‍🦽	vīrietis manuālā ratiņkrēslā gaišs ādas tonis	none
+👨🏼‍🦽	vīrietis manuālā ratiņkrēslā vidēji gaišs ādas tonis	none
+👨🏽‍🦽	vīrietis manuālā ratiņkrēslā vidējs ādas tonis	none
+👨🏾‍🦽	vīrietis manuālā ratiņkrēslā vidēji tumšs ādas tonis	none
+👨🏿‍🦽	vīrietis manuālā ratiņkrēslā tumšs ādas tonis	none
 👩🏻‍🦽	sieviete manuālā ratiņkrēslā gaišs ādas tonis	none
 👩🏼‍🦽	sieviete manuālā ratiņkrēslā vidēji gaišs ādas tonis	none
 👩🏽‍🦽	sieviete manuālā ratiņkrēslā vidējs ādas tonis	none
@@ -3843,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	karogs Velsa	none
 ₡	Kostarikas kolons	none
 ₦	Nigērijas naira	none
-₧	Spānijas peseta	none
 ₪	Izraēlas šekelis	none
 ₫	Vjetnamas dongi	none
 ₭	Laosas kips	none
@@ -3855,3 +3927,4 @@ symbols:
 ₺	Turcijas lira	none
 ₼	Azerbaidžānas manats	none
 ₾	Gruzijas lari	none
+₧	Spānijas peseta	none

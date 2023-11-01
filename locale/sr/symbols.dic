@@ -122,8 +122,8 @@ _	Donja crta	most
 ◆	Crni romb	some
 §	Paragraf	all
 °	Stepeni	some
-«	Leva dupla izlomljena zagrada	none
-»	Desna dupla izlomljena zagrada	none
+«	Leva dupla izlomljena zagrada	most	always
+»	Desna dupla izlomljena zagrada	most	always
 µ	Mikro	some
 ⁰	eksponent 0	some
 ¹	eksponent 1	some
@@ -323,7 +323,7 @@ _	Donja crta	most
 ⊀	Ne prethodi	none
 ⊁	Ne sledi	none
 
-# Vulgur Fractions U+2150 to U+215E
+# Vulgar Fractions U+2150 to U+215E
 ¼	Jedna četvrtina	none
 ½	Jedna polovina	none
 ¾	Tri četvrtine	none
@@ -417,7 +417,7 @@ _	Donja crta	most
 ⠵	Brajeve tačkice 1 3 5 6
 ⠶	Brajeve tačkice 2 3 5 6
 ⠷	Brajeve tačkice 1 2 3 5 6
-⠸	Brajeve tačkice 1 2 3
+⠸	Brajeve tačkice 4 5 6
 ⠹	Brajeve tačkice 1 4 5 6
 ⠺	Brajeve tačkice 2 4 5 6
 ⠻	Brajeve tačkice 1 2 4 5 6

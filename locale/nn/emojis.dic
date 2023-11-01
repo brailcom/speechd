@@ -3,35 +3,161 @@
 # See locale/README.md to know how to import dictionaries
 
 symbols:
-↚	venstrepil med strek over	none
 →	pil mot høgre	none
-↛	høgrepil med strek over	none
+↛	pil høgre med skråstrek	none
 ↜	bølgeforma pil venstre	none
 ↝	bølgeforma pil høgre	none
-↞	venstrepil med to spissar	none
-↟	oppoverpil med to spissar	none
-↠	høgrepil med to spissar	none
-↡	nedoverpil med to spissar	none
+↞	pil venstre med to mothakar	none
+↟	pil opp med to mothakar	none
+↠	pil høgre med to mothakar	none
+↡	pil ned med to mothakar	none
 ↢	venstrepil med hale	none
 ↣	høgrepil med hale	none
 ↤	venstrepil frå line	none
 ↥	oppoverpil frå line	none
 ↦	høgrepil frå line	none
 ↧	nedoverpil frå line	none
+↬	pil høgre med løkke	none
+↭	bølgepil mot høgre og venstre	none
+↱	pil opp med spiss mot høgre	none
+↳	pil ned med spiss mot høgre	none
+↴	pil høgre som snur ned	none
+↶	halvsirkelpil mot klokka	none
+↷	halvsirkelpil med klokka	none
+↹	pil venstre over pil høgre mot loddrette strek	none
+↺	pil open sirkel mot klokka	none
+↻	pil open sirkel med klokka	none
+↾	harpunpil opp med mothake mot høgre	none
+⇀	harpunpil høgre med mothake opp	none
+⇁	harpunpil høgre med mothake ned	none
+⇂	harpunpil ned med mothake mot høgre	none
+⇄	pil høgre over pil venstre	none
 ⇅	pil oppover framfor pil nedover	none
 ⇆	pil mot venstre over pil mot høgre	none
+⇉	parallelle piler mot høgre	none
+⇋	harpunpil venstre over harpunpil høgre	none
+⇌	harpunpil høgre over harpunpil venstre	none
+⇒	dobbeltpil høgre	none
+⇏	dobbeltpil høgre med strek	none
+⇔	dobbeltpil begge vegar	none
+⇎	dobbeltpil begge vegar med strek	none
+⇗	dobbeltpil nordaust	none
+⇘	dobbeltpil søraust	none
+⇛	trippelpil høgre	none
+⇝	snirkelpil høgre	none
+⇞	pil opp med to strekar	none
+⇟	pil ned med to strekar	none
+⇠	stipla pil venstre	none
+⇡	stipla pil opp	none
+⇢	stipla pil høgre	none
+⇣	stipla pil ned	none
+⇥	pil høgre mot loddrett strek	none
+⇦	hol pil venstre	none
+⇧	hol pil opp	none
+⇨	hol pil høgre	none
+⇩	hol pil ned	none
+⇪	hol pil opp frå vassrett strek	none
+∅	den tomme mengda	none
+∉	er ikkje element i	none
+∋	inneheld som medlem	none
+∑	sum av ei rekkje	none
+≮	er ikkje mindre enn	none
 ≠	er ikkje lik	none
+≯	er ikkje større enn	none
 −	minusteikn	none
 ⁻	heva minusteikn	none
 ∞	uendelegheitsteikn	none
+∫	integralteikn	none
+∬	dobbeltintegralteikn	none
+∽	omvend tilde	none
+∾	spegelvend liggande s	none
+≅	tilnærma lik	none
 ≈	er tilnærma lik	none
+≒	tilnærma lik biletet	none
+≖	ring i likskapsteikn	none
+≦	mindre enn over likskapsteikn	none
+≧	større enn over likskapsteikn	none
+≪	mykje mindre enn	none
+≫	mykje større enn	none
+≳	større enn tilnærma lik	none
+≺	kjem før	none
+≻	kjem etter	none
+⊁	kjem ikkje etter	none
 ⊂	delmengd av	none
+⊃	supermengd	none
+⊆	delmengd lik	none
+⊇	supermengd lik	none
+⊕	plussteikn i sirkel	none
+⊖	minusteikn i sirkel	none
+⊗	multipliseringsteikn i sirkel	none
+⊞	plussteikn i firkant	none
+⊟	minusteikn i firkant	none
+⊮	tvingar ikkje	none
+⊰	kjem før under relasjon	none
+⊱	kjem etter under relasjon	none
+⋭	inneheld ikkje som normal delgruppe lik	none
+⊿	rettvinkla trekant	none
+⋈	naturleg skøyt	none
+⋘	veldig mykje mindre enn	none
+⋙	veldig mykje større enn	none
+⋯	sentrert vassrett ellipse	none
+⋰	diagonal ellipse opp mot høgre	none
+⋱	diagonal ellipse ned mot høgre	none
+□	holt kvadrat	none
+▢	holt kvadrat med avrunda hjørne	none
+▣	holt kvadrat rundt eit fylt kvadrat	none
+▤	kvadrat med vassrett fyll	none
+▦	kvadrat med rettvinkla rutefyll	none
+▧	kvadrat med diagonalt fyll ned mot høgre	none
+▭	holt rektangel	none
 ▲	fylt trekant som peikar opp	none
+△	hol trekant som peikar opp	none
+▴	liten fylt trekant som peikar opp	none
+▵	liten hol trekant som peikar opp	none
+▷	hol trekant som peikar mot høgre	none
+▸	liten fylt trekant som peikar mot høgre	none
+▹	liten hol trekant som peikar mot høgre	none
+►	fylt peikar som peikar mot høgre	none
+▻	hol peikar som peikar mot høgre	none
 ▼	fylt trekant som peikar ned	none
-◊	holt rutersymbol	none
+▽	hol trekant som peikar ned	none
+▾	liten fylt trekant som peikar ned	none
+▿	liten hol trekant som peikar ned	none
+◁	hol trekant som peikar mot venstre	none
+◂	liten fylt trekant som peikar mot venstre	none
+◃	liten hol trekant som peikar mot venstre	none
+◄	fylt peikar som peikar mot venstre	none
+◅	hol peikar som peikar mot venstre	none
+◇	holt rutersymbol	none
+◈	holt rutersymbol rundt fylt rutersymbol	none
+◉	hol sirkel rundt fylt sirkel	none
+◊	holt rombesymbol	none
 ○	hol sirkel	none
+◌	stipla sirkel	none
+◎	konsentriske sirklar	none
+◑	sirkel med høgre halvdel fylt	none
+◔	sirkel med øvre høgre kvadrant fylt	none
+◗	fylt høgre halvsirkel	none
+◘	invertert punktteikn	none
+◙	fylt kvadrat rundt hol sirkel	none
+◜	sirkelboge øvre venstre kvadrant	none
+◝	sirkelboge øvre høgre kvadrant	none
+◞	sirkelboge nedre høgre kvadrant	none
+◟	sirkelboge nedre venstre kvadrant	none
+◢	fylt trekant med rett vinkel nede til høgre	none
+◥	fylt trekant med rett vinkel oppe til høgre	none
+◦	holt punktteikn	none
 ◯	stor hol sirkel	none
+◳	holt kvadrat øvre høgre kvadrant	none
+◷	hol sirkel øvre høgre kvadrant	none
+◿	hol trekant med rett vinkel nede til høgre	none
 ♪	åttandedelsnote	none
+⨧	plussteikn med senka to-tal	none
+⨯	kryssprodukt av vektorar	none
+⩣	logisk eller dobbelt understreka	none
+⩽	mindre enn eller lik med likskapsteikn på skrå	none
+⪚	likskapsteikn over større enn	none
+⪺	kjem etter over ikkje tilnærma lik	none
 😃	glisande fjes med vidopne auge	none
 😄	smilefjes med open munn og smilande auge	none
 😁	glisefjes med smilande auge	none
@@ -49,6 +175,7 @@ symbols:
 😙	kyss med smilande auge	none
 😛	rekkjer tunge	none
 😜	blunkar og rekkjer tunge	none
+🤪	galen	none
 🤑	pengegalen	none
 🤗	fjes som gjev klem	none
 🤭	handa over munnen	none
@@ -64,6 +191,8 @@ symbols:
 😮‍💨	pustar ut	none
 🤥	lyg	none
 🫨	skjelvande fjes	none
+🙂‍↔	ristande hovud	none
+🙂‍↕	nikkande hovud	none
 😌	letta	none
 🤤	siklar	none
 😴	søv	none
@@ -320,11 +449,14 @@ symbols:
 🤹‍♂	mannleg sjonglør	none
 🤹‍♀	kvinneleg sjonglør	none
 🧑‍🤝‍🧑	personar som leiar	none
-👭	kinner som leiar	none
+👭	kvinner som leiar	none
 👫	mann og kvinne som leiar	none
 👬	menn som leiar	none
 💑	par med hjarte	none
 🗣	snakkande hovud i profil	none
+🧑‍🧑‍🧒	familie vaksen, vaksen, barn	none
+🧑‍🧑‍🧒‍🧒	familie vaksen, vaksen, barn, barn	none
+🧑‍🧒‍🧒	familie vaksen, barn, barn	none
 🦰	raudt hår	none
 🦱	krusete hår	none
 🦲	skalla	none
@@ -372,6 +504,7 @@ symbols:
 🥗	grøn salat	none
 🍜	matbolle som dampar	none
 🦞	hummar	none
+🍦	softis	none
 🍭	slikkepinne	none
 🥛	mjølkeglas	none
 🍷	vinglas	none
@@ -462,6 +595,7 @@ symbols:
 🌊	bølgje	none
 🎃	graskarlykt	none
 🎇	stjerneskot på pinne	none
+🎉	smellbongbong	none
 🎎	japanske dokker	none
 🎐	vindspel	none
 🎑	månekikkingsseremoni	none
@@ -472,6 +606,7 @@ symbols:
 🤿	dykkarmaske	none
 🪁	papirdrake	none
 🔫	vasspistol	none
+🎱	biljardkule	none
 🎮	videospel	none
 🎰	speleautomat	none
 🧩	puslespelbrikke	none
@@ -485,6 +620,7 @@ symbols:
 🧤	hanskar	none
 🧦	sokkar	none
 👚	dameklede	none
+🪭	handvifte	none
 👜	handveske	none
 🛍	handleposar	none
 🎒	skulesekk	none
@@ -521,7 +657,7 @@ symbols:
 💵	dollarsetel	none
 💶	eurosetel	none
 💷	pundsetel	none
-💸	pengar med vinger	none
+💸	pengar med venger	none
 💹	stigande diagram med yen	none
 📨	innkomande konvolutt	none
 📫	lukka postkasse med flagget oppe	none
@@ -544,6 +680,7 @@ symbols:
 🪛	skrutrekkjar	none
 ⚖	likearma skålvekt	none
 🔗	lenkje	none
+⛓‍💥	broten lenke	none
 🧪	prøverøyr	none
 🩸	bloddrope	none
 🪞	spegel	none
@@ -569,7 +706,7 @@ symbols:
 ➡	pil høgre	none
 ↘	pil ned -høgre	none
 ↔	pil venstre-høgre	none
-↮	venstre-/høgrepil med strek over	none
+↮	pil begge vegar med skråstrek	none
 ↪	pil som bøyer mot høgre	none
 🔃	vertikale piler med klokka	none
 🔄	piler mot klokka	none
@@ -1693,31 +1830,31 @@ symbols:
 🧑🏿‍🤝‍🧑🏽	personar som leiar hudtype 6, hudtype 4	none
 🧑🏿‍🤝‍🧑🏾	personar som leiar hudtype 6, hudtype 5	none
 🧑🏿‍🤝‍🧑🏿	personar som leiar hudtype 6	none
-👭🏻	kinner som leiar hudtype 1–2	none
-👩🏻‍🤝‍👩🏼	kinner som leiar hudtype 1–2, hudtype 3	none
-👩🏻‍🤝‍👩🏽	kinner som leiar hudtype 1–2, hudtype 4	none
-👩🏻‍🤝‍👩🏾	kinner som leiar hudtype 1–2, hudtype 5	none
-👩🏻‍🤝‍👩🏿	kinner som leiar hudtype 1–2, hudtype 6	none
-👩🏼‍🤝‍👩🏻	kinner som leiar hudtype 3, hudtype 1–2	none
-👭🏼	kinner som leiar hudtype 3	none
-👩🏼‍🤝‍👩🏽	kinner som leiar hudtype 3, hudtype 4	none
-👩🏼‍🤝‍👩🏾	kinner som leiar hudtype 3, hudtype 5	none
-👩🏼‍🤝‍👩🏿	kinner som leiar hudtype 3, hudtype 6	none
-👩🏽‍🤝‍👩🏻	kinner som leiar hudtype 4, hudtype 1–2	none
-👩🏽‍🤝‍👩🏼	kinner som leiar hudtype 4, hudtype 3	none
-👭🏽	kinner som leiar hudtype 4	none
-👩🏽‍🤝‍👩🏾	kinner som leiar hudtype 4, hudtype 5	none
-👩🏽‍🤝‍👩🏿	kinner som leiar hudtype 4, hudtype 6	none
-👩🏾‍🤝‍👩🏻	kinner som leiar hudtype 5, hudtype 1–2	none
-👩🏾‍🤝‍👩🏼	kinner som leiar hudtype 5, hudtype 3	none
-👩🏾‍🤝‍👩🏽	kinner som leiar hudtype 5, hudtype 4	none
-👭🏾	kinner som leiar hudtype 5	none
-👩🏾‍🤝‍👩🏿	kinner som leiar hudtype 5, hudtype 6	none
-👩🏿‍🤝‍👩🏻	kinner som leiar hudtype 6, hudtype 1–2	none
-👩🏿‍🤝‍👩🏼	kinner som leiar hudtype 6, hudtype 3	none
-👩🏿‍🤝‍👩🏽	kinner som leiar hudtype 6, hudtype 4	none
-👩🏿‍🤝‍👩🏾	kinner som leiar hudtype 6, hudtype 5	none
-👭🏿	kinner som leiar hudtype 6	none
+👭🏻	kvinner som leiar hudtype 1–2	none
+👩🏻‍🤝‍👩🏼	kvinner som leiar hudtype 1–2, hudtype 3	none
+👩🏻‍🤝‍👩🏽	kvinner som leiar hudtype 1–2, hudtype 4	none
+👩🏻‍🤝‍👩🏾	kvinner som leiar hudtype 1–2, hudtype 5	none
+👩🏻‍🤝‍👩🏿	kvinner som leiar hudtype 1–2, hudtype 6	none
+👩🏼‍🤝‍👩🏻	kvinner som leiar hudtype 3, hudtype 1–2	none
+👭🏼	kvinner som leiar hudtype 3	none
+👩🏼‍🤝‍👩🏽	kvinner som leiar hudtype 3, hudtype 4	none
+👩🏼‍🤝‍👩🏾	kvinner som leiar hudtype 3, hudtype 5	none
+👩🏼‍🤝‍👩🏿	kvinner som leiar hudtype 3, hudtype 6	none
+👩🏽‍🤝‍👩🏻	kvinner som leiar hudtype 4, hudtype 1–2	none
+👩🏽‍🤝‍👩🏼	kvinner som leiar hudtype 4, hudtype 3	none
+👭🏽	kvinner som leiar hudtype 4	none
+👩🏽‍🤝‍👩🏾	kvinner som leiar hudtype 4, hudtype 5	none
+👩🏽‍🤝‍👩🏿	kvinner som leiar hudtype 4, hudtype 6	none
+👩🏾‍🤝‍👩🏻	kvinner som leiar hudtype 5, hudtype 1–2	none
+👩🏾‍🤝‍👩🏼	kvinner som leiar hudtype 5, hudtype 3	none
+👩🏾‍🤝‍👩🏽	kvinner som leiar hudtype 5, hudtype 4	none
+👭🏾	kvinner som leiar hudtype 5	none
+👩🏾‍🤝‍👩🏿	kvinner som leiar hudtype 5, hudtype 6	none
+👩🏿‍🤝‍👩🏻	kvinner som leiar hudtype 6, hudtype 1–2	none
+👩🏿‍🤝‍👩🏼	kvinner som leiar hudtype 6, hudtype 3	none
+👩🏿‍🤝‍👩🏽	kvinner som leiar hudtype 6, hudtype 4	none
+👩🏿‍🤝‍👩🏾	kvinner som leiar hudtype 6, hudtype 5	none
+👭🏿	kvinner som leiar hudtype 6	none
 👫🏻	mann og kvinne som leiar hudtype 1–2	none
 👩🏻‍🤝‍👨🏼	mann og kvinne som leiar hudtype 1–2, hudtype 3	none
 👩🏻‍🤝‍👨🏽	mann og kvinne som leiar hudtype 1–2, hudtype 4	none
@@ -1794,7 +1931,6 @@ symbols:
 🔟	tastar 10	none
 🇦🇪	flagg Dei sameinte arabiske emirata	none
 🇦🇹	flagg Austerrike	none
-🇧🇾	flagg Kviterussland	none
 🇨🇨	flagg Kokosøyane	none
 🇨🇩	flagg Kongo-Kinshasa	none
 🇨🇫	flagg Den sentralafrikanske republikken	none
@@ -1823,10 +1959,11 @@ symbols:
 🇹🇫	flagg Dei franske sørterritoria	none
 🇹🇱	flagg Aust-Timor	none
 🇺🇲	flagg USAs ytre småøyar	none
-🇺🇳	flagg SN	none
+🇺🇳	flagg Sameinte nasjonar	none
 🇻🇨	flagg St. Vincent og Grenadinane	none
 🇻🇬	flagg Dei britiske Jomfruøyane	none
 🇻🇮	flagg Dei amerikanske Jomfruøyane	none
 ₡	kostarikanske colón	none
 ₪	nye israelske sheklar	none
 ₲	paraguayanske guaraní	none
+₺	tyrkiske lira	none

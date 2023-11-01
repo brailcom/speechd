@@ -10,7 +10,7 @@ symbols:
 ↫	flèche vers la gauche à boucle	none
 ↬	flèche vers la droite à boucle	none
 ↴	flèche vers la droite avec pointe vers le bas	none
-↶	flèche semi-circulaire sens antihoraire supérieure	none
+↶	flèche semi-circulaire antihoraire supérieure	none
 ↷	flèche semi-circulaire sens horaire supérieure	none
 ⇐	double flèche vers la gauche	none
 ⇑	double flèche vers le haut	none
@@ -23,12 +23,8 @@ symbols:
 ⇙	double flèche sud-ouest	none
 ⇚	triple flèche vers la gauche	none
 ⇛	triple flèche vers la droite	none
-⇠	flèche à traits discontinus vers la gauche	none
-⇡	flèche à traits discontinus vers le haut	none
-⇢	flèche à traits discontinus vers la droite	none
 ⇣	flèche à traits discontinus vers le bas	none
 ∀	pour tous	none
-∋	contient comme élément	none
 ∎	ce qu’il fallait démontrer	none
 ≮	pas plus petit que	none
 ≠	pas égal	none
@@ -53,7 +49,6 @@ symbols:
 😄	visage avec large sourire et yeux rieurs	none
 😁	visage radieux et yeux rieurs	none
 😆	visage avec large sourire, les yeux fermés	none
-😅	un visage en sueur avec large sourire	none
 🤣	rire à se rouler par terre	none
 😂	visage pleurant de joie	none
 🙃	visage à l’envers	none
@@ -101,8 +96,6 @@ symbols:
 🙆‍♀	femme faisant un geste d’affirmation	none
 💁‍♂	guichetier	none
 💁‍♀	guichetière	none
-🤦	personne avec paume de la main sur le visage	none
-🤦‍♂	homme avec paume de la main sur le visage	none
 🤦‍♀	femme avec paume de la main sur le visage	none
 🧑‍⚕	professionnel de la santé	none
 👨‍⚕	professionnel de la santé homme	none
@@ -127,8 +120,6 @@ symbols:
 🧑‍🎄	personnage de Noël	none
 🦸	superhéros	none
 🦸‍♂	super-héros	none
-🧑‍🦯	aveugle avec canne	none
-🧑‍🦼	personne en fauteuil roulant	none
 👯	personnes qui portent des oreilles de lapin	none
 👯‍♂	hommes qui portent des oreilles de lapin	none
 👯‍♀	femmes qui portent des oreilles de lapin	none
@@ -166,10 +157,12 @@ symbols:
 ☘	trèfle à trois feuilles	none
 🍉	melon d’eau	none
 🍊	tangerine	none
+🍋‍🟩	lime	none
 🫐	bleuets	none
 🫑	poivron rouge	none
 🥜	arachides	none
 🫘	fèves	none
+🍄‍🟫	champignon brun	none
 🫓	pain plat	none
 🥞	crêpes	none
 🧀	morceau de fromage	none
@@ -240,7 +233,6 @@ symbols:
 🌩	nuage avec un éclair	none
 🌬	visage qui souffle du vent	none
 ❄	flocon de neige	none
-☃	bonhomme de neige avec flocons	none
 🎇	feu de Bengale	none
 🎈	ballon de fête	none
 🎉	cornet à confettis	none
@@ -303,7 +295,6 @@ symbols:
 📫	boîte aux lettres fermée avec drapeau levé	none
 📪	boîte aux lettres fermée avec drapeau baissé	none
 📬	boîte aux lettres ouverte avec drapeau levé	none
-📭	boîte aux lettres ouverte avec drapeau baissé	none
 ✒	plume noire	none
 🖋	stylo-plume	none
 🖍	crayon de cire	none
@@ -322,6 +313,7 @@ symbols:
 ⚙	engrenage	none
 🛋	sofa et lampe	none
 🚽	siège de toilette	none
+🪠	débouchoir	none
 🪤	piège à souris	none
 🛒	panier d’épicerie	none
 🗿	moaï	none
@@ -1149,16 +1141,16 @@ symbols:
 🙇🏽‍♀	femme qui s’incline  peau légèrement mate	none
 🙇🏾‍♀	femme qui s’incline  peau modérément foncée	none
 🙇🏿‍♀	femme qui s’incline  peau foncée	none
-🤦🏻	personne avec paume de la main sur le visage  peau claire	none
-🤦🏼	personne avec paume de la main sur le visage  peau modérément claire	none
-🤦🏽	personne avec paume de la main sur le visage  peau légèrement mate	none
-🤦🏾	personne avec paume de la main sur le visage  peau modérément foncée	none
-🤦🏿	personne avec paume de la main sur le visage  peau foncée	none
-🤦🏻‍♂	homme avec paume de la main sur le visage  peau claire	none
-🤦🏼‍♂	homme avec paume de la main sur le visage  peau modérément claire	none
-🤦🏽‍♂	homme avec paume de la main sur le visage  peau légèrement mate	none
-🤦🏾‍♂	homme avec paume de la main sur le visage  peau modérément foncée	none
-🤦🏿‍♂	homme avec paume de la main sur le visage  peau foncée	none
+🤦🏻	personne avec la paume sur le visage  peau claire	none
+🤦🏼	personne avec la paume sur le visage  peau modérément claire	none
+🤦🏽	personne avec la paume sur le visage  peau légèrement mate	none
+🤦🏾	personne avec la paume sur le visage  peau modérément foncée	none
+🤦🏿	personne avec la paume sur le visage  peau foncée	none
+🤦🏻‍♂	homme avec la paume sur le visage  peau claire	none
+🤦🏼‍♂	homme avec la paume sur le visage  peau modérément claire	none
+🤦🏽‍♂	homme avec la paume sur le visage  peau légèrement mate	none
+🤦🏾‍♂	homme avec la paume sur le visage  peau modérément foncée	none
+🤦🏿‍♂	homme avec la paume sur le visage  peau foncée	none
 🤦🏻‍♀	femme avec paume de la main sur le visage  peau claire	none
 🤦🏼‍♀	femme avec paume de la main sur le visage  peau modérément claire	none
 🤦🏽‍♀	femme avec paume de la main sur le visage  peau légèrement mate	none
@@ -1789,11 +1781,11 @@ symbols:
 🧎🏽‍♀	femme à genoux  peau légèrement mate	none
 🧎🏾‍♀	femme à genoux  peau modérément foncée	none
 🧎🏿‍♀	femme à genoux  peau foncée	none
-🧑🏻‍🦯	aveugle avec canne  peau claire	none
-🧑🏼‍🦯	aveugle avec canne  peau modérément claire	none
-🧑🏽‍🦯	aveugle avec canne  peau légèrement mate	none
-🧑🏾‍🦯	aveugle avec canne  peau modérément foncée	none
-🧑🏿‍🦯	aveugle avec canne  peau foncée	none
+🧑🏻‍🦯	personne avec une canne blanche  peau claire	none
+🧑🏼‍🦯	personne avec une canne blanche  peau modérément claire	none
+🧑🏽‍🦯	personne avec une canne blanche  peau légèrement mate	none
+🧑🏾‍🦯	personne avec une canne blanche  peau modérément foncée	none
+🧑🏿‍🦯	personne avec une canne blanche  peau foncée	none
 👨🏻‍🦯	homme avec canne blanche  peau claire	none
 👨🏼‍🦯	homme avec canne blanche  peau modérément claire	none
 👨🏽‍🦯	homme avec canne blanche  peau légèrement mate	none
@@ -1804,11 +1796,11 @@ symbols:
 👩🏽‍🦯	femme avec canne blanche  peau légèrement mate	none
 👩🏾‍🦯	femme avec canne blanche  peau modérément foncée	none
 👩🏿‍🦯	femme avec canne blanche  peau foncée	none
-🧑🏻‍🦼	personne en fauteuil roulant  peau claire	none
-🧑🏼‍🦼	personne en fauteuil roulant  peau modérément claire	none
-🧑🏽‍🦼	personne en fauteuil roulant  peau légèrement mate	none
-🧑🏾‍🦼	personne en fauteuil roulant  peau modérément foncée	none
-🧑🏿‍🦼	personne en fauteuil roulant  peau foncée	none
+🧑🏻‍🦼	personne en fauteuil motorisé  peau claire	none
+🧑🏼‍🦼	personne en fauteuil motorisé  peau modérément claire	none
+🧑🏽‍🦼	personne en fauteuil motorisé  peau légèrement mate	none
+🧑🏾‍🦼	personne en fauteuil motorisé  peau modérément foncée	none
+🧑🏿‍🦼	personne en fauteuil motorisé  peau foncée	none
 👨🏻‍🦼	homme en fauteuil motorisé  peau claire	none
 👨🏼‍🦼	homme en fauteuil motorisé  peau modérément claire	none
 👨🏽‍🦼	homme en fauteuil motorisé  peau légèrement mate	none
@@ -2279,7 +2271,7 @@ symbols:
 🇧🇯	drapeau  Bénin	none
 🇧🇱	drapeau  Saint-Barthélemy	none
 🇧🇲	drapeau  Bermudes	none
-🇧🇳	drapeau  Brunei	none
+🇧🇳	drapeau  Brunéi	none
 🇧🇴	drapeau  Bolivie	none
 🇧🇶	drapeau  Pays-Bas caribéens	none
 🇧🇷	drapeau  Brésil	none
@@ -2288,7 +2280,7 @@ symbols:
 🇧🇻	drapeau  île Bouvet	none
 🇧🇼	drapeau  Botswana	none
 🇧🇾	drapeau  Bélarus	none
-🇧🇿	drapeau  Belize	none
+🇧🇿	drapeau  Bélize	none
 🇨🇦	drapeau  Canada	none
 🇨🇨	drapeau  îles Cocos (Keeling)	none
 🇨🇩	drapeau  Congo-Kinshasa	none
@@ -2362,7 +2354,7 @@ symbols:
 🇮🇱	drapeau  Israël	none
 🇮🇲	drapeau  île de Man	none
 🇮🇳	drapeau  Inde	none
-🇮🇴	drapeau  territoire britannique de l’océan Indien	none
+🇮🇴	drapeau  Territoire britannique de l’océan Indien	none
 🇮🇶	drapeau  Irak	none
 🇮🇷	drapeau  Iran	none
 🇮🇸	drapeau  Islande	none
@@ -2376,7 +2368,7 @@ symbols:
 🇰🇭	drapeau  Cambodge	none
 🇰🇮	drapeau  Kiribati	none
 🇰🇲	drapeau  Comores	none
-🇰🇳	drapeau  Saint-Christophe-et-Niévès	none
+🇰🇳	drapeau  Saint‑Kitts‑et‑Nevis	none
 🇰🇵	drapeau  Corée du Nord	none
 🇰🇷	drapeau  Corée du Sud	none
 🇰🇼	drapeau  Koweït	none
@@ -2496,7 +2488,7 @@ symbols:
 🇺🇿	drapeau  Ouzbékistan	none
 🇻🇦	drapeau  Cité du Vatican	none
 🇻🇨	drapeau  Saint-Vincent-et-les Grenadines	none
-🇻🇪	drapeau  Venezuela	none
+🇻🇪	drapeau  Vénézuéla	none
 🇻🇬	drapeau  îles Vierges britanniques	none
 🇻🇮	drapeau  îles Vierges américaines	none
 🇻🇳	drapeau  Vietnam	none

@@ -67,28 +67,201 @@ symbols:
 ⇒	sagdaky goşa ok	none
 ⇏	sag tarapdan goşa ok urgysy	none
 ⇓	aşakdaky goşa ok	none
+⇔	saga-çepe goşa ok	none
+⇎	üsti çyzykly saga-çepe goşa ok	none
+⇖	ýokarky çep burça goşa ok	none
+⇗	ýokarky sag burça goşa ok	none
+⇘	aşaky sag burça goşa ok	none
+⇙	aşaky çep burça goşa ok	none
+⇚	çepe üç gat ok	none
+⇛	saga üç gat ok	none
+⇜	çepe egrem-bugram ok	none
+⇝	saga egrem-bugram ok	none
+⇞	goşa çyzykly ýokaryk ok	none
+⇟	goşa çyzykly aşak ok	none
+⇠	çepe arasy bölünýän ok	none
+⇡	ýokaryk arasy bölünýän ok	none
+⇢	saga arasy bölünýän ok	none
+⇣	aşak arasy bölünýän ok	none
+⇤	dik çyzykly çepe ok	none
+⇥	dik çyzykly saga ok	none
+⇦	içi boş çepe ok	none
+⇧	içi boş ýokaryk ok	none
+⇨	içi boş saga ok	none
+⇩	içi boş aşak ok	none
+⇪	sütünjikden ýokaryk içi boş ok	none
+⇵	aşak ok çepe ýokaryk ok	none
+∀	ählisi üçin	none
+∂	gytaklaýyn diferensial	none
+∃	bar	none
+∅	boş köplük	none
 ∆	artdyrma	none
 ∇	nabla	none
 ∈	agza	none
+∉	element däl	none
+∋	agza hökmünde düzüminde saklaýar	none
+∎	subut etmegiň soňy	none
+∏	sanlar hatarynyň köpeltme hasyly	none
+∑	sanlar hatarynyň jemi	none
+≮	-dan kiçi däl	none
 ≠	deň däldir	none
+≯	-dan uly däl	none
 −	aýyrmak belgisi	none
 ⁻	ýokary indeks minus	none
+∓	aýyrmak ýa-da goşmak	none
+∕	bölmek cyzygy	none
+∗	amal ediji ýyldyzjyk	none
+∘	amal ediji halkajyk	none
+∙	amal ediji nokat belgi	none
 √	kwadrat kök	none
+∝	proporsional	none
 ∞	tükeniksiz nyşan	none
+∟	sag burç	none
+∠	burç	none
+∣	bölýär	none
+∥	parallel	none
+∧	logiki we	none
 ∩	köpeltme jemi	none
 ∪	köplük	none
+∫	integral	none
+∬	goşa integral	none
+∮	egri çyzykly integral	none
+∴	şonuň üçin	none
+∵	sebäbi	none
+∶	gatnaşyk	none
+∷	proporsiýa	none
+∼	tilda amala ediji	none
+∽	ters tilda	none
+∾	ters ýatan s	none
+≃	asimptotiki deňdir	none
+≅	çen bilen deňdir	none
 ≈	takmynan deňdir	none
+≌	hemmesi deňdir	none
+≒	çen bilen deň keşbi	none
+≖	deňdir belgisinde halka	none
 ≡	deň	none
+≣	doly kybapdaş	none
 ≤	kiçidir ýa-da deňdir	none
 ≥	uludyr ýa-da deňdir	none
+≦	kiçidir deňdiriň üstünde	none
+≧	uludyr deňdiriň üstünde	none
+≪	örän kiçidir	none
+≫	örän uludyr	none
+≬	arasynda	none
+≳	uludyr kybapdaş	none
+≺	öňünden gelýär	none
+≻	yzyndan gelýär	none
+⊁	yzyndan gelmeýär	none
 ⊂	kiçi synp	none
+⊃	uly köplük	none
+⊆	köplük bölümi deňdir	none
+⊇	uly köplük deňdir	none
+⊕	tegelekde goşmak belgisi	none
+⊖	tegelekde aýyrmak belgisi	none
+⊗	tegelekde köpeltmek	none
+⊘	tegelekde bölmek çyzygy	none
+⊙	tegelekde nokat amal ediji	none
+⊚	tegelekde halka amal ediji	none
+⊛	tegelekde ýyldyzjyk amal ediji	none
+⊞	kwadratda goşmak	none
+⊟	kwadratta aýyrmak	none
+⊥	ters T	none
+⊮	mejbur etmeýär	none
+⊰	deňeşdirilende öňünden gelýär	none
+⊱	deňeşdirilende yzyndan gelýär	none
+⋭	adaty topar bölümi hökmünde düzüminde saklamaýar deňdir	none
+⊶	asyl	none
+⊹	ermit baglanyşykly matrisa	none
+⊿	göni burçly üçburçluk	none
+⋁	n-ar logiki ýa-da	none
+⋂	n-ar kesişme	none
+⋃	n-ar birleşdirme	none
+⋅	nokat amal ediji	none
+⋆	ýyldyz amal ediji	none
+⋈	natural birleşme	none
+⋒	goşa kesişme	none
+⋘	esli kiçidir	none
+⋙	esli uludyr	none
+⋮	dikligine köp nokat	none
+⋯	ortada keseligine köp nokat	none
+⋰	ýokary saga diagonal köp nokat	none
+⋱	aşak saga diagonal köp nokat	none
+■	içi doldurylan kwadrat	none
+□	içi boş kwadrat	none
+▢	Tegelenen burçly içi boş kwadrat	none
+▣	içinde doldurylan kwadrat bolan içi boş kwadrat	none
+▤	keseligine doldurylan kwadrat	none
+▥	dikligine doldurylan kwadrat	none
+▦	içi ortogonal kesişýän çyzykly kwdrat	none
+▧	ýokarky çep we aşaky sag bölegi doldurylan kwadrat	none
+▨	ýokarky sag we aşaky çep bölegi doldurylan kwadrat	none
+▩	içi diagonal kesişýän çyzykly kwadrat	none
+▬	içi doldurylan gönüburçluk	none
+▭	içi boş gönüburçluk	none
+▮	içi doldurylan dik gönüburçluk	none
+▰	içi doldurylan parallelogram	none
 ▲	doly ýokaryk görkezýän üçburçlyk	none
+△	içi boş, ujy ýokarda üçburçluk	none
+▴	içi doldurylan, ujy ýokarda kiçi üçburçluk	none
+▵	içi boş, ujy ýokarda kiçi üçburçluk	none
+▷	içi boş, ujy sagda üçburçluk	none
+▸	içi doldurylan, ujy sagda kiçi üçburçluk	none
+▹	içi boş, ujy sagda kiçi üçburçluk	none
+►	içi doldurylan sag tarapa görkeziji	none
+▻	içi boş sag tarapa görkeziji	none
 ▼	doly aşak görkezýän üçburçlyk	none
+▽	içi boş, ujy aşakda üçburçluk	none
+▾	içi doldurylan, ujy aşakda kiçi üçburçluk	none
+▿	içi boş, ujy aşakda kiçi üçburçluk	none
+◁	içi boş, ujy çepde üçburçluk	none
+◂	içi doldurylan, ujy çepde kiçi üçburçluk	none
+◃	içi boş, ujy çepde kiçi üçburçluk	none
+◄	içi doldurylan çepe tarap görkeziji	none
+◅	içi boş çepe tarap görkeziji	none
+◆	içi doldurylan romb	none
+◇	içi boş romb	none
+◈	içi doldurylan rombly içi boş romb	none
+◉	içi doldurylan tegelekli içi boş tegelek	none
 ◊	romb	none
 ○	boş aýlaw	none
+◌	nokatlanan tegelek	none
+◍	içi dik çyzyk doldurylan tegelek	none
+◎	umumy merkezli tegelekler	none
 ●	doly aýlaw	none
+◐	çep ýarysy doldurylan tegelek	none
+◑	sag ýarysy doldurylan tegelek	none
+◒	aşaky ýarysy doldurylan tegelek	none
+◓	ýokarky ýarysy doldurylan tegelek	none
+◔	ýokarky sag çärýegi doldurylan tegelek	none
+◕	ýokarky çep çärýekden başga ýeri doldurylan tegelek	none
+◖	içi doldurylan çep ýarym tegelek	none
+◗	içi doldurylan sag ýarym tegelek	none
+◘	ters belgi	none
+◙	içi boş tegelekli içi doldurylan kwadrat	none
+◜	tegelegiň ýokarky çep çärýek dugasy	none
+◝	tegelegiň ýokarky sag çärýek dugasy	none
+◞	tegelegiň aşaky sag çärýek dugasy	none
+◟	tegelegiň aşaky çep çärýek dugasy	none
+◠	ýokarky ýarym aýlaw	none
+◡	aşaky ýarym aýlaw	none
+◢	içi doldurylan aşaky sag üçburçluk	none
+◣	içi doldurylan aşaky çep üçburçluk	none
+◤	içi doldurylan ýokarky çep üçburçluk	none
+◥	içi doldurylan ýokarky sag üçburçluk	none
+◦	içi boş belgi	none
 ◯	uly boş aýlaw	none
+◳	ýokarky sag çärýekli içi boş kwadrat	none
+◷	ýokarky sag çärýekli içi boş tegelek	none
+◿	aşaky sag üçburçluk	none
 ♪	sekizinji nota	none
+⨧	setirasty ikilikli goşmak belgisi	none
+⨯	wektor atanakly köpeltmek hasyly	none
+⨼	içki köpeltmek hasyly	none
+⩣	logiki ýa-da goşa aşaky zolak	none
+⩽	kiçidir-kese deňdir	none
+⪍	meňzeş deňdiriň üstünde kiçidir alamaty	none
+⪚	goşa çyzykly deňdir-uludyr	none
+⪺	deň däl diýen ýaly alamatyň üstünde yzyndan gelýär alamaty	none
 ♭	ýasy	none
 ♯	ýiti	none
 😀	syrtarýan ýüz	none
@@ -141,6 +314,8 @@ symbols:
 😮‍💨	bugarýan ýüz	none
 🤥	ýalançy ýüz	none
 🫨	titreýan ýüz	none
+🙂‍↔	saga-çepe sallanýan kelle	none
+🙂‍↕	aşak-ýokaryk sallanýan kelle	none
 😌	ynjalan ýüz	none
 😔	gussaly ýüz	none
 😪	ukuly ýüz	none
@@ -571,11 +746,15 @@ symbols:
 👬	el tutuşan erkekler	none
 💏	posa	none
 💑	ýürekli jübüt	none
-👪	maşgala	none
 🗣	gürleýän kelle	none
 👤	sudury görünýän heýkel	none
 👥	sudury görünýän heýkeller	none
 🫂	gujaklaşýan adamlar	none
+👪	maşgala	none
+🧑‍🧑‍🧒	maşgala uly, uly, çaga	none
+🧑‍🧑‍🧒‍🧒	maşgala uly, uly, çaga, çaga	none
+🧑‍🧒	maşgala uly, çaga	none
+🧑‍🧒‍🧒	maşgala uly, çaga, çaga	none
 👣	aýak yzlary	none
 🦰	gyzyl saç	none
 🦱	buýra saç	none
@@ -666,7 +845,9 @@ symbols:
 🦚	tawus	none
 🦜	totyguş	none
 🪽	ganat	none
+🐦‍⬛	gara guş	none
 🪿	gaz	none
+🐦‍🔥	kaknus	none
 🐸	gurbaga	none
 🐊	krokodil	none
 🐢	pyşdyl	none
@@ -737,6 +918,7 @@ symbols:
 🍉	garpyz	none
 🍊	mandarin	none
 🍋	limon	none
+🍋‍🟩	laým	none
 🍌	banan	none
 🍍	ananas	none
 🥭	mango	none
@@ -768,6 +950,7 @@ symbols:
 🌰	kaştan	none
 🫚	zenjebil köki	none
 🫛	nohudyň kösügi	none
+🍄‍🟫	mele kömelek	none
 🍞	çörek	none
 🥐	kruassan	none
 🥖	baget çörek	none
@@ -1376,6 +1559,7 @@ symbols:
 ⚖	deňagramlylyk terezisi	none
 🦯	ak hasa	none
 🔗	bag	none
+⛓‍💥	döwük zynjyr	none
 ⛓	zynjyrlar	none
 🪝	ilgençek	none
 🧰	gural gutusy	none
@@ -1625,13 +1809,21 @@ symbols:
 🏳‍🌈	älemgoşar baýdak	none
 🏳‍⚧	transseksual baýdagy	none
 🏴‍☠	garakçy baýdagy	none
+₢	kruzeýro	none
+₣	fransuz franky	none
+₤	lira	none
 ₥	mill	none
 ₩	won	none
 €	ewro	none
+₰	nemes pennisi	none
 ₱	peso	none
+₳	austral	none
+₶	tur liwri	none
+₷	spesmilo	none
 ₹	hindi rupi	none
 ₽	rubl	none
 ₿	bitkoin	none
+₨	rupiýa	none
 👋🏻	galgaýan el açyk deri reňki	none
 👋🏼	galgaýan el orta açyk deri reňki	none
 👋🏽	galgaýan el orta deri reňki	none

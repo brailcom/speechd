@@ -314,6 +314,8 @@ symbols:
 😮‍💨	lice izdiše	none
 🤥	laganje	none
 🫨	potresenost	none
+🙂‍↔	vrti glavom lijevo desno	none
+🙂‍↕	klima glavom	none
 😌	olakšanje	none
 😔	zamišljenost	none
 😪	pospanost	none
@@ -744,11 +746,15 @@ symbols:
 👬	dva muškarca se drže za ruke	none
 💏	poljubac	none
 💑	par i srce	none
-👪	porodica	none
 🗣	silueta glave koja govori	none
 👤	silueta glave s ramenima	none
 👥	siluete glave s ramenima	none
 🫂	ljudi se grle	none
+👪	porodica	none
+🧑‍🧑‍🧒	porodica odrasla osoba, odrasla osoba, dijete	none
+🧑‍🧑‍🧒‍🧒	porodica odrasla osoba, odrasla osoba, dijete, dijete	none
+🧑‍🧒	porodica odrasla osoba, dijete	none
+🧑‍🧒‍🧒	porodica odrasla osoba, dijete, dijete	none
 👣	otisci stopala	none
 🦰	crvena kosa	none
 🦱	kovrdžava kosa	none
@@ -841,6 +847,7 @@ symbols:
 🪽	krilo	none
 🐦‍⬛	crna ptica	none
 🪿	guska	none
+🐦‍🔥	feniks	none
 🐸	žaba	none
 🐊	krokodil	none
 🐢	kornjača	none
@@ -911,6 +918,7 @@ symbols:
 🍉	lubenica	none
 🍊	mandarina	none
 🍋	limun	none
+🍋‍🟩	limeta	none
 🍌	banana	none
 🍍	ananas	none
 🥭	mango	none
@@ -942,6 +950,7 @@ symbols:
 🌰	kesten	none
 🫚	korijen đumbira	none
 🫛	mahuna graška	none
+🍄‍🟫	smeđa gljiva	none
 🍞	hljeb	none
 🥐	kroasan	none
 🥖	francuski hljeb	none
@@ -1550,6 +1559,7 @@ symbols:
 ⚖	vaga	none
 🦯	štap za slabovidne i slijepe	none
 🔗	karika	none
+⛓‍💥	pokidani lanac	none
 ⛓	lanci	none
 🪝	udica	none
 🧰	kutija za alat	none
@@ -3794,7 +3804,7 @@ symbols:
 🇲🇭	zastava Maršalova ostrva	none
 🇲🇰	zastava Sjeverna Makedonija	none
 🇲🇱	zastava Mali	none
-🇲🇲	zastava Mjanmar	none
+🇲🇲	zastava Mijanmar	none
 🇲🇳	zastava Mongolija	none
 🇲🇴	zastava Makao (SAR Kina)	none
 🇲🇵	zastava Sjeverna Marijanska ostrva	none
@@ -3814,7 +3824,7 @@ symbols:
 🇳🇫	zastava Ostrvo Norfolk	none
 🇳🇬	zastava Nigerija	none
 🇳🇮	zastava Nikaragva	none
-🇳🇱	zastava Holandija	none
+🇳🇱	zastava Nizozemska	none
 🇳🇴	zastava Norveška	none
 🇳🇵	zastava Nepal	none
 🇳🇷	zastava Nauru	none
@@ -3849,7 +3859,7 @@ symbols:
 🇸🇬	zastava Singapur	none
 🇸🇭	zastava Sveta Helena	none
 🇸🇮	zastava Slovenija	none
-🇸🇯	zastava Svalbard i Jan Majen	none
+🇸🇯	zastava Svalbard i Jan Mayen	none
 🇸🇰	zastava Slovačka	none
 🇸🇱	zastava Sijera Leone	none
 🇸🇲	zastava San Marino	none
@@ -3906,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zastava Vels	none
 ₡	Kostarikanski kolon	none
 ₦	Nigerijska naira	none
-₧	Španska pezeta	none
 ₪	Izraelski novi šekel	none
 ₫	Vijetnamski dong	none
 ₭	Laoski kip	none
@@ -3918,3 +3927,4 @@ symbols:
 ₺	Turska lira	none
 ₼	Azerbejdžanski manat	none
 ₾	Gruzijski lari	none
+₧	Španska pezeta	none

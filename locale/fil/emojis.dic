@@ -314,6 +314,8 @@ symbols:
 😮‍💨	mukhang humihinga palabas	none
 🤥	nagsisinungaling	none
 🫨	nanginginig na mukha	none
+🙂‍↔	gumagalaw na mukha pahalang	none
+🙂‍↕	gumagalaw na mukha paayon	none
 😌	nakahinga nang maluwag	none
 😔	malungkot na nag-iisip	none
 😪	inaantok na mukha	none
@@ -744,11 +746,15 @@ symbols:
 👬	dalawang lalaking magkahawak-kamay	none
 💏	maghahalikan	none
 💑	magkapareha na may puso	none
-👪	pamilya	none
 🗣	ulong nagsasalita	none
 👤	silhouette ng bust	none
 👥	silhouette ng mga bust	none
 🫂	tao na magkayakap	none
+👪	pamilya	none
+🧑‍🧑‍🧒	pamilya adulto, adulto, bata	none
+🧑‍🧑‍🧒‍🧒	pamilya adulto, adulto, bata, bata	none
+🧑‍🧒	pamilya adulto, bata	none
+🧑‍🧒‍🧒	pamilya adulto, bata, bata	none
 👣	mga bakas ng paa	none
 🦰	pulang buhok	none
 🦱	kulot na buhok	none
@@ -839,7 +845,9 @@ symbols:
 🦚	peacock	none
 🦜	loro	none
 🪽	pakpak	none
+🐦‍⬛	itim na ibon	none
 🪿	gansa	none
+🐦‍🔥	phoenix	none
 🐸	palaka	none
 🐊	buwaya	none
 🐢	pagong	none
@@ -910,6 +918,7 @@ symbols:
 🍉	pakwan	none
 🍊	dalanghita	none
 🍋	lemon	none
+🍋‍🟩	dayap	none
 🍌	saging	none
 🍍	pinya	none
 🥭	mangga	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kastanyas	none
 🫚	luya	none
 🫛	gisante	none
+🍄‍🟫	kayumanggi na kabute	none
 🍞	tinapay	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	timbangan	none
 🦯	baston	none
 🔗	kawing	none
+⛓‍💥	lagot na kadena	none
 ⛓	kadena	none
 🪝	kawit	none
 🧰	kahon ng kagamitan	none
@@ -3641,7 +3652,6 @@ symbols:
 👩‍👧	pamilya babae, batang babae	none
 👩‍👧‍👦	pamilya babae, batang babae, batang lalaki	none
 👩‍👧‍👧	pamilya babae, batang babae, batang babae	none
-🔟	keycap 10	none
 🇦🇨	bandila Acsencion island	none
 🇦🇩	bandila Andorra	none
 🇦🇪	bandila United Arab Emirates	none
@@ -3753,7 +3763,7 @@ symbols:
 🇮🇱	bandila Israel	none
 🇮🇲	bandila Isle of Man	none
 🇮🇳	bandila India	none
-🇮🇴	bandila British Indian Ocean Territory	none
+🇮🇴	bandila Teritoryo sa Karagatan ng British Indian	none
 🇮🇶	bandila Iraq	none
 🇮🇷	bandila Iran	none
 🇮🇸	bandila Iceland	none

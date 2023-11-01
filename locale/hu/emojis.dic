@@ -273,12 +273,12 @@ symbols:
 🤣	gurul a nevetéstől	none
 😂	arc örömkönnyekkel	none
 🙂	finoman mosolygó arc	none
-🙃	fejjel lefelé fordult arc	none
+🙃	arc fejjel lefelé	none
 🫠	elolvadó arc	none
 😉	kacsintó arc	none
 😊	mosolygó arc mosolygó szemmel	none
 😇	mosolygó arc glóriával	none
-🥰	mosolygós arc szívekkel	none
+🥰	mosolygó arc szívekkel	none
 😍	mosolygó arc szív alakú szemmel	none
 🤩	csillagszemű	none
 😘	csókot dobó arc	none
@@ -308,12 +308,14 @@ symbols:
 🫥	pontozott vonalas arc	none
 😶‍🌫	arc a felhőben	none
 😏	önelégült vigyor	none
-😒	szomorú arc	none
+😒	unott arc	none
 🙄	szemét forgató arc	none
 😬	grimaszoló arc	none
 😮‍💨	levegőt kifújó arc	none
 🤥	hazudó arc	none
 🫨	rázkódó arc	none
+🙂‍↔	vízszintesen rázkódó arc	none
+🙂‍↕	függőlegesen rázkódó arc	none
 😌	megkönnyebbült arc	none
 😔	elgondolkodó arc	none
 😪	álmos arc	none
@@ -744,11 +746,15 @@ symbols:
 👬	kézen fogva álló férfiak	none
 💏	csók	none
 💑	pár szívvel	none
-👪	család	none
 🗣	beszélő fej	none
 👤	ember sziluettje melltől felfelé	none
 👥	két ember sziluettje melltől felfelé	none
 🫂	egymást ölelő emberek	none
+👪	család	none
+🧑‍🧑‍🧒	család felnőtt, felnőtt, gyerek	none
+🧑‍🧑‍🧒‍🧒	család felnőtt, felnőtt, gyerek, gyerek	none
+🧑‍🧒	család felnőtt, gyerek	none
+🧑‍🧒‍🧒	család felnőtt, gyerek, gyerek	none
 👣	lábnyomok	none
 🦰	vörös haj	none
 🦱	göndör haj	none
@@ -839,7 +845,9 @@ symbols:
 🦚	páva	none
 🦜	papagáj	none
 🪽	szárny	none
+🐦‍⬛	fekete madár	none
 🪿	liba	none
+🐦‍🔥	főnix	none
 🐸	békafej	none
 🐊	krokodil	none
 🐢	teknős	none
@@ -910,6 +918,7 @@ symbols:
 🍉	görögdinnye	none
 🍊	mandarin	none
 🍋	citrom	none
+🍋‍🟩	lime	none
 🍌	banán	none
 🍍	ananász	none
 🥭	mangó	none
@@ -941,6 +950,7 @@ symbols:
 🌰	gesztenye	none
 🫚	gyömbérgyökér	none
 🫛	borsóhüvely	none
+🍄‍🟫	barna gomba	none
 🍞	kenyér	none
 🥐	croissant	none
 🥖	bagett	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	kétkarú mérleg	none
 🦯	fehér bot	none
 🔗	kapocs	none
+⛓‍💥	elszakadt lánc	none
 ⛓	lánc	none
 🪝	kampó	none
 🧰	szerszámosláda	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zászló Wales	none
 ₡	Costa Rica-i colon	none
 ₦	nigériai naira	none
-₧	Spanyol peseta	none
 ₪	izraeli új sékel	none
 ₫	vietnámi dong	none
 ₭	laoszi kip	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	török líra	none
 ₼	azerbajdzsáni manat	none
 ₾	grúz lari	none
+₧	Spanyol peseta	none

@@ -311,9 +311,11 @@ symbols:
 😒	obraz s hladnim nasmeškom	none
 🙄	obraz z zavijajočimi očmi	none
 😬	spačen obraz	none
-😮‍💨	obraz, ki izdihne	none
+😮‍💨	obraz med izdihovanjem	none
 🤥	lažnivi obraz	none
 🫨	tresoči se obraz	none
+🙂‍↔	vodoravno premikanje glave	none
+🙂‍↕	navpično premikanje glave	none
 😌	olajšan obraz	none
 😔	brezvoljen obraz	none
 😪	zaspan obraz	none
@@ -744,11 +746,15 @@ symbols:
 👬	moška se držita za roke	none
 💏	poljub	none
 💑	par s srčkom	none
-👪	družina	none
 🗣	govoreča glava	none
 👤	silhueta doprsja	none
 👥	silhueti doprsja	none
 🫂	osebi, ki se objemata	none
+👪	družina	none
+🧑‍🧑‍🧒	družina odrasla oseba, odrasla oseba, otrok	none
+🧑‍🧑‍🧒‍🧒	družina odrasla oseba, odrasla oseba, otrok, otrok	none
+🧑‍🧒	družina odrasla oseba, otrok	none
+🧑‍🧒‍🧒	družina odrasla oseba, otrok, otrok	none
 👣	stopinje	none
 🦰	rdeči lasje	none
 🦱	kodrasti lasje	none
@@ -839,7 +845,9 @@ symbols:
 🦚	pav	none
 🦜	papagaj	none
 🪽	krilo	none
+🐦‍⬛	kos	none
 🪿	gos	none
+🐦‍🔥	feniks	none
 🐸	žaba	none
 🐊	krokodil	none
 🐢	želva	none
@@ -910,6 +918,7 @@ symbols:
 🍉	lubenica	none
 🍊	mandarina	none
 🍋	limona	none
+🍋‍🟩	limeta	none
 🍌	banana	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kostanj	none
 🫚	korenina ingverja	none
 🫛	strok graha	none
+🍄‍🟫	šampinjon	none
 🍞	kruh	none
 🥐	rogljič	none
 🥖	bageta	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	tehtnica	none
 🦯	palica za slepe	none
 🔗	člen	none
+⛓‍💥	strgana veriga	none
 ⛓	verige	none
 🪝	kljuka	none
 🧰	zaboj za orodje	none
@@ -3641,7 +3652,6 @@ symbols:
 👩‍👧	družina ženska in dekle	none
 👩‍👧‍👦	družina ženska, dekle in fant	none
 👩‍👧‍👧	družina ženska, dekle in dekle	none
-🔟	keycap 10	none
 🇦🇨	zastava Otok Ascension	none
 🇦🇩	zastava Andora	none
 🇦🇪	zastava Združeni arabski emirati	none
@@ -3905,7 +3915,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zastava Wales	none
 ₡	kostariški kolon	none
 ₦	nigerijska naira	none
-₧	španska pezeta	none
 ₪	izraelski šekel	none
 ₫	vientnamski dong	none
 ₭	laoški kip	none
@@ -3917,3 +3926,4 @@ symbols:
 ₺	nova turška lira	none
 ₼	azerbajdžanski manat	none
 ₾	gruzijski lari	none
+₧	španska pezeta	none
