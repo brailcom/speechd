@@ -29,6 +29,7 @@ nobase_localedata_DATA = \
 	ast/emojis.dic \
 	az/emojis.dic \
 	be/emojis.dic \
+	bew/emojis.dic \
 	bg/emojis.dic \
 	bgn/emojis.dic \
 	bn/emojis.dic \
@@ -40,6 +41,7 @@ nobase_localedata_DATA = \
 	chr/emojis.dic \
 	ckb/emojis.dic \
 	cs/emojis.dic \
+	cv/emojis.dic \
 	cy/emojis.dic \
 	da/emojis.dic \
 	de/emojis.dic \
@@ -127,6 +129,7 @@ nobase_localedata_DATA = \
 	pt_PT/emojis.dic \
 	qu/emojis.dic \
 	quc/emojis.dic \
+	rhg/emojis.dic \
 	rm/emojis.dic \
 	ro/emojis.dic \
 	ru/emojis.dic \
@@ -216,6 +219,7 @@ nobase_localedata_DATA = \
 	sr@latin/orca.dic \
 	sr/orca.dic \
 	sv/orca.dic \
+	ta/orca.dic \
 	te/orca.dic \
 	tg/orca.dic \
 	th/orca.dic \

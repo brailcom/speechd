@@ -306,6 +306,7 @@ symbols:
 😑	wajah tanpa ekspresi	none
 😶	wajah tanpa mulut	none
 🫥	wajah dengan garis titik-titik	none
+😶‍🌫	wajah di awan	none
 😏	wajah tersenyum sombong	none
 😒	wajah bosan	none
 🙄	wajah dengan mata ke atas	none
@@ -313,6 +314,8 @@ symbols:
 😮‍💨	wajah mengembuskan napas	none
 🤥	bohong	none
 🫨	wajah gemetar	none
+🙂‍↔	kepala bergeleng	none
+🙂‍↕	kepala mengangguk	none
 😌	wajah lega	none
 😔	wajah merenung	none
 😪	wajah mengantuk	none
@@ -743,11 +746,15 @@ symbols:
 👬	dua pria bergandengan	none
 💏	berciuman	none
 💑	pasangan dengan hati	none
-👪	keluarga	none
 🗣	kepala berbicara	none
 👤	siluet foto setengah badan	none
 👥	beberapa siluet foto setengah badan	none
 🫂	orang berpelukan	none
+👪	keluarga	none
+🧑‍🧑‍🧒	keluarga orang dewasa, orang dewasa, anak	none
+🧑‍🧑‍🧒‍🧒	keluarga orang dewasa, orang dewasa, anak, anak	none
+🧑‍🧒	keluarga orang dewasa, anak	none
+🧑‍🧒‍🧒	keluarga orang dewasa, anak, anak	none
 👣	jejak kaki	none
 🦰	rambut merah	none
 🦱	rambut keriting	none
@@ -838,7 +845,9 @@ symbols:
 🦚	merak	none
 🦜	nuri	none
 🪽	sayap	none
+🐦‍⬛	burung hitam	none
 🪿	angsa leher pendek	none
+🐦‍🔥	phoenix	none
 🐸	katak	none
 🐊	buaya	none
 🐢	kura-kura	none
@@ -909,6 +918,7 @@ symbols:
 🍉	semangka	none
 🍊	buah jeruk	none
 🍋	lemon	none
+🍋‍🟩	jeruk limau	none
 🍌	pisang	none
 🍍	nanas	none
 🥭	mangga	none
@@ -940,6 +950,7 @@ symbols:
 🌰	kastanye	none
 🫚	akar jahe	none
 🫛	kacang polong	none
+🍄‍🟫	jamur cokelat	none
 🍞	roti	none
 🥐	croissant	none
 🥖	roti baguette	none
@@ -1548,6 +1559,7 @@ symbols:
 ⚖	timbangan gantung	none
 🦯	tongkat tunanetra	none
 🔗	tautan	none
+⛓‍💥	rantai putus	none
 ⛓	rantai	none
 🪝	kait	none
 🧰	kotak perkakas	none
@@ -3640,7 +3652,6 @@ symbols:
 👩‍👧	keluarga wanita, anak perempuan	none
 👩‍👧‍👦	keluarga wanita, anak perempuan, anak laki-laki	none
 👩‍👧‍👧	keluarga wanita, anak perempuan, anak perempuan	none
-🔟	keycap 10	none
 🇦🇨	bendera Pulau Ascension	none
 🇦🇩	bendera Andorra	none
 🇦🇪	bendera Uni Emirat Arab	none
@@ -3904,7 +3915,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bendera Wales	none
 ₡	Colon Kosta Rika	none
 ₦	Naira Nigeria	none
-₧	Peseta Spanyol	none
 ₪	Shekel Baru Israel	none
 ₫	Dong Vietnam	none
 ₭	Kip Laos	none
@@ -3916,3 +3926,4 @@ symbols:
 ₺	Lira Turki	none
 ₼	Manat Azerbaijan	none
 ₾	Lari Georgia	none
+₧	Peseta Spanyol	none

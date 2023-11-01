@@ -58,7 +58,7 @@ degrees-fahrenheit	astetta faarenhaittia	none	norep
 \f	sivunvaihto	none
 \r	rivinvaihto	char
  	väli	char
- 	väli	char	# sitova välilyönti
+ 	väli	char	# non-breaking space
 
 # Standard punctuation/symbols
 !	huuto	all
@@ -112,7 +112,7 @@ _	alaviiva	most
 ‴	kolminkertainen yläpuolinen indeksointipilkku	some
 
 # Other characters
-•	luetelmapallo	most
+•	luetelmapallo	some
 …	piste piste piste	all	always
 ...	piste piste piste	all	always
 “	käänteinen alkulainaus	most
@@ -136,7 +136,7 @@ _	alaviiva	most
 ▪	pieni musta neliö	most
 ◾	musta neliö	most
 □	valkoinen neliö	most
-◦	valkoinen luettelomerkki	most
+◦	valkoinen luettelomerkki	some
 ⇨	valkoinen nuoli oikealle	some
 ➔	nuoli oikealle	some
 ➢	nuolenpää oikealle	some
@@ -146,8 +146,8 @@ _	alaviiva	most
 ◆	musta timantti	some
 §	pykälä	some
 °	aste	some
-«	vasen kulmalainaus	most
-»	oikea kulmalainaus	most
+«	vasen kulmalainaus	most	always
+»	oikea kulmalainaus	most	always
 µ	mikro	some
 ⁰	yläindeksi 0	some
 ¹	yläindeksi 1	some
@@ -365,7 +365,7 @@ _	alaviiva	most
 ⊀	ei edellä	none
 ⊁	ei seuraa	none
 
-# Vulgur Fractions U+2150 to U+215E
+# Vulgar Fractions U+2150 to U+215E
 ¼	yksi neljäsosaa	none
 ½	puolikas	none
 ¾	kolme neljäsosaa	none
@@ -400,8 +400,8 @@ _	alaviiva	most
 ℶ	bet-luku	none
 
 # Miscellaneous technical
-⌘	Macin Command-näppäin	none
-⌥	Macin Option-näppäin	none
+⌘	Macin Komento-näppäin	none
+⌥	Macin Optio-näppäin	none
 
 # 6-dot cell
 # note: the character on the next line is U+2800 (braille space), not U+0020 (ASCII space)
@@ -461,7 +461,7 @@ _	alaviiva	most
 ⠵	pistekirjoitus 1 3 5 6
 ⠶	pistekirjoitus 2 3 5 6
 ⠷	pistekirjoitus 1 2 3 5 6
-⠸	pistekirjoitus 1 2 3
+⠸	pistekirjoitus 4 5 6
 ⠹	pistekirjoitus 1 4 5 6
 ⠺	pistekirjoitus 2 4 5 6
 ⠻	pistekirjoitus 1 2 4 5 6

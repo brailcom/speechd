@@ -10,33 +10,258 @@ symbols:
 🏿	ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ	none
 ℗	ᎤᏃᏴᎬ ᎤᏤᎵᎢ ᎤᎯᏴᎢ	none
 ←	ᎠᎦᏍᎦᏂ-ᎦᏝᏗ	none
+↚	leftwards arrow stroke	none
 →	ᎠᎦᏘᏏ-ᎦᏝᏗ	none
+↛	rightwards arrow stroke	none
 ↑	ᎦᎸᎳᏗ-ᎦᏝᏗ	none
 ↓	ᎡᎳᏗ-ᎦᏝᏗ	none
+↜	leftwards wave arrow	none
+↝	rightwards wave arrow	none
+↞	leftwards two headed arrow	none
+↟	upwards two headed arrow	none
+↠	rightwards two headed arrow	none
+↡	downwards two headed arrow	none
+↢	leftwards arrow tail	none
+↣	rightwards arrow tail	none
+↤	leftwards arrow from bar	none
+↥	upwards arrow from bar	none
+↦	rightwards arrow from bar	none
+↧	downwards arrow from bar	none
+↨	up down arrow with base	none
+↫	leftwards arrow loop	none
+↬	rightwards arrow loop	none
+↭	left right wave arrow	none
+↯	downwards zigzag arrow	none
+↰	upwards arrow tip leftwards	none
+↱	upwards arrow tip rightwards	none
+↲	downwards arrow tip leftwards	none
+↳	downwards arrow tip rightwards	none
+↴	rightwards arrow corner downwards	none
+↵	downwards arrow corner leftwards	none
+↶	anticlockwise top semicircle arrow	none
+↷	clockwise top semicircle arrow	none
+↸	north west arrow long bar	none
+↹	leftwards over rightwards arrow bars	none
+↺	anticlockwise open circle arrow	none
+↻	clockwise open circle arrow	none
+↼	leftwards harpoon barb upwards	none
+↽	leftwards harpoon barb downwards	none
+↾	upwards harpoon barb rightwards	none
+↿	upwards harpoon barb leftwards	none
+⇀	rightwards harpoon barb upwards	none
+⇁	rightwards harpoon barb downwards	none
+⇂	downwards harpoon barb rightwards	none
+⇃	downwards harpoon barb leftwards	none
+⇄	rightwards arrow over leftwards arrow	none
 ⇅	ᎦᎸᎳᏗ-ᎦᏝᏗ ᎠᎴ ᎡᎳᏗ-ᎦᏝᏗ	none
 ⇆	ᎠᎦᏍᎦᏂ-ᎦᏝᏗ ᎦᎸᎳᏗ ᎠᎦᏘᏏ-ᎦᏝᏗ	none
+⇇	leftwards paired arrows	none
+⇈	upwards paired arrows	none
+⇉	rightwards paired arrows	none
+⇊	downwards paired arrows	none
+⇋	leftwards harpoon over rightwards harpoon	none
+⇌	rightwards harpoon over leftwards harpoon	none
+⇐	leftwards double arrow	none
+⇍	leftwards double arrow stroke	none
+⇑	upwards double arrow	none
+⇒	rightwards double arrow	none
+⇏	rightwards double arrow stroke	none
+⇓	downwards double arrow	none
+⇔	left right double arrow	none
+⇎	left right double arrow stroke	none
+⇖	north west double arrow	none
+⇗	north east double arrow	none
+⇘	south east double arrow	none
+⇙	south west double arrow	none
+⇚	leftwards triple arrow	none
+⇛	rightwards triple arrow	none
+⇜	leftwards squiggle arrow	none
+⇝	rightwards squiggle arrow	none
+⇞	upwards arrow double stroke	none
+⇟	downwards arrow double stroke	none
+⇠	leftwards dashed arrow	none
+⇡	upwards dashed arrow	none
+⇢	rightwards dashed arrow	none
+⇣	downwards dashed arrow	none
+⇤	leftwards arrow bar	none
+⇥	rightwards arrow bar	none
+⇦	leftwards hollow arrow	none
+⇧	upwards hollow arrow	none
+⇨	rightwards hollow arrow	none
+⇩	downwards hollow arrow	none
+⇪	upwards hollow arrow from bar	none
+⇵	downwards arrow leftwards upwards arrow	none
+∀	for all	none
+∂	partial differential	none
+∃	there exists	none
+∅	empty set	none
 ∆	ᎤᏁᏉᏍᏗ	none
 ∇	ᎠᏲᎱᎯᏍᏗ	none
 ∈	ᎤᏙᏣᎵ ᎾᎿ	none
+∉	not an element	none
+∋	contains as member	none
+∎	end proof	none
+∏	n-ary product	none
+∑	n-ary summation	none
+≮	not less-than	none
 ≠	Ꮭ ᎢᏧᎳ ᏱᎩ	none
+≯	not greater-than	none
 −	ᎪᏣᎴᏍᏗᏱ ᎪᏪᎸ	none
 ⁻	ᎤᏍᏗ ᎦᎸᎳᏗ ᎠᎩᏲᎳᏗᏍᏗ	none
+∓	minus-or-plus	none
+∕	division slash	none
+∗	asterisk operator	none
+∘	ring operator	none
+∙	bullet operator	none
 √	ᏅᎩ ᏧᏅᏏᏯ ᎤᎾᏍᏕᎵ	none
+∝	proportional	none
 ∞	ᎢᎪᎯᏓ ᎨᏒ ᎪᏪᎶᏗ	none
+∟	right angle	none
+∠	angle	none
+∣	divides	none
+∥	parallel	none
+∧	logical and	none
 ∩	ᏧᏠᎯᏍᏗ	none
 ∪	ᏌᏊ ᎤᎾᎵᎪᎯ	none
+∫	integral	none
+∬	double integral	none
+∮	contour integral	none
+∴	therefore	none
+∵	because	none
+∶	ratio	none
+∷	proportion	none
+∼	tilde operator	none
+∽	reversed tilde	none
+∾	inverted lazy s	none
+≃	asymptotically equal	none
+≅	approximately equal	none
 ≈	ᎢᏧᎳᏢ	none
+≌	all equal	none
+≒	approximately equal the image	none
+≖	ring in equal	none
 ≡	ᏧᏠᏱ ᎾᎿ	none
+≣	strictly equivalent	none
 ≤	ᏩᎦᏲᏢ ᎠᎴᏱᎩ ᎢᏧᎳᎭ	none
 ≥	ᏭᏔᏅ ᎠᎴᏱᎩ ᎢᏧᎳᎭ	none
+≦	less-than over equal	none
+≧	greater-than over equal	none
+≪	much less-than	none
+≫	much greater-than	none
+≬	ᎭᏫᏂ	none
+≳	greater-than equivalent	none
+≺	precedes	none
+≻	succeeds	none
+⊁	does not succeed	none
 ⊂	ᎢᎦᏓᏊ ᎾᎿ	none
+⊃	superset	none
+⊆	subset equal	none
+⊇	superset equal	none
+⊕	circled plus	none
+⊖	circled minus	none
+⊗	circled times	none
+⊘	circled division slash	none
+⊙	circled dot operator	none
+⊚	circled ring operator	none
+⊛	circled asterisk operator	none
+⊞	squared plus	none
+⊟	squared minus	none
+⊥	up tack	none
+⊮	does not force	none
+⊰	precedes under relation	none
+⊱	succeeds under relation	none
+⋭	does not contain as normal subgroup equal	none
+⊶	original	none
+⊹	hermitian conjugate matrix	none
+⊿	right triangle	none
+⋁	n-ary logical or	none
+⋂	n-ary intersection	none
+⋃	n-ary union	none
+⋅	dot operator	none
+⋆	star operator	none
+⋈	natural join	none
+⋒	double intersection	none
+⋘	very much less-than	none
+⋙	very much greater-than	none
+⋮	vertical ellipsis	none
+⋯	midline horizontal ellipsis	none
+⋰	up right diagonal ellipsis	none
+⋱	down right diagonal ellipsis	none
+■	filled square	none
+□	hollow square	none
+▢	hollow square with rounded corners	none
+▣	hollow square containing filled square	none
+▤	square with horizontal fill	none
+▥	square with vertical fill	none
+▦	square orthogonal crosshatch fill	none
+▧	square upper left lower right fill	none
+▨	square upper right lower left fill	none
+▩	square diagonal crosshatch fill	none
+▬	filled rectangle	none
+▭	hollow rectangle	none
+▮	filled vertical rectangle	none
+▰	filled parallelogram	none
 ▲	ᎠᎧᎵᎸᎯ ᎦᎸᎳᏗ-ᏦᎢ ᏧᏅᏏᏯ	none
+△	hollow up-pointing triangle	none
+▴	filled up-pointing small triangle	none
+▵	hollow up-pointing small triangle	none
+▷	hollow right-pointing triangle	none
+▸	filled right-pointing small triangle	none
+▹	hollow right-pointing small triangle	none
+►	filled right-pointing pointer	none
+▻	hollow right-pointing pointer	none
 ▼	ᎠᎧᎵᎸᎯ ᎡᎳᏗ-ᏦᎢ ᏧᏅᏏᏯ	none
+▽	hollow down-pointing triangle	none
+▾	filled down-pointing small triangle	none
+▿	hollow down-pointing small triangle	none
+◁	hollow left-pointing triangle	none
+◂	filled left-pointing small triangle	none
+◃	hollow left-pointing small triangle	none
+◄	filled left-pointing pointer	none
+◅	hollow left-pointing pointer	none
+◆	filled diamond	none
+◇	hollow diamond	none
+◈	hollow diamond containing filled diamond	none
+◉	hollow circle containing filled circle	none
 ◊	ᎪᏍᏓᏱ	none
 ○	ᎤᏒᏙᏂ ᎦᏐᏆᎳ	none
+◌	dotted circle	none
+◍	circle with vertical fill	none
+◎	concentric circles	none
 ●	ᎠᎧᎵᎸᎯ ᎦᏐᏆᎳ	none
-◯	RᏆ ᎤᏒᏙᏂ ᎦᏐᏆᎳ	none
+◐	circle left half filled	none
+◑	circle right half filled	none
+◒	circle lower half filled	none
+◓	circle upper half filled	none
+◔	circle upper right quadrant filled	none
+◕	circle all but upper left quadrant filled	none
+◖	left half filled circle	none
+◗	right half filled circle	none
+◘	inverse bullet	none
+◙	filled square containing hollow circle	none
+◜	upper left quadrant circular arc	none
+◝	upper right quadrant circular arc	none
+◞	lower right quadrant circular arc	none
+◟	lower left quadrant circular arc	none
+◠	upper half circle	none
+◡	lower half circle	none
+◢	filled lower right triangle	none
+◣	filled lower left triangle	none
+◤	filled upper left triangle	none
+◥	filled upper right triangle	none
+◦	hollow bullet	none
+◯	ᎡᏆ ᎤᏒᏙᏂ ᎦᏐᏆᎳ	none
+◳	hollow square upper right quadrant	none
+◷	hollow circle with upper right quadrant	none
+◿	lower right triangle	none
 ♪	eighth note	none
+⨧	plus subscript two	none
+⨯	vector cross product	none
+⨼	interior product	none
+⩣	logical or double underbar	none
+⩽	less-than slanted equal	none
+⪍	less-than above similar equal	none
+⪚	double-line equal greater-than	none
+⪺	succeeds above not almost equal	none
 ♭	flat	none
 ♯	sharp	none
 😀	ᎤᏤᏣᏍᏗ ᎤᎧᏛ	none
@@ -81,12 +306,16 @@ symbols:
 😑	ᎤᎧᏛᎢ ᏅᏓᏁᏟᏴᏒᎾ ᎤᎧᏛ	none
 😶	ᎤᎧᏛᎢ ᏄᏠᏯᏍᏛᎾ ᎠᏲᎵ	none
 🫥	ᎤᏓᏓᎸ ᎠᏍᏓᏅᏅᎢ ᎤᎧᏛ	none
+😶‍🌫	ᎤᎧᏛ ᎭᏫᏂ ᏧᎶᎩᎵ	none
 😏	ᎤᏰᏗᏍᎩ ᎤᎧᏛ	none
 😒	ᏄᏰᏗᏍᎬᎾ ᎤᎧᏛ	none
 🙄	ᎤᎧᏛᎢ ᎤᏠᏯᏍᏗ ᎦᎦᏐᏆᎴᎦ ᏗᎦᏙᎵ	none
 😬	ᎤᏓᏁᎪᏳᎲᎢ ᎤᎧᏛ	none
+😮‍💨	ᎤᎧᏛ ᎤᏓᏅᏖᏙᏗ	none
 🤥	ᎠᎵᏍᎪᏅᏍᎦ ᎤᎧᏛ	none
 🫨	ᎦᎵᏍᏛᏂᎭ	none
+🙂‍↔	ᎠᎵᏍᏛᏂᎭ	none
+🙂‍↕	ᎤᏍᎫᏴᎢ	none
 😌	ᎤᏯᏪᏐᏢ ᎤᎧᏛ	none
 😔	ᎠᏓᏅᏖᎸᏍᎩ ᎤᎧᏛ	none
 😪	ᎦᏢᏍᎩ ᎤᎧᏛ	none
@@ -102,6 +331,7 @@ symbols:
 🥶	ᎤᏴᏜ ᎤᎧᏛ	none
 🥴	ᎤᎸᏕᏍᏗ ᎤᎧᏛ	none
 😵	ᎤᎸᏕᎯᏓ ᎤᎧᏛ	none
+😵‍💫	ᎤᎧᏛ ᏗᎩᏙᎵ ᎠᎦᎷᎦ ᎢᏳᏍᏗ	none
 🤯	ᎠᏔᏍᎩᏍᎩ ᎠᎦᏍᏓᏛ	none
 🤠	ᏗᏍᎳᏗᏍᎩ ᎤᎵᏍᏇᏚᎩ ᎤᎧᏛ	none
 🥳	ᎤᎧᏛ ᎤᎾᏓᏡᎨᏍᎬ	none
@@ -174,6 +404,8 @@ symbols:
 💟	ᎤᎿᏫ ᏗᏟᎶᏍᏔᏅ	none
 ❣	ᎤᏓᎨᏓ ᎤᎿᏫ ᏍᏓᏱ ᎥᎧᏁᎬᎢ	none
 💔	ᎤᏲᏨᎢ ᎤᎿᏫ	none
+❤‍🔥	ᎤᎾᏫ ᎠᎪᎲᏍᏗᏍᎪᎢ	none
+❤‍🩹	ᎣᏍᏓ ᏄᏩᏁᎸᎢ ᎤᎾᏫ	none
 ❤	ᎩᎦᎨ ᎤᎿᏫ	none
 🩷	ᎩᎦᎨ ᎤᏍᎪᎸ ᎤᎾᏫ	none
 🧡	ᎠᏓᎶᏂᎨ ᎤᎿᏫ	none
@@ -269,8 +501,10 @@ symbols:
 👱	ᏴᏫ ᏓᎶᏂᎨ-ᎤᏍᏘᎩ	none
 👨	ᎠᏍᎦᏯ	none
 🧔	ᎠᏍᎦᏯ ᏗᎭᏄᎸᎯ	none
+🧔‍♂	ᎠᏍᎦᏯ ᎠᎭᏄᎸᏒ	none
 👱‍♂	ᎠᏍᎦᏯ ᏓᎶᏂᎨ ᎤᏍᏘᎩ	none
 👩	ᎠᎨᏯ	none
+🧔‍♀	ᎠᎨᏯ ᎠᎭᏄᎸᏒ	none
 👱‍♀	ᎠᎨᏯ ᏓᎶᏂᎨ ᎤᏍᏘᎩ	none
 🧓	ᎠᎦᏴᎵ ᎤᏔᎾ	none
 👴	ᎤᏛᏐᏅ	none
@@ -512,11 +746,15 @@ symbols:
 👬	ᎠᏂᏍᎦᏯ ᏚᎾᏙᏯᏂᎠᎩ	none
 💏	ᎠᏔᏪᏙᎢᏍᏗ	none
 💑	ᏗᎾᏤᎯ ᏧᏂᎿᏫ	none
-👪	ᏏᏓᏁᎸᎢ	none
 🗣	ᎧᏁᎩ ᎠᏍᎪᎵ	none
 👤	ᎤᏲᏨᎢ ᎥᎿ ᎤᏙᏢᏒᎢ	none
 👥	ᎠᏲᎪᎢ ᎥᎿ ᎤᏙᏢᏒᎢ	none
 🫂	ᎠᏂᏴᏫ ᏓᏓᏍᏆᏂᏱᏍᎬ	none
+👪	ᏏᏓᏁᎸᎢ	none
+🧑‍🧑‍🧒	ᏏᏓᏁᎸ ᎠᏅᏓ, ᎠᏅᏓ, ᎠᏲᏟ	none
+🧑‍🧑‍🧒‍🧒	ᏏᏓᏁᎸ ᎠᏅᏓ, ᎠᏅᏓ, ᎠᏲᏟ, ᎠᏲᏟ	none
+🧑‍🧒	ᏏᏓᏁᎸ ᎠᏅᏓ, ᎠᏲᏟ	none
+🧑‍🧒‍🧒	ᏏᏓᏁᎸ ᎠᏅᏓ, ᎠᏲᏟ, ᎠᏲᏟ	none
 👣	ᏚᎳᏏᏅᎢ ᏚᏙᏪᎸᎢ	none
 🦰	ᎩᎦᎨ ᎤᏍᏘᎦ	none
 🦱	ᎤᎵᏥᏍᏆᏁᏓ ᎤᏍᏘᎦ	none
@@ -607,7 +845,9 @@ symbols:
 🦚	ᎬᎾ ᏧᏆᏔᎵ ᏧᎷᎩ ᎠᏨᏯᎢ	none
 🦜	ᏥᏍᏆ ᎦᏬᏂᏍᎩ	none
 🪽	ᎧᏃᎨᏂ	none
+🐦‍⬛	ᏥᏍᏆᎵᏍᏗ	none
 🪿	ᏌᏌ	none
+🐦‍🔥	ᏧᎴᎯᏌᏅᎯ	none
 🐸	ᏩᎶᏏ ᎤᎧᏛ	none
 🐊	ᏧᎳᏍᎩ	none
 🐢	ᏓᎦᏏ	none
@@ -678,6 +918,7 @@ symbols:
 🍉	ᎠᎹ ᎬᎩᏍᏗ	none
 🍊	ᎠᏓᎶᏂᎨ ᎠᎩᏍᏗ	none
 🍋	ᎵᎹᏂ	none
+🍋‍🟩	ᎳᎻ	none
 🍌	ᏆᏁᎾ	none
 🍍	ᏃᏣ ᏒᎦᏔ ᎠᎩᏍᏓ	none
 🥭	ᎺᏂᎪ	none
@@ -709,6 +950,7 @@ symbols:
 🌰	ᏘᎵ	none
 🫚	ᏄᏱᎦᎵ	none
 🫛	ᎤᏅᏢᏓᎵ	none
+🍄‍🟫	ᎤᏬᏗᎨ ᏓᏬᎵ	none
 🍞	ᎦᏚ	none
 🥐	ᎦᎸᏥ ᎦᏚ	none
 🥖	ᎦᏅᎯᏓ ᏌᎨ ᎦᏚ	none
@@ -1203,7 +1445,7 @@ symbols:
 💽	ᎠᎦᏙᎥᎯᏍᏗᏍᎩ ᎠᏍᏆᏂᎪᏗᏍᎩ ᎠᏠᏗ	none
 💾	ᏩᏂᎨ ᎠᏠᏗ	none
 💿	ᎠᎪᏩᏛᏗ ᎠᏠᏗ	none
-📀	dvd	none
+📀	ᎠᏙᎠ	none
 🧮	ᏗᏎᏍᏗ ᏗᏎᏍᏙᏗ	none
 🎥	ᎠᏗᏴᎳᏛᏍᎩ ᏗᏓᏟᎶᏍᏗᏍᎩ	none
 🎞	ᎠᏗᏴᎳᏗᏍᎩ ᎦᏟᏙᏗ	none
@@ -1317,6 +1559,7 @@ symbols:
 ⚖	ᎢᏗᎦᏘᎭ ᏗᎦᏛᏗ	none
 🦯	ᏗᎨᏫ ᎦᏅᏍᏓ ᎬᏙᏗ	none
 🔗	ᎫᏓᎸᏙᏗ	none
+⛓‍💥	broken chain	none
 ⛓	ᏧᎾᏓᏕᏒᏗ	none
 🪝	ᏑᏗᎢ	none
 🧰	ᎬᏔᏂᏓᏍᏗ ᎦᎵᏔᏅᏙᏗ ᎧᏁᏌᎢ	none
@@ -1370,7 +1613,7 @@ symbols:
 🗿	ᎼᎢ	none
 🪧	ᏕᎦᏃᏣᎸ	none
 🪪	ᎢᎪᎵᏍᏙᏗ ᎠᏆᏂᏲᏍᏗ	none
-🏧	ATM ᎪᏪᎵ	none
+🏧	ᎪᎢᎷ ᎪᏪᎵ	none
 🚮	ᎤᏲ ᏩᏗᏅᏗ ᎠᎪᎵᏰᏗ	none
 🚰	ᎠᏗᏔᏍᏗ ᎠᎹ	none
 ♿	ᎦᏍᎩᎶ ᎠᏦᏙᏗ ᎦᏯᎸᎢ	none
@@ -1406,6 +1649,7 @@ symbols:
 ↖	ᎦᎸᎳᏗ-ᎠᎦᏍᎦᏂ ᎦᏝᏗ	none
 ↕	ᎦᎸᎳᏗ - ᎡᎳᏗ ᎦᏝᏗ	none
 ↔	ᎠᎦᏍᎦᏂ - ᎦᏘᏏ ᎦᏝᏗ	none
+↮	left right arrow stroke	none
 ↩	ᎠᎦᏘᏏ ᎦᏝᏗ ᎠᏕᏲ ᎠᎦᏍᎦᏂ	none
 ↪	ᎠᎦᏍᎦᏂ ᎦᏝᏗ ᎠᏕᏲ ᎠᎦᏘᏏ	none
 ⤴	ᎠᎦᏘᏏ ᎦᏝᏗ ᎠᏕᏲ ᎦᎸᎳᏗᎠᎦᏘ	none
@@ -1565,13 +1809,21 @@ symbols:
 🏳‍🌈	ᎤᏅᎪᎳᏛ ᎦᏓᏘ	none
 🏳‍⚧	ᏌᎪᏂᎨ, ᎩᎦᎨ ᎤᏍᎪᎸ, ᎠᎴ ᎤᏁᎦ ᎦᏓᏘ	none
 🏴‍☠	ᏥᏳᎡᏙᎯ ᎠᏓᏌᎲᏍᎩ ᎦᏓᏗ	none
+₢	cruzeiro	none
+₣	french franc	none
+₤	lira	none
 ₥	ᏩᎦᏲᏢ ᎢᏯᏓᏅᏖᏗ	none
 ₩	ᏧᎦᏃᏮ ᎪᎵᎠ ᎠᏕᎳ	none
 €	ᏳᎳᏈ ᎠᏕᎳ	none
+₰	german penny	none
 ₱	ᏍᏆᏂ ᎠᏕᎳ	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	ᎢᏂᏗᎢᎠ ᎠᏕᎳ	none
 ₽	ᏲᏅᎯ ᎠᏕᎳ	none
 ₿	ᎠᏏᎳᏕᏫᏒᎢ ᎠᏕᎳ	none
+₨	rupee	none
 👋🏻	ᎠᏲᎵᎭ ᎤᏗᏴᎳᏘ ᎤᏁᎦᎵ ᏄᏍᏛᎢ	none
 👋🏼	ᎠᏲᎵᎭ ᎠᏲᏟᎨ-ᎤᏗᏴᎳᏘ ᎤᏁᎦᎸ ᏄᎿᏍᏛᎢ	none
 👋🏽	ᎠᏲᎵᎭ ᎠᏲᏟᎨ ᎣᏁᎦᎸ ᏄᏍᏛᎢ	none
@@ -1941,6 +2193,11 @@ symbols:
 🧔🏽	ᎠᏍᎦᏯ ᎠᏲᏟᎨ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᏗᎭᏄᎸᎯ	none
 🧔🏾	ᎠᏍᎦᏯ ᎠᏲᏟᎨ-ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᏗᎭᏄᎸᎯ	none
 🧔🏿	ᎠᏍᎦᏯ ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᏗᎭᏄᎸᎯ	none
+🧔🏻‍♂	ᎠᏍᎦᏯ ᎤᏗᏴᎳᏘ ᎤᏁᎦᎵ ᏄᏍᏛᎢ, ᎠᎭᏄᎸᏒ	none
+🧔🏼‍♂	ᎠᏍᎦᏯ ᎠᏲᏟᎨ-ᎤᏗᏴᎳᏘ ᎤᏁᎦᎸ ᏄᎿᏍᏛᎢ, ᎠᎭᏄᎸᏒ	none
+🧔🏽‍♂	ᎠᏍᎦᏯ ᎠᏲᏟᎨ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᎠᎭᏄᎸᏒ	none
+🧔🏾‍♂	ᎠᏍᎦᏯ ᎠᏲᏟᎨ-ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᎠᎭᏄᎸᏒ	none
+🧔🏿‍♂	ᎠᏍᎦᏯ ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᎠᎭᏄᎸᏒ	none
 👱🏻‍♂	ᎠᏍᎦᏯ ᎤᏗᏴᎳᏘ ᎤᏁᎦᎵ ᏄᏍᏛᎢ, ᏓᎶᏂᎨ ᎤᏍᏘᎩ	none
 👱🏼‍♂	ᎠᏍᎦᏯ ᎠᏲᏟᎨ-ᎤᏗᏴᎳᏘ ᎤᏁᎦᎸ ᏄᎿᏍᏛᎢ, ᏓᎶᏂᎨ ᎤᏍᏘᎩ	none
 👱🏽‍♂	ᎠᏍᎦᏯ ᎠᏲᏟᎨ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᏓᎶᏂᎨ ᎤᏍᏘᎩ	none
@@ -2025,6 +2282,11 @@ symbols:
 👩🏽	ᎠᎨᏯ ᎠᏲᏟᎨ ᎣᏁᎦᎸ ᏄᏍᏛᎢ	none
 👩🏾	ᎠᎨᏯ ᎠᏲᏟᎨ-ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ	none
 👩🏿	ᎠᎨᏯ ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ	none
+🧔🏻‍♀	ᎠᎨᏯ ᎤᏗᏴᎳᏘ ᎤᏁᎦᎵ ᏄᏍᏛᎢ, ᎠᎭᏄᎸᏒ	none
+🧔🏼‍♀	ᎠᎨᏯ ᎠᏲᏟᎨ-ᎤᏗᏴᎳᏘ ᎤᏁᎦᎸ ᏄᎿᏍᏛᎢ, ᎠᎭᏄᎸᏒ	none
+🧔🏽‍♀	ᎠᎨᏯ ᎠᏲᏟᎨ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᎠᎭᏄᎸᏒ	none
+🧔🏾‍♀	ᎠᎨᏯ ᎠᏲᏟᎨ-ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᎠᎭᏄᎸᏒ	none
+🧔🏿‍♀	ᎠᎨᏯ ᎤᎵᏏᎩ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᎠᎭᏄᎸᏒ	none
 👱🏻‍♀	ᎠᎨᏯ ᎤᏗᏴᎳᏘ ᎤᏁᎦᎵ ᏄᏍᏛᎢ, ᏓᎶᏂᎨ ᎤᏍᏘᎩ	none
 👱🏼‍♀	ᎠᎨᏯ ᎠᏲᏟᎨ-ᎤᏗᏴᎳᏘ ᎤᏁᎦᎸ ᏄᎿᏍᏛᎢ, ᏓᎶᏂᎨ ᎤᏍᏘᎩ	none
 👱🏽‍♀	ᎠᎨᏯ ᎠᏲᏟᎨ ᎣᏁᎦᎸ ᏄᏍᏛᎢ, ᏓᎶᏂᎨ ᎤᏍᏘᎩ	none

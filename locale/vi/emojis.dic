@@ -151,20 +151,20 @@ symbols:
 ≳	lớn hơn tương đương	none
 ≺	đứng trước	none
 ≻	đứng sau	none
-⊁	không đứng saau	none
+⊁	không đứng sau	none
 ⊂	tập hợp con của	none
 ⊃	tập cha	none
 ⊆	tập con bằng	none
 ⊇	tập cha bằng	none
-⊕	tổng trực tiếp	none
-⊖	hiệu số đối xứng	none
-⊗	tích tenxơ	none
+⊕	dấu cộng trong vòng tròn	none
+⊖	dấu trừ trong vòng tròn	none
+⊗	dấu nhân trong vòng tròn	none
 ⊘	dấu chia trong vòng tròn	none
-⊙	toán tử chấm tròn	none
-⊚	toán tử vòng tròn	none
-⊛	toán tử hoa thị tròn	none
-⊞	phép cộng	none
-⊟	phép trừ	none
+⊙	toán tử dấu chấm trong vòng tròn	none
+⊚	toán tử hình khuyên trong vòng tròn	none
+⊛	toán tử hoa thị trong vòng tròn	none
+⊞	dấu cộng trong hình vuông	none
+⊟	dấu trừ trong hình vuông	none
 ⊥	chữ T lộn ngược	none
 ⊮	không bắt buộc	none
 ⊰	đứng trước trong hệ thức	none
@@ -177,7 +177,7 @@ symbols:
 ⋂	giao đa phân	none
 ⋃	hợp đa phân	none
 ⋅	toán tử dấu chấm	none
-⋆	toán tử nhân	none
+⋆	toán tử dấu sao	none
 ⋈	phép nối tự nhiên	none
 ⋒	giao kép	none
 ⋘	ít hơn rất nhiều	none
@@ -244,8 +244,8 @@ symbols:
 ◟	cung tròn góc phần tư phía dưới bên trái	none
 ◠	nửa hình tròn trên	none
 ◡	nửa hình tròn dưới	none
-◢	hình tam giác phia dưới bên phải đặc	none
-◣	hình tam giác phia dưới bên trái đặc	none
+◢	hình tam giác phía dưới bên phải đặc	none
+◣	hình tam giác phía dưới bên trái đặc	none
 ◤	hình tam giác phía trên bên trái đặc	none
 ◥	hình tam giác phía trên bên phải đặc	none
 ◦	dấu đầu dòng rỗng	none
@@ -264,19 +264,19 @@ symbols:
 ⪺	đứng sau hoặc gần như không bằng	none
 ♭	nốt giáng	none
 ♯	nốt thăng	none
-😀	mặt cười toét	none
+😀	mặt cười toe toét	none
 😃	mặt cười miệng há với mắt to	none
 😄	mặt cười miệng há mắt cười	none
-😁	mặt cười toét mắt cười	none
+😁	mặt cười nhe răng và mắt cười	none
 😆	mặt cười miệng há mắt nhắm chặt	none
-😅	mặt cười miệng há mồ hôi	none
+😅	mặt cười toát mồ hôi	none
 🤣	mặt cười lăn cười bò	none
 😂	mặt cười với nước mắt vui sướng	none
 🙂	mặt cười mỉm	none
 🙃	mặt lộn ngược	none
 🫠	mặt tan chảy	none
 😉	mặt nháy mắt	none
-😊	mặt mỉm cười với hai mắt híp lại	none
+😊	mặt cười híp mắt	none
 😇	mặt cười có hào quang	none
 🥰	mặt cười với 3 trái tim	none
 😍	mặt cười mắt hình trái tim	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	mặt thở ra	none
 🤥	mặt nói dối	none
 🫨	mặt lắc	none
+🙂‍↔	lắc đầu	none
+🙂‍↕	gật đầu	none
 😌	mặt nhẹ nhõm	none
 😔	mặt trầm ngâm	none
 😪	mặt buồn ngủ	none
@@ -608,7 +610,7 @@ symbols:
 🧕	người phụ nữ quàng khăn trùm đầu	none
 🤵	người mặc bộ vest	none
 🤵‍♂	người đàn ông mặc bộ vest	none
-🤵‍♀	người phụ nữ mặc tuxedo	none
+🤵‍♀	người phụ nữ mặc bộ vest	none
 👰	người đội khăn voan	none
 👰‍♂	người đàn ông đội khăn voan	none
 👰‍♀	người phụ nữ đội khăn voan	none
@@ -744,11 +746,15 @@ symbols:
 👬	hai người đàn ông nắm tay	none
 💏	nụ hôn	none
 💑	cặp đôi với trái tim	none
-👪	gia đình	none
 🗣	đầu người đang nói	none
 👤	bóng tượng bán thân	none
 👥	các bóng tượng bán thân	none
 🫂	hai người ôm nhau	none
+👪	gia đình	none
+🧑‍🧑‍🧒	gia đình người lớn, người lớn, trẻ em	none
+🧑‍🧑‍🧒‍🧒	gia đình người lớn, người lớn, trẻ em, trẻ em	none
+🧑‍🧒	gia đình người lớn, trẻ em	none
+🧑‍🧒‍🧒	gia đình người lớn, trẻ em, trẻ em	none
 👣	dấu chân	none
 🦰	tóc đỏ	none
 🦱	tóc xoăn	none
@@ -764,7 +770,7 @@ symbols:
 🐕‍🦺	chó hỗ trợ	none
 🐩	chó xù	none
 🐺	mặt chó sói	none
-🦊	mặt cáo	none
+🦊	cáo	none
 🦝	gấu trúc	none
 🐱	mặt mèo	none
 🐈	mèo	none
@@ -777,7 +783,7 @@ symbols:
 🫎	nai sừng tấm Bắc Mỹ	none
 🫏	con lừa	none
 🐎	ngựa	none
-🦄	mặt kỳ lân	none
+🦄	kỳ lân	none
 🦓	ngựa vằn	none
 🦌	hươu	none
 🦬	bò rừng	none
@@ -810,7 +816,7 @@ symbols:
 🦫	hải ly	none
 🦔	nhím	none
 🦇	dơi	none
-🐻	mặt gấu	none
+🐻	gấu	none
 🐻‍❄	Gấu trắng Bắc Cực	none
 🐨	gấu túi	none
 🐼	mặt gấu trúc	none
@@ -839,8 +845,10 @@ symbols:
 🦚	con công	none
 🦜	con vẹt	none
 🪽	cánh	none
+🐦‍⬛	chim hoét đen	none
 🪿	con ngỗng	none
-🐸	mặt ếch	none
+🐦‍🔥	phượng hoàng	none
+🐸	ếch	none
 🐊	cá sấu	none
 🐢	rùa	none
 🦎	thằn lằn	none
@@ -909,7 +917,8 @@ symbols:
 🍈	dưa	none
 🍉	dưa hấu	none
 🍊	quýt	none
-🍋	chanh	none
+🍋	chanh tây	none
+🍋‍🟩	chanh ta	none
 🍌	chuối	none
 🍍	dứa	none
 🥭	xoài	none
@@ -941,6 +950,7 @@ symbols:
 🌰	hạt dẻ	none
 🫚	củ gừng	none
 🫛	đậu Hà Lan	none
+🍄‍🟫	nấm màu nâu	none
 🍞	bánh mì	none
 🥐	bánh sừng bò	none
 🥖	bánh mì que	none
@@ -1027,7 +1037,7 @@ symbols:
 🥃	ly đáy phẳng	none
 🫗	đổ chất lỏng	none
 🥤	cốc và ống hút	none
-🧋	trà sữa	none
+🧋	trà sữa trân châu	none
 🧃	hộp đồ uống	none
 🧉	trà nhựa ruồi	none
 🧊	viên đá	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	cân thăng bằng	none
 🦯	gậy dò đường	none
 🔗	mắt xích	none
+⛓‍💥	xích bị đứt	none
 ⛓	dây xích	none
 🪝	móc	none
 🧰	hộp dụng cụ	none
@@ -1800,7 +1811,7 @@ symbols:
 🏴‍☠	cờ cướp biển	none
 ₢	cruzeiro	none
 ₣	đồng franc Pháp	none
-₤	lia	none
+₤	lira	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
@@ -2925,11 +2936,11 @@ symbols:
 🤵🏽‍♂	người đàn ông mặc bộ vest màu da trung bình	none
 🤵🏾‍♂	người đàn ông mặc bộ vest màu da tối trung bình	none
 🤵🏿‍♂	người đàn ông mặc bộ vest màu da tối	none
-🤵🏻‍♀	người phụ nữ mặc tuxedo màu da sáng	none
-🤵🏼‍♀	người phụ nữ mặc tuxedo màu da sáng trung bình	none
-🤵🏽‍♀	người phụ nữ mặc tuxedo màu da trung bình	none
-🤵🏾‍♀	người phụ nữ mặc tuxedo màu da tối trung bình	none
-🤵🏿‍♀	người phụ nữ mặc tuxedo màu da tối	none
+🤵🏻‍♀	người phụ nữ mặc bộ vest màu da sáng	none
+🤵🏼‍♀	người phụ nữ mặc bộ vest màu da sáng trung bình	none
+🤵🏽‍♀	người phụ nữ mặc bộ vest màu da trung bình	none
+🤵🏾‍♀	người phụ nữ mặc bộ vest màu da tối trung bình	none
+🤵🏿‍♀	người phụ nữ mặc bộ vest màu da tối	none
 👰🏻	người đội khăn voan màu da sáng	none
 👰🏼	người đội khăn voan màu da sáng trung bình	none
 👰🏽	người đội khăn voan màu da trung bình	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	cờ Xứ Wales	none
 ₡	Colón Costa Rica	none
 ₦	Naira Nigeria	none
-₧	Đồng Peseta Tây Ban Nha	none
 ₪	Sheqel Israel mới	none
 ₫	Đồng Việt Nam	none
 ₭	Kip Lào	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	Lia Thổ Nhĩ Kỳ	none
 ₼	Manat Azerbaijan	none
 ₾	Lari Georgia	none
+₧	Đồng Peseta Tây Ban Nha	none

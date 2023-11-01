@@ -38,11 +38,11 @@ symbols:
 ↳	uranman wachi ñawchiwan pañaman	none
 ↴	pañaman wachi kuchuwan uranman	none
 ↵	uranman wachi kuchuwan lluqiman	none
-↶	tikrasqa ura qatichkanku hanaqpi kuska muyusqa wachi	none
-↷	ura qatichkanku hanaqpi kuska muyusqa wachi	none
+↶	hukhina ura hanaqpi kuska muyu wachi	none
+↷	urawan hanaqpi kuska muyu wachi	none
 ↸	chincha kunti wachi hatun warrawan	none
 ↹	lluqiman wachi pañaman wachipi	none
-↺	tikrasqa ura qatispa kichasqa muyuwan wachi	none
+↺	hukhina ura kichasqa muyu wachi	none
 ↻	ura qatispa kichasqa muyuwan wachi	none
 ↼	lluqiman arpon puya hina hanaqman	none
 ↽	lluqiman arpon puya hina uranman	none
@@ -169,7 +169,7 @@ symbols:
 ⊮	manam kallpa kanchu	none
 ⊰	ñawpaqman tinkuywan	none
 ⊱	qipaman tinkuywan	none
-⋭	manam kaqlla hina uchuy huñu kikinwan tiyanchu	none
+⋭	manaraqmi kikin uchuy huñuhina	none
 ⊶	kikinchay	none
 ⊹	ermitaño muyuchiy sapin	none
 ⊿	paña kimsa kuchu	none
@@ -183,13 +183,13 @@ symbols:
 ⋘	ancha aswan pisin	none
 ⋙	ancha aswan kuraqnin	none
 ⋮	sayampa kimsa qatipasqa chusukuna	none
-⋯	chawpipi kinrampa kimsa qatipasqa chusukuna	none
-⋰	hanaq pañaman siqi kimsa qatipasqa chusukuna	none
-⋱	uran pañaman siqi kimsa qatipasqa chusukuna	none
+⋯	chawpipi kinrampa siqi kimsa chusuwan	none
+⋰	hanaq pañaman siqi kimsa chusuwan	none
+⋱	uran pañaman siqi kimsa chusuwan	none
 ■	huntasqa tawakuchu	none
 □	ukunwan tawakuchu	none
-▢	ukunwan tawakuchu muyusqa kuchukunawan	none
-▣	ukunwan tawakuchu huntasqa tawakuchuyuqwan	none
+▢	tawakuchu ukun muyusqa kuchuwan	none
+▣	ukun tawakuchu lliw tawakuchuwan	none
 ▤	tawakuchu kinrampawan huntasqa	none
 ▥	tawakuchu sayampawan huntasqa	none
 ▦	tawakuchu pusaq chakanawan huntasqa	none
@@ -202,19 +202,19 @@ symbols:
 ▰	huntasqa paralelogramo	none
 ▲	huntasqa hanaqman ñawpiwan kimsakuchu	none
 △	chusaq kimsakuchu ñawpi hanaqman	none
-▴	huntasqa uchuy kimsakuchu ñawpi hanaqman	none
-▵	chusaq uchuy kimsakuchu ñawpi hanaqman	none
+▴	uchuy lliw kimsakuchu hanaqman	none
+▵	chusaq uchuy kimsakuchu hanaqman	none
 ▷	chusaq kimsakuchu ñawpi pañaman	none
-▸	huntasqa uchuy kimsakuchu ñawpi pañaman	none
+▸	lliw uchuy kimsakuchu pañaman	none
 ▹	chusaq uchuy kimsakuchu ñawpi pañaman	none
 ►	huntasqa ñawpi pañaman	none
 ▻	chusaq ñawpi pañaman	none
 ▼	huntasqa uranman ñawpiwan kimsakuchu	none
 ▽	chusaq kimsakuchu ñawpi uranman	none
-▾	huntasqa uchuy kimsakuchu ñawpi uranman	none
+▾	lliw uchuy kimsakuchu uranman	none
 ▿	chusaq uchuy kimsakuchu ñawpi uranman	none
 ◁	chusaq kimsakuchu ñawpi lluqiman	none
-◂	huntasqa uchuy kimsakuchu ñawpi lluqiman	none
+◂	lliw uchuy kimsakuchu lluqiman	none
 ◃	chusaq uchuy kimsakuchu ñawpi lluqiman	none
 ◄	huntasqa ñawpi lluqiman	none
 ◅	chusaq ñawpi lluqiman	none
@@ -233,7 +233,7 @@ symbols:
 ◒	muyu kuska chusaq huntasqa uranpi	none
 ◓	muyu kuska chusaq huntasqa hanaqpi	none
 ◔	muyu huntasqa hanaq pañaman	none
-◕	llapan huntasqa muyu ichaqa chusaq hanaq lluqiman	none
+◕	lliw yana muyu chusaq hanaq lluqiwan	none
 ◖	lluqi kusqa muyupi huntasqa	none
 ◗	paña kusqa muyupi huntasqa	none
 ◘	tikrasqa siqichana yupi	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	uya samachkan	none
 🤥	llullakusqa uya	none
 🫨	kuyusqa uya	none
+🙂‍↔	tapsiy umata hanaqmanta urayman	none
+🙂‍↕	vertical tapsiy umata	none
 😌	llamsayasqa uya	none
 😔	yuyaspa uya	none
 😪	uya puñuywan	none
@@ -497,10 +499,10 @@ symbols:
 👧	warmi warma	none
 🧑	runa	none
 👱	runa qillu chukcha	none
-👨	tata	none
+👨	qari	none
 🧔	runa kʼaki	none
-🧔‍♂	runa kaki	none
-👱‍♂	tata qillu chukcha	none
+🧔‍♂	qari kaki	none
+👱‍♂	qari qillu chukcha	none
 👩	warmi	none
 🧔‍♀	warmi kʼaki	none
 👱‍♀	warmi qʼillu chukcha	none
@@ -514,7 +516,7 @@ symbols:
 🙎‍♂	phiñachisqa tata	none
 🙎‍♀	phiñachisqa warmi	none
 🙅	runa MANA rikuy	none
-🙅‍♂	tat MANA gestowan	none
+🙅‍♂	tata MANA gestowan	none
 🙅‍♀	warmi MANA gestowan	none
 🙆	runa UYAKUY rikuy	none
 🙆‍♂	tata UYAKUY gestowan	none
@@ -744,11 +746,15 @@ symbols:
 👬	runa iskay makikunawan	none
 💏	much’a	none
 💑	pitu runakuna sunquwan	none
-👪	kuraq ayllu	none
 🗣	uma parlachkan	none
 👤	ukhu rikchay	none
 👥	ukhu rikchaykuna	none
 🫂	runakuna makʼalliwan	none
+👪	kuraq ayllu	none
+🧑‍🧑‍🧒	ayllu runa, runa, warma	none
+🧑‍🧑‍🧒‍🧒	ayllu runa, runa, warma, warma	none
+🧑‍🧒	ayllu runa, warma	none
+🧑‍🧒‍🧒	ayllu runa, warma, warma	none
 👣	yupinay	none
 🦰	puka chukcha	none
 🦱	qaspa chukcha	none
@@ -839,7 +845,9 @@ symbols:
 🦚	pavo real	none
 🦜	uritu	none
 🪽	rapra	none
+🐦‍⬛	yana pisqu	none
 🪿	ganso	none
+🐦‍🔥	fenix	none
 🐸	jamp’atu	none
 🐊	kayman	none
 🐢	tortuga	none
@@ -1107,8 +1115,10 @@ symbols:
 🚂	locomotora	none
 🚃	tren ferrocarrilpaq	none
 🚄	utqhay tren	none
+🚅	bala tren	none
 🚆	tren	none
 🚇	metro	none
+🚈	tren ligero	none
 🚉	estacion	none
 🚊	tranvia	none
 🚝	monorrail	none
@@ -1134,19 +1144,26 @@ symbols:
 🏎	carrera carrupi	none
 🏍	motocicleta	none
 🛵	patinador motorwan	none
+🦽	manual ruedaswan tiyana	none
+🦼	muturwan ruedaswan tiyana	none
+🛺	kikin calesa	none
 🚲	bicicleta	none
 🛴	patinador	none
+🛹	patineta	none
+🛼	ruedaswan patines	none
 🚏	parada autobúspaq	none
 🛣	autopista	none
 🛤	ferrocarril tren	none
 🛢	tambor aceitewan	none
 ⛽	bomba gasolinera	none
+🛞	rueda	none
 🚨	sirena policia carrumanta	none
 🚥	kinranpa semaforo	none
 🚦	sayanpa semaforo	none
 🛑	alto unancha	none
 🚧	wasichiy	none
 ⚓	linderuyachiq	none
+🛟	salvavidas anillu	none
 ⛵	velero	none
 🛶	canoa	none
 🚤	utqhay lancha	none
@@ -1170,6 +1187,7 @@ symbols:
 🛎	chhullupi botonespaq	none
 🧳	equipaje	none
 ⌛	tukusqa arenawan intiwatana	none
+⏳	manam tukusqa arenawan intiwatana	none
 ⌚	inti watana	none
 ⏰	despertador	none
 ⏱	cronografo	none
@@ -1303,6 +1321,7 @@ symbols:
 🎯	diana	none
 🪀	yoyo	none
 🪁	cometa nisqa	none
+🔫	yaku pistola	none
 🎱	billar	none
 🔮	muyu qhispillu	none
 🪄	magica warra	none
@@ -1328,6 +1347,8 @@ symbols:
 🎨	paleta llimpiq	none
 🧵	hilo	none
 🪡	uku hilopaq	none
+🧶	watu	none
+🪢	nudo	none
 👓	lentes	none
 🕶	lentes intipaq	none
 🥽	goggles nisqa	none
@@ -1368,6 +1389,7 @@ symbols:
 🎩	hanaq chiku	none
 🎓	graduacion chiku	none
 🧢	gorra	none
+🪖	militar casco nisqa	none
 ⛑	yanapaq llamkaqmanta casco	none
 📿	rosario	none
 💄	llimpʼi simipaq	none
@@ -1391,12 +1413,17 @@ symbols:
 🎤	micrófono	none
 🎧	audifono	none
 📻	radio	none
-🎷	saxofono	none
+🎷	saxofon	none
+🪗	acordion	none
 🎸	guitarra	none
 🎹	teclas musicales	none
 🎺	trompeta	none
 🎻	violin	none
+🪕	banjo	none
 🥁	tambor	none
+🪘	tambor kullumanta	none
+🪇	maracas	none
+🪈	flauta	none
 📱	apaykachana telefono	none
 📲	apaykachana telefono wachʼiwan	none
 ☎	fono	none
@@ -1406,6 +1433,7 @@ symbols:
 🔋	kallpa waqaychaq	none
 🪫	pisi kallpa waqaychaq	none
 🔌	enchufe	none
+💻	computadora	none
 🖥	hanpara computadora	none
 🖨	impresora	none
 ⌨	ñitina	none
@@ -1415,6 +1443,7 @@ symbols:
 💾	disquete	none
 💿	disku	none
 📀	dvd	none
+🧮	abaco	none
 🎥	camara cinepaq	none
 🎞	kanchakuna peliculamanta	none
 📽	proyector cinepaq	none
@@ -1424,10 +1453,13 @@ symbols:
 📸	camara flash kaqwan	none
 📹	videocamara	none
 📼	videocaset	none
+🔍	lupa lluqiman	none
+🔎	lupa pañaman	none
 🕯	vela	none
 💡	kʼancha	none
 🔦	flash	none
 🏮	izakaya linterna	none
+🪔	diya lampara	none
 📔	yachaykunapaq pʼanqa kʼacha rapiwan	none
 📕	wichqasqa pʼanqa	none
 📖	kichasqa pʼanqa	none
@@ -1446,19 +1478,40 @@ symbols:
 🔖	chinpuq	none
 🏷	sutichaq	none
 💰	qulli qipi	none
+🪙	moneda	none
+💴	yen billete	none
+💵	dolar billete	none
+💶	euro billete	none
+💷	libras esterlinas billete	none
+💸	qullqi raprakunawan	none
+💳	qullqi mañaypa tarjetan	none
 🧾	recibo	none
+💹	tawa kuchu yaparispa yenwan	none
 ✉	karta	none
+📧	correo electronico	none
+📨	yaykumuq carta	none
+📩	carta wachiwan	none
+📤	lluqsina wandiha	none
 📮	chaski churana	none
 ✏	qillqana	none
+🖋	fuente qillqana	none
 🖊	tintawan qillqana	none
+🖌	pincel	none
 🖍	crayon	none
+📝	qillqa	none
 📎	clip rapipaq	none
 🖇	tinkisqa clipkuna rapipaq	none
 🔒	harkana	none
 🔑	kichana	none
 🗝	ñawpa kichana	none
 💣	bomba	none
+🔗	tinkina	none
+⛓‍💥	pakisqa cadena	none
+⛓	cadenakuna	none
+🪝	gancho	none
+🧰	llamkanakuna huñusqa	none
 🧲	magnetu	none
+🪜	escalera nisqa	none
 🔬	microscopio	none
 🔭	telescopio	none
 🚪	punku	none
@@ -1533,6 +1586,7 @@ symbols:
 ☮	qhasi kay unancha	none
 🕎	menorah	none
 🔯	suqta ñawpinkunawan quyllur	none
+🪯	khanda	none
 ♈	Aries	none
 ♉	Tauro	none
 ♊	Geminis	none
@@ -1568,6 +1622,7 @@ symbols:
 🔅	lliphiy ñitina	none
 🔆	kʼanchay ñitina	none
 📶	antena siqikunawan	none
+🛜	internetniyuqwan	none
 📳	vibracion mudu	none
 📴	apaykachana telefono wañuchiy	none
 ♀	warmi unancha	none
@@ -1665,6 +1720,8 @@ symbols:
 🏴	yana whipala	none
 🏳	yuraq whipala	none
 🏳‍🌈	k’uychi whipala	none
+🏳‍⚧	transgenero whipala	none
+🏴‍☠	pirata whipala	none
 ₢	cruzeiro qullqi	none
 ₣	frances franco	none
 ₤	lira qullqi	none
@@ -2039,100 +2096,100 @@ symbols:
 🧑🏽‍🦲	runa tunpa qara niraq, paqla	none
 🧑🏾‍🦲	runa tunpa yana qara niraq, paqla	none
 🧑🏿‍🦲	runa yana qara niraq, paqla	none
-👨🏻	tata chuya qara niraq	none
-👨🏼	tata tunpa chuya qara niraq	none
-👨🏽	tata tunpa qara niraq	none
-👨🏾	tata tunpa yana qara niraq	none
-👨🏿	tata yana qara niraq	none
+👨🏻	qari chuya qara niraq	none
+👨🏼	qari tunpa chuya qara niraq	none
+👨🏽	qari tunpa qara niraq	none
+👨🏾	qari tunpa yana qara niraq	none
+👨🏿	qari yana qara niraq	none
 🧔🏻	runa chuya qara niraq, kʼaki	none
 🧔🏼	runa tunpa chuya qara niraq, kʼaki	none
 🧔🏽	runa tunpa qara niraq, kʼaki	none
 🧔🏾	runa tunpa yana qara niraq, kʼaki	none
 🧔🏿	runa yana qara niraq, kʼaki	none
-🧔🏻‍♂	runa chuya qara niraq, kaki	none
-🧔🏼‍♂	runa tunpa chuya qara niraq, kaki	none
-🧔🏽‍♂	runa tunpa qara niraq, kaki	none
-🧔🏾‍♂	runa tunpa yana qara niraq, kaki	none
-🧔🏿‍♂	runa yana qara niraq, kaki	none
-👱🏻‍♂	tata chuya qara niraq, qillu chukcha	none
-👱🏼‍♂	tata tunpa chuya qara niraq, qillu chukcha	none
-👱🏽‍♂	tata tunpa qara niraq, qillu chukcha	none
-👱🏾‍♂	tata tunpa yana qara niraq, qillu chukcha	none
-👱🏿‍♂	tata yana qara niraq, qillu chukcha	none
-👨🏻‍❤‍💋‍👨🏻	much’a tata, tata, chuya qara niraq	none
-👨🏻‍❤‍💋‍👨🏼	much’a tata, tata, chuya qara niraq, tunpa chuya qara niraq	none
-👨🏻‍❤‍💋‍👨🏽	much’a tata, tata, chuya qara niraq, tunpa qara niraq	none
-👨🏻‍❤‍💋‍👨🏾	much’a tata, tata, chuya qara niraq, tunpa yana qara niraq	none
-👨🏻‍❤‍💋‍👨🏿	much’a tata, tata, chuya qara niraq, yana qara niraq	none
-👨🏼‍❤‍💋‍👨🏻	much’a tata, tata, tunpa chuya qara niraq, chuya qara niraq	none
-👨🏼‍❤‍💋‍👨🏼	much’a tata, tata, tunpa chuya qara niraq	none
-👨🏼‍❤‍💋‍👨🏽	much’a tata, tata, tunpa chuya qara niraq, tunpa qara niraq	none
-👨🏼‍❤‍💋‍👨🏾	much’a tata, tata, tunpa chuya qara niraq, tunpa yana qara niraq	none
-👨🏼‍❤‍💋‍👨🏿	much’a tata, tata, tunpa chuya qara niraq, yana qara niraq	none
-👨🏽‍❤‍💋‍👨🏻	much’a tata, tata, tunpa qara niraq, chuya qara niraq	none
-👨🏽‍❤‍💋‍👨🏼	much’a tata, tata, tunpa qara niraq, tunpa chuya qara niraq	none
-👨🏽‍❤‍💋‍👨🏽	much’a tata, tata, tunpa qara niraq	none
-👨🏽‍❤‍💋‍👨🏾	much’a tata, tata, tunpa qara niraq, tunpa yana qara niraq	none
-👨🏽‍❤‍💋‍👨🏿	much’a tata, tata, tunpa qara niraq, yana qara niraq	none
-👨🏾‍❤‍💋‍👨🏻	much’a tata, tata, tunpa yana qara niraq, chuya qara niraq	none
-👨🏾‍❤‍💋‍👨🏼	much’a tata, tata, tunpa yana qara niraq, tunpa chuya qara niraq	none
-👨🏾‍❤‍💋‍👨🏽	much’a tata, tata, tunpa yana qara niraq, tunpa qara niraq	none
-👨🏾‍❤‍💋‍👨🏾	much’a tata, tata, tunpa yana qara niraq	none
-👨🏾‍❤‍💋‍👨🏿	much’a tata, tata, tunpa yana qara niraq, yana qara niraq	none
-👨🏿‍❤‍💋‍👨🏻	much’a tata, tata, yana qara niraq, chuya qara niraq	none
-👨🏿‍❤‍💋‍👨🏼	much’a tata, tata, yana qara niraq, tunpa chuya qara niraq	none
-👨🏿‍❤‍💋‍👨🏽	much’a tata, tata, yana qara niraq, tunpa qara niraq	none
-👨🏿‍❤‍💋‍👨🏾	much’a tata, tata, yana qara niraq, tunpa yana qara niraq	none
-👨🏿‍❤‍💋‍👨🏿	much’a tata, tata, yana qara niraq	none
-👨🏻‍❤‍👨🏻	pitu runakuna sunquwan tata, tata, chuya qara niraq	none
-👨🏻‍❤‍👨🏼	pitu runakuna sunquwan tata, tata, chuya qara niraq, tunpa chuya qara niraq	none
-👨🏻‍❤‍👨🏽	pitu runakuna sunquwan tata, tata, chuya qara niraq, tunpa qara niraq	none
-👨🏻‍❤‍👨🏾	pitu runakuna sunquwan tata, tata, chuya qara niraq, tunpa yana qara niraq	none
-👨🏻‍❤‍👨🏿	pitu runakuna sunquwan tata, tata, chuya qara niraq, yana qara niraq	none
-👨🏼‍❤‍👨🏻	pitu runakuna sunquwan tata, tata, tunpa chuya qara niraq, chuya qara niraq	none
-👨🏼‍❤‍👨🏼	pitu runakuna sunquwan tata, tata, tunpa chuya qara niraq	none
-👨🏼‍❤‍👨🏽	pitu runakuna sunquwan tata, tata, tunpa chuya qara niraq, tunpa qara niraq	none
-👨🏼‍❤‍👨🏾	pitu runakuna sunquwan tata, tata, tunpa chuya qara niraq, tunpa yana qara niraq	none
-👨🏼‍❤‍👨🏿	pitu runakuna sunquwan tata, tata, tunpa chuya qara niraq, yana qara niraq	none
-👨🏽‍❤‍👨🏻	pitu runakuna sunquwan tata, tata, tunpa qara niraq, chuya qara niraq	none
-👨🏽‍❤‍👨🏼	pitu runakuna sunquwan tata, tata, tunpa qara niraq, tunpa chuya qara niraq	none
-👨🏽‍❤‍👨🏽	pitu runakuna sunquwan tata, tata, tunpa qara niraq	none
-👨🏽‍❤‍👨🏾	pitu runakuna sunquwan tata, tata, tunpa qara niraq, tunpa yana qara niraq	none
-👨🏽‍❤‍👨🏿	pitu runakuna sunquwan tata, tata, tunpa qara niraq, yana qara niraq	none
-👨🏾‍❤‍👨🏻	pitu runakuna sunquwan tata, tata, tunpa yana qara niraq, chuya qara niraq	none
-👨🏾‍❤‍👨🏼	pitu runakuna sunquwan tata, tata, tunpa yana qara niraq, tunpa chuya qara niraq	none
-👨🏾‍❤‍👨🏽	pitu runakuna sunquwan tata, tata, tunpa yana qara niraq, tunpa qara niraq	none
-👨🏾‍❤‍👨🏾	pitu runakuna sunquwan tata, tata, tunpa yana qara niraq	none
-👨🏾‍❤‍👨🏿	pitu runakuna sunquwan tata, tata, tunpa yana qara niraq, yana qara niraq	none
-👨🏿‍❤‍👨🏻	pitu runakuna sunquwan tata, tata, yana qara niraq, chuya qara niraq	none
-👨🏿‍❤‍👨🏼	pitu runakuna sunquwan tata, tata, yana qara niraq, tunpa chuya qara niraq	none
-👨🏿‍❤‍👨🏽	pitu runakuna sunquwan tata, tata, yana qara niraq, tunpa qara niraq	none
-👨🏿‍❤‍👨🏾	pitu runakuna sunquwan tata, tata, yana qara niraq, tunpa yana qara niraq	none
-👨🏿‍❤‍👨🏿	pitu runakuna sunquwan tata, tata, yana qara niraq	none
-👨‍🦰	tata puka chukcha	none
-👨🏻‍🦰	tata chuya qara niraq, puka chukcha	none
-👨🏼‍🦰	tata tunpa chuya qara niraq, puka chukcha	none
-👨🏽‍🦰	tata tunpa qara niraq, puka chukcha	none
-👨🏾‍🦰	tata tunpa yana qara niraq, puka chukcha	none
-👨🏿‍🦰	tata yana qara niraq, puka chukcha	none
-👨‍🦱	tata qaspa chukcha	none
-👨🏻‍🦱	tata chuya qara niraq, qaspa chukcha	none
-👨🏼‍🦱	tata tunpa chuya qara niraq, qaspa chukcha	none
-👨🏽‍🦱	tata tunpa qara niraq, qaspa chukcha	none
-👨🏾‍🦱	tata tunpa yana qara niraq, qaspa chukcha	none
-👨🏿‍🦱	tata yana qara niraq, qaspa chukcha	none
-👨‍🦳	tata yuraq chukcha	none
-👨🏻‍🦳	tata chuya qara niraq, yuraq chukcha	none
-👨🏼‍🦳	tata tunpa chuya qara niraq, yuraq chukcha	none
-👨🏽‍🦳	tata tunpa qara niraq, yuraq chukcha	none
-👨🏾‍🦳	tata tunpa yana qara niraq, yuraq chukcha	none
-👨🏿‍🦳	tata yana qara niraq, yuraq chukcha	none
-👨‍🦲	tata paqla	none
-👨🏻‍🦲	tata chuya qara niraq, paqla	none
-👨🏼‍🦲	tata tunpa chuya qara niraq, paqla	none
-👨🏽‍🦲	tata tunpa qara niraq, paqla	none
-👨🏾‍🦲	tata tunpa yana qara niraq, paqla	none
-👨🏿‍🦲	tata yana qara niraq, paqla	none
+🧔🏻‍♂	qari chuya qara niraq, kaki	none
+🧔🏼‍♂	qari tunpa chuya qara niraq, kaki	none
+🧔🏽‍♂	qari tunpa qara niraq, kaki	none
+🧔🏾‍♂	qari tunpa yana qara niraq, kaki	none
+🧔🏿‍♂	qari yana qara niraq, kaki	none
+👱🏻‍♂	qari chuya qara niraq, qillu chukcha	none
+👱🏼‍♂	qari tunpa chuya qara niraq, qillu chukcha	none
+👱🏽‍♂	qari tunpa qara niraq, qillu chukcha	none
+👱🏾‍♂	qari tunpa yana qara niraq, qillu chukcha	none
+👱🏿‍♂	qari yana qara niraq, qillu chukcha	none
+👨🏻‍❤‍💋‍👨🏻	much’a qari, qari, chuya qara niraq	none
+👨🏻‍❤‍💋‍👨🏼	much’a qari, qari, chuya qara niraq, tunpa chuya qara niraq	none
+👨🏻‍❤‍💋‍👨🏽	much’a qari, qari, chuya qara niraq, tunpa qara niraq	none
+👨🏻‍❤‍💋‍👨🏾	much’a qari, qari, chuya qara niraq, tunpa yana qara niraq	none
+👨🏻‍❤‍💋‍👨🏿	much’a qari, qari, chuya qara niraq, yana qara niraq	none
+👨🏼‍❤‍💋‍👨🏻	much’a qari, qari, tunpa chuya qara niraq, chuya qara niraq	none
+👨🏼‍❤‍💋‍👨🏼	much’a qari, qari, tunpa chuya qara niraq	none
+👨🏼‍❤‍💋‍👨🏽	much’a qari, qari, tunpa chuya qara niraq, tunpa qara niraq	none
+👨🏼‍❤‍💋‍👨🏾	much’a qari, qari, tunpa chuya qara niraq, tunpa yana qara niraq	none
+👨🏼‍❤‍💋‍👨🏿	much’a qari, qari, tunpa chuya qara niraq, yana qara niraq	none
+👨🏽‍❤‍💋‍👨🏻	much’a qari, qari, tunpa qara niraq, chuya qara niraq	none
+👨🏽‍❤‍💋‍👨🏼	much’a qari, qari, tunpa qara niraq, tunpa chuya qara niraq	none
+👨🏽‍❤‍💋‍👨🏽	much’a qari, qari, tunpa qara niraq	none
+👨🏽‍❤‍💋‍👨🏾	much’a qari, qari, tunpa qara niraq, tunpa yana qara niraq	none
+👨🏽‍❤‍💋‍👨🏿	much’a qari, qari, tunpa qara niraq, yana qara niraq	none
+👨🏾‍❤‍💋‍👨🏻	much’a qari, qari, tunpa yana qara niraq, chuya qara niraq	none
+👨🏾‍❤‍💋‍👨🏼	much’a qari, qari, tunpa yana qara niraq, tunpa chuya qara niraq	none
+👨🏾‍❤‍💋‍👨🏽	much’a qari, qari, tunpa yana qara niraq, tunpa qara niraq	none
+👨🏾‍❤‍💋‍👨🏾	much’a qari, qari, tunpa yana qara niraq	none
+👨🏾‍❤‍💋‍👨🏿	much’a qari, qari, tunpa yana qara niraq, yana qara niraq	none
+👨🏿‍❤‍💋‍👨🏻	much’a qari, qari, yana qara niraq, chuya qara niraq	none
+👨🏿‍❤‍💋‍👨🏼	much’a qari, qari, yana qara niraq, tunpa chuya qara niraq	none
+👨🏿‍❤‍💋‍👨🏽	much’a qari, qari, yana qara niraq, tunpa qara niraq	none
+👨🏿‍❤‍💋‍👨🏾	much’a qari, qari, yana qara niraq, tunpa yana qara niraq	none
+👨🏿‍❤‍💋‍👨🏿	much’a qari, qari, yana qara niraq	none
+👨🏻‍❤‍👨🏻	pitu runakuna sunquwan qari, qari, chuya qara niraq	none
+👨🏻‍❤‍👨🏼	pitu runakuna sunquwan qari, qari, chuya qara niraq, tunpa chuya qara niraq	none
+👨🏻‍❤‍👨🏽	pitu runakuna sunquwan qari, qari, chuya qara niraq, tunpa qara niraq	none
+👨🏻‍❤‍👨🏾	pitu runakuna sunquwan qari, qari, chuya qara niraq, tunpa yana qara niraq	none
+👨🏻‍❤‍👨🏿	pitu runakuna sunquwan qari, qari, chuya qara niraq, yana qara niraq	none
+👨🏼‍❤‍👨🏻	pitu runakuna sunquwan qari, qari, tunpa chuya qara niraq, chuya qara niraq	none
+👨🏼‍❤‍👨🏼	pitu runakuna sunquwan qari, qari, tunpa chuya qara niraq	none
+👨🏼‍❤‍👨🏽	pitu runakuna sunquwan qari, qari, tunpa chuya qara niraq, tunpa qara niraq	none
+👨🏼‍❤‍👨🏾	pitu runakuna sunquwan qari, qari, tunpa chuya qara niraq, tunpa yana qara niraq	none
+👨🏼‍❤‍👨🏿	pitu runakuna sunquwan qari, qari, tunpa chuya qara niraq, yana qara niraq	none
+👨🏽‍❤‍👨🏻	pitu runakuna sunquwan qari, qari, tunpa qara niraq, chuya qara niraq	none
+👨🏽‍❤‍👨🏼	pitu runakuna sunquwan qari, qari, tunpa qara niraq, tunpa chuya qara niraq	none
+👨🏽‍❤‍👨🏽	pitu runakuna sunquwan qari, qari, tunpa qara niraq	none
+👨🏽‍❤‍👨🏾	pitu runakuna sunquwan qari, qari, tunpa qara niraq, tunpa yana qara niraq	none
+👨🏽‍❤‍👨🏿	pitu runakuna sunquwan qari, qari, tunpa qara niraq, yana qara niraq	none
+👨🏾‍❤‍👨🏻	pitu runakuna sunquwan qari, qari, tunpa yana qara niraq, chuya qara niraq	none
+👨🏾‍❤‍👨🏼	pitu runakuna sunquwan qari, qari, tunpa yana qara niraq, tunpa chuya qara niraq	none
+👨🏾‍❤‍👨🏽	pitu runakuna sunquwan qari, qari, tunpa yana qara niraq, tunpa qara niraq	none
+👨🏾‍❤‍👨🏾	pitu runakuna sunquwan qari, qari, tunpa yana qara niraq	none
+👨🏾‍❤‍👨🏿	pitu runakuna sunquwan qari, qari, tunpa yana qara niraq, yana qara niraq	none
+👨🏿‍❤‍👨🏻	pitu runakuna sunquwan qari, qari, yana qara niraq, chuya qara niraq	none
+👨🏿‍❤‍👨🏼	pitu runakuna sunquwan qari, qari, yana qara niraq, tunpa chuya qara niraq	none
+👨🏿‍❤‍👨🏽	pitu runakuna sunquwan qari, qari, yana qara niraq, tunpa qara niraq	none
+👨🏿‍❤‍👨🏾	pitu runakuna sunquwan qari, qari, yana qara niraq, tunpa yana qara niraq	none
+👨🏿‍❤‍👨🏿	pitu runakuna sunquwan qari, qari, yana qara niraq	none
+👨‍🦰	qari puka chukcha	none
+👨🏻‍🦰	qari chuya qara niraq, puka chukcha	none
+👨🏼‍🦰	qari tunpa chuya qara niraq, puka chukcha	none
+👨🏽‍🦰	qari tunpa qara niraq, puka chukcha	none
+👨🏾‍🦰	qari tunpa yana qara niraq, puka chukcha	none
+👨🏿‍🦰	qari yana qara niraq, puka chukcha	none
+👨‍🦱	qari qaspa chukcha	none
+👨🏻‍🦱	qari chuya qara niraq, qaspa chukcha	none
+👨🏼‍🦱	qari tunpa chuya qara niraq, qaspa chukcha	none
+👨🏽‍🦱	qari tunpa qara niraq, qaspa chukcha	none
+👨🏾‍🦱	qari tunpa yana qara niraq, qaspa chukcha	none
+👨🏿‍🦱	qari yana qara niraq, qaspa chukcha	none
+👨‍🦳	qari yuraq chukcha	none
+👨🏻‍🦳	qari chuya qara niraq, yuraq chukcha	none
+👨🏼‍🦳	qari tunpa chuya qara niraq, yuraq chukcha	none
+👨🏽‍🦳	qari tunpa qara niraq, yuraq chukcha	none
+👨🏾‍🦳	qari tunpa yana qara niraq, yuraq chukcha	none
+👨🏿‍🦳	qari yana qara niraq, yuraq chukcha	none
+👨‍🦲	qari paqla	none
+👨🏻‍🦲	qari chuya qara niraq, paqla	none
+👨🏼‍🦲	qari tunpa chuya qara niraq, paqla	none
+👨🏽‍🦲	qari tunpa qara niraq, paqla	none
+👨🏾‍🦲	qari tunpa yana qara niraq, paqla	none
+👨🏿‍🦲	qari yana qara niraq, paqla	none
 👩🏻	warmi chuya qara niraq	none
 👩🏼	warmi tunpa chuya qara niraq	none
 👩🏽	warmi tunpa qara niraq	none
@@ -2148,31 +2205,31 @@ symbols:
 👱🏽‍♀	warmi tunpa qara niraq, qʼillu chukcha	none
 👱🏾‍♀	warmi tunpa yana qara niraq, qʼillu chukcha	none
 👱🏿‍♀	warmi yana qara niraq, qʼillu chukcha	none
-👩🏻‍❤‍💋‍👨🏻	much’a warmi, tata, chuya qara niraq	none
-👩🏻‍❤‍💋‍👨🏼	much’a warmi, tata, chuya qara niraq, tunpa chuya qara niraq	none
-👩🏻‍❤‍💋‍👨🏽	much’a warmi, tata, chuya qara niraq, tunpa qara niraq	none
-👩🏻‍❤‍💋‍👨🏾	much’a warmi, tata, chuya qara niraq, tunpa yana qara niraq	none
-👩🏻‍❤‍💋‍👨🏿	much’a warmi, tata, chuya qara niraq, yana qara niraq	none
-👩🏼‍❤‍💋‍👨🏻	much’a warmi, tata, tunpa chuya qara niraq, chuya qara niraq	none
-👩🏼‍❤‍💋‍👨🏼	much’a warmi, tata, tunpa chuya qara niraq	none
-👩🏼‍❤‍💋‍👨🏽	much’a warmi, tata, tunpa chuya qara niraq, tunpa qara niraq	none
-👩🏼‍❤‍💋‍👨🏾	much’a warmi, tata, tunpa chuya qara niraq, tunpa yana qara niraq	none
-👩🏼‍❤‍💋‍👨🏿	much’a warmi, tata, tunpa chuya qara niraq, yana qara niraq	none
-👩🏽‍❤‍💋‍👨🏻	much’a warmi, tata, tunpa qara niraq, chuya qara niraq	none
-👩🏽‍❤‍💋‍👨🏼	much’a warmi, tata, tunpa qara niraq, tunpa chuya qara niraq	none
-👩🏽‍❤‍💋‍👨🏽	much’a warmi, tata, tunpa qara niraq	none
-👩🏽‍❤‍💋‍👨🏾	much’a warmi, tata, tunpa qara niraq, tunpa yana qara niraq	none
-👩🏽‍❤‍💋‍👨🏿	much’a warmi, tata, tunpa qara niraq, yana qara niraq	none
-👩🏾‍❤‍💋‍👨🏻	much’a warmi, tata, tunpa yana qara niraq, chuya qara niraq	none
-👩🏾‍❤‍💋‍👨🏼	much’a warmi, tata, tunpa yana qara niraq, tunpa chuya qara niraq	none
-👩🏾‍❤‍💋‍👨🏽	much’a warmi, tata, tunpa yana qara niraq, tunpa qara niraq	none
-👩🏾‍❤‍💋‍👨🏾	much’a warmi, tata, tunpa yana qara niraq	none
-👩🏾‍❤‍💋‍👨🏿	much’a warmi, tata, tunpa yana qara niraq, yana qara niraq	none
-👩🏿‍❤‍💋‍👨🏻	much’a warmi, tata, yana qara niraq, chuya qara niraq	none
-👩🏿‍❤‍💋‍👨🏼	much’a warmi, tata, yana qara niraq, tunpa chuya qara niraq	none
-👩🏿‍❤‍💋‍👨🏽	much’a warmi, tata, yana qara niraq, tunpa qara niraq	none
-👩🏿‍❤‍💋‍👨🏾	much’a warmi, tata, yana qara niraq, tunpa yana qara niraq	none
-👩🏿‍❤‍💋‍👨🏿	much’a warmi, tata, yana qara niraq	none
+👩🏻‍❤‍💋‍👨🏻	much’a warmi, qari, chuya qara niraq	none
+👩🏻‍❤‍💋‍👨🏼	much’a warmi, qari, chuya qara niraq, tunpa chuya qara niraq	none
+👩🏻‍❤‍💋‍👨🏽	much’a warmi, qari, chuya qara niraq, tunpa qara niraq	none
+👩🏻‍❤‍💋‍👨🏾	much’a warmi, qari, chuya qara niraq, tunpa yana qara niraq	none
+👩🏻‍❤‍💋‍👨🏿	much’a warmi, qari, chuya qara niraq, yana qara niraq	none
+👩🏼‍❤‍💋‍👨🏻	much’a warmi, qari, tunpa chuya qara niraq, chuya qara niraq	none
+👩🏼‍❤‍💋‍👨🏼	much’a warmi, qari, tunpa chuya qara niraq	none
+👩🏼‍❤‍💋‍👨🏽	much’a warmi, qari, tunpa chuya qara niraq, tunpa qara niraq	none
+👩🏼‍❤‍💋‍👨🏾	much’a warmi, qari, tunpa chuya qara niraq, tunpa yana qara niraq	none
+👩🏼‍❤‍💋‍👨🏿	much’a warmi, qari, tunpa chuya qara niraq, yana qara niraq	none
+👩🏽‍❤‍💋‍👨🏻	much’a warmi, qari, tunpa qara niraq, chuya qara niraq	none
+👩🏽‍❤‍💋‍👨🏼	much’a warmi, qari, tunpa qara niraq, tunpa chuya qara niraq	none
+👩🏽‍❤‍💋‍👨🏽	much’a warmi, qari, tunpa qara niraq	none
+👩🏽‍❤‍💋‍👨🏾	much’a warmi, qari, tunpa qara niraq, tunpa yana qara niraq	none
+👩🏽‍❤‍💋‍👨🏿	much’a warmi, qari, tunpa qara niraq, yana qara niraq	none
+👩🏾‍❤‍💋‍👨🏻	much’a warmi, qari, tunpa yana qara niraq, chuya qara niraq	none
+👩🏾‍❤‍💋‍👨🏼	much’a warmi, qari, tunpa yana qara niraq, tunpa chuya qara niraq	none
+👩🏾‍❤‍💋‍👨🏽	much’a warmi, qari, tunpa yana qara niraq, tunpa qara niraq	none
+👩🏾‍❤‍💋‍👨🏾	much’a warmi, qari, tunpa yana qara niraq	none
+👩🏾‍❤‍💋‍👨🏿	much’a warmi, qari, tunpa yana qara niraq, yana qara niraq	none
+👩🏿‍❤‍💋‍👨🏻	much’a warmi, qari, yana qara niraq, chuya qara niraq	none
+👩🏿‍❤‍💋‍👨🏼	much’a warmi, qari, yana qara niraq, tunpa chuya qara niraq	none
+👩🏿‍❤‍💋‍👨🏽	much’a warmi, qari, yana qara niraq, tunpa qara niraq	none
+👩🏿‍❤‍💋‍👨🏾	much’a warmi, qari, yana qara niraq, tunpa yana qara niraq	none
+👩🏿‍❤‍💋‍👨🏿	much’a warmi, qari, yana qara niraq	none
 👩🏻‍❤‍💋‍👩🏻	much’a warmi, warmi, chuya qara niraq	none
 👩🏻‍❤‍💋‍👩🏼	much’a warmi, warmi, chuya qara niraq, tunpa chuya qara niraq	none
 👩🏻‍❤‍💋‍👩🏽	much’a warmi, warmi, chuya qara niraq, tunpa qara niraq	none
@@ -2198,31 +2255,31 @@ symbols:
 👩🏿‍❤‍💋‍👩🏽	much’a warmi, warmi, yana qara niraq, tunpa qara niraq	none
 👩🏿‍❤‍💋‍👩🏾	much’a warmi, warmi, yana qara niraq, tunpa yana qara niraq	none
 👩🏿‍❤‍💋‍👩🏿	much’a warmi, warmi, yana qara niraq	none
-👩🏻‍❤‍👨🏻	pitu runakuna sunquwan warmi, tata, chuya qara niraq	none
-👩🏻‍❤‍👨🏼	pitu runakuna sunquwan warmi, tata, chuya qara niraq, tunpa chuya qara niraq	none
-👩🏻‍❤‍👨🏽	pitu runakuna sunquwan warmi, tata, chuya qara niraq, tunpa qara niraq	none
-👩🏻‍❤‍👨🏾	pitu runakuna sunquwan warmi, tata, chuya qara niraq, tunpa yana qara niraq	none
-👩🏻‍❤‍👨🏿	pitu runakuna sunquwan warmi, tata, chuya qara niraq, yana qara niraq	none
-👩🏼‍❤‍👨🏻	pitu runakuna sunquwan warmi, tata, tunpa chuya qara niraq, chuya qara niraq	none
-👩🏼‍❤‍👨🏼	pitu runakuna sunquwan warmi, tata, tunpa chuya qara niraq	none
-👩🏼‍❤‍👨🏽	pitu runakuna sunquwan warmi, tata, tunpa chuya qara niraq, tunpa qara niraq	none
-👩🏼‍❤‍👨🏾	pitu runakuna sunquwan warmi, tata, tunpa chuya qara niraq, tunpa yana qara niraq	none
-👩🏼‍❤‍👨🏿	pitu runakuna sunquwan warmi, tata, tunpa chuya qara niraq, yana qara niraq	none
-👩🏽‍❤‍👨🏻	pitu runakuna sunquwan warmi, tata, tunpa qara niraq, chuya qara niraq	none
-👩🏽‍❤‍👨🏼	pitu runakuna sunquwan warmi, tata, tunpa qara niraq, tunpa chuya qara niraq	none
-👩🏽‍❤‍👨🏽	pitu runakuna sunquwan warmi, tata, tunpa qara niraq	none
-👩🏽‍❤‍👨🏾	pitu runakuna sunquwan warmi, tata, tunpa qara niraq, tunpa yana qara niraq	none
-👩🏽‍❤‍👨🏿	pitu runakuna sunquwan warmi, tata, tunpa qara niraq, yana qara niraq	none
-👩🏾‍❤‍👨🏻	pitu runakuna sunquwan warmi, tata, tunpa yana qara niraq, chuya qara niraq	none
-👩🏾‍❤‍👨🏼	pitu runakuna sunquwan warmi, tata, tunpa yana qara niraq, tunpa chuya qara niraq	none
-👩🏾‍❤‍👨🏽	pitu runakuna sunquwan warmi, tata, tunpa yana qara niraq, tunpa qara niraq	none
-👩🏾‍❤‍👨🏾	pitu runakuna sunquwan warmi, tata, tunpa yana qara niraq	none
-👩🏾‍❤‍👨🏿	pitu runakuna sunquwan warmi, tata, tunpa yana qara niraq, yana qara niraq	none
-👩🏿‍❤‍👨🏻	pitu runakuna sunquwan warmi, tata, yana qara niraq, chuya qara niraq	none
-👩🏿‍❤‍👨🏼	pitu runakuna sunquwan warmi, tata, yana qara niraq, tunpa chuya qara niraq	none
-👩🏿‍❤‍👨🏽	pitu runakuna sunquwan warmi, tata, yana qara niraq, tunpa qara niraq	none
-👩🏿‍❤‍👨🏾	pitu runakuna sunquwan warmi, tata, yana qara niraq, tunpa yana qara niraq	none
-👩🏿‍❤‍👨🏿	pitu runakuna sunquwan warmi, tata, yana qara niraq	none
+👩🏻‍❤‍👨🏻	pitu runakuna sunquwan warmi, qari, chuya qara niraq	none
+👩🏻‍❤‍👨🏼	pitu runakuna sunquwan warmi, qari, chuya qara niraq, tunpa chuya qara niraq	none
+👩🏻‍❤‍👨🏽	pitu runakuna sunquwan warmi, qari, chuya qara niraq, tunpa qara niraq	none
+👩🏻‍❤‍👨🏾	pitu runakuna sunquwan warmi, qari, chuya qara niraq, tunpa yana qara niraq	none
+👩🏻‍❤‍👨🏿	pitu runakuna sunquwan warmi, qari, chuya qara niraq, yana qara niraq	none
+👩🏼‍❤‍👨🏻	pitu runakuna sunquwan warmi, qari, tunpa chuya qara niraq, chuya qara niraq	none
+👩🏼‍❤‍👨🏼	pitu runakuna sunquwan warmi, qari, tunpa chuya qara niraq	none
+👩🏼‍❤‍👨🏽	pitu runakuna sunquwan warmi, qari, tunpa chuya qara niraq, tunpa qara niraq	none
+👩🏼‍❤‍👨🏾	pitu runakuna sunquwan warmi, qari, tunpa chuya qara niraq, tunpa yana qara niraq	none
+👩🏼‍❤‍👨🏿	pitu runakuna sunquwan warmi, qari, tunpa chuya qara niraq, yana qara niraq	none
+👩🏽‍❤‍👨🏻	pitu runakuna sunquwan warmi, qari, tunpa qara niraq, chuya qara niraq	none
+👩🏽‍❤‍👨🏼	pitu runakuna sunquwan warmi, qari, tunpa qara niraq, tunpa chuya qara niraq	none
+👩🏽‍❤‍👨🏽	pitu runakuna sunquwan warmi, qari, tunpa qara niraq	none
+👩🏽‍❤‍👨🏾	pitu runakuna sunquwan warmi, qari, tunpa qara niraq, tunpa yana qara niraq	none
+👩🏽‍❤‍👨🏿	pitu runakuna sunquwan warmi, qari, tunpa qara niraq, yana qara niraq	none
+👩🏾‍❤‍👨🏻	pitu runakuna sunquwan warmi, qari, tunpa yana qara niraq, chuya qara niraq	none
+👩🏾‍❤‍👨🏼	pitu runakuna sunquwan warmi, qari, tunpa yana qara niraq, tunpa chuya qara niraq	none
+👩🏾‍❤‍👨🏽	pitu runakuna sunquwan warmi, qari, tunpa yana qara niraq, tunpa qara niraq	none
+👩🏾‍❤‍👨🏾	pitu runakuna sunquwan warmi, qari, tunpa yana qara niraq	none
+👩🏾‍❤‍👨🏿	pitu runakuna sunquwan warmi, qari, tunpa yana qara niraq, yana qara niraq	none
+👩🏿‍❤‍👨🏻	pitu runakuna sunquwan warmi, qari, yana qara niraq, chuya qara niraq	none
+👩🏿‍❤‍👨🏼	pitu runakuna sunquwan warmi, qari, yana qara niraq, tunpa chuya qara niraq	none
+👩🏿‍❤‍👨🏽	pitu runakuna sunquwan warmi, qari, yana qara niraq, tunpa qara niraq	none
+👩🏿‍❤‍👨🏾	pitu runakuna sunquwan warmi, qari, yana qara niraq, tunpa yana qara niraq	none
+👩🏿‍❤‍👨🏿	pitu runakuna sunquwan warmi, qari, yana qara niraq	none
 👩🏻‍❤‍👩🏻	pitu runakuna sunquwan warmi, warmi, chuya qara niraq	none
 👩🏻‍❤‍👩🏼	pitu runakuna sunquwan warmi, warmi, chuya qara niraq, tunpa chuya qara niraq	none
 👩🏻‍❤‍👩🏽	pitu runakuna sunquwan warmi, warmi, chuya qara niraq, tunpa qara niraq	none
@@ -2322,11 +2379,11 @@ symbols:
 🙅🏽	runa MANA rikuy tunpa qara niraq	none
 🙅🏾	runa MANA rikuy tunpa yana qara niraq	none
 🙅🏿	runa MANA rikuy yana qara niraq	none
-🙅🏻‍♂	tat MANA gestowan chuya qara niraq	none
-🙅🏼‍♂	tat MANA gestowan tunpa chuya qara niraq	none
-🙅🏽‍♂	tat MANA gestowan tunpa qara niraq	none
-🙅🏾‍♂	tat MANA gestowan tunpa yana qara niraq	none
-🙅🏿‍♂	tat MANA gestowan yana qara niraq	none
+🙅🏻‍♂	tata MANA gestowan chuya qara niraq	none
+🙅🏼‍♂	tata MANA gestowan tunpa chuya qara niraq	none
+🙅🏽‍♂	tata MANA gestowan tunpa qara niraq	none
+🙅🏾‍♂	tata MANA gestowan tunpa yana qara niraq	none
+🙅🏿‍♂	tata MANA gestowan yana qara niraq	none
 🙅🏻‍♀	warmi MANA gestowan chuya qara niraq	none
 🙅🏼‍♀	warmi MANA gestowan tunpa chuya qara niraq	none
 🙅🏽‍♀	warmi MANA gestowan tunpa qara niraq	none
@@ -3472,37 +3529,37 @@ symbols:
 💏🏽	much’a tunpa qara niraq	none
 💏🏾	much’a tunpa yana qara niraq	none
 💏🏿	much’a yana qara niraq	none
-👩‍❤‍💋‍👨	much’a warmi, tata	none
-👨‍❤‍💋‍👨	much’a tata, tata	none
+👩‍❤‍💋‍👨	much’a warmi, qari	none
+👨‍❤‍💋‍👨	much’a qari, qari	none
 👩‍❤‍💋‍👩	much’a warmi, warmi	none
 💑🏻	pitu runakuna sunquwan chuya qara niraq	none
 💑🏼	pitu runakuna sunquwan tunpa chuya qara niraq	none
 💑🏽	pitu runakuna sunquwan tunpa qara niraq	none
 💑🏾	pitu runakuna sunquwan tunpa yana qara niraq	none
 💑🏿	pitu runakuna sunquwan yana qara niraq	none
-👩‍❤‍👨	pitu runakuna sunquwan warmi, tata	none
-👨‍❤‍👨	pitu runakuna sunquwan tata, tata	none
+👩‍❤‍👨	pitu runakuna sunquwan warmi, qari	none
+👨‍❤‍👨	pitu runakuna sunquwan qari, qari	none
 👩‍❤‍👩	pitu runakuna sunquwan warmi, warmi	none
-👨‍👩‍👦	kuraq ayllu tata, warmi, yuqalla	none
-👨‍👩‍👧	kuraq ayllu tata, warmi, warmi warma	none
-👨‍👩‍👧‍👦	kuraq ayllu tata, warmi, warmi warma, yuqalla	none
-👨‍👩‍👦‍👦	kuraq ayllu tata, warmi, yuqalla, yuqalla	none
-👨‍👩‍👧‍👧	kuraq ayllu tata, warmi, warmi warma, warmi warma	none
-👨‍👨‍👦	kuraq ayllu tata, tata, yuqalla	none
-👨‍👨‍👧	kuraq ayllu tata, tata, warmi warma	none
-👨‍👨‍👧‍👦	kuraq ayllu tata, tata, warmi warma, yuqalla	none
-👨‍👨‍👦‍👦	kuraq ayllu tata, tata, yuqalla, yuqalla	none
-👨‍👨‍👧‍👧	kuraq ayllu tata, tata, warmi warma, warmi warma	none
+👨‍👩‍👦	kuraq ayllu qari, warmi, yuqalla	none
+👨‍👩‍👧	kuraq ayllu qari, warmi, warmi warma	none
+👨‍👩‍👧‍👦	kuraq ayllu qari, warmi, warmi warma, yuqalla	none
+👨‍👩‍👦‍👦	kuraq ayllu qari, warmi, yuqalla, yuqalla	none
+👨‍👩‍👧‍👧	kuraq ayllu qari, warmi, warmi warma, warmi warma	none
+👨‍👨‍👦	kuraq ayllu qari, qari, yuqalla	none
+👨‍👨‍👧	kuraq ayllu qari, qari, warmi warma	none
+👨‍👨‍👧‍👦	kuraq ayllu qari, qari, warmi warma, yuqalla	none
+👨‍👨‍👦‍👦	kuraq ayllu qari, qari, yuqalla, yuqalla	none
+👨‍👨‍👧‍👧	kuraq ayllu qari, qari, warmi warma, warmi warma	none
 👩‍👩‍👦	kuraq ayllu warmi, warmi, yuqalla	none
 👩‍👩‍👧	kuraq ayllu warmi, warmi, warmi warma	none
 👩‍👩‍👧‍👦	kuraq ayllu warmi, warmi, warmi warma, yuqalla	none
 👩‍👩‍👦‍👦	kuraq ayllu warmi, warmi, yuqalla, yuqalla	none
 👩‍👩‍👧‍👧	kuraq ayllu warmi, warmi, warmi warma, warmi warma	none
-👨‍👦	kuraq ayllu tata, yuqalla	none
-👨‍👦‍👦	kuraq ayllu tata, yuqalla, yuqalla	none
-👨‍👧	kuraq ayllu tata, warmi warma	none
-👨‍👧‍👦	kuraq ayllu tata, warmi warma, yuqalla	none
-👨‍👧‍👧	kuraq ayllu tata, warmi warma, warmi warma	none
+👨‍👦	kuraq ayllu qari, yuqalla	none
+👨‍👦‍👦	kuraq ayllu qari, yuqalla, yuqalla	none
+👨‍👧	kuraq ayllu qari, warmi warma	none
+👨‍👧‍👦	kuraq ayllu qari, warmi warma, yuqalla	none
+👨‍👧‍👧	kuraq ayllu qari, warmi warma, warmi warma	none
 👩‍👦	kuraq ayllu warmi, yuqalla	none
 👩‍👦‍👦	kuraq ayllu warmi, yuqalla, yuqalla	none
 👩‍👧	kuraq ayllu warmi, warmi warma	none

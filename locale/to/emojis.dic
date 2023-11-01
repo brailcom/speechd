@@ -89,7 +89,7 @@ symbols:
 ⇧	ngeʻesi ngahau ki ʻolunga	none
 ⇨	ngeʻesi ngahau ki toʻomataʻu	none
 ⇩	ngeʻesi ngahau ki lalo	none
-⇪	ngeʻesi ngahau ki olunga meihe pā	none
+⇪	ngeʻesi ngahau ki ʻolunga meihe pā	none
 ⇵	ngahau ki lalo mo ki ʻolunga	none
 ∀	kātoa	none
 ∂	faikehekehe fakakonga	none
@@ -244,10 +244,10 @@ symbols:
 ◟	fuopotopoto vahefā toʻohema-lalo	none
 ◠	fuopotopoto vaeua ʻi ʻolunga	none
 ◡	fuopotopoto vaeua ʻi lalo	none
-◢	tapafā fonu toʻomataʻu-lalo	none
-◣	tapafā fonu toʻohema-lalo	none
-◤	tapafā fonu toʻohema-ʻolunga	none
-◥	tapafā fonu toʻomataʻu-ʻolunga	none
+◢	tapatolu fonu toʻomataʻu-lalo	none
+◣	tapatolu fonu toʻohema-lalo	none
+◤	tapatolu fonu toʻohema-ʻolunga	none
+◥	tapatolu fonu toʻomataʻu-ʻolunga	none
 ◦	ngeʻesi pulukōkō	none
 ◯	ngeʻesi fuopotopoto lahi	none
 ◳	ngeʻesi tapafā vahefā toʻomataʻu-ʻolunga	none
@@ -293,7 +293,7 @@ symbols:
 🤪	mata masoli	none
 😝	mata tetepa moe ʻelelo	none
 🤑	mata ngutu-paʻanga	none
-🤗	mata fāʻufua	none
+🤗	mata fāʻufua moe nima-homo	none
 🤭	mata moe nima ʻi muʻa ʻoe ngutu	none
 🫢	mata matalahi moe nima ʻi muʻa ʻoe ngutu	none
 🫣	mata moe foʻimata tauasi	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	mata hō	none
 🤥	mata moe ihu lōloa	none
 🫨	mata tete	none
+🙂‍↔	mata kalokalo	none
+🙂‍↕	mata kamokamo	none
 😌	mata fakanongononga	none
 😔	mata fakalaulauloto	none
 😪	mata fiemohea	none
@@ -744,11 +746,15 @@ symbols:
 👬	ongo tangata fetakinima	none
 💏	ʻuma	none
 💑	ongo tokoua moe mafu	none
-👪	fāmili	none
 🗣	mata talanoa	none
 👤	ʻata ʻoe sino	none
 👥	ongo ʻata ʻoe sino	none
 🫂	kakai fāʻufua	none
+👪	fāmili	none
+🧑‍🧑‍🧒	fāmili ongo motuʻa, fānau	none
+🧑‍🧑‍🧒‍🧒	fāmili ongo motuʻa, ongo fānau	none
+🧑‍🧒	fāmili motuʻa, fānau	none
+🧑‍🧒‍🧒	fāmili motuʻa, ongo fānau	none
 👣	topuvaʻe	none
 🦰	ʻulu kulokula	none
 🦱	ʻulu mingimingi	none
@@ -841,6 +847,7 @@ symbols:
 🪽	kapakau	none
 🐦‍⬛	manupuna lanuʻuliʻuli	none
 🪿	kuusi	none
+🐦‍🔥	feniki	none
 🐸	mataʻi-poto	none
 🐊	kalokataile	none
 🐢	fonu	none
@@ -911,6 +918,7 @@ symbols:
 🍉	meleni	none
 🍊	moli	none
 🍋	lemani	none
+🍋‍🟩	laime	none
 🍌	siaine	none
 🍍	fainā	none
 🥭	mango	none
@@ -942,6 +950,7 @@ symbols:
 🌰	ifi	none
 🫚	sinisā	none
 🫛	ngeʻesi piini	none
+🍄‍🟫	fakamalu-ʻa-tēvolo kula	none
 🍞	mā	none
 🥐	mā kalipa	none
 🥖	mā lōloa	none
@@ -1550,6 +1559,7 @@ symbols:
 ⚖	meʻa fuamamafa	none
 🦯	tokotoko fakaʻeke	none
 🔗	kupuʻi sēini	none
+⛓‍💥	sēini motu	none
 ⛓	sēini	none
 🪝	mātaʻu	none
 🧰	puha meʻangāue	none
@@ -1799,21 +1809,21 @@ symbols:
 🏳‍🌈	fuka ʻūmata	none
 🏳‍⚧	fuka pulū-pingikē-hinehina	none
 🏴‍☠	fuka kaihaʻatahi	none
-₢	paʻanga fakapalāsili	none
-₣	paʻanga fakafalanisē	none
-₤	paʻanga fakaʻītali	none
+₢	kuluseilo	none
+₣	falanikē	none
+₤	lila	none
 ₥	mili	none
 ₩	uoni	none
 €	ʻeulo	none
-₰	sēniti fakasiamane	none
+₰	pifeni	none
 ₱	peso	none
-₳	paʻanga fakaʻasenitina	none
-₶	paʻanga motuʻa fakafalanisē	none
-₷	paʻanga fakaʻesipulanito	none
+₳	ʻōsitali	none
+₶	līvele tūnua	none
+₷	sipesimilo	none
 ₹	lupi fakaʻinitia	none
 ₽	lupi fakalūsia	none
 ₿	makapiti	none
-₨	paʻanga fakaʻinitia	none
+₨	lupi	none
 👋🏻	nima taʻataʻalo kili hinehina	none
 👋🏼	nima taʻataʻalo kili kelokelo	none
 👋🏽	nima taʻataʻalo kili melomelo	none

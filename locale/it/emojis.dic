@@ -101,8 +101,8 @@ symbols:
 ∉	non appartiene	none
 ∋	contiene	none
 ∎	end of proof	none
-∏	prodotto n-ary	none
-∑	sommatoria n-ary	none
+∏	prodotto n-ario	none
+∑	sommatoria n-aria	none
 ≮	non minore di	none
 ≠	disuguale	none
 ≯	non maggiore di	none
@@ -173,9 +173,9 @@ symbols:
 ⊶	originale	none
 ⊹	matrice hermitiana coniugata	none
 ⊿	triangolo rettangolo	none
-⋁	n-ary logico o	none
-⋂	intersezione n-ary	none
-⋃	unione n-ary	none
+⋁	or logico n-ario	none
+⋂	intersezione n-aria	none
+⋃	unione n-aria	none
 ⋅	operatore punto	none
 ⋆	operatore asterisco (*)	none
 ⋈	unione naturale	none
@@ -291,7 +291,7 @@ symbols:
 😛	faccina che mostra la lingua	none
 😜	faccina che fa l’occhiolino e mostra la lingua	none
 🤪	faccina impazzita	none
-😝	faccina con un gran sorriso che mostra la lingua	none
+😝	faccina che strizza gli occhi e mostra la lingua	none
 🤑	faccina avida di denaro	none
 🤗	faccina che abbraccia	none
 🤭	faccina con mano sulla bocca	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	faccina che espira	none
 🤥	faccina bugiarda	none
 🫨	faccina tremante	none
+🙂‍↔	scuotere la testa in senso orizzontale	none
+🙂‍↕	scuotere la testa in senso verticale	none
 😌	faccina sollevata	none
 😔	faccina pensierosa	none
 😪	faccina assonnata	none
@@ -744,11 +746,15 @@ symbols:
 👬	due uomini che si tengono per mano	none
 💏	bacio tra coppia	none
 💑	coppia con cuore	none
-👪	famiglia	none
 🗣	persona che parla	none
 👤	profilo di persona	none
 👥	profilo di due persone	none
 🫂	persone che si abbracciano	none
+👪	famiglia	none
+🧑‍🧑‍🧒	famiglia persona adulta, persona adulta, minore	none
+🧑‍🧑‍🧒‍🧒	famiglia persona adulta, persona adulta, minore, minore	none
+🧑‍🧒	famiglia persona adulta, minore	none
+🧑‍🧒‍🧒	famiglia persona adulta, minore, minore	none
 👣	impronta di piedi	none
 🦰	capelli rossi	none
 🦱	capelli ricci	none
@@ -839,7 +845,9 @@ symbols:
 🦚	pavone	none
 🦜	pappagallo	none
 🪽	ala	none
+🐦‍⬛	merlo	none
 🪿	oca	none
+🐦‍🔥	fenice	none
 🐸	rana	none
 🐊	coccodrillo	none
 🐢	tartaruga	none
@@ -910,6 +918,7 @@ symbols:
 🍉	anguria	none
 🍊	mandarino	none
 🍋	limone	none
+🍋‍🟩	lime	none
 🍌	banana	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	castagna	none
 🫚	radice di zenzero	none
 🫛	baccello di piselli	none
+🍄‍🟫	fungo marrone	none
 🍞	pane in cassetta	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	bilancia a doppio piatto	none
 🦯	bastone per non vedenti	none
 🔗	collegamento	none
+⛓‍💥	catena spezzata	none
 ⛓	catene	none
 🪝	gancio	none
 🧰	cassetta degli attrezzi	none
@@ -3860,7 +3871,7 @@ symbols:
 🇸🇻	bandiera El Salvador	none
 🇸🇽	bandiera Sint Maarten	none
 🇸🇾	bandiera Siria	none
-🇸🇿	bandiera eSwatini	none
+🇸🇿	bandiera Eswatini	none
 🇹🇦	bandiera Tristan da Cunha	none
 🇹🇨	bandiera Isole Turks e Caicos	none
 🇹🇩	bandiera Ciad	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandiera Galles	none
 ₡	colón costaricano	none
 ₦	naira nigeriana	none
-₧	peseta spagnola	none
 ₪	nuovo siclo israeliano	none
 ₫	dong vietnamita	none
 ₭	kip laotiano	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	lira turca	none
 ₼	manat azero	none
 ₾	lari georgiano	none
+₧	peseta spagnola	none

@@ -314,6 +314,8 @@ symbols:
 😮‍💨	nefes veren yüz	none
 🤥	yalan söyleyen yüz	none
 🫨	sallanan yüz	none
+🙂‍↔	yatay olarak sallanan yüz	none
+🙂‍↕	dikey olarak sallanan yüz	none
 😌	rahatlamış yüz	none
 😔	düşünceli yüz	none
 😪	uykulu yüz	none
@@ -744,11 +746,15 @@ symbols:
 👬	el ele tutuşan erkekler	none
 💏	öpücük	none
 💑	kalpli çift	none
-👪	aile	none
 🗣	konuşan kişi	none
 👤	siluet büst	none
 👥	siluet büstler	none
 🫂	kucaklaşan insanlar	none
+👪	aile	none
+🧑‍🧑‍🧒	aile yetişkin, yetişkin, çocuk	none
+🧑‍🧑‍🧒‍🧒	aile yetişkin, yetişkin, çocuk, çocuk	none
+🧑‍🧒	aile yetişkin, çocuk	none
+🧑‍🧒‍🧒	aile yetişkin, çocuk, çocuk	none
 👣	ayak izi	none
 🦰	kızıl saç	none
 🦱	kıvırcık saç	none
@@ -839,7 +845,9 @@ symbols:
 🦚	tavus kuşu	none
 🦜	papağan	none
 🪽	kanat	none
+🐦‍⬛	siyah kuş	none
 🪿	kaz	none
+🐦‍🔥	Anka	none
 🐸	kurbağa	none
 🐊	timsah	none
 🐢	kaplumbağa	none
@@ -910,6 +918,7 @@ symbols:
 🍉	karpuz	none
 🍊	mandalina	none
 🍋	limon	none
+🍋‍🟩	misket limonu	none
 🍌	muz	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kestane	none
 🫚	kök zencefil	none
 🫛	kabuklu bezelye	none
+🍄‍🟫	kahverengi mantar	none
 🍞	ekmek	none
 🥐	kruvasan	none
 🥖	baget ekmek	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	terazi	none
 🦯	görme engelli bastonu	none
 🔗	bağlantı işareti	none
+⛓‍💥	zincirleri kırmak	none
 ⛓	zincir	none
 🪝	çengel	none
 🧰	alet çantası	none
@@ -3695,7 +3706,7 @@ symbols:
 🇨🇵	bayrak Clipperton Adası	none
 🇨🇷	bayrak Kosta Rika	none
 🇨🇺	bayrak Küba	none
-🇨🇻	bayrak Cape Verde	none
+🇨🇻	bayrak Cabo Verde	none
 🇨🇼	bayrak Curaçao	none
 🇨🇽	bayrak Christmas Adası	none
 🇨🇾	bayrak Kıbrıs	none
@@ -3903,17 +3914,17 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	bayrak İngiltere	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	bayrak İskoçya	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bayrak Galler	none
-₡	Kosta Rika Kolonu	none
-₦	Nijerya Nairası	none
+₡	Kosta Rika kolonu	none
+₦	Nijerya nairası	none
+₪	Yeni İsrail şekeli	none
+₫	Vietnam dongu	none
+₭	Laos kipi	none
+₮	Moğolistan tugriki	none
+₲	Paraguay guaranisi	none
+₴	Ukrayna grivnası	none
+₵	Gana sedisi	none
+₸	Kazakistan tengesi	none
+₺	Türk lirası	none
+₼	Azerbaycan manatı	none
+₾	Gürcistan larisi	none
 ₧	İspanyol Pezetası	none
-₪	Yeni İsrail Şekeli	none
-₫	Vietnam Dongu	none
-₭	Laos Kipi	none
-₮	Moğolistan Tugriki	none
-₲	Paraguay Guaranisi	none
-₴	Ukrayna Grivnası	none
-₵	Gana Sedisi	none
-₸	Kazakistan Tengesi	none
-₺	Türk Lirası	none
-₼	Azerbaycan Manatı	none
-₾	Gürcistan Larisi	none

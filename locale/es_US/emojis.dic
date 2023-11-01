@@ -71,7 +71,6 @@ symbols:
 ⇩	contorno flecha hacia abajo	none
 ⇪	contorno flecha hacia arriba desde barra	none
 ⇵	flechas paralelas hacia arriba y abajo	none
-∂	derivada parcial	none
 ∃	entonces existe	none
 ∉	no es un elemento	none
 ∋	es elemento	none
@@ -85,11 +84,8 @@ symbols:
 ∗	operador asterísco	none
 ∘	composición de funciones	none
 ∙	operador matemático de punto	none
-∟	ángulo recto	none
-∠	ángulo agudo	none
 ∧	conjunción	none
 ∬	integral doble	none
-∴	por lo tanto	none
 ∶	razón	none
 ∼	operador tilde	none
 ∽	tilde invertida	none
@@ -119,17 +115,15 @@ symbols:
 ⊮	no forzar	none
 ⊰	precede bajo relación	none
 ⊱	posterior bajo relación	none
-⋭	no contenido como subgrupo normal o igual	none
 ⊹	matriz hermitiana conjugada	none
 ⋁	conector lógico O n elementos	none
 ⋂	intersección n elementos	none
 ⋃	unión n elementos	none
 ⋒	intersección doble	none
-⋘	mucho mucho menos que	none
-⋙	mucho mucho más que	none
 ⋯	elipsis horizontal en mitad de la línea	none
 ⋰	elipsis diagonal hacia arriba dercha	none
 ⋱	elipsis diagonal hacia abajo derecha	none
+□	cuadrado vacío	none
 ▣	cuadrado vacío conteniendo cuadrado relleno	none
 ▤	cuadrado relleno con líneas horizantales	none
 ▥	cuadrado relleno con líneas verticales	none
@@ -153,7 +147,6 @@ symbols:
 ◃	triángulo vacío pequeño apuntando izquierda	none
 ◄	apuntador relleno apuntando izquierda	none
 ◅	apuntador vacío hacia la izquierda	none
-◆	rombo relleno	none
 ◇	rombo vacío	none
 ◈	rombo vacío conteniendo un rombo relleno	none
 ◉	círculo vacío conteniendo un círculo relleno	none
@@ -178,12 +171,8 @@ symbols:
 ◥	triángulo relleno superior derecho	none
 ◳	cuadrado vacío cuadrante superior derecho	none
 ◷	círculo vacío cuadrante superior derecho	none
-◿	triángulo inferior derecho	none
 ⨧	signo de más con subíndice dos	none
 ⩣	disyunción lógica con subrayado doble	none
-⩽	menos que y signo de igual inclinado	none
-⪍	menos que sobre signo de similar	none
-⪚	signo de igual de doble línea y mayor que	none
 ⪺	posterior a arriba de casi igual	none
 😃	cara sonriendo con ojos grandes	none
 😁	cara radiante con ojos sonrientes	none
@@ -195,18 +184,18 @@ symbols:
 😊	cara feliz con ojos sonrientes	none
 😇	cara sonriente con aureola	none
 😍	cara sonriente con ojos de corazón	none
-😚	cara besando con los ojos cerrados	none
 😋	cara saboreando comida	none
 😝	cara con ojos cerrados y sacando la lengua	none
 🤔	cara pensativa	none
 🙄	cara con ojos en blanco	none
+🙂‍↔	cara moviéndose horizontalmente	none
+🙂‍↕	cara moviéndose verticalmente	none
 😷	cara con mascarilla médica	none
 🤕	cara con la cabeza vendada	none
 🤧	cara estornudando	none
 🥵	cara de calor	none
 🥴	cara de mareo	none
 😵	cara noqueada	none
-😮	cara con la boca abierta	none
 😦	cara con el ceño fruncido y la boca abierta	none
 😧	cara angustiada	none
 😢	cara llorando	none
@@ -249,10 +238,8 @@ symbols:
 👨‍💼	profesional hombre	none
 👩‍💼	profesional mujer	none
 🤵‍♂	hombre con esmoquín	none
-🦸‍♀	mujer superheroína	none
 🦹‍♂	hombre supervillano	none
 🧝	duende	none
-🧑‍🦯	Persona con bastón blanco	none
 👨‍🦯	hombre con bastón blanco	none
 👩‍🦯	mujer con bastón blanco	none
 🕴	persona en traje levitando	none
@@ -266,6 +253,10 @@ symbols:
 🤾	persona jugando handball	none
 🧑‍🤝‍🧑	personas que se toman de la mano	none
 💏	beso	none
+🧑‍🧑‍🧒	familia adulto, adulto, infante	none
+🧑‍🧑‍🧒‍🧒	familia adulto, adulto, infante, infante	none
+🧑‍🧒	familia adulto, infante	none
+🧑‍🧒‍🧒	familia adulto, infante, infante	none
 🦰	pelirrojo	none
 🦳	pelo canoso	none
 🦲	calvo	none
@@ -274,6 +265,7 @@ symbols:
 🦨	zorrillo	none
 🐾	huellas de pezuña	none
 🐤	pollito	none
+🐦‍⬛	mirlo	none
 🐚	concha espiral	none
 🪷	flor de loto	none
 🌺	flor de jamaica	none
@@ -284,6 +276,7 @@ symbols:
 🌶	chile	none
 🫑	pimiento morrón	none
 🥜	cacahuates	none
+🍄‍🟫	hongo portabello	none
 🥐	cuernito	none
 🥨	pretzel	none
 🧇	waffle	none
@@ -421,7 +414,6 @@ symbols:
 💲	símbolo de dólar resaltado	none
 📛	gafete	none
 ✔	marca de verificación	none
-™	marca comercial	none
 🆓	botón FREE	none
 🆔	botón ID	none
 🅿	botón P	none
@@ -791,11 +783,6 @@ symbols:
 🤵🏽‍♂	hombre con esmoquín tono de piel medio	none
 🤵🏾‍♂	hombre con esmoquín tono de piel oscuro medio	none
 🤵🏿‍♂	hombre con esmoquín tono de piel oscuro	none
-🦸🏻‍♀	mujer superheroína tono de piel claro	none
-🦸🏼‍♀	mujer superheroína tono de piel claro medio	none
-🦸🏽‍♀	mujer superheroína tono de piel medio	none
-🦸🏾‍♀	mujer superheroína tono de piel oscuro medio	none
-🦸🏿‍♀	mujer superheroína tono de piel oscuro	none
 🦹🏻‍♂	hombre supervillano tono de piel claro	none
 🦹🏼‍♂	hombre supervillano tono de piel claro medio	none
 🦹🏽‍♂	hombre supervillano tono de piel medio	none
@@ -806,11 +793,6 @@ symbols:
 🧝🏽	duende tono de piel medio	none
 🧝🏾	duende tono de piel oscuro medio	none
 🧝🏿	duende tono de piel oscuro	none
-🧑🏻‍🦯	Persona con bastón blanco tono de piel claro	none
-🧑🏼‍🦯	Persona con bastón blanco tono de piel claro medio	none
-🧑🏽‍🦯	Persona con bastón blanco tono de piel medio	none
-🧑🏾‍🦯	Persona con bastón blanco tono de piel oscuro medio	none
-🧑🏿‍🦯	Persona con bastón blanco tono de piel oscuro	none
 👨🏻‍🦯	hombre con bastón blanco tono de piel claro	none
 👨🏼‍🦯	hombre con bastón blanco tono de piel claro medio	none
 👨🏽‍🦯	hombre con bastón blanco tono de piel medio	none
@@ -920,7 +902,6 @@ symbols:
 🇧🇦	bandera Bosnia y Herzegovina	none
 🇪🇭	bandera Sahara Occidental	none
 🇬🇬	bandera Guernsey	none
-🇹🇦	bandera Tristán de Acuña	none
 🇺🇲	bandera Islas menores alejadas de EE. UU.	none
 ₫	dong vietnamita	none
 ₭	kip laosiano	none

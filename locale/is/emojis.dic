@@ -10,23 +10,38 @@ symbols:
 🏿	dökkur húðlitur	none
 ℗	höfundarréttur hljóðupptöku	none
 ←	ör sem vísar til vinstri	none
+↚	ör til vinstri með striki	none
 →	ör sem vísar til hægri	none
+↛	ör til hægri með striki	none
 ↑	ör sem vísar upp	none
 ↓	ör sem vísar niður	none
 ↜	bylgjuör til vinstri	none
 ↝	bylgjuör til hægri	none
-↞	tvihöfða ör til vinstri	none
+↞	tvíhöfða ör til vinstri	none
 ↟	tvíhöfða ör upp á við	none
 ↠	tvíhöfða ör til hægri	none
 ↡	tvíhöfða ör niður á við	none
 ↢	örvarendi til vinstri	none
 ↣	örvarendi til hægri	none
+↤	ör til vinstri frá rönd	none
+↥	ör upp á við frá rönd	none
+↦	ör til hægri frá rönd	none
+↧	ör niður á við frá rönd	none
+↨	ör upp niður með grunni	none
+↫	ör til vinstri með lykkju	none
+↬	ör til hægri með lykkju	none
 ↭	bylgjuör vinstri hægri	none
 ↯	sikksakk ör niður á við	none
 ↰	örvaroddur upp á við til vinstri	none
 ↱	örvaroddur upp á við til hægri	none
 ↲	örvaroddur niður á við til vinstri	none
 ↳	örvaroddur niður á við til hægri	none
+↴	ör til hægri með beygju niður á við	none
+↵	ör niður á við með beygju tl vinstri	none
+↶	ör uppi í hálfhring rangsælis	none
+↷	ör uppi í hálfhring réttsælis	none
+↸	ör ská upp til vinstri að rönd	none
+↹	örvar að striki vinstri yfir hægri	none
 ↺	opin hringör rangsælis	none
 ↻	opin hringör réttsælis	none
 ↼	skutull til vinstri með brodd upp á við	none
@@ -41,16 +56,19 @@ symbols:
 ⇅	ör sem vísar upp og ör sem vísar niður	none
 ⇆	vinstriör yfir hægriör	none
 ⇇	örvapar til vinstri	none
-⇈	örvarpar upp á við	none
-⇉	örvarpar til hægri	none
+⇈	örvapar upp á við	none
+⇉	örvapar til hægri	none
 ⇊	örvapar niður á við	none
 ⇋	skutull til vinstri yfir skutli til hægri	none
 ⇌	skutull til hægri yfir skutli til vinstri	none
 ⇐	tvöföld ör til vinstri	none
+⇍	tvístrikuð ör til vinstri	none
 ⇑	tvöföld ör upp á við	none
 ⇒	tvöföld ör til hægri	none
+⇏	tvístrikuð ör til hægri	none
 ⇓	tvöföld ör niður á við	none
 ⇔	tvöföld ör vinstri hægri	none
+⇎	tvístrikuð ör vinstri hægri	none
 ⇖	tvöföld ör í norðvestur	none
 ⇗	tvöföld ör í norðaustur	none
 ⇘	tvöföld ör í suðaustur	none
@@ -61,16 +79,28 @@ symbols:
 ⇝	hlykkjótt ör til hægri	none
 ⇞	tvístrikuð ör upp á við	none
 ⇟	tvístrikuð ör niður á við	none
+⇠	punktalínuör til vinstri	none
+⇡	punktalínuör upp á við	none
+⇢	punktalínuör til hægri	none
+⇣	punktalínuör niður á við	none
+⇤	ör að striki til vinstri	none
+⇥	ör að striki til hægri	none
 ⇦	hol ör til vinstri	none
 ⇧	hol ör upp á við	none
 ⇨	hol ör til hægri	none
 ⇩	hol ör niður á við	none
+⇪	hol ör upp á við frá rönd	none
 ⇵	ör niður á við vinstra megin við ör upp á við	none
+∀	algildi	none
+∂	hlutafleiða	none
+∃	tilvist	none
 ∅	tómamengi	none
 ∆	aukning	none
 ∇	nafla	none
 ∈	stak í	none
 ∉	ekki stak	none
+∋	stak	none
+∎	endanleg sönnun	none
 ∏	n-unda-margfeldi	none
 ∑	n-unda-summun	none
 ≮	ekki minna en	none
@@ -80,11 +110,17 @@ symbols:
 ⁻	brjóstletur mínus	none
 ∓	mínus-eða-plús	none
 ∕	deilingarskástrik	none
+∗	stjörnuvirki	none
+∘	hringvirkir	none
+∙	virkir	none
 √	kvaðratrót	none
+∝	hlutfallsmerki	none
 ∞	óendanlegt-merki	none
 ∟	rétt horn	none
 ∠	horn	none
+∣	deilir	none
 ∥	samsíða	none
+∧	og-röktákn	none
 ∩	sniðmengi	none
 ∪	sammengi	none
 ∫	heildi	none
@@ -93,10 +129,18 @@ symbols:
 ∴	þar af leiðandi	none
 ∵	vegna þess	none
 ∶	hlutfall	none
+∷	hlutfallsleiki	none
 ∼	tilduvirkir	none
 ∽	öfug tilda	none
+∾	öfugt s á hlið	none
+≃	undirstrikuð bugða	none
+≅	tvíundirstrikuð bugða	none
 ≈	næstum jafnt	none
+≌	öll jöfn	none
+≒	næstum jafnt eða gildi	none
+≖	hringur í jafnaðarmerki	none
 ≡	nákvæmlega eins og	none
+≣	aljafnaðarmerki	none
 ≤	minna en eða jafnt	none
 ≥	stærra en eða jafnt	none
 ≦	minna en yfir jafngildi	none
@@ -109,25 +153,53 @@ symbols:
 ≻	kemur á eftir	none
 ⊁	kemur ekki á eftir	none
 ⊂	hlutmengi í	none
+⊃	yfirmengistákn	none
+⊆	hlutmengisjafnaðartákn	none
+⊇	yfirmengisjafnaðartákn	none
 ⊕	plús í hring	none
 ⊖	mínus í hring	none
+⊗	margföldun í hring	none
+⊘	deilingarskástrik í hring	none
+⊙	depill í hring virki	none
+⊚	hringur í hring virki	none
+⊛	stjarna í hring virki	none
+⊞	plús í ferningi	none
+⊟	mínus í ferningi	none
+⊥	hornrétt á	none
+⊮	þvingar ekki	none
+⊰	kemur á undan í venslum	none
+⊱	kemur á eftir í venslum	none
+⋭	inniheldur ekki sem normleg hlutgrúpa eða jafnt	none
+⊶	upprunaleg	none
+⊹	hermískt samoka fylki	none
 ⊿	réttur þríhyrningur	none
+⋁	n-unda-eða-röktákn	none
 ⋂	n-unda-sniðmengi	none
+⋃	n-unda-sammengi	none
 ⋅	punktavirkir	none
 ⋆	stjörnuvirkir	none
+⋈	eðlileg töflutenging	none
+⋒	tvöfalt sniðmengi	none
 ⋘	mjög miklu minna en	none
 ⋙	mjög miklu stærra en	none
 ⋮	lóðrétt úrfellingarmerki	none
+⋯	lárétt úrfellingarmerki á miðlínu	none
+⋰	úrfellingarmerki á ská upp hægri	none
+⋱	úrfellingarmerki á ská niður hægri	none
 ■	fylltur ferningur	none
 □	holur ferningur	none
 ▢	holur ferningur með rúnnuðum hornum	none
 ▣	fylltur ferningur í holum ferningi	none
 ▤	ferningur með láréttri fyllingu	none
 ▥	ferningur með lóðréttri fyllingu	none
+▦	ferningur fylltur með hornréttum krossstrikum	none
+▧	ferningur fylltur efra vinstri neðra hægri	none
+▨	ferningur fylltur efra hægri neðra vinstri	none
+▩	ferningur fylltur krossstrikum á ská	none
 ▬	fylltur rétthyrningur	none
 ▭	holur rétthyrningur	none
 ▮	fylltur lóðréttur rétthyrningur	none
-▰	fylltur sams´íðungur	none
+▰	fylltur samsíðungur	none
 ▲	fylltur þríhyrningur sem vísar upp	none
 △	holur þríhyrningur sem vísar upp	none
 ▴	fylltur lítill þríhyrningur sem vísar upp	none
@@ -154,14 +226,22 @@ symbols:
 ○	holur hringflötur	none
 ◌	hringur úr punktum	none
 ◍	hringur með lóðréttri fyllingu	none
+◎	sammiðja hringir	none
 ●	fylltur hringflötur	none
 ◐	hringur hálffylltur til vinstri	none
 ◑	hringur hálffylltur til hægri	none
 ◒	fylltur neðri helmingur hrings	none
 ◓	fylltur efri helmingur hrings	none
 ◔	fylltur efri fjórðungsbogi hrings til hægri	none
+◕	hringur fylltur fyrir utan efri vinstri fjórðung	none
 ◖	fylltur vinstri helmingur hrings	none
 ◗	fylltur hægri helmingur hrings	none
+◘	öfugur merkill	none
+◙	holur hringur í fylltum ferningi	none
+◜	hringbogi í efri vinstri fjórðungi	none
+◝	hringbogi í efri hægri fjórðungi	none
+◞	hringbogi í neðri hægri fjórðungi	none
+◟	hringbogi í neðri vinstri fjórðungi	none
 ◠	efri helmingur hrings	none
 ◡	neðri helmingur hrings	none
 ◢	fylltur neðri þríhyrningur til hægri	none
@@ -174,6 +254,14 @@ symbols:
 ◷	holur hringur með efri fjórðungsboga til hægri	none
 ◿	neðri þríhyrningur til hægri	none
 ♪	áttundapartsnóta	none
+⨧	plús og hnéletrað tveir	none
+⨯	krossfeldi	none
+⨼	innfeldi	none
+⩣	röklegt eða tvöfalt undirstrik	none
+⩽	minna en eða jafnt og hallandi	none
+⪍	minna en fyrir ofan svipað eða jafnt	none
+⪚	jafnt eða meira en með tvöfaldri línu	none
+⪺	kemur á eftir fyrir ofan ekki næstum jafnt	none
 ♭	lækkaður tónn	none
 ♯	hækkaður tónn	none
 😀	glottandi andlit	none
@@ -226,6 +314,8 @@ symbols:
 😮‍💨	andlit að anda frá sér	none
 🤥	lygari	none
 🫨	skjálfandi andlit	none
+🙂‍↔	hristir höfuðið lárétt	none
+🙂‍↕	hristir höfuðið lóðrétt	none
 😌	andlit sem er létt	none
 😔	íbyggið andlit	none
 😪	syfjað andlit	none
@@ -656,11 +746,15 @@ symbols:
 👬	karlar sem leiðast	none
 💏	koss	none
 💑	par	none
-👪	fjölskylda	none
 🗣	talandi höfuð	none
 👤	brjóstmynd í skugga	none
 👥	brjóstmyndir í skugga	none
 🫂	fólk að faðmast	none
+👪	fjölskylda	none
+🧑‍🧑‍🧒	fjölskylda fullorðinn, fullorðinn, barn	none
+🧑‍🧑‍🧒‍🧒	fjölskylda fullorðinn, fullorðinn, barn, barn	none
+🧑‍🧒	fjölskylda fullorðinn, barn	none
+🧑‍🧒‍🧒	fjölskylda fullorðinn, barn, barn	none
 👣	fótspor	none
 🦰	rautt hár	none
 🦱	krullur	none
@@ -751,7 +845,9 @@ symbols:
 🦚	páfugl	none
 🦜	páfagaukur	none
 🪽	vængur	none
+🐦‍⬛	svartur fugl	none
 🪿	gæs	none
+🐦‍🔥	fönix	none
 🐸	froskur	none
 🐊	krókódíll	none
 🐢	skjaldbaka	none
@@ -822,6 +918,7 @@ symbols:
 🍉	vatnsmelóna	none
 🍊	mandarína	none
 🍋	sítróna	none
+🍋‍🟩	límóna	none
 🍌	banani	none
 🍍	ananas	none
 🥭	mangó	none
@@ -853,8 +950,9 @@ symbols:
 🌰	kastanía	none
 🫚	engiferrót	none
 🫛	baunabelgur	none
+🍄‍🟫	brúnn sveppur	none
 🍞	brauð	none
-🥐	Croissant	none
+🥐	smjördeigshorn	none
 🥖	fransbrauð	none
 🫓	flatkaka	none
 🥨	saltkringla	none
@@ -1461,6 +1559,7 @@ symbols:
 ⚖	vog	none
 🦯	blindrastafur	none
 🔗	tenglamerki	none
+⛓‍💥	slitin keðja	none
 ⛓	keðja	none
 🪝	krókur	none
 🧰	verkfærakassi	none
@@ -1550,6 +1649,7 @@ symbols:
 ↖	ör ská upp til vinstri	none
 ↕	ör upp og niður	none
 ↔	ör til vinstri og hægri	none
+↮	ör vinstri hægri með striki	none
 ↩	sveigð ör til vinstri	none
 ↪	sveigð ör til hægri	none
 ⤴	sveigð ör upp	none
@@ -1709,13 +1809,17 @@ symbols:
 🏳‍🌈	regnbogafáni	none
 🏳‍⚧	transfáni	none
 🏴‍☠	sjóræningjafáni	none
+₢	cruzeiro	none
 ₣	franskur franki	none
 ₤	líra	none
 ₥	millidalur	none
 ₩	vonn	none
 €	evra	none
+₰	þýskt pfennig	none
 ₱	pesi	none
-₳	suðlægur	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	indversk rúpía	none
 ₽	rúbla	none
 ₿	bitcoin	none
@@ -3812,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	fáni Wales	none
 ₡	kostarískt kólon	none
 ₦	nígerísk næra	none
-₧	Spænskur peseti	none
 ₪	nýr ísraelskur sikill	none
 ₫	víetnamskt dong	none
 ₭	laoskt kip	none
@@ -3824,3 +3927,4 @@ symbols:
 ₺	tyrknesk líra	none
 ₼	aserskt manat	none
 ₾	georgískur lari	none
+₧	Spænskur peseti	none

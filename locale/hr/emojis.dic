@@ -37,7 +37,7 @@ symbols:
 ↲	strelica prema dolje s vrhom ulijevo	none
 ↳	strelica prema dolje s vrhom udesno	none
 ↴	strelica udesno s kutom prema dolje	none
-↵	strelica prema dolje s kutom ulijevom	none
+↵	strelica prema dolje s kutom ulijevo	none
 ↶	polukružna strelica u smjeru suprotnom od kazaljke na satu	none
 ↷	polukružna strelica u smjeru kazaljke na satu	none
 ↸	strelica s dugom crtom u smjeru sjeverozapada	none
@@ -154,7 +154,7 @@ symbols:
 ⊁	ne slijedi	none
 ⊂	je pravi podskup od	none
 ⊃	nadskup	none
-⊆	podskup jedna	none
+⊆	podskup jednak	none
 ⊇	nadskup jednak	none
 ⊕	zaokruženi plus	none
 ⊖	zaokruženi minus	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	lice koje izdiše	none
 🤥	lice koje laže	none
 🫨	drhteće lice	none
+🙂‍↔	vodoravno okretanje glavom	none
+🙂‍↕	okomito klimanje glavom	none
 😌	lice s izrazom olakšanja	none
 😔	zamišljeno lice	none
 😪	pospano lice	none
@@ -744,11 +746,15 @@ symbols:
 👬	muškarci koji se drže za ruke	none
 💏	poljubac	none
 💑	par sa srcem	none
-👪	obitelj	none
 🗣	glava koja govori	none
 👤	poprsje u silueti	none
 👥	poprsja u silueti	none
 🫂	osobe koje se grle	none
+👪	obitelj	none
+🧑‍🧑‍🧒	obitelj odrasla osoba, odrasla osoba, dijete	none
+🧑‍🧑‍🧒‍🧒	obitelj odrasla osoba, odrasla osoba, dijete, dijete	none
+🧑‍🧒	obitelj odrasla osoba, dijete	none
+🧑‍🧒‍🧒	obitelj odrasla osoba, dijete, dijete	none
 👣	otisci stopala	none
 🦰	crvena kosa	none
 🦱	kovrčava kosa	none
@@ -839,7 +845,9 @@ symbols:
 🦚	paun	none
 🦜	papiga	none
 🪽	krilo	none
+🐦‍⬛	crna ptica	none
 🪿	guska	none
+🐦‍🔥	feniks	none
 🐸	žaba	none
 🐊	krokodil	none
 🐢	kornjača	none
@@ -910,6 +918,7 @@ symbols:
 🍉	lubenica	none
 🍊	mandarina	none
 🍋	limun	none
+🍋‍🟩	limeta	none
 🍌	banana	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kesten	none
 🫚	đumbir	none
 🫛	mahuna graška	none
+🍄‍🟫	smeđa gljiva	none
 🍞	kruh	none
 🥐	kroasan	none
 🥖	baget	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	vaga	none
 🦯	bijeli štap	none
 🔗	karika	none
+⛓‍💥	slomljeni lanac	none
 ⛓	lanci	none
 🪝	udica	none
 🧰	kutija za alat	none
@@ -3827,7 +3838,7 @@ symbols:
 🇵🇭	zastava Filipini	none
 🇵🇰	zastava Pakistan	none
 🇵🇱	zastava Poljska	none
-🇵🇲	zastava Saint-Pierre-et-Miquelon	none
+🇵🇲	zastava Sveti Petar i Mikelon	none
 🇵🇳	zastava Otoci Pitcairn	none
 🇵🇷	zastava Portoriko	none
 🇵🇸	zastava Palestinsko područje	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zastava Wales	none
 ₡	kostarikanski kolon	none
 ₦	nigerijska naira	none
-₧	španjolska pezeta	none
 ₪	novi izraelski šekel	none
 ₫	vijetnamski dong	none
 ₭	laoski kip	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	turska lira	none
 ₼	azerbajdžanski manat	none
 ₾	gruzijski lari	none
+₧	španjolska pezeta	none

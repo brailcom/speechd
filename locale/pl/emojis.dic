@@ -314,6 +314,8 @@ symbols:
 😮‍💨	twarz wypuszczająca powietrze	none
 🤥	twarz kłamcy	none
 🫨	wstrząśnięta twarz	none
+🙂‍↔	głowa kręcąca się poziomo	none
+🙂‍↕	głowa kiwająca się pionowo	none
 😌	twarz z wyrazem ulgi	none
 😔	zamyślona twarz	none
 😪	senna twarz	none
@@ -744,11 +746,15 @@ symbols:
 👬	dwóch mężczyzn trzymających się za ręce	none
 💏	pocałunek	none
 💑	para z sercem	none
-👪	rodzina	none
 🗣	mówiąca głowa	none
 👤	sylwetka popiersia	none
 👥	sylwetki popiersi	none
 🫂	obejmujące się osoby	none
+👪	rodzina	none
+🧑‍🧑‍🧒	rodzina dorosły, dorosły, dziecko	none
+🧑‍🧑‍🧒‍🧒	rodzina dorosły, dorosły, dziecko, dziecko	none
+🧑‍🧒	rodzina dorosły, dziecko	none
+🧑‍🧒‍🧒	rodzina dorosły, dziecko, dziecko	none
 👣	ślady stóp	none
 🦰	rude włosy	none
 🦱	kręcone włosy	none
@@ -839,7 +845,9 @@ symbols:
 🦚	paw	none
 🦜	papuga	none
 🪽	skrzydło	none
+🐦‍⬛	czarny ptak	none
 🪿	gęś	none
+🐦‍🔥	feniks	none
 🐸	głowa żaby	none
 🐊	krokodyl	none
 🐢	żółw	none
@@ -910,6 +918,7 @@ symbols:
 🍉	arbuz	none
 🍊	mandarynka	none
 🍋	cytryna	none
+🍋‍🟩	limonka	none
 🍌	banan	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kasztan	none
 🫚	korzeń imbiru	none
 🫛	strąk grochu	none
+🍄‍🟫	brązowy grzyb	none
 🍞	chleb	none
 🥐	rogalik	none
 🥖	bagietka	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	waga szalkowa	none
 🦯	biała laska	none
 🔗	ogniwa	none
+⛓‍💥	zerwany łańcuch	none
 ⛓	łańcuchy	none
 🪝	hak	none
 🧰	skrzynka na narzędzia	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	flaga Walia	none
 ₡	colon kostarykański	none
 ₦	naira nigeryjska	none
-₧	peseta hiszpańska	none
 ₪	nowy szekel izraelski	none
 ₫	dong wietnamski	none
 ₭	kip laotański	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	lira turecka	none
 ₼	manat azerski	none
 ₾	lari gruzińskie	none
+₧	peseta hiszpańska	none

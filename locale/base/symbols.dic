@@ -128,8 +128,8 @@ _	line	most
 ◆	black diamond	some
 §	section	all
 °	degrees	some
-«	double left pointing angle bracket	none
-»	double right pointing angle bracket	none
+«	double left pointing angle bracket	most	always
+»	double right pointing angle bracket	most	always
 µ	micro	some
 ⁰	superscript 0	some
 ¹	superscript 1	some
@@ -301,7 +301,7 @@ _	line	most
 ∪	union	none
 ∫	integral	none
 ∬	double Integral	none
-∭	tripple Integral	none
+∭	triple Integral	none
 ∮	contour Integral	none
 ∯	surface Integral	none
 ∰	volume Integral	none
@@ -327,7 +327,7 @@ _	line	most
 ⊀	does not precede	none
 ⊁	does not succeed	none
 
-# Vulgur Fractions U+2150 to U+215E
+# Vulgar Fractions U+2150 to U+215E
 ¼	one quarter	none
 ½	one half	none
 ¾	three quarters	none
@@ -423,7 +423,7 @@ _	line	most
 ⠵	braille 1 3 5 6
 ⠶	braille 2 3 5 6
 ⠷	braille 1 2 3 5 6
-⠸	braille 1 2 3
+⠸	braille 4 5 6
 ⠹	braille 1 4 5 6
 ⠺	braille 2 4 5 6
 ⠻	braille 1 2 4 5 6

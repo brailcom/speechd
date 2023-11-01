@@ -75,7 +75,6 @@ symbols:
 ∣	divisor	none
 ∥	en paralelo	none
 ∧	lógico y	none
-∴	por lo tanto	none
 ∶	relación	none
 ∽	tilde invertida	none
 ≃	asintóticamente igual	none
@@ -119,10 +118,6 @@ symbols:
 ◂	triángulo pequeño relleno a la izquierda	none
 ◃	triángulo pequeño hueco a la izquierda	none
 ◅	puntero hueco hacia la izquierda	none
-◆	rombo relleno	none
-◇	rombo hueco	none
-◈	rombo hueco con rombo relleno dentro	none
-◉	círculo hueco con círculo relleno dentro	none
 ◐	círculo relleno a la izquierda	none
 ◑	círculo relleno a la derecha	none
 ◒	círculo relleno abajo	none
@@ -135,10 +130,6 @@ symbols:
 ◝	arco circular en cuadrante superior derecho	none
 ◞	arco circular en cuadrante inferior derecho	none
 ◟	arco circular en cuadrante inferior izquierdo	none
-◢	triángulo inferior derecho relleno	none
-◣	triángulo inferior izquierdo relleno	none
-◤	triángulo superior izquierdo relleno	none
-◥	triángulo superior derecho relleno	none
 ◦	viñeta hueca	none
 ◳	cuadrado hueco con cuadrante superior derecho hueco	none
 ◷	círculo hueco con cuadrante superior derecho hueco	none
@@ -159,10 +150,11 @@ symbols:
 🙂	cara sonriendo ligeramente	none
 😉	cara guiñando el ojo	none
 😊	cara feliz con ojos sonrientes	none
-😚	cara besando con los ojos cerrados	none
 😋	cara saboreando comida	none
 😝	cara con ojos cerrados y sacando la lengua	none
 🙄	cara con ojos en blanco	none
+🙂‍↔	cabeza moviéndose horizontalmente	none
+🙂‍↕	cabeza moviéndose verticalmente	none
 😷	cara con mascarilla médica	none
 🤕	cara con la cabeza vendada	none
 🤧	cara estornudando	none
@@ -273,6 +265,7 @@ symbols:
 💑	hombre y mujer enamorados	none
 👣	huellas de pies	none
 🦨	zorrillo	none
+🐦‍⬛	ave negra	none
 🐚	caracol marino	none
 🪷	loto	none
 🪴	planta en una maceta	none
@@ -281,6 +274,7 @@ symbols:
 🫑	pimiento morrón	none
 🥬	verdura de hoja	none
 🥜	cacahuate	none
+🍄‍🟫	hongo marrón	none
 🫓	pan plano	none
 🧇	waffle	none
 🌭	perro caliente	none
@@ -902,10 +896,7 @@ symbols:
 🇧🇦	bandera Bosnia y Herzegovina	none
 🇨🇮	bandera Côte d’Ivoire	none
 🇬🇬	bandera Guernsey	none
-🇷🇴	bandera Rumania	none
-🇸🇦	bandera Arabia Saudita	none
 🇸🇿	bandera Eswatini	none
-🇹🇦	bandera Tristán de Acuña	none
 🇺🇲	bandera Islas menores alejadas de EE. UU.	none
 ₫	dong vietnamita	none
 ₭	kip laosiano	none

@@ -10,7 +10,7 @@ symbols:
 🏿	tmavý odstín pleti	none
 ℗	znak práv ke zvukovému záznamu	none
 ←	šipka ukazující doleva	none
-↚	přeškrutnutá šipka doleva	none
+↚	přeškrtnutá šipka doleva	none
 →	šipka ukazující doprava	none
 ↛	přeškrtnutá šipka doprava	none
 ↑	šipka ukazující nahoru	none
@@ -28,29 +28,29 @@ symbols:
 ↦	šipka vpravo od zarážky	none
 ↧	šipka dolů od zarážky	none
 ↨	šipka nahoru a dolů se základnou	none
-↫	špika doleva se smyčkou	none
-↬	špika doprava se smyčkou	none
-↭	vlnící se šipka doleva a doprava	none
-↯	cik cak šipka dolů	none
+↫	šipka doleva se smyčkou	none
+↬	šipka doprava se smyčkou	none
+↭	vlnitá šipka doleva a doprava	none
+↯	klikatá šipka dolů	none
 ↰	šipka směrem nahoru a doleva	none
 ↱	šipka směrem nahoru a doprava	none
-↲	šipka směrem dolu a doleva	none
-↳	šipka směrem dolu a doprava	none
-↴	šipka doprava a dolu	none
+↲	šipka směrem dolů a doleva	none
+↳	šipka směrem dolů a doprava	none
+↴	šipka doprava a dolů	none
 ↵	šipka dolů a doleva	none
 ↶	polokruhová šipka horní proti směru ručiček	none
 ↷	polokruhová šipka horní po směru ručiček	none
-↸	šipka směřijící na severozápad s horní zarážkou	none
+↸	šipka na severozápad s horní zarážkou	none
 ↹	šipka doleva se zarážkou nad šipkou doprava se zarážkou	none
-↺	šipka na otevřené kružnici proti směru ručiček	none
-↻	šipka na otevřené kružnici po směru ručiček	none
+↺	otevřená kruhová šipka proti směru ručiček	none
+↻	otevřená kruhová šipka po směru ručiček	none
 ↼	praporek nahoře směrem doleva	none
 ↽	praporek dole směrem doleva	none
 ↾	praporek vpravo směrem nahoru	none
 ↿	praporek vlevo směrem nahoru	none
 ⇀	praporek nahoře směrem doprava	none
 ⇁	praporek dole směrem doprava	none
-⇂	pravorek vpravo směrem dolů	none
+⇂	praporek vpravo směrem dolů	none
 ⇃	praporek vlevo směrem dolů	none
 ⇄	šipka doprava nad šipkou doleva	none
 ⇅	šipky nahoru a dolů	none
@@ -62,11 +62,11 @@ symbols:
 ⇋	praporek nahoře směrem doleva nad praporkem dole směrem doprava	none
 ⇌	praporek nahoře směrem doprava nad praporkem dole směrem doleva	none
 ⇐	zdvojená šipka doleva	none
-⇍	přeškrutnutá zdvojená šipka doleva	none
+⇍	přeškrtnutá zdvojená šipka doleva	none
 ⇑	zdvojená šipka nahoru	none
 ⇒	zdvojená šipka doprava	none
 ⇏	přeškrtnutá zdvojená šipka doprava	none
-⇓	zdvojená šipka dolu	none
+⇓	zdvojená šipka dolů	none
 ⇔	obousměrná zdvojená šipka	none
 ⇎	přeškrtnutá obousměrná zdvojená šipka	none
 ⇖	zdvojená šipka na severozápad	none
@@ -75,51 +75,51 @@ symbols:
 ⇙	zdvojená šipka na jihozápad	none
 ⇚	ztrojená šipka doleva	none
 ⇛	ztrojená šipka doprava	none
-⇜	cik cak šipka doleva	none
-⇝	cik cak šipka doprava	none
+⇜	klikatá šipka doleva	none
+⇝	klikatá šipka doprava	none
 ⇞	dvojitě přeškrtnutá šipka nahoru	none
-⇟	dvojitě přeškrtnutá šipka dolu	none
+⇟	dvojitě přeškrtnutá šipka dolů	none
 ⇠	přerušovaná šipka doleva	none
 ⇡	přerušovaná šipka nahoru	none
 ⇢	přerušovaná šipka doprava	none
-⇣	přerušovaná šipka dolu	none
+⇣	přerušovaná šipka dolů	none
 ⇤	šipka doleva k zarážce	none
 ⇥	šipka doprava k zarážce	none
 ⇦	bílá šipka doleva	none
 ⇧	bílá šipka nahoru	none
 ⇨	bílá šipka doprava	none
-⇩	bílá šipka dolu	none
+⇩	bílá šipka dolů	none
 ⇪	bílá šipka nahoru se základnou	none
-⇵	šipka dolu vedle šipky dolu	none
+⇵	šipka dolů vedle šipky nahoru	none
 ∀	pro každé	none
-∂	parciální diferenciál	none
+∂	parciální derivace	none
 ∃	existuje	none
 ∅	prázdná množina	none
 ∆	delta	none
 ∇	nabla	none
 ∈	prvek množiny	none
-∉	není prvek	none
-∋	je členem	none
-∎	čtvereček	none
-∏	kapitál pi	none
+∉	není prvkem	none
+∋	obsahuje člen	none
+∎	konec důkazu	none
+∏	součin řady	none
 ∑	suma	none
 ≮	ne méně než	none
 ≠	nerovná se	none
 ≯	ne více než	none
 −	znaménko minus	none
 ⁻	minus jako horní index	none
-∓	minus a plus	none
-∕	dělící lomítko	none
-∗	znak hvězdičky	none
+∓	minus nebo plus	none
+∕	dělicí lomítko	none
+∗	operátor hvězdička	none
 ∘	operátor kroužek	none
 ∙	operátor plné kolečko	none
 √	druhá odmocnina	none
-∝	úměrně k	none
+∝	je úměrné	none
 ∞	znak nekonečna	none
 ∟	pravý úhel	none
 ∠	úhel	none
-∣	znak dělitelnosti	none
-∥	znak rovnoběžnosti	none
+∣	je dělitelem	none
+∥	je rovnoběžné s	none
 ∧	logický součin	none
 ∩	průnik	none
 ∪	sjednocení	none
@@ -130,25 +130,25 @@ symbols:
 ∵	protože	none
 ∶	poměr	none
 ∷	vzájemný poměr	none
-∼	operátor úměrnosti	none
+∼	operátor vlnovka	none
 ∽	obrácená vlnovka	none
 ∾	obrácené ležaté s	none
-≃	asymptotická rovnost	none
-≅	shodnost	none
+≃	je asymptoticky ekvivalentní	none
+≅	je shodné s	none
 ≈	rovná se přibližně	none
 ≌	vše se rovná	none
-≒	přibližně rovný nebo obraz	none
-≖	kruh v rovnosti	none
+≒	je přibližně rovno nebo je obrazem	none
+≖	kroužek v rovnítku	none
 ≡	shoduje se	none
-≣	striktně ekvivalentní	none
+≣	je striktně ekvivalentní	none
 ≤	je menší nebo rovno	none
 ≥	je větší nebo rovno	none
-≦	méně než nad rovná se	none
-≧	více než na rovná se	none
-≪	mnohem menší než	none
-≫	mnohem větší než	none
-≬	mezi	none
-≳	větší než ekvivalent	none
+≦	je menší než nad rovná se	none
+≧	je větší než nad rovná se	none
+≪	je mnohem menší než	none
+≫	je mnohem větší než	none
+≬	má neprázdný průnik s	none
+≳	je větší než nebo ekvivalentní	none
 ≺	předchází	none
 ≻	následuje	none
 ⊁	nenásleduje	none
@@ -165,27 +165,27 @@ symbols:
 ⊛	operátor hvězdička v kroužku	none
 ⊞	plus ve čtverečku	none
 ⊟	minus ve čtverečku	none
-⊥	kolmé k	none
+⊥	je kolmé k	none
 ⊮	nevynucuje	none
 ⊰	předchází v relaci	none
 ⊱	následuje v relaci	none
-⋭	neobsahuje normální podskupinu	none
-⊶	původní	none
-⊹	hermitovská konjunktivní matice	none
+⋭	neobsahuje jako normální podgrupu a není rovno	none
+⊶	je originálem	none
+⊹	hermitovsky sdružená matice	none
 ⊿	pravoúhlý trojúhelník	none
-⋁	n-členný logický součet	none
-⋂	n-členný průnik	none
-⋃	n-členné sjednocení	none
+⋁	n-ární logický součet	none
+⋂	n-ární průnik	none
+⋃	n-ární sjednocení	none
 ⋅	operátor tečka	none
-⋆	operátor hvězdička	none
-⋈	spojení	none
+⋆	operátor hvězda	none
+⋈	přirozené spojení relací	none
 ⋒	dvojitý průnik	none
 ⋘	mnohem mnohem menší než	none
 ⋙	mnohem mnohem větší než	none
 ⋮	svislá výpustka	none
 ⋯	středová vodorovná výpustka	none
 ⋰	diagonální výpustka doprava nahoru	none
-⋱	diagonální výpustka doprava dolu	none
+⋱	diagonální výpustka doprava dolů	none
 ■	plný čtverec	none
 □	prázdný čtverec	none
 ▢	prázdný čtverec se zaoblenými rohy	none
@@ -193,8 +193,8 @@ symbols:
 ▤	čtverec s vodorovnou výplní	none
 ▥	čtverec se svislou výplní	none
 ▦	čtverec s kostičkovanou výplní	none
-▧	čtverec s diagonální výplní zleva doprava	none
-▨	čtverec s diagonální výplní zprava doleva	none
+▧	čtverec s diagonální výplní klesající zleva doprava	none
+▨	čtverec s diagonální výplní klesající zprava doleva	none
 ▩	čtverec s diagonální kostičkovanou výplní	none
 ▬	plný obdélník	none
 ▭	prázdný obdélník	none
@@ -210,9 +210,9 @@ symbols:
 ►	plný ukazatel doprava	none
 ▻	prázdný ukazatel doprava	none
 ▼	vyplněný trojúhelník směřující dolů	none
-▽	prázdný trojúhelník vrcholem dolu	none
-▾	plný trojúhelníček vrcholem dolu	none
-▿	prázdný trojúhelníček vrcholem dolu	none
+▽	prázdný trojúhelník vrcholem dolů	none
+▾	plný trojúhelníček vrcholem dolů	none
+▿	prázdný trojúhelníček vrcholem dolů	none
 ◁	prázdný trojúhelník vrcholem doleva	none
 ◂	plný trojúhelníček vrcholem doleva	none
 ◃	prázdný trojúhelníček vrcholem doleva	none
@@ -221,47 +221,47 @@ symbols:
 ◆	plný kosočtverec	none
 ◇	prázdný kosočtverec	none
 ◈	plný kosočtvereček v prázdném kosočtverci	none
-◉	plný kruh v prázdném kruhu	none
+◉	plný kroužek v prázdném kruhu	none
 ◊	kosočtverec	none
 ○	prázdný kroužek	none
 ◌	tečkovaný kruh	none
 ◍	kruh se svislou výplní	none
-◎	soustředěné kružnice	none
+◎	soustředné kružnice	none
 ●	plný kroužek	none
 ◐	kruh s vyplněnou levou polovinou	none
 ◑	kruh s vyplněnou pravou polovinou	none
-◒	kruh s vyplněnou spodní polovinou	none
+◒	kruh s vyplněnou dolní polovinou	none
 ◓	kruh s vyplněnou horní polovinou	none
 ◔	kruh s vyplněnou pravou horní čtvrtinou	none
-◕	kruh prázdnou levou horní čtvrtinou	none
+◕	kruh s prázdnou levou horní čtvrtinou	none
 ◖	plný levý půlkruh	none
 ◗	plný pravý půlkruh	none
 ◘	negativní kolečko	none
-◙	prázdný kruh v plném čtverci	none
+◙	bílá kružnice v plném čtverci	none
 ◜	levá horní čtvrtina kruhového oblouku	none
 ◝	pravá horní čtvrtina kruhového oblouku	none
 ◞	pravá dolní čtvrtina kruhového oblouku	none
 ◟	levá dolní čtvrtina kruhového oblouku	none
 ◠	horní polovina kruhového oblouku	none
 ◡	dolní polovina kruhového oblouku	none
-◢	plný pravoúhlý trojúhelník dolu doprava	none
-◣	plný pravoúhlý trojúhelník dolu doleva	none
-◤	plný pravoúhlý trojúhelník nahoru doleva	none
-◥	plný pravoúhlý trojúhelník nahoru doprava	none
+◢	plný trojúhelník s pravým úhlem vpravo dole	none
+◣	plný trojúhelník s pravým úhlem vlevo dole	none
+◤	plný trojúhelník s pravým úhlem vlevo nahoře	none
+◥	plný trojúhelník s pravým úhlem vpravo nahoře	none
 ◦	prázdné kolečko	none
 ◯	prázdný kruh	none
 ◳	prázdný čtverec s pravou horní čtvrtinou	none
 ◷	prázdný kruh s pravou horní čtvrtinou	none
-◿	prázdný trojúhelník dolu doprava	none
+◿	prázdný trojúhelník s pravým úhlem vpravo dole	none
 ♪	osminová nota	none
 ⨧	plus s dolním indexem dva	none
 ⨯	kartézský součin	none
 ⨼	vnitřní součin	none
 ⩣	dvojitě podtržený logický součet	none
-⩽	rovno nebo menší než	none
-⪍	menší než nebo ekvivalentní	none
-⪚	dvojitý ekvivalent nebo větší než	none
-⪺	následuje nad téměř se nerovná	none
+⩽	je menší nebo rovno se šikmým rovnítkem	none
+⪍	je menší než nad přibližně rovno	none
+⪚	rovná se nad je větší než	none
+⪺	následuje nad není přibližně rovno	none
 ♭	bé	none
 ♯	křížek (posuvka)	none
 😀	zubící se obličej	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	vydechující obličej	none
 🤥	obličej lháře	none
 🫨	třesoucí se obličej	none
+🙂‍↔	kroucení hlavou ze strany na stranu	none
+🙂‍↕	kývání hlavou nahoru a dolů	none
 😌	obličej s výrazem úlevy	none
 😔	obličej se skleslým výrazem	none
 😪	ospalý obličej	none
@@ -744,11 +746,15 @@ symbols:
 👬	dva muži držící se za ruce	none
 💏	polibek	none
 💑	pár se srdcem	none
-👪	rodina	none
 🗣	mluvící hlava	none
 👤	silueta busty	none
 👥	silueta dvojice bust	none
 🫂	objímající se lidé	none
+👪	rodina	none
+🧑‍🧑‍🧒	rodina dospělý, dospělý, dítě	none
+🧑‍🧑‍🧒‍🧒	rodina dospělý, dospělý, dítě, dítě	none
+🧑‍🧒	rodina dospělý, dítě	none
+🧑‍🧒‍🧒	rodina dospělý, dítě, dítě	none
 👣	stopy	none
 🦰	zrzavé vlasy	none
 🦱	kudrnaté vlasy	none
@@ -839,7 +845,9 @@ symbols:
 🦚	páv	none
 🦜	papoušek	none
 🪽	křídlo	none
+🐦‍⬛	černý pták	none
 🪿	husa	none
+🐦‍🔥	fénix	none
 🐸	hlava žáby	none
 🐊	krokodýl	none
 🐢	želva	none
@@ -910,6 +918,7 @@ symbols:
 🍉	meloun	none
 🍊	mandarinka	none
 🍋	citron	none
+🍋‍🟩	limeta	none
 🍌	banán	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kaštan	none
 🫚	zázvor	none
 🫛	hrachový lusk	none
+🍄‍🟫	hnědá houba	none
 🍞	chleba	none
 🥐	croissant	none
 🥖	bageta	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	miskové váhy	none
 🦯	slepecká hůl	none
 🔗	články řetězu	none
+⛓‍💥	přetržený řetěz	none
 ⛓	řetězy	none
 🪝	hák	none
 🧰	box na nářadí	none
@@ -1798,17 +1809,17 @@ symbols:
 🏳‍🌈	duhová vlajka	none
 🏳‍⚧	vlajka trans hrdosti	none
 🏴‍☠	pirátská vlajka	none
-₢	znak měny cruzeiro	none
+₢	cruzeiro	none
 ₣	francouzský frank	none
-₤	znak měny liry	none
+₤	lira	none
 ₥	mill	none
 ₩	won	none
 €	euro	none
 ₰	německý fenik	none
 ₱	peso	none
-₳	znak měny austral	none
+₳	austral	none
 ₶	tourská libra	none
-₷	znak měny spesmilo	none
+₷	spesmilo	none
 ₹	indická rupie	none
 ₽	rubl	none
 ₿	bitcoin	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	vlajka Wales	none
 ₡	kostarický colón	none
 ₦	nigerijská naira	none
-₧	španělská peseta	none
 ₪	izraelský nový šekel	none
 ₫	vietnamský dong	none
 ₭	laoský kip	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	turecká lira	none
 ₼	ázerbájdžánský manat	none
 ₾	gruzínské lari	none
+₧	španělská peseta	none

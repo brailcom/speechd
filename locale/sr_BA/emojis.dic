@@ -66,7 +66,6 @@ symbols:
 √	kvadratni korijen	none
 ∣	dijeljenje	none
 ∩	presjek	none
-∫	integral	none
 ∾	obrnuti lijeni s	none
 ≻	slijedi	none
 ⊁	ne slijedi	none
@@ -87,7 +86,6 @@ symbols:
 ◃	prazan mali trougao okrenut nalijevo	none
 ◄	popunjeni pokazivač okrenut nalijevo	none
 ◅	prazan pokazivač okrenut nalijevo	none
-◔	krug sa popunjenim gornjim desnim kvadrantom	none
 ◕	krug sa praznim gornjim lijevim kvadrantom	none
 ◖	lijeva popunjena polovina kruga	none
 ◜	kružni luk gornjeg lijevog kvadranta	none
@@ -126,6 +124,7 @@ symbols:
 💨	bježanje	none
 🗨	oblačić za govor usmjeren nalijevo	none
 🗯	oblačić za ljutiti govor usmjeren desno	none
+🫷	ruka gura ulijevo	none
 ✌	znak pobjede	none
 👈	kažiprst koji pokazuje ulijevo	none
 👇	kažiprst koji pokazuje nadolje otpozadi	none
@@ -157,7 +156,6 @@ symbols:
 🎅	Djed Mraz	none
 🦸	superheroj	none
 🦸‍♂	muškarac superheroj	none
-🦸‍♀	žena superheroj	none
 🚶	pješak	none
 🧍‍♂	čovjek stoji	none
 👨‍🦯	čovjek sa pomoćnim štapom	none
@@ -165,6 +163,10 @@ symbols:
 👨‍🦽	čovjek u mehaničkim kolicima	none
 🕴	muškarac u poslovnom odijelu koji lebdi	none
 👤	silueta čovjeka	none
+🧑‍🧑‍🧒	porodica odrasla osoba, odrasla osoba, dijete	none
+🧑‍🧑‍🧒‍🧒	porodica odrasla osoba, odrasla osoba, dijete, dijete	none
+🧑‍🧒	porodica odrasla osoba, dijete	none
+🧑‍🧒‍🧒	porodica odrasla osoba, dijete, dijete	none
 🦳	sijeda kosa	none
 🐹	hrčak	none
 🐿	vjeverica	none
@@ -350,9 +352,11 @@ symbols:
 🫴🏻	dlan okrenut nagore svijetla koža	none
 🫴🏼	dlan okrenut nagore srednje svijetla koža	none
 🫴🏽	dlan okrenut nagore ni svijetla ni tamna koža	none
-🫷🏻	ruka gura ulevo svijetla koža	none
-🫷🏼	ruka gura ulevo srednje svijetla koža	none
-🫷🏽	ruka gura ulevo ni svijetla ni tamna koža	none
+🫷🏻	ruka gura ulijevo svijetla koža	none
+🫷🏼	ruka gura ulijevo srednje svijetla koža	none
+🫷🏽	ruka gura ulijevo ni svijetla ni tamna koža	none
+🫷🏾	ruka gura ulijevo srednje tamna koža	none
+🫷🏿	ruka gura ulijevo tamna koža	none
 🫸🏻	ruka gura udesno svijetla koža	none
 🫸🏼	ruka gura udesno srednje svijetla koža	none
 🫸🏽	ruka gura udesno ni svijetla ni tamna koža	none
@@ -1139,11 +1143,9 @@ symbols:
 🦸🏽‍♂	muškarac superheroj ni svijetla ni tamna koža	none
 🦸🏾‍♂	muškarac superheroj srednje tamna koža	none
 🦸🏿‍♂	muškarac superheroj tamna koža	none
-🦸🏻‍♀	žena superheroj svijetla koža	none
-🦸🏼‍♀	žena superheroj srednje svijetla koža	none
-🦸🏽‍♀	žena superheroj ni svijetla ni tamna koža	none
-🦸🏾‍♀	žena superheroj srednje tamna koža	none
-🦸🏿‍♀	žena superheroj tamna koža	none
+🦸🏻‍♀	žena super heroj svijetla koža	none
+🦸🏼‍♀	žena super heroj srednje svijetla koža	none
+🦸🏽‍♀	žena super heroj ni svijetla ni tamna koža	none
 🦹🏻	negativac svijetla koža	none
 🦹🏼	negativac srednje svijetla koža	none
 🦹🏽	negativac ni svijetla ni tamna koža	none

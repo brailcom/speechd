@@ -8,24 +8,24 @@ symbols:
 🏽	medium skin	none
 🏾	medium-dark skin	none
 🏿	dark skin	none
-↚	leftwards arrow stroke	none
-↛	rightwards arrow stroke	none
+↚	stroke ke saath leftwards arrow	none
+↛	stroke ke saath rightwards arrow	none
 ↞	leftwards two headed arrow	none
 ↟	upwards two headed arrow	none
 ↠	rightwards two headed arrow	none
 ↡	downwards two headed arrow	none
-↢	leftwards arrow tail	none
-↣	rightwards arrow tail	none
+↢	tail wala leftwards arrow	none
+↣	tail wala rightwards arrow	none
 ↨	base ke saath up down arrow	none
-↫	leftwards arrow loop	none
-↬	rightwards arrow loop	none
+↫	loop wala leftwards arrow	none
+↬	loop wala rightwards arrow	none
 ↭	left right wave arrow	none
-↰	upwards arrow tip leftwards	none
-↱	upwards arrow tip rightwards	none
-↲	downwards arrow tip leftwards	none
-↳	downwards arrow tip rightwards	none
-↴	rightwards arrow corner downwards	none
-↵	downwards arrow corner leftwards	none
+↰	leftwards tip wala upwards arrow	none
+↱	rightwards tip wala upwards arrow	none
+↲	leftwards tip wala downwards arrow	none
+↳	rightwards tip wala downwards arrow	none
+↴	downwards corner wala rightwards arrow	none
+↵	downwards corner wala leftwards arrow	none
 ↶	anticlockwise top semicircle arrow	none
 ↷	clockwise top semicircle arrow	none
 ↸	north west arrow long bar	none
@@ -39,22 +39,26 @@ symbols:
 ⇁	rightwards harpoon barb downwards	none
 ⇂	downwards harpoon barb rightwards	none
 ⇃	downwards harpoon barb leftwards	none
-⇍	leftwards double arrow stroke	none
-⇏	rightwards double arrow stroke	none
-⇔	left right double arrow	none
-⇎	left right double arrow stroke	none
+⇇	leftwards arrows kaa pair	none
+⇈	upwards arrows kaa pair	none
+⇉	rightwards arrows kaa pair	none
+⇊	downwards arrows kaa pair	none
+⇍	strike kiya gaya leftwards double arrow	none
+⇏	strike kiya gaya rightwards double arrow	none
+⇎	strike kiya gaya left-right double arrow	none
 ⇖	north west double arrow	none
 ⇗	north east double arrow	none
 ⇘	south east double arrow	none
 ⇙	south west double arrow	none
-⇞	upwards arrow double stroke	none
-⇟	downwards arrow double stroke	none
+⇞	double strike kiya gaya upwards arrow	none
+⇟	double strike kiya gaya downwards arrow	none
 ⇤	leftwards arrow bar	none
 ⇥	rightwards arrow bar	none
-⇵	downwards arrow leftwards upwards arrow	none
+⇵	downwards aur upwards arrows	none
 ∀	sabhi ke liye	none
+∃	vahan maujood hota hai	none
 ∈	iska element	none
-∉	koi element nahi	none
+∉	element nahi	none
 ∋	member ke taur par rakhta hai	none
 ∎	end proof	none
 ≮	isse kam nahi	none
@@ -67,13 +71,14 @@ symbols:
 ≃	asymptotically equal	none
 ≅	approximately equal	none
 ≌	sabhi baraabar	none
+≒	approximately image ke equal	none
 ≣	strictly equivalent	none
 ≤	isse chhota yaa baraabar	none
 ≥	isse bada yaa baraabar	none
 ≦	baraabar hone par isse kam	none
 ≧	baraabar hone par isse zyaada	none
-≪	ke comparision mein kaafi kam	none
-≫	ke comparision mein kaafi zyaada	none
+≪	isse kaafi kam	none
+≫	isse kaafi zyaada	none
 ≬	iske beech	none
 ≳	greater-than equivalent	none
 ≺	pahle aata hai	none
@@ -85,13 +90,17 @@ symbols:
 ⊇	superset baraabar	none
 ⋭	normal subgroup equal ke taur par shaamil nahi karta	none
 ⊶	original	none
+⋘	isse bahut kam	none
+⋙	isse bahut zyaada	none
 ⋰	up right diagonal ellipsis	none
 ⋱	down right diagonal ellipsis	none
+▢	rounded corners wala hollow square	none
+▣	hollow square mein ek filled square	none
 ▤	horizontal fill wala square	none
 ▥	vertical fill wala square	none
 ▦	square orthogonal crosshatch fill	none
-▧	square upper left lower right fill	none
-▨	square upper right lower left fill	none
+▧	upper left se lower right filled square	none
+▨	upper right se lower left filled square	none
 ▩	square diagonal crosshatch fill	none
 ▲	Oopar point karta hua filled triangle	none
 ▼	neeche point karta hua filled triangle	none
@@ -103,7 +112,9 @@ symbols:
 ◒	neeche se half filled circle	none
 ◓	oopar se half filled circle	none
 ◔	Circle kaa filled upper right quadrant	none
-◕	circle all but upper left quadrant filled	none
+◕	upper left quadrant ko chhodkar poora filled cirle	none
+◖	half filled left circle	none
+◗	half filled right circle	none
 ◙	hollow circle wala filled square	none
 ◜	upper left quadrant circular arc	none
 ◝	upper right quadrant circular arc	none
@@ -114,12 +125,12 @@ symbols:
 ◤	filled upper left triangle	none
 ◥	filled upper right triangle	none
 ◳	hollow square upper right quadrant	none
-◷	hollow circle with upper right quadrant	none
+◷	hollow upper right quadrant wala hollow circle	none
 ◿	lower right triangle	none
 ♪	eighth note	none
 ⨧	plus subscript two	none
 ⨯	vector cross product	none
-⩣	logical or double underbar	none
+⩣	logical yaa double underbar	none
 ⩽	less-than slanted equal	none
 ⪍	less-than above similar equal	none
 ⪚	double-line equal greater-than	none
@@ -147,6 +158,9 @@ symbols:
 😶	bina mouth wala face	none
 😶‍🌫	baadlon mein face	none
 🙄	rolling eyes wala face	none
+😮‍💨	exhale karta face	none
+🙂‍↔	left right head shaking	none
+🙂‍↕	oopar-neeche sir hilaana	none
 😷	medical mask wala face	none
 🤒	thermometer wala face	none
 🤕	head-bandage wala face	none
@@ -182,6 +196,8 @@ symbols:
 💕	do hearts	none
 💟	heart ki decoration	none
 ❣	exclamation sign wala heart	none
+❤‍🔥	burning heart	none
+❤‍🩹	recovering heart	none
 💦	sweating ke droplets	none
 👁‍🗨	speech bubble mein eye	none
 👋	wave karta haath	none
@@ -205,6 +221,10 @@ symbols:
 🙏	namaste karna	none
 ✍	likhta hua haath	none
 🦻	hearing aid laga kaan	none
+🧔‍♂	male beard	none
+👱‍♂	male blond hair	none
+🧔‍♀	female beard	none
+👱‍♀	female blond hair	none
 🙍	frown karta person	none
 🙍‍♂	frown karta aadmi	none
 🙍‍♀	frown karti mahila	none
@@ -223,6 +243,8 @@ symbols:
 🙋	haath uthaata vyakti	none
 🙋‍♂	haath uthaata aadmi	none
 🙋‍♀	haath uthaati mahila	none
+🧏‍♂	sun na paane wala aadmi	none
+🧏‍♀	sun na paane wali mahila	none
 🙇	bow karta vyakti	none
 🙇‍♂	bow karta aadmi	none
 🙇‍♀	bow karti mahila	none
@@ -232,6 +254,29 @@ symbols:
 🤷	shrug karta vyakti	none
 🤷‍♂	shrug karta aadmi	none
 🤷‍♀	shrug karti mahila	none
+👨‍🏭	male factory worker	none
+👩‍🏭	female factory worker	none
+👨‍🔬	male scientist	none
+👨‍💻	male technologist	none
+👩‍💻	female technologist	none
+👨‍🎤	male singer	none
+👩‍🎤	female singer	none
+👨‍🎨	male artist	none
+👩‍🎨	female artist	none
+👨‍✈	male pilot	none
+👩‍✈	female pilot	none
+👨‍🚀	male astronaut	none
+👩‍🚀	female astronaut	none
+👨‍🚒	male firefighter	none
+👩‍🚒	female firefighter	none
+👮‍♂	male police officer	none
+👮‍♀	female police officer	none
+🕵‍♂	male detective	none
+🕵‍♀	female detective	none
+💂‍♂	male guard	none
+💂‍♀	female guard	none
+👷‍♂	male construction worker	none
+👷‍♀	female construction worker	none
 🫅	crown wala vyakti	none
 👳	turban wala vyakti	none
 👳‍♂	turban wala aadmi	none
@@ -242,6 +287,7 @@ symbols:
 🤵‍♂	suit boot mein aadmi	none
 🤵‍♀	suit boot mein mahila	none
 👰	Ghoonghat mein bride	none
+👰‍♂	Ghoonghat mein aadmi	none
 👰‍♀	parde mein dulhan	none
 👩‍🍼	baby ko feed karti mahila	none
 👨‍🍼	baby ko feed karta aadmi	none
@@ -352,6 +398,7 @@ symbols:
 🍃	hawa mein lahraati leaf	none
 🪹	Khaali nest	none
 🪺	eggs wala nest	none
+🍋‍🟩	neebu	none
 🍖	bone wala meat	none
 🍗	chicken leg	none
 🥩	meat kaa piece	none
@@ -463,6 +510,7 @@ symbols:
 🔩	nut aur bolt	none
 ⚖	taraazu	none
 🦯	white cane	none
+⛓‍💥	tooti hui zanjeer	none
 🩸	blood ki drop	none
 🩹	chipkaane wali bandage	none
 🛗	elevator	none
@@ -479,7 +527,8 @@ symbols:
 🚷	paidal chalne ki permission nahi	none
 📵	mobile phones ki permission nahi	none
 🔞	under 18 ko permission nahi	none
-↮	left right arrow stroke	none
+↙	left-down arrow	none
+↮	stroke ke saath left-right arrow	none
 ↩	left side muda hua right arrow	none
 ↪	right side muda hua left arrow	none
 ⤴	oopar ki taraf muda hua right arrow	none
@@ -875,16 +924,16 @@ symbols:
 🧔🏽	person medium skin, beard	none
 🧔🏾	person medium-dark skin, beard	none
 🧔🏿	person dark skin, beard	none
-🧔🏻‍♂	man Fair skin, beard	none
-🧔🏼‍♂	man medium-fair skin, beard	none
-🧔🏽‍♂	man medium skin, beard	none
-🧔🏾‍♂	man medium-dark skin, beard	none
-🧔🏿‍♂	man dark skin, beard	none
-👱🏻‍♂	man Fair skin, blond hair	none
-👱🏼‍♂	man medium-fair skin, blond hair	none
-👱🏽‍♂	man medium skin, blond hair	none
-👱🏾‍♂	man medium-dark skin, blond hair	none
-👱🏿‍♂	man dark skin, blond hair	none
+🧔🏻‍♂	male Fair skin, beard	none
+🧔🏼‍♂	male medium-fair skin, beard	none
+🧔🏽‍♂	male medium skin, beard	none
+🧔🏾‍♂	male medium-dark skin, beard	none
+🧔🏿‍♂	male dark skin, beard	none
+👱🏻‍♂	male Fair skin, blond hair	none
+👱🏼‍♂	male medium-fair skin, blond hair	none
+👱🏽‍♂	male medium skin, blond hair	none
+👱🏾‍♂	male medium-dark skin, blond hair	none
+👱🏿‍♂	male dark skin, blond hair	none
 👨🏻‍❤‍💋‍👨🏻	kiss man, man, Fair skin	none
 👨🏻‍❤‍💋‍👨🏼	kiss man, man, Fair skin, medium-fair skin	none
 👨🏻‍❤‍💋‍👨🏽	kiss man, man, Fair skin, medium skin	none
@@ -960,16 +1009,16 @@ symbols:
 👩🏽	woman medium skin	none
 👩🏾	woman medium-dark skin	none
 👩🏿	woman dark skin	none
-🧔🏻‍♀	woman Fair skin, beard	none
-🧔🏼‍♀	woman medium-fair skin, beard	none
-🧔🏽‍♀	woman medium skin, beard	none
-🧔🏾‍♀	woman medium-dark skin, beard	none
-🧔🏿‍♀	woman dark skin, beard	none
-👱🏻‍♀	woman Fair skin, blond hair	none
-👱🏼‍♀	woman medium-fair skin, blond hair	none
-👱🏽‍♀	woman medium skin, blond hair	none
-👱🏾‍♀	woman medium-dark skin, blond hair	none
-👱🏿‍♀	woman dark skin, blond hair	none
+🧔🏻‍♀	female Fair skin, beard	none
+🧔🏼‍♀	female medium-fair skin, beard	none
+🧔🏽‍♀	female medium skin, beard	none
+🧔🏾‍♀	female medium-dark skin, beard	none
+🧔🏿‍♀	female dark skin, beard	none
+👱🏻‍♀	female Fair skin, blond hair	none
+👱🏼‍♀	female medium-fair skin, blond hair	none
+👱🏽‍♀	female medium skin, blond hair	none
+👱🏾‍♀	female medium-dark skin, blond hair	none
+👱🏿‍♀	female dark skin, blond hair	none
 👩🏻‍❤‍💋‍👨🏻	kiss woman, man, Fair skin	none
 👩🏻‍❤‍💋‍👨🏼	kiss woman, man, Fair skin, medium-fair skin	none
 👩🏻‍❤‍💋‍👨🏽	kiss woman, man, Fair skin, medium skin	none
@@ -1200,16 +1249,16 @@ symbols:
 🧏🏽	deaf person medium skin	none
 🧏🏾	deaf person medium-dark skin	none
 🧏🏿	deaf person dark skin	none
-🧏🏻‍♂	deaf man Fair skin	none
-🧏🏼‍♂	deaf man medium-fair skin	none
-🧏🏽‍♂	deaf man medium skin	none
-🧏🏾‍♂	deaf man medium-dark skin	none
-🧏🏿‍♂	deaf man dark skin	none
-🧏🏻‍♀	deaf woman Fair skin	none
-🧏🏼‍♀	deaf woman medium-fair skin	none
-🧏🏽‍♀	deaf woman medium skin	none
-🧏🏾‍♀	deaf woman medium-dark skin	none
-🧏🏿‍♀	deaf woman dark skin	none
+🧏🏻‍♂	sun na paane wala aadmi Fair skin	none
+🧏🏼‍♂	sun na paane wala aadmi medium-fair skin	none
+🧏🏽‍♂	sun na paane wala aadmi medium skin	none
+🧏🏾‍♂	sun na paane wala aadmi medium-dark skin	none
+🧏🏿‍♂	sun na paane wala aadmi dark skin	none
+🧏🏻‍♀	sun na paane wali mahila Fair skin	none
+🧏🏼‍♀	sun na paane wali mahila medium-fair skin	none
+🧏🏽‍♀	sun na paane wali mahila medium skin	none
+🧏🏾‍♀	sun na paane wali mahila medium-dark skin	none
+🧏🏿‍♀	sun na paane wali mahila dark skin	none
 🙇🏻	bow karta vyakti Fair skin	none
 🙇🏼	bow karta vyakti medium-fair skin	none
 🙇🏽	bow karta vyakti medium skin	none
@@ -1365,16 +1414,16 @@ symbols:
 🧑🏽‍🏭	factory worker medium skin	none
 🧑🏾‍🏭	factory worker medium-dark skin	none
 🧑🏿‍🏭	factory worker dark skin	none
-👨🏻‍🏭	man factory worker Fair skin	none
-👨🏼‍🏭	man factory worker medium-fair skin	none
-👨🏽‍🏭	man factory worker medium skin	none
-👨🏾‍🏭	man factory worker medium-dark skin	none
-👨🏿‍🏭	man factory worker dark skin	none
-👩🏻‍🏭	woman factory worker Fair skin	none
-👩🏼‍🏭	woman factory worker medium-fair skin	none
-👩🏽‍🏭	woman factory worker medium skin	none
-👩🏾‍🏭	woman factory worker medium-dark skin	none
-👩🏿‍🏭	woman factory worker dark skin	none
+👨🏻‍🏭	male factory worker Fair skin	none
+👨🏼‍🏭	male factory worker medium-fair skin	none
+👨🏽‍🏭	male factory worker medium skin	none
+👨🏾‍🏭	male factory worker medium-dark skin	none
+👨🏿‍🏭	male factory worker dark skin	none
+👩🏻‍🏭	female factory worker Fair skin	none
+👩🏼‍🏭	female factory worker medium-fair skin	none
+👩🏽‍🏭	female factory worker medium skin	none
+👩🏾‍🏭	female factory worker medium-dark skin	none
+👩🏿‍🏭	female factory worker dark skin	none
 🧑🏻‍💼	office worker Fair skin	none
 🧑🏼‍💼	office worker medium-fair skin	none
 🧑🏽‍💼	office worker medium skin	none
@@ -1395,11 +1444,11 @@ symbols:
 🧑🏽‍🔬	scientist medium skin	none
 🧑🏾‍🔬	scientist medium-dark skin	none
 🧑🏿‍🔬	scientist dark skin	none
-👨🏻‍🔬	man scientist Fair skin	none
-👨🏼‍🔬	man scientist medium-fair skin	none
-👨🏽‍🔬	man scientist medium skin	none
-👨🏾‍🔬	man scientist medium-dark skin	none
-👨🏿‍🔬	man scientist dark skin	none
+👨🏻‍🔬	male scientist Fair skin	none
+👨🏼‍🔬	male scientist medium-fair skin	none
+👨🏽‍🔬	male scientist medium skin	none
+👨🏾‍🔬	male scientist medium-dark skin	none
+👨🏿‍🔬	male scientist dark skin	none
 👩🏻‍🔬	woman scientist Fair skin	none
 👩🏼‍🔬	woman scientist medium-fair skin	none
 👩🏽‍🔬	woman scientist medium skin	none
@@ -1410,136 +1459,136 @@ symbols:
 🧑🏽‍💻	technologist medium skin	none
 🧑🏾‍💻	technologist medium-dark skin	none
 🧑🏿‍💻	technologist dark skin	none
-👨🏻‍💻	man technologist Fair skin	none
-👨🏼‍💻	man technologist medium-fair skin	none
-👨🏽‍💻	man technologist medium skin	none
-👨🏾‍💻	man technologist medium-dark skin	none
-👨🏿‍💻	man technologist dark skin	none
-👩🏻‍💻	woman technologist Fair skin	none
-👩🏼‍💻	woman technologist medium-fair skin	none
-👩🏽‍💻	woman technologist medium skin	none
-👩🏾‍💻	woman technologist medium-dark skin	none
-👩🏿‍💻	woman technologist dark skin	none
+👨🏻‍💻	male technologist Fair skin	none
+👨🏼‍💻	male technologist medium-fair skin	none
+👨🏽‍💻	male technologist medium skin	none
+👨🏾‍💻	male technologist medium-dark skin	none
+👨🏿‍💻	male technologist dark skin	none
+👩🏻‍💻	female technologist Fair skin	none
+👩🏼‍💻	female technologist medium-fair skin	none
+👩🏽‍💻	female technologist medium skin	none
+👩🏾‍💻	female technologist medium-dark skin	none
+👩🏿‍💻	female technologist dark skin	none
 🧑🏻‍🎤	singer Fair skin	none
 🧑🏼‍🎤	singer medium-fair skin	none
 🧑🏽‍🎤	singer medium skin	none
 🧑🏾‍🎤	singer medium-dark skin	none
 🧑🏿‍🎤	singer dark skin	none
-👨🏻‍🎤	man singer Fair skin	none
-👨🏼‍🎤	man singer medium-fair skin	none
-👨🏽‍🎤	man singer medium skin	none
-👨🏾‍🎤	man singer medium-dark skin	none
-👨🏿‍🎤	man singer dark skin	none
-👩🏻‍🎤	woman singer Fair skin	none
-👩🏼‍🎤	woman singer medium-fair skin	none
-👩🏽‍🎤	woman singer medium skin	none
-👩🏾‍🎤	woman singer medium-dark skin	none
-👩🏿‍🎤	woman singer dark skin	none
+👨🏻‍🎤	male singer Fair skin	none
+👨🏼‍🎤	male singer medium-fair skin	none
+👨🏽‍🎤	male singer medium skin	none
+👨🏾‍🎤	male singer medium-dark skin	none
+👨🏿‍🎤	male singer dark skin	none
+👩🏻‍🎤	female singer Fair skin	none
+👩🏼‍🎤	female singer medium-fair skin	none
+👩🏽‍🎤	female singer medium skin	none
+👩🏾‍🎤	female singer medium-dark skin	none
+👩🏿‍🎤	female singer dark skin	none
 🧑🏻‍🎨	artist Fair skin	none
 🧑🏼‍🎨	artist medium-fair skin	none
 🧑🏽‍🎨	artist medium skin	none
 🧑🏾‍🎨	artist medium-dark skin	none
 🧑🏿‍🎨	artist dark skin	none
-👨🏻‍🎨	man artist Fair skin	none
-👨🏼‍🎨	man artist medium-fair skin	none
-👨🏽‍🎨	man artist medium skin	none
-👨🏾‍🎨	man artist medium-dark skin	none
-👨🏿‍🎨	man artist dark skin	none
-👩🏻‍🎨	woman artist Fair skin	none
-👩🏼‍🎨	woman artist medium-fair skin	none
-👩🏽‍🎨	woman artist medium skin	none
-👩🏾‍🎨	woman artist medium-dark skin	none
-👩🏿‍🎨	woman artist dark skin	none
+👨🏻‍🎨	male artist Fair skin	none
+👨🏼‍🎨	male artist medium-fair skin	none
+👨🏽‍🎨	male artist medium skin	none
+👨🏾‍🎨	male artist medium-dark skin	none
+👨🏿‍🎨	male artist dark skin	none
+👩🏻‍🎨	female artist Fair skin	none
+👩🏼‍🎨	female artist medium-fair skin	none
+👩🏽‍🎨	female artist medium skin	none
+👩🏾‍🎨	female artist medium-dark skin	none
+👩🏿‍🎨	female artist dark skin	none
 🧑🏻‍✈	pilot Fair skin	none
 🧑🏼‍✈	pilot medium-fair skin	none
 🧑🏽‍✈	pilot medium skin	none
 🧑🏾‍✈	pilot medium-dark skin	none
 🧑🏿‍✈	pilot dark skin	none
-👨🏻‍✈	man pilot Fair skin	none
-👨🏼‍✈	man pilot medium-fair skin	none
-👨🏽‍✈	man pilot medium skin	none
-👨🏾‍✈	man pilot medium-dark skin	none
-👨🏿‍✈	man pilot dark skin	none
-👩🏻‍✈	woman pilot Fair skin	none
-👩🏼‍✈	woman pilot medium-fair skin	none
-👩🏽‍✈	woman pilot medium skin	none
-👩🏾‍✈	woman pilot medium-dark skin	none
-👩🏿‍✈	woman pilot dark skin	none
+👨🏻‍✈	male pilot Fair skin	none
+👨🏼‍✈	male pilot medium-fair skin	none
+👨🏽‍✈	male pilot medium skin	none
+👨🏾‍✈	male pilot medium-dark skin	none
+👨🏿‍✈	male pilot dark skin	none
+👩🏻‍✈	female pilot Fair skin	none
+👩🏼‍✈	female pilot medium-fair skin	none
+👩🏽‍✈	female pilot medium skin	none
+👩🏾‍✈	female pilot medium-dark skin	none
+👩🏿‍✈	female pilot dark skin	none
 🧑🏻‍🚀	astronaut Fair skin	none
 🧑🏼‍🚀	astronaut medium-fair skin	none
 🧑🏽‍🚀	astronaut medium skin	none
 🧑🏾‍🚀	astronaut medium-dark skin	none
 🧑🏿‍🚀	astronaut dark skin	none
-👨🏻‍🚀	man astronaut Fair skin	none
-👨🏼‍🚀	man astronaut medium-fair skin	none
-👨🏽‍🚀	man astronaut medium skin	none
-👨🏾‍🚀	man astronaut medium-dark skin	none
-👨🏿‍🚀	man astronaut dark skin	none
-👩🏻‍🚀	woman astronaut Fair skin	none
-👩🏼‍🚀	woman astronaut medium-fair skin	none
-👩🏽‍🚀	woman astronaut medium skin	none
-👩🏾‍🚀	woman astronaut medium-dark skin	none
-👩🏿‍🚀	woman astronaut dark skin	none
+👨🏻‍🚀	male astronaut Fair skin	none
+👨🏼‍🚀	male astronaut medium-fair skin	none
+👨🏽‍🚀	male astronaut medium skin	none
+👨🏾‍🚀	male astronaut medium-dark skin	none
+👨🏿‍🚀	male astronaut dark skin	none
+👩🏻‍🚀	female astronaut Fair skin	none
+👩🏼‍🚀	female astronaut medium-fair skin	none
+👩🏽‍🚀	female astronaut medium skin	none
+👩🏾‍🚀	female astronaut medium-dark skin	none
+👩🏿‍🚀	female astronaut dark skin	none
 🧑🏻‍🚒	firefighter Fair skin	none
 🧑🏼‍🚒	firefighter medium-fair skin	none
 🧑🏽‍🚒	firefighter medium skin	none
 🧑🏾‍🚒	firefighter medium-dark skin	none
 🧑🏿‍🚒	firefighter dark skin	none
-👨🏻‍🚒	man firefighter Fair skin	none
-👨🏼‍🚒	man firefighter medium-fair skin	none
-👨🏽‍🚒	man firefighter medium skin	none
-👨🏾‍🚒	man firefighter medium-dark skin	none
-👨🏿‍🚒	man firefighter dark skin	none
-👩🏻‍🚒	woman firefighter Fair skin	none
-👩🏼‍🚒	woman firefighter medium-fair skin	none
-👩🏽‍🚒	woman firefighter medium skin	none
-👩🏾‍🚒	woman firefighter medium-dark skin	none
-👩🏿‍🚒	woman firefighter dark skin	none
+👨🏻‍🚒	male firefighter Fair skin	none
+👨🏼‍🚒	male firefighter medium-fair skin	none
+👨🏽‍🚒	male firefighter medium skin	none
+👨🏾‍🚒	male firefighter medium-dark skin	none
+👨🏿‍🚒	male firefighter dark skin	none
+👩🏻‍🚒	female firefighter Fair skin	none
+👩🏼‍🚒	female firefighter medium-fair skin	none
+👩🏽‍🚒	female firefighter medium skin	none
+👩🏾‍🚒	female firefighter medium-dark skin	none
+👩🏿‍🚒	female firefighter dark skin	none
 👮🏻	police officer Fair skin	none
 👮🏼	police officer medium-fair skin	none
 👮🏽	police officer medium skin	none
 👮🏾	police officer medium-dark skin	none
 👮🏿	police officer dark skin	none
-👮🏻‍♂	man police officer Fair skin	none
-👮🏼‍♂	man police officer medium-fair skin	none
-👮🏽‍♂	man police officer medium skin	none
-👮🏾‍♂	man police officer medium-dark skin	none
-👮🏿‍♂	man police officer dark skin	none
-👮🏻‍♀	woman police officer Fair skin	none
-👮🏼‍♀	woman police officer medium-fair skin	none
-👮🏽‍♀	woman police officer medium skin	none
-👮🏾‍♀	woman police officer medium-dark skin	none
-👮🏿‍♀	woman police officer dark skin	none
+👮🏻‍♂	male police officer Fair skin	none
+👮🏼‍♂	male police officer medium-fair skin	none
+👮🏽‍♂	male police officer medium skin	none
+👮🏾‍♂	male police officer medium-dark skin	none
+👮🏿‍♂	male police officer dark skin	none
+👮🏻‍♀	female police officer Fair skin	none
+👮🏼‍♀	female police officer medium-fair skin	none
+👮🏽‍♀	female police officer medium skin	none
+👮🏾‍♀	female police officer medium-dark skin	none
+👮🏿‍♀	female police officer dark skin	none
 🕵🏻	detective Fair skin	none
 🕵🏼	detective medium-fair skin	none
 🕵🏽	detective medium skin	none
 🕵🏾	detective medium-dark skin	none
 🕵🏿	detective dark skin	none
-🕵🏻‍♂	man detective Fair skin	none
-🕵🏼‍♂	man detective medium-fair skin	none
-🕵🏽‍♂	man detective medium skin	none
-🕵🏾‍♂	man detective medium-dark skin	none
-🕵🏿‍♂	man detective dark skin	none
-🕵🏻‍♀	woman detective Fair skin	none
-🕵🏼‍♀	woman detective medium-fair skin	none
-🕵🏽‍♀	woman detective medium skin	none
-🕵🏾‍♀	woman detective medium-dark skin	none
-🕵🏿‍♀	woman detective dark skin	none
+🕵🏻‍♂	male detective Fair skin	none
+🕵🏼‍♂	male detective medium-fair skin	none
+🕵🏽‍♂	male detective medium skin	none
+🕵🏾‍♂	male detective medium-dark skin	none
+🕵🏿‍♂	male detective dark skin	none
+🕵🏻‍♀	female detective Fair skin	none
+🕵🏼‍♀	female detective medium-fair skin	none
+🕵🏽‍♀	female detective medium skin	none
+🕵🏾‍♀	female detective medium-dark skin	none
+🕵🏿‍♀	female detective dark skin	none
 💂🏻	guard Fair skin	none
 💂🏼	guard medium-fair skin	none
 💂🏽	guard medium skin	none
 💂🏾	guard medium-dark skin	none
 💂🏿	guard dark skin	none
-💂🏻‍♂	man guard Fair skin	none
-💂🏼‍♂	man guard medium-fair skin	none
-💂🏽‍♂	man guard medium skin	none
-💂🏾‍♂	man guard medium-dark skin	none
-💂🏿‍♂	man guard dark skin	none
-💂🏻‍♀	woman guard Fair skin	none
-💂🏼‍♀	woman guard medium-fair skin	none
-💂🏽‍♀	woman guard medium skin	none
-💂🏾‍♀	woman guard medium-dark skin	none
-💂🏿‍♀	woman guard dark skin	none
+💂🏻‍♂	male guard Fair skin	none
+💂🏼‍♂	male guard medium-fair skin	none
+💂🏽‍♂	male guard medium skin	none
+💂🏾‍♂	male guard medium-dark skin	none
+💂🏿‍♂	male guard dark skin	none
+💂🏻‍♀	female guard Fair skin	none
+💂🏼‍♀	female guard medium-fair skin	none
+💂🏽‍♀	female guard medium skin	none
+💂🏾‍♀	female guard medium-dark skin	none
+💂🏿‍♀	female guard dark skin	none
 🥷🏻	ninja Fair skin	none
 🥷🏼	ninja medium-fair skin	none
 🥷🏽	ninja medium skin	none
@@ -1550,16 +1599,16 @@ symbols:
 👷🏽	construction worker medium skin	none
 👷🏾	construction worker medium-dark skin	none
 👷🏿	construction worker dark skin	none
-👷🏻‍♂	man construction worker Fair skin	none
-👷🏼‍♂	man construction worker medium-fair skin	none
-👷🏽‍♂	man construction worker medium skin	none
-👷🏾‍♂	man construction worker medium-dark skin	none
-👷🏿‍♂	man construction worker dark skin	none
-👷🏻‍♀	woman construction worker Fair skin	none
-👷🏼‍♀	woman construction worker medium-fair skin	none
-👷🏽‍♀	woman construction worker medium skin	none
-👷🏾‍♀	woman construction worker medium-dark skin	none
-👷🏿‍♀	woman construction worker dark skin	none
+👷🏻‍♂	male construction worker Fair skin	none
+👷🏼‍♂	male construction worker medium-fair skin	none
+👷🏽‍♂	male construction worker medium skin	none
+👷🏾‍♂	male construction worker medium-dark skin	none
+👷🏿‍♂	male construction worker dark skin	none
+👷🏻‍♀	female construction worker Fair skin	none
+👷🏼‍♀	female construction worker medium-fair skin	none
+👷🏽‍♀	female construction worker medium skin	none
+👷🏾‍♀	female construction worker medium-dark skin	none
+👷🏿‍♀	female construction worker dark skin	none
 🫅🏻	crown wala vyakti Fair skin	none
 🫅🏼	crown wala vyakti medium-fair skin	none
 🫅🏽	crown wala vyakti medium skin	none
@@ -1620,11 +1669,11 @@ symbols:
 👰🏽	Ghoonghat mein bride medium skin	none
 👰🏾	Ghoonghat mein bride medium-dark skin	none
 👰🏿	Ghoonghat mein bride dark skin	none
-👰🏻‍♂	man with veil Fair skin	none
-👰🏼‍♂	man with veil medium-fair skin	none
-👰🏽‍♂	man with veil medium skin	none
-👰🏾‍♂	man with veil medium-dark skin	none
-👰🏿‍♂	man with veil dark skin	none
+👰🏻‍♂	Ghoonghat mein aadmi Fair skin	none
+👰🏼‍♂	Ghoonghat mein aadmi medium-fair skin	none
+👰🏽‍♂	Ghoonghat mein aadmi medium skin	none
+👰🏾‍♂	Ghoonghat mein aadmi medium-dark skin	none
+👰🏿‍♂	Ghoonghat mein aadmi dark skin	none
 👰🏻‍♀	parde mein dulhan Fair skin	none
 👰🏼‍♀	parde mein dulhan medium-fair skin	none
 👰🏽‍♀	parde mein dulhan medium skin	none

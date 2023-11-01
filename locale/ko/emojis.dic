@@ -28,7 +28,7 @@ symbols:
 ↦	세로 막대가 있는 오른쪽 화살표	none
 ↧	가로선이 있는 아래쪽 화살표	none
 ↨	밑면이 있는 위쪽 아래쪽 화살표	none
-↫	아래쪽 화살표 루프	none
+↫	왼쪽 화살표 루프	none
 ↬	오른쪽 화살표 루프	none
 ↭	물결 모양 왼쪽 오른쪽 화살표	none
 ↯	아래쪽 지그재그 화살표	none
@@ -84,13 +84,13 @@ symbols:
 ⇢	파선 모양 오른쪽 화살표	none
 ⇣	파선 모양 아래쪽 화살표	none
 ⇤	세로선이 있는 왼쪽 화살표	none
-⇥	세로 막대가 있는 화살표	none
+⇥	세로선이 있는 오른쪽 화살표	none
 ⇦	빈 왼쪽 화살표	none
 ⇧	빈 위쪽 화살표	none
 ⇨	빈 오른쪽 화살표	none
 ⇩	빈 아래쪽 화살표	none
 ⇪	가로선이 있는 빈 위쪽 화살표	none
-⇵	아래쪽 화살표 왼쪽에 위쪽 화살표	none
+⇵	아래쪽 화살표 오른쪽에 위쪽 화살표	none
 ∀	모든	none
 ∂	편미분	none
 ∃	존재	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	날숨 쉬는 얼굴	none
 🤥	거짓말하는 얼굴	none
 🫨	요동치는 얼굴	none
+🙂‍↔	도리도리	none
+🙂‍↕	끄덕끄덕	none
 😌	안심한 얼굴	none
 😔	수심 어린 얼굴	none
 😪	졸린 얼굴	none
@@ -744,11 +746,15 @@ symbols:
 👬	손을 잡고 있는 두 명의 남자	none
 💏	키스	none
 💑	연인	none
-👪	가족	none
 🗣	말하고 있는 옆얼굴	none
 👤	사람 그림자	none
 👥	사람들 그림자	none
 🫂	포옹하는 사람	none
+👪	가족	none
+🧑‍🧑‍🧒	가족 성인, 성인, 아이	none
+🧑‍🧑‍🧒‍🧒	가족 성인, 성인, 아이, 아이	none
+🧑‍🧒	가족 성인, 아이	none
+🧑‍🧒‍🧒	가족 성인, 아이, 아이	none
 👣	발자국	none
 🦰	빨간 머리	none
 🦱	곱슬머리	none
@@ -839,7 +845,9 @@ symbols:
 🦚	공작	none
 🦜	앵무새	none
 🪽	날개	none
+🐦‍⬛	검은 새	none
 🪿	거위	none
+🐦‍🔥	불사조	none
 🐸	개구리 얼굴	none
 🐊	악어	none
 🐢	거북이	none
@@ -910,6 +918,7 @@ symbols:
 🍉	수박	none
 🍊	귤	none
 🍋	레몬	none
+🍋‍🟩	라임	none
 🍌	바나나	none
 🍍	파인애플	none
 🥭	망고	none
@@ -941,6 +950,7 @@ symbols:
 🌰	밤	none
 🫚	생강 뿌리	none
 🫛	완두콩 꼬투리	none
+🍄‍🟫	갈색 양송이 버섯	none
 🍞	빵	none
 🥐	크루아상	none
 🥖	바게트	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	접시저울	none
 🦯	시각장애인 지팡이	none
 🔗	링크	none
+⛓‍💥	끊어진 쇠사슬	none
 ⛓	쇠사슬	none
 🪝	갈고리	none
 🧰	공구통	none
@@ -3753,7 +3764,7 @@ symbols:
 🇮🇱	깃발 이스라엘	none
 🇮🇲	깃발 맨섬	none
 🇮🇳	깃발 인도	none
-🇮🇴	깃발 영국령 인도양 식민지	none
+🇮🇴	깃발 영국령 인도양 지역	none
 🇮🇶	깃발 이라크	none
 🇮🇷	깃발 이란	none
 🇮🇸	깃발 아이슬란드	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	깃발 웨일즈	none
 ₡	코스타리카 콜론	none
 ₦	나이지리아 나이라	none
-₧	스페인 페세타	none
 ₪	이스라엘 신권 세켈	none
 ₫	베트남 동	none
 ₭	라오스 키프	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	터키 리라	none
 ₼	아제르바이잔 마나트	none
 ₾	조지아 라리	none
+₧	스페인 페세타	none

@@ -314,6 +314,8 @@ symbols:
 😮‍💨	veidas su garu	none
 🤥	meluojantis veidas	none
 🫨	besikratantis veidukas	none
+🙂‍↔	purtantis galvą	none
+🙂‍↕	linksintis galva	none
 😌	veidas su palengvėjimu	none
 😔	susimąstęs veidas	none
 😪	mieguistas veidas	none
@@ -744,11 +746,15 @@ symbols:
 👬	du vyrai, susikibę už rankų	none
 💏	bučinys	none
 💑	pora su širdele	none
-👪	šeima	none
 🗣	kalbanti galva	none
 👤	biusto siluetas	none
 👥	biustų siluetai	none
 🫂	apsikabinę žmonės	none
+👪	šeima	none
+🧑‍🧑‍🧒	šeima suaugusysis, suaugusysis, vaikas	none
+🧑‍🧑‍🧒‍🧒	šeima suaugusysis, suaugusysis, vaikas, vaikas	none
+🧑‍🧒	šeima suaugusysis, vaikas	none
+🧑‍🧒‍🧒	šeima suaugusysis, vaikas, vaikas	none
 👣	pėdsakai	none
 🦰	raudoni plaukai	none
 🦱	garbanoti plaukai	none
@@ -839,7 +845,9 @@ symbols:
 🦚	povas	none
 🦜	papūga	none
 🪽	sparnas	none
+🐦‍⬛	juodas paukštis	none
 🪿	žąsis	none
+🐦‍🔥	feniksas	none
 🐸	varlės snukutis	none
 🐊	krokodilas	none
 🐢	vėžlys	none
@@ -910,6 +918,7 @@ symbols:
 🍉	arbūzas	none
 🍊	mandarinas	none
 🍋	citrina	none
+🍋‍🟩	žalioji citrina	none
 🍌	bananas	none
 🍍	ananasas	none
 🥭	mangas	none
@@ -941,6 +950,7 @@ symbols:
 🌰	lazdyno riešutas	none
 🫚	imbiero šaknis	none
 🫛	žirnių ankštis	none
+🍄‍🟫	baravykas	none
 🍞	duona	none
 🥐	raguolis	none
 🥖	ilgas batonas	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	svarstyklės su lėkštėmis	none
 🦯	neregio lazda	none
 🔗	jungtis	none
+⛓‍💥	nutraukta grandinė	none
 ⛓	grandinės	none
 🪝	kablys	none
 🧰	įrankių rinkinys	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	vėliava Velsas	none
 ₡	Kosta Rikos kolonas	none
 ₦	Nigerijos naira	none
-₧	Ispanijos peseta	none
 ₪	Izraelio naujasis šekelis	none
 ₫	Vietnamo dongas	none
 ₭	Laoso kipas	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	Turkijos lira	none
 ₼	Azerbaidžano manatas	none
 ₾	Gruzijos laris	none
+₧	Ispanijos peseta	none

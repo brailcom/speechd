@@ -40,7 +40,7 @@ symbols:
 ↵	frecha cara á esquerda coa esquina cara abaixo	none
 ↶	frecha en semicírculo xirando cara á esquerda	none
 ↷	frecha en semicírculo xirando cara á dereita	none
-↸	frecha cara o noroeste cunha barra longa	none
+↸	frecha cara ao noroeste cunha barra longa	none
 ↹	frecha cara á esquerda cunha barra sobre frecha cara á dereita cunha barra	none
 ↺	frecha en círculo aberto xirando cara á esquerda	none
 ↻	frecha en círculo aberto xirando cara á dereita	none
@@ -69,10 +69,10 @@ symbols:
 ⇓	frecha dobre cara abaixo	none
 ⇔	frecha dobre cara á esquerda e cara á dereita	none
 ⇎	frecha dobre cara á esquerda e cara á dereita con trazo	none
-⇖	frecha dobre cara o noroeste	none
-⇗	frecha dobre cara o nordeste	none
-⇘	frecha dobre cara o sueste	none
-⇙	frecha dobre cara o suroeste	none
+⇖	frecha dobre cara ao noroeste	none
+⇗	frecha dobre cara ao nordeste	none
+⇘	frecha dobre cara ao sueste	none
+⇙	frecha dobre cara ao suroeste	none
 ⇚	frecha tripla cara á esquerda	none
 ⇛	frecha tripla cara á dereita	none
 ⇜	frecha garabateada cara á esquerda	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	cara exhalando	none
 🤥	cara de mentirán	none
 🫨	cara tremente	none
+🙂‍↔	cabeza abaneándose horizontalmente	none
+🙂‍↕	cabeza abaneándose verticalmente	none
 😌	cara de alivio	none
 😔	cara desanimada	none
 😪	cara de sono	none
@@ -627,7 +629,7 @@ symbols:
 🦸‍♂	superheroe	none
 🦸‍♀	superheroína	none
 🦹	vilán	none
-🦹‍♂	supervil´án	none
+🦹‍♂	supervilán	none
 🦹‍♀	supervilá	none
 🧙	feiticeiro	none
 🧙‍♂	meigo	none
@@ -744,11 +746,15 @@ symbols:
 👬	dous homes collidos da man	none
 💏	parella bicándose	none
 💑	parella cun corazón	none
-👪	familia	none
 🗣	silueta de persoa falando	none
 👤	silueta dun busto	none
 👥	silueta de dous bustos	none
 🫂	persoas abrazándose	none
+👪	familia	none
+🧑‍🧑‍🧒	familia adulto, adulto, neno	none
+🧑‍🧑‍🧒‍🧒	familia adulto, adulto, neno, neno	none
+🧑‍🧒	familia adulto, neno	none
+🧑‍🧒‍🧒	familia adulto, neno, neno	none
 👣	pegadas de pés	none
 🦰	pelo roxo	none
 🦱	pelo rizado	none
@@ -839,7 +845,9 @@ symbols:
 🦚	pavón	none
 🦜	loro	none
 🪽	á	none
+🐦‍⬛	paxaro negro	none
 🪿	ganso	none
+🐦‍🔥	fénix	none
 🐸	ra	none
 🐊	crocodilo	none
 🐢	tartaruga	none
@@ -910,6 +918,7 @@ symbols:
 🍉	sandía	none
 🍊	mandarina	none
 🍋	limón	none
+🍋‍🟩	lima	none
 🍌	plátano	none
 🍍	piña	none
 🥭	manga	none
@@ -941,6 +950,7 @@ symbols:
 🌰	castaña	none
 🫚	xenxibre	none
 🫛	vaíña	none
+🍄‍🟫	cogomelo marrón	none
 🍞	pan de molde	none
 🥐	croissant	none
 🥖	barra de pan	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	balanza	none
 🦯	bastón guía	none
 🔗	elo	none
+⛓‍💥	cadea rota	none
 ⛓	cadeas	none
 🪝	gancho	none
 🧰	caixa de ferramentas	none
@@ -3020,11 +3031,11 @@ symbols:
 🦹🏽	vilán ton de pel medio	none
 🦹🏾	vilán ton de pel escuro	none
 🦹🏿	vilán ton de pel moi escuro	none
-🦹🏻‍♂	supervil´án ton de pel moi claro	none
-🦹🏼‍♂	supervil´án ton de pel claro	none
-🦹🏽‍♂	supervil´án ton de pel medio	none
-🦹🏾‍♂	supervil´án ton de pel escuro	none
-🦹🏿‍♂	supervil´án ton de pel moi escuro	none
+🦹🏻‍♂	supervilán ton de pel moi claro	none
+🦹🏼‍♂	supervilán ton de pel claro	none
+🦹🏽‍♂	supervilán ton de pel medio	none
+🦹🏾‍♂	supervilán ton de pel escuro	none
+🦹🏿‍♂	supervilán ton de pel moi escuro	none
 🦹🏻‍♀	supervilá ton de pel moi claro	none
 🦹🏼‍♀	supervilá ton de pel claro	none
 🦹🏽‍♀	supervilá ton de pel medio	none
@@ -3786,7 +3797,7 @@ symbols:
 🇱🇾	bandeira Libia	none
 🇲🇦	bandeira Marrocos	none
 🇲🇨	bandeira Mónaco	none
-🇲🇩	bandeira Moldavia	none
+🇲🇩	bandeira República Moldova	none
 🇲🇪	bandeira Montenegro	none
 🇲🇫	bandeira Saint Martin	none
 🇲🇬	bandeira Madagascar	none
@@ -3886,7 +3897,7 @@ symbols:
 🇺🇾	bandeira O Uruguai	none
 🇺🇿	bandeira Uzbekistán	none
 🇻🇦	bandeira Cidade do Vaticano	none
-🇻🇨	bandeira San Vicente e As Granadinas	none
+🇻🇨	bandeira San Vicente e as Granadinas	none
 🇻🇪	bandeira Venezuela	none
 🇻🇬	bandeira Illas Virxes Británicas	none
 🇻🇮	bandeira Illas Virxes Estadounidenses	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandeira Gales	none
 ₡	colón costarriqueño	none
 ₦	naira nixeriano	none
-₧	Peseta española	none
 ₪	novo shequel israelí	none
 ₫	dong vietnamita	none
 ₭	kip laosiano	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	lira turca	none
 ₼	manat acerbaixano	none
 ₾	lari xeorxiano	none
+₧	Peseta española	none
