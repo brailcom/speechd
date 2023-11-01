@@ -384,10 +384,10 @@ symbols:
 👬	tokorua tāne mau ringa	none
 💏	kihi	none
 💑	tokorua me te manawa	none
-👪	whānau	none
 🗣	upoko kōrero	none
 👤	poho rō ataata	none
 👥	ngā poho rō ataata	none
+👪	whānau	none
 👣	ngā tapuwae	none
 🐵	kanohi makimaki	none
 🐒	makimaki	none
@@ -2634,46 +2634,70 @@ symbols:
 👩‍👧‍👦	whānau wahine, kōtiro, tamatāne	none
 👩‍👧‍👧	whānau wahine, kōtiro, kōtiro	none
 🔟	uhi pātuhi 10	none
-🇦🇬	haki Anatikua me Pāpura	none
-🇦🇮	haki Ākuira	none
+🇦🇨	haki Te Moutere Aupikinga	none
+🇦🇩	haki Anatōra	none
+🇦🇪	haki Kotahitanga o ngā Whenua o Ārapi	none
+🇦🇫	haki Awhekenetāna	none
+🇦🇬	haki Motu Nehe me Pāputa	none
+🇦🇮	haki Anguira	none
+🇦🇱	haki Arapeinia	none
+🇦🇲	haki Āmenia	none
 🇦🇴	haki Anakora	none
+🇦🇶	haki Te Kōpakatanga ki te Tonga	none
 🇦🇷	haki Āketina	none
-🇦🇹	haki Ateria	none
+🇦🇸	haki Hāmoa-Amerika	none
+🇦🇹	haki Ataria	none
+🇦🇺	haki Ahitereiria	none
 🇦🇼	haki Arūpa	none
 🇦🇽	haki Motu Ōrana	none
-🇧🇧	haki Pāpetō	none
-🇧🇪	haki Paratiamu	none
-🇧🇫	haki Pēkina Waho	none
+🇦🇿	haki Atepaihānia	none
+🇧🇦	haki Pōngia-Herekōwini	none
+🇧🇧	haki Papatohe	none
+🇧🇩	haki Pākaratēhi	none
+🇧🇪	haki Peretiama	none
+🇧🇫	haki Pākina Wharo	none
+🇧🇬	haki Purukāria	none
+🇧🇭	haki Pāreina	none
 🇧🇮	haki Puruniti	none
 🇧🇯	haki Penīna	none
 🇧🇱	haki Hato Pāteremi	none
-🇧🇲	haki Pemiuta	none
+🇧🇲	haki Pāmura	none
+🇧🇳	haki Poronai	none
 🇧🇴	haki Poriwia	none
-🇧🇶	haki Karepeana Hōrana	none
+🇧🇶	haki Karapīana Hōrana	none
 🇧🇷	haki Parīhi	none
-🇧🇸	haki Pahāma	none
+🇧🇸	haki Pahama	none
+🇧🇹	haki Pūtana	none
 🇧🇻	haki Motu Pūwei	none
 🇧🇼	haki Poriwana	none
+🇧🇾	haki Pērara	none
 🇧🇿	haki Perīhi	none
 🇨🇦	haki Kānata	none
-🇨🇩	haki Kōngo - Kingihāha	none
-🇨🇫	haki Te Puku o Āwherika	none
-🇨🇬	haki Kōngo - Parāwhe	none
+🇨🇨	haki Ngā Moutere Kokoko (Kirini)	none
+🇨🇩	haki Kōngo - Kinihāha	none
+🇨🇫	haki Te Whenua Tūhake o Āwherika Waenga	none
+🇨🇬	haki Kōngo - Pārawhe	none
 🇨🇭	haki Huiterangi	none
 🇨🇮	haki Te Tai Rei	none
+🇨🇰	haki Kuki Airani	none
 🇨🇱	haki Hiri	none
 🇨🇲	haki Kamarūna	none
 🇨🇳	haki Haina	none
 🇨🇴	haki Koromōpia	none
-🇨🇷	haki Kota Rīka	none
+🇨🇵	haki Te Moutere Kiripetone	none
+🇨🇷	haki Koto Rīka	none
 🇨🇺	haki Kiupa	none
 🇨🇻	haki Te Kūrae Matomato	none
 🇨🇼	haki Kurahao	none
-🇩🇪	haki Tiamani	none
+🇨🇽	haki Te Moutere Kirihimete	none
+🇨🇾	haki Haipara	none
+🇨🇿	haki Tiekia	none
+🇩🇪	haki Tiamana	none
+🇩🇬	haki Tieko Kāhia	none
 🇩🇯	haki Tipūti	none
 🇩🇰	haki Tenemāka	none
 🇩🇲	haki Tominika	none
-🇩🇴	haki Te Whenua Tominika	none
+🇩🇴	haki Te Whenua Tūhake o Tominika	none
 🇩🇿	haki Aratiria	none
 🇪🇦	haki Hūta me Merera	none
 🇪🇨	haki Ekuatoa	none
@@ -2681,109 +2705,203 @@ symbols:
 🇪🇬	haki Īhipa	none
 🇪🇭	haki Hahāra ki te Tonga	none
 🇪🇷	haki Eritēria	none
+🇪🇸	haki Peina	none
 🇪🇹	haki Etiopia	none
 🇪🇺	haki Te Uniana o Ūropi	none
-🇫🇮	haki Whinirana	none
+🇫🇮	haki Whinarana	none
+🇫🇯	haki Whītī	none
 🇫🇰	haki Motu Whākarangi	none
-🇫🇴	haki Motu Wharo	none
+🇫🇲	haki Mekanēhia	none
+🇫🇴	haki Motu Wharau	none
 🇫🇷	haki Wīwī	none
 🇬🇦	haki Kāpona	none
 🇬🇧	haki Te Hononga o Piritene	none
 🇬🇩	haki Kerenāta	none
-🇬🇫	haki Kaiana Wīwī	none
-🇬🇬	haki Kēni	none
+🇬🇪	haki Hōria	none
+🇬🇫	haki Kiāna Wīwī	none
+🇬🇬	haki Kōnihi	none
 🇬🇭	haki Kāna	none
-🇬🇱	haki Kirīrangi	none
-🇬🇲	haki Te Kamopia	none
+🇬🇮	haki Kāmaka	none
+🇬🇱	haki Whenuakāriki	none
+🇬🇲	haki Kamopia	none
 🇬🇳	haki Kini	none
-🇬🇵	haki Kuatarū	none
+🇬🇵	haki Kuatarupa	none
 🇬🇶	haki Kini Ekuatoria	none
-🇬🇸	haki Hōria ki te Tonga me Motu Hanuwiti ki te Tonga	none
+🇬🇷	haki Kirihi	none
+🇬🇸	haki Hōria ki te Tonga me ngā Motu Hanawiti ki te Tonga	none
 🇬🇹	haki Kuatamāra	none
+🇬🇺	haki Kuama	none
 🇬🇼	haki Kini-Pihao	none
 🇬🇾	haki Kaiana	none
-🇭🇳	haki Honūra	none
+🇭🇰	haki Hongipua Haina	none
+🇭🇲	haki Ngā Moutere Heriti me Makitānara	none
+🇭🇳	haki Honotura	none
+🇭🇷	haki Koroātia	none
 🇭🇹	haki Haiti	none
-🇮🇨	haki Motu Kānara	none
-🇮🇪	haki Aerana	none
-🇮🇲	haki Motu Tangata	none
+🇭🇺	haki Hanekari	none
+🇮🇨	haki Motu Kanēre	none
+🇮🇩	haki Initonīhia	none
+🇮🇪	haki Airani	none
+🇮🇱	haki Iharaira	none
+🇮🇲	haki Te Moutere Mana	none
 🇮🇳	haki Inia	none
 🇮🇴	haki Te Rohe o te Moana Īniana Piritihi	none
+🇮🇶	haki Irāka	none
+🇮🇷	haki Irāna	none
 🇮🇸	haki Tiorangi	none
 🇮🇹	haki Itāria	none
-🇯🇪	haki Tiehe	none
+🇯🇪	haki Tōrehe	none
 🇯🇲	haki Hemeika	none
+🇯🇴	haki Hōrano	none
 🇯🇵	haki Hapani	none
-🇰🇪	haki Kēnia	none
+🇰🇪	haki Kenia	none
+🇰🇬	haki Kikitānga	none
+🇰🇭	haki Kamapōtia	none
+🇰🇮	haki Kiripati	none
 🇰🇲	haki Komoro	none
 🇰🇳	haki Hato Kiti me Newhi	none
+🇰🇵	haki Kōrea ki te Raki	none
+🇰🇷	haki Kōrea ki te Tonga	none
+🇰🇼	haki Kūweiti	none
 🇰🇾	haki Ngā Motu Keimana	none
+🇰🇿	haki Katatānga	none
+🇱🇦	haki Rāoho	none
+🇱🇧	haki Repanona	none
 🇱🇨	haki Hato Ruhia	none
-🇱🇮	haki Rīkeneteina	none
-🇱🇷	haki Raipiri	none
+🇱🇮	haki Rīkenetaina	none
+🇱🇰	haki Hiri Rānaka	none
+🇱🇷	haki Raipiria	none
 🇱🇸	haki Teroto	none
 🇱🇹	haki Rituānia	none
-🇱🇺	haki Rakimipēki	none
-🇱🇻	haki Ratawia	none
-🇱🇾	haki Rīpia	none
+🇱🇺	haki Rakapuō	none
+🇱🇻	haki Rāwhia	none
+🇱🇾	haki Ripia	none
 🇲🇦	haki Moroko	none
-🇲🇨	haki Manako	none
+🇲🇨	haki Monāko	none
+🇲🇩	haki Morotawa	none
+🇲🇪	haki Maungakororiko	none
 🇲🇫	haki Hato Mātene	none
-🇲🇬	haki Marakāhia	none
+🇲🇬	haki Matakāhika	none
+🇲🇭	haki Ngā Motu Māhara	none
 🇲🇰	haki Makerōnia ki te Raki	none
 🇲🇱	haki Māri	none
-🇲🇶	haki Māteniki	none
+🇲🇲	haki Pēma	none
+🇲🇳	haki Mongōria	none
+🇲🇴	haki Makau Haina	none
+🇲🇵	haki Ngā Motu Mariana ki te Raki	none
+🇲🇶	haki Mātiniki	none
 🇲🇷	haki Mauritānia	none
 🇲🇸	haki Monoterā	none
-🇲🇺	haki Mōrihi	none
+🇲🇹	haki Mārata	none
+🇲🇺	haki Marihi	none
+🇲🇻	haki Māratiri	none
 🇲🇼	haki Marāwi	none
 🇲🇽	haki Mēhiko	none
+🇲🇾	haki Mareia	none
 🇲🇿	haki Mohapiki	none
-🇳🇦	haki Namīpia	none
+🇳🇦	haki Namipia	none
+🇳🇨	haki Whenua Kanaki	none
 🇳🇪	haki Ngāika	none
+🇳🇫	haki Te Moutere Nōpoke	none
 🇳🇬	haki Ngāitiria	none
-🇳🇮	haki Nikarakua	none
+🇳🇮	haki Nikarāhua	none
 🇳🇱	haki Hōrana	none
 🇳🇴	haki Nōwei	none
+🇳🇵	haki Nepōra	none
+🇳🇷	haki Nauru	none
+🇳🇺	haki Niue	none
 🇳🇿	haki Aotearoa	none
+🇴🇲	haki Ōmana	none
 🇵🇦	haki Panama	none
 🇵🇪	haki Peru	none
-🇵🇲	haki Hato Piere & Mikarona	none
-🇵🇷	haki Pōta Riko	none
+🇵🇫	haki Poronēhia Wīwī	none
+🇵🇬	haki Papua Nūkini	none
+🇵🇭	haki Piripīni	none
+🇵🇰	haki Pakitāne	none
+🇵🇱	haki Pōrana	none
+🇵🇲	haki Hato Piere & Mikerona	none
+🇵🇳	haki Pitikeina	none
+🇵🇷	haki Peta Riko	none
+🇵🇸	haki Ngā Rohe o Parihitini	none
+🇵🇹	haki Potukara	none
+🇵🇼	haki Pārau	none
 🇵🇾	haki Parakai	none
-🇷🇪	haki Rēnio	none
+🇶🇦	haki Katā	none
+🇷🇪	haki Reūnio	none
+🇷🇴	haki Romeinia	none
+🇷🇸	haki Hirupia	none
 🇷🇺	haki Rūhia	none
 🇷🇼	haki Rāwana	none
-🇸🇨	haki Heihere	none
+🇸🇦	haki Hauri Arāpia	none
+🇸🇧	haki Ngā Motu Horomona	none
+🇸🇨	haki Heikere	none
 🇸🇩	haki Hūtāne	none
-🇸🇪	haki Huītene	none
-🇸🇭	haki Hato Harīna	none
-🇸🇯	haki Heopāra me Ia Maiana	none
+🇸🇪	haki Huitene	none
+🇸🇬	haki Hingapoa	none
+🇸🇭	haki Hato Hērena	none
+🇸🇮	haki Horowinia	none
+🇸🇯	haki Heopara me Iana Maiana	none
+🇸🇰	haki Horowākia	none
 🇸🇱	haki Te Araone	none
+🇸🇲	haki Hana Marino	none
 🇸🇳	haki Henekara	none
 🇸🇴	haki Hūmārie	none
-🇸🇷	haki Hurināme	none
+🇸🇷	haki Huriname	none
 🇸🇸	haki Hūtāne ki te Tonga	none
-🇸🇹	haki Hao Tomei me Pirinipei	none
-🇸🇻	haki Ere Hāwhatō	none
+🇸🇹	haki Hato Tomei me Pirinipei	none
+🇸🇻	haki Whakaora	none
 🇸🇽	haki Hiti Mātene	none
-🇸🇿	haki Ewatini	none
-🇹🇨	haki Tāke me ngā Motu o Keiko	none
+🇸🇾	haki Hiria	none
+🇸🇿	haki Ehiwatini	none
+🇹🇦	haki Tiritana da Kunia	none
+🇹🇨	haki Koru-Kākoa	none
 🇹🇩	haki Kāta	none
 🇹🇫	haki Ngā Rohe o Wīwī ki te Tonga	none
 🇹🇬	haki Toko	none
+🇹🇭	haki Tairanga	none
+🇹🇯	haki Takiritānga	none
+🇹🇰	haki Tokerau	none
+🇹🇱	haki Tīmoa ki te Rāwhiti	none
+🇹🇲	haki Tukumanatānga	none
 🇹🇳	haki Tūnihia	none
-🇹🇹	haki Tinitātā me Topēko	none
+🇹🇴	haki Tonga	none
+🇹🇷	haki Tākei	none
+🇹🇹	haki Tirinaki Tōpako	none
+🇹🇻	haki Tūwaru	none
+🇹🇼	haki Taiwana	none
 🇹🇿	haki Tānahia	none
-🇺🇬	haki Ukāna	none
-🇺🇳	haki Te Kotahitanga o Ngā Iwi o te Ao	none
+🇺🇦	haki Ukareinga	none
+🇺🇬	haki Ukānga	none
+🇺🇲	haki Ngā Moutere Amerika o Waho	none
+🇺🇳	haki Te Rūnanga Whakakotahi i ngā Iwi o te Ao	none
 🇺🇸	haki Hononga o Amerika	none
 🇺🇾	haki Urukoi	none
-🇻🇨	haki Hato Wetene me Keretīni	none
-🇻🇪	haki Wenehūera	none
-🇻🇬	haki Ngā Motu o Tātāhou Piritene	none
-🇻🇮	haki Ngā Motu o Tātāhou Amerika	none
-🇾🇹	haki Maio	none
+🇺🇿	haki Uhipeketāne	none
+🇻🇦	haki Te Poho-o-Pita	none
+🇻🇨	haki Hato Wēneti me Keretīni	none
+🇻🇪	haki Penehūera	none
+🇻🇬	haki Ngā Moutere Puhi Piritene	none
+🇻🇮	haki Ngā Moutere Puhi Amerika	none
+🇻🇳	haki Whitināmu	none
+🇻🇺	haki Whenuatū	none
+🇼🇫	haki Warihi me Whutuna	none
+🇼🇸	haki Hāmoa	none
+🇽🇰	haki Kōhoro	none
+🇾🇪	haki Īmene	none
+🇾🇹	haki Māiota	none
 🇿🇦	haki Āwherika ki te Tonga	none
 🇿🇲	haki Tāmipia	none
 🇿🇼	haki Timuwawe	none
+₡	Colon Koto Rika	none
+₦	Naira Ngāitīria	none
+₪	Shekel Hou Iharaira	none
+₫	Dong Whitināmu	none
+₭	kip Rāoho	none
+₮	tugrik Mongōria	none
+₲	Guarani Parakai	none
+₴	Hryvnia Ukareinga	none
+₵	Cedi Kāna	none
+₸	Tenge Katatānga	none
+₺	Lira Tākei	none
+₼	Manat Atepaihānia	none
+₾	Lari Hōria	none

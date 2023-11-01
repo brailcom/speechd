@@ -10,33 +10,258 @@ symbols:
 🏿	6-teri turi	none
 ℗	ovozli yozuv mualliflik huquqi belgisi	none
 ←	chapga qaragan chiziq	none
+↚	qayta chizilgan chapga strelka	none
 →	o‘ngga qaragan chiziq	none
+↛	qayta chizilgan oʻngga strelka	none
 ↑	yuqoriga qaragan chiziq	none
 ↓	pastga qaragan chiziq	none
+↜	toʻlqinli chapga strelka	none
+↝	toʻlqinli oʻngga strelka	none
+↞	ikki boshli chapga strelka	none
+↟	ikki boshli yuqoriga strelka	none
+↠	ikki boshli oʻngga strelka	none
+↡	ikki boshli pastga strelka	none
+↢	dumli chapga strelka	none
+↣	dumli oʻngga strelka	none
+↤	tekis dumli chapga strelka	none
+↥	tekis dumli yuqoriga strelka	none
+↦	tekis dumli oʻngga strelka	none
+↧	tekis dumli pastga strelka	none
+↨	asosi bilan yuqoriga-pastga strelka	none
+↫	ilmoqli chapga strelka	none
+↬	ilmoqli oʻngga strelka	none
+↭	toʻlqinli chapga-oʻngga strelka	none
+↯	zigzagsimon pastga strelka	none
+↰	chapga burilgan yuqoriga strelka	none
+↱	oʻngga burilgan yuqoriga strelka	none
+↲	chapga burilgan pastga strelka	none
+↳	oʻngga burilgan pastga strelka	none
+↴	burchak ostida pastga burilgan oʻngga strelka	none
+↵	burchak ostida chapga burilgan pastga strelka	none
+↶	soat miliga qarshi yarim aylana strelka	none
+↷	soat mili boʻyicha yarim aylana strelka	none
+↸	uzun chiziq ostida shimoli-gʻarbga strelka	none
+↹	perpendikulyar chiziqli oʻngga strelka ostidagi chapga strelka	none
+↺	soat miliga qarshi ochiq aylana strelka	none
+↻	soat mili boʻyicha ochiq aylana strelka	none
+↼	tishi yuqoriga qaragan chapga nayza	none
+↽	tishi pastga qaragan chapga nayza	none
+↾	tishi oʻngga qaragan yuqoriga nayza	none
+↿	tishi chapga qaragan yuqoriga nayza	none
+⇀	tishi yuqoriga qaragan oʻngga nayza	none
+⇁	tishi pastga qaragan oʻngga nayza	none
+⇂	tishi oʻngga qaragan pastga nayza	none
+⇃	tishi chapga qaragan pastga nayza	none
+⇄	chapga strelka ustidagi oʻngga strelka	none
 ⇅	yuqoriga va pastga qaragan chiziqlar	none
 ⇆	o‘ngga qaragan chiziq ustidagi chapga qaragan chiziqlar	none
+⇇	chapga juft strelka	none
+⇈	yuqoriga juft strelka	none
+⇉	oʻngga juft strelka	none
+⇊	pastga juft strelka	none
+⇋	oʻngga nayza ustidagi chapga nayza	none
+⇌	chapga nayza ustidagi oʻngga nayza	none
+⇐	chapga qoʻsh strelka	none
+⇍	chiziq tortilgan chapga qoʻsh strelka	none
+⇑	yuqoriga qoʻsh strelka	none
+⇒	oʻngga qoʻsh strelka	none
+⇏	chiziq tortilgan oʻngga qoʻsh strelka	none
+⇓	pastga qoʻsh strelka	none
+⇔	chapga-oʻngga qoʻsh strelka	none
+⇎	chiziq tortilgan chapga-oʻngga qoʻsh strelka	none
+⇖	shimoli-gʻarbga qoʻsh strelka	none
+⇗	shimoli-sharqqa qoʻsh strelka	none
+⇘	janubi-sharqqa qoʻsh strelka	none
+⇙	janubi-gʻarbga qoʻsh strelka	none
+⇚	chapga uch strelka	none
+⇛	oʻngga uch strelka	none
+⇜	egri-bugri chapga strelka	none
+⇝	egri-bugri oʻngga strelka	none
+⇞	qoʻsh chiziqli yuqoriga strelka	none
+⇟	qoʻsh chiziqli pastga strelka	none
+⇠	nuqtali chapga strelka	none
+⇡	nuqtali yuqoriga strelka	none
+⇢	nuqtali oʻngga strelka	none
+⇣	nuqtali pastga strelka	none
+⇤	chiziqqa taqaluvchi chapga strelka	none
+⇥	chiziqqa taqaluvchi oʻngga strelka	none
+⇦	ichi boʻsh chapga strelka	none
+⇧	ichi boʻsh yuqoriga strelka	none
+⇨	ichi boʻsh oʻngga strelka	none
+⇩	ichi boʻsh pastga strelka	none
+⇪	toʻgʻri toʻrtburchakli ichi boʻsh yuqoriga strelka	none
+⇵	yuqoridan pastga va pastdan yuqoriga strelka	none
+∀	hamma uchun	none
+∂	qisman differensial	none
+∃	mavjud	none
+∅	boʻsh toʻplam	none
 ∆	ortish belgisi	none
 ∇	nabla	none
 ∈	element	none
+∉	element emas	none
+∋	aʼzo sifatida kiradi	none
+∎	yakuniy dalil	none
+∏	asar	none
+∑	summa	none
+≮	kichik emas	none
 ≠	teng emas	none
+≯	katta emas	none
 −	minus belgisi	none
 ⁻	satr ustidagi ayirish belgisi	none
+∓	minus yoki plyus	none
+∕	ajratuvchi belgi	none
+∗	yulduzcha operatori	none
+∘	halqa operatori	none
+∙	bullet operatori	none
 √	kvadrat ildiz	none
+∝	proporsional	none
 ∞	cheksizlik belgisi	none
+∟	toʻgʻri burchak	none
+∠	oʻtkir burchak	none
+∣	boʻlish belgisi	none
+∥	parallel	none
+∧	mantiqiy va	none
 ∩	kesishma	none
 ∪	birlashtirish belgisi	none
+∫	integral	none
+∬	qoʻsh integral	none
+∮	konturli integral	none
+∴	shuning uchun	none
+∵	chunki	none
+∶	nisbat	none
+∷	proporsiya	none
+∼	tilda operatori	none
+∽	teskari tilda	none
+∾	teskari ravon s	none
+≃	asimptotik teng belgisi	none
+≅	taxminiy teng belgisi	none
 ≈	deyarli teng	none
+≌	hammasi teng belgisi	none
+≒	taxminiy teng belgisi tasviri	none
+≖	teng belgisidagi halqa	none
 ≡	bir xillik belgisi	none
+≣	qatʼiy ekvivalent	none
 ≤	kichik yoki teng	none
 ≥	katta yoki teng	none
+≦	teng ustidagi kichik belgisi	none
+≧	teng ustidagi katta belgisi	none
+≪	nisbatan kichik	none
+≫	nisbatan katta	none
+≬	orasida	none
+≳	ekvivalentdan katta	none
+≺	oldin keladi	none
+≻	keyin keladi	none
+⊁	keyin kelmaydi	none
 ⊂	ichki toʻplam	none
+⊃	superset	none
+⊆	subset teng	none
+⊇	superset teng	none
+⊕	aylanadagi plyus	none
+⊖	aylanadagi minus	none
+⊗	aylanadagi koʻpaytirish belgisi	none
+⊘	aylanadagi kasr chizigʻi	none
+⊙	aylanadagi nuqta operatori	none
+⊚	aylanadagi halqa operatori	none
+⊛	aylanadagi yulduzcha operatori	none
+⊞	kvadratdagi plyus	none
+⊟	kvadratdagi minus	none
+⊥	teskari T	none
+⊮	qiziqmaydi	none
+⊰	nisbatan oldin keladi	none
+⊱	nisbatan keyin keladi	none
+⋭	normal quyi guruhga kirmaydigan tenglik	none
+⊶	original	none
+⊹	tutashgan hermit matritsasi	none
+⊿	oʻng uchburchak	none
+⋁	n-simon mantiqiy yoki	none
+⋂	n-simon kesishish	none
+⋃	n-simon birlashuv	none
+⋅	nuqta operatori	none
+⋆	yulduz operatori	none
+⋈	tabiiy qoʻshilish	none
+⋒	qoʻsh kesishuv	none
+⋘	juda kichik	none
+⋙	juda katta	none
+⋮	vertikal koʻpnuqta	none
+⋯	satr ichidagi gorizontal koʻpnuqta	none
+⋰	yuqoriga-oʻngga diagonal koʻpnuqta	none
+⋱	pastga-oʻngga diagonal koʻpnuqta	none
+■	boʻyalgan kvadrat	none
+□	ichi boʻsh kvadrat	none
+▢	burchaklari yumaloqlangan ichi boʻsh kvadrat	none
+▣	boʻsh kvadrat ichidagi boʻyalgan kvadrat	none
+▤	gorizontal shtrixli kvadrat	none
+▥	vertikal shtrixli kvadrat	none
+▦	ortogonal kesishma shtrixli kvadrat	none
+▧	chapga-oʻngga diagonal shtrixli kvadrat	none
+▨	oʻngga-chapga diagonal shtrixli kvadrat	none
+▩	diagonal kesishma shtrixli kvadrat	none
+▬	boʻyalgan toʻgʻri toʻrtburchak	none
+▭	ichi boʻsh toʻgʻri toʻrtburchak	none
+▮	boʻyalgan vertikal toʻgʻri toʻrtburchak	none
+▰	boʻyalgan parallelogram	none
 ▲	ichi boʻyalgan yuqoriga qaragan uchburchak	none
+△	yuqoriga qaragan ichi boʻsh uchburchak	none
+▴	yuqoriga qaragan boʻyalgan kichik uchburchak	none
+▵	yuqoriga qaragan ichi boʻsh kichik uchburchak	none
+▷	oʻngga qaragan ichi boʻsh uchburchak	none
+▸	oʻngga qaragan boʻyalgan kichik uchburchak	none
+▹	oʻngga qaragan ichi boʻsh kichik uchburchak	none
+►	oʻngga qaragan boʻyalgan koʻrsatkich	none
+▻	oʻngga qaragan ichi boʻsh koʻrsatkich	none
 ▼	ichi to‘ldirilgan pastga qaragan uchburchak	none
+▽	pastga qaragan ichi boʻsh uchburchak	none
+▾	pastga qaragan boʻyalgan kichik uchburchak	none
+▿	pastga qaragan ichi boʻsh kichik uchburchak	none
+◁	chapga qaragan ichi boʻsh uchburchak	none
+◂	chapga qaragan boʻyalgan kichik uchburchak	none
+◃	chapga qaragan ichi boʻsh kichik uchburchak	none
+◄	chapga qaragan boʻyalgan koʻrsatkich	none
+◅	chapga qaragan ichi boʻsh koʻrsatkich	none
+◆	boʻyalgan olmos	none
+◇	ichi boʻsh olmos	none
+◈	boʻsh olmos ichidagi boʻyalgan olmos	none
+◉	boʻsh aylana ichidagi boʻyalgan aylana	none
 ◊	romb	none
 ○	ichi bo‘sh doira	none
+◌	nuqtali aylana	none
+◍	vertikal shtrixli aylana	none
+◎	konsentrik aylana	none
 ●	ichi to‘ldirilgan doira	none
+◐	chap yarmi boʻyalgan aylana	none
+◑	oʻng yarmi boʻyalgan aylana	none
+◒	pastki yarmi boʻyalgan aylana	none
+◓	yuqori yarmi boʻyalgan aylana	none
+◔	yuqori oʻng choragi boʻyalgan aylana	none
+◕	yuqori chap choragi boʻsh aylana	none
+◖	aylananing chap yarmi boʻyalgan	none
+◗	aylananing oʻng yarmi boʻyalgan	none
+◘	teskari bullet	none
+◙	boʻyalgan kvadrat ichidagi boʻsh aylana	none
+◜	yuqori-chap kvadrant aylana yoyi	none
+◝	yuqori-oʻng kvadrant aylana yoyi	none
+◞	pastki-oʻng kvadrant aylana yoyi	none
+◟	pastki-chap kvadrant aylana yoyi	none
+◠	yuqori yarim aylana	none
+◡	pastki yarim aylana	none
+◢	pastga boʻyalgan oʻng uchburchak	none
+◣	pastga boʻyalgan chap uchburchak	none
+◤	yuqoriga boʻyalgan chap uchburchak	none
+◥	yuqoriga boʻyalgan oʻng uchburchak	none
+◦	ichi boʻsh bullet	none
 ◯	yirik ichi bo‘sh doira	none
+◳	yuqori-oʻng kvadrantli ichi boʻsh kvadrat	none
+◷	yuqori-oʻng kvadrantli ichi boʻsh aylana	none
+◿	pastki-oʻng uchburchak	none
 ♪	sakkizinchi nota	none
+⨧	plyus ikki indeks	none
+⨯	vektor kesishmasi	none
+⨼	ichki tomon	none
+⩣	mantiqiy yoki pastki qoʻsh chiziq	none
+⩽	qiya tengdan kichik	none
+⪍	oʻxshash tengdan kichik	none
+⪚	ikki chiziqli tengdan katta	none
+⪺	biroz oshadi, lekin teng emas	none
 ♭	bemol	none
 ♯	diyez	none
 😀	tirjaygan yuz	none
@@ -89,6 +314,8 @@ symbols:
 😮‍💨	nafas chiqarayotgan yuz	none
 🤥	aldayotgan	none
 🫨	qaltiragan yuz	none
+🙂‍↔	gorizontal yo‘nalishda tebranayotgan yuz	none
+🙂‍↕	vertikal yo‘nalishda tebranayotgan yuz	none
 😌	xotirjam yuz	none
 😔	g‘amgin yuz	none
 😪	uyqusiragan yuz	none
@@ -188,18 +415,18 @@ symbols:
 🩵	och koʻk yurak	none
 💜	binafsharang yurak	none
 🤎	jigarrang yurak	none
-🖤	ichi qora	none
+🖤	qora yurak	none
 🩶	kulrang yurak	none
 🤍	oq yurak	none
 💋	bo‘sa tamg‘asi	none
 💯	yuz ball	none
 💢	jahl belgisi	none
 💥	to‘qnashuv	none
-💫	bosh aylanish	none
-💦	ko‘z yoshi tomchilari	none
+💫	bosh aylanishi	none
+💦	ter tomchilari	none
 💨	chaqqon	none
 🕳	teshik	none
-💬	nutq buluti	none
+💬	nutq pufagi	none
 👁‍🗨	nutq pufagida ko‘z	none
 🗨	chap nutq pufakchasi	none
 🗯	o‘ng burchakli pufakcha	none
@@ -519,11 +746,15 @@ symbols:
 👬	qoʻl ushlashgan erkaklar	none
 💏	bo‘sa olish	none
 💑	juftlik va yurak	none
-👪	oila	none
 🗣	gapirayotgan bosh	none
 👤	kontur suratli byust	none
 👥	kontur suratli byustlar	none
 🫂	quchoqlashayotgan odamlar	none
+👪	oila	none
+🧑‍🧑‍🧒	oila ikkita kattalar, bola	none
+🧑‍🧑‍🧒‍🧒	oila ikkita kattalar, ikkita bola	none
+🧑‍🧒	oila bitta katta odam, bir bola	none
+🧑‍🧒‍🧒	oila bitta katta odam, ikki bola	none
 👣	oyoq izlari	none
 🦰	malla soch	none
 🦱	jingalak soch	none
@@ -614,7 +845,9 @@ symbols:
 🦚	tovus	none
 🦜	to‘ti	none
 🪽	qanot	none
+🐦‍⬛	qora qush	none
 🪿	gʻoz	none
+🐦‍🔥	qaqnus	none
 🐸	baqa	none
 🐊	timsoh	none
 🐢	toshbaqa	none
@@ -685,6 +918,7 @@ symbols:
 🍉	tarvuz	none
 🍊	mandarin	none
 🍋	limon	none
+🍋‍🟩	laym	none
 🍌	banan	none
 🍍	ananas	none
 🥭	mango	none
@@ -716,6 +950,7 @@ symbols:
 🌰	kashtan yong‘og‘i	none
 🫚	zanjabil ildizi	none
 🫛	yashil loviya	none
+🍄‍🟫	qoʻngʻir qoʻziqorin	none
 🍞	non	none
 🥐	kruassan	none
 🥖	baget	none
@@ -1324,6 +1559,7 @@ symbols:
 ⚖	tarozi	none
 🦯	hassa	none
 🔗	havola	none
+⛓‍💥	uzilgan zanjir	none
 ⛓	zanjirlar	none
 🪝	ilgak	none
 🧰	asbob-uskuna qutisi	none
@@ -1413,6 +1649,7 @@ symbols:
 ↖	chap yuqoriga strelka	none
 ↕	tepa-pastga strelka	none
 ↔	chapga-o‘ngga strelka	none
+↮	qayta chizilgan chapga-oʻngga strelka	none
 ↩	o‘ngdan chapga qayrilish	none
 ↪	chapdan o‘ngga qayrilish	none
 ⤴	o‘ngdan yuqoriga qayrilish	none
@@ -1572,13 +1809,21 @@ symbols:
 🏳‍🌈	kamalak bayroq	none
 🏳‍⚧	moviy, pushti va oq bayroq	none
 🏴‍☠	dengiz qaroqchilari bayrog‘i	none
+₢	kruzeyro	none
+₣	fransuz franki	none
+₤	lira	none
 ₥	mill	none
 ₩	von	none
 €	yevro belgisi	none
+₰	nemis pennisi	none
 ₱	peso	none
+₳	avstral	none
+₶	tur livri	none
+₷	spesmilo	none
 ₹	hind rupiysi	none
 ₽	rubl	none
 ₿	bitkoin	none
+₨	rupiya	none
 👋🏻	shapaloq 1–2-teri turi	none
 👋🏼	shapaloq 3-teri turi	none
 👋🏽	shapaloq 4-teri turi	none

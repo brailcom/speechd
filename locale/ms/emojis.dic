@@ -314,6 +314,8 @@ symbols:
 😮‍💨	muka menghembuskan nafas	none
 🤥	muka bohong	none
 🫨	muka bergoyang	none
+🙂‍↔	menggeleng kepala	none
+🙂‍↕	mengangguk kepala	none
 😌	muka lega	none
 😔	muka bertafakur	none
 😪	muka mengantuk	none
@@ -744,11 +746,15 @@ symbols:
 👬	dua lelaki berpegangan tangan	none
 💏	cium	none
 💑	pasangan dengan simbol hati	none
-👪	keluarga	none
 🗣	kepala bercakap	none
 👤	bayang dada	none
 👥	bayang beberapa dada	none
 🫂	orang berpelukan	none
+👪	keluarga	none
+🧑‍🧑‍🧒	keluarga dewasa, dewasa, kanak-kanak	none
+🧑‍🧑‍🧒‍🧒	keluarga dewasa, dewasa, kanak-kanak, kanak-kanak	none
+🧑‍🧒	keluarga dewasa, kanak-kanak	none
+🧑‍🧒‍🧒	keluarga dewasa, kanak-kanak, kanak-kanak	none
 👣	jejak kaki	none
 🦰	rambut merah	none
 🦱	rambut kerinting	none
@@ -839,7 +845,9 @@ symbols:
 🦚	merak	none
 🦜	kakak tua	none
 🪽	sayap	none
+🐦‍⬛	burung hitam	none
 🪿	angsa	none
+🐦‍🔥	burung phoenix	none
 🐸	katak	none
 🐊	buaya	none
 🐢	penyu	none
@@ -910,6 +918,7 @@ symbols:
 🍉	tembikai	none
 🍊	limau tangerin	none
 🍋	lemon	none
+🍋‍🟩	limau nipis	none
 🍌	pisang	none
 🍍	nanas	none
 🥭	mangga	none
@@ -941,6 +950,7 @@ symbols:
 🌰	buah berangan	none
 🫚	akar halia	none
 🫛	lenggai	none
+🍄‍🟫	cendawan perang	none
 🍞	roti	none
 🥐	kroisan	none
 🥖	roti baguette	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	neraca timbang	none
 🦯	tongkat penduga	none
 🔗	pautan	none
+⛓‍💥	rantai terputus	none
 ⛓	rantai	none
 🪝	cangkuk	none
 🧰	kotak alat	none

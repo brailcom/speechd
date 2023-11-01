@@ -61,7 +61,7 @@ symbols:
 ⇊	uparene strelice nadole	none
 ⇋	harpun nalevo iznad harpuna nadesno	none
 ⇌	harpun nadesno iznad harpuna nalevo	none
-⇐	dvostruka strelca nalevo	none
+⇐	dvostruka strelica nalevo	none
 ⇍	precrtana dvostruka strelica nalevo	none
 ⇑	dvostruka strelica nagore	none
 ⇒	dvostruka strelica nadesno	none
@@ -123,7 +123,7 @@ symbols:
 ∧	logičko „i“	none
 ∩	presek	none
 ∪	unija	none
-∫	E13.1–305	none
+∫	integral	none
 ∬	dvostruki integral	none
 ∮	konturni integral	none
 ∴	zato	none
@@ -232,7 +232,7 @@ symbols:
 ◑	krug sa popunjenom desnom polovinom	none
 ◒	krug sa popunjenom donjom polovinom	none
 ◓	krug sa popunjenom gornjom polovinom	none
-◔	krug sa popunjenim gornnjim desnim kvadrantom	none
+◔	krug sa popunjenim gornjim desnim kvadrantom	none
 ◕	krug sa praznim gornjim levim kvadrantom	none
 ◖	leva popunjena polovina kruga	none
 ◗	desna popunjena polovina kruga	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	lice izdiše	none
 🤥	lažljivac	none
 🫨	drhteće lice	none
+🙂‍↔	glava trese horizontalno	none
+🙂‍↕	glava trese vertikalno	none
 😌	spokojno lice	none
 😔	zamišljeno lice	none
 😪	pospano lice	none
@@ -744,11 +746,15 @@ symbols:
 👬	muškarci se drže za ruke	none
 💏	poljubac	none
 💑	par sa srcem	none
-👪	porodica	none
 🗣	glava koja govori	none
 👤	silueta čoveka	none
 👥	siluete ljudi	none
 🫂	ljudi se grle	none
+👪	porodica	none
+🧑‍🧑‍🧒	porodica odrasla osoba, odrasla osoba, dete	none
+🧑‍🧑‍🧒‍🧒	porodica odrasla osoba, odrasla osoba, dete, dete	none
+🧑‍🧒	porodica odrasla osoba, dete	none
+🧑‍🧒‍🧒	porodica odrasla osoba, dete, dete	none
 👣	otisci stopala	none
 🦰	crvena kosa	none
 🦱	kovrdžava kosa	none
@@ -839,7 +845,9 @@ symbols:
 🦚	paun	none
 🦜	papagaj	none
 🪽	krilo	none
+🐦‍⬛	crna ptica	none
 🪿	guska	none
+🐦‍🔥	feniks	none
 🐸	žaba	none
 🐊	krokodil	none
 🐢	kornjača	none
@@ -910,6 +918,7 @@ symbols:
 🍉	lubenica	none
 🍊	mandarina	none
 🍋	limun	none
+🍋‍🟩	limeta	none
 🍌	banana	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kesten	none
 🫚	koren đumbira	none
 🫛	mahuna graška	none
+🍄‍🟫	smeđa pečurka	none
 🍞	hleb	none
 🥐	kroasan	none
 🥖	baget	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	terazije	none
 🦯	beli štap	none
 🔗	karike	none
+⛓‍💥	prekinut lanac	none
 ⛓	lanci	none
 🪝	kuka	none
 🧰	kutija za alat	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zastava Vels	none
 ₡	kostarikanski kolon	none
 ₦	nigerijska naira	none
-₧	Španska pezeta	none
 ₪	izraelski novi šekel	none
 ₫	vijetnamski dong	none
 ₭	laoski kip	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	turska lira	none
 ₼	azerbejdžanski manat	none
 ₾	gruzijski lari	none
+₧	Španska pezeta	none

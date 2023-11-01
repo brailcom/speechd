@@ -21,8 +21,8 @@ symbols:
 ↟	flèche à deux pointes vers le haut	none
 ↠	flèche à deux pointes vers la droite	none
 ↡	flèche à deux pointes vers le bas	none
-↢	empenne vers la gauche	none
-↣	empenne vers la droite	none
+↢	flèche vers la gauche avec empenne	none
+↣	flèche vers la droite avec empenne	none
 ↤	flèche d’un taquet vers la gauche	none
 ↥	flèche d’un taquet vers le haut	none
 ↦	flèche d’un taquet vers la droite	none
@@ -41,7 +41,7 @@ symbols:
 ↶	flèche semi-circulaire sens antihoraire en chef	none
 ↷	flèche semi-circulaire sens horaire en chef	none
 ↸	flèche nord-ouest jusqu’à un long taquet	none
-↹	flèche vers la gauche jusqu’à un taquet sur flèche vers la droite jusqu’à un taquet	none
+↹	flèches gauche et droite superposées avec taquets	none
 ↺	flèche circulaire ouverte sens antihoraire	none
 ↻	flèche circulaire ouverte sens horaire	none
 ↼	harpon vers la gauche avec barbillon vers le haut	none
@@ -97,9 +97,9 @@ symbols:
 ∅	ensemble vide	none
 ∆	incrément	none
 ∇	nabla	none
-∈	élément de	none
+∈	appartient à	none
 ∉	n’appartient pas	none
-∋	appartient	none
+∋	contient comme élément	none
 ∎	fin d’article	none
 ∏	produit de la famille	none
 ∑	sommation de la famille	none
@@ -250,7 +250,7 @@ symbols:
 ◥	triangle rectangle supérieur droit plein	none
 ◦	puce creuse	none
 ◯	grand cercle vide	none
-◳	carré creux avec quadrant supérieur droit	none
+◳	carré creux avec quartier supérieur droit	none
 ◷	cercle creux avec quadrant supérieur droit	none
 ◿	triangle rectangle inférieur droit	none
 ♪	croche	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	visage expirant	none
 🤥	visage de menteur	none
 🫨	visage secoué	none
+🙂‍↔	tête secouée horizontalement	none
+🙂‍↕	tête secouée verticalement	none
 😌	visage soulagé	none
 😔	visage pensif	none
 😪	visage endormi	none
@@ -744,11 +746,15 @@ symbols:
 👬	deux hommes se tenant la main	none
 💏	bisou	none
 💑	couple avec cœur	none
-👪	famille	none
 🗣	tête qui parle	none
 👤	silhouette de buste	none
 👥	silhouettes de bustes	none
 🫂	étreinte	none
+👪	famille	none
+🧑‍🧑‍🧒	famille  adulte, adulte, enfant	none
+🧑‍🧑‍🧒‍🧒	famille  adulte, adulte, enfant, enfant	none
+🧑‍🧒	famille  adulte, enfant	none
+🧑‍🧒‍🧒	famille  adulte, enfant, enfant	none
 👣	traces de pas	none
 🦰	cheveux roux	none
 🦱	cheveux bouclés	none
@@ -839,7 +845,9 @@ symbols:
 🦚	paon	none
 🦜	perroquet	none
 🪽	aile	none
+🐦‍⬛	oiseau noir	none
 🪿	oie	none
+🐦‍🔥	phénix	none
 🐸	grenouille	none
 🐊	crocodile	none
 🐢	tortue	none
@@ -910,6 +918,7 @@ symbols:
 🍉	pastèque	none
 🍊	mandarine	none
 🍋	citron	none
+🍋‍🟩	citron vert	none
 🍌	banane	none
 🍍	ananas	none
 🥭	mangue	none
@@ -941,6 +950,7 @@ symbols:
 🌰	châtaigne	none
 🫚	racine de gingembre	none
 🫛	cosse de petits pois	none
+🍄‍🟫	champignon marron	none
 🍞	pain	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	balance à poids	none
 🦯	canne blanche	none
 🔗	chaînons	none
+⛓‍💥	chaîne brisée	none
 ⛓	chaînes	none
 🪝	crochet	none
 🧰	boîte à outils	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	drapeau  Pays de Galles	none
 ₡	colón costaricain	none
 ₦	naira nigérian	none
-₧	peseta espagnole	none
 ₪	nouveau shekel israélien	none
 ₫	dông vietnamien	none
 ₭	kip laotien	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	livre turque	none
 ₼	manat azéri	none
 ₾	lari géorgien	none
+₧	peseta espagnole	none

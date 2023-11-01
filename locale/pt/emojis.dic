@@ -40,7 +40,7 @@ symbols:
 ↵	seta para baixo com curva para esquerda	none
 ↶	seta de semicírculo superior no sentido anti-horário	none
 ↷	seta de semicírculo superior no sentido horário	none
-↸	seta noroeste para barra longa	none
+↸	seta noroeste sob barra longa	none
 ↹	seta para a esquerda da barra sobre seta para a direita da barra	none
 ↺	seta de círculo aberto no sentido anti-horário	none
 ↻	seta de círculo aberto no sentido horário	none
@@ -83,8 +83,8 @@ symbols:
 ⇡	seta tracejada para cima	none
 ⇢	seta tracejada para a direita	none
 ⇣	seta tracejada para baixo	none
-⇤	seta para a esquerda para barra	none
-⇥	seta para a direita para barra	none
+⇤	seta para a esquerda da barra	none
+⇥	seta para a direita da barra	none
 ⇦	seta branca para a esquerda	none
 ⇧	seta branca para cima	none
 ⇨	seta branca para a direita	none
@@ -165,14 +165,14 @@ symbols:
 ⊛	operador de asterisco em círculo	none
 ⊞	mais em quadrado	none
 ⊟	menos em quadrado	none
-⊥	torniquete para cima	none
+⊥	contradição arbitrária	none
 ⊮	não força	none
 ⊰	precede em relação	none
 ⊱	sucede em relação	none
 ⋭	não contém como subgrupo normal ou igual	none
 ⊶	original	none
 ⊹	matriz conjugada hermitiana	none
-⊿	matemática	none
+⊿	triângulo retângulo direito	none
 ⋁	ou lógico n-ário	none
 ⋂	interseção n-ária	none
 ⋃	união n-ária	none
@@ -218,9 +218,9 @@ symbols:
 ◃	triângulo pequeno vazio apontando para a esquerda	none
 ◄	ponteiro preenchido apontando para a esquerda	none
 ◅	ponteiro vazio apontando para a esquerda	none
-◆	diamante preenchido	none
-◇	diamante vazio	none
-◈	diamante vazio com diamante preenchido	none
+◆	losango preenchido	none
+◇	losango vazio	none
+◈	losango vazio com losango preenchido	none
 ◉	círculo vazio com círculo preenchido	none
 ◊	losango	none
 ○	círculo vazio	none
@@ -236,7 +236,7 @@ symbols:
 ◕	círculo preenchido exceto o quadrante superior esquerdo	none
 ◖	metade esquerda do círculo preenchida	none
 ◗	metade direita do círculo preenchida	none
-◘	marca de lista invertida	none
+◘	marcador invertido	none
 ◙	quadrado preenchido com círculo vazio	none
 ◜	quarto de círculo superior esquerdo	none
 ◝	quarto de círculo superior direito	none
@@ -248,11 +248,11 @@ symbols:
 ◣	triângulo inferior esquerdo preenchido	none
 ◤	triângulo superior esquerdo preenchido	none
 ◥	triângulo superior direito preenchido	none
-◦	marca de ponto vazia	none
+◦	marcador vazio	none
 ◯	círculo vazio grande	none
 ◳	quadrado vazio com quadrante superior direito	none
 ◷	círculo vazio com quadrante superior direito	none
-◿	triângulo inferior esquerdo	none
+◿	triângulo inferior direito	none
 ♪	colcheia	none
 ⨧	mais com dois subscrito	none
 ⨯	produto vetorial	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	rosto exalando	none
 🤥	rosto de mentiroso	none
 🫨	rosto tremendo	none
+🙂‍↔	cabeça virando de um lado para o outro	none
+🙂‍↕	cabeça balançando na vertical	none
 😌	rosto aliviado	none
 😔	rosto deprimido	none
 😪	rosto sonolento	none
@@ -744,11 +746,15 @@ symbols:
 👬	dois homens de mãos dadas	none
 💏	beijo	none
 💑	casal apaixonado	none
-👪	família	none
 🗣	silhueta falando	none
 👤	silhueta de busto	none
 👥	silhueta de bustos	none
 🫂	pessoas se abraçando	none
+👪	família	none
+🧑‍🧑‍🧒	família adulto, adulto, criança	none
+🧑‍🧑‍🧒‍🧒	família adulto, adulto, criança, criança	none
+🧑‍🧒	família adulto, criança	none
+🧑‍🧒‍🧒	família adulto, criança, criança	none
 👣	pegadas	none
 🦰	cabelo vermelho	none
 🦱	cabelo cacheado	none
@@ -839,7 +845,9 @@ symbols:
 🦚	pavão	none
 🦜	papagaio	none
 🪽	asa	none
+🐦‍⬛	pássaro preto	none
 🪿	ganso	none
+🐦‍🔥	fênix	none
 🐸	sapo	none
 🐊	crocodilo	none
 🐢	tartaruga	none
@@ -910,6 +918,7 @@ symbols:
 🍉	melancia	none
 🍊	tangerina	none
 🍋	limão	none
+🍋‍🟩	lima	none
 🍌	banana	none
 🍍	abacaxi	none
 🥭	manga	none
@@ -941,6 +950,7 @@ symbols:
 🌰	castanha	none
 🫚	gengibre	none
 🫛	vagem	none
+🍄‍🟫	cogumelo marrom	none
 🍞	pão	none
 🥐	croissant	none
 🥖	baguete	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	balança	none
 🦯	bengala para cegos	none
 🔗	link	none
+⛓‍💥	corrente quebrada	none
 ⛓	correntes	none
 🪝	gancho	none
 🧰	caixa de ferramentas	none
@@ -1638,7 +1649,7 @@ symbols:
 ↖	seta para cima e para a esquerda	none
 ↕	seta para cima e para baixo	none
 ↔	seta para esquerda e direita	none
-↮	traçado da seta para direita e esquerda	none
+↮	traçado de seta para direita e esquerda	none
 ↩	seta curva da direita para a esquerda	none
 ↪	seta curva da esquerda para a direita	none
 ⤴	seta para a direita curvada para cima	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandeira País de Gales	none
 ₡	Colón costarriquenho	none
 ₦	Naira nigeriana	none
-₧	Peseta espanhola	none
 ₪	Novo shekel israelense	none
 ₫	Dong vietnamita	none
 ₭	Kip laosiano	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	Lira turca	none
 ₼	Manat azeri	none
 ₾	Lari georgiano	none
+₧	Peseta espanhola	none

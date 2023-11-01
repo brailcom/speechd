@@ -314,6 +314,8 @@ symbols:
 😮‍💨	aodan a’ leigeil anail	none
 🤥	aodann nam breug	none
 🫨	aodann le crathadh air	none
+🙂‍↔	crathadh-cinn	none
+🙂‍↕	cromadh-cinn	none
 😌	aodann a fhuair faochadh	none
 😔	aodann fo throm-smuain	none
 😪	aodann cadalach	none
@@ -744,11 +746,15 @@ symbols:
 👬	fireannaich a’ glacadh air làmh a chèile	none
 💏	pòg	none
 💑	càraid le cridhe	none
-👪	teaghlach	none
 🗣	ceann a’ bruidhinn	none
 👤	sgàil-riochd de chom	none
 👥	sgàil-riochd de chuim	none
 🫂	caidreabh	none
+👪	teaghlach	none
+🧑‍🧑‍🧒	teaghlach inbheach, inbheach, duine-cloinne	none
+🧑‍🧑‍🧒‍🧒	teaghlach inbheach, inbheach, duine-cloinne, duine-cloinne	none
+🧑‍🧒	teaghlach inbheach, duine-cloinne	none
+🧑‍🧒‍🧒	teaghlach inbheach, duine-cloinne, duine-cloinne	none
 👣	lorgan coise	none
 🦰	falt ruadh	none
 🦱	falt dualach	none
@@ -841,6 +847,7 @@ symbols:
 🪽	sgiath	none
 🐦‍⬛	eun-dubh	none
 🪿	gèadh	none
+🐦‍🔥	ainneamhag	none
 🐸	losgann	none
 🐊	crogall	none
 🐢	turtar	none
@@ -911,6 +918,7 @@ symbols:
 🍉	meal-bhuc uisge	none
 🍊	tangerine	none
 🍋	liomaid	none
+🍋‍🟩	liomaideag	none
 🍌	banana	none
 🍍	anann	none
 🥭	mango	none
@@ -942,6 +950,7 @@ symbols:
 🌰	geanm-chnò	none
 🫚	dinnsear	none
 🫛	builgean-peasrach	none
+🍄‍🟫	balg-buachair donn	none
 🍞	aran	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1550,6 +1559,7 @@ symbols:
 ⚖	meidh co-chothromach	none
 🦯	batachan	none
 🔗	ceangal	none
+⛓‍💥	slabhraidh bhriste	none
 ⛓	sèineachan	none
 🪝	dubhan	none
 🧰	bogsa-innealan	none
@@ -3906,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bratach A’ Chuimrigh	none
 ₡	Colón Costa Rìceach	none
 ₦	Naira Nigèiriach	none
-₧	Peseta Spàinnteach	none
 ₪	Sheqel ùr Iosraeleach	none
 ₫	Dong Bhiet-Namach	none
 ₭	Kip Làthosach	none
@@ -3918,3 +3927,4 @@ symbols:
 ₺	Lira Turcach	none
 ₼	Manat Asarbaideànach	none
 ₾	Lari Cairtbheileach	none
+₧	Peseta Spàinnteach	none

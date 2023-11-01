@@ -10,9 +10,9 @@ symbols:
 🏿	tono de piel oscuro	none
 ℗	copyright de grabación de sonido	none
 ←	flecha apuntando hacia la izquierda	none
-↚	flecha hacia la izquierda con trazo	none
+↚	flecha hacia la izquierda tachada	none
 →	flecha apuntando hacia la derecha	none
-↛	flecha hacia la derecha con trazo	none
+↛	flecha hacia la derecha tachada	none
 ↑	flecha apuntando hacia arriba	none
 ↓	flecha apuntando hacia abajo	none
 ↜	flecha de onda hacia la izquierda	none
@@ -23,14 +23,14 @@ symbols:
 ↡	flecha de doble punta hacia abajo	none
 ↢	flecha hacia la izquierda con cola	none
 ↣	flecha hacia la derecha con cola	none
-↤	flecha hacia la izquierda desde la barra	none
-↥	flecha hacia arriba desde la barra	none
-↦	flecha hacia la derecha desde la barra	none
-↧	flecha hacia abajo desde la barra	none
+↤	flecha hacia la izquierda desde barra	none
+↥	flecha hacia arriba desde barra	none
+↦	flecha hacia la derecha desde barra	none
+↧	flecha hacia abajo desde barra	none
 ↨	flecha arriba abajo con base	none
 ↫	flecha hacia la izquierda con bucle	none
 ↬	flecha hacia la derecha con bucle	none
-↭	flecha de onda hacia derecha e izquierda	none
+↭	flecha de onda hacia la izquierda y la derecha	none
 ↯	flecha en zigzag hacia abajo	none
 ↰	flecha hacia arriba con punta hacia la izquierda	none
 ↱	flecha hacia arriba con punta hacia la derecha	none
@@ -40,18 +40,18 @@ symbols:
 ↵	flecha hacia abajo con ángulo hacia la izquierda	none
 ↶	flecha en semicírculo superior hacia la izquierda	none
 ↷	flecha en semicírculo superior hacia la derecha	none
-↸	flecha con barra larga hacia noroeste	none
-↹	flecha a la izquierda con barra sobre flecha a la derecha con barra	none
+↸	flecha hacia el noroeste con barra larga	none
+↹	flecha hacia la izquierda con barra sobre flecha hacia la derecha con barra	none
 ↺	círculo abierto con flecha en sentido antihorario	none
 ↻	círculo abierto con flecha en sentido horario	none
-↼	arpón hacia la izquierda con flecha por arriba	none
-↽	arpón hacia la izquierda con flecha por debajo	none
-↾	arpón hacia arriba con flecha a la derecha	none
-↿	arpón hacia arriba con flecha a la izquierda	none
-⇀	arpón hacia la derecha con flecha superior	none
-⇁	arpón hacia la derecha con flecha inferior	none
-⇂	arpón hacia abajo con flecha a la derecha	none
-⇃	arpón hacia abajo con flecha a la izquierda	none
+↼	arpón hacia la izquierda con la punta hacia arriba	none
+↽	arpón hacia la izquierda con la punta hacia abajo	none
+↾	arpón hacia arriba con la punta hacia la derecha	none
+↿	arpón hacia arriba con la punta hacia la izquierda	none
+⇀	arpón hacia la derecha con la punta hacia arriba	none
+⇁	arpón hacia la derecha con la punta hacia abajo	none
+⇂	arpón hacia abajo con la punta hacia la derecha	none
+⇃	arpón hacia abajo con la punta hacia la izquierda	none
 ⇄	flecha hacia la derecha sobre flecha hacia la izquierda	none
 ⇅	flechas apuntando arriba y abajo	none
 ⇆	flechas apuntando izquierda sobre derecha	none
@@ -67,32 +67,32 @@ symbols:
 ⇒	flecha doble hacia la derecha	none
 ⇏	flecha doble hacia la derecha tachada	none
 ⇓	flecha doble hacia abajo	none
-⇔	flecha doble hacia izquierda y derecha	none
-⇎	flecha doble hacia izquierda y derecha tachada	none
-⇖	flecha doble hacia noroeste	none
-⇗	flecha doble hacia noreste	none
-⇘	flecha doble hacia sureste	none
-⇙	flecha doble hacia suroeste	none
+⇔	flecha doble hacia la izquierda y la derecha	none
+⇎	flecha doble hacia la izquierda y la derecha tachada	none
+⇖	flecha doble hacia el noroeste	none
+⇗	flecha doble hacia el nordeste	none
+⇘	flecha doble hacia sudeste	none
+⇙	flecha doble hacia el sudoeste	none
 ⇚	flecha triple hacia la izquierda	none
 ⇛	flecha triple hacia la derecha	none
 ⇜	flecha ondulada hacia la izquierda	none
 ⇝	flecha ondulada hacia la derecha	none
 ⇞	flecha hacia arriba con doble tachado	none
 ⇟	flecha hacia abajo con doble tachado	none
-⇠	flecha con guion hacia la izquierda	none
+⇠	flecha discontinua hacia la izquierda	none
 ⇡	flecha discontinua hacia arriba	none
-⇢	flecha discontinua hacia derecha	none
+⇢	flecha discontinua hacia la derecha	none
 ⇣	flecha discontinua hacia abajo	none
-⇤	flecha con barra hacia la izquierda	none
-⇥	flecha con barra hacia la derecha	none
+⇤	flecha hacia la izquierda con barra	none
+⇥	flecha hacia la derecha con barra	none
 ⇦	flecha hueca hacia la izquierda	none
 ⇧	flecha hueca hacia arriba	none
 ⇨	flecha hueca hacia la derecha	none
 ⇩	flecha hueca hacia abajo	none
 ⇪	flecha hueca hacia arriba desde barra	none
-⇵	flecha hacia abajo con flecha hacia arriba a la izquierda	none
+⇵	flecha hacia abajo a la izquierda de flecha hacia arriba	none
 ∀	para todo	none
-∂	diferencial parcial	none
+∂	derivada parcial	none
 ∃	existe	none
 ∅	conjunto vacío	none
 ∆	incremento	none
@@ -112,7 +112,7 @@ symbols:
 ∕	barra de división	none
 ∗	operador de asterisco	none
 ∘	operador de anillo	none
-∙	operador de bala	none
+∙	operador de bolo	none
 √	raíz cuadrada	none
 ∝	proporcional	none
 ∞	signo de infinito	none
@@ -120,7 +120,7 @@ symbols:
 ∠	ángulo	none
 ∣	divide	none
 ∥	paralelo	none
-∧	y lógico	none
+∧	y lógica	none
 ∩	intersección	none
 ∪	unión	none
 ∫	integral	none
@@ -130,8 +130,8 @@ symbols:
 ∵	porque	none
 ∶	ratio	none
 ∷	proporción	none
-∼	operador de tilde	none
-∽	tilde inversa	none
+∼	operador de virgulilla	none
+∽	virgulilla inversa	none
 ∾	s invertida horizontal	none
 ≃	asintóticamente igual a	none
 ≅	aproximadamente igual a	none
@@ -173,7 +173,7 @@ symbols:
 ⊶	original	none
 ⊹	matriz conjugada hermitiana	none
 ⊿	triángulo rectángulo	none
-⋁	lógica o n-ario	none
+⋁	o lógica n-aria	none
 ⋂	intersección n-aria	none
 ⋃	unión n-aria	none
 ⋅	operador de punto	none
@@ -190,11 +190,11 @@ symbols:
 □	cuadrado hueco	none
 ▢	cuadrado hueco con esquinas redondeadas	none
 ▣	cuadrado hueco con cuadrado relleno dentro	none
-▤	cuadrado con relleno horizontal	none
-▥	cuadrado con relleno vertical	none
+▤	cuadrado con relleno de rayas horizontales	none
+▥	cuadrado con relleno de rayas verticales	none
 ▦	cuadrado con relleno de cuadrícula ortogonal	none
-▧	cuadrado con relleno desde abajo a la izquierda hacia la derecha	none
-▨	cuadrado con relleno desde abajo a la derecha hacia la izquierda	none
+▧	cuadrado con relleno de rayas desde arriba a la izquierda hasta abajo a la derecha	none
+▨	cuadrado con relleno de rayas desde arriba a la derecha hasta abajo a la izquierda	none
 ▩	cuadrado con relleno de cuadrícula en diagonal	none
 ▬	rectángulo relleno	none
 ▭	rectángulo hueco	none
@@ -213,14 +213,14 @@ symbols:
 ▽	triángulo hueco que apunta hacia abajo	none
 ▾	triángulo relleno pequeño que apunta hacia abajo	none
 ▿	triángulo hueco pequeño que apunta hacia abajo	none
-◁	triángulo hueco que apunta a la izquierda	none
-◂	triángulo relleno pequeño que apunta a la izquierda	none
-◃	triángulo hueco pequeño que apunta a la izquierda	none
-◄	puntero relleno que apunta a la izquierda	none
-◅	puntero hueco que apunta a la izquierda	none
-◆	diamante relleno	none
-◇	diamante hueco	none
-◈	diamante hueco con diamante relleno dentro	none
+◁	triángulo hueco que apunta hacia la izquierda	none
+◂	triángulo relleno pequeño que apunta hacia la izquierda	none
+◃	triángulo hueco pequeño que apunta hacia la izquierda	none
+◄	puntero relleno que apunta hacia la izquierda	none
+◅	puntero hueco que apunta hacia la izquierda	none
+◆	rombo relleno	none
+◇	rombo hueco	none
+◈	rombo hueco con rombo relleno dentro	none
 ◉	círculo hueco con círculo relleno dentro	none
 ◊	rombo	none
 ○	círculo hueco	none
@@ -233,26 +233,26 @@ symbols:
 ◒	círculo con la mitad inferior rellena	none
 ◓	círculo con la mitad superior rellena	none
 ◔	círculo con el cuadrante superior derecho relleno	none
-◕	círculo relleno excepto cuadrante superior izquierdo	none
-◖	círculo con mitad izquierda rellena	none
-◗	círculo con mitad derecha rellena	none
-◘	viñeta inversa	none
-◙	cuadrado relleno con círculo hueco	none
+◕	círculo relleno excepto el cuadrante superior izquierdo	none
+◖	semicírculo izquierdo relleno	none
+◗	semicírculo derecho relleno	none
+◘	bolo inverso	none
+◙	cuadrado relleno con círculo hueco dentro	none
 ◜	arco de cuadrante superior izquierdo de círculo	none
 ◝	arco de cuadrante superior derecho de círculo	none
 ◞	arco de cuadrante inferior derecho de círculo	none
 ◟	arco de cuadrante inferior izquierdo de círculo	none
 ◠	semicírculo superior	none
 ◡	semicírculo inferior	none
-◢	triángulo inferior relleno hacia la derecha	none
-◣	triángulo inferior relleno hacia la izquierda	none
-◤	triángulo superior relleno hacia la izquierda	none
-◥	triángulo superior relleno hacia la derecha	none
-◦	viñeta hueca	none
+◢	triángulo inferior derecho relleno	none
+◣	triángulo inferior izquierdo relleno	none
+◤	triángulo superior izquierdo relleno	none
+◥	triángulo superior derecho relleno	none
+◦	bolo hueco	none
 ◯	círculo hueco grande	none
 ◳	cuadrante superior derecho en cuadrado hueco	none
 ◷	cuadrante superior derecho en círculo hueco	none
-◿	triángulo inferior hacia la derecha	none
+◿	triángulo inferior derecho	none
 ♪	corchea	none
 ⨧	más subíndice dos	none
 ⨯	vector o producto cruzado	none
@@ -261,7 +261,7 @@ symbols:
 ⩽	menor que o igual con barra inclinada	none
 ⪍	menor que sobre igual o similar	none
 ⪚	doble línea sobre mayor que	none
-⪺	sucede por encima del signo no igual	none
+⪺	sucede sobre signo de no casi igual	none
 ♭	bemol	none
 ♯	sostenido	none
 😀	cara sonriendo	none
@@ -306,7 +306,7 @@ symbols:
 😑	cara sin expresión	none
 😶	cara sin boca	none
 🫥	cara con línea de puntos	none
-😶‍🌫	cara en las nubes	none
+😶‍🌫	cara entre las nubes	none
 😏	cara sonriendo con superioridad	none
 😒	cara de desaprobación	none
 🙄	cara con ojos en blanco	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	cara exhalando	none
 🤥	cara de mentiroso	none
 🫨	cara temblorosa	none
+🙂‍↔	cabeza negando	none
+🙂‍↕	cabeza asintiendo	none
 😌	cara de alivio	none
 😔	cara desanimada	none
 😪	cara de sueño	none
@@ -329,7 +331,7 @@ symbols:
 🥶	cara con frío	none
 🥴	cara de grogui	none
 😵	cara mareada	none
-😵‍💫	cara con ojos de espiral	none
+😵‍💫	cara con ojos en espiral	none
 🤯	cabeza explotando	none
 🤠	cara con sombrero de vaquero	none
 🥳	cara de fiesta	none
@@ -403,7 +405,7 @@ symbols:
 ❣	exclamación de corazón	none
 💔	corazón roto	none
 ❤‍🔥	corazón en llamas	none
-❤‍🩹	corazón curándose	none
+❤‍🩹	corazón vendado	none
 ❤	corazón rojo	none
 🩷	corazón rosa	none
 🧡	corazón naranja	none
@@ -744,11 +746,15 @@ symbols:
 👬	hombres de la mano	none
 💏	beso	none
 💑	pareja enamorada	none
-👪	familia	none
 🗣	cabeza parlante	none
 👤	silueta de busto	none
 👥	dos siluetas de bustos	none
 🫂	personas abrazándose	none
+👪	familia	none
+🧑‍🧑‍🧒	familia adulto, adulto, niño	none
+🧑‍🧑‍🧒‍🧒	familia adulto, adulto, niño, niño	none
+🧑‍🧒	familia adulto, niño	none
+🧑‍🧒‍🧒	familia adulto, niño, niño	none
 👣	huellas de pies	none
 🦰	pelo pelirrojo	none
 🦱	pelo rizado	none
@@ -839,7 +845,9 @@ symbols:
 🦚	pavo real	none
 🦜	loro	none
 🪽	ala	none
+🐦‍⬛	pájaro negro	none
 🪿	oca	none
+🐦‍🔥	fénix	none
 🐸	rana	none
 🐊	cocodrilo	none
 🐢	tortuga	none
@@ -858,7 +866,7 @@ symbols:
 🐡	pez globo	none
 🦈	tiburón	none
 🐙	pulpo	none
-🐚	concha de mar	none
+🐚	caracola	none
 🪸	coral	none
 🪼	medusa	none
 🐌	caracol	none
@@ -910,6 +918,7 @@ symbols:
 🍉	sandía	none
 🍊	mandarina	none
 🍋	limón	none
+🍋‍🟩	lima	none
 🍌	plátano	none
 🍍	piña	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	castaña	none
 🫚	raíz de jengibre	none
 🫛	vaina	none
+🍄‍🟫	champiñón marrón	none
 🍞	pan de molde	none
 🥐	cruasán	none
 🥖	baguete	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	balanza	none
 🦯	bastón	none
 🔗	eslabón	none
+⛓‍💥	cadena rota	none
 ⛓	cadenas	none
 🪝	gancho	none
 🧰	caja de herramientas	none
@@ -1638,7 +1649,7 @@ symbols:
 ↖	flecha hacia la esquina superior izquierda	none
 ↕	flecha arriba y abajo	none
 ↔	flecha izquierda y derecha	none
-↮	flecha hacia la izquierda y la derecha con trazo	none
+↮	flecha hacia la izquierda y la derecha tachada	none
 ↩	flecha derecha curvándose a la izquierda	none
 ↪	flecha izquierda curvándose a la derecha	none
 ⤴	flecha derecha curvándose hacia arriba	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	Bandera Gales	none
 ₡	colón costarricense	none
 ₦	naira	none
-₧	peseta española	none
 ₪	nuevo séquel israelí	none
 ₫	dong	none
 ₭	kip	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	lira turca	none
 ₼	manat azerbaiyano	none
 ₾	lari	none
+₧	peseta española	none

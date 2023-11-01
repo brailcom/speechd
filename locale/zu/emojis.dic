@@ -81,30 +81,186 @@ symbols:
 ⇟	i-stroke esingakubili somcibisholo ophansi	none
 ⇠	umcibisholo wedeshi ongakwesokunxele	none
 ⇡	umcibisholo wedeshi ophezulu	none
+⇢	rightwards dashed arrow	none
+⇣	downwards dashed arrow	none
+⇤	leftwards arrow bar	none
+⇥	rightwards arrow bar	none
+⇦	umcibisholo ongenalutho oyakwesokunxele	none
+⇧	upwards hollow arrow	none
+⇨	rightwards hollow arrow	none
+⇩	umcibisholo ongenalutho oya phansi	none
+⇪	upwards hollow arrow from bar	none
+⇵	downwards arrow leftwards upwards arrow	none
+∀	for all	none
+∂	partial differential	none
+∃	there exists	none
+∅	empty set	none
 ∆	i-increment	none
 ∇	i-nabla	none
 ∈	i-element of	none
+∉	not an element	none
+∋	contains as member	none
+∎	end proof	none
+∏	n-ary product	none
+∑	n-ary summation	none
+≮	not less-than	none
 ≠	ngalingani	none
+≯	not greater-than	none
 −	uphawu lokususa	none
 ⁻	i-superscript minus	none
+∓	minus-or-plus	none
+∕	division slash	none
+∗	asterisk operator	none
+∘	ring operator	none
+∙	bullet operator	none
 √	i-square root	none
+∝	proportional	none
 ∞	i-infinity sign	none
+∟	right angle	none
+∠	angle	none
+∣	divides	none
+∥	parallel	none
+∧	logical and	none
 ∩	i-intersection	none
 ∪	i-union	none
+∫	integral	none
+∬	double integral	none
+∮	contour integral	none
+∴	therefore	none
+∵	because	none
+∶	ratio	none
+∷	proportion	none
+∼	tilde operator	none
+∽	reversed tilde	none
+∾	inverted lazy s	none
+≃	asymptotically equal	none
+≅	approximately equal	none
 ≈	cishe kulingane	none
+≌	all equal	none
+≒	approximately equal the image	none
+≖	ring in equal	none
 ≡	kufana nalokhu	none
+≣	strictly equivalent	none
 ≤	ncane kune noma ukulingana	none
 ≥	okukhulu kuno noma okulinganayo	none
+≦	less-than over equal	none
+≧	greater-than over equal	none
+≪	much less-than	none
+≫	much greater-than	none
+≬	between	none
+≳	greater-than equivalent	none
+≺	precedes	none
+≻	succeeds	none
+⊁	does not succeed	none
 ⊂	i-subset of	none
+⊃	superset	none
+⊆	subset equal	none
+⊇	superset equal	none
+⊕	circled plus	none
+⊖	circled minus	none
+⊗	circled times	none
+⊘	circled division slash	none
+⊙	circled dot operator	none
+⊚	circled ring operator	none
+⊛	circled asterisk operator	none
+⊞	squared plus	none
+⊟	squared minus	none
+⊥	up tack	none
+⊮	does not force	none
+⊰	precedes under relation	none
+⊱	succeeds under relation	none
+⋭	does not contain as normal subgroup equal	none
+⊶	original	none
+⊹	hermitian conjugate matrix	none
+⊿	right triangle	none
+⋁	n-ary logical or	none
+⋂	n-ary intersection	none
+⋃	n-ary union	none
+⋅	dot operator	none
+⋆	star operator	none
+⋈	natural join	none
+⋒	double intersection	none
+⋘	very much less-than	none
+⋙	very much greater-than	none
+⋮	vertical ellipsis	none
+⋯	midline horizontal ellipsis	none
+⋰	up right diagonal ellipsis	none
+⋱	down right diagonal ellipsis	none
+■	filled square	none
+□	hollow square	none
+▢	hollow square with rounded corners	none
+▣	hollow square containing filled square	none
+▤	square with horizontal fill	none
+▥	square with vertical fill	none
+▦	square orthogonal crosshatch fill	none
+▧	square upper left lower right fill	none
+▨	square upper right lower left fill	none
+▩	square diagonal crosshatch fill	none
+▬	filled rectangle	none
+▭	hollow rectangle	none
+▮	filled vertical rectangle	none
+▰	filled parallelogram	none
 ▲	egcwele phezulu-ungxantathu okhombayo	none
+△	hollow up-pointing triangle	none
+▴	filled up-pointing small triangle	none
+▵	hollow up-pointing small triangle	none
+▷	hollow right-pointing triangle	none
+▸	filled right-pointing small triangle	none
+▹	hollow right-pointing small triangle	none
+►	filled right-pointing pointer	none
+▻	hollow right-pointing pointer	none
 ▼	igcwaliswe phansi-okukhomba ungxantathu	none
+▽	hollow down-pointing triangle	none
+▾	filled down-pointing small triangle	none
+▿	hollow down-pointing small triangle	none
+◂	filled left-pointing small triangle	none
+◃	hollow left-pointing small triangle	none
+◄	filled left-pointing pointer	none
+◅	hollow left-pointing pointer	none
+◆	filled diamond	none
+◇	hollow diamond	none
+◈	hollow diamond containing filled diamond	none
+◉	hollow circle containing filled circle	none
 ◊	i-lozenge	none
 ○	indilinga engenalutho	none
+◌	dotted circle	none
+◍	circle with vertical fill	none
+◎	concentric circles	none
 ●	indilinga egcwele	none
+◐	circle left half filled	none
+◑	circle right half filled	none
+◒	circle lower half filled	none
+◓	circle upper half filled	none
+◔	circle upper right quadrant filled	none
+◕	circle all but upper left quadrant filled	none
+◖	left half filled circle	none
+◗	right half filled circle	none
+◘	inverse bullet	none
+◙	filled square containing hollow circle	none
+◜	upper left quadrant circular arc	none
+◝	upper right quadrant circular arc	none
+◞	lower right quadrant circular arc	none
+◟	lower left quadrant circular arc	none
+◠	upper half circle	none
+◡	lower half circle	none
+◢	filled lower right triangle	none
+◣	filled lower left triangle	none
+◤	filled upper left triangle	none
+◥	filled upper right triangle	none
+◦	hollow bullet	none
 ◯	indilinga enkulu engenalutho	none
+◳	hollow square upper right quadrant	none
+◷	hollow circle with upper right quadrant	none
+◿	lower right triangle	none
 ♪	inothi yesishiyagalombili	none
-♭	E13.1–135	none
-♯	Vote E13.1–136	none
+⨧	plus subscript two	none
+⨯	umkhiqizo we-vector cross	none
+⨼	umkhiqizo wangaphakathi	none
+⩣	ibha yangaphansi enengqondo noma ekabili	none
+⩽	ngaphansi-kunetshekile elilinganayo	none
+⪍	okungaphansi-kungaphezu kokulingana okufanayo	none
+⪚	double-line equal greater-than	none
+⪺	succeeds above not almost equal	none
 😀	ubuso obusinekile	none
 😃	ubuso obumoyizelayo obuvule umlomo	none
 😄	ubuso obumoyizelayo obuvule umlomo bunamehlo ajabule	none
@@ -147,12 +303,16 @@ symbols:
 😑	ubuso obungavezi lutho	none
 😶	ubuso obungenamlomo	none
 🫥	ubuso bomugqa onamachashazi	none
+😶‍🌫	ubuso obusemafini	none
 😏	ubuso ubunyiphile	none
 😒	ubuso obungachazekile	none
 🙄	ubuso obupheqa amehlo	none
 😬	ubuso obuhlinile	none
+😮‍💨	ubuso obudonsa umoya	none
 🤥	amanga	none
 🫨	ubuso obunyakazayo	none
+🙂‍↔	ikhanda elibuka le nale	none
+🙂‍↕	ukunikina ikhanda phansi naphezulu	none
 😌	ubuso obukhululekile	none
 😔	ubuso obuphoxiwe	none
 😪	ubuso obuzelayo	none
@@ -168,6 +328,7 @@ symbols:
 🥶	ubuso obugodolayo	none
 🥴	woozy face	none
 😵	ubuso obunenzululwane	none
+😵‍💫	ubuso obunamehlo anendingiliza	none
 🤯	ikhanda eliqhumayo	none
 🤠	umfana wezinkomo	none
 🥳	ubuso bobumnandi	none
@@ -241,6 +402,7 @@ symbols:
 ❣	isibabazi senhliziyo edangele	none
 💔	inhliziyo eyaphukile	none
 ❤‍🔥	inhliziyo ebhakuzayo	none
+❤‍🩹	inhliziyo ehlanganayo	none
 ❤	inhliziyo ebomvu	none
 🩷	inhliziyo e-pink	none
 🧡	inhliziyo ewolintshi	none
@@ -336,8 +498,10 @@ symbols:
 👱	umuntu izinwele ezinhlophe	none
 👨	indoda	none
 🧔	indoda intshebe	none
+🧔‍♂	indoda enezindevu	none
 👱‍♂	indoda izinwele ezimhlophe	none
 👩	umama	none
+🧔‍♀	umuntu wesimame  onezindevu	none
 👱‍♀	umama izinwele ezimhlophe	none
 🧓	omdala omdala	none
 👴	ikhehla	none
@@ -579,11 +743,15 @@ symbols:
 👬	amadoda amabili abambene ngesandla	none
 💏	ukuqabula	none
 💑	izithandani ezinenhliziyo	none
-👪	umndeni	none
 🗣	ikhanda elikhulumayo	none
 👤	isithombe somuntu	none
 👥	isithombe sabantu	none
 🫂	abantu abanganayo	none
+👪	umndeni	none
+🧑‍🧑‍🧒	umndeni omdala, omdala, ingane, ingane	none
+🧑‍🧑‍🧒‍🧒	family adult, adult, child, child	none
+🧑‍🧒	umndeni omdala, ingane	none
+🧑‍🧒‍🧒	family adult, child, child	none
 👣	izinsalela zezinyawo	none
 🦰	izinwele ezibomvu	none
 🦱	curly hair	none
@@ -603,6 +771,7 @@ symbols:
 🦝	raccoon	none
 🐱	ubuso bekati	none
 🐈	ikati	none
+🐈‍⬛	ikati elimnyama	none
 🦁	ibhubesi	none
 🐯	ubuso bethayiga	none
 🐅	ithayiga	none
@@ -645,6 +814,7 @@ symbols:
 🦔	inhloli	none
 🦇	ilulwane	none
 🐻	ibhele	none
+🐻‍❄	polar bear	none
 🐨	i-koala	none
 🐼	iphanda	none
 🦥	i-sloth	none
@@ -672,7 +842,9 @@ symbols:
 🦚	peacock	none
 🦜	parrot	none
 🪽	iphiko	none
+🐦‍⬛	inyoni emnyama	none
 🪿	i-goose	none
+🐦‍🔥	phoenix	none
 🐸	ixoxo	none
 🐊	ingwenya	none
 🐢	ufudu	none
@@ -743,6 +915,7 @@ symbols:
 🍉	ikhabe	none
 🍊	inantshi	none
 🍋	ulamula	none
+🍋‍🟩	lime	none
 🍌	ubhanana	none
 🍍	upayinapu	none
 🥭	umango	none
@@ -774,6 +947,7 @@ symbols:
 🌰	ichestnut	none
 🫚	ingxabu yejinja	none
 🫛	i-pea pod	none
+🍄‍🟫	ikhowe elinsundu	none
 🍞	ulofu	none
 🥐	ibhanisi	none
 🥖	isinkwa	none
@@ -1093,7 +1267,6 @@ symbols:
 🎄	isihlahla sikaKhisimusi	none
 🎆	amakhrikhethi	none
 🎇	okuqhumayo	none
-🧨	E11050	none
 ✨	okukhazimulayo	none
 🎈	ibhaluni	none
 🎉	okuqhuma ephathini	none
@@ -1104,7 +1277,6 @@ symbols:
 🎏	i-carp streamer	none
 🎐	ichime yomoya	none
 🎑	umcimbi wenyanga	none
-🧧	E11049	none
 🎀	iribhini	none
 🎁	isipho esigoqiwe	none
 🎗	iribhini yesikhumbuzo	none
@@ -1124,12 +1296,10 @@ symbols:
 🏈	i-american football	none
 🏉	ibhola lomboxo	none
 🎾	ithenisi	none
-🥏	E11007	none
 🎳	ukubhowla	none
 🏏	umdlalo wekhilikithi	none
 🏑	ihokhi	none
 🏒	ihokhi yaseqhweni	none
-🥍	E11005	none
 🏓	ping pong	none
 🏸	ibadminton	none
 🥊	igilavu lokulwa	none
@@ -1163,16 +1333,13 @@ symbols:
 ♥	unhliziyo	none
 ♦	okumise okwedayimane	none
 ♣	umpukane	none
-♟	E11001	none
 🃏	ujokha	none
 🀄	umajongi oyidragoni ebomvu	none
 🎴	amakhadi okudlala ayimbali	none
 🎭	ezobuciko bemibukiso	none
 🖼	ifulemu enesithombe	none
 🎨	ibhodi lengcweti yokupenda	none
-🧵	E11063	none
 🪡	inaliti yokuthunga	none
-🧶	E11064	none
 🪢	ifindo	none
 👓	izibuko	none
 🕶	izibuko zelanga	none
@@ -1382,6 +1549,7 @@ symbols:
 ⚖	okokulinganisa	none
 🦯	ikheni yokusiza	none
 🔗	ukuxhumanisa	none
+⛓‍💥	iketango eliphukile	none
 ⛓	amaketango	none
 🪝	i-hook	none
 🧰	ibhokisi lamathuluzi	none
@@ -1430,7 +1598,6 @@ symbols:
 ⚰	ibhokisi lomngcwabo	none
 🪦	ikhanda eliyinhloko	none
 ⚱	isitsha somngcwabo	none
-🧿	E11073	none
 🪬	i-hamsa	none
 🗿	i-moai	none
 🪧	iphakadi	none
@@ -1631,13 +1798,21 @@ symbols:
 🏳‍🌈	Ifulegi elimibalabala	none
 🏳‍⚧	ifulegi eli-blue, pink nokumhlophe	none
 🏴‍☠	pirate flag	none
+₢	cruzeiro	none
+₣	french franc	none
+₤	lira	none
 ₥	i-mill	none
 ₩	i-won	none
 €	i-euro	none
+₰	german penny	none
 ₱	i-peso	none
+₳	austral	none
+₶	livre tournois	none
+₷	spesmilo	none
 ₹	i-indian rupee	none
 ₽	i-ruble	none
 ₿	i-bitcoin	none
+₨	rupee	none
 👋🏻	ukuphakamisa isandla uhlobo-1-2	none
 👋🏼	ukuphakamisa isandla uhlobo-3	none
 👋🏽	ukuphakamisa isandla uhlobo-4	none
@@ -2007,6 +2182,11 @@ symbols:
 🧔🏽	indoda uhlobo-4, intshebe	none
 🧔🏾	indoda uhlobo-5, intshebe	none
 🧔🏿	indoda uhlobo-6, intshebe	none
+🧔🏻‍♂	indoda enezindevu uhlobo-1-2	none
+🧔🏼‍♂	indoda enezindevu uhlobo-3	none
+🧔🏽‍♂	indoda enezindevu uhlobo-4	none
+🧔🏾‍♂	indoda enezindevu uhlobo-5	none
+🧔🏿‍♂	indoda enezindevu uhlobo-6	none
 👱🏻‍♂	indoda uhlobo-1-2, izinwele ezimhlophe	none
 👱🏼‍♂	indoda uhlobo-3, izinwele ezimhlophe	none
 👱🏽‍♂	indoda uhlobo-4, izinwele ezimhlophe	none
@@ -2091,6 +2271,11 @@ symbols:
 👩🏽	umama uhlobo-4	none
 👩🏾	umama uhlobo-5	none
 👩🏿	umama uhlobo-6	none
+🧔🏻‍♀	umuntu wesimame  uhlobo-1-2, onezindevu	none
+🧔🏼‍♀	umuntu wesimame  uhlobo-3, onezindevu	none
+🧔🏽‍♀	umuntu wesimame  uhlobo-4, onezindevu	none
+🧔🏾‍♀	umuntu wesimame  uhlobo-5, onezindevu	none
+🧔🏿‍♀	umuntu wesimame  uhlobo-6, onezindevu	none
 👱🏻‍♀	umama uhlobo-1-2, izinwele ezimhlophe	none
 👱🏼‍♀	umama uhlobo-3, izinwele ezimhlophe	none
 👱🏽‍♀	umama uhlobo-4, izinwele ezimhlophe	none

@@ -314,6 +314,8 @@ symbols:
 😮‍💨	ansikte andas ut	none
 🤥	ljugande ansikte	none
 🫨	skakande ansikte	none
+🙂‍↔	huvud skakar horisontellt	none
+🙂‍↕	huvud skakar vertikalt	none
 😌	lättat ansikte	none
 😔	funderande ansikte	none
 😪	sömnigt ansikte	none
@@ -744,11 +746,15 @@ symbols:
 👬	två män håller hand	none
 💏	puss	none
 💑	par med hjärta	none
-👪	familj	none
 🗣	silhuett som talar	none
 👤	figur i silhuett	none
 👥	figurer i silhuett	none
 🫂	personer kramas	none
+👪	familj	none
+🧑‍🧑‍🧒	familj, vuxen, vuxen, barn	none
+🧑‍🧑‍🧒‍🧒	familj, vuxen, vuxen, barn, barn	none
+🧑‍🧒	familj, vuxen, barn	none
+🧑‍🧒‍🧒	familj, vuxen, barn, barn	none
 👣	fotavtryck	none
 🦰	rödhårig	none
 🦱	lockigt hår	none
@@ -839,7 +845,9 @@ symbols:
 🦚	påfågel	none
 🦜	papegoja	none
 🪽	vinge	none
+🐦‍⬛	koltrast	none
 🪿	gås	none
+🐦‍🔥	fenix	none
 🐸	grodansikte	none
 🐊	krokodil	none
 🐢	sköldpadda	none
@@ -910,6 +918,7 @@ symbols:
 🍉	vattenmelon	none
 🍊	mandarin	none
 🍋	citron	none
+🍋‍🟩	lime	none
 🍌	banan	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kastanj	none
 🫚	ingefära	none
 🫛	ärtskida	none
+🍄‍🟫	brun svamp	none
 🍞	bröd	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	balansvåg	none
 🦯	blindkäpp	none
 🔗	länk	none
+⛓‍💥	bruten länk	none
 ⛓	kedjor	none
 🪝	krok	none
 🧰	verktygslåda	none
@@ -3641,7 +3652,6 @@ symbols:
 👩‍👧	familj kvinna, flicka	none
 👩‍👧‍👦	familj kvinna, flicka, pojke	none
 👩‍👧‍👧	familj kvinna, flicka, flicka	none
-🔟	keycap 10	none
 🇦🇨	flagga Ascension	none
 🇦🇩	flagga Andorra	none
 🇦🇪	flagga Förenade Arabemiraten	none
@@ -3678,7 +3688,7 @@ symbols:
 🇧🇹	flagga Bhutan	none
 🇧🇻	flagga Bouvetön	none
 🇧🇼	flagga Botswana	none
-🇧🇾	flagga Vitryssland	none
+🇧🇾	flagga Belarus	none
 🇧🇿	flagga Belize	none
 🇨🇦	flagga Kanada	none
 🇨🇨	flagga Kokosöarna	none
@@ -3686,7 +3696,7 @@ symbols:
 🇨🇫	flagga Centralafrikanska republiken	none
 🇨🇬	flagga Kongo-Brazzaville	none
 🇨🇭	flagga Schweiz	none
-🇨🇮	flagga Côte d’Ivoire	none
+🇨🇮	flagga Elfenbenskusten	none
 🇨🇰	flagga Cooköarna	none
 🇨🇱	flagga Chile	none
 🇨🇲	flagga Kamerun	none
@@ -3905,7 +3915,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	flagga Wales	none
 ₡	costarikansk colón	none
 ₦	nigeriansk naira	none
-₧	spansk peseta	none
 ₪	israelisk ny shekel	none
 ₫	vietnamesisk dong	none
 ₭	laotisk kip	none
@@ -3917,3 +3926,4 @@ symbols:
 ₺	turkisk lira	none
 ₼	azerbajdzjansk manat	none
 ₾	georgisk lari	none
+₧	spansk peseta	none

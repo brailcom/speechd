@@ -36,8 +36,8 @@ symbols:
 ↱	头朝右的向上箭头	none
 ↲	头朝左的向下箭头	none
 ↳	头朝右的向下箭头	none
-↴	角朝下的向右箭头	none
-↵	角朝左的向下箭头	none
+↴	下拐的向右箭头	none
+↵	左拐的向下箭头	none
 ↶	逆时针上半圆箭头	none
 ↷	顺时针上半圆箭头	none
 ↸	指向长杠的西北箭头	none
@@ -171,7 +171,7 @@ symbols:
 ⊱	关系上后于	none
 ⋭	不属于正规子群或等于	none
 ⊶	原	none
-⊹	厄密共轭矩阵	none
+⊹	厄米共轭矩阵	none
 ⊿	直角三角形	none
 ⋁	N元逻辑或	none
 ⋂	N元交集	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	呼气	none
 🤥	说谎	none
 🫨	颤抖	none
+🙂‍↔	左右摇头	none
+🙂‍↕	上下点头	none
 😌	松了口气	none
 😔	沉思	none
 😪	困	none
@@ -744,11 +746,15 @@ symbols:
 👬	手拉手的两个男人	none
 💏	亲吻	none
 💑	情侣	none
-👪	家庭	none
 🗣	说话	none
 👤	人像	none
 👥	双人像	none
 🫂	人的拥抱	none
+👪	家庭	none
+🧑‍🧑‍🧒	一孩家庭	none
+🧑‍🧑‍🧒‍🧒	二孩家庭	none
+🧑‍🧒	单亲一孩家庭	none
+🧑‍🧒‍🧒	单亲二孩家庭	none
 👣	脚印	none
 🦰	红发	none
 🦱	卷发	none
@@ -839,7 +845,9 @@ symbols:
 🦚	孔雀	none
 🦜	鹦鹉	none
 🪽	翅膀	none
+🐦‍⬛	黑色的鸟	none
 🪿	鹅	none
+🐦‍🔥	凤凰	none
 🐸	青蛙	none
 🐊	鳄鱼	none
 🐢	龟	none
@@ -910,6 +918,7 @@ symbols:
 🍉	西瓜	none
 🍊	橘子	none
 🍋	柠檬	none
+🍋‍🟩	青柠	none
 🍌	香蕉	none
 🍍	菠萝	none
 🥭	芒果	none
@@ -941,6 +950,7 @@ symbols:
 🌰	栗子	none
 🫚	姜	none
 🫛	豌豆荚	none
+🍄‍🟫	褐色蘑菇	none
 🍞	面包	none
 🥐	羊角面包	none
 🥖	法式长棍面包	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	天平	none
 🦯	盲杖	none
 🔗	链接	none
+⛓‍💥	断链	none
 ⛓	链条	none
 🪝	挂钩	none
 🧰	工具箱	none
@@ -1794,7 +1805,7 @@ symbols:
 🚩	三角旗	none
 🎌	交叉旗	none
 🏴	举黑旗	none
-🏳	举白旗	none
+🏳	白旗	none
 🏳‍🌈	彩虹旗	none
 🏳‍⚧	跨性别旗	none
 🏴‍☠	海盗旗	none
@@ -1806,7 +1817,7 @@ symbols:
 €	欧元符号	none
 ₰	德国便士	none
 ₱	比索	none
-₳	澳大利亚货币符号	none
+₳	奥斯特拉尔	none
 ₶	里弗尔	none
 ₷	斯佩斯米洛	none
 ₹	印度卢比符号	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	旗 威尔士	none
 ₡	哥斯达黎加科朗	none
 ₦	尼日利亚奈拉	none
-₧	西班牙比塞塔	none
 ₪	以色列新谢克尔	none
 ₫	越南盾	none
 ₭	老挝基普	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	土耳其里拉	none
 ₼	阿塞拜疆马纳特	none
 ₾	格鲁吉亚拉里	none
+₧	西班牙比塞塔	none

@@ -10,9 +10,9 @@ symbols:
 🏿	tipo de pele 6	none
 ℗	símbolo de direitos de autor de fonograma	none
 ←	seta a apontar para a esquerda	none
-↚	barra com seta para a esquerda	none
+↚	seta para a esquerda com traço	none
 →	seta a apontar para a direita	none
-↛	barra com seta para a direita	none
+↛	seta para a direita com traço	none
 ↑	seta a apontar para cima	none
 ↓	seta a apontar para baixo	none
 ↢	seta para a esquerda com cauda	none
@@ -27,13 +27,23 @@ symbols:
 ↳	seta para baixo com a ponta para a direita	none
 ↴	seta para a direita com canto para baixo	none
 ↵	seta para baixo com canto para a esquerda	none
-↶	seta semicírculo superior no sentido anti-horário	none
-↷	seta semicírculo superior no sentido horário	none
+↶	seta semicircular superior no sentido anti-horário	none
+↷	seta semicircular superior no sentido horário	none
+↹	seta para a esquerda com barra sobre seta para a direita com barra	none
 ⇅	setas a apontar para cima e para baixo	none
 ⇆	setas a apontar para a esquerda e para a direita	none
+⇤	seta para a esquerda com barra	none
+⇥	seta para a direita com barra	none
+⇦	seta vazia para a esquerda	none
+⇧	seta vazia para cima	none
+⇨	seta vazia para a direita	none
+⇩	seta vazia para baixo	none
+⇪	seta vazia para cima da barra	none
 ∀	para todo	none
 ∈	pertence	none
+∝	proporcional	none
 ∞	símbolo de infinito	none
+∟	ângulo reto	none
 ≡	idêntico a	none
 ≤	menor ou igual	none
 ≥	maior ou igual	none
@@ -56,6 +66,8 @@ symbols:
 ◃	triângulo pequeno vazio a apontar para a esquerda	none
 ◄	ponteiro preenchido a apontar para a esquerda	none
 ◅	ponteiro vazio a apontar para a esquerda	none
+◘	marca de lista invertida	none
+◦	marca de lista vazia	none
 😀	cara sorridente	none
 😃	cara sorridente com olhos bem abertos	none
 😄	cara a sorrir com boca aberta e olhos sorridentes	none
@@ -106,6 +118,8 @@ symbols:
 😮‍💨	cara a exalar	none
 🤥	cara de mentiroso	none
 🫨	cara a abanar	none
+🙂‍↔	cabeça a virar de um lado para o outro	none
+🙂‍↕	cabeça a abanar de cima para baixo	none
 😌	cara aliviada	none
 😔	cara pensativa	none
 😪	cara sonolenta	none
@@ -433,6 +447,7 @@ symbols:
 🕊	pomba	none
 🦉	mocho	none
 🦤	dodó	none
+🐦‍🔥	fénix	none
 🦎	lagarto	none
 🐲	cara de dragão	none
 🐳	baleia com esguicho de água	none
@@ -465,6 +480,7 @@ symbols:
 🫑	pimento	none
 🥦	brócolos	none
 🥜	amendoins	none
+🍄‍🟫	cogumelo castanho	none
 🥯	bagel	none
 🧀	fatia de queijo	none
 🍖	osso com carne	none
@@ -807,6 +823,7 @@ symbols:
 ⚖	balança (objeto)	none
 🦯	bengala para invisuais	none
 🔗	ligação	none
+⛓‍💥	corrente partida	none
 🧰	mala de ferramentas	none
 🧲	íman	none
 ⚗	balão de vidro	none
@@ -841,7 +858,7 @@ symbols:
 ☣	perigo biológico	none
 ↘	seta para a direita e para baixo	none
 ↔	seta para a esquerda e para a direita	none
-↮	barra com seta bidirecional	none
+↮	seta bidirecional com traço	none
 ↩	seta para a direita com curva para a esquerda	none
 ↪	seta para a esquerda com curva para a direita	none
 ⤴	seta para a direita com curva para cima	none

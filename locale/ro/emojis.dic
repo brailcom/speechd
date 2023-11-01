@@ -17,16 +17,16 @@ symbols:
 ↓	săgeată în jos	none
 ↜	săgeată ondulată spre stânga	none
 ↝	săgeată ondulată spre dreapta	none
-↞	săgeată cu două capete spre stânga	none
-↟	săgeată cu două capete în sus	none
-↠	săgeată cu două capete spre dreapta	none
-↡	săgeată cu două capete în jos	none
+↞	săgeată cu două vârfuri spre stânga	none
+↟	săgeată cu două vârfuri în sus	none
+↠	săgeată cu două vârfuri spre dreapta	none
+↡	săgeată cu două vârfuri în jos	none
 ↢	săgeată spre stânga cu coadă	none
 ↣	săgeată spre dreapta cu coadă	none
-↤	săgeată spre stânga cu coadă dreaptă	none
-↥	săgeată în sus cu coadă dreaptă	none
-↦	săgeată spre dreapta cu coadă dreaptă	none
-↧	săgeată în jos cu coadă dreaptă	none
+↤	săgeată spre stânga dinspre bară	none
+↥	săgeată în sus dinspre bară	none
+↦	săgeată spre dreapta dinspre bară	none
+↧	săgeată în jos dinspre bară	none
 ↨	săgeată sus-jos cu bază	none
 ↫	săgeată spre stânga cu buclă	none
 ↬	săgeată spre dreapta cu buclă	none
@@ -40,8 +40,8 @@ symbols:
 ↵	săgeată spre stânga cu colțul în jos	none
 ↶	săgeată în semicerc în sus în sens antiorar	none
 ↷	săgeată în semicerc în sus în sens orar	none
-↸	săgeată spre nord-vest cu bară lungă	none
-↹	săgeată spre stânga spre bară peste săgeată spre dreapta spre bară	none
+↸	săgeată spre nord-vest către bară lungă	none
+↹	săgeată spre stânga către bară peste săgeată spre dreapta către bară	none
 ↺	săgeată cerc deschis în sens antiorar	none
 ↻	săgeată cerc deschis în sens orar	none
 ↼	harpon spre stânga cu vârful în sus	none
@@ -83,13 +83,13 @@ symbols:
 ⇡	săgeată cu linie întreruptă în sus	none
 ⇢	săgeată cu linie întreruptă spre dreapta	none
 ⇣	săgeată cu linie întreruptă în jos	none
-⇤	săgeată spre stânga spre bară	none
-⇥	săgeată spre dreapta spre bară	none
+⇤	săgeată spre stânga către bară	none
+⇥	săgeată spre dreapta către bară	none
 ⇦	săgeată goală spre stânga	none
 ⇧	săgeată goală în sus	none
 ⇨	săgeată goală spre dreapta	none
 ⇩	săgeată goală în jos	none
-⇪	săgeată goală în sus cu coadă dreaptă	none
+⇪	săgeată goală în sus dinspre bară	none
 ⇵	săgeată în jos lângă săgeată în sus	none
 ∀	cuantificator universal	none
 ∂	derivată parțială	none
@@ -100,7 +100,7 @@ symbols:
 ∈	element al	none
 ∉	nu aparține lui	none
 ∋	include	none
-∎	sfârșitul probei	none
+∎	sfârșitul demonstrației	none
 ∏	produs cartezian	none
 ∑	sumă peste	none
 ≮	nu mai mic decât	none
@@ -138,17 +138,17 @@ symbols:
 ≈	aproape egal	none
 ≌	toate egale cu	none
 ≒	aproximativ egal cu imaginea	none
-≖	inel egal cu	none
+≖	inel în egal cu	none
 ≡	identic cu	none
 ≣	strict echivalent cu	none
 ≤	mai mic sau egal cu	none
 ≥	mai mare sau egal cu	none
-≦	mai puțin decât egal cu	none
-≧	mai mult decât egal cu	none
+≦	mai mic decât peste egal cu	none
+≧	mai mare decât peste egal cu	none
 ≪	mult mai mic decât	none
 ≫	mult mai mare decât	none
 ≬	între	none
-≳	mai mare decât echivalent	none
+≳	mai mare decât sau echivalent cu	none
 ≺	precedă	none
 ≻	succedă	none
 ⊁	nu succedă	none
@@ -169,33 +169,33 @@ symbols:
 ⊮	nu forțează	none
 ⊰	precedă sub relație	none
 ⊱	succedă sub relație	none
-⋭	nu conține ca submulțime normală egală cu	none
+⋭	nu conține ca submulțime normală pe sau este egală cu	none
 ⊶	original	none
 ⊹	matrice hermiteană conjugată	none
 ⊿	triunghi dreptunghic	none
-⋁	disjuncție logică	none
-⋂	intersecție logică	none
-⋃	reuniune logică	none
-⋅	operator pixel	none
+⋁	sau logic n-ar	none
+⋂	intersecție n-ară	none
+⋃	reuniune n-ară	none
+⋅	operator punct de înmulțire	none
 ⋆	operator stea	none
-⋈	asociere naturală	none
+⋈	joncțiune naturală	none
 ⋒	intersecție dublă	none
 ⋘	foarte mult mai mic decât	none
 ⋙	foarte mult mai mare decât	none
-⋮	elipsă verticală	none
-⋯	elipsă orizontală pe linia mediană	none
-⋰	elipsă diagonală dreapta sus	none
-⋱	elipsă diagonală dreapta jos	none
+⋮	puncte de suspensie verticale	none
+⋯	puncte de suspensie orizontale pe linia mediană	none
+⋰	puncte de suspensie diagonale dreapta sus	none
+⋱	puncte de suspensie diagonale dreapta jos	none
 ■	pătrat umplut	none
 □	pătrat gol	none
 ▢	pătrat gol cu colțuri rotunjite	none
 ▣	pătrat gol cu un pătrat umplut înăuntru	none
 ▤	pătrat umplut cu linii orizontale	none
 ▥	pătrat umplut cu linii verticale	none
-▦	pătrat umplut cu grilaj ortogonal	none
+▦	pătrat umplut cu hașură dreaptă	none
 ▧	pătrat umplut cu dungi diagonale din stânga sus în dreapta jos	none
 ▨	pătrat umplut cu dungi diagonale din dreapta sus în stânga jos	none
-▩	pătrat umplut cu grilaj în diagonală	none
+▩	pătrat umplut cu hașură oblică	none
 ▬	dreptunghi umplut	none
 ▭	dreptunghi gol	none
 ▮	dreptunghi vertical umplut	none
@@ -232,34 +232,34 @@ symbols:
 ◑	cerc umplut pe jumătatea dreaptă	none
 ◒	cerc umplut pe jumătatea inferioară	none
 ◓	cerc umplut pe jumătatea superioară	none
-◔	cerc umplut în cadranul dreapta sus	none
+◔	cerc umplut în sfertul din dreapta sus	none
 ◕	cerc umplut în toate sferturile mai puțin cel din stânga sus	none
 ◖	jumătate de cerc umplut în stânga	none
 ◗	jumătate de cerc umplut în dreapta	none
-◘	bulină inversă	none
+◘	marcator invers	none
 ◙	pătrat umplut cu un cerc gol înăuntru	none
-◜	arc de cerc cadranul stânga sus	none
-◝	arc de cerc cadranul dreapta sus	none
-◞	arc de cerc cadranul dreapta jos	none
-◟	arc de cerc cadranul stânga jos	none
+◜	arc de cerc în sfertul din stânga sus	none
+◝	arc de cerc în sfertul din dreapta sus	none
+◞	arc de cerc în sfertul din dreapta jos	none
+◟	arc de cerc în sfertul din stânga jos	none
 ◠	semicerc superior	none
 ◡	semicerc inferior	none
-◢	triunghi umplut dreapta jos	none
-◣	triunghi umplut stânga jos	none
+◢	triunghi umplut cu unghi drept în dreapta jos	none
+◣	triunghi umplut cu unghi drept în stânga jos	none
 ◤	triunghi umplut stânga sus	none
-◥	triunghi umplut dreapta sus	none
-◦	bulină goală	none
+◥	triunghi umplut cu unghi drept în dreapta sus	none
+◦	marcator gol	none
 ◯	cerc gol mare	none
-◳	pătrat gol cu cadranul dreapta sus gol	none
-◷	cerc gol cu cadranul dreapta sus gol	none
-◿	triunghi dreapta jos	none
+◳	pătrat gol cu sfertul din dreapta sus gol	none
+◷	cerc gol cu sfertul din dreapta sus gol	none
+◿	triunghi cu unghi drept în dreapta jos	none
 ♪	optime	none
 ⨧	plus indice doi	none
 ⨯	produs vectorial	none
 ⨼	produs interior	none
 ⩣	disjuncție logică cu bară dublă	none
 ⩽	mai mic sau egal	none
-⪍	mai mic, asemănător sau egal	none
+⪍	mai mic peste aproximativ egal	none
 ⪚	mai mare sau egal cu două linii	none
 ⪺	succedă peste nu aproape egal	none
 ♭	bemol	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	față care expiră	none
 🤥	fața mincinoasă	none
 🫨	față zgâlțâită	none
+🙂‍↔	cap care se clatină pe orizontală	none
+🙂‍↕	cap care se clatină pe verticală	none
 😌	față ușurată	none
 😔	față îngândurată	none
 😪	față somnoroasă	none
@@ -744,11 +746,15 @@ symbols:
 👬	bărbați ținându-se de mână	none
 💏	sărut	none
 💑	cuplu cu inimă	none
-👪	familie	none
 🗣	cap vorbitor	none
 👤	siluetă bust	none
 👥	siluete busturi	none
 🫂	persoane îmbrățișate	none
+👪	familie	none
+🧑‍🧑‍🧒	familie adult, adult, copil	none
+🧑‍🧑‍🧒‍🧒	familie adult, adult, copil, copil	none
+🧑‍🧒	familie adult, copil	none
+🧑‍🧒‍🧒	familie adult, copil, copil	none
 👣	urme de pași	none
 🦰	păr roșcat	none
 🦱	păr creț	none
@@ -839,7 +845,9 @@ symbols:
 🦚	păun	none
 🦜	papagal mare	none
 🪽	aripă	none
+🐦‍⬛	pasăre neagră	none
 🪿	gâscă	none
+🐦‍🔥	phoenix	none
 🐸	broască	none
 🐊	crocodil	none
 🐢	broască țestoasă	none
@@ -910,6 +918,7 @@ symbols:
 🍉	pepene verde	none
 🍊	mandarină	none
 🍋	lămâie	none
+🍋‍🟩	limetă	none
 🍌	banană	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	castană	none
 🫚	rădăcină de ghimbir	none
 🫛	păstaie de mazăre	none
+🍄‍🟫	ciupercă maro	none
 🍞	pâine	none
 🥐	croasant	none
 🥖	baghetă de pâine	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	balanță	none
 🦯	baston pentru nevăzători	none
 🔗	za	none
+⛓‍💥	lanț rupt	none
 ⛓	lanț	none
 🪝	cârlig	none
 🧰	trusă de scule	none
@@ -1804,7 +1815,7 @@ symbols:
 ₥	mill	none
 ₩	won	none
 €	euro	none
-₰	penny german	none
+₰	pfenig german	none
 ₱	peso	none
 ₳	austral argentinian	none
 ₶	livră tournois	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	steag Țara Galilor	none
 ₡	colón costarican	none
 ₦	naira nigeriană	none
-₧	pesetă spaniolă	none
 ₪	shekel israelian nou	none
 ₫	dong vietnamez	none
 ₭	kip laoțian	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	liră turcească	none
 ₼	manat azer	none
 ₾	lari georgian	none
+₧	pesetă spaniolă	none

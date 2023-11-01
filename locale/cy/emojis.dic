@@ -314,6 +314,8 @@ symbols:
 😮‍💨	wyneb anadlu allan	none
 🤥	wyneb celwydd	none
 🫨	wyneb sydd ysgwyd	none
+🙂‍↔	pen yn ysgwyd o ochr i ochr	none
+🙂‍↕	pen yn ysgwyd i fyny ac i lawr	none
 😌	wyneb o ryddhad	none
 😔	wyneb synfyfyriol	none
 😪	wyneb cysglyd	none
@@ -744,11 +746,15 @@ symbols:
 👬	dau ddyn yn dal dwylo	none
 💏	cusan	none
 💑	pâr a chalon	none
-👪	teulu	none
 🗣	pen yn siarad	none
 👤	penddelw mewn silwét	none
 👥	penddelwau mewn silwét	none
 🫂	pobl yn cofleidio	none
+👪	teulu	none
+🧑‍🧑‍🧒	teulu oedolyn, oedolyn, plentyn	none
+🧑‍🧑‍🧒‍🧒	teulu oedolyn, oedolyn, plentyn, plentyn	none
+🧑‍🧒	teulu oedolyn, plentyn	none
+🧑‍🧒‍🧒	teulu oedolyn, plentyn, plentyn	none
 👣	olion traed	none
 🦰	gwallt coch	none
 🦱	gwallt cyrliog	none
@@ -839,7 +845,9 @@ symbols:
 🦚	paun	none
 🦜	parot	none
 🪽	adain	none
+🐦‍⬛	aderyn du	none
 🪿	gwydd	none
+🐦‍🔥	ffenics	none
 🐸	broga	none
 🐊	crocodeil	none
 🐢	crwban y môr	none
@@ -910,6 +918,7 @@ symbols:
 🍉	melon dŵr	none
 🍊	tanjerin	none
 🍋	lemwn	none
+🍋‍🟩	leim	none
 🍌	banana	none
 🍍	pinafal	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	castan	none
 🫚	gwraidd sinsir	none
 🫛	pod pys	none
+🍄‍🟫	madarch brown	none
 🍞	bara	none
 🥐	croissant	none
 🥖	ffon fara	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	clorian	none
 🦯	ffon wen	none
 🔗	dolen	none
+⛓‍💥	cadwyn wedi torri	none
 ⛓	cadwyni	none
 🪝	bachyn	none
 🧰	blwch offer	none
@@ -3881,7 +3892,7 @@ symbols:
 🇺🇦	baner Wcráin	none
 🇺🇬	baner Uganda	none
 🇺🇲	baner Ynysoedd Pellennig UDA	none
-🇺🇳	baner y Cenhedloedd Unedig	none
+🇺🇳	baner Y Cenhedloedd Unedig	none
 🇺🇸	baner Yr Unol Daleithiau	none
 🇺🇾	baner Uruguay	none
 🇺🇿	baner Uzbekistan	none

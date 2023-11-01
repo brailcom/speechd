@@ -314,6 +314,8 @@ symbols:
 😮‍💨	Gesicht, das ausatmet	none
 🤥	lügendes Gesicht	none
 🫨	zitterndes Doppelgesicht	none
+🙂‍↔	Kopfschütteln	none
+🙂‍↕	Kopfnicken	none
 😌	erleichtertes Gesicht	none
 😔	nachdenkliches Gesicht	none
 😪	schläfriges Gesicht	none
@@ -616,9 +618,9 @@ symbols:
 🫃	schwangerer Mann	none
 🫄	schwangere Person	none
 🤱	Stillen	none
-👩‍🍼	stillende Frau	none
-👨‍🍼	stillender Mann	none
-🧑‍🍼	stillende Person	none
+👩‍🍼	Flasche gebende Frau	none
+👨‍🍼	Mann, der Baby die Flasche gibt	none
+🧑‍🍼	Person, die Baby die Flasche gibt	none
 👼	Putte	none
 🎅	Weihnachtsmann	none
 🤶	Weihnachtsfrau	none
@@ -666,10 +668,10 @@ symbols:
 🧎	kniende Person	none
 🧎‍♂	kniender Mann	none
 🧎‍♀	kniende Frau	none
-🧑‍🦯	Person mit Gehstock	none
+🧑‍🦯	Person mit Langstock	none
 👨‍🦯	Mann mit Langstock	none
 👩‍🦯	Frau mit Langstock	none
-🧑‍🦼	Person in motorisiertem Rollstuhl	none
+🧑‍🦼	Person in elektrischem Rollstuhl	none
 👨‍🦼	Mann in elektrischem Rollstuhl	none
 👩‍🦼	Frau in elektrischem Rollstuhl	none
 🧑‍🦽	Person in manuellem Rollstuhl	none
@@ -744,11 +746,15 @@ symbols:
 👬	Händchen haltende Männer	none
 💏	sich küssendes Paar	none
 💑	Liebespaar	none
-👪	Familie	none
 🗣	sprechender Kopf	none
 👤	Silhouette einer Büste	none
 👥	Silhouette mehrerer Büsten	none
 🫂	sich umarmende Personen	none
+👪	Familie	none
+🧑‍🧑‍🧒	Familie 2 Erwachsene, 1 Kind	none
+🧑‍🧑‍🧒‍🧒	Familie 2 Erwachsene, 2 Kinder	none
+🧑‍🧒	Familie 1 Erwachsene(r), 1 Kind	none
+🧑‍🧒‍🧒	Familie 1 Erwachsene(r), 2 Kinder	none
 👣	Fußabdrücke	none
 🦰	rotes Haar	none
 🦱	lockiges Haar	none
@@ -839,7 +845,9 @@ symbols:
 🦚	Pfau	none
 🦜	Papagei	none
 🪽	Flügel	none
+🐦‍⬛	schwarzer Vogel	none
 🪿	Gans	none
+🐦‍🔥	Phönix	none
 🐸	Frosch	none
 🐊	Krokodil	none
 🐢	Schildkröte	none
@@ -910,6 +918,7 @@ symbols:
 🍉	Wassermelone	none
 🍊	Mandarine	none
 🍋	Zitrone	none
+🍋‍🟩	Limette	none
 🍌	Banane	none
 🍍	Ananas	none
 🥭	Mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	Kastanie	none
 🫚	Ingwer	none
 🫛	Erbsenschote	none
+🍄‍🟫	brauner Pilz	none
 🍞	Brot	none
 🥐	Croissant	none
 🥖	Baguette	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	Waage	none
 🦯	Blindenstock	none
 🔗	Linksymbol	none
+⛓‍💥	gebrochene Kette	none
 ⛓	Ketten	none
 🪝	Haken	none
 🧰	Werkzeugkasten	none
@@ -2965,21 +2976,21 @@ symbols:
 🤱🏽	Stillen mittlere Hautfarbe	none
 🤱🏾	Stillen mitteldunkle Hautfarbe	none
 🤱🏿	Stillen dunkle Hautfarbe	none
-👩🏻‍🍼	stillende Frau helle Hautfarbe	none
-👩🏼‍🍼	stillende Frau mittelhelle Hautfarbe	none
-👩🏽‍🍼	stillende Frau mittlere Hautfarbe	none
-👩🏾‍🍼	stillende Frau mitteldunkle Hautfarbe	none
-👩🏿‍🍼	stillende Frau dunkle Hautfarbe	none
-👨🏻‍🍼	stillender Mann helle Hautfarbe	none
-👨🏼‍🍼	stillender Mann mittelhelle Hautfarbe	none
-👨🏽‍🍼	stillender Mann mittlere Hautfarbe	none
-👨🏾‍🍼	stillender Mann mitteldunkle Hautfarbe	none
-👨🏿‍🍼	stillender Mann dunkle Hautfarbe	none
-🧑🏻‍🍼	stillende Person helle Hautfarbe	none
-🧑🏼‍🍼	stillende Person mittelhelle Hautfarbe	none
-🧑🏽‍🍼	stillende Person mittlere Hautfarbe	none
-🧑🏾‍🍼	stillende Person mitteldunkle Hautfarbe	none
-🧑🏿‍🍼	stillende Person dunkle Hautfarbe	none
+👩🏻‍🍼	Flasche gebende Frau helle Hautfarbe	none
+👩🏼‍🍼	Flasche gebende Frau mittelhelle Hautfarbe	none
+👩🏽‍🍼	Flasche gebende Frau mittlere Hautfarbe	none
+👩🏾‍🍼	Flasche gebende Frau mitteldunkle Hautfarbe	none
+👩🏿‍🍼	Flasche gebende Frau dunkle Hautfarbe	none
+👨🏻‍🍼	Mann, der Baby die Flasche gibt helle Hautfarbe	none
+👨🏼‍🍼	Mann, der Baby die Flasche gibt mittelhelle Hautfarbe	none
+👨🏽‍🍼	Mann, der Baby die Flasche gibt mittlere Hautfarbe	none
+👨🏾‍🍼	Mann, der Baby die Flasche gibt mitteldunkle Hautfarbe	none
+👨🏿‍🍼	Mann, der Baby die Flasche gibt dunkle Hautfarbe	none
+🧑🏻‍🍼	Person, die Baby die Flasche gibt helle Hautfarbe	none
+🧑🏼‍🍼	Person, die Baby die Flasche gibt mittelhelle Hautfarbe	none
+🧑🏽‍🍼	Person, die Baby die Flasche gibt mittlere Hautfarbe	none
+🧑🏾‍🍼	Person, die Baby die Flasche gibt mitteldunkle Hautfarbe	none
+🧑🏿‍🍼	Person, die Baby die Flasche gibt dunkle Hautfarbe	none
 👼🏻	Putte helle Hautfarbe	none
 👼🏼	Putte mittelhelle Hautfarbe	none
 👼🏽	Putte mittlere Hautfarbe	none
@@ -3180,11 +3191,11 @@ symbols:
 🧎🏽‍♀	kniende Frau mittlere Hautfarbe	none
 🧎🏾‍♀	kniende Frau mitteldunkle Hautfarbe	none
 🧎🏿‍♀	kniende Frau dunkle Hautfarbe	none
-🧑🏻‍🦯	Person mit Gehstock helle Hautfarbe	none
-🧑🏼‍🦯	Person mit Gehstock mittelhelle Hautfarbe	none
-🧑🏽‍🦯	Person mit Gehstock mittlere Hautfarbe	none
-🧑🏾‍🦯	Person mit Gehstock mitteldunkle Hautfarbe	none
-🧑🏿‍🦯	Person mit Gehstock dunkle Hautfarbe	none
+🧑🏻‍🦯	Person mit Langstock helle Hautfarbe	none
+🧑🏼‍🦯	Person mit Langstock mittelhelle Hautfarbe	none
+🧑🏽‍🦯	Person mit Langstock mittlere Hautfarbe	none
+🧑🏾‍🦯	Person mit Langstock mitteldunkle Hautfarbe	none
+🧑🏿‍🦯	Person mit Langstock dunkle Hautfarbe	none
 👨🏻‍🦯	Mann mit Langstock helle Hautfarbe	none
 👨🏼‍🦯	Mann mit Langstock mittelhelle Hautfarbe	none
 👨🏽‍🦯	Mann mit Langstock mittlere Hautfarbe	none
@@ -3195,11 +3206,11 @@ symbols:
 👩🏽‍🦯	Frau mit Langstock mittlere Hautfarbe	none
 👩🏾‍🦯	Frau mit Langstock mitteldunkle Hautfarbe	none
 👩🏿‍🦯	Frau mit Langstock dunkle Hautfarbe	none
-🧑🏻‍🦼	Person in motorisiertem Rollstuhl helle Hautfarbe	none
-🧑🏼‍🦼	Person in motorisiertem Rollstuhl mittelhelle Hautfarbe	none
-🧑🏽‍🦼	Person in motorisiertem Rollstuhl mittlere Hautfarbe	none
-🧑🏾‍🦼	Person in motorisiertem Rollstuhl mitteldunkle Hautfarbe	none
-🧑🏿‍🦼	Person in motorisiertem Rollstuhl dunkle Hautfarbe	none
+🧑🏻‍🦼	Person in elektrischem Rollstuhl helle Hautfarbe	none
+🧑🏼‍🦼	Person in elektrischem Rollstuhl mittelhelle Hautfarbe	none
+🧑🏽‍🦼	Person in elektrischem Rollstuhl mittlere Hautfarbe	none
+🧑🏾‍🦼	Person in elektrischem Rollstuhl mitteldunkle Hautfarbe	none
+🧑🏿‍🦼	Person in elektrischem Rollstuhl dunkle Hautfarbe	none
 👨🏻‍🦼	Mann in elektrischem Rollstuhl helle Hautfarbe	none
 👨🏼‍🦼	Mann in elektrischem Rollstuhl mittelhelle Hautfarbe	none
 👨🏽‍🦼	Mann in elektrischem Rollstuhl mittlere Hautfarbe	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	Flagge Wales	none
 ₡	Costa-Rica-Colón	none
 ₦	Nigerianischer Naira	none
-₧	Spanische Peseta	none
 ₪	Israelischer Neuer Schekel	none
 ₫	Vietnamesischer Dong	none
 ₭	Laotischer Kip	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	Türkische Lira	none
 ₼	Aserbaidschan-Manat	none
 ₾	Georgischer Lari	none
+₧	Spanische Peseta	none

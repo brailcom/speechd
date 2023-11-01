@@ -41,7 +41,7 @@ symbols:
 ↶	ezkerrerako goi-zirkuluerdiaren gezia	none
 ↷	eskuinerako goi-zirkuluerdiaren gezia	none
 ↸	ipar-mendebaldeko gezia barra luzearekin	none
-↹	ezkerrerako barradun gezia eskuinerako barradun geziaren gainean	none
+↹	ezkerrerako gezi barraduna eskuinerako gezi barradunaren gainean	none
 ↺	ezkerrerako zirkuluerdi irekiaren gezia	none
 ↻	eskuinerako zirkuluerdi irekiaren gezia	none
 ↼	ezkerrerako goiko arpoi-bizarra	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	arnasa botatzen ari den aurpegia	none
 🤥	aurpegi gezurtia	none
 🫨	dardarka ari den aurpegia	none
+🙂‍↔	horizontalki mugitzen ari den burua	none
+🙂‍↕	bertikalki mugitzen ari den burua	none
 😌	lasaitasun-aurpegia	none
 😔	aurpegi pentsakorra	none
 😪	logura-aurpegia	none
@@ -744,11 +746,15 @@ symbols:
 👬	bi gizon elkarri eskua ematen	none
 💏	musu	none
 💑	bihotza erdian duen bikotea	none
-👪	familia	none
 🗣	aurrera hitz egiten ari den burua	none
 👤	soinaren silueta	none
 👥	soinen siluetak	none
 🫂	elkar besarkatzen ari den jendea	none
+👪	familia	none
+🧑‍🧑‍🧒	familia nagusia, nagusia, haurra	none
+🧑‍🧑‍🧒‍🧒	familia nagusia, nagusia, haurra, haurra	none
+🧑‍🧒	familia nagusia, haurra	none
+🧑‍🧒‍🧒	familia nagusia, haurra, haurra	none
 👣	oin-aztarnak	none
 🦰	ilegorri	none
 🦱	ile kizkur	none
@@ -841,6 +847,7 @@ symbols:
 🪽	hegoa	none
 🐦‍⬛	txori beltza	none
 🪿	antzara	none
+🐦‍🔥	fenixa	none
 🐸	igel-aurpegia	none
 🐊	krokodiloa	none
 🐢	dortoka	none
@@ -881,7 +888,7 @@ symbols:
 💐	lore sorta	none
 🌸	gereziondo-lorea	none
 💮	lore zuria	none
-🪷	lotusa	none
+🪷	lotoa	none
 🏵	kondekorazioa	none
 🌹	arrosa	none
 🥀	lore zimela	none
@@ -911,6 +918,7 @@ symbols:
 🍉	sandia	none
 🍊	mandarina	none
 🍋	limoia	none
+🍋‍🟩	lima	none
 🍌	banana	none
 🍍	anana	none
 🥭	mango	none
@@ -942,6 +950,7 @@ symbols:
 🌰	gaztaina	none
 🫚	jengibrea	none
 🫛	ilar-zorroa	none
+🍄‍🟫	perretxiko marroia	none
 🍞	ogi	none
 🥐	croissanta	none
 🥖	baguettea	none
@@ -1550,6 +1559,7 @@ symbols:
 ⚖	balantzak	none
 🦯	makila	none
 🔗	kate-maila	none
+⛓‍💥	kate hautsia	none
 ⛓	kateak	none
 🪝	amu	none
 🧰	erreminta-kutxa	none
@@ -1754,8 +1764,8 @@ symbols:
 🅾	“o” botoia	none
 🆗	“ok” testua karratu batean	none
 🅿	“p” botoia	none
-🆘	“sos” hitza karratu batean	none
-🆙	“up!” botoia	none
+🆘	SOS botoia	none
+🆙	UP! botoia	none
 🆚	“vs” testua karratu batean	none
 🔴	zirkulu gorria	none
 🟠	zirkulu laranja	none
@@ -3906,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	Bandera Gales	none
 ₡	colon costarricarra	none
 ₦	naira nigeriarra	none
-₧	pezeta espainiarra	none
 ₪	shekel israeldar berria	none
 ₫	dong vietnamdarra	none
 ₭	kip laostarra	none
@@ -3918,3 +3927,4 @@ symbols:
 ₺	lira turkiarra	none
 ₼	manat azerbaijandarra	none
 ₾	lari georgiarra	none
+₧	pezeta espainiarra	none

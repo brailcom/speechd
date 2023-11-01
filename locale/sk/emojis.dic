@@ -314,6 +314,8 @@ symbols:
 😮‍💨	vydychujúca tvár	none
 🤥	tvár s dlhým nosom	none
 🫨	roztrasená tvár	none
+🙂‍↔	hlava krútiaca sa zo strany na stranu	none
+🙂‍↕	prikyvujúca hlava	none
 😌	tvár vyjadrujúca úľavu	none
 😔	zamyslená tvár	none
 😪	ospalá tvár	none
@@ -744,11 +746,15 @@ symbols:
 👬	muži držiaci sa za ruky	none
 💏	bozk	none
 💑	pár so srdcom	none
-👪	rodina	none
 🗣	hovoriaca hlava	none
 👤	silueta busty	none
 👥	silueta búst	none
 🫂	objímajúci sa ľudia	none
+👪	rodina	none
+🧑‍🧑‍🧒	rodina dospelý, dospelý, dieťa	none
+🧑‍🧑‍🧒‍🧒	rodina dospelý, dospelý, dieťa, dieťa	none
+🧑‍🧒	rodina dospelý, dieťa	none
+🧑‍🧒‍🧒	rodina dospelý, dieťa, dieťa	none
 👣	stopy	none
 🦰	ryšavé vlasy	none
 🦱	kučeravé vlasy	none
@@ -839,7 +845,9 @@ symbols:
 🦚	páv	none
 🦜	papagáj	none
 🪽	krídlo	none
+🐦‍⬛	čierny vták	none
 🪿	hus	none
+🐦‍🔥	fénix	none
 🐸	žaba	none
 🐊	krokodíl	none
 🐢	korytnačka	none
@@ -910,6 +918,7 @@ symbols:
 🍉	melón	none
 🍊	mandarínka	none
 🍋	citrón	none
+🍋‍🟩	limetka	none
 🍌	banán	none
 🍍	ananás	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	gaštan	none
 🫚	koreň ďumbiera	none
 🫛	hrachový struk	none
+🍄‍🟫	hnedý hríb	none
 🍞	chlieb	none
 🥐	croissant	none
 🥖	bageta	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	miskové váhy	none
 🦯	slepecká palica	none
 🔗	spojovací článok	none
+⛓‍💥	roztrhnutá reťaz	none
 ⛓	reťaz	none
 🪝	hák	none
 🧰	kufrík na náradie	none
@@ -1807,12 +1818,12 @@ symbols:
 ₰	nemecká penca	none
 ₱	peso	none
 ₳	austral	none
-₶	livre tournois	none
+₶	tourská libra	none
 ₷	spesmilo	none
 ₹	indická rupia	none
 ₽	rubeľ	none
 ₿	bitcoin	none
-₨	rupie	none
+₨	rupia	none
 👋🏻	mávajúca ruka svetlý tón pleti	none
 👋🏼	mávajúca ruka stredne svetlý tón pleti	none
 👋🏽	mávajúca ruka stredný tón pleti	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zástava Wales	none
 ₡	kostarický colón	none
 ₦	nigérijská naira	none
-₧	španielska peseta	none
 ₪	izraelský šekel	none
 ₫	vietnamský dong	none
 ₭	laoský kip	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	turecká líra	none
 ₼	azerbajdžanský manat	none
 ₾	gruzínske lari	none
+₧	španielska peseta	none

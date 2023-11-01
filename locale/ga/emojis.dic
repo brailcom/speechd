@@ -236,9 +236,32 @@ symbols:
 ◕	ciorcal ceathrú uachtair ar dheis toll	none
 ◖	leathchiorcal clé líonta	none
 ◗	leathchiorcal deis líonta	none
+◘	piléar inbhéartach	none
+◙	cearnóg líonta ina bhfuil ciorcal log	none
+◜	stua ciorclach ceathrú uachtarach ar chlé	none
+◝	stua ciorclach ceathrú uachtarach ar dheis	none
+◞	stua ciorclach ceathrú íochtair ar dheis	none
+◟	stua ciorclach ceathrú íochtair ar chlé	none
+◠	leathchiorcal uachtarach	none
+◡	leathchiorcal níos ísle	none
+◢	líonadh triantán íochtair ar dheis	none
+◣	líonadh triantán íochtair ar chlé	none
+◤	triantán líonta uachtair ar chlé	none
+◥	líonta triantán uachtarach ar dheis	none
 ◦	urchar toll	none
 ◯	ciorcal mór toll	none
+◳	cearnóg log ceathrú uachtarach ar dheis	none
+◷	ciorcal log le ceathrú uachtarach ar dheis	none
+◿	triantán íochtair ar dheis	none
 ♪	nóta ochtach	none
+⨧	móide síntiús a dó	none
+⨯	táirge tras veicteoir	none
+⨼	táirge inmheánach	none
+⩣	loighciúil nó bar íochtar dúbailte	none
+⩽	níos lú ná claonta comhionann	none
+⪍	níos lú ná thuas comhionann céanna	none
+⪚	líne dhúbailte comhionann níos mó ná	none
+⪺	éiríonn thuas ní beagnach comhionann	none
 ♭	nóta maol	none
 ♯	géar	none
 😀	straoiseog ghealgháireach	none
@@ -291,6 +314,8 @@ symbols:
 😮‍💨	aghaidh ag análú	none
 🤥	straoiseog ag insint bréag	none
 🫨	aghaidh croitheadh	none
+🙂‍↔	ceann ag croitheadh go cothrománach	none
+🙂‍↕	croitheadh ceann go hingearach	none
 😌	straoiseog a bhfuil faoiseamh uirthi	none
 😔	straoiseog mhachnamhach	none
 😪	straoiseog chodlatach	none
@@ -721,11 +746,15 @@ symbols:
 👬	beirt fhear le chéile	none
 💏	póg	none
 💑	lanúin le croí	none
-👪	teaghlach	none
 🗣	ceann ag caint	none
 👤	scáthchruth cinn	none
 👥	scáthchruth ceann	none
 🫂	daoine ag tabhairt barróige	none
+👪	teaghlach	none
+🧑‍🧑‍🧒	teaghlach duine fásta, duine fásta, leanbh	none
+🧑‍🧑‍🧒‍🧒	teaghlach duine fásta, duine fásta, leanbh, leanbh	none
+🧑‍🧒	teaghlach duine fásta, leanbh	none
+🧑‍🧒‍🧒	teaghlach duine fásta, leanbh, leanbh	none
 👣	loirg choise	none
 🦰	gruaig rua	none
 🦱	gruaig chatach	none
@@ -816,7 +845,9 @@ symbols:
 🦚	péacóg	none
 🦜	pearóid	none
 🪽	sciathán	none
+🐦‍⬛	lon dubh	none
 🪿	gé	none
+🐦‍🔥	feinics	none
 🐸	aghaidh froig	none
 🐊	crogall	none
 🐢	turtar	none
@@ -887,6 +918,7 @@ symbols:
 🍉	mealbhacán uisce	none
 🍊	táinséirín	none
 🍋	líomóid	none
+🍋‍🟩	líoma	none
 🍌	banana	none
 🍍	anann	none
 🥭	mangó	none
@@ -918,6 +950,7 @@ symbols:
 🌰	cnó capaill	none
 🫚	sinséar fréimhe	none
 🫛	faighneog pise	none
+🍄‍🟫	beacán donn	none
 🍞	arán	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1526,6 +1559,7 @@ symbols:
 ⚖	scála	none
 🦯	cána bán	none
 🔗	nasc	none
+⛓‍💥	slabhra briste	none
 ⛓	slabhraí	none
 🪝	crúca	none
 🧰	bosca uirlisí	none
@@ -3663,7 +3697,7 @@ symbols:
 🇨🇫	bratach Poblacht na hAfraice Láir	none
 🇨🇬	bratach Congó-Brazzaville	none
 🇨🇭	bratach an Eilvéis	none
-🇨🇮	bratach an Cósta Eabhair	none
+🇨🇮	bratach An Cósta Eabhair	none
 🇨🇰	bratach Oileáin Cook	none
 🇨🇱	bratach an tSile	none
 🇨🇲	bratach Camarún	none
@@ -3683,12 +3717,12 @@ symbols:
 🇩🇰	bratach an Danmhairg	none
 🇩🇲	bratach Doiminice	none
 🇩🇴	bratach an Phoblacht Dhoiminiceach	none
-🇩🇿	bratach an Ailgéir	none
+🇩🇿	bratach An Ailgéir	none
 🇪🇦	bratach Ceuta agus Melilla	none
 🇪🇨	bratach Eacuadór	none
 🇪🇪	bratach an Eastóin	none
-🇪🇬	bratach an Éigipt	none
-🇪🇭	bratach an Sahára Thiar	none
+🇪🇬	bratach An Éigipt	none
+🇪🇭	bratach An Sahára Thiar	none
 🇪🇷	bratach an Eiritré	none
 🇪🇸	bratach an Spáinn	none
 🇪🇹	bratach an Aetóip	none
@@ -3708,23 +3742,23 @@ symbols:
 🇬🇭	bratach Gána	none
 🇬🇮	bratach Giobráltar	none
 🇬🇱	bratach an Ghraonlainn	none
-🇬🇲	bratach an Ghaimbia	none
-🇬🇳	bratach an Ghuine	none
+🇬🇲	bratach An Ghaimbia	none
+🇬🇳	bratach An Ghuine	none
 🇬🇵	bratach Guadalúip	none
 🇬🇶	bratach an Ghuine Mheánchiorclach	none
 🇬🇷	bratach an Ghréig	none
-🇬🇸	bratach an tSeoirsia Theas agus Oileáin Sandwich Theas	none
+🇬🇸	bratach An tSeoirsia Theas agus Oileáin Sandwich Theas	none
 🇬🇹	bratach Guatamala	none
 🇬🇺	bratach Guam	none
 🇬🇼	bratach Guine Bissau	none
-🇬🇾	bratach an Ghuáin	none
+🇬🇾	bratach An Ghuáin	none
 🇭🇰	bratach Sainréigiún Riaracháin Hong Cong, Daonphoblacht na Síne	none
 🇭🇲	bratach Oileán Heard agus Oileáin McDonald	none
 🇭🇳	bratach Hondúras	none
 🇭🇷	bratach an Chróit	none
 🇭🇹	bratach Háítí	none
 🇭🇺	bratach an Ungáir	none
-🇮🇨	bratach na hOileáin Chanáracha	none
+🇮🇨	bratach Na hOileáin Chanáracha	none
 🇮🇩	bratach an Indinéis	none
 🇮🇪	bratach Éire	none
 🇮🇱	bratach Iosrael	none
@@ -3755,12 +3789,12 @@ symbols:
 🇱🇨	bratach Saint Lucia	none
 🇱🇮	bratach Lichtinstéin	none
 🇱🇰	bratach Srí Lanca	none
-🇱🇷	bratach an Libéir	none
+🇱🇷	bratach An Libéir	none
 🇱🇸	bratach Leosóta	none
 🇱🇹	bratach an Liotuáin	none
 🇱🇺	bratach Lucsamburg	none
 🇱🇻	bratach an Laitvia	none
-🇱🇾	bratach an Libia	none
+🇱🇾	bratach An Libia	none
 🇲🇦	bratach Maracó	none
 🇲🇨	bratach Monacó	none
 🇲🇩	bratach an Mholdóiv	none
@@ -3773,9 +3807,9 @@ symbols:
 🇲🇲	bratach Maenmar (Burma)	none
 🇲🇳	bratach an Mhongóil	none
 🇲🇴	bratach Sainréigiún Riaracháin Macao, Daonphoblacht na Síne	none
-🇲🇵	bratach na hOileáin Mháirianacha Thuaidh	none
+🇲🇵	bratach Na hOileáin Mháirianacha Thuaidh	none
 🇲🇶	bratach Martinique	none
-🇲🇷	bratach an Mháratáin	none
+🇲🇷	bratach An Mháratái	none
 🇲🇸	bratach Montsarat	none
 🇲🇹	bratach Málta	none
 🇲🇺	bratach Oileán Mhuirís	none
@@ -3786,9 +3820,9 @@ symbols:
 🇲🇿	bratach Mósaimbíc	none
 🇳🇦	bratach an Namaib	none
 🇳🇨	bratach an Nua-Chaladóin	none
-🇳🇪	bratach an Nígir	none
+🇳🇪	bratach An Nígir	none
 🇳🇫	bratach Oileán Norfolk	none
-🇳🇬	bratach an Nigéir	none
+🇳🇬	bratach An Nigéir	none
 🇳🇮	bratach Nicearagua	none
 🇳🇱	bratach an Ísiltír	none
 🇳🇴	bratach an Iorua	none
@@ -3801,7 +3835,7 @@ symbols:
 🇵🇪	bratach Peiriú	none
 🇵🇫	bratach Polainéis na Fraince	none
 🇵🇬	bratach Nua-Ghuine Phapua	none
-🇵🇭	bratach na hOileáin Fhilipíneacha	none
+🇵🇭	bratach Na hOileáin Fhilipíneacha	none
 🇵🇰	bratach an Phacastáin	none
 🇵🇱	bratach an Pholainn	none
 🇵🇲	bratach San Pierre agus Miquelon	none
@@ -3820,7 +3854,7 @@ symbols:
 🇸🇦	bratach an Araib Shádach	none
 🇸🇧	bratach Oileáin Sholaimh	none
 🇸🇨	bratach na Séiséil	none
-🇸🇩	bratach an tSúdáin	none
+🇸🇩	bratach An tSúdáin	none
 🇸🇪	bratach an tSualainn	none
 🇸🇬	bratach Singeapór	none
 🇸🇭	bratach San Héilin	none
@@ -3829,12 +3863,12 @@ symbols:
 🇸🇰	bratach an tSlóvaic	none
 🇸🇱	bratach Siarra Leon	none
 🇸🇲	bratach San Mairíne	none
-🇸🇳	bratach an tSeineagáil	none
+🇸🇳	bratach An tSeineagáil	none
 🇸🇴	bratach an tSomáil	none
 🇸🇷	bratach Suranam	none
 🇸🇸	bratach an tSúdáin Theas	none
 🇸🇹	bratach São Tomé agus Príncipe	none
-🇸🇻	bratach an tSalvadóir	none
+🇸🇻	bratach An tSalvadóir	none
 🇸🇽	bratach Sint Maarten	none
 🇸🇾	bratach an tSiria	none
 🇸🇿	bratach eSuaitíní	none
@@ -3848,7 +3882,7 @@ symbols:
 🇹🇰	bratach Tócalá	none
 🇹🇱	bratach Tíomór Thoir	none
 🇹🇲	bratach an Tuircméanastáin	none
-🇹🇳	bratach an Túinéis	none
+🇹🇳	bratach An Tuinéis	none
 🇹🇴	bratach Tonga	none
 🇹🇷	bratach an Tuirc	none
 🇹🇹	bratach Oileán na Tríonóide agus Tobága	none
@@ -3882,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bratach an Bhreatain Bheag	none
 ₡	Colón Chósta Ríce	none
 ₦	Naira na Nigéire	none
-₧	Peseta na Spáinne	none
 ₪	Seiceal Nua Iosrael	none
 ₫	Dong Vítneam	none
 ₭	Kip Laos	none
@@ -3894,3 +3927,4 @@ symbols:
 ₺	Lira na Tuirce	none
 ₼	Manat na hAsarbaiseáine	none
 ₾	Lari na Seoirsia	none
+₧	Peseta na Spáinne	none

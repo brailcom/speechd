@@ -101,8 +101,8 @@ symbols:
 ∉	tilhører ikke	none
 ∋	indeholder som element	none
 ∎	slut på bevis	none
-∏	produkt	none
-∑	sum	none
+∏	n-ært produkt	none
+∑	n-ær summering	none
 ≮	ikke mindre end	none
 ≠	ikke lig med	none
 ≯	ikke større end	none
@@ -114,7 +114,7 @@ symbols:
 ∘	ringoperator	none
 ∙	punktoperator	none
 √	kvadratrod	none
-∝	proportional	none
+∝	proportionalt med	none
 ∞	uendelighedstegn	none
 ∟	ret vinkel	none
 ∠	vinkel	none
@@ -186,16 +186,16 @@ symbols:
 ⋯	vandret ellipse	none
 ⋰	diagonal ellipse opad mod højre	none
 ⋱	diagonal ellipse nedad mod højre	none
-■	udfyldt firkant	none
-□	hul firkant	none
-▢	hul firkant med afrundede hjørner	none
-▣	hul firkant, der indeholder udfyldt firkant	none
-▤	firkant med vandret udfyldning	none
-▥	firkant med lodret udfyldning	none
-▦	firkant med krydsskraveret udfyldning	none
-▧	firkant med skravering øverst til venstre mod nederst til højre	none
-▨	firkant med skravering øverst til højre mod nederst til venstre	none
-▩	firkant med diagonal krydsskraveret udfyldning	none
+■	udfyldt kvadrat	none
+□	hult kvadrat	none
+▢	hult kvadrat med afrundede hjørner	none
+▣	hult kvadrat, der indeholder udfyldt kvadrat	none
+▤	kvadrat med vandret udfyldning	none
+▥	kvadrat med lodret udfyldning	none
+▦	kvadrat med krydsskraveret udfyldning	none
+▧	kvadrat med skravering øverst til venstre mod nederst til højre	none
+▨	kvadrat med skravering øverst til højre mod nederst til venstre	none
+▩	kvadrat med diagonal krydsskraveret udfyldning	none
 ▬	udfyldt rektangel	none
 ▭	hult rektangel	none
 ▮	udfyldt lodret rektangel	none
@@ -237,11 +237,11 @@ symbols:
 ◖	venstre halvdel af udfyldt cirkel	none
 ◗	højre halvdel af udfyldt cirkel	none
 ◘	omvendt punkttegn	none
-◙	udfyldt firkant, der indeholder hul cirkel	none
+◙	udfyldt kvadrat, der indeholder hul cirkel	none
 ◜	øverste venstre kvadrant af cirkelbue	none
 ◝	øverste højre kvadrant af cirkelbue	none
 ◞	nederste højre kvadrant af cirkelbue	none
-◟	nederste vendstre kvadrant af cirkelbue	none
+◟	nederste venstre kvadrant af cirkelbue	none
 ◠	øverste halvcirkel	none
 ◡	nederste halvcirkel	none
 ◢	udfyldt trekant nedad mod højre	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	udåndende ansigt	none
 🤥	løgneransigt	none
 🫨	rystende ansigt	none
+🙂‍↔	ryster på hovedet vandret	none
+🙂‍↕	ryster på hovedet lodret	none
 😌	lettet ansigt	none
 😔	eftertænksomt ansigt	none
 😪	søvnigt ansigt	none
@@ -504,7 +506,7 @@ symbols:
 👩	kvinde	none
 🧔‍♀	kvinde med skæg	none
 👱‍♀	blond kvinde	none
-🧓	gammel person	none
+🧓	ældre menneske	none
 👴	gammel mand	none
 👵	gammel kvinde	none
 🙍	Utilfreds person	none
@@ -561,17 +563,17 @@ symbols:
 🧑‍🏭	fabriksarbejder	none
 👨‍🏭	mandlig fabriksarbejder	none
 👩‍🏭	kvindelig fabriksarbejder	none
-🧑‍💼	kontormedarbejder	none
+🧑‍💼	kontoransat	none
 👨‍💼	mandlig kontoransat	none
 👩‍💼	kvindelig kontoransat	none
-🧑‍🔬	videnskabsmand	none
+🧑‍🔬	forsker	none
 👨‍🔬	mandlig forsker	none
 👩‍🔬	kvindelig forsker	none
 🧑‍💻	it-medarbejder	none
 👨‍💻	mandlig IT-medarbejder	none
 👩‍💻	kvindelig IT-medarbejder	none
-🧑‍🎤	sangsolist	none
-👨‍🎤	sanger	none
+🧑‍🎤	sanger	none
+👨‍🎤	mandlig sanger	none
 👩‍🎤	sangerinde	none
 🧑‍🎨	kunstner	none
 👨‍🎨	mandlig kunstner	none
@@ -738,17 +740,21 @@ symbols:
 🧘‍♀	kvinde i lotusstilling	none
 🛀	bad	none
 🛌	person i seng	none
-🧑‍🤝‍🧑	mennesker, der holder hånd	none
+🧑‍🤝‍🧑	personer hånd i hånd	none
 👭	to kvinder hånd i hånd	none
 👫	mand og kvinde hånd i hånd	none
 👬	to mænd hånd i hånd	none
 💏	kys	none
 💑	par med hjerte	none
-👪	familie	none
 🗣	talende hoved	none
 👤	buste i silhuet	none
 👥	buster i silhuet	none
 🫂	knus	none
+👪	familie	none
+🧑‍🧑‍🧒	familie voksen, voksen, barn	none
+🧑‍🧑‍🧒‍🧒	familie voksen, voksen, barn, barn	none
+🧑‍🧒	familie voksen, barn	none
+🧑‍🧒‍🧒	familie voksen, barn, barn	none
 👣	fodspor	none
 🦰	rødt hår	none
 🦱	krøllet hår	none
@@ -839,7 +845,9 @@ symbols:
 🦚	påfugl	none
 🦜	papegøje	none
 🪽	vinge	none
+🐦‍⬛	sort fugl	none
 🪿	gås	none
+🐦‍🔥	føniks	none
 🐸	frø	none
 🐊	krokodille	none
 🐢	skildpadde	none
@@ -910,6 +918,7 @@ symbols:
 🍉	vandmelon	none
 🍊	appelsin	none
 🍋	citron	none
+🍋‍🟩	lime	none
 🍌	banan	none
 🍍	ananas	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	kastanje	none
 🫚	ingefærrod	none
 🫛	ærtebælg	none
+🍄‍🟫	brun svamp	none
 🍞	brød	none
 🥐	croissant	none
 🥖	flute	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	vægt	none
 🦯	blindestok	none
 🔗	link	none
+⛓‍💥	brudt kæde	none
 ⛓	kæder	none
 🪝	krog	none
 🧰	værktøjskasse	none
@@ -1765,13 +1776,13 @@ symbols:
 🟤	brun cirkel	none
 ⚫	sort cirkel	none
 ⚪	hvid cirkel	none
-🟥	rød firkant	none
-🟧	orange firkant	none
-🟨	gul firkant	none
-🟩	grøn firkant	none
-🟦	blå firkant	none
-🟪	lilla firkant	none
-🟫	brun firkant	none
+🟥	rødt kvadrat	none
+🟧	orange kvadrat	none
+🟨	gult kvadrat	none
+🟩	grønt kvadrat	none
+🟦	blåt kvadrat	none
+🟪	lilla kvadrat	none
+🟫	brunt kvadrat	none
 ⬛	stort sort kvadrat	none
 ⬜	stort hvidt kvadrat	none
 ◼	mellemstort sort kvadrat	none
@@ -1799,7 +1810,7 @@ symbols:
 🏳‍⚧	transkønnet flag	none
 🏴‍☠	piratflag	none
 ₢	cruzeiro	none
-₣	franske franc	none
+₣	fransk franc	none
 ₤	lira	none
 ₥	mill	none
 ₩	won	none
@@ -2405,11 +2416,11 @@ symbols:
 👩🏽‍🦲	kvinde medium teint og skaldet	none
 👩🏾‍🦲	kvinde medium til mørk teint og skaldet	none
 👩🏿‍🦲	kvinde mørk teint og skaldet	none
-🧓🏻	gammel person lys teint	none
-🧓🏼	gammel person medium til lys teint	none
-🧓🏽	gammel person medium teint	none
-🧓🏾	gammel person medium til mørk teint	none
-🧓🏿	gammel person mørk teint	none
+🧓🏻	ældre menneske lys teint	none
+🧓🏼	ældre menneske medium til lys teint	none
+🧓🏽	ældre menneske medium teint	none
+🧓🏾	ældre menneske medium til mørk teint	none
+🧓🏿	ældre menneske mørk teint	none
 👴🏻	gammel mand lys teint	none
 👴🏼	gammel mand medium til lys teint	none
 👴🏽	gammel mand medium teint	none
@@ -2690,11 +2701,11 @@ symbols:
 👩🏽‍🏭	kvindelig fabriksarbejder medium teint	none
 👩🏾‍🏭	kvindelig fabriksarbejder medium til mørk teint	none
 👩🏿‍🏭	kvindelig fabriksarbejder mørk teint	none
-🧑🏻‍💼	kontormedarbejder lys teint	none
-🧑🏼‍💼	kontormedarbejder medium til lys teint	none
-🧑🏽‍💼	kontormedarbejder medium teint	none
-🧑🏾‍💼	kontormedarbejder medium til mørk teint	none
-🧑🏿‍💼	kontormedarbejder mørk teint	none
+🧑🏻‍💼	kontoransat lys teint	none
+🧑🏼‍💼	kontoransat medium til lys teint	none
+🧑🏽‍💼	kontoransat medium teint	none
+🧑🏾‍💼	kontoransat medium til mørk teint	none
+🧑🏿‍💼	kontoransat mørk teint	none
 👨🏻‍💼	mandlig kontoransat lys teint	none
 👨🏼‍💼	mandlig kontoransat medium til lys teint	none
 👨🏽‍💼	mandlig kontoransat medium teint	none
@@ -2705,11 +2716,11 @@ symbols:
 👩🏽‍💼	kvindelig kontoransat medium teint	none
 👩🏾‍💼	kvindelig kontoransat medium til mørk teint	none
 👩🏿‍💼	kvindelig kontoransat mørk teint	none
-🧑🏻‍🔬	videnskabsmand lys teint	none
-🧑🏼‍🔬	videnskabsmand medium til lys teint	none
-🧑🏽‍🔬	videnskabsmand medium teint	none
-🧑🏾‍🔬	videnskabsmand medium til mørk teint	none
-🧑🏿‍🔬	videnskabsmand mørk teint	none
+🧑🏻‍🔬	forsker lys teint	none
+🧑🏼‍🔬	forsker medium til lys teint	none
+🧑🏽‍🔬	forsker medium teint	none
+🧑🏾‍🔬	forsker medium til mørk teint	none
+🧑🏿‍🔬	forsker mørk teint	none
 👨🏻‍🔬	mandlig forsker lys teint	none
 👨🏼‍🔬	mandlig forsker medium til lys teint	none
 👨🏽‍🔬	mandlig forsker medium teint	none
@@ -2735,16 +2746,16 @@ symbols:
 👩🏽‍💻	kvindelig IT-medarbejder medium teint	none
 👩🏾‍💻	kvindelig IT-medarbejder medium til mørk teint	none
 👩🏿‍💻	kvindelig IT-medarbejder mørk teint	none
-🧑🏻‍🎤	sangsolist lys teint	none
-🧑🏼‍🎤	sangsolist medium til lys teint	none
-🧑🏽‍🎤	sangsolist medium teint	none
-🧑🏾‍🎤	sangsolist medium til mørk teint	none
-🧑🏿‍🎤	sangsolist mørk teint	none
-👨🏻‍🎤	sanger lys teint	none
-👨🏼‍🎤	sanger medium til lys teint	none
-👨🏽‍🎤	sanger medium teint	none
-👨🏾‍🎤	sanger medium til mørk teint	none
-👨🏿‍🎤	sanger mørk teint	none
+🧑🏻‍🎤	sanger lys teint	none
+🧑🏼‍🎤	sanger medium til lys teint	none
+🧑🏽‍🎤	sanger medium teint	none
+🧑🏾‍🎤	sanger medium til mørk teint	none
+🧑🏿‍🎤	sanger mørk teint	none
+👨🏻‍🎤	mandlig sanger lys teint	none
+👨🏼‍🎤	mandlig sanger medium til lys teint	none
+👨🏽‍🎤	mandlig sanger medium teint	none
+👨🏾‍🎤	mandlig sanger medium til mørk teint	none
+👨🏿‍🎤	mandlig sanger mørk teint	none
 👩🏻‍🎤	sangerinde lys teint	none
 👩🏼‍🎤	sangerinde medium til lys teint	none
 👩🏽‍🎤	sangerinde medium teint	none
@@ -3500,31 +3511,31 @@ symbols:
 🛌🏽	person i seng medium teint	none
 🛌🏾	person i seng medium til mørk teint	none
 🛌🏿	person i seng mørk teint	none
-🧑🏻‍🤝‍🧑🏻	mennesker, der holder hånd lys teint	none
-🧑🏻‍🤝‍🧑🏼	mennesker, der holder hånd lys teint og medium til lys teint	none
-🧑🏻‍🤝‍🧑🏽	mennesker, der holder hånd lys teint og medium teint	none
-🧑🏻‍🤝‍🧑🏾	mennesker, der holder hånd lys teint og medium til mørk teint	none
-🧑🏻‍🤝‍🧑🏿	mennesker, der holder hånd lys teint og mørk teint	none
-🧑🏼‍🤝‍🧑🏻	mennesker, der holder hånd medium til lys teint og lys teint	none
-🧑🏼‍🤝‍🧑🏼	mennesker, der holder hånd medium til lys teint	none
-🧑🏼‍🤝‍🧑🏽	mennesker, der holder hånd medium til lys teint og medium teint	none
-🧑🏼‍🤝‍🧑🏾	mennesker, der holder hånd medium til lys teint og medium til mørk teint	none
-🧑🏼‍🤝‍🧑🏿	mennesker, der holder hånd medium til lys teint og mørk teint	none
-🧑🏽‍🤝‍🧑🏻	mennesker, der holder hånd medium teint og lys teint	none
-🧑🏽‍🤝‍🧑🏼	mennesker, der holder hånd medium teint og medium til lys teint	none
-🧑🏽‍🤝‍🧑🏽	mennesker, der holder hånd medium teint	none
-🧑🏽‍🤝‍🧑🏾	mennesker, der holder hånd medium teint og medium til mørk teint	none
-🧑🏽‍🤝‍🧑🏿	mennesker, der holder hånd medium teint og mørk teint	none
-🧑🏾‍🤝‍🧑🏻	mennesker, der holder hånd medium til mørk teint og lys teint	none
-🧑🏾‍🤝‍🧑🏼	mennesker, der holder hånd medium til mørk teint og medium til lys teint	none
-🧑🏾‍🤝‍🧑🏽	mennesker, der holder hånd medium til mørk teint og medium teint	none
-🧑🏾‍🤝‍🧑🏾	mennesker, der holder hånd medium til mørk teint	none
-🧑🏾‍🤝‍🧑🏿	mennesker, der holder hånd medium til mørk teint og mørk teint	none
-🧑🏿‍🤝‍🧑🏻	mennesker, der holder hånd mørk teint og lys teint	none
-🧑🏿‍🤝‍🧑🏼	mennesker, der holder hånd mørk teint og medium til lys teint	none
-🧑🏿‍🤝‍🧑🏽	mennesker, der holder hånd mørk teint og medium teint	none
-🧑🏿‍🤝‍🧑🏾	mennesker, der holder hånd mørk teint og medium til mørk teint	none
-🧑🏿‍🤝‍🧑🏿	mennesker, der holder hånd mørk teint	none
+🧑🏻‍🤝‍🧑🏻	personer hånd i hånd lys teint	none
+🧑🏻‍🤝‍🧑🏼	personer hånd i hånd lys teint og medium til lys teint	none
+🧑🏻‍🤝‍🧑🏽	personer hånd i hånd lys teint og medium teint	none
+🧑🏻‍🤝‍🧑🏾	personer hånd i hånd lys teint og medium til mørk teint	none
+🧑🏻‍🤝‍🧑🏿	personer hånd i hånd lys teint og mørk teint	none
+🧑🏼‍🤝‍🧑🏻	personer hånd i hånd medium til lys teint og lys teint	none
+🧑🏼‍🤝‍🧑🏼	personer hånd i hånd medium til lys teint	none
+🧑🏼‍🤝‍🧑🏽	personer hånd i hånd medium til lys teint og medium teint	none
+🧑🏼‍🤝‍🧑🏾	personer hånd i hånd medium til lys teint og medium til mørk teint	none
+🧑🏼‍🤝‍🧑🏿	personer hånd i hånd medium til lys teint og mørk teint	none
+🧑🏽‍🤝‍🧑🏻	personer hånd i hånd medium teint og lys teint	none
+🧑🏽‍🤝‍🧑🏼	personer hånd i hånd medium teint og medium til lys teint	none
+🧑🏽‍🤝‍🧑🏽	personer hånd i hånd medium teint	none
+🧑🏽‍🤝‍🧑🏾	personer hånd i hånd medium teint og medium til mørk teint	none
+🧑🏽‍🤝‍🧑🏿	personer hånd i hånd medium teint og mørk teint	none
+🧑🏾‍🤝‍🧑🏻	personer hånd i hånd medium til mørk teint og lys teint	none
+🧑🏾‍🤝‍🧑🏼	personer hånd i hånd medium til mørk teint og medium til lys teint	none
+🧑🏾‍🤝‍🧑🏽	personer hånd i hånd medium til mørk teint og medium teint	none
+🧑🏾‍🤝‍🧑🏾	personer hånd i hånd medium til mørk teint	none
+🧑🏾‍🤝‍🧑🏿	personer hånd i hånd medium til mørk teint og mørk teint	none
+🧑🏿‍🤝‍🧑🏻	personer hånd i hånd mørk teint og lys teint	none
+🧑🏿‍🤝‍🧑🏼	personer hånd i hånd mørk teint og medium til lys teint	none
+🧑🏿‍🤝‍🧑🏽	personer hånd i hånd mørk teint og medium teint	none
+🧑🏿‍🤝‍🧑🏾	personer hånd i hånd mørk teint og medium til mørk teint	none
+🧑🏿‍🤝‍🧑🏿	personer hånd i hånd mørk teint	none
 👭🏻	to kvinder hånd i hånd lys teint	none
 👩🏻‍🤝‍👩🏼	to kvinder hånd i hånd lys teint og medium til lys teint	none
 👩🏻‍🤝‍👩🏽	to kvinder hånd i hånd lys teint og medium teint	none
@@ -3641,271 +3652,8 @@ symbols:
 👩‍👧	familie kvinde og pige	none
 👩‍👧‍👦	familie kvinde, pige og dreng	none
 👩‍👧‍👧	familie kvinde, pige og pige	none
-🔟	keycap 10	none
-🇦🇨	flag Ascensionøen	none
-🇦🇩	flag Andorra	none
-🇦🇪	flag De Forenede Arabiske Emirater	none
-🇦🇫	flag Afghanistan	none
-🇦🇬	flag Antigua og Barbuda	none
-🇦🇮	flag Anguilla	none
-🇦🇱	flag Albanien	none
-🇦🇲	flag Armenien	none
-🇦🇴	flag Angola	none
-🇦🇶	flag Antarktis	none
-🇦🇷	flag Argentina	none
-🇦🇸	flag Amerikansk Samoa	none
-🇦🇹	flag Østrig	none
-🇦🇺	flag Australien	none
-🇦🇼	flag Aruba	none
-🇦🇽	flag Åland	none
-🇦🇿	flag Aserbajdsjan	none
-🇧🇦	flag Bosnien-Hercegovina	none
-🇧🇧	flag Barbados	none
-🇧🇩	flag Bangladesh	none
-🇧🇪	flag Belgien	none
-🇧🇫	flag Burkina Faso	none
-🇧🇬	flag Bulgarien	none
-🇧🇭	flag Bahrain	none
-🇧🇮	flag Burundi	none
-🇧🇯	flag Benin	none
-🇧🇱	flag Saint Barthélemy	none
-🇧🇲	flag Bermuda	none
-🇧🇳	flag Brunei	none
-🇧🇴	flag Bolivia	none
-🇧🇶	flag De tidligere Nederlandske Antiller	none
-🇧🇷	flag Brasilien	none
-🇧🇸	flag Bahamas	none
-🇧🇹	flag Bhutan	none
-🇧🇻	flag Bouvetøen	none
-🇧🇼	flag Botswana	none
-🇧🇾	flag Belarus	none
-🇧🇿	flag Belize	none
-🇨🇦	flag Canada	none
-🇨🇨	flag Cocosøerne	none
-🇨🇩	flag Congo-Kinshasa	none
-🇨🇫	flag Den Centralafrikanske Republik	none
-🇨🇬	flag Congo-Brazzaville	none
-🇨🇭	flag Schweiz	none
-🇨🇮	flag Elfenbenskysten	none
-🇨🇰	flag Cookøerne	none
-🇨🇱	flag Chile	none
-🇨🇲	flag Cameroun	none
-🇨🇳	flag Kina	none
-🇨🇴	flag Colombia	none
-🇨🇵	flag Clippertonøen	none
-🇨🇷	flag Costa Rica	none
-🇨🇺	flag Cuba	none
-🇨🇻	flag Kap Verde	none
-🇨🇼	flag Curaçao	none
-🇨🇽	flag Juleøen	none
-🇨🇾	flag Cypern	none
-🇨🇿	flag Tjekkiet	none
-🇩🇪	flag Tyskland	none
-🇩🇬	flag Diego Garcia	none
-🇩🇯	flag Djibouti	none
-🇩🇰	flag Danmark	none
-🇩🇲	flag Dominica	none
-🇩🇴	flag Den Dominikanske Republik	none
-🇩🇿	flag Algeriet	none
-🇪🇦	flag Ceuta og Melilla	none
-🇪🇨	flag Ecuador	none
-🇪🇪	flag Estland	none
-🇪🇬	flag Egypten	none
-🇪🇭	flag Vestsahara	none
-🇪🇷	flag Eritrea	none
-🇪🇸	flag Spanien	none
-🇪🇹	flag Etiopien	none
-🇪🇺	flag Den Europæiske Union	none
-🇫🇮	flag Finland	none
-🇫🇯	flag Fiji	none
-🇫🇰	flag Falklandsøerne	none
-🇫🇲	flag Mikronesien	none
-🇫🇴	flag Færøerne	none
-🇫🇷	flag Frankrig	none
-🇬🇦	flag Gabon	none
-🇬🇧	flag Storbritannien	none
-🇬🇩	flag Grenada	none
-🇬🇪	flag Georgien	none
-🇬🇫	flag Fransk Guyana	none
-🇬🇬	flag Guernsey	none
-🇬🇭	flag Ghana	none
-🇬🇮	flag Gibraltar	none
-🇬🇱	flag Grønland	none
-🇬🇲	flag Gambia	none
-🇬🇳	flag Guinea	none
-🇬🇵	flag Guadeloupe	none
-🇬🇶	flag Ækvatorialguinea	none
-🇬🇷	flag Grækenland	none
-🇬🇸	flag South Georgia og De Sydlige Sandwichøer	none
-🇬🇹	flag Guatemala	none
-🇬🇺	flag Guam	none
-🇬🇼	flag Guinea-Bissau	none
-🇬🇾	flag Guyana	none
-🇭🇰	flag SAR Hongkong	none
-🇭🇲	flag Heard Island og McDonald Islands	none
-🇭🇳	flag Honduras	none
-🇭🇷	flag Kroatien	none
-🇭🇹	flag Haiti	none
-🇭🇺	flag Ungarn	none
-🇮🇨	flag Kanariske øer	none
-🇮🇩	flag Indonesien	none
-🇮🇪	flag Irland	none
-🇮🇱	flag Israel	none
-🇮🇲	flag Isle of Man	none
-🇮🇳	flag Indien	none
-🇮🇴	flag Det Britiske Territorium i Det Indiske Ocean	none
-🇮🇶	flag Irak	none
-🇮🇷	flag Iran	none
-🇮🇸	flag Island	none
-🇮🇹	flag Italien	none
-🇯🇪	flag Jersey	none
-🇯🇲	flag Jamaica	none
-🇯🇴	flag Jordan	none
-🇯🇵	flag Japan	none
-🇰🇪	flag Kenya	none
-🇰🇬	flag Kirgisistan	none
-🇰🇭	flag Cambodja	none
-🇰🇮	flag Kiribati	none
-🇰🇲	flag Comorerne	none
-🇰🇳	flag Saint Kitts og Nevis	none
-🇰🇵	flag Nordkorea	none
-🇰🇷	flag Sydkorea	none
-🇰🇼	flag Kuwait	none
-🇰🇾	flag Caymanøerne	none
-🇰🇿	flag Kasakhstan	none
-🇱🇦	flag Laos	none
-🇱🇧	flag Libanon	none
-🇱🇨	flag Saint Lucia	none
-🇱🇮	flag Liechtenstein	none
-🇱🇰	flag Sri Lanka	none
-🇱🇷	flag Liberia	none
-🇱🇸	flag Lesotho	none
-🇱🇹	flag Litauen	none
-🇱🇺	flag Luxembourg	none
-🇱🇻	flag Letland	none
-🇱🇾	flag Libyen	none
-🇲🇦	flag Marokko	none
-🇲🇨	flag Monaco	none
-🇲🇩	flag Moldova	none
-🇲🇪	flag Montenegro	none
-🇲🇫	flag Saint Martin	none
-🇲🇬	flag Madagaskar	none
-🇲🇭	flag Marshalløerne	none
-🇲🇰	flag Nordmakedonien	none
-🇲🇱	flag Mali	none
-🇲🇲	flag Myanmar (Burma)	none
-🇲🇳	flag Mongoliet	none
-🇲🇴	flag SAR Macao	none
-🇲🇵	flag Nordmarianerne	none
-🇲🇶	flag Martinique	none
-🇲🇷	flag Mauretanien	none
-🇲🇸	flag Montserrat	none
-🇲🇹	flag Malta	none
-🇲🇺	flag Mauritius	none
-🇲🇻	flag Maldiverne	none
-🇲🇼	flag Malawi	none
-🇲🇽	flag Mexico	none
-🇲🇾	flag Malaysia	none
-🇲🇿	flag Mozambique	none
-🇳🇦	flag Namibia	none
-🇳🇨	flag Ny Kaledonien	none
-🇳🇪	flag Niger	none
-🇳🇫	flag Norfolk Island	none
-🇳🇬	flag Nigeria	none
-🇳🇮	flag Nicaragua	none
-🇳🇱	flag Nederlandene	none
-🇳🇴	flag Norge	none
-🇳🇵	flag Nepal	none
-🇳🇷	flag Nauru	none
-🇳🇺	flag Niue	none
-🇳🇿	flag New Zealand	none
-🇴🇲	flag Oman	none
-🇵🇦	flag Panama	none
-🇵🇪	flag Peru	none
-🇵🇫	flag Fransk Polynesien	none
-🇵🇬	flag Papua Ny Guinea	none
-🇵🇭	flag Filippinerne	none
-🇵🇰	flag Pakistan	none
-🇵🇱	flag Polen	none
-🇵🇲	flag Saint Pierre og Miquelon	none
-🇵🇳	flag Pitcairn	none
-🇵🇷	flag Puerto Rico	none
-🇵🇸	flag De palæstinensiske områder	none
-🇵🇹	flag Portugal	none
-🇵🇼	flag Palau	none
-🇵🇾	flag Paraguay	none
-🇶🇦	flag Qatar	none
-🇷🇪	flag Réunion	none
-🇷🇴	flag Rumænien	none
-🇷🇸	flag Serbien	none
-🇷🇺	flag Rusland	none
-🇷🇼	flag Rwanda	none
-🇸🇦	flag Saudi-Arabien	none
-🇸🇧	flag Salomonøerne	none
-🇸🇨	flag Seychellerne	none
-🇸🇩	flag Sudan	none
-🇸🇪	flag Sverige	none
-🇸🇬	flag Singapore	none
-🇸🇭	flag St. Helena	none
-🇸🇮	flag Slovenien	none
-🇸🇯	flag Svalbard og Jan Mayen	none
-🇸🇰	flag Slovakiet	none
-🇸🇱	flag Sierra Leone	none
-🇸🇲	flag San Marino	none
-🇸🇳	flag Senegal	none
-🇸🇴	flag Somalia	none
-🇸🇷	flag Surinam	none
-🇸🇸	flag Sydsudan	none
-🇸🇹	flag São Tomé og Príncipe	none
-🇸🇻	flag El Salvador	none
-🇸🇽	flag Sint Maarten	none
-🇸🇾	flag Syrien	none
-🇸🇿	flag Eswatini	none
-🇹🇦	flag Tristan da Cunha	none
-🇹🇨	flag Turks- og Caicosøerne	none
-🇹🇩	flag Tchad	none
-🇹🇫	flag De Franske Besiddelser i Det Sydlige Indiske Ocean og Antarktis	none
-🇹🇬	flag Togo	none
-🇹🇭	flag Thailand	none
-🇹🇯	flag Tadsjikistan	none
-🇹🇰	flag Tokelau	none
-🇹🇱	flag Timor-Leste	none
-🇹🇲	flag Turkmenistan	none
-🇹🇳	flag Tunesien	none
-🇹🇴	flag Tonga	none
-🇹🇷	flag Tyrkiet	none
-🇹🇹	flag Trinidad og Tobago	none
-🇹🇻	flag Tuvalu	none
-🇹🇼	flag Taiwan	none
-🇹🇿	flag Tanzania	none
-🇺🇦	flag Ukraine	none
-🇺🇬	flag Uganda	none
-🇺🇲	flag Amerikanske oversøiske øer	none
-🇺🇳	flag De Forenede Nationer	none
-🇺🇸	flag USA	none
-🇺🇾	flag Uruguay	none
-🇺🇿	flag Usbekistan	none
-🇻🇦	flag Vatikanstaten	none
-🇻🇨	flag Saint Vincent og Grenadinerne	none
-🇻🇪	flag Venezuela	none
-🇻🇬	flag De Britiske Jomfruøer	none
-🇻🇮	flag De Amerikanske Jomfruøer	none
-🇻🇳	flag Vietnam	none
-🇻🇺	flag Vanuatu	none
-🇼🇫	flag Wallis og Futuna	none
-🇼🇸	flag Samoa	none
-🇽🇰	flag Kosovo	none
-🇾🇪	flag Yemen	none
-🇾🇹	flag Mayotte	none
-🇿🇦	flag Sydafrika	none
-🇿🇲	flag Zambia	none
-🇿🇼	flag Zimbabwe	none
-🏴󠁧󠁢󠁥󠁮󠁧󠁿	flag England	none
-🏴󠁧󠁢󠁳󠁣󠁴󠁿	flag Skotland	none
-🏴󠁧󠁢󠁷󠁬󠁳󠁿	flag Wales	none
 ₡	costaricansk colón	none
 ₦	nigeriansk naira	none
-₧	Spansk peseta	none
 ₪	ny israelsk shekel	none
 ₫	vietnamesisk dong	none
 ₭	laotisk kip	none
@@ -3917,3 +3665,4 @@ symbols:
 ₺	tyrkisk lira	none
 ₼	aserbajdsjansk manat	none
 ₾	georgisk lari	none
+₧	Spansk peseta	none

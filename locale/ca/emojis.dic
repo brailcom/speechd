@@ -36,8 +36,8 @@ symbols:
 ↱	fletxa cap amunt amb punta cap a la dreta	none
 ↲	fletxa cap avall amb punta cap a l’esquerra	none
 ↳	fletxa cap avall amb punta cap a la dreta	none
-↴	fletxa curta a la dreta amb punta cap avall	none
-↵	fletxa curta avall amb punta a l’esquerra	none
+↴	fletxa curta cap a la dreta amb punta cap avall	none
+↵	fletxa curta cap avall amb punta cap a l’esquerra	none
 ↶	fletxa semicircular superior antihorària	none
 ↷	fletxa semicircular superior en sentit horari	none
 ↸	fletxa cap al nord-oest amb barra llarga	none
@@ -233,15 +233,15 @@ symbols:
 ◒	cercle amb la meitat inferior plena	none
 ◓	cercle amb la meitat superior plena	none
 ◔	cercle amb el quadrant superior dret ple	none
-◕	cercle amb quadrat superior esquerre buit	none
+◕	cercle amb el quadrant superior esquerre buit	none
 ◖	semicercle esquerre ple	none
 ◗	semicercle dret ple	none
 ◘	vinyeta invertida	none
 ◙	quadrat ple amb un cercle buit a l’interior	none
-◜	arc circular en quadrant superior esquerre	none
-◝	arc circular en el quadrant superior dret	none
-◞	arc circular en el quadrant inferior dret	none
-◟	arc circular en el quadrant inferior esquerre	none
+◜	arc circular al quadrant superior esquerre	none
+◝	arc circular al quadrant superior dret	none
+◞	arc circular al quadrant inferior dret	none
+◟	arc circular al quadrant inferior esquerre	none
 ◠	semicercle superior	none
 ◡	semicercle inferior	none
 ◢	triangle inferior dret ple	none
@@ -314,6 +314,8 @@ symbols:
 😮‍💨	cara que exhala	none
 🤥	cara de mentider	none
 🫨	cara que tremola	none
+🙂‍↔	cap que tremola horitzontalment	none
+🙂‍↕	cap que tremola verticalment	none
 😌	cara d’alleujament	none
 😔	cara desanimada	none
 😪	cara de son	none
@@ -744,11 +746,15 @@ symbols:
 👬	homes que s’agafen de la mà	none
 💏	petó	none
 💑	parella amb un cor	none
-👪	família	none
 🗣	persona que parla	none
 👤	silueta d’un bust	none
 👥	silueta de bustos	none
 🫂	persones que s’abracen	none
+👪	família	none
+🧑‍🧑‍🧒	família adult, adult, infant	none
+🧑‍🧑‍🧒‍🧒	família adult, adult, infant, infant	none
+🧑‍🧒	família adult, infant	none
+🧑‍🧒‍🧒	família adult, infant, infant	none
 👣	petjades	none
 🦰	cabells vermells	none
 🦱	cabells arrissats	none
@@ -839,7 +845,9 @@ symbols:
 🦚	paó	none
 🦜	lloro	none
 🪽	ala	none
+🐦‍⬛	ocell negre	none
 🪿	oca	none
+🐦‍🔥	fènix	none
 🐸	granota	none
 🐊	cocodril	none
 🐢	tortuga	none
@@ -910,6 +918,7 @@ symbols:
 🍉	síndria	none
 🍊	mandarina	none
 🍋	llimona	none
+🍋‍🟩	llima	none
 🍌	plàtan	none
 🍍	pinya	none
 🥭	mango	none
@@ -941,6 +950,7 @@ symbols:
 🌰	castanya	none
 🫚	arrel de gingebre	none
 🫛	beina de pèsol	none
+🍄‍🟫	bolet marró	none
 🍞	pa	none
 🥐	croissant	none
 🥖	baguet	none
@@ -1549,6 +1559,7 @@ symbols:
 ⚖	balança (aparell)	none
 🦯	bastó per a invidents	none
 🔗	enllaç	none
+⛓‍💥	cadena trencada	none
 ⛓	cadenes	none
 🪝	ham	none
 🧰	caixa d’eines	none
@@ -3653,7 +3664,7 @@ symbols:
 🇦🇴	bandera Angola	none
 🇦🇶	bandera Antàrtida	none
 🇦🇷	bandera Argentina	none
-🇦🇸	bandera Samoa Nord-americana	none
+🇦🇸	bandera Samoa Americana	none
 🇦🇹	bandera Àustria	none
 🇦🇺	bandera Austràlia	none
 🇦🇼	bandera Aruba	none
@@ -3676,12 +3687,12 @@ symbols:
 🇧🇷	bandera Brasil	none
 🇧🇸	bandera Bahames	none
 🇧🇹	bandera Bhutan	none
-🇧🇻	bandera Bouvet	none
+🇧🇻	bandera Illa Bouvet	none
 🇧🇼	bandera Botswana	none
 🇧🇾	bandera Belarús	none
 🇧🇿	bandera Belize	none
 🇨🇦	bandera Canadà	none
-🇨🇨	bandera Illes Cocos	none
+🇨🇨	bandera Illes Cocos (Keeling)	none
 🇨🇩	bandera Congo - Kinshasa	none
 🇨🇫	bandera República Centreafricana	none
 🇨🇬	bandera Congo - Brazzaville	none
@@ -3742,7 +3753,7 @@ symbols:
 🇬🇼	bandera Guinea Bissau	none
 🇬🇾	bandera Guyana	none
 🇭🇰	bandera Hong Kong (RAE Xina)	none
-🇭🇲	bandera Illa Heard i Illes McDonald	none
+🇭🇲	bandera Illes Heard i McDonald	none
 🇭🇳	bandera Hondures	none
 🇭🇷	bandera Croàcia	none
 🇭🇹	bandera Haití	none
@@ -3796,7 +3807,7 @@ symbols:
 🇲🇲	bandera Myanmar (Birmània)	none
 🇲🇳	bandera Mongòlia	none
 🇲🇴	bandera Macau (RAE Xina)	none
-🇲🇵	bandera Illes Mariannes Septentrionals	none
+🇲🇵	bandera Illes Marianes del Nord	none
 🇲🇶	bandera Martinica	none
 🇲🇷	bandera Mauritània	none
 🇲🇸	bandera Montserrat	none
@@ -3840,7 +3851,7 @@ symbols:
 🇷🇸	bandera Sèrbia	none
 🇷🇺	bandera Rússia	none
 🇷🇼	bandera Ruanda	none
-🇸🇦	bandera Aràbia Saudita	none
+🇸🇦	bandera Aràbia Saudí	none
 🇸🇧	bandera Illes Salomó	none
 🇸🇨	bandera Seychelles	none
 🇸🇩	bandera Sudan	none
@@ -3905,7 +3916,6 @@ symbols:
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	bandera Gal·les	none
 ₡	colon costa-riqueny	none
 ₦	naira nigerià	none
-₧	pesseta espanyola	none
 ₪	nou xéquel israelià	none
 ₫	dong vietnamita	none
 ₭	kip laosià	none
@@ -3917,3 +3927,4 @@ symbols:
 ₺	lira turca	none
 ₼	manat azerbaidjanès	none
 ₾	lari	none
+₧	pesseta espanyola	none
