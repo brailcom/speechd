@@ -24,6 +24,7 @@ Please describe the result that you expected instead.
 Please follow the next step, to provide us with precious information about how things went wrong on your machine:
 
 * Set `LogLevel` to 5 in your `/etc/speech-dispatcher/speechd.conf`
+* Set `Debug` to 1 in your `/etc/speech-dispatcher/yourspeechmodule.conf` (e.g. `espeak-ng.conf`)
 * Restart your computer to make sure it gets taken into account
 * Reproduce the issue
 * Make a copy of the `speech-dispatcher.log` file, it is usually found in `/run/user/1000/speech-dispatcher/log`. Also make a copy of `yourspeechmodule.log` (e.g. `espeak-ng.log`).
