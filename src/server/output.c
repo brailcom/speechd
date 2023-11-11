@@ -698,9 +698,11 @@ int output_send_audio_settings(OutputModule * output)
 	int err;
 
 	/* First try to get output through server */
+	MSG(4, "Trying to make output module use audio output through server.");
 	if (output_server_audio(output) == 0)
 		/* Went fine, good! */
 		return 0;
+	MSG(4, "Output module does not support audio output through server, making it open audio by itself.");
 
 	output->audio = NULL;
 	MSG(4, "Module set parameters.");
