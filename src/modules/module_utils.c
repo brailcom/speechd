@@ -680,6 +680,13 @@ int module_audio_init(char **status_info)
 
 	outputs = g_strsplit(module_audio_pars[0], ",", 0);
 	while (NULL != outputs[i]) {
+		if (!strcmp(outputs[i], "server")) {
+			if (!first_error)
+				first_error = g_strdup("server audio is not supported");
+			i++;
+			continue;
+		}
+
 		module_audio_id =
 		    spd_audio_open(outputs[i], (void **)&module_audio_pars[1],
 				   &error);
