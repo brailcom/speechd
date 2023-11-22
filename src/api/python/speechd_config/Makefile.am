@@ -59,12 +59,14 @@ CLEANFILES += buildconfig.py speechd.desktop
 
 EXTRA_DIST = buildconfig.py.in speechd.desktop.in
 
+if HAVE_PYTHON
 if HAVE_HELP2MAN
 spd-conf.1: buildconfig.py $(abs_builddir)/__init__.py $(abs_builddir)/config.py
 	LC_ALL=C PYTHONPATH=$(builddir)/.. PYTHONDONTWRITEBYTECODE=1 help2man -N -n "configure Speech Dispatcher and diagnose problems" --output=$@ $(srcdir)/spd-conf
 
 dist_man1_MANS = \
 	spd-conf.1
+endif
 endif
 
 CLEANFILES += $(dist_man1_MANS)
