@@ -1,7 +1,7 @@
 /*
  * open_jtalk.c - Speech Dispatcher backend for Open JTalk
  *
- * Copyright (C) 2020-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2020-2021, 2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * Copyright (C) 2023 Chinamu Kawano <tinaxd@protonmail.com>
  * All rights reserved.
  *
@@ -34,7 +34,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <assert.h>
-#include <linux/limits.h>
+#include <limits.h>
 #include <sys/stat.h>
 
 #include "module_main.h"
