@@ -608,6 +608,11 @@ out:
 	return connection;
 }
 
+int spd_fd(SPDConnection * connection)
+{
+	return connection->socket;
+}
+
 #define RET(r) \
 	{ \
 		pthread_mutex_unlock(&connection->ssip_mutex); \

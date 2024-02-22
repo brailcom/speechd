@@ -111,6 +111,8 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 			 const SPDConnectionAddress * address, int autospawn,
 			 char **error_result);
 
+int spd_fd(SPDConnection * connection);
+
 int spd_get_client_id(SPDConnection * connection);
 
 void spd_close(SPDConnection * connection);
