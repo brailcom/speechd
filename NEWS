@@ -1,10 +1,12 @@
-Version 0.12.1
-* Add openjtalk module.
-
 Version 0.12
-* Add socket activation
-* libspeechd: Simplify buffer management.
+* Add openjtalk module.
+* Add socket activation.
 * Add language and variant parameters to "list voice" command.
+* libspeechd: Simplify buffer management.
+* Fix use of semaphores on MacOS.
+* Fix splitting long UTF-8 sequences.
+* Update CLDR to version 44 and symbols from NVDA.
+* Add spd_fd function to C api.
 
 Version 0.11.5
 * Update CLDR to version 43 and symbols from NVDA.
@@ -433,7 +435,7 @@ Version 0.0.1
 
 Copyright (C) 2002-2012 Brailcom, o.p.s
 Copyright (C) 2002-2012 Brailcom, o.p.s
-Copyright (C) 2018-2023 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Florian Steinhardt <no.known.email@example.com>
 
 This program is free software; you can redistribute it and/or modify it under
