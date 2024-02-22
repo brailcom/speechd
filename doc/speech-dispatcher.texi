@@ -1521,6 +1521,24 @@ with @code{free}.
 
 @end deffn
 
+@deffn {C API function}  int spd_fd(SPDConnection *connection)
+@findex spd_fd()
+
+This returns the OS-level file descriptor used for this connection. This returns
+@code{-1} in case an error was detected and thus libspeechd closed the connection.
+
+@code{connection} is the SPDConnection connection obtained by spd_open().
+
+It must be noted that in @code{SPD_MODE_THREADED} mode, the value returned by
+@code{spd_fd()} can change to @code{-1} unexpectedly, since the even handler
+runs concurrently in its own thread and will catch errors. The value should thus
+be taken with care, as it may not actually be a valid file descriptor, or it
+could even have been re-used in between. The only thing that is really sure is
+that when it returns @code{-1}, the socket was closed because of an error. In
+@code{SPD_MODE_SINGLE} mode, the value only changes during @code{spd_*} function
+calls.
+@end deffn
+
 @deffn {C API function}  int spd_get_client_id(SPDConnection *connection)
 @findex spd_get_client_id()
 
