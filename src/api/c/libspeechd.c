@@ -498,6 +498,9 @@ SPDConnection *spd_open2(const char *client_name, const char *connection_name,
 		connection = NULL;
 		goto out;
 	}
+
+	connection->stream = (void*) 1;
+
 	ret = connect(connection->socket, sock_address, sock_address_len);
 	if (ret == -1) {
 		/* Suppose server might not be running, try to autospawn (autostart) it */
@@ -644,6 +647,7 @@ void spd_close(SPDConnection * connection)
 	if (connection->socket >= 0) {
 		close(connection->socket);
 		connection->socket = -1;
+		connection->stream = NULL;
 	}
 	free(connection->buf);
 
@@ -1849,6 +1853,7 @@ static char *get_reply(SPDConnection * connection)
 			if (connection->socket >= 0) {
 				close(connection->socket);
 				connection->socket = -1;
+				connection->stream = NULL;
 			}
 			errors = TRUE;
 		} else {
@@ -1984,6 +1989,7 @@ static void *spd_events_handler(void *conn)
 		if (connection->socket >= 0) {
 			close(connection->socket);
 			connection->socket = -1;
+			connection->stream = NULL;
 		}
 		pthread_cond_signal(&connection->td->cond_reply_ready);
 		pthread_exit(0);
