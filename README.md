@@ -62,6 +62,16 @@ repository from:
 
     https://github.com/brailcom/speechd.git
 
+
+Modules for different speech synthesis backends can easily be developped in
+different ways. This allows to integrate all kinds of speech syntheses, be
+they C libraries, external commands, or even http services, and whatever their
+licences since the interface between the speechd server and the syntheses is a
+mere pipe between processes with a very simple protocol. More details are
+available in the
+[Output Modules documentation](https://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/speech-dispatcher.html#Output-Modules)
+
+
 Rust bindings are currently developed separately. You can use the [GitLab web
 interface](https://gitlab.com/ndarilek/speech-dispatcher-rs) or clone the
 repository from:
@@ -109,7 +119,7 @@ License
 -------
 
 Copyright (C) 2001-2009 Brailcom, o.p.s
-Copyright (C) 2018-2020, 2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2020, 2022, 2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Didier Spaier <didier@slint.fr>
 
 This program is free software; you can redistribute it and/or modify it under
