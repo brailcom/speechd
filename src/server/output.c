@@ -256,7 +256,7 @@ GString *output_read_message(OutputModule * output)
 	do {
 		bytes = getline(&line, &N, output->stream_out);
 		if (bytes == -1) {
-			MSG(2, "Error: Broken pipe to module.");
+			MSG(2, "Error: Broken pipe to module while reading message.");
 			output->working = 0;
 			output_check_module(output);
 			errors = TRUE;	/* Broken pipe */
@@ -267,6 +267,7 @@ GString *output_read_message(OutputModule * output)
 		}
 		/* terminate if we reached the last line (without '-' after numcode) */
 	} while (!errors && !((strlen(line) < 4) || (line[3] == ' ')));
+	MSG(5, "Finished reading message, with errors %d", errors);
 
 	if (line != NULL)
 		free(line);
@@ -290,6 +291,7 @@ static pthread_cond_t output_event_cond = PTHREAD_COND_INITIALIZER;
 static GString *output_reply;
 static GString *output_event;
 static int output_reading_message;
+static int output_waiting_for_reply;
 
 GString *output_read_reply(OutputModule * output)
 {
@@ -354,6 +356,13 @@ GString *output_read_event(OutputModule * output)
 				/* Module broke */
 				break;
 			if (message->str[0] != '7') {
+				if (!output_waiting_for_reply) {
+					MSG(2, "unexpected reply |%s|", message->str);
+					g_string_free(message, TRUE);
+					/* Module broke */
+					message = NULL;
+					break;
+				}
 				/* A reply, leave it up to the reply thread */
 				output_reply = message;
 				message = NULL;
@@ -377,12 +386,23 @@ int output_send_data(const char *cmd, OutputModule * output, int wfr)
 	if (cmd == NULL)
 		return -1;
 
+	if (wfr) {
+		pthread_mutex_lock(&output_read_mutex);
+		output_waiting_for_reply = 1;
+		pthread_mutex_unlock(&output_read_mutex);
+	}
+
 	ret = safe_write(output->pipe_in[1], cmd, strlen(cmd));
 	fflush(NULL);
 	if (ret == -1) {
-		MSG(2, "Error: Broken pipe to module.");
+		MSG(2, "Error: Broken pipe to module while sending data.");
+		if (wfr) {
+			pthread_mutex_lock(&output_read_mutex);
+			output_waiting_for_reply = 0;
+			pthread_mutex_unlock(&output_read_mutex);
+		}
+
 		output->working = 0;
-		speaking_module = NULL;
 		output_check_module(output);
 		return -1;	/* Broken pipe */
 	}
@@ -392,6 +412,9 @@ int output_send_data(const char *cmd, OutputModule * output, int wfr)
 	if (wfr) {		/* wait for reply? */
 		int ret = 0;
 		response = output_read_reply(output);
+		pthread_mutex_lock(&output_read_mutex);
+		output_waiting_for_reply = 0;
+		pthread_mutex_unlock(&output_read_mutex);
 		if (response == NULL)
 			return -1;
 
@@ -471,14 +494,24 @@ SPDVoice **output_get_voices(OutputModule * module, const char *language, const 
 				  language && variant ? " " : "",
 				  variant ? variant : "");
 retry:
+	pthread_mutex_lock(&output_read_mutex);
+	output_waiting_for_reply = 1;
+	pthread_mutex_unlock(&output_read_mutex);
+
 	err = output_send_data(command, module, 0);
 	if (command != all_command)
 		free(command);
 	if (err < 0) {
+		pthread_mutex_lock(&output_read_mutex);
+		output_waiting_for_reply = 0;
+		pthread_mutex_unlock(&output_read_mutex);
 		output_unlock();
 		return NULL;
 	}
 	reply = output_read_reply(module);
+	pthread_mutex_lock(&output_read_mutex);
+	output_waiting_for_reply = 0;
+	pthread_mutex_unlock(&output_read_mutex);
 
 	if (reply == NULL) {
 		output_unlock();
