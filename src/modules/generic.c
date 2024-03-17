@@ -598,14 +598,9 @@ void _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
 
 		DBG("child: escaped text is |%s|", message->str);
 
-		command =
-		    g_malloc((strlen(message->str) +
-			      strlen(execute_synth_str1) +
-			      strlen(execute_synth_str2) + 8) * sizeof(char));
-
 		if (strlen(message->str) != 0) {
-			sprintf(command, "%s%s%s", execute_synth_str1,
-				message->str, execute_synth_str2);
+			command = g_strdup_printf("%s%s%s",
+				execute_synth_str1, message->str, execute_synth_str2);
 
 			DBG("child: synth command = |%s|", command);
 
@@ -616,10 +611,11 @@ void _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
 				DBG("Executed shell command returned with %d",
 				    ret);
 			}
+
+			g_free(command);
 		}
 		module_sigunblockusr(&some_signals);
 
-		g_free(command);
 		g_free(text);
 		g_string_free(message, 1);
 
