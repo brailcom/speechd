@@ -518,7 +518,7 @@ void *_generic_speak(void *nothing)
 
 				g_free(e_string);
 
-				/* execute_synth_str1 se sem musi nejak dostat */
+				/* execute_synth_str1 has to get here somehow */
 				DBG("Starting child...\n");
 				_generic_child(module_pipe,
 					       GenericMaxChunkLength);
@@ -536,17 +536,26 @@ void *_generic_speak(void *nothing)
 						&generic_pause_requested);
 
 			DBG("Waiting for child...");
-			waitpid(generic_pid, &status, 0);
+			ret = waitpid(generic_pid, &status, 0);
+			if (ret < 0) {
+				// Not supposed to happen
+				DBG("waitpid failed (ret=%d error=%d) %s", ret, errno, strerror(errno));
+				exit(EXIT_FAILURE);
+			}
 			generic_speaking = 0;
 
-			// Report CANCEL if the process was signal-terminated
-			// and END if it terminated normally
-			if (WIFSIGNALED(status))
-				module_report_event_stop();
-			else
-				module_report_event_end();
+			DBG("child terminated -: exit?:%d status:%d signal?:%d signal number:%d.\n", WIFEXITED(status), WEXITSTATUS(status), WIFSIGNALED(status), WTERMSIG(status));
 
-			DBG("child terminated -: status:%d signal?:%d signal number:%d.\n", WIFEXITED(status), WIFSIGNALED(status), WTERMSIG(status));
+			if (WIFSIGNALED(status) && WTERMSIG(status) == SIGKILL)
+				// That's a stop from us, report that we stopped
+				module_report_event_stop();
+			else if (!WIFEXITED(status) || WEXITSTATUS(status)) {
+				// That's not from us
+				DBG("We failed to speak, kill ourself to avoid no speech");
+				exit(EXIT_FAILURE);
+			} else
+				// terminated normally
+				module_report_event_end();
 		}
 	}
 
@@ -599,7 +608,8 @@ void _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
 		DBG("child: escaped text is |%s|", message->str);
 
 		if (strlen(message->str) != 0) {
-			command = g_strdup_printf("%s%s%s",
+			// We want to catch failure of any part of the pipeline
+			command = g_strdup_printf("set -o pipefail ; %s%s%s",
 				execute_synth_str1, message->str, execute_synth_str2);
 
 			DBG("child: synth command = |%s|", command);
@@ -607,9 +617,32 @@ void _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
 			DBG("Speaking in child...");
 			module_sigblockusr(&some_signals);
 			{
-				ret = system(command);
-				DBG("Executed shell command returned with %d",
-				    ret);
+				pid_t pid = fork();
+				if (pid == -1) {
+					DBG("Could not fork\n");
+					exit(EXIT_FAILURE);
+				} else if (pid == 0) {
+					// child, execute command
+					ret = execl("/bin/bash", "bash", "-c", command, (char *) NULL);
+					// catch missing bash
+					DBG("Missing /bin/bash? (ret=%d error=%d) %s", ret, errno, strerror(errno));
+					exit(EXIT_FAILURE);
+				} else {
+					int status;
+					// parent, wait for child
+					ret = waitpid(pid, &status, 0);
+					if (ret < 0) {
+						// Not supposed to happen
+						DBG("waitpid failed (ret=%d error=%d) %s", ret, errno, strerror(errno));
+						exit(EXIT_FAILURE);
+					}
+					DBG("subchild terminated -: exit?:%d status:%d signal?:%d signal number:%d.\n", WIFEXITED(status), WEXITSTATUS(status), WIFSIGNALED(status), WTERMSIG(status));
+					if (!WIFEXITED(status) || WEXITSTATUS(status))
+					{
+						DBG("We failed to speak, kill ourself to avoid no speech");
+						exit(EXIT_FAILURE);
+					}
+				}
 			}
 
 			g_free(command);
