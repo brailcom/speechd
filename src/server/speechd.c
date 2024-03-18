@@ -816,29 +816,29 @@ static gboolean speechd_load_configuration(gpointer user_data)
 				    g_list_delete_link(detected_modules,
 						       detected_modules);
 			}
-		} else {
-			/* Try to make sure we have something that can speak (with no user parameter) */
-			module_add_load_request(
-					g_strdup("espeak-ng-fallback"),
-					g_strdup("sd_espeak-ng"),
-					NULL,
-					g_strdup_printf("%s/%s.log",
-							SpeechdOptions.log_dir,
-							"espeak-ng"),
-					NULL,
-					NULL);
-
-			/* At worse, tell what is happening */
-			module_add_load_request(
-					g_strdup("dummy"),
-					g_strdup("sd_dummy"),
-					NULL,
-					g_strdup_printf("%s/%s.log",
-							SpeechdOptions.log_dir,
-							"dummy"),
-					NULL,
-					NULL);
 		}
+
+		/* Try to make sure we have something that can speak (with no user parameter) */
+		module_add_load_request(
+				g_strdup("espeak-ng-fallback"),
+				g_strdup("sd_espeak-ng"),
+				g_strdup(""),
+				g_strdup_printf("%s/%s.log",
+						SpeechdOptions.log_dir,
+						"espeak-ng-fallback"),
+				NULL,
+				NULL);
+
+		/* At worse, tell what is happening */
+		module_add_load_request(
+				g_strdup("dummy"),
+				g_strdup("sd_dummy"),
+				g_strdup(""),
+				g_strdup_printf("%s/%s.log",
+						SpeechdOptions.log_dir,
+						"dummy"),
+				NULL,
+				NULL);
 
 		module_load_requested_modules();
 	} else {
