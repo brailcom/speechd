@@ -935,6 +935,7 @@ char *parse_list(const char *buf, const int bytes, const int fd,
 		for (i = 0; i < len; i++) {
 			mod = g_list_nth_data(output_modules, i);
 			if (strcmp(mod->name, "dummy") &&
+			    strcmp(mod->name, "espeak-ng-fallback") &&
 			    strcmp(mod->name, "generic"))
 				g_string_append_printf(result, C_OK_MODULES
 						       "-%s" NEWLINE,
