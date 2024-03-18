@@ -162,6 +162,8 @@ int main(int argc, char **argv)
 		} else {
 			printf("Output modules not found.\n");
 		}
+
+		free_spd_modules(list);
 	}
 
 	if (voice_type != NULL) {
