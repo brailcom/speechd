@@ -7,6 +7,7 @@ Version 0.12 (unreleased)
 * Fix splitting long UTF-8 sequences.
 * Update CLDR to version 44 and symbols from NVDA.
 * Add spd_fd function to C api.
+* Detect module failures from generic module.
 
 Version 0.11.5
 * Update CLDR to version 43 and symbols from NVDA.
