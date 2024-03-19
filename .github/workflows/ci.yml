@@ -93,7 +93,7 @@ jobs:
     - name: make check
       run: ${{ matrix.check_env }} make check
     - name: make install
-      run: ${{ matrix.build_env }} make install -k || true
+      run: ${{ matrix.build_env }} sudo make install
     - name: make testsuite
       run: ${{ matrix.build_env }} make -C src/tests testsuite
     - name: run testsuite
