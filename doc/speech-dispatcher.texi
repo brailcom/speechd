@@ -826,7 +826,7 @@ in such a case. If not specified, the @code{no_voice} string is passed instead.
 
 @var{name} is a name specific for the given output module.
 
-@item ModuleDelimiters "@var{delimiters}", ModuleMaxChunkLength @var{length}
+@item GenericDelimiters "@var{delimiters}", GenericMaxChunkLength @var{length}
 
 Normally, the output module doesn't try to synthesize all
 incoming text at once, but instead it cuts it into smaller
@@ -834,9 +834,6 @@ chunks (sentences, parts of sentences) and then synthesizes
 them one by one. This second approach, used by some output
 modules, is much faster, however it limits the ability of
 the output module to provide good intonation.
-
-NOTE: The Festival module does not use ModuleDelimiters and
-ModuleMaxChunkLength.
 
 For this reason, you can configure at which characters
 (@var{delimiters}) the text should be cut into smaller blocks

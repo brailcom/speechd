@@ -1058,7 +1058,7 @@ in such a case. If not specified, the <code class="code">no_voice</code> string 
 </p>
 <p><var class="var">name</var> is a name specific for the given output module.
 </p>
-</li><li>ModuleDelimiters &quot;<var class="var">delimiters</var>&quot;, ModuleMaxChunkLength <var class="var">length</var>
+</li><li>GenericDelimiters &quot;<var class="var">delimiters</var>&quot;, GenericMaxChunkLength <var class="var">length</var>
 
 <p>Normally, the output module doesn&rsquo;t try to synthesize all
 incoming text at once, but instead it cuts it into smaller
@@ -1066,9 +1066,6 @@ chunks (sentences, parts of sentences) and then synthesizes
 them one by one. This second approach, used by some output
 modules, is much faster, however it limits the ability of
 the output module to provide good intonation.
-</p>
-<p>NOTE: The Festival module does not use ModuleDelimiters and
-ModuleMaxChunkLength.
 </p>
 <p>For this reason, you can configure at which characters
 (<var class="var">delimiters</var>) the text should be cut into smaller blocks
