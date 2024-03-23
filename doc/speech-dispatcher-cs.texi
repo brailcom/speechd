@@ -666,7 +666,7 @@ takto:
         AddVoice        "sk"  "male1"   "bob"
 @end example
 
-@item ModuleDelimiters "@var{delimiters}", ModuleMaxChunkLength @var{length}
+@item GenericDelimiters "@var{delimiters}", GenericMaxChunkLength @var{length}
 
 �asto se v�stupn� modul nesna�� vysyntetizovat cel� p��choz� text najednou, ale
 m�sto toho jej nejprve roz�e�e na men�� kousky (v�ty, ��sti v�t) a ty potom
