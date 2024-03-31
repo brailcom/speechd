@@ -2,7 +2,7 @@
  * spd_audio_plugin.h -- The SPD Audio Plugin Header
  *
  * Copyright (C) 2004 Brailcom, o.p.s.
- * Copyright (C) 2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019-2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
@@ -53,11 +53,13 @@ typedef struct {
 	int working;
 } AudioID;
 
+/* These methods are called from a single thread, except stop which can be called from another thread */
 typedef struct spd_audio_plugin {
 	const char *name;
 	AudioID *(*open) (void **pars);
 	/* Play audio track synchronously */
 	int (*play) (AudioID * id, AudioTrack track);
+	/* Stop the audio track playback immediately */
 	int (*stop) (AudioID * id);
 	int (*close) (AudioID * id);
 	int (*set_volume) (AudioID * id, int);
