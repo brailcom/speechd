@@ -86,6 +86,8 @@ static void output_open_audio(OutputModule *output)
 			DBG("Using %s audio output method", outputs[i]);
 			g_strfreev(outputs);
 
+			spd_audio_set_loglevel(output->audio, SpeechdOptions.log_level);
+
 			/* Volume is controlled by the synthesizer. Always play at normal on audio device. */
 			if (spd_audio_set_volume(output->audio, 85) < 0) {
 				DBG("Can't set volume. audio not initialized?");
