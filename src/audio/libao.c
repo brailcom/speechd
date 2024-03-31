@@ -46,9 +46,9 @@
 	if(level <= libao_log_level){ \
 		time_t t; \
 		struct timeval tv; \
-		char *tstr; \
+		char tstr[26]; \
 		t = time(NULL); \
-		tstr = g_strdup(ctime(&t)); \
+		ctime_r(&t, tstr); \
 		tstr[strlen(tstr)-1] = 0; \
 		gettimeofday(&tv,NULL); \
 		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -56,16 +56,15 @@
 		fprintf(stderr,arg); \
 		fprintf(stderr,"\n"); \
 		fflush(stderr); \
-		g_free(tstr); \
 	}
 
 #define ERR(arg...) \
 	{ \
 		time_t t; \
 		struct timeval tv; \
-		char *tstr; \
+		char tstr[26]; \
 		t = time(NULL); \
-		tstr = g_strdup(ctime(&t)); \
+		ctime_r(&t, tstr); \
 		tstr[strlen(tstr)-1] = 0; \
 		gettimeofday(&tv,NULL); \
 		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -73,7 +72,6 @@
 		fprintf(stderr,arg); \
 		fprintf(stderr,"\n"); \
 		fflush(stderr); \
-		g_free(tstr); \
 	}
 
 /* AO_FORMAT_INITIALIZER is an ao_sample_format structure with zero values
