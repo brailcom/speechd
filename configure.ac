@@ -390,7 +390,7 @@ AC_ARG_WITH([pulse],
 	[],
 	[with_pulse=check])
 AS_IF([test $with_pulse != "no"],
-	[PKG_CHECK_MODULES([PULSE], [libpulse-simple],
+	[PKG_CHECK_MODULES([PULSE], [libpulse],
 		[with_pulse=yes
 		AS_IF([test -z "$default_audio_method"],
 			[default_audio_method=pulse])
