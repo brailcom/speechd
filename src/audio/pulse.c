@@ -128,7 +128,12 @@ struct spd_pa_simple {
 
 	int operation_success;
 
+	int32_t bytes_per_s;
+
 	int playing;
+
+	pthread_mutex_t drain_lock;
+	pthread_cond_t drain_cond;
 };
 
 #define CHECK_SUCCESS_GOTO(p, rerror, expression, label)			\
@@ -293,6 +298,9 @@ static spd_pa_simple* spd_pa_simple_new(
 	pa_threaded_mainloop_unlock(p->mainloop);
 
 	p->playing = 0;
+	p->bytes_per_s = ss->rate * ss->channels * (ss->format == PA_SAMPLE_U8 ? 1 : 2);
+	pthread_mutex_init(&p->drain_lock, NULL);
+	pthread_cond_init(&p->drain_cond, NULL);
 
 	return p;
 
@@ -397,7 +405,7 @@ static int spd_pa_simple_write(spd_pa_simple *p, const void*data, size_t length,
 		pa_usec_t t = 0;
 
 		if (pa_stream_get_latency(p->stream, &t, NULL) >= 0) {
-			MSG(4, "Wrote data, playing with latency %ldµs\n", (long) t);
+			MSG(4, "Wrote data, playing with latency %lldµs\n", (long long) t);
 		}
 	}
 
@@ -414,17 +422,106 @@ unlock_and_fail:
 	return -1;
 }
 
+static int spd_pa_simple_drain(spd_pa_simple *p, pa_usec_t overlap, int *rerror) {
+	pa_operation *o = NULL;
+
+	pa_threaded_mainloop_lock(p->mainloop);
+
+	CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
+
+	MSG(4, "draining to overlap %llu\n", (unsigned long long) overlap);
+
+	/* Drain until requested overlap */
+	while(1) {
+		if (!p->playing) {
+			/* We got interrupted, flush.  */
+			spd_pa_simple_do_flush(p, NULL);
+			break;
+		}
+
+		o = pa_stream_update_timing_info(p->stream, success_cb, p);
+		CHECK_SUCCESS_GOTO(p, rerror, o, unlock_and_fail);
+
+		p->operation_success = 0;
+		while (pa_operation_get_state(o) == PA_OPERATION_RUNNING) {
+			pa_threaded_mainloop_wait(p->mainloop);
+			CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
+		}
+		CHECK_SUCCESS_GOTO(p, rerror, p->operation_success, unlock_and_fail);
+
+		pa_operation_unref(o);
+		o = NULL;
+
+		const pa_timing_info *info = pa_stream_get_timing_info(p->stream);
+		int64_t left_us;
+
+		if (info) {
+			int64_t left = info->write_index - info->read_index;
+			left_us = left * PA_USEC_PER_SEC / p->bytes_per_s - info->transport_usec - info->sink_usec;
+
+			//MSG(5, "left %lld bytes, %lldµs\n", (long long) left, (long long) left_us);
+
+			if (left_us <= (int64_t) overlap)
+				break;
+			left_us -= overlap;
+		} else {
+			/* Wait a bit for information */
+			left_us = 1000;
+		}
+
+		/* Do not sleep too much to avoid miss-ups */
+		if (left_us > 10000)
+			left_us = 10000;
+
+		pa_threaded_mainloop_unlock(p->mainloop);
+
+		/* Ideally pulseaudio would provide a pa_threaded_mainloop_timedwait */
+		pthread_mutex_lock(&p->drain_lock);
+		if (p->playing)
+		{
+			struct timespec ts;
+
+			clock_gettime(CLOCK_REALTIME, &ts);
+			ts.tv_nsec += left_us * 1000;
+			while (ts.tv_nsec >= 1000000000)
+			{
+				ts.tv_nsec -= 1000000000;
+				ts.tv_sec++;
+			}
+
+			pthread_cond_timedwait(&p->drain_cond, &p->drain_lock, &ts);
+		}
+		pthread_mutex_unlock(&p->drain_lock);
+		pa_threaded_mainloop_lock(p->mainloop);
+	}
+
+	pa_threaded_mainloop_unlock(p->mainloop);
+	return 0;
+
+unlock_and_fail:
+	if (o) {
+		pa_operation_cancel(o);
+		pa_operation_unref(o);
+	}
+
+	pa_threaded_mainloop_unlock(p->mainloop);
+	return -1;
+}
+
 static int spd_pa_simple_flush(spd_pa_simple *p) {
 	pa_threaded_mainloop_lock(p->mainloop);
 
+	pthread_mutex_lock(&p->drain_lock);
 	if (p->playing) {
-		/* Still writing, stop it and let it flush.  */
+		/* Still writing or draining, stop it and let it flush.  */
 		p->playing = 0;
 		pa_threaded_mainloop_signal(p->mainloop, 0);
+		pthread_cond_signal(&p->drain_cond);
 	} else {
 		/* Not writing, playback is ongoing, flush it. */
 		spd_pa_simple_do_flush(p, NULL);
 	}
+	pthread_mutex_unlock(&p->drain_lock);
 
 	pa_threaded_mainloop_unlock(p->mainloop);
 	return -1;
@@ -536,11 +633,11 @@ static AudioID *pulse_open(void **pars)
 	return (AudioID *) pulse_id;
 }
 
-static int pulse_play(AudioID * id, AudioTrack track)
+/* Configure pulse playback for the given configuration of track
+   But do not play anything yet */
+static int pulse_begin(AudioID * id, AudioTrack track)
 {
 	int bytes_per_sample;
-	int num_bytes;
-	signed short *output_samples;
 	int error;
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
 
@@ -561,8 +658,6 @@ static int pulse_play(AudioID * id, AudioTrack track)
 		    track.bits);
 		return -1;
 	}
-	output_samples = track.samples;
-	num_bytes = track.num_samples * bytes_per_sample;
 
 	/* Check if the current connection has suitable parameters for this track */
 	if (pulse_id->pa_current_rate != track.sample_rate
@@ -585,16 +680,36 @@ static int pulse_play(AudioID * id, AudioTrack track)
 		pulse_id->pa_current_bps = track.bits;
 		pulse_id->pa_current_channels = track.num_channels;
 	}
+}
+
+static int pulse_feed(AudioID * id, AudioTrack track)
+{
+	int num_bytes;
+	int bytes_per_sample;
+	int error;
+	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
+
+	if (track.bits == 16) {
+		bytes_per_sample = 2;
+	} else if (track.bits == 8) {
+		bytes_per_sample = 1;
+	} else {
+		ERR("ERROR: Unsupported sound data format, track.bits = %d\n",
+		    track.bits);
+		return -1;
+	}
+	num_bytes = track.num_samples * bytes_per_sample;
 
 	MSG(4, "bytes to play: %d, (%f secs)\n", num_bytes,
 	    (((float)(num_bytes) / 2) / (float)track.sample_rate));
 
 	if (spd_pa_simple_write
-	    (pulse_id->pa_simple, output_samples, num_bytes,
+	    (pulse_id->pa_simple, track.samples, num_bytes,
 	     &error) < 0) {
 		spd_pa_simple_flush(pulse_id->pa_simple);
 		pulse_connection_close(pulse_id);
 		MSG(4, "ERROR: Audio: pulse_play(): %s - closing device - re-open it in next run\n", pa_strerror(error));
+		return -1;
 	}
 
 	/* TODO: pa_stream_get_time() or pa_stream_get_latency(). The former
@@ -602,6 +717,53 @@ static int pulse_play(AudioID * id, AudioTrack track)
 	has been started. */
 
 	return 0;
+}
+
+static int pulse_feed_sync(AudioID * id, AudioTrack track)
+{
+	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
+	int ret;
+
+	ret = pulse_feed(id, track);
+	if (ret)
+		return ret;
+
+	return spd_pa_simple_drain(pulse_id->pa_simple, 0, NULL);
+}
+
+static int pulse_feed_sync_overlap(AudioID * id, AudioTrack track)
+{
+	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
+	int ret;
+
+	ret = pulse_feed(id, track);
+	if (ret)
+		return ret;
+
+	/* We typically want 20ms overlap: usually about a period size, and
+	   small enough to be unnoticeable */
+	return spd_pa_simple_drain(pulse_id->pa_simple, 20000, NULL);
+}
+
+static int pulse_end(AudioID * id)
+{
+	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
+	spd_pa_simple_drain(pulse_id->pa_simple, 0, NULL);
+}
+
+static int pulse_play(AudioID * id, AudioTrack track)
+{
+	int ret;
+
+	ret = pulse_begin(id, track);
+	if (ret)
+		return ret;
+
+	ret = pulse_feed_sync(id, track);
+	if (ret)
+		return ret;
+
+	return pulse_end(id);
 }
 
 /* stop the pulse_play() loop */
@@ -651,7 +813,11 @@ static spd_audio_plugin_t pulse_functions = {
 	pulse_close,
 	pulse_set_volume,
 	pulse_set_loglevel,
-	pulse_get_playcmd
+	pulse_get_playcmd,
+	pulse_begin,
+	pulse_feed_sync,
+	pulse_feed_sync_overlap,
+	pulse_end,
 };
 
 spd_audio_plugin_t *pulse_plugin_get(void)
