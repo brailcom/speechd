@@ -189,12 +189,11 @@ void MSG2(int level, const char *kind, const char *format, ...)
 			{
 				/* Print timestamp */
 				time_t t;
-				char *tstr;
+				char tstr[26];
 				struct timeval tv;
 				t = time(NULL);
-				tstr = g_strdup(ctime(&t));
+				ctime_r(&t, tstr);
 				gettimeofday(&tv, NULL);
-				assert(tstr);
 				/* Remove the trailing \n */
 				assert(strlen(tstr) > 1);
 				tstr[strlen(tstr) - 1] = 0;
@@ -214,7 +213,6 @@ void MSG2(int level, const char *kind, const char *format, ...)
 						"[%s : %d] speechd: ", tstr,
 						(int)tv.tv_usec);
 				}
-				g_free(tstr);
 			}
 			for (i = 1; i < level; i++) {
 				if (std_log) {
@@ -269,13 +267,12 @@ void MSG(int level, const char *format, ...)
 			/* Print timestamp */
 			{
 				time_t t;
-				char *tstr;
+				char tstr[26];
 				struct timeval tv;
 				t = time(NULL);
-				tstr = g_strdup(ctime(&t));
+				ctime_r(&t, tstr);
 				gettimeofday(&tv, NULL);
 				/* Remove the trailing \n */
-				assert(tstr);
 				assert(strlen(tstr) > 1);
 				assert((level >= -1) && (level <= 5));
 				tstr[strlen(tstr) - 1] = 0;
@@ -289,7 +286,6 @@ void MSG(int level, const char *format, ...)
 						(int)tv.tv_usec);
 				/*                fprintf(logfile, "[%s : %d] speechd: ",
 				   tstr, (int) tv.tv_usec); */
-				g_free(tstr);
 			}
 
 			for (i = 1; i < level; i++) {

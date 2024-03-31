@@ -3,7 +3,7 @@
  * alsa.c -- The Advanced Linux Sound System backend for Speech Dispatcher
  *
  * Copyright (C) 2005,2006 Brailcom, o.p.s.
- * Copyright (C) 2019 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019-2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
@@ -87,9 +87,9 @@ static int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 	if(level <= alsa_log_level){ \
 		time_t t; \
 		struct timeval tv; \
-		char *tstr; \
+		char tstr[26]; \
 		t = time(NULL); \
-		tstr = g_strdup(ctime(&t)); \
+		ctime_r(&t, tstr); \
 		tstr[strlen(tstr)-1] = 0; \
 		gettimeofday(&tv,NULL); \
 		fprintf(stderr," %s [%d.%06d]",tstr, (int)tv.tv_sec % 10, (int) tv.tv_usec); \
@@ -97,16 +97,15 @@ static int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 		fprintf(stderr,arg); \
 		fprintf(stderr,"\n"); \
 		fflush(stderr); \
-		g_free(tstr); \
 	}
 
 #define ERR(arg...) \
 	{ \
 		time_t t; \
 		struct timeval tv; \
-		char *tstr; \
+		char tstr[26]; \
 		t = time(NULL); \
-		tstr = g_strdup(ctime(&t)); \
+		ctime_r(&t, tstr); \
 		tstr[strlen(tstr)-1] = 0; \
 		gettimeofday(&tv,NULL); \
 		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -114,7 +113,6 @@ static int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 		fprintf(stderr,arg); \
 		fprintf(stderr,"\n"); \
 		fflush(stderr); \
-		g_free(tstr); \
 	}
 
 static int alsa_log_level;

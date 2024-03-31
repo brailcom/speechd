@@ -53,9 +53,9 @@ void MSG(int level, const char *format, ...) {
 		va_list ap;
 		time_t t;
 		struct timeval tv;
-		char *tstr;
+		char tstr[26];
 		t = time(NULL);
-		tstr = g_strdup(ctime(&t));
+		ctime_r(&t, tstr);
 		tstr[strlen(tstr)-1] = 0;
 		gettimeofday(&tv,NULL);
 		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec);
@@ -74,7 +74,6 @@ void MSG(int level, const char *format, ...) {
 			fprintf(CustomDebugFile, "\n");
 			fflush(CustomDebugFile);
 		}
-		g_free(tstr);
 	}
 }
 

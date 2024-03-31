@@ -89,9 +89,9 @@ static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
 	if(level <= pulse_log_level){ \
 		time_t t; \
 		struct timeval tv; \
-		char *tstr; \
+		char tstr[26]; \
 		t = time(NULL); \
-		tstr = g_strdup(ctime(&t)); \
+		ctime_r(&t, tstr); \
 		tstr[strlen(tstr)-1] = 0; \
 		gettimeofday(&tv,NULL); \
 		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -99,16 +99,15 @@ static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
 		fprintf(stderr,arg); \
 		fprintf(stderr,"\n"); \
 		fflush(stderr); \
-		g_free(tstr); \
 	}
 
 #define ERR(arg...) \
 	{ \
 		time_t t; \
 		struct timeval tv; \
-		char *tstr; \
+		char tstr[26]; \
 		t = time(NULL); \
-		tstr = g_strdup(ctime(&t)); \
+		ctime_r(&t, tstr); \
 		tstr[strlen(tstr)-1] = 0; \
 		gettimeofday(&tv,NULL); \
 		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
@@ -116,7 +115,6 @@ static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
 		fprintf(stderr,arg); \
 		fprintf(stderr,"\n"); \
 		fflush(stderr); \
-		g_free(tstr); \
 	}
 
 static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
