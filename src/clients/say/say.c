@@ -207,6 +207,7 @@ int main(int argc, char **argv)
 				printf("%25s%25s%25s\n", list[i]->name,
 				       list[i]->language, list[i]->variant);
 			}
+			free_spd_voices(list);
 		} else {
 			printf("Failed to get voice list.\n");
 		}
