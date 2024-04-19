@@ -212,7 +212,7 @@ SPDVoice **module_list_voices(void)
 
 int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 {
-	char *tmp;
+	char *tmp = data, *newtmp;
 
 	DBG("speak()\n");
 
@@ -229,38 +229,44 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_PARAMETER(rate, generic_set_rate);
 	UPDATE_PARAMETER(volume, generic_set_volume);
 
+	/* TODO: use a generic engine for SPELL, CHAR, KEY */
+	if (msgtype == SPD_MSGTYPE_TEXT)
+		tmp = module_strip_ssml(tmp);
+
+	module_strip_punctuation_some(tmp, GenericStripPunctChars);
+
 	/* Set the appropriate charset */
 	assert(generic_msg_language != NULL);
 	if (generic_msg_language->charset != NULL) {
-		DBG("Recoding from UTF-8 to %s...",
-		    generic_msg_language->charset);
-		tmp =
-		    (char *)g_convert_with_fallback(data, bytes,
-						    generic_msg_language->charset,
-						    "UTF-8",
-						    GenericRecodeFallback, NULL,
-						    NULL, NULL);
+		if (!strcasecmp(generic_msg_language->charset, "utf-8")) {
+			DBG("Recoding from UTF-8 to %s...",
+			    generic_msg_language->charset);
+			newtmp =
+			    (char *)g_convert_with_fallback(tmp, bytes,
+							    generic_msg_language->charset,
+							    "UTF-8",
+							    GenericRecodeFallback, NULL,
+							    NULL, NULL);
+			if (tmp != data)
+				g_free(tmp);
+			tmp = newtmp;
+		}
 	} else {
 		DBG("Warning: Preferred charset not specified, recoding to iso-8859-1");
-		tmp =
-		    (char *)g_convert_with_fallback(data, bytes, "iso-8859-1",
+		newtmp =
+		    (char *)g_convert_with_fallback(tmp, bytes, "iso-8859-1",
 						    "UTF-8",
 						    GenericRecodeFallback, NULL,
 						    NULL, NULL);
+		if (tmp != data)
+			g_free(tmp);
+		tmp = newtmp;
 	}
 
 	if (tmp == NULL)
 		return -1;
 
-	/* TODO: use a generic engine for SPELL, CHAR, KEY */
-	if (msgtype == SPD_MSGTYPE_TEXT)
-		generic_message = module_strip_ssml(tmp);
-	else
-		generic_message = g_strdup(tmp);
-	g_free(tmp);
-
-	module_strip_punctuation_some(generic_message, GenericStripPunctChars);
-
+	generic_message = tmp;
 	generic_message_type = msgtype;
 
 	DBG("Requested data (%d): |%s|\n", msgtype, data);
