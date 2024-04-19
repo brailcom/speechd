@@ -28,6 +28,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <semaphore.h>
+#include <locale.h>
 
 #include <speechd_types.h>
 
@@ -180,6 +181,9 @@ int module_init(char **status_info)
 	generic_msg_language->code = g_strdup("en-US");
 	generic_msg_language->charset = g_strdup("iso-8859-1");
 	generic_msg_language->name = g_strdup("english");
+
+	/* For mbtowc to work in locale charset */
+	setlocale(LC_CTYPE, "");
 
 	generic_message = NULL;
 

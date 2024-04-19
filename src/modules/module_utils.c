@@ -24,6 +24,7 @@
 #endif
 
 #include <fdsetconv.h>
+#include <wchar.h>
 #include "module_utils.h"
 #include "module_main.h"
 
@@ -331,22 +332,33 @@ module_get_message_part(const char *message, char *part, unsigned int *pos,
 
 void module_strip_punctuation_some(char *message, char *punct_chars)
 {
-	int len;
+	int len, inc;
+	int lenp;
 	char *p = message;
 	int i;
 	assert(message != NULL);
+	mbstate_t state;
 
 	if (punct_chars == NULL)
 		return;
 
+	memset(&state, 0, sizeof(state));
+
 	len = strlen(message);
-	for (i = 0; i <= len - 1; i++) {
-		if (strchr(punct_chars, *p)) {
-			DBG("Substitution %d: char -%c- for whitespace\n", i,
-			    *p);
-			*p = ' ';
+	lenp = strlen(punct_chars);
+	for (i = 0; i < len; i += inc) {
+		wchar_t wc;
+		inc = mbrtowc(&wc, p, len - i, &state);
+		if (inc < 0) {
+			DBG("Oops, at %d invalid char -%c- (%d)?\n", i, *p, inc);
+			return;
 		}
-		p++;
+
+		if (memmem(punct_chars, lenp, p, inc)) {
+			DBG("Substitution %d: char -%.*s- (%d) for whitespace\n", i, inc, p, inc);
+			memset(p, ' ', inc);
+		}
+		p += inc;
 	}
 }
 
