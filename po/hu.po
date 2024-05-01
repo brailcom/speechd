@@ -300,6 +300,8 @@ msgid ""
 "Read text to be spoken on stdin, write it on stdout unchanged, and the\n"
 "corresponding speech through Speech Dispatcher.\n"
 msgstr ""
+"beolvassa a kimondandó szöveget a standard bemenetről, kiírja a standard kimenetre\n"
+"változatlan formában, majd kimondja a megfelelő beszédszintetizátor segítségével.\n"
 
 #: src/clients/say/options.c:136
 #, c-format
@@ -1025,7 +1027,6 @@ msgstr ""
 "Futtassa újra ezt a parancsot, és válassza ki mit szeretne csinálni,\n"
 "vagy olvassa el a -h vagy --help oldalon elérhető gyors súgót."
 
-#, c-format
 #~ msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
 #~ msgstr ""
 #~ "a kimondandó szöveg átadása a csővezetéken\n"
