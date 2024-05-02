@@ -105,7 +105,7 @@ TSpeechDMode spd_mode;
 
 static gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user);
 static gboolean speechd_reload_dead_modules(gpointer user_data);
-static gboolean speechd_load_configuration(gpointer user_data);
+static gboolean speechd_reload_configuration(gpointer user_data);
 enum quit_reason {
 	QUIT_SIGINT,
 	QUIT_SIGTERM,
@@ -121,7 +121,8 @@ static gboolean client_process_incoming (gint          fd,
 				  GIOCondition  condition,
 				  gpointer      data);
 
-void check_client_count(void);
+static void speechd_load_configuration(void);
+static void check_client_count(void);
 
 #ifndef HAVE_DAEMON
 /* Added by Willie Walker - daemon is a common, but not universal, extension.
@@ -668,19 +669,10 @@ void speechd_init()
 	/* Load configuration from the config file */
 	MSG(4, "Reading Speech Dispatcher configuration from %s",
 	    SpeechdOptions.conf_file);
-	speechd_load_configuration(NULL);
+	speechd_load_configuration();
 
 	logging_init();
 	MSG(1, "Speech Dispatcher " VERSION " log start");
-
-	/* Check for output modules */
-	if (g_list_length(output_modules) == 0) {
-		DIE("No speech output modules were loaded - aborting...");
-	} else {
-		MSG(3, "Speech Dispatcher started with %d output module%s",
-		    g_list_length(output_modules),
-		    g_list_length(output_modules) > 1 ? "s" : "");
-	}
 
 	last_p5_block = NULL;
 }
@@ -741,7 +733,7 @@ static gint modules_compare (gconstpointer a, gconstpointer b)
 	return strcmp(name_a, name_b);
 }
 
-static gboolean speechd_load_configuration(gpointer user_data)
+static void speechd_load_configuration(void)
 {
 	configfile_t *configfile = NULL;
 	GList *detected_modules = NULL;
@@ -835,14 +827,30 @@ static gboolean speechd_load_configuration(gpointer user_data)
 						"dummy"),
 				NULL,
 				NULL);
-
-		module_load_requested_modules();
 	} else {
 		MSG(1, "Can't open %s", SpeechdOptions.conf_file);
 	}
 
 	free_config_options(spd_options, &spd_num_options);
+}
 
+static void speechd_load_modules()
+{
+	module_load_requested_modules();
+	/* Check for output modules */
+	if (g_list_length(output_modules) == 0) {
+		DIE("No speech output modules were loaded - aborting...");
+	} else {
+		MSG(3, "Speech Dispatcher started with %d output module%s",
+		    g_list_length(output_modules),
+		    g_list_length(output_modules) > 1 ? "s" : "");
+	}
+}
+
+static gboolean speechd_reload_configuration(gpointer user_data)
+{
+	speechd_load_configuration();
+	speechd_load_modules();
 	return TRUE;
 }
 
@@ -1081,7 +1089,7 @@ gboolean client_process_incoming (gint          fd,
 	return TRUE;
 }
 
-void check_client_count(void)
+static void check_client_count(void)
 {
 	if (client_count <= 0
 	    && SpeechdOptions.server_timeout > 0) {
@@ -1326,13 +1334,17 @@ int main(int argc, char *argv[])
 		g_free(spawn_socket_path);
 	}
 
+	char *sock_fd = getenv("SPEECHD_SOCK_FD");
+	if (sock_fd) {
+		server_socket = atoi(sock_fd);
+	}
 #ifdef USE_LIBSYSTEMD
-	if (sd_listen_fds(0) >= 1) {
+	else if (sd_listen_fds(0) >= 1) {
 		MSG(4, "Daemon launched via Systemd socket activation");
 		server_socket = SD_LISTEN_FDS_START;
-	} else
+	}
 #endif
-	if (!strcmp(SpeechdOptions.communication_method, "inet_socket")) {
+	else if (!strcmp(SpeechdOptions.communication_method, "inet_socket")) {
 		MSG(4, "Speech Dispatcher will use inet port %d",
 		    SpeechdOptions.port);
 		/* Connect and start listening on inet socket */
@@ -1359,20 +1371,29 @@ int main(int argc, char *argv[])
 	/* Fork, set uid, chdir, etc. */
 	if (spd_mode == SPD_MODE_DAEMON) {
 		MSG(4, "Daemon mode, forking\n");
-		if (daemon(0, 0)) {
+		char **args = malloc((argc + 2) * sizeof *args);
+		if (args == NULL)
+			FATAL("Couldn't allocate memory for arguments.");
+		memcpy(args, argv, argc * sizeof *argv);
+		args[argc] = "-s";
+		args[argc+1] = NULL;
+		char sock[64];
+		sprintf(sock, "SPEECHD_SOCK_FD=%d", server_socket);
+		putenv(sock);
+		destroy_pid_file();
+		if (daemon(0, 0))
 			FATAL("Can't fork child process");
-		}
-		/* Re-create the pid file under this process */
-		unlink(SpeechdOptions.pid_file);
-		if (create_pid_file() == -1)
-			return -1;
+		if (execv(BINDIR "/speech-dispatcher", args))
+			FATAL("Can't exec child process");
 	}
+
+	speechd_load_modules();
 
 	/* Set up the main loop and register signals */
         main_loop = g_main_loop_new(g_main_context_default(), FALSE);
 	g_unix_signal_add(SIGINT, speechd_quit, (void*) (uintptr_t) QUIT_SIGINT);
 	g_unix_signal_add(SIGTERM, speechd_quit, (void*) (uintptr_t) QUIT_SIGTERM);
-	g_unix_signal_add(SIGHUP, speechd_load_configuration, NULL);
+	g_unix_signal_add(SIGHUP, speechd_reload_configuration, NULL);
 	g_unix_signal_add(SIGUSR1, speechd_reload_dead_modules, NULL);
 	(void)signal(SIGPIPE, SIG_IGN);
 
