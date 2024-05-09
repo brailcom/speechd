@@ -30,6 +30,7 @@ symbols:
 Ô	О-и дароз	char	norep
 Õ	О-и тилда	char	norep
 Ö	О-и умляут	char	norep
+×	зарб	some
 Ø	О-и шикаста	char	norep
 Ù	У-и паст	char	norep
 Ú	У-и зада	char	norep
@@ -59,6 +60,7 @@ symbols:
 ô	о-и дароз	char	norep
 õ	о-и тилда	char	norep
 ö	о-и умляут	char	norep
+÷	тақсимшуда бо	some
 ø	о-и бурида	char	norep
 þ	торн	char	norep
 ú	у-и зада	char	norep

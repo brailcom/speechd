@@ -25,6 +25,7 @@ symbols:
 Ó	O AGUDA	char	norep
 Õ	O TITLLA	char	norep
 Ö	O DIÈRESI	char	norep
+×	signe de multiplicació	some
 Ø	O BARRADA	char	norep
 Ù	U GREU	char	norep
 Ú	U AGUDA	char	norep
@@ -47,6 +48,7 @@ symbols:
 ó	o aguda	char	norep
 õ	o titlla	char	norep
 ö	o dièresi	char	norep
+÷	divisió	some
 ø	o barrada	char	norep
 ú	u aguda	char	norep
 ù	u greu	char	norep

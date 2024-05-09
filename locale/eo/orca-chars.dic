@@ -8,41 +8,62 @@
 
 symbols:
 á	a dekstra korno	char	norep
+À	A MALDEKTRA KORNO	char	norep
 Á	A DEKSTRA KORNO	char	norep
 Â	A CIRKUMFLEKSO	char	norep
+Ã	A TILDO	char	norep
 Ä	A UMLAŬTO	char	norep
+Å	A RINGO	char	norep
+Ç	C CEDILO	char	norep
+È	E MALDEKTRA KORNO	char	norep
 É	E DEKSTRA KORNO	char	norep
 Ê	E CIRKUMFLEKSO	char	norep
 Ë	E UMLAŬTO	char	norep
+Ì	I MALDEKTRA KORNO	char	norep
 Í	I DEKSTRA KORNO	char	norep
 Î	I CIRKUMFLEKSO	char	norep
 Ï	I UMLAŬTO	char	norep
+Ñ	N TILDO	char	norep
+Ò	O MALDEKTRA KORNO	char	norep
 Ó	O DEKSTRA KORNO	char	norep
 Ô	O CIRKUMFLEKSO	char	norep
+Õ	O TILDO	char	norep
 Ö	O UMLAŬTO	char	norep
+×	oble	some
 Ø	STREKO-O	char	norep
+Ù	U MALDEKTRA KORNO	char	norep
 Ú	U DEKSTRA KORNO	char	norep
 Û	U CIRKUMFLEKSO	char	norep
 Ü	U UMLAŬTO	char	norep
 Ý	Y DEKSTRA KORNO	char	norep
+à	a maldekstra korno	char	norep
 â	a cirkumflekso	char	norep
 ã	a tildo	char	norep
 ä	a umlaŭto	char	norep
+å	ringo	char	norep
 ç	c cedilo	char	norep
+è	e maldekstra korno	char	norep
 é	e dekstra korno	char	norep
 ê	e cirkumflekso	char	norep
 ë	e umlaŭto	char	norep
+ì	i maldekstra korno	char	norep
 í	i dekstra korno	char	norep
 î	i cirkumflekso	char	norep
 ï	i umlaŭto	char	norep
+ñ	n tildo	char	norep
+ò	o maldekstra korno	char	norep
 ó	o dekstra korno	char	norep
 ô	o cirkumflekso	char	norep
 õ	o tildo	char	norep
 ö	o umlaŭto	char	norep
+÷	dividita de	some
 ø	streko-o	char	norep
 ú	u dekstra korno	char	norep
+ù	u maldekstra korno	char	norep
 û	u cirkumflekso	char	norep
 ü	u umlaŭto	char	norep
 ý	y dekstra korno	char	norep
 ÿ	y umlaŭto	char	norep
 Ÿ	Y UMLAŬTO	char	norep
+	nigra kvadrato	none
+	nigra diamanto	none

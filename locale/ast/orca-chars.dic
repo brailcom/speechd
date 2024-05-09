@@ -24,6 +24,7 @@ symbols:
 Ô	O CIRCUNFLEXA	char	norep
 Õ	O CON TILDE	char	norep
 Ö	O CON DIÉRESIS	char	norep
+×	por	some
 Ø	O CON BARRA DIAGONAL	char	norep
 Ú	U CON TILDE	char	norep
 Û	U CIRCUNFLEXA	char	norep
@@ -46,6 +47,7 @@ symbols:
 ô	o circunflexa	char	norep
 õ	o con tilde	char	norep
 ö	o con diéresis	char	norep
+÷	dividío por	some
 ø	o con barra diagonal	char	norep
 þ	zorn	char	norep
 ú	u con tilde	char	norep

@@ -7,4 +7,111 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+ 	espaciu	char
+\\n	nueva llinia	char
+\\t	tabulación	char
+!	esclamación	all	always
+"	comines	most
+\\#	númberu	some
+$	dólar	some
+%	porcentaxe	some
+&	y	some
+'	apóstrofe	all
+(	paréntesis esquierdu	most
+)	paréntesis derechu	most
+*	asteriscu	some
++	más	some
+,	coma	all	always
+-	guión	most
+.	puntu	all	always
+/	barra	some
+:	dos puntos	most	always
+;	puntu y coma	most	always
+<	menor que	most
+=	ye igual a	some
+>	mayor que	most
+?	entruga	all	always
+@	arroba	some
+\[	abre corchete	most
+\\\\	barra invertida	most
+]	pieslla corchete	most
+^	circunflexu	some
+_	sorrayáu	most
+{	abre llave	most
+|	barra vertical	most
+}	pieslla llave	most
+ 	espaciu non dixebrable	char
+¡	abre esclamación	some
+¢	céntimos	some
+£	llibres	some
+¤	señal de moneda	all
+¦	barra cortada	most
+§	seición	some
+¨	diéresis	most
 ª	a superíndiz	some
+«	abre comines angulares	most
+¬	non lóxicu	some
+­	guión	most
+®	rexistráu	some
+¯	sobrolliñáu	most
+°	graos	some
+±	más o menos	some
+²	2 superíndiz	none
+³	3 superíndiz	none
+´	acentu	most
+¶	marca de párrafu	most
+·	puntu centráu	none
+¹	1 superíndiz	none
+»	zarra comines angulares	most
+¼	un cuartu	none
+½	un mediu	none
+¾	tres cuartos	none
+¿	abre interrogación	some
+ƒ	florín	all
+–	guión altu	most
+‘	comina simple esquierda	most
+’	comina simple drecha	all
+‚	comina inferior simple	most
+“	comina duble esquierda	most
+”	comina duble drecha	most
+„	duble comina inferior	most
+†	cruz	some
+‡	DUBLE CRUZ	some
+•	asteriscu	none
+‣	viñeta triangular	none
+‰	por mil	some
+′	prima	some
+″	doble prima	some
+⁃	guión de viñeta	none
+™	marca rexistrada	some
+✓	marca	none
+✔	marca fuerte	none
+✗	viñeta marcada con x	none
+⁰	0 superíndiz	none
+⁴	4 superíndiz	none
+⁵	5 superíndiz	none
+⁶	6 superíndiz	none
+⁷	7 superíndiz	none
+⁸	8 superíndiz	none
+⁹	9 superíndiz	none
+⁺	más superíndiz	none
+⁻	menos superíndiz	none
+⁼	igual superíndiz	none
+⁽	abre paréntesis superíndiz	none
+⁾	zarra paréntesis superíndice	none
+ⁿ	n superíndiz	none
+₀	0 subíndiz	none
+₁	1 subíndiz	none
+₂	2 subíndiz	none
+₃	3 subíndiz	none
+₄	4 subíndiz	none
+₅	5 subíndiz	none
+₆	6 subíndiz	none
+₇	7 subíndiz	none
+₈	8 subíndiz	none
+₉	9 subíndiz	none
+₊	más subíndiz	none
+₋	menos subíndiz	none
+₌	igual subíndiz	none
+₍	abre paréntesis subíndiz	none
+₎	zarra paréntesis subíndiz	none

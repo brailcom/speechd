@@ -7,5 +7,111 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+ 	mellomrom	char
+\\n	ny linje	char
+!	utropstegn	all	always
+"	sitattegn	most
+\\#	nummer	some
+%	prosent	some
+&	og	some
+'	apostrof	all
+(	venstre parantes	most
+)	høyre parantes	most
+*	stjerne	some
++	pluss	some
+,	komma	all	always
+-	bindestrek	most
+.	punktum	all	always
+/	skråstrek	some
+:	kolon	most	always
+;	semikolon	most	always
+<	mindre	most
+=	er lik	some
+>	større	most
+?	spørsmålstegn	all	always
+@	krøllalfa	some
+\[	venstre hakeparentes	most
+\\\\	omvendt skråstrek	most
+]	høyre hakeparentes	most
+^	sirkumfleks	some
+_	understrek	most
+{	venstre krøllparentes	most
+|	vertikal linje	most
+}	høyre krøllparentes	most
+ 	mellomrom uten bryting av linje	char
+¡	omvendt utropstegn	some
+¢	cent	some
+£	pund	some
+¤	valutategn	all
+¦	brutt stolpe	most
+§	del	some
+©	opphavsrett	some
 ª	superskript a	some
+«	venstre dobbel hakeparentes	most
+¬	logisk ikke	some
+­	myk bindestrek	most
+®	registrert	some
+°	grader	some
+±	pluss eller minus	some
+²	superskript 2	none
+³	superskript 3	none
+´	akutt	most
+µ	my	some
+¶	avsnittsmarkør	most
+·	midtstilt punkt	none
+¸	cedille	most
+¹	superskript 1	none
+»	høyre dobbel hakeparentes	most
+¼	en fjerdedel	none
+½	en halv	none
+¾	tre fjerdedeler	none
+¿	omvendt spørsmålstegn	some
+–	bindestrek	most
+‘	venstre enkelt sitattegn	most
+’	høyre enkelt sitattegn	all
+‚	enkelt lavt sitattegn	most
+“	venstre dobbelt sitattegn	most
+”	høyre dobbelt sitattegn	most
+„	dobbelt lavt sitattegn	most
+†	kors	some
+‡	dobbeltkors	some
+•	kulepunkt	none
+‣	trekantet kulepunkt	none
+‰	promille	some
+′	primtall	some
+″	dobbelt primtall	some
+‴	trippelt primtall	some
+⁃	bindestrekkulepunkt	none
+™	varemerke	some
+✓	avkrysningsmerke	none
+✔	tungt avkryssingsmerke	none
+✗	x-formet kulepunkt	none
+⁰	superskript 0	none
+⁴	superskript 4	none
+⁵	superskript 5	none
+⁶	superskript 6	none
+⁷	superskript 7	none
+⁸	superskript 8	none
+⁹	superskript 9	none
+⁺	superskript pluss	none
+⁻	superskript minus	none
+⁼	superskript er lik	none
+⁽	superskript venstre parantes	none
+⁾	superskript høyre parantes	none
+ⁿ	superskript n	none
+₀	subskript 0	none
+₁	subskript 1	none
+₂	subskript 2	none
+₃	subskript 3	none
+₄	subskript 4	none
+₅	subskript 5	none
+₆	subskript 6	none
+₇	subskript 7	none
+₈	subskript 8	none
+₉	subskript 9	none
+₊	subskript pluss	none
+₋	subskript minus	none
+₌	subskript er lik	none
+₍	subskript venstre parantes	none
+₎	subskript høyre parantes	none
 ￼	tegn for erstatning av objekt	none

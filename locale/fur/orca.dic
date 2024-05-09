@@ -7,4 +7,58 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+ 	spazi	char
+\\n	gnove rie	char
+\\t	tabulazion	char
+!	pont esclamatîf	all	always
+"	virgulutis	most
+$	dolar	some
+%	percentuâl	some
+'	apostrof	all
+(	parentesi vierte	most
+)	parentesi sierade	most
+*	asterisc	some
++	plui	some
+,	virgule	all	always
+-	tratut	most
+.	pont	all	always
+/	sbare	some
+:	doi ponts	most	always
+;	pont e virgule	most	always
+<	minôr	most
+=	uguâl	some
+>	maiôr	most
+?	pont interogatîf	all	always
+@	caiut	some
+\[	parentesi cuadre vierte	most
+\\\\	sbare contrarie	most
+]	parentesi cuadre sierade	most
+^	circonflès	some
+_	sotlineadure	most
+`	acent grivi	most
+{	parentesi a grafe vierte	most
+|	sbare verticâl	most
+}	parentesi a grafe sierade	most
+ 	spazi no separabil	char
+¡	pont esclamatîf invertît	some
+¢	cent	some
+£	sterlinis	some
+¤	segn di valude	all
+§	sezion	some
+¨	dieresi	most
+©	simbul di dirit d'autôr	some
+«	virgulutis doplis a çampe	most
+¬	no logjic	some
+®	simbul di marche regjistrade	some
+°	grâts	some
+±	plui o mancul	some
+´	acût	most
+¶	simbul di paragraf	most
+·	pont centrâl	none
+¸	cedilie	most
 º	ordenâl	some
+»	virgulutis doplis a diestre	most
+¼	un cuart	none
+½	un mieç	none
+¾	trê cuarts	none
+¿	pont interogatîf invertît	some

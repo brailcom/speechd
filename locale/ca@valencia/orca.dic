@@ -7,6 +7,117 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+ 	espai	char
+\\n	línia nova	char
+\\t	pestanya	char
+!	exclamació	all	always
+"	cita	most
+\\#	nombre	some
+$	dòlar	some
+%	percentatge	some
+&	i	some
+'	apòstrof	all
+(	parèntesi esquerre	most
+)	tancar parèntesis	most
+*	asterisc	some
++	més	some
+,	coma	all	always
+-	traç	most
+.	punt	all	always
+/	barra inclinada	some
+:	dos punts	most	always
+;	punt i coma	most	always
+<	menys que	most
+=	igual	some
+>	més que	most
+?	pregunta	all	always
+@	arrova	some
+\[	claudàtor esquerre	most
+\\\\	barra invertida	most
+]	claudàtor dret	most
+^	cursor	some
+_	subratllat	most
+`	obert	most
+{	clau esquerra	most
+|	barra vertical	most
+}	clau dreta	most
+~	titlla	most
+ 	espai dur	char
+¡	exclamació invertida	some
+¢	cèntims	some
+£	lliures	some
+¤	signe de moneda	all
+¥	ien	some
+¦	barra trencada	most
+§	secció	some
+¨	dièresi	most
 ª	superíndex a	some
+«	cometes baixes esquerres	most
+¬	no lògic	some
+­	guionet	most
+®	registrat	some
+¯	guionet alt	most
+°	graus	some
+±	més o menys	some
+²	superíndex 2	none
+³	superíndex 3	none
+´	accent agut	most
+µ	micro	some
+¶	marcador de paràgraf	most
+·	punt volat	none
+¹	superíndex 1	none
 º	o elevada	some
+»	cometes baixes dretes	most
+¼	un quart	none
+½	un mig	none
+¾	tres quartes parts	none
+¿	signe d'interrogació invertit	some
+–	guió	most
+‘	marca de citació esquerra	most
+’	marca de citació dreta	all
+‚	marca de citació baixa	most
+“	cometes esquerres	most
+”	cometes dretes	most
+„	cometes baixes dobles	most
+†	creu	some
+‡	creu doble	some
+•	pic	none
+‣	pic triangular	none
+‰	tant per mil	some
+′	prima	some
+″	prima doble	some
+‴	prima triple	some
+⁃	guió petit	none
+™	marca registrada	some
+✓	marca de verificació	none
+✔	marca de verificació gruixuda	none
+✗	pic en forma de x	none
+⁰	superíndex 0	none
+⁴	superíndex 4	none
+⁵	superíndex 5	none
+⁶	superíndex 6	none
+⁷	superíndex 7	none
+⁸	superíndex 8	none
+⁹	superíndex 9	none
+⁺	superíndex signe positiu	none
+⁻	superíndex signe negatiu	none
+⁼	superíndex signe igual	none
+⁽	superíndex parèntesi esquerre	none
+⁾	superíndex parèntesi dret	none
+ⁿ	superíndex n	none
+₀	subíndex 0	none
+₁	subíndex 1	none
+₂	subíndex 2	none
+₃	subíndex 3	none
+₄	subíndex 4	none
+₅	subíndex 5	none
+₆	subíndex 6	none
+₇	subíndex 7	none
+₈	subíndex 8	none
+₉	subíndex 9	none
+₊	subíndex signe positiu	none
+₋	subíndex signe negatiu	none
+₌	subíndex signe igual	none
+₍	subíndex parèntesi esquerre	none
+₎	subíndex parèntesi dret	none
 ￼	caràcter de substitució d'objecte	none
