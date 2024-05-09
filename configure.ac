@@ -111,6 +111,7 @@ case "$host" in
 	*-*darwin*)
 		darwin_host=yes
 		default_shim=no
+		AC_DEFINE(DARWIN_HOST, [1], [Building for Darwin])
 		;;
 esac
 AM_CONDITIONAL(DARWIN_HOST, test "$darwin_host" = yes)
