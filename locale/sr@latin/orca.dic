@@ -7,6 +7,119 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+ 	razmak	char
+\\n	novi red	char
+!	uzvičnik	all	always
+"	navodnik	most
+\\#	broj	some
+$	dolar	some
+%	procenat	some
+&	i	some
+'	apostrof	all
+(	leva mala zagrada	most
+)	desna mala zagrada	most
+*	zvezdica	some
+,	zapeta	all	always
+-	crta	most
+.	tačka	all	always
+/	kosa crta	some
+:	dve tačke	most	always
+;	tačka-zarez	most	always
+<	manje	most
+=	jednako	some
+>	veće	most
+?	upitnik	all	always
+@	ludo a	some
+\[	leva uglasta	most
+\\\\	kontra kosa crta	most
+]	desna uglasta	most
+^	kapica	some
+_	podvlaka	most
+`	kratkouzlazni	most
+{	leva vitičasta	most
+|	uspravna crta	most
+}	desna vitičasta	most
+~	tilda	most
+ 	bez razmaka	char
+¡	obrnuti znak uzvika	some
+¢	centi	some
+£	funte	some
+¤	znak valute	all
+¥	jen	some
+¦	prekinuta uspravna crta	most
+§	odeljak	some
+¨	dijarezis	most
+©	autorska prava	some
 ª	izložilac a	some
+«	leva dvostruka oštra zagrada	most
+¬	logično ne	some
+­	kratkosilazni naglasak	most
+®	zaštitni znak	some
+¯	makron	most
+°	stepeni	some
+±	plus-minus	some
+²	izložilac 2	none
+³	izložilac 3	none
+´	dugouzlazno	most
+µ	mi	some
+¶	obeleživač pasusa	most
+·	srednja tačka	none
+¸	sedilja	most
+¹	izložilac 1	none
 º	redni broj	some
+»	desna dvostruka oštra zagrada	most
+¼	jedna četvrtina	none
+½	polovina	none
+¾	tri četvrtine	none
+¿	obrnuti znak pitanja	some
+ƒ	malo florin	all
+–	srednja crta	most
+‘	levi samostalni navodnik	most
+’	desni samostalni navodnik	all
+‚	samostalni donji navodnik	most
+“	levi dvostruki navodnik	most
+”	desni dvostruki navodnik	most
+„	dvostruki donji navodnik	most
+†	dager	some
+‡	dupli dager	some
+•	metak	none
+‣	trougaoni metak	none
+‰	promil	some
+′	primus	some
+″	sekundum	some
+‴	trostruki	some
+⁃	metak crtica	none
+€	evro	some
+™	zaštitni znak	some
+✓	znak štikliranja	none
+✔	podebljani znak štikliranja	none
+✗	iks metak	none
+⁰	izložilac 0	none
+⁴	izložilac 4	none
+⁵	izložilac 5	none
+⁶	izložilac 6	none
+⁷	izložilac 7	none
+⁸	izložilac 8	none
+⁹	izložilac 9	none
+⁺	izložilac plus	none
+⁻	izložilac minus	none
+⁼	izložilac jednakosti	none
+⁽	izložilac leve zagrade	none
+⁾	izložilac desne zagrade	none
+ⁿ	izložilac en	none
+₀	indeks 0	none
+₁	indeks 1	none
+₂	indeks 2	none
+₃	indeks 3	none
+₄	indeks 4	none
+₅	indeks 5	none
+₆	indeks 6	none
+₇	indeks 7	none
+₈	indeks 8	none
+₉	indeks 9	none
+₊	indeks plus	none
+₋	indeks minus	none
+₌	indeks jednakosti	none
+₍	indeks leve zagrade	none
+₎	indeks desne zagrade	none
 ￼	zamensko slovo objekta	none

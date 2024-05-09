@@ -7,5 +7,108 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+ 	spasi	char
+\\n	ganti baris	char
+!	tanda seru	all	always
+"	tanda kutip	most
+\\#	nomor	some
+$	dolar	some
+%	persen	some
+&	dan	some
+'	tanda petik tunggal	all
+(	kurung buka	most
+)	kurung tutup	most
+*	bintang	some
++	tambah	some
+,	koma	all	always
+-	tanda hubung	most
+.	titik	all	always
+/	garis miring	some
+:	titik dua	most	always
+;	titik koma	most	always
+<	kurang dari	most
+=	sama dengan	some
+>	lebih dari	most
+?	tanda tanya	all	always
+@	pada	some
+\[	kurung siku kiri	most
+]	kurung siku kanan	most
+^	karet	some
+_	garis bawah	most
+`	back tick	most
+{	kurawal kiri	most
+|	garis tegak	most
+}	kurawal kanan	most
+ 	spasi tak putus	char
+¡	tanda seru terbalik	some
+¢	sen	some
+£	poundsterling	some
+¤	tanda mata uang	all
+¦	pipa	most
+§	bagian	some
+©	hak cipta	some
 ª	a superskrip	some
+«	tanda kurang dari berganda	most
+¬	tanda not lojik	some
+­	tanda pisah	most
+®	merk terdaftar	some
+°	derajat	some
+±	plus atau minus	some
+²	2 superskrip	none
+³	3 superskrip	none
+¶	penanda paragraf	most
+·	titik di tengah	none
+¹	1 superskrip	none
+»	tanda lebih dari berganda	most
+¼	seperempat	none
+½	setengah	none
+¾	tiga perempat	none
+¿	tanda tanya terjungkir	some
+–	strip	most
+‘	tanda petik tunggal buka	most
+’	tanda petik tunggal tutup	all
+‚	tanda petik ganda bawah	most
+“	tanda petik ganda buka	most
+”	tanda petik ganda bawah	most
+„	tanda petik ganda bawah	most
+†	simbol belati	some
+‡	simbol belati ganda	some
+•	bulet	none
+‣	bulet segi tiga	none
+‰	per mil	some
+″	prime ganda	some
+‴	prime triple	some
+⁃	bulet penyambung	none
+™	merk dagang	some
+✓	tanda contreng	none
+✔	contreng tebal	none
+✗	bulet bentuk x	none
+⁰	0 superskrip	none
+⁴	4 superskrip	none
+⁵	5 superskrip	none
+⁶	6 superskrip	none
+⁷	7 superskrip	none
+⁸	8 superskrip	none
+⁹	9 superskrip	none
+⁺	plus superskrip	none
+⁻	minus superskrip	none
+⁼	sama dengan superskrip	none
+⁽	kurung kiri superskrip	none
+⁾	kurung kanan superskrip	none
+ⁿ	n superskrip	none
+₀	0 subskrip	none
+₁	1 subskrip	none
+₂	2 subskrip	none
+₃	3 subskrip	none
+₄	4 subskrip	none
+₅	5 subskrip	none
+₆	6 subskrip	none
+₇	7 subskrip	none
+₈	8 subskrip	none
+₉	9 subskrip	none
+₊	plus subskrip	none
+₋	minus subskrip	none
+₌	sama dengan subskrip	none
+₍	kurung kiri subskrip	none
+₎	kurung kanan subskrip	none
 ￼	karakter penggantian objek	none

@@ -7,6 +7,120 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+ 	zuriunea	char
+\\n	lerro berria	char
+\\t	tabulazioa	char
+!	harridura-marka	all	always
+"	komatxo bikoitza	most
+\\#	traola	some
+$	dolarraren ikurra	some
+%	ehunekoaren ikurra	some
+&	eta	some
+'	apostrofea	all
+(	ezker-parentesia	most
+)	eskuin-parentesia	most
+*	izartxoa	some
++	plus zeinua	some
+,	koma	all	always
+-	marratxoa	most
+.	puntua	all	always
+/	barra	some
+:	bi puntu	most	always
+;	puntu eta koma	most	always
+<	txikiago ikurra	most
+=	berdin ikurra	some
+>	handiago ikurra	most
+?	galdera-marka	all	always
+@	a bildua	some
+\[	ezker-kortxetea	most
+\\\\	alderantzizko barra	most
+]	eskuin-kortxetea	most
+^	azentu zirkunflexua	some
+_	azpimarra	most
+`	azentu kamutsa	most
+{	ezker-giltza	most
+|	barra bertikala	most
+}	eskuin-giltza	most
+~	tileta	most
+ 	ez hautsi zuriunea	char
+¡	hasierako harridura-marka	some
+¢	zentimoaren ikurra	some
+£	libera esterlinaren ikurra	some
+¤	monetaren ikurra	all
+¥	yenaren ikurra	some
+¦	barra bertikal etena	most
+§	sekzio-marka	some
+¨	dieresia	most
+©	copyrightaren ikurra	some
 ª	a goi-indizea	some
+«	ezkerreko komatxo angeluarrak	most
+¬	ez logikoaren ikurra	some
+­	marratxoa	most
+®	marka erregistratuaren R ikurra	some
+¯	goi-marra	most
+°	graduaren ikurra	some
+±	plus-minus ikurra	some
+²	2 goi-indizea	none
+³	3 goi-indizea	none
+´	zorrotza	most
+¶	paragrafo-marka	most
+·	erdiko puntua	none
+¸	zedila	most
+¹	1 goi-indizea	none
 º	ordinala	some
+»	eskuineko komatxo angeluarrak	most
+¼	laurden bat	none
+½	erdi bat	none
+¾	hiru laurden	none
+¿	hasierako galdera-marka	some
+ƒ	florinaren ikurra	all
+–	marra motza	most
+‘	ezkerreko komatxo bakuna	most
+’	eskuineko komatxo bakuna	all
+‚	komatxo bakun baxua	most
+“	ezkerreko komatxo bikoitza	most
+”	eskuineko komatxo bikoitzak	most
+„	komatxo bikoitz baxua	most
+†	gurutzea	some
+‡	gurutze bikoitza	some
+•	buleta	none
+‣	bulet triangeluarra	none
+‰	milakoaren ikurra	some
+′	lehena ikurra	some
+″	bigarrena ikurra	some
+‴	hirugarrena ikurra	some
+⁃	marratxo-buleta	none
+€	euroaren ikurra	some
+™	marka erregistratuaren TM ikurra	some
+✓	kontrol-marka	none
+✔	kontrol-marka lodia	none
+✗	x-formako buleta	none
+⁰	0 goi-indizea	none
+⁴	4 goi-indizea	none
+⁵	5 goi-indizea	none
+⁶	6 goi-indizea	none
+⁷	7 goi-indizea	none
+⁸	8 goi-indizea	none
+⁹	9 goi-indizea	none
+⁺	plus goi-indizea	none
+⁻	minus goi-indizea	none
+⁼	berdin goi-indizea	none
+⁽	goi-indizeko ezker-parentesia	none
+⁾	goi-indizeko eskuin-parentesia	none
+ⁿ	goi-indizeko n	none
+₀	azpi-indizeko 0	none
+₁	azpi-indizeko 1	none
+₂	azpi-indizeko 2	none
+₃	azpi-indizeko 3	none
+₄	azpi-indizeko 4	none
+₅	azpi-indizeko 5	none
+₆	azpi-indizeko 6	none
+₇	azpi-indizeko 7	none
+₈	azpi-indizeko 8	none
+₉	azpi-indizeko 9	none
+₊	azpi-indizeko plus	none
+₋	azpi-indizeko minus	none
+₌	azpi-indizeko berdin	none
+₍	azpi-indizeko ezker-parentesia	none
+₎	azpi-indizeko eskuin-parentesia	none
 ￼	objektuaren ordezko karakterea	none

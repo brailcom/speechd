@@ -7,5 +7,78 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+ 	เว้นวรรค	char
+\\n	บรรทัดใหม่	char
+\\t	แท็บ	char
+!	อัศเจรีย์	all	always
+"	อัญประกาศ	most
+\\#	ชาร์ป	some
+$	ดอลลาร์	some
+%	เปอร์เซ็นต์	some
+&	และ	some
+(	วงเล็บเปิด	most
+)	วงเล็บปิด	most
+*	ดอกจัน	some
++	บวก	some
+,	จุลภาค	all	always
+-	ประ	most
+.	จุด	all	always
+/	ทับ	some
+:	ทวิภาค	most	always
+;	อัฒภาค	most	always
+<	น้อยกว่า	most
+=	เท่ากับ	some
+>	มากกว่า	most
+?	ปรัศนี	all	always
+@	แอต	some
+\[	วงเล็บเหลี่ยมเปิด	most
+\\\\	แบ็กสแลช	most
+]	วงเล็บเหลี่ยมปิด	most
+^	หมวกคว่ำ	some
+_	ขีดล่าง	most
+{	วงเล็บปีกกาเปิด	most
+|	ขีดตั้ง	most
+}	วงเล็บปีกกาปิด	most
+¡	อัศเจรีย์หัวกลับ	some
+¢	เซ็นต์	some
+£	ปอนด์	some
+¤	หน่วยเงินตรา	all
+¥	เยน	some
+¦	ขีดตั้งขาดกลาง	most
+§	หัวข้อ	some
+©	ลิขสิทธิ์	some
 ª	a ยกขึ้น	some
+«	วงเล็บแหลมคู่เปิด	most
+¬	นิเสธ	some
+­	ยัติภังค์ซอฟต์แวร์	most
+®	จดทะเบียน	some
+°	องศา	some
+±	บวกลบ	some
+²	ยกกำลังสอง	none
+³	ยกกำลังสาม	none
+µ	มิว	some
+¶	กำกับย่อหน้า	most
+·	จุดกลาง	none
+¹	ยกกำลังหนึ่ง	none
 º	ออร์ดินัล	some
+»	วงเล็บแหลมคู่ปิด	most
+¼	หนึ่งในสี่	none
+½	ครึ่งหนึ่ง	none
+¾	สามในสี่	none
+¿	ปรัศนีหัวกลับ	some
+‘	อัญประกาศเดี่ยวเปิด	most
+’	อัญประกาศเดี่ยวปิด	all
+‚	อัญประกาศเดี่ยวล่าง	most
+“	อัญประกาศเปิด	most
+”	อัญประกาศปิด	most
+„	อัญประกาศล่าง	most
+‣	bullet สามเหลี่ยม	none
+‰	เปอร์มิลล์	some
+′	ไพรม์	some
+″	ดับเบิลไพรม์	some
+⁃	bullet ยัติภังค์	none
+€	ยูโร	some
+™	เครื่องหมายการค้า	some
+✓	ถูก	none
+✔	ถูกหนา	none
+✗	bullet รูปกากบาท	none

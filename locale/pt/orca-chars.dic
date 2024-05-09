@@ -25,6 +25,7 @@ symbols:
 Ô	O CIRCUNFLEXO	char	norep
 Õ	O TIL	char	norep
 Ö	O TREMA	char	norep
+×	vezes	some
 Ø	O COM BARRA	char	norep
 Ú	U AGUDO	char	norep
 Û	U CIRCUNFLEXO	char	norep
@@ -47,6 +48,7 @@ symbols:
 ô	o circunflexo	char	norep
 õ	o til	char	norep
 ö	o trema	char	norep
+÷	dividido por	some
 ø	o com traço	char	norep
 ú	u agudo	char	norep
 û	u circunflexo	char	norep

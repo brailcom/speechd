@@ -1,7 +1,7 @@
 #!/bin/bash
 # coding: utf-8
 # Orca symbols import
-# Copyright (C) 2020-2023 Samuel Thibault <samuel.thibault@ens-lyon.org>
+# Copyright (C) 2020-2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
@@ -100,6 +100,7 @@ EOF
 
 for lang in base $(cat orca.polist)
 do
+	echo $lang
 	mkdir -p $lang
 	(
 		cat << EOF
@@ -137,8 +138,7 @@ EOF
 				keep=$'\t'"$keep"
 			fi
 
-			if ! grep "^$sym	" base/symbols.dic > /dev/null 2>&1 && \
-			   ! grep "^$sym	" $lang/symbols.dic > /dev/null 2>&1
+			if ! grep "^$sym	" $lang/symbols.dic > /dev/null 2>&1
 			then
 				translation=`LANGUAGE="$lang" gettext -d orca $CTX "$C_version"`
 

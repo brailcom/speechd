@@ -7,6 +7,116 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+ 	razmak	char
+\\n	nova linija	char
+!	uzvičnik	all	always
+"	navodnik	most
+\\#	broj	some
+$	dolar	some
+%	procenat	some
+&	ampersand	some
+'	apostrof	all
+(	lijeva zagrada	most
+)	desna zagrada	most
+*	zvjezdica	some
+,	zapeta	all	always
+-	crta	most
+.	tačka	all	always
+/	kosa crta	some
+:	dvotačka	most	always
+;	tačka-zarez	most	always
+<	manje	most
+=	jednako	some
+>	veće	most
+?	upitnik	all	always
+@	et	some
+\[	lijeva uglasta	most
+\\\\	obrnuta kosa crta	most
+]	desna uglasta	most
+^	kvakica	some
+_	donja crta	most
+`	gravis	most
+{	lijeva vitičasta	most
+|	vertikalna crta	most
+}	desna vitičasta	most
+~	tilda	most
+ 	razmak	char
+¡	naopaki uzvičnik	some
+¢	centi	some
+£	funte	some
+¤	znak valute	all
+¥	jen	some
+¦	slomljena vertikalna crta	most
+§	odjeljak	some
+©	autorska prava	some
 ª	superskript a	some
+«	duplo manje	most
+¬	logičko ne	some
+­	meko hyphen	most
+®	registrovano	some
+¯	makron	most
+°	stepeni	some
+±	plus minus	some
+²	superskript 2	none
+³	superskript 3	none
+´	akcentovan	most
+µ	mi	some
+¶	paragraf	most
+·	srednja tačka	none
+¸	sjedila	most
+¹	superskript 1	none
 º	oridinal	some
+»	duplo veće	most
+¼	jedna četvrtina	none
+½	jedna polovina	none
+¾	tri četvrtine	none
+¿	naopaki upitnik	some
+ƒ	ef	all
+–	crtica	most
+‘	lijevi jednostruki navodnik	most
+’	desni jednostruki navodnik	all
+‚	jednostruki donji navodnik	most
+“	lijevi dupli navodnik	most
+”	desni dupli navodnik	most
+„	donji dupli navodnik	most
+†	bodež	some
+‡	dupli bodež	some
+•	metak	none
+‣	trokutasti metak	none
+‰	promil	some
+′	prim	some
+″	sekundum	some
+⁃	hyphen metak	none
+™	zaštitni znak	some
+✓	znak tačno	none
+✔	podebljani znak tačno	none
+✗	metak oblika x	none
+⁰	superskript 0	none
+⁴	superskript 4	none
+⁵	superskript 5	none
+⁶	superskript 6	none
+⁷	superskript 7	none
+⁸	superskript 8	none
+⁹	superskript 9	none
+⁺	superskript plus	none
+⁻	superskript minus	none
+⁼	superskript jednako	none
+⁽	superskript lijeva zagrada	none
+⁾	superskript desna zagrada	none
+ⁿ	superskript n	none
+₀	superskript 0	none
+₁	superskript 1	none
+₂	superskript 2	none
+₃	superskript 3	none
+₄	superskript 4	none
+₅	superskript 5	none
+₆	superskript 6	none
+₇	superskript 7	none
+₈	superskript 8	none
+₉	superskript 9	none
+₊	superskript plus	none
+₋	superskript minus	none
+₌	superskript jednako	none
+₍	superskript lijeva zagrada	none
+₎	superskript desna zagrada	none
 ￼	karakter za promjenu objekta	none
