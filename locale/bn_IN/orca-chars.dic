@@ -8,6 +8,7 @@
 
 symbols:
 á	a একিউট	char	norep
+×	বার	some
 ß	s সার্প	char	norep
 à	গ্রেভ	char	norep
 â	a সারকামফ্লেক্স	char	norep
@@ -25,6 +26,7 @@ symbols:
 ó	o একিউট	char	norep
 ô	o সারকামফ্লেক্স	char	norep
 õ	o টিল্ডা	char	norep
+÷	এর দ্বারা ভাহ করা হয়েছে	some
 ø	o স্ট্রোক	char	norep
 þ	থর্ন	char	norep
 ú	u একিউট	char	norep

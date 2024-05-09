@@ -7,52 +7,62 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-á	a aguda	char	norep
-À	A GREU	char	norep
-Á	A AGUDA	char	norep
-Ã	A TITLLA	char	norep
-Ä	A DIÈRESI	char	norep
+á	a amb accent tancat	char	norep
+À	A AMB ACCENT OBERT	char	norep
+Á	A AMB ACCENT TANCAT	char	norep
+Â	A AMB ACCENT CIRCUMFLEX	char	norep
+Ã	A AMB TITLLA	char	norep
+Ä	A AMB DIÈRESI	char	norep
 Å	A AMB CERCLE	char	norep
 Ç	C TRENCADA	char	norep
-È	E GREU	char	norep
-É	E AGUDA	char	norep
-Ë	E DIÈRESI	char	norep
-Ì	I GREU	char	norep
-Í	I AGUDA	char	norep
-Ï	I DIÈRESI	char	norep
-Ñ	N TITLLA	char	norep
-Ò	O GREU	char	norep
-Ó	O AGUDA	char	norep
-Õ	O TITLLA	char	norep
-Ö	O DIÈRESI	char	norep
+È	E AMB ACCENT OBERT	char	norep
+É	E AMB ACCENT TANCAT	char	norep
+Ê	E AMB ACCENT CIRCUMFLEX	char	norep
+Ë	E AMB DIÈRESI	char	norep
+Ì	I AMB ACCENT OBERT	char	norep
+Í	I AMB ACCENT TANCAT	char	norep
+Î	I AMB ACCENT CIRCUMFLEX	char	norep
+Ï	I AMB DIÈRESI	char	norep
+Ñ	N AMB TITLLA	char	norep
+Ò	O AMB ACCENT OBERT	char	norep
+Ó	O AMB ACCENT TANCAT	char	norep
+Ô	O AMB ACCENT CIRCUMFLEX	char	norep
+Õ	O AMB TITLLA	char	norep
+Ö	O AMB DIÈRESI	char	norep
 Ø	O BARRADA	char	norep
-Ù	U GREU	char	norep
-Ú	U AGUDA	char	norep
-Ü	U DIÈRESI	char	norep
-Ý	Y AGUDA	char	norep
+Ù	U AMB ACCENT OBERT	char	norep
+Ú	U AMB ACCENT TANCAT	char	norep
+Û	U AMB ACCENT CIRCUMFLEX	char	norep
+Ü	U AMB DIÈRESI	char	norep
+Ý	Y AMB ACCENT TANCAT	char	norep
 ß	eszet	char	norep
-à	a greu	char	norep
-ã	a titlla	char	norep
-ä	a dièresi	char	norep
+à	a amb accent obert	char	norep
+â	a amb accent circumflex	char	norep
+ã	a amb titlla	char	norep
+ä	a amb dièresi	char	norep
 å	a amb cercle	char	norep
 ç	c trencada	char	norep
-è	e greu	char	norep
-é	e aguda	char	norep
-ë	e dièresi	char	norep
-ì	i greu	char	norep
-í	i aguda	char	norep
-ï	i dièresi	char	norep
-ñ	n titlla	char	norep
-ò	o greu	char	norep
-ó	o aguda	char	norep
-õ	o titlla	char	norep
-ö	o dièresi	char	norep
+è	e amb accent obert	char	norep
+é	e amb accent tancat	char	norep
+ê	e amb accent circumflex	char	norep
+ë	e amb dièresi	char	norep
+ì	i amb accent obert	char	norep
+í	i amb accent tancat	char	norep
+î	i amb accent circumflex	char	norep
+ï	i amb dièresi	char	norep
+ñ	n amb titlla	char	norep
+ò	o amb accent obert	char	norep
+ó	o amb accent tancat	char	norep
+ô	o amb accent circumflex	char	norep
+õ	o amb titlla	char	norep
+ö	o amb dièresi	char	norep
 ø	o barrada	char	norep
-ú	u aguda	char	norep
-ù	u greu	char	norep
-ü	u dièresi	char	norep
-ý	y aguda	char	norep
-ÿ	y dièresi	char	norep
-Ÿ	Y DIÈRESI	char	norep
+ú	u amb accent obert	char	norep
+ù	u amb accent tancat	char	norep
+û	u amb accent circumflex	char	norep
+ü	u amb dièresi	char	norep
+ý	y amb accent tancat	char	norep
+ÿ	y amb dièresi	char	norep
+Ÿ	Y AMB DIÈRESI	char	norep
 	quadrat negre	none
 	diamant negre	none

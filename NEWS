@@ -5,7 +5,7 @@ Version 0.12 (unreleased)
 * libspeechd: Simplify buffer management.
 * Fix use of semaphores on MacOS.
 * Fix splitting long UTF-8 sequences.
-* Update CLDR to version 44 and symbols from NVDA.
+* Update CLDR to version 44, symbols from orca 45.2, and symbols from NVDA.
 * Add spd_fd function to C api.
 * Detect module failures from generic module.
 * Make the fallback espeak-ng and dummy modules hardcoded.

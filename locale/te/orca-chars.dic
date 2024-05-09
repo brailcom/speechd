@@ -29,6 +29,7 @@ symbols:
 Ô	O సర్‌కమ్‌ఫ్లక్స్‍	char	norep
 Õ	O టిల్డ్‍	char	norep
 Ö	O ఆమ్లౌట్	char	norep
+×	సమయాలు	some
 Ø	O స్ట్రోక్	char	norep
 Ù	U గ్రేవ్	char	norep
 Ú	U ఎక్యూట్	char	norep
@@ -57,6 +58,7 @@ symbols:
 ô	o సర్‌కమ్‌ఫ్లెక్స్‍	char	norep
 õ	o టిల్డ్‍	char	norep
 ö	o ఆమ్లౌట్	char	norep
+÷	దీని ద్వారా విభజించబడింది	some
 ø	o స్ట్రోక్	char	norep
 þ	థ్రోన్	char	norep
 ú	u ఎక్యూట్	char	norep

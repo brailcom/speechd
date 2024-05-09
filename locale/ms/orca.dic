@@ -7,5 +7,106 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+ 	jarak	char
+\\n	barisbaru	char
+!	tanda soal	all	always
+"	petikan	most
+\\#	nombor	some
+%	peratus	some
+&	dan	some
+'	koma atas	all
+(	paren kiri	most
+)	paren kanan	most
+*	bintang	some
++	tambah	some
+,	koma	all	always
+-	sengkang	most
+/	miring	some
+:	titik bertindih	most	always
+;	koma bertitik	most	always
+<	kurang	most
+=	sama dengan	some
+>	lebih besar	most
+?	soalan	all	always
+@	pada	some
+\[	kurung kiri	most
+]	kurung kanan	most
+^	karet	some
+_	garis bawah	most
+{	tanda dakap kiri	most
+|	palang menegak	most
+}	tanda dakap kanan	most
+ 	tiada jarak hentian	char
+¡	tanda seruan terbalik	some
+¢	sen	some
+£	pound	some
+¤	tanda mata wang	all
+¦	palang putus	most
+§	bahagian	some
+¨	diaresis	most
+©	hakcipta	some
 ª	superskrip a	some
+«	kurung ganda bersudut kiri	most
+¬	logikal not	some
+­	sengkang lembut	most
+®	berdaftar	some
+¯	makron	most
+°	darjah	some
+±	tambah atau tolak	some
+²	superskrip 2	none
+³	superskrip 3	none
+¶	penanda perenggan	most
+·	titik tengah	none
+¸	sedila	most
+¹	superskrip 1	none
+»	kurung ganda bersudut kanan	most
+¼	satu per empat	none
+½	setengah	none
+¾	tiga suku	none
+¿	tanda soal terbalik	some
+‘	kiri tunggal kutipan	most
+’	kanan tunggal kutipan	all
+‚	tunggal rendah kutipan	most
+“	kiri kutipan ganda	most
+”	kanan ganda kutipan	most
+„	ganda rendah kutipan	most
+†	pisau belati	some
+‡	belati ganda	some
+‣	bullet segitiga	none
+′	prima	some
+″	prima berganda	some
+‴	prime ganda tiga	some
+⁃	bullet sengkang	none
+™	cap dagang	some
+✓	tanda semak	none
+✔	tanda semak tebal	none
+✗	bullet bentuk-x	none
+⁰	superskrip 0	none
+⁴	superskrip 4	none
+⁵	superskrip 5	none
+⁶	superskrip 6	none
+⁷	superskrip 7	none
+⁸	superskrip 8	none
+⁹	superskrip 9	none
+⁺	superskrip tambah	none
+⁻	superskrip tolak	none
+⁼	superskrip sama dengan	none
+⁽	superskrip paren kiri	none
+⁾	superskrip paren kanan	none
+ⁿ	superskrip n	none
+₀	subskrip 0	none
+₁	subskrip 1	none
+₂	subskrip 2	none
+₃	subskrip 3	none
+₄	subskrip 4	none
+₅	subskrip 5	none
+₆	subskrip 6	none
+₇	subskrip 7	none
+₈	subskrip 8	none
+₉	subskrip 9	none
+₊	subskrip tambah	none
+₋	subskrip tolak	none
+₌	subskrip sama dengan	none
+₍	subskrip paren kiri	none
+₎	subskrip paren kanan	none
 ￼	aksara pengganti objek	none

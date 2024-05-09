@@ -7,5 +7,19 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+\\\\	شَّرطة معكوسة	most
+¦	خط عمودي منكسر	most
 ª	a علوي	some
+¬	'لا' منطقي	some
+¯	خط افقي علوي	most
+¸	فاصلة	most
 º	العدد الترتيبي	some
+¼	ربع	none
+½	نص	none
+¾	ثلاثة أرباع	none
+†	علامة الصليب	some
+‡	رمز صليب مزدوج	some
+‣	علامة مثلثية	none
+′	فتحة	some
+″	فتحتين	some
+✗	علامة x	none
