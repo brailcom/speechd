@@ -1337,13 +1337,17 @@ int main(int argc, char *argv[])
 		g_free(spawn_socket_path);
 	}
 
+	char *sock_fd = getenv("SPEECHD_SOCK_FD");
+	if (sock_fd) {
+		server_socket = atoi(sock_fd);
+	}
 #ifdef USE_LIBSYSTEMD
-	if (sd_listen_fds(0) >= 1) {
+	else if (sd_listen_fds(0) >= 1) {
 		MSG(4, "Daemon launched via Systemd socket activation");
 		server_socket = SD_LISTEN_FDS_START;
-	} else
+	}
 #endif
-	if (!strcmp(SpeechdOptions.communication_method, "inet_socket")) {
+	else if (!strcmp(SpeechdOptions.communication_method, "inet_socket")) {
 		MSG(4, "Speech Dispatcher will use inet port %d",
 		    SpeechdOptions.port);
 		/* Connect and start listening on inet socket */
