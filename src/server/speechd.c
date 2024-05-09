@@ -105,7 +105,7 @@ TSpeechDMode spd_mode;
 
 static gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer user);
 static gboolean speechd_reload_dead_modules(gpointer user_data);
-static gboolean speechd_load_configuration(gpointer user_data);
+static gboolean speechd_reload_configuration(gpointer user_data);
 enum quit_reason {
 	QUIT_SIGINT,
 	QUIT_SIGTERM,
@@ -121,6 +121,8 @@ static gboolean client_process_incoming (gint          fd,
 				  GIOCondition  condition,
 				  gpointer      data);
 
+static void speechd_load_configuration(void);
+static void speechd_check_modules(void);
 static void check_client_count(void);
 
 #ifndef HAVE_DAEMON
@@ -668,19 +670,13 @@ void speechd_init()
 	/* Load configuration from the config file */
 	MSG(4, "Reading Speech Dispatcher configuration from %s",
 	    SpeechdOptions.conf_file);
-	speechd_load_configuration(NULL);
+	speechd_load_configuration();
+	module_load_requested_modules();
 
 	logging_init();
 	MSG(1, "Speech Dispatcher " VERSION " log start");
 
-	/* Check for output modules */
-	if (g_list_length(output_modules) == 0) {
-		DIE("No speech output modules were loaded - aborting...");
-	} else {
-		MSG(3, "Speech Dispatcher started with %d output module%s",
-		    g_list_length(output_modules),
-		    g_list_length(output_modules) > 1 ? "s" : "");
-	}
+	speechd_check_modules();
 
 	last_p5_block = NULL;
 }
@@ -741,7 +737,7 @@ static gint modules_compare (gconstpointer a, gconstpointer b)
 	return strcmp(name_a, name_b);
 }
 
-static gboolean speechd_load_configuration(gpointer user_data)
+static void speechd_load_configuration(void)
 {
 	configfile_t *configfile = NULL;
 	GList *detected_modules = NULL;
@@ -835,15 +831,30 @@ static gboolean speechd_load_configuration(gpointer user_data)
 						"dummy"),
 				NULL,
 				NULL);
-
-		module_load_requested_modules();
 	} else {
 		MSG(1, "Can't open %s", SpeechdOptions.conf_file);
 	}
 
 	free_config_options(spd_options, &spd_num_options);
+}
 
+static gboolean speechd_reload_configuration(gpointer user_data)
+{
+	speechd_load_configuration();
+	module_load_requested_modules();
 	return TRUE;
+}
+
+static void speechd_check_modules(void)
+{
+	/* Check for output modules */
+	if (g_list_length(output_modules) == 0) {
+		DIE("No speech output modules were loaded - aborting...");
+	} else {
+		MSG(3, "Speech Dispatcher started with %d output module%s",
+		    g_list_length(output_modules),
+		    g_list_length(output_modules) > 1 ? "s" : "");
+	}
 }
 
 static gboolean speechd_quit(gpointer user_data)
@@ -1372,7 +1383,7 @@ int main(int argc, char *argv[])
         main_loop = g_main_loop_new(g_main_context_default(), FALSE);
 	g_unix_signal_add(SIGINT, speechd_quit, (void*) (uintptr_t) QUIT_SIGINT);
 	g_unix_signal_add(SIGTERM, speechd_quit, (void*) (uintptr_t) QUIT_SIGTERM);
-	g_unix_signal_add(SIGHUP, speechd_load_configuration, NULL);
+	g_unix_signal_add(SIGHUP, speechd_reload_configuration, NULL);
 	g_unix_signal_add(SIGUSR1, speechd_reload_dead_modules, NULL);
 	(void)signal(SIGPIPE, SIG_IGN);
 
