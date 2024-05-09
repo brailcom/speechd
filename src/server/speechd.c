@@ -121,7 +121,7 @@ static gboolean client_process_incoming (gint          fd,
 				  GIOCondition  condition,
 				  gpointer      data);
 
-void check_client_count(void);
+static void check_client_count(void);
 
 #ifndef HAVE_DAEMON
 /* Added by Willie Walker - daemon is a common, but not universal, extension.
@@ -1081,7 +1081,7 @@ gboolean client_process_incoming (gint          fd,
 	return TRUE;
 }
 
-void check_client_count(void)
+static void check_client_count(void)
 {
 	if (client_count <= 0
 	    && SpeechdOptions.server_timeout > 0) {
