@@ -32,6 +32,7 @@ speech_dispatcher_CPPFLAGS = $(inc_local) $(DOTCONF_CFLAGS) $(GLIB_CFLAGS) \
 	$(GMODULE_CFLAGS) $(GTHREAD_CFLAGS) $(LIBSYSTEMD_CFLAGS) \
 	-DSYS_CONF=\"$(spdconfdir)\" \
 	-DSND_DATA=\"$(snddatadir)\" \
+	-DBINDIR=\"$(bindir)\" \
 	-DMODULEBINDIR=\"$(modulebindir)\" \
 	-DOLDMODULEBINDIR=\"$(oldmodulebindir)\" \
 	-DLOCALE_DATA=\"$(localedatadir)\" \
