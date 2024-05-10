@@ -671,12 +671,14 @@ void speechd_init()
 	MSG(4, "Reading Speech Dispatcher configuration from %s",
 	    SpeechdOptions.conf_file);
 	speechd_load_configuration();
-	module_load_requested_modules();
 
 	logging_init();
 	MSG(1, "Speech Dispatcher " VERSION " log start");
 
+#ifndef DARWIN_HOST /* On Darwin we have to delay to after daemon+exec */
+	module_load_requested_modules();
 	speechd_check_modules();
+#endif
 
 	last_p5_block = NULL;
 }
@@ -1381,7 +1383,27 @@ int main(int argc, char *argv[])
 		unlink(SpeechdOptions.pid_file);
 		if (create_pid_file() == -1)
 			return -1;
+
+#ifdef DARWIN_HOST
+		/* On Darwin, libao sound will break if just forking, we have to re-exec, see
+		 * https://developer.apple.com/library/archive/technotes/tn2083/_index.html#//apple_ref/doc/uid/DTS10003794-CH1-SUBSUBSECTION66
+		 */
+		char *args[argc+2];
+		memcpy(args, argv, argc * sizeof *argv);
+		args[argc] = "-s";
+		args[argc+1] = NULL;
+		char sock[64];
+		sprintf(sock, "SPEECHD_SOCK_FD=%d", server_socket);
+		putenv(sock);
+		if (execv(BINDIR "/speech-dispatcher", args))
+			FATAL("Can't exec child process");
+#endif
 	}
+
+#ifdef DARWIN_HOST
+	module_load_requested_modules();
+	speechd_check_modules();
+#endif
 
 	/* Set up the main loop and register signals */
         main_loop = g_main_loop_new(g_main_context_default(), FALSE);
