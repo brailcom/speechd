@@ -50,8 +50,8 @@ libspeechd_module_la_LDFLAGS = -version-info 0:0:0
 # These are some common helper that speech-dispatcher-provided modules share to
 # process configuration, process ssml, audio, etc.
 #
-common_SOURCES = module_main.c module_readline.c module_process.c module_config.c module_utils.c module_utils.h
-common_LDADD = $(DOTCONF_LIBS) $(GLIB_LIBS) $(audio_dlopen) -lpthread
+common_SOURCES = module_config.c module_utils.c module_utils.h
+common_LDADD = libspeechd_module.la $(DOTCONF_LIBS) $(GLIB_LIBS) $(audio_dlopen) -lpthread
 
 module_utils_CPPFLAGS = $(AM_CPPFLAGS) \
 	$(DOTCONF_CFLAGS)
