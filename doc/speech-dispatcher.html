@@ -3570,10 +3570,9 @@ ways to do it.
 <p>Either you can program it all yourself, which is fine as long as you stick to
 the definition of an output module and its communication protocol.
 </p>
-<p>You can also use our <samp class="file">module_main.c</samp>, <samp class="file">module_readline.c</samp>,
-<samp class="file">module_process.c</samp>, and <samp class="file">module_main.h</samp>, which deal with the
+<p>You can also use our <samp class="file">libspeechd_module</samp> library, which deals with the
 communication protocol and other formal things that are common for all modules.
-They are provided under a BSD licence and thus allow to integrate them along
+It is provided under a BSD licence and thus allow to integrate it along
 proprietary software. You will have to provide a series of functions, an example
 is provided in <code class="code">src/modules/skeleton0.c</code>, which can freely serve as a basic
 for your module. You can also read <code class="code">src/modules/skeleton0_espeak-ng*.c</code>,
@@ -3621,9 +3620,8 @@ Next: <a href="#The-Skeleton-of-an-Output-Module" accesskey="n" rel="next">The S
 with <code class="code">skeleton0.c</code>. Add the synthesis initialization call
 with default parameters to <code class="code">module_init</code>, the synchronous
 synthesizing call to <code class="code">module_speak_sync</code>, and the synthesis
-shutdown call to <code class="code">module_close</code>. Compile this along
-<samp class="file">module_main.c</samp>, <samp class="file">module_readline.c</samp>, <samp class="file">module_process.c</samp>, and
-<samp class="file">module_main.h</samp>. Install this along other modules, and create an empty
+shutdown call to <code class="code">module_close</code>. Link this with
+<samp class="file">libspeechd-module</samp>. Install this along other modules, and create an empty
 configuration file for it. This should already provide you with a working
 module, though with very limited support.
 </p>
@@ -3721,6 +3719,10 @@ Next: <a href="#Output-Module-Functions" accesskey="n" rel="next">Output Module 
 </div>
 <h4 class="subsection" id="The-Skeleton-of-an-Output-Module-1"><span>5.2.5 The Skeleton of an Output Module<a class="copiable-link" href="#The-Skeleton-of-an-Output-Module-1"> &para;</a></span></h4>
 
+<p>The section above documented how to write an output module in general. In this
+section, we document the preferred way for writing modules to be shipped with
+speech-dispatcher.
+</p>
 <p>Each output module should include <samp class="file">module_utils.h</samp> where the
 SPDMsgSettings structure is defined to be able to handle the different
 speech synthesis settings.  This file also provides tools which help

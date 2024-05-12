@@ -21,7 +21,7 @@ EXTRA_DIST = baratinoo_shim.c README.baratinoo
 EXTRA_DIST += kali_Kali_shim.cpp kali_KGlobal_shim.cpp kali_KTrans_shim.cpp kali_KParle_shim.cpp kali_KAnalyse_shim.cpp
 EXTRA_DIST += ibmtts_shim.c eci.h
 EXTRA_DIST += voxin_shim.c voxin.h
-EXTRA_DIST += module_main.h module_utils.h
+EXTRA_DIST += module_utils.h
 EXTRA_DIST += dummy-message-default.wav
 EXTRA_DIST += dummy-message.txt
 CLEANFILES = dummy-message.wav
@@ -36,6 +36,15 @@ endif
 AM_CFLAGS = $(ERROR_CFLAGS)
 AM_CXXFLAGS = $(ERROR_CFLAGS)
 AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" $(GLIB_CFLAGS)
+
+#
+# This is the BSD-licensed helper library that people can use to create their
+# own speech-dispatcher module
+#
+spdinclude_HEADERS = module_main.h
+lib_LTLIBRARIES = libspeechd_module.la
+libspeechd_module_la_SOURCES = module_main.c module_readline.c module_process.c
+libspeechd_module_la_LDFLAGS = -version-info 0:0:0
 
 #
 # These are some common helper that speech-dispatcher-provided modules share to
@@ -54,7 +63,8 @@ module_utils_play_CPPFLAGS = $(AM_CPPFLAGS) \
 # skeleton0 example module
 #
 noinst_PROGRAMS = sd_skeleton0
-sd_skeleton0_SOURCES = skeleton0.c module_main.c module_readline.c module_process.c
+sd_skeleton0_SOURCES = skeleton0.c
+sd_skeleton0_LDADD = libspeechd_module.la
 
 #
 # skeleton example module
@@ -62,6 +72,7 @@ sd_skeleton0_SOURCES = skeleton0.c module_main.c module_readline.c module_proces
 noinst_PROGRAMS += sd_skeleton_config
 sd_skeleton_config_SOURCES = skeleton_config.c $(common_SOURCES)
 sd_skeleton_config_LDADD = $(top_builddir)/src/common/libcommon.la \
+	libspeechd_module.la \
 	$(audio_dlopen_modules) \
 	$(common_LDADD)
 
@@ -173,33 +184,33 @@ install-exec-hook: install-exec-hook-espeak
 # espeak-ng-based skeleton0 example module
 #
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync
-sd_skeleton0_espeak_ng_sync_SOURCES = skeleton0_espeak-ng-sync.c module_main.c module_readline.c module_process.c
+sd_skeleton0_espeak_ng_sync_SOURCES = skeleton0_espeak-ng-sync.c
 sd_skeleton0_espeak_ng_sync_CFLAGS = $(ESPEAK_NG_CFLAGS)
-sd_skeleton0_espeak_ng_sync_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+sd_skeleton0_espeak_ng_sync_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 
 #
 # espeak-ng-based skeleton0 example module with asynchronous support
 #
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-async
-sd_skeleton0_espeak_ng_async_SOURCES = skeleton0_espeak-ng-async.c module_main.c module_readline.c module_process.c
+sd_skeleton0_espeak_ng_async_SOURCES = skeleton0_espeak-ng-async.c
 sd_skeleton0_espeak_ng_async_CFLAGS = $(ESPEAK_NG_CFLAGS)
-sd_skeleton0_espeak_ng_async_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+sd_skeleton0_espeak_ng_async_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 
 #
 # espeak-ng-based skeleton0 example module with server audio
 #
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync-server
-sd_skeleton0_espeak_ng_sync_server_SOURCES = skeleton0_espeak-ng-sync-server.c module_main.c module_readline.c module_process.c
+sd_skeleton0_espeak_ng_sync_server_SOURCES = skeleton0_espeak-ng-sync-server.c
 sd_skeleton0_espeak_ng_sync_server_CFLAGS = $(ESPEAK_NG_CFLAGS)
-sd_skeleton0_espeak_ng_sync_server_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+sd_skeleton0_espeak_ng_sync_server_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 
 #
 # espeak-ng-based skeleton0 example module with asynchronous support and server audio
 #
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-async-server
-sd_skeleton0_espeak_ng_async_server_SOURCES = skeleton0_espeak-ng-async-server.c module_main.c module_readline.c module_process.c
+sd_skeleton0_espeak_ng_async_server_SOURCES = skeleton0_espeak-ng-async-server.c
 sd_skeleton0_espeak_ng_async_server_CFLAGS = $(ESPEAK_NG_CFLAGS)
-sd_skeleton0_espeak_ng_async_server_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
+sd_skeleton0_espeak_ng_async_server_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 endif
 
 #
