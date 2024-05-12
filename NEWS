@@ -2,6 +2,7 @@ Version 0.12 (unreleased)
 * Add openjtalk module.
 * Add socket activation.
 * Add language and variant parameters to "list voice" command.
+* Add libspeechd-module library for making it simpler to create external spd modules.
 * libspeechd: Simplify buffer management.
 * Fix use of semaphores on MacOS.
 * Fix splitting long UTF-8 sequences.

@@ -3044,10 +3044,9 @@ ways to do it.
 Either you can program it all yourself, which is fine as long as you stick to
 the definition of an output module and its communication protocol.
 
-You can also use our @file{module_main.c}, @file{module_readline.c},
-@file{module_process.c}, and @file{module_main.h}, which deal with the
+You can also use our @file{libspeechd_module} library, which deals with the
 communication protocol and other formal things that are common for all modules.
-They are provided under a BSD licence and thus allow to integrate them along
+It is provided under a BSD license and thus allows to integrate it along
 proprietary software. You will have to provide a series of functions, an example
 is provided in @code{src/modules/skeleton0.c}, which can freely serve as a basic
 for your module. You can also read @code{src/modules/skeleton0_espeak-ng*.c},
@@ -3093,9 +3092,8 @@ If you go for the BSD-provided skeleton way, you can start
 with @code{skeleton0.c}. Add the synthesis initialization call
 with default parameters to @code{module_init}, the synchronous
 synthesizing call to @code{module_speak_sync}, and the synthesis
-shutdown call to @code{module_close}. Compile this along
-@file{module_main.c}, @file{module_readline.c}, @file{module_process.c}, and
-@file{module_main.h}. Install this along other modules, and create an empty
+shutdown call to @code{module_close}. Link this with
+@file{libspeechd-module}. Install this along other modules, and create an empty
 configuration file for it. This should already provide you with a working
 module, though with very limited support.
 
@@ -3186,6 +3184,10 @@ accordingly.
 
 @node The Skeleton of an Output Module, Output Module Functions, How to Write New Output Module, Output Modules
 @subsection The Skeleton of an Output Module
+
+The previous section documented how to write an output module in general. In this
+section, we document the preferred way for writing modules to be shipped with
+speech-dispatcher.
 
 Each output module should include @file{module_utils.h} where the
 SPDMsgSettings structure is defined to be able to handle the different

@@ -130,10 +130,14 @@ that GPL licensing propagation doesn't apply.
 
 The speech modules are connected to the central server through a pipe with
 a very simple protocol similar to SSIP, in such a way that GPL licensing
-propagation doesn't apply either. To make writing speech modules simpler, some
-module helpers are provided under a BSD-2 license, which can thus be combined
-with essentially any other license. Some more advanced module helpers are also
-provided under LGPLv2.1-or-later, but they are not mandatory.
+propagation doesn't apply either.
+
+To make writing speech modules simpler, a libspeechd_module library is provided
+under a BSD-2 license, which can thus be combined with essentially any other
+license.
+
+Some more advanced module helpers are also provided under LGPLv2.1-or-later, but
+they are not mandatory.
 
 
 
