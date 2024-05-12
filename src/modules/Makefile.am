@@ -27,8 +27,6 @@ EXTRA_DIST += dummy-message.txt
 CLEANFILES = dummy-message.wav
 
 inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/common
-common_SOURCES = module_main.c module_readline.c module_process.c module_config.c module_utils.c module_utils.h
-common_LDADD = $(DOTCONF_LIBS) $(GLIB_LIBS) $(audio_dlopen) -lpthread
 LDFLAGS =
 
 if DARWIN_HOST
@@ -39,23 +37,38 @@ AM_CFLAGS = $(ERROR_CFLAGS)
 AM_CXXFLAGS = $(ERROR_CFLAGS)
 AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" $(GLIB_CFLAGS)
 
+#
+# These are some common helper that speech-dispatcher-provided modules share to
+# process configuration, process ssml, audio, etc.
+#
+common_SOURCES = module_main.c module_readline.c module_process.c module_config.c module_utils.c module_utils.h
+common_LDADD = $(DOTCONF_LIBS) $(GLIB_LIBS) $(audio_dlopen) -lpthread
+
 module_utils_CPPFLAGS = $(AM_CPPFLAGS) \
 	$(DOTCONF_CFLAGS)
 
 module_utils_play_CPPFLAGS = $(AM_CPPFLAGS) \
 	$(SNDFILE_CFLAGS)
 
-noinst_PROGRAMS = sd_skeleton0 sd_skeleton_config
-
+#
+# skeleton0 example module
+#
+noinst_PROGRAMS = sd_skeleton0
 sd_skeleton0_SOURCES = skeleton0.c module_main.c module_readline.c module_process.c
 
+#
+# skeleton example module
+#
+noinst_PROGRAMS += sd_skeleton_config
 sd_skeleton_config_SOURCES = skeleton_config.c $(common_SOURCES)
 sd_skeleton_config_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(common_LDADD)
 
-modulebin_PROGRAMS = sd_dummy sd_generic sd_festival sd_cicero
-
+#
+# dummy module
+#
+modulebin_PROGRAMS = sd_dummy
 sd_dummy_SOURCES = dummy.c $(common_SOURCES) \
 	module_utils_addvoice.c
 sd_dummy_LDADD = $(top_builddir)/src/common/libcommon.la \
@@ -63,22 +76,37 @@ sd_dummy_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(common_LDADD)
 dist_snddata_DATA = dummy-message.wav
 
+#
+# festival module
+#
+modulebin_PROGRAMS += sd_festival
 sd_festival_SOURCES = festival.c festival_client.c festival_client.h \
 	$(common_SOURCES)
 sd_festival_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(common_LDADD) $(EXTRA_SOCKET_LIBS)
 
+#
+# generic module
+#
+modulebin_PROGRAMS += sd_generic
 sd_generic_SOURCES = generic.c $(common_SOURCES) \
 	module_utils_addvoice.c
 sd_generic_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(common_LDADD)
 
+#
+# cicero module
+#
+modulebin_PROGRAMS += sd_cicero
 sd_cicero_SOURCES = cicero.c $(common_SOURCES)
 sd_cicero_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(audio_dlopen_modules) \
 	$(common_LDADD)
 
+#
+# flite module
+#
 if flite_support
 modulebin_PROGRAMS += sd_flite
 sd_flite_SOURCES = flite.c $(common_SOURCES)
@@ -87,6 +115,9 @@ sd_flite_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(common_LDADD)
 endif
 
+#
+# ibmtts module
+#
 if ibmtts_support
 modulebin_PROGRAMS += sd_ibmtts
 sd_ibmtts_SOURCES = ibmtts.c $(common_SOURCES) \
@@ -112,6 +143,9 @@ CLEANFILES += $(EXTRA_sd_ibmtts_DEPENDENCIES)
 endif
 endif
 
+#
+# espeak/espeak-ng module
+#
 if espeak_support
 modulebin_PROGRAMS += sd_espeak
 sd_espeak_SOURCES = espeak.c $(common_SOURCES)
@@ -135,27 +169,42 @@ install-exec-hook-espeak:
 		$(LN_S) sd_espeak-ng sd_espeak-ng-mbrola
 install-exec-hook: install-exec-hook-espeak
 
+#
+# espeak-ng-based skeleton0 example module
+#
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync
 sd_skeleton0_espeak_ng_sync_SOURCES = skeleton0_espeak-ng-sync.c module_main.c module_readline.c module_process.c
 sd_skeleton0_espeak_ng_sync_CFLAGS = $(ESPEAK_NG_CFLAGS)
 sd_skeleton0_espeak_ng_sync_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 
+#
+# espeak-ng-based skeleton0 example module with asynchronous support
+#
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-async
 sd_skeleton0_espeak_ng_async_SOURCES = skeleton0_espeak-ng-async.c module_main.c module_readline.c module_process.c
 sd_skeleton0_espeak_ng_async_CFLAGS = $(ESPEAK_NG_CFLAGS)
 sd_skeleton0_espeak_ng_async_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 
+#
+# espeak-ng-based skeleton0 example module with server audio
+#
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync-server
 sd_skeleton0_espeak_ng_sync_server_SOURCES = skeleton0_espeak-ng-sync-server.c module_main.c module_readline.c module_process.c
 sd_skeleton0_espeak_ng_sync_server_CFLAGS = $(ESPEAK_NG_CFLAGS)
 sd_skeleton0_espeak_ng_sync_server_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 
+#
+# espeak-ng-based skeleton0 example module with asynchronous support and server audio
+#
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-async-server
 sd_skeleton0_espeak_ng_async_server_SOURCES = skeleton0_espeak-ng-async-server.c module_main.c module_readline.c module_process.c
 sd_skeleton0_espeak_ng_async_server_CFLAGS = $(ESPEAK_NG_CFLAGS)
 sd_skeleton0_espeak_ng_async_server_LDADD = $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 endif
 
+#
+# ivona module
+#
 if ivona_support
 modulebin_PROGRAMS += sd_ivona
 sd_ivona_SOURCES = ivona.c ivona_client.c ivona_client.h \
@@ -167,6 +216,9 @@ sd_ivona_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(common_LDADD)
 endif
 
+#
+# pico module
+#
 if pico_support
 modulebin_PROGRAMS += sd_pico
 sd_pico_SOURCES = pico.c $(common_SOURCES)
@@ -175,6 +227,9 @@ sd_pico_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(common_LDADD)
 endif
 
+#
+# baratinoo module
+#
 if baratinoo_support
 modulebin_PROGRAMS += sd_baratinoo
 sd_baratinoo_SOURCES = baratinoo.c baratinoo_compat.h $(common_SOURCES)
@@ -194,6 +249,9 @@ CLEANFILES += $(EXTRA_sd_baratinoo_DEPENDENCIES)
 endif
 endif
 
+#
+# kali module
+#
 if kali_support
 modulebin_PROGRAMS += sd_kali
 KALI_DIR = /usr/lib/kali
@@ -218,6 +276,9 @@ CLEANFILES += $(EXTRA_sd_kali_DEPENDENCIES)
 endif
 endif
 
+#
+# voxin module
+#
 if voxin_support
 modulebin_PROGRAMS += sd_voxin
 sd_voxin_SOURCES = ibmtts.c $(common_SOURCES) \
@@ -241,6 +302,19 @@ CLEANFILES += $(EXTRA_sd_voxin_DEPENDENCIES)
 endif
 endif
 
+#
+# openjtalk module
+#
+modulebin_PROGRAMS += sd_openjtalk
+sd_openjtalk_SOURCES = openjtalk.c $(common_SOURCES)
+sd_openjtalk_LDADD = $(top_builddir)/src/common/libcommon.la \
+	$(common_LDADD)
+sd_openjtalk_CPPFLAGS = $(AM_CPPFLAGS) \
+	$(DOTCONF_CFLAGS)
+
+#
+# Dummy module speech message
+#
 if flite_dummy_message
 dummy-message.wav: dummy-message.txt
 	$(FLITE) -voice slt -w $@ -f $<
@@ -253,12 +327,5 @@ dummy-message.wav: dummy-message-default.wav
 	cp $< $@
 endif
 endif
-
-modulebin_PROGRAMS += sd_openjtalk
-sd_openjtalk_SOURCES = openjtalk.c $(common_SOURCES)
-sd_openjtalk_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(common_LDADD)
-sd_openjtalk_CPPFLAGS = $(AM_CPPFLAGS) \
-	$(DOTCONF_CFLAGS)
 
 -include $(top_srcdir)/git.mk
