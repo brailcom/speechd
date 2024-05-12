@@ -3093,7 +3093,7 @@ with @code{skeleton0.c}. Add the synthesis initialization call
 with default parameters to @code{module_init}, the synchronous
 synthesizing call to @code{module_speak_sync}, and the synthesis
 shutdown call to @code{module_close}. Link this with
-@file{libspeechd-module}. Install this along other modules, and create an empty
+@file{libspeechd_module}. Install this along other modules, and create an empty
 configuration file for it. This should already provide you with a working
 module, though with very limited support.
 
