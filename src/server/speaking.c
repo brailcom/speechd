@@ -811,6 +811,7 @@ GList *queue_remove_message(GList * queue, GList * gl)
 	assert(gl != NULL);
 	assert(gl->data != NULL);
 	msg = (TSpeechDMessage *) gl->data;
+	MSG(5, "Removing message |%s| with priority %d from queue", msg->buf, msg->settings.priority);
 	if (msg->settings.notification & SPD_CANCEL)
 		report_cancel(msg);
 	mem_free_message(gl->data);
