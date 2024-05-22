@@ -680,6 +680,8 @@ static int pulse_begin(AudioID * id, AudioTrack track)
 		pulse_id->pa_current_bps = track.bits;
 		pulse_id->pa_current_channels = track.num_channels;
 	}
+
+	return 0;
 }
 
 static int pulse_feed(AudioID * id, AudioTrack track)
@@ -749,6 +751,7 @@ static int pulse_end(AudioID * id)
 {
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
 	spd_pa_simple_drain(pulse_id->pa_simple, 0, NULL);
+	return 0;
 }
 
 static int pulse_play(AudioID * id, AudioTrack track)
