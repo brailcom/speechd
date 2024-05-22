@@ -19,6 +19,8 @@
 
 inc_local = -I$(top_srcdir)/include/
 
+AM_CFLAGS = $(ERROR_CFLAGS)
+
 audio_LTLIBRARIES =
 
 if alsa_support
