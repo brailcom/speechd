@@ -235,7 +235,10 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 
 	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	if (msgtype == SPD_MSGTYPE_TEXT)
+	{
 		tmp = module_strip_ssml(tmp);
+		bytes = strlen(tmp);
+	}
 
 	module_strip_punctuation_some(tmp, GenericStripPunctChars);
 
