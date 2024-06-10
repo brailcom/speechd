@@ -245,7 +245,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	/* Set the appropriate charset */
 	assert(generic_msg_language != NULL);
 	if (generic_msg_language->charset != NULL) {
-		if (!strcasecmp(generic_msg_language->charset, "utf-8")) {
+		if (strcasecmp(generic_msg_language->charset, "utf-8") != 0) {
 			DBG("Recoding from UTF-8 to %s...",
 			    generic_msg_language->charset);
 			newtmp =
