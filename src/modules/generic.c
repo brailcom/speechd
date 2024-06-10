@@ -217,6 +217,7 @@ SPDVoice **module_list_voices(void)
 int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 {
 	char *tmp = data, *newtmp;
+	GError *gerror = NULL;
 
 	DBG("speak()\n");
 
@@ -253,7 +254,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 							    generic_msg_language->charset,
 							    "UTF-8",
 							    GenericRecodeFallback, NULL,
-							    NULL, NULL);
+							    NULL, &gerror);
 			if (tmp != data)
 				g_free(tmp);
 			tmp = newtmp;
@@ -264,14 +265,17 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 		    (char *)g_convert_with_fallback(tmp, bytes, "iso-8859-1",
 						    "UTF-8",
 						    GenericRecodeFallback, NULL,
-						    NULL, NULL);
+						    NULL, &gerror);
 		if (tmp != data)
 			g_free(tmp);
 		tmp = newtmp;
 	}
 
-	if (tmp == NULL)
+	if (tmp == NULL) {
+		DBG("Warning: Conversion failed: %d: %s\n", gerror->code, gerror->message);
+		g_error_free(gerror);
 		return -1;
+	}
 
 	generic_message = tmp;
 	generic_message_type = msgtype;
