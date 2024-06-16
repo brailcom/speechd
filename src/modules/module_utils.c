@@ -303,23 +303,22 @@ module_get_message_part(const char *message, char *part, unsigned int *pos,
 						return i + 1;
 					}
 				}
-				if ((message[*pos] == '\n')
-				    && (message[*pos + 1] == '\n')) {
-					part[i + 1] = 0;
-					(*pos)++;
-					return i + 1;
-				}
-				if ((len - 1 - i) > 4) {
-					if (((message[*pos] == '\r')
-					     && (message[*pos + 1] == '\n'))
-					    && ((message[*pos + 2] == '\r')
-						&& (message[*pos + 3] ==
-						    '\n'))) {
-						part[i + 1] = 0;
-						(*pos)++;
-						return i + 1;
-					}
-				}
+			}
+			if ((message[*pos] == '\n')
+			    && (message[*pos + 1] == '\n')) {
+				part[i + 1] = 0;
+				(*pos)++;
+				return i + 1;
+			}
+		}
+		if ((len - 1 - i) > 4) {
+			if (    (message[*pos] == '\r')
+			     && (message[*pos + 1] == '\n')
+			     && (message[*pos + 2] == '\r')
+			     && (message[*pos + 3] == '\n')) {
+				part[i + 1] = 0;
+				(*pos)++;
+				return i + 1;
 			}
 		}
 
