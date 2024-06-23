@@ -168,6 +168,10 @@ char *get_line(SPDConnection * conn, int *n)
 			 SPD_REPLY_BUF_SIZE - conn->buf_used);
 		if (bytes == -1)
 			return NULL;
+		if (bytes == 0) {
+			errno = ECONNRESET;
+			return NULL;
+		}
 		conn->buf_used += bytes;
 	}
 
