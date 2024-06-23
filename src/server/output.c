@@ -952,6 +952,9 @@ static void output_queue_event(speak_queue_entry *entry)
 {
 	char c = 0;
 	int ret;
+	if (!speaking_module)
+		// We were cancelled
+		return;
 	pthread_mutex_lock(&playback_events_mutex);
 	playback_events = g_slist_append(playback_events, entry);
 	pthread_mutex_unlock(&playback_events_mutex);
