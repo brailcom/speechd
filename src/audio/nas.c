@@ -79,9 +79,9 @@ static AuBool _nas_handle_server_error(AuServer * server, AuErrorEvent * event)
 	   since it's not allowed to talk to the server inside error handlers
 	   because of possible deadlocks. */
 	fprintf(stderr, "NAS: Serial number of failed request: %d\n",
-		event->serial);
+		(int) event->serial);
 	fprintf(stderr, "NAS: Error code: %d\n", event->error_code);
-	fprintf(stderr, "NAS: Resource id: %d\n", event->resourceid);
+	fprintf(stderr, "NAS: Resource id: %d\n", (int) event->resourceid);
 	fprintf(stderr, "NAS: Request code: %d\n", event->request_code);
 	fprintf(stderr, "NAS: Minor code: %d\n\n", event->minor_code);
 
