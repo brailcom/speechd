@@ -44,6 +44,8 @@
 #endif
 #include <spd_audio_plugin.h>
 
+#include "src/common/common.h"
+
 typedef struct {
 	AudioID id;
 	snd_pcm_t *alsa_pcm;	/* identifier of the ALSA device */
@@ -83,37 +85,8 @@ static int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 #endif
 
 /* Put a message into the logfile (stderr) */
-#define MSG(level, arg...) \
-	if(level <= alsa_log_level){ \
-		time_t t; \
-		struct timeval tv; \
-		char tstr[26]; \
-		t = time(NULL); \
-		ctime_r(&t, tstr); \
-		tstr[strlen(tstr)-1] = 0; \
-		gettimeofday(&tv,NULL); \
-		fprintf(stderr," %s [%d.%06d]",tstr, (int)tv.tv_sec % 10, (int) tv.tv_usec); \
-		fprintf(stderr," ALSA: "); \
-		fprintf(stderr,arg); \
-		fprintf(stderr,"\n"); \
-		fflush(stderr); \
-	}
-
-#define ERR(arg...) \
-	{ \
-		time_t t; \
-		struct timeval tv; \
-		char tstr[26]; \
-		t = time(NULL); \
-		ctime_r(&t, tstr); \
-		tstr[strlen(tstr)-1] = 0; \
-		gettimeofday(&tv,NULL); \
-		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-		fprintf(stderr," ALSA ERROR: "); \
-		fprintf(stderr,arg); \
-		fprintf(stderr,"\n"); \
-		fflush(stderr); \
-	}
+#define MSG(level, arg, ...) if (level <= alsa_log_level) { MSG(0, "ALSA: " arg, ##__VA_ARGS__); }
+#define ERR(arg, ...) MSG(0, "ALSA ERROR: " arg, ##__VA_ARGS__)
 
 static int alsa_log_level;
 static char const *alsa_play_cmd = "aplay";

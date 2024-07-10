@@ -46,6 +46,8 @@
 #endif
 #include <spd_audio_plugin.h>
 
+#include "src/common/common.h"
+
 typedef struct {
 	AudioID id;
 	int fd;
@@ -60,37 +62,8 @@ static int _oss_close(spd_oss_id_t * id);
 static int _oss_sync(spd_oss_id_t * id);
 
 /* Put a message into the logfile (stderr) */
-#define MSG(level, arg...) \
-	if(level <= oss_log_level){ \
-		time_t t; \
-		struct timeval tv; \
-		char tstr[26]; \
-		t = time(NULL); \
-		ctime_r(&t, tstr); \
-		tstr[strlen(tstr)-1] = 0; \
-		gettimeofday(&tv,NULL); \
-		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-		fprintf(stderr," OSS: "); \
-		fprintf(stderr,arg); \
-		fprintf(stderr,"\n"); \
-		fflush(stderr); \
-	}
-
-#define ERR(arg...) \
-	{ \
-		time_t t; \
-		struct timeval tv; \
-		char tstr[26]; \
-		t = time(NULL); \
-		ctime_r(&t, tstr); \
-		tstr[strlen(tstr)-1] = 0; \
-		gettimeofday(&tv,NULL); \
-		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-		fprintf(stderr," OSS ERROR: "); \
-		fprintf(stderr,arg); \
-		fprintf(stderr,"\n"); \
-		fflush(stderr); \
-	}
+#define MSG(level, arg, ...) if (level <= oss_log_level) { MSG(0, "OSS: " arg, ##__VA_ARGS__); }
+#define ERR(arg, ...) MSG(0, "OSS ERROR: " arg, ##__VA_ARGS__)
 
 static int oss_log_level;
 static char const *oss_play_cmd = "play";
