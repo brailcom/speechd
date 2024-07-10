@@ -58,6 +58,8 @@
 #endif
 #include <spd_audio_plugin.h>
 
+#include "src/common/common.h"
+
 typedef struct spd_pa_simple spd_pa_simple;
 
 typedef struct {
@@ -85,38 +87,9 @@ typedef struct {
 static int pulse_log_level;
 static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
 
-#define MSG(level, arg...) \
-	if(level <= pulse_log_level){ \
-		time_t t; \
-		struct timeval tv; \
-		char tstr[26]; \
-		t = time(NULL); \
-		ctime_r(&t, tstr); \
-		tstr[strlen(tstr)-1] = 0; \
-		gettimeofday(&tv,NULL); \
-		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-		fprintf(stderr," Pulse: "); \
-		fprintf(stderr,arg); \
-		fprintf(stderr,"\n"); \
-		fflush(stderr); \
-	}
-
-#define ERR(arg...) \
-	{ \
-		time_t t; \
-		struct timeval tv; \
-		char tstr[26]; \
-		t = time(NULL); \
-		ctime_r(&t, tstr); \
-		tstr[strlen(tstr)-1] = 0; \
-		gettimeofday(&tv,NULL); \
-		fprintf(stderr," %s [%d]",tstr, (int) tv.tv_usec); \
-		fprintf(stderr," Pulse ERROR: "); \
-		fprintf(stderr,arg); \
-		fprintf(stderr,"\n"); \
-		fflush(stderr); \
-	}
-
+/* Put a message into the logfile (stderr) */
+#define MSG(level, arg, ...) if (level <= pulse_log_level) { MSG(0, "Pulse: " arg, ##__VA_ARGS__); }
+#define ERR(arg, ...) MSG(0, "Pulse ERROR: " arg, ##__VA_ARGS__)
 
 /* The following is a copy of pulseaudio's src/pulse/simple.c
  * that was modified to fit our needs: very low-latency playback start and stop,

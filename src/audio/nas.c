@@ -39,6 +39,12 @@
 #endif
 #include <spd_audio_plugin.h>
 
+#include "src/common/common.h"
+
+/* Put a message into the logfile (stderr) */
+#define MSG(level, arg, ...) if (level <= nas_log_level) { MSG(0, "nas: " arg, ##__VA_ARGS__); }
+#define ERR(arg, ...) MSG(0, "nas ERROR: " arg, ##__VA_ARGS__)
+
 typedef struct {
 	AudioID id;
 	AuServer *aud;
@@ -67,23 +73,22 @@ static void *_nas_handle_events(void *par)
    since this handler gets called in the event handler thread. */
 static AuBool _nas_handle_server_error(AuServer * server, AuErrorEvent * event)
 {
-	fprintf(stderr, "ERROR: Non-fatal server error in NAS\n");
+	ERR("Non-fatal server error in NAS\n");
 
 	if (event->type != 0) {
-		fprintf(stderr,
-			"Event of a different type received in NAS error handler.");
+		ERR("Event of a different type received in NAS error handler.");
 		return -1;
 	}
 
 	/* It's a pain but we can't ask for string return code
 	   since it's not allowed to talk to the server inside error handlers
 	   because of possible deadlocks. */
-	fprintf(stderr, "NAS: Serial number of failed request: %d\n",
+	ERR("NAS: Serial number of failed request: %d\n",
 		(int) event->serial);
-	fprintf(stderr, "NAS: Error code: %d\n", event->error_code);
-	fprintf(stderr, "NAS: Resource id: %d\n", (int) event->resourceid);
-	fprintf(stderr, "NAS: Request code: %d\n", event->request_code);
-	fprintf(stderr, "NAS: Minor code: %d\n\n", event->minor_code);
+	ERR("NAS: Error code: %d\n", event->error_code);
+	ERR("NAS: Resource id: %d\n", (int) event->resourceid);
+	ERR("NAS: Request code: %d\n", event->request_code);
+	ERR("NAS: Minor code: %d\n\n", event->minor_code);
 
 	return 0;
 }
@@ -96,7 +101,7 @@ static AudioID *nas_open(void **pars)
 
 	aud = AuOpenServer(pars[2], 0, NULL, 0, NULL, NULL);
 	if (!aud) {
-		fprintf(stderr, "Can't connect to NAS audio server\n");
+		ERR("Can't connect to NAS audio server\n");
 		return NULL;
 	}
 
@@ -106,7 +111,7 @@ static AudioID *nas_open(void **pars)
 	AuSetErrorHandler(nas_id->aud, _nas_handle_server_error);
 	/* return value incompatible with documentation here */
 	/*    if (!r){
-	   fprintf(stderr, "Can't set default NAS event handler\n");
+	   ERR("Can't set default NAS event handler\n");
 	   return -1;
 	   } */
 
@@ -120,8 +125,7 @@ static AudioID *nas_open(void **pars)
 	    pthread_create(&nas_id->nas_event_handler, NULL, _nas_handle_events,
 			   (void *)nas_id);
 	if (ret != 0) {
-		fprintf(stderr,
-			"ERROR: NAS Audio module: thread creation failed\n");
+		ERR("NAS Audio module: thread creation failed\n");
 		return NULL;
 	}
 
@@ -160,13 +164,12 @@ static int nas_play(AudioID * id, AudioTrack track)
 
 	if (event_handler == NULL) {
 		pthread_mutex_unlock(&nas_id->flow_mutex);
-		fprintf(stderr,
-			"AuSoundPlayFromData failed for unknown reasons.\n");
+		ERR("AuSoundPlayFromData failed for unknown reasons.\n");
 		return -1;
 	}
 
 	if (nas_id->flow == 0) {
-		fprintf(stderr, "Couldn't start data flow");
+		ERR("Couldn't start data flow");
 	}
 	pthread_mutex_unlock(&nas_id->flow_mutex);
 
