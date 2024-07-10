@@ -395,7 +395,6 @@ int output_send_data(const char *cmd, OutputModule * output, int wfr)
 	}
 
 	ret = safe_write(output->pipe_in[1], cmd, strlen(cmd));
-	fflush(NULL);
 	if (ret == -1) {
 		MSG(2, "Error: Broken pipe to module while sending data.");
 		if (wfr) {
