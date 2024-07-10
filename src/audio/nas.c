@@ -39,7 +39,7 @@
 #endif
 #include <spd_audio_plugin.h>
 
-#include "src/common/common.h"
+#include "../common/common.h"
 
 /* Put a message into the logfile (stderr) */
 #define MSG(level, arg, ...) if (level <= nas_log_level) { MSG(0, "nas: " arg, ##__VA_ARGS__); }

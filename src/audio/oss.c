@@ -46,7 +46,7 @@
 #endif
 #include <spd_audio_plugin.h>
 
-#include "src/common/common.h"
+#include "../common/common.h"
 
 typedef struct {
 	AudioID id;
