@@ -42,6 +42,13 @@ typedef struct {
 	pid_t pid;
 	int working;
 	AudioID *audio;
+	pthread_mutex_t read_mutex;
+	pthread_cond_t reply_cond;
+	pthread_cond_t event_cond;
+	GString *reply;
+	GString *event;
+	gboolean reading_message;
+	gboolean waiting_for_reply;
 } OutputModule;
 #define AUDIOID_TOOPEN ((AudioID*) (-1))
 

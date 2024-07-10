@@ -287,34 +287,27 @@ GString *output_read_message(OutputModule * output)
  * If read_events is 1, we only return event messages
  * If read_events is 0, we only return non-event messages
  */
-static pthread_mutex_t output_read_mutex = PTHREAD_MUTEX_INITIALIZER;
-static pthread_cond_t output_reply_cond = PTHREAD_COND_INITIALIZER;
-static pthread_cond_t output_event_cond = PTHREAD_COND_INITIALIZER;
-static GString *output_reply;
-static GString *output_event;
-static int output_reading_message;
-static int output_waiting_for_reply;
 
 /* This is run by the main thread, to get command replies. */
 GString *output_read_reply(OutputModule * output)
 {
 	GString *message = NULL;
-	pthread_mutex_lock(&output_read_mutex);
+	pthread_mutex_lock(&output->read_mutex);
 	while (!message) {
-		while (output_reading_message && !output_reply)
+		while (output->reading_message && !output->reply)
 			/* Somebody reading events, wait for it */
-			pthread_cond_wait(&output_reply_cond, &output_read_mutex);
+			pthread_cond_wait(&output->reply_cond, &output->read_mutex);
 
-		if (output_reply) {
+		if (output->reply) {
 			/* The other thread got a message for us, consume it */
-			message = output_reply;
-			output_reply = NULL;
+			message = output->reply;
+			output->reply = NULL;
 			/* And tell the other thread we got it */
-			pthread_cond_signal(&output_event_cond);
+			pthread_cond_signal(&output->event_cond);
 			break;
 		}
 
-		if (!output_reading_message) {
+		if (!output->reading_message) {
 			/* Nobody reading, do read */
 			message = output_read_message(output);
 			if (!message)
@@ -322,15 +315,15 @@ GString *output_read_reply(OutputModule * output)
 				break;
 			if (message->str[0] == '7') {
 				/* An event, leave it up to the event thread */
-				output_event = message;
+				output->event = message;
 				message = NULL;
 				/* Wait for it to consume it */
-				while (output_event)
-					pthread_cond_wait(&output_reply_cond, &output_read_mutex);
+				while (output->event)
+					pthread_cond_wait(&output->reply_cond, &output->read_mutex);
 			}
 		}
 	}
-	pthread_mutex_unlock(&output_read_mutex);
+	pthread_mutex_unlock(&output->read_mutex);
 	return message;
 }
 
@@ -338,29 +331,29 @@ GString *output_read_reply(OutputModule * output)
 GString *output_read_event(OutputModule * output)
 {
 	GString *message = NULL;
-	pthread_mutex_lock(&output_read_mutex);
+	pthread_mutex_lock(&output->read_mutex);
 	while (!message) {
-		while (output_reading_message && !output_event)
+		while (output->reading_message && !output->event)
 			/* Somebody reading replies, wait for it */
-			pthread_cond_wait(&output_event_cond, &output_read_mutex);
+			pthread_cond_wait(&output->event_cond, &output->read_mutex);
 
-		if (output_event) {
+		if (output->event) {
 			/* The other thread got a message for us, consume it */
-			message = output_event;
-			output_event = NULL;
+			message = output->event;
+			output->event = NULL;
 			/* And tell the other thread we got it */
-			pthread_cond_signal(&output_reply_cond);
+			pthread_cond_signal(&output->reply_cond);
 			break;
 		}
 
-		if (!output_reading_message) {
+		if (!output->reading_message) {
 			/* Nobody reading, do read */
 			message = output_read_message(output);
 			if (!message)
 				/* Module broke */
 				break;
 			if (message->str[0] != '7') {
-				if (!output_waiting_for_reply) {
+				if (!output->waiting_for_reply) {
 					MSG(2, "unexpected reply |%s|", message->str);
 					g_string_free(message, TRUE);
 					/* Module broke */
@@ -368,15 +361,15 @@ GString *output_read_event(OutputModule * output)
 					break;
 				}
 				/* A reply, leave it up to the reply thread */
-				output_reply = message;
+				output->reply = message;
 				message = NULL;
 				/* Wait for it to consume it */
-				while (output_reply)
-					pthread_cond_wait(&output_event_cond, &output_read_mutex);
+				while (output->reply)
+					pthread_cond_wait(&output->event_cond, &output->read_mutex);
 			}
 		}
 	}
-	pthread_mutex_unlock(&output_read_mutex);
+	pthread_mutex_unlock(&output->read_mutex);
 	return message;
 }
 
@@ -391,18 +384,18 @@ int output_send_data(const char *cmd, OutputModule * output, int wfr)
 		return -1;
 
 	if (wfr) {
-		pthread_mutex_lock(&output_read_mutex);
-		output_waiting_for_reply = 1;
-		pthread_mutex_unlock(&output_read_mutex);
+		pthread_mutex_lock(&output->read_mutex);
+		output->waiting_for_reply = 1;
+		pthread_mutex_unlock(&output->read_mutex);
 	}
 
 	ret = safe_write(output->pipe_in[1], cmd, strlen(cmd));
 	if (ret == -1) {
 		MSG(2, "Error: Broken pipe to module while sending data.");
 		if (wfr) {
-			pthread_mutex_lock(&output_read_mutex);
-			output_waiting_for_reply = 0;
-			pthread_mutex_unlock(&output_read_mutex);
+			pthread_mutex_lock(&output->read_mutex);
+			output->waiting_for_reply = 0;
+			pthread_mutex_unlock(&output->read_mutex);
 		}
 
 		output->working = 0;
@@ -415,9 +408,9 @@ int output_send_data(const char *cmd, OutputModule * output, int wfr)
 	if (wfr) {		/* wait for reply? */
 		int ret = 0;
 		response = output_read_reply(output);
-		pthread_mutex_lock(&output_read_mutex);
-		output_waiting_for_reply = 0;
-		pthread_mutex_unlock(&output_read_mutex);
+		pthread_mutex_lock(&output->read_mutex);
+		output->waiting_for_reply = 0;
+		pthread_mutex_unlock(&output->read_mutex);
 		if (response == NULL)
 			return -1;
 
@@ -470,7 +463,7 @@ static void free_voice(gpointer data)
 	}
 }
 
-SPDVoice **output_get_voices(OutputModule * module, const char *language, const char *variant)
+SPDVoice **output_get_voices(OutputModule * output, const char *language, const char *variant)
 {
 	SPDVoice **voice_dscr;
 	SPDVoice *voice;
@@ -487,7 +480,7 @@ SPDVoice **output_get_voices(OutputModule * module, const char *language, const 
 
 	output_lock();
 
-	if (module == NULL) {
+	if (output == NULL) {
 		MSG(1, "ERROR: Can't list voices for broken output module");
 		OL_RET(NULL);
 	}
@@ -497,24 +490,24 @@ SPDVoice **output_get_voices(OutputModule * module, const char *language, const 
 				  language && variant ? " " : "",
 				  variant ? variant : "");
 retry:
-	pthread_mutex_lock(&output_read_mutex);
-	output_waiting_for_reply = 1;
-	pthread_mutex_unlock(&output_read_mutex);
+	pthread_mutex_lock(&output->read_mutex);
+	output->waiting_for_reply = 1;
+	pthread_mutex_unlock(&output->read_mutex);
 
-	err = output_send_data(command, module, 0);
+	err = output_send_data(command, output, 0);
 	if (command != all_command)
 		free(command);
 	if (err < 0) {
-		pthread_mutex_lock(&output_read_mutex);
-		output_waiting_for_reply = 0;
-		pthread_mutex_unlock(&output_read_mutex);
+		pthread_mutex_lock(&output->read_mutex);
+		output->waiting_for_reply = 0;
+		pthread_mutex_unlock(&output->read_mutex);
 		output_unlock();
 		return NULL;
 	}
-	reply = output_read_reply(module);
-	pthread_mutex_lock(&output_read_mutex);
-	output_waiting_for_reply = 0;
-	pthread_mutex_unlock(&output_read_mutex);
+	reply = output_read_reply(output);
+	pthread_mutex_lock(&output->read_mutex);
+	output->waiting_for_reply = 0;
+	pthread_mutex_unlock(&output->read_mutex);
 
 	if (reply == NULL) {
 		output_unlock();

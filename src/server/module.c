@@ -368,6 +368,14 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	module->configdir = g_strdup(mod_cfg_dir);
 	module->stderr_redirect = -1;
 
+	pthread_mutex_init(&module->read_mutex, NULL);
+	pthread_cond_init(&module->reply_cond, NULL);
+	pthread_cond_init(&module->event_cond, NULL);
+	module->reply = NULL;
+	module->event = NULL;
+	module->reading_message = FALSE;
+	module->waiting_for_reply = FALSE;
+
 	if (module->progdir) {
 		module->filename = (char *)spd_get_path(mod_prog, module->progdir);
 	} else {
