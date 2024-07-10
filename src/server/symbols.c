@@ -1422,4 +1422,6 @@ void insert_symbols(TSpeechDMessage *msg, int punct_missing)
 			if (g_utf8_strlen(processed, -1) > 1)
 				msg->settings.type = SPD_MSGTYPE_TEXT;
 	}
+
+	free(locale);
 }
