@@ -295,6 +295,7 @@ static GString *output_event;
 static int output_reading_message;
 static int output_waiting_for_reply;
 
+/* This is run by the main thread, to get command replies. */
 GString *output_read_reply(OutputModule * output)
 {
 	GString *message = NULL;
@@ -333,6 +334,7 @@ GString *output_read_reply(OutputModule * output)
 	return message;
 }
 
+/* This is run by the module output thread during speech, to process events. */
 GString *output_read_event(OutputModule * output)
 {
 	GString *message = NULL;
