@@ -785,6 +785,11 @@ set correctly by trying to connect to the port Festival server is
 running on via an ordinary telnet (by default like this: <code class="code">telnet
 localhost 1314</code>). If you are not rejected, it works.
 
+</li><li>One can connect to the speech-dispatcher server by hand by using
+<div class="example">
+<pre class="example-preformatted">	socat $XDG_RUNTIME_DIR/speech-dispatcher/speechd.sock,crlf STDIO
+</pre></div>
+
 </li></ul>
 
 <hr>
