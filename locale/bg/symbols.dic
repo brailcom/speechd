@@ -3,7 +3,7 @@
 # See locale/README.md to know how to import dictionaries
 
 # A part of NonVisual Desktop Access (NVDA)
-# Copyright (c) 2011-2023 NVDA Contributors
+# Copyright (c) 2011-2024 NVDA Contributors
 # This file is covered by the GNU General Public License.
 
 complexSymbols:
@@ -15,6 +15,8 @@ complexSymbols:
 # Phrase endings.
 ; phrase ending	(?<=[^\s;]);(?=\s|$)
 : phrase ending	(?<=[^\s:]):(?=\s|$)
+# Series of dots used for visual presentation, e.g. in table of contents
+multiple .	\.{4,}
 # Others
 decimal point	(?<=\d)\.(?=\d)
 in-word '	(?<=[a-zA-Z0-9])'(?=[a-zA-Z])
@@ -29,6 +31,7 @@ symbols:
 ? sentence ending	въпросителен	all	always
 ; phrase ending	точка и запетая	most	always
 : phrase ending	двоеточие	most	always
+multiple .	запълващи точки	all	always
 decimal point		none	always
 in-word '	апостроф	all	norep
 negative number	минус	none	norep
@@ -44,6 +47,7 @@ negative number	минус	none	norep
 
 # Standard punctuation/symbols
 !	удивителен
+！	удивителен с пълна ширина
 "	кавички
 \#	диез
 $	долар
@@ -66,12 +70,16 @@ $	долар
 ،	арабска запетая
 -	тире
 .	точка
+．	точка с пълна ширина
 /	наклонена черта
 :	двоеточие
+：	двоеточие с пълна ширина
 ;	точка и запетая
 ؛	арабска точка и запетая
+；	точка и запетая с пълна ширина
 ?	въпросителен
 ؟	арабски въпросителен
+？	въпросителен с пълна ширина
 @	кльомба
 [	лява квадратна скоба
 ]	дясна квадратна скоба
