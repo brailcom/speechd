@@ -3161,6 +3161,24 @@ symbols:
 🚶🏽‍♀	mujer caminando tono de piel medio	none
 🚶🏾‍♀	mujer caminando tono de piel oscuro medio	none
 🚶🏿‍♀	mujer caminando tono de piel oscuro	none
+🚶‍➡	persona caminando hacia la derecha	none
+🚶🏻‍➡	persona caminando hacia la derecha	none
+🚶🏼‍➡	persona caminando hacia la derecha	none
+🚶🏽‍➡	persona caminando hacia la derecha	none
+🚶🏾‍➡	persona caminando hacia la derecha	none
+🚶🏿‍➡	persona caminando hacia la derecha	none
+🚶‍♀‍➡	mujer caminando hacia la derecha	none
+🚶🏻‍♀‍➡	mujer caminando hacia la derecha	none
+🚶🏼‍♀‍➡	mujer caminando hacia la derecha	none
+🚶🏽‍♀‍➡	mujer caminando hacia la derecha	none
+🚶🏾‍♀‍➡	mujer caminando hacia la derecha	none
+🚶🏿‍♀‍➡	mujer caminando hacia la derecha	none
+🚶‍♂‍➡	hombre caminando hacia la derecha	none
+🚶🏻‍♂‍➡	hombre caminando hacia la derecha	none
+🚶🏼‍♂‍➡	hombre caminando hacia la derecha	none
+🚶🏽‍♂‍➡	hombre caminando hacia la derecha	none
+🚶🏾‍♂‍➡	hombre caminando hacia la derecha	none
+🚶🏿‍♂‍➡	hombre caminando hacia la derecha	none
 🧍🏻	persona de pie tono de piel claro	none
 🧍🏼	persona de pie tono de piel claro medio	none
 🧍🏽	persona de pie tono de piel medio	none
@@ -3191,51 +3209,123 @@ symbols:
 🧎🏽‍♀	mujer de rodillas tono de piel medio	none
 🧎🏾‍♀	mujer de rodillas tono de piel oscuro medio	none
 🧎🏿‍♀	mujer de rodillas tono de piel oscuro	none
+🧎‍➡	persona de rodillas hacia la derecha	none
+🧎🏻‍➡	persona de rodillas hacia la derecha	none
+🧎🏼‍➡	persona de rodillas hacia la derecha	none
+🧎🏽‍➡	persona de rodillas hacia la derecha	none
+🧎🏾‍➡	persona de rodillas hacia la derecha	none
+🧎🏿‍➡	persona de rodillas hacia la derecha	none
+🧎‍♀‍➡	mujer de rodillas hacia la derecha	none
+🧎🏻‍♀‍➡	mujer de rodillas hacia la derecha	none
+🧎🏼‍♀‍➡	mujer de rodillas hacia la derecha	none
+🧎🏽‍♀‍➡	mujer de rodillas hacia la derecha	none
+🧎🏾‍♀‍➡	mujer de rodillas hacia la derecha	none
+🧎🏿‍♀‍➡	mujer de rodillas hacia la derecha	none
+🧎‍♂‍➡	hombre de rodillas hacia la derecha	none
+🧎🏻‍♂‍➡	hombre de rodillas hacia la derecha	none
+🧎🏼‍♂‍➡	hombre de rodillas hacia la derecha	none
+🧎🏽‍♂‍➡	hombre de rodillas hacia la derecha	none
+🧎🏾‍♂‍➡	hombre de rodillas hacia la derecha	none
+🧎🏿‍♂‍➡	hombre de rodillas hacia la derecha	none
 🧑🏻‍🦯	persona con bastón tono de piel claro	none
 🧑🏼‍🦯	persona con bastón tono de piel claro medio	none
 🧑🏽‍🦯	persona con bastón tono de piel medio	none
 🧑🏾‍🦯	persona con bastón tono de piel oscuro medio	none
 🧑🏿‍🦯	persona con bastón tono de piel oscuro	none
+🧑‍🦯‍➡	persona con bastón hacia la derecha	none
+🧑🏻‍🦯‍➡	persona con bastón hacia la derecha	none
+🧑🏼‍🦯‍➡	persona con bastón hacia la derecha	none
+🧑🏽‍🦯‍➡	persona con bastón hacia la derecha	none
+🧑🏾‍🦯‍➡	persona con bastón hacia la derecha	none
+🧑🏿‍🦯‍➡	persona con bastón hacia la derecha	none
 👨🏻‍🦯	hombre con bastón tono de piel claro	none
 👨🏼‍🦯	hombre con bastón tono de piel claro medio	none
 👨🏽‍🦯	hombre con bastón tono de piel medio	none
 👨🏾‍🦯	hombre con bastón tono de piel oscuro medio	none
 👨🏿‍🦯	hombre con bastón tono de piel oscuro	none
+👨‍🦯‍➡	hombre con bastón hacia la derecha	none
+👨🏻‍🦯‍➡	hombre con bastón hacia la derecha	none
+👨🏼‍🦯‍➡	hombre con bastón hacia la derecha	none
+👨🏽‍🦯‍➡	hombre con bastón hacia la derecha	none
+👨🏾‍🦯‍➡	hombre con bastón hacia la derecha	none
+👨🏿‍🦯‍➡	hombre con bastón hacia la derecha	none
 👩🏻‍🦯	mujer con bastón tono de piel claro	none
 👩🏼‍🦯	mujer con bastón tono de piel claro medio	none
 👩🏽‍🦯	mujer con bastón tono de piel medio	none
 👩🏾‍🦯	mujer con bastón tono de piel oscuro medio	none
 👩🏿‍🦯	mujer con bastón tono de piel oscuro	none
+👩‍🦯‍➡	mujer con bastón hacia la derecha	none
+👩🏻‍🦯‍➡	mujer con bastón hacia la derecha	none
+👩🏼‍🦯‍➡	mujer con bastón hacia la derecha	none
+👩🏽‍🦯‍➡	mujer con bastón hacia la derecha	none
+👩🏾‍🦯‍➡	mujer con bastón hacia la derecha	none
+👩🏿‍🦯‍➡	mujer con bastón hacia la derecha	none
 🧑🏻‍🦼	persona en silla de ruedas eléctrica tono de piel claro	none
 🧑🏼‍🦼	persona en silla de ruedas eléctrica tono de piel claro medio	none
 🧑🏽‍🦼	persona en silla de ruedas eléctrica tono de piel medio	none
 🧑🏾‍🦼	persona en silla de ruedas eléctrica tono de piel oscuro medio	none
 🧑🏿‍🦼	persona en silla de ruedas eléctrica tono de piel oscuro	none
+🧑‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
+🧑🏻‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
+🧑🏼‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
+🧑🏽‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
+🧑🏾‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
+🧑🏿‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
 👨🏻‍🦼	hombre en silla de ruedas eléctrica tono de piel claro	none
 👨🏼‍🦼	hombre en silla de ruedas eléctrica tono de piel claro medio	none
 👨🏽‍🦼	hombre en silla de ruedas eléctrica tono de piel medio	none
 👨🏾‍🦼	hombre en silla de ruedas eléctrica tono de piel oscuro medio	none
 👨🏿‍🦼	hombre en silla de ruedas eléctrica tono de piel oscuro	none
+👨‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
+👨🏻‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
+👨🏼‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
+👨🏽‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
+👨🏾‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
+👨🏿‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
 👩🏻‍🦼	mujer en silla de ruedas eléctrica tono de piel claro	none
 👩🏼‍🦼	mujer en silla de ruedas eléctrica tono de piel claro medio	none
 👩🏽‍🦼	mujer en silla de ruedas eléctrica tono de piel medio	none
 👩🏾‍🦼	mujer en silla de ruedas eléctrica tono de piel oscuro medio	none
 👩🏿‍🦼	mujer en silla de ruedas eléctrica tono de piel oscuro	none
+👩‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
+👩🏻‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
+👩🏼‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
+👩🏽‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
+👩🏾‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
+👩🏿‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
 🧑🏻‍🦽	persona en silla de ruedas manual tono de piel claro	none
 🧑🏼‍🦽	persona en silla de ruedas manual tono de piel claro medio	none
 🧑🏽‍🦽	persona en silla de ruedas manual tono de piel medio	none
 🧑🏾‍🦽	persona en silla de ruedas manual tono de piel oscuro medio	none
 🧑🏿‍🦽	persona en silla de ruedas manual tono de piel oscuro	none
+🧑‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
+🧑🏻‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
+🧑🏼‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
+🧑🏽‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
+🧑🏾‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
+🧑🏿‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
 👨🏻‍🦽	hombre en silla de ruedas manual tono de piel claro	none
 👨🏼‍🦽	hombre en silla de ruedas manual tono de piel claro medio	none
 👨🏽‍🦽	hombre en silla de ruedas manual tono de piel medio	none
 👨🏾‍🦽	hombre en silla de ruedas manual tono de piel oscuro medio	none
 👨🏿‍🦽	hombre en silla de ruedas manual tono de piel oscuro	none
+👨‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
+👨🏻‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
+👨🏼‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
+👨🏽‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
+👨🏾‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
+👨🏿‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
 👩🏻‍🦽	mujer en silla de ruedas manual tono de piel claro	none
 👩🏼‍🦽	mujer en silla de ruedas manual tono de piel claro medio	none
 👩🏽‍🦽	mujer en silla de ruedas manual tono de piel medio	none
 👩🏾‍🦽	mujer en silla de ruedas manual tono de piel oscuro medio	none
 👩🏿‍🦽	mujer en silla de ruedas manual tono de piel oscuro	none
+👩‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
+👩🏻‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
+👩🏼‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
+👩🏽‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
+👩🏾‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
+👩🏿‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
 🏃🏻	persona corriendo tono de piel claro	none
 🏃🏼	persona corriendo tono de piel claro medio	none
 🏃🏽	persona corriendo tono de piel medio	none
@@ -3251,6 +3341,24 @@ symbols:
 🏃🏽‍♀	mujer corriendo tono de piel medio	none
 🏃🏾‍♀	mujer corriendo tono de piel oscuro medio	none
 🏃🏿‍♀	mujer corriendo tono de piel oscuro	none
+🏃‍➡	persona corriendo hacia la derecha	none
+🏃🏻‍➡	persona corriendo hacia la derecha	none
+🏃🏼‍➡	persona corriendo hacia la derecha	none
+🏃🏽‍➡	persona corriendo hacia la derecha	none
+🏃🏾‍➡	persona corriendo hacia la derecha	none
+🏃🏿‍➡	persona corriendo hacia la derecha	none
+🏃‍♀‍➡	mujer corriendo hacia la derecha	none
+🏃🏻‍♀‍➡	mujer corriendo hacia la derecha	none
+🏃🏼‍♀‍➡	mujer corriendo hacia la derecha	none
+🏃🏽‍♀‍➡	mujer corriendo hacia la derecha	none
+🏃🏾‍♀‍➡	mujer corriendo hacia la derecha	none
+🏃🏿‍♀‍➡	mujer corriendo hacia la derecha	none
+🏃‍♂‍➡	hombre corriendo hacia la derecha	none
+🏃🏻‍♂‍➡	hombre corriendo hacia la derecha	none
+🏃🏼‍♂‍➡	hombre corriendo hacia la derecha	none
+🏃🏽‍♂‍➡	hombre corriendo hacia la derecha	none
+🏃🏾‍♂‍➡	hombre corriendo hacia la derecha	none
+🏃🏿‍♂‍➡	hombre corriendo hacia la derecha	none
 💃🏻	mujer bailando tono de piel claro	none
 💃🏼	mujer bailando tono de piel claro medio	none
 💃🏽	mujer bailando tono de piel medio	none

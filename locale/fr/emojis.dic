@@ -3161,6 +3161,24 @@ symbols:
 🚶🏽‍♀	femme qui marche  peau légèrement mate	none
 🚶🏾‍♀	femme qui marche  peau mate	none
 🚶🏿‍♀	femme qui marche  peau foncée	none
+🚶‍➡	personne qui marche vers la droite	none
+🚶🏻‍➡	personne qui marche vers la droite	none
+🚶🏼‍➡	personne qui marche vers la droite	none
+🚶🏽‍➡	personne qui marche vers la droite	none
+🚶🏾‍➡	personne qui marche vers la droite	none
+🚶🏿‍➡	personne qui marche vers la droite	none
+🚶‍♀‍➡	femme qui marche vers la droite	none
+🚶🏻‍♀‍➡	femme qui marche vers la droite	none
+🚶🏼‍♀‍➡	femme qui marche vers la droite	none
+🚶🏽‍♀‍➡	femme qui marche vers la droite	none
+🚶🏾‍♀‍➡	femme qui marche vers la droite	none
+🚶🏿‍♀‍➡	femme qui marche vers la droite	none
+🚶‍♂‍➡	homme qui marche vers la droite	none
+🚶🏻‍♂‍➡	homme qui marche vers la droite	none
+🚶🏼‍♂‍➡	homme qui marche vers la droite	none
+🚶🏽‍♂‍➡	homme qui marche vers la droite	none
+🚶🏾‍♂‍➡	homme qui marche vers la droite	none
+🚶🏿‍♂‍➡	homme qui marche vers la droite	none
 🧍🏻	personne debout  peau claire	none
 🧍🏼	personne debout  peau moyennement claire	none
 🧍🏽	personne debout  peau légèrement mate	none
@@ -3191,51 +3209,123 @@ symbols:
 🧎🏽‍♀	femme à genoux  peau légèrement mate	none
 🧎🏾‍♀	femme à genoux  peau mate	none
 🧎🏿‍♀	femme à genoux  peau foncée	none
+🧎‍➡	personne à genoux vers la droite	none
+🧎🏻‍➡	personne à genoux vers la droite	none
+🧎🏼‍➡	personne à genoux vers la droite	none
+🧎🏽‍➡	personne à genoux vers la droite	none
+🧎🏾‍➡	personne à genoux vers la droite	none
+🧎🏿‍➡	personne à genoux vers la droite	none
+🧎‍♀‍➡	femme à genoux vers la droite	none
+🧎🏻‍♀‍➡	femme à genoux vers la droite	none
+🧎🏼‍♀‍➡	femme à genoux vers la droite	none
+🧎🏽‍♀‍➡	femme à genoux vers la droite	none
+🧎🏾‍♀‍➡	femme à genoux vers la droite	none
+🧎🏿‍♀‍➡	femme à genoux vers la droite	none
+🧎‍♂‍➡	homme à genoux vers la droite	none
+🧎🏻‍♂‍➡	homme à genoux vers la droite	none
+🧎🏼‍♂‍➡	homme à genoux vers la droite	none
+🧎🏽‍♂‍➡	homme à genoux vers la droite	none
+🧎🏾‍♂‍➡	homme à genoux vers la droite	none
+🧎🏿‍♂‍➡	homme à genoux vers la droite	none
 🧑🏻‍🦯	personne avec une canne blanche  peau claire	none
 🧑🏼‍🦯	personne avec une canne blanche  peau moyennement claire	none
 🧑🏽‍🦯	personne avec une canne blanche  peau légèrement mate	none
 🧑🏾‍🦯	personne avec une canne blanche  peau mate	none
 🧑🏿‍🦯	personne avec une canne blanche  peau foncée	none
+🧑‍🦯‍➡	personne avec une canne blanche vers la droite	none
+🧑🏻‍🦯‍➡	personne avec une canne blanche vers la droite	none
+🧑🏼‍🦯‍➡	personne avec une canne blanche vers la droite	none
+🧑🏽‍🦯‍➡	personne avec une canne blanche vers la droite	none
+🧑🏾‍🦯‍➡	personne avec une canne blanche vers la droite	none
+🧑🏿‍🦯‍➡	personne avec une canne blanche vers la droite	none
 👨🏻‍🦯	homme avec canne blanche  peau claire	none
 👨🏼‍🦯	homme avec canne blanche  peau moyennement claire	none
 👨🏽‍🦯	homme avec canne blanche  peau légèrement mate	none
 👨🏾‍🦯	homme avec canne blanche  peau mate	none
 👨🏿‍🦯	homme avec canne blanche  peau foncée	none
+👨‍🦯‍➡	homme avec canne blanche vers la droite	none
+👨🏻‍🦯‍➡	homme avec canne blanche vers la droite	none
+👨🏼‍🦯‍➡	homme avec canne blanche vers la droite	none
+👨🏽‍🦯‍➡	homme avec canne blanche vers la droite	none
+👨🏾‍🦯‍➡	homme avec canne blanche vers la droite	none
+👨🏿‍🦯‍➡	homme avec canne blanche vers la droite	none
 👩🏻‍🦯	femme avec canne blanche  peau claire	none
 👩🏼‍🦯	femme avec canne blanche  peau moyennement claire	none
 👩🏽‍🦯	femme avec canne blanche  peau légèrement mate	none
 👩🏾‍🦯	femme avec canne blanche  peau mate	none
 👩🏿‍🦯	femme avec canne blanche  peau foncée	none
+👩‍🦯‍➡	femme avec canne blanche vers la droite	none
+👩🏻‍🦯‍➡	femme avec canne blanche vers la droite	none
+👩🏼‍🦯‍➡	femme avec canne blanche vers la droite	none
+👩🏽‍🦯‍➡	femme avec canne blanche vers la droite	none
+👩🏾‍🦯‍➡	femme avec canne blanche vers la droite	none
+👩🏿‍🦯‍➡	femme avec canne blanche vers la droite	none
 🧑🏻‍🦼	personne en fauteuil motorisé  peau claire	none
 🧑🏼‍🦼	personne en fauteuil motorisé  peau moyennement claire	none
 🧑🏽‍🦼	personne en fauteuil motorisé  peau légèrement mate	none
 🧑🏾‍🦼	personne en fauteuil motorisé  peau mate	none
 🧑🏿‍🦼	personne en fauteuil motorisé  peau foncée	none
+🧑‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
+🧑🏻‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
+🧑🏼‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
+🧑🏽‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
+🧑🏾‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
+🧑🏿‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
 👨🏻‍🦼	homme en fauteuil motorisé  peau claire	none
 👨🏼‍🦼	homme en fauteuil motorisé  peau moyennement claire	none
 👨🏽‍🦼	homme en fauteuil motorisé  peau légèrement mate	none
 👨🏾‍🦼	homme en fauteuil motorisé  peau mate	none
 👨🏿‍🦼	homme en fauteuil motorisé  peau foncée	none
+👨‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
+👨🏻‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
+👨🏼‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
+👨🏽‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
+👨🏾‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
+👨🏿‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
 👩🏻‍🦼	femme en fauteuil motorisé  peau claire	none
 👩🏼‍🦼	femme en fauteuil motorisé  peau moyennement claire	none
 👩🏽‍🦼	femme en fauteuil motorisé  peau légèrement mate	none
 👩🏾‍🦼	femme en fauteuil motorisé  peau mate	none
 👩🏿‍🦼	femme en fauteuil motorisé  peau foncée	none
+👩‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
+👩🏻‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
+👩🏼‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
+👩🏽‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
+👩🏾‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
+👩🏿‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
 🧑🏻‍🦽	personne en fauteuil roulant manuel  peau claire	none
 🧑🏼‍🦽	personne en fauteuil roulant manuel  peau moyennement claire	none
 🧑🏽‍🦽	personne en fauteuil roulant manuel  peau légèrement mate	none
 🧑🏾‍🦽	personne en fauteuil roulant manuel  peau mate	none
 🧑🏿‍🦽	personne en fauteuil roulant manuel  peau foncée	none
+🧑‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
+🧑🏻‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
+🧑🏼‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
+🧑🏽‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
+🧑🏾‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
+🧑🏿‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
 👨🏻‍🦽	homme en fauteuil roulant manuel  peau claire	none
 👨🏼‍🦽	homme en fauteuil roulant manuel  peau moyennement claire	none
 👨🏽‍🦽	homme en fauteuil roulant manuel  peau légèrement mate	none
 👨🏾‍🦽	homme en fauteuil roulant manuel  peau mate	none
 👨🏿‍🦽	homme en fauteuil roulant manuel  peau foncée	none
+👨‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
+👨🏻‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
+👨🏼‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
+👨🏽‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
+👨🏾‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
+👨🏿‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
 👩🏻‍🦽	femme en fauteuil roulant manuel  peau claire	none
 👩🏼‍🦽	femme en fauteuil roulant manuel  peau moyennement claire	none
 👩🏽‍🦽	femme en fauteuil roulant manuel  peau légèrement mate	none
 👩🏾‍🦽	femme en fauteuil roulant manuel  peau mate	none
 👩🏿‍🦽	femme en fauteuil roulant manuel  peau foncée	none
+👩‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
+👩🏻‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
+👩🏼‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
+👩🏽‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
+👩🏾‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
+👩🏿‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
 🏃🏻	personne qui court  peau claire	none
 🏃🏼	personne qui court  peau moyennement claire	none
 🏃🏽	personne qui court  peau légèrement mate	none
@@ -3251,6 +3341,24 @@ symbols:
 🏃🏽‍♀	femme qui court  peau légèrement mate	none
 🏃🏾‍♀	femme qui court  peau mate	none
 🏃🏿‍♀	femme qui court  peau foncée	none
+🏃‍➡	personne qui court vers la droite	none
+🏃🏻‍➡	personne qui court vers la droite	none
+🏃🏼‍➡	personne qui court vers la droite	none
+🏃🏽‍➡	personne qui court vers la droite	none
+🏃🏾‍➡	personne qui court vers la droite	none
+🏃🏿‍➡	personne qui court vers la droite	none
+🏃‍♀‍➡	femme qui court vers la droite	none
+🏃🏻‍♀‍➡	femme qui court vers la droite	none
+🏃🏼‍♀‍➡	femme qui court vers la droite	none
+🏃🏽‍♀‍➡	femme qui court vers la droite	none
+🏃🏾‍♀‍➡	femme qui court vers la droite	none
+🏃🏿‍♀‍➡	femme qui court vers la droite	none
+🏃‍♂‍➡	homme qui court vers la droite	none
+🏃🏻‍♂‍➡	homme qui court vers la droite	none
+🏃🏼‍♂‍➡	homme qui court vers la droite	none
+🏃🏽‍♂‍➡	homme qui court vers la droite	none
+🏃🏾‍♂‍➡	homme qui court vers la droite	none
+🏃🏿‍♂‍➡	homme qui court vers la droite	none
 💃🏻	danseuse  peau claire	none
 💃🏼	danseuse  peau moyennement claire	none
 💃🏽	danseuse  peau légèrement mate	none

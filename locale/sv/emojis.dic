@@ -3161,6 +3161,24 @@ symbols:
 🚶🏽‍♀	kvinna som går mellanfärgad hy	none
 🚶🏾‍♀	kvinna som går mellanmörk hy	none
 🚶🏿‍♀	kvinna som går mörk hy	none
+🚶‍➡	fotgängare åt höger	none
+🚶🏻‍➡	fotgängare åt höger	none
+🚶🏼‍➡	fotgängare åt höger	none
+🚶🏽‍➡	fotgängare åt höger	none
+🚶🏾‍➡	fotgängare åt höger	none
+🚶🏿‍➡	fotgängare åt höger	none
+🚶‍♀‍➡	kvinna som går åt höger	none
+🚶🏻‍♀‍➡	kvinna som går åt höger	none
+🚶🏼‍♀‍➡	kvinna som går åt höger	none
+🚶🏽‍♀‍➡	kvinna som går åt höger	none
+🚶🏾‍♀‍➡	kvinna som går åt höger	none
+🚶🏿‍♀‍➡	kvinna som går åt höger	none
+🚶‍♂‍➡	man som går åt höger	none
+🚶🏻‍♂‍➡	man som går åt höger	none
+🚶🏼‍♂‍➡	man som går åt höger	none
+🚶🏽‍♂‍➡	man som går åt höger	none
+🚶🏾‍♂‍➡	man som går åt höger	none
+🚶🏿‍♂‍➡	man som går åt höger	none
 🧍🏻	stående person ljus hy	none
 🧍🏼	stående person mellanljus hy	none
 🧍🏽	stående person mellanfärgad hy	none
@@ -3191,51 +3209,123 @@ symbols:
 🧎🏽‍♀	knäsittande kvinna mellanfärgad hy	none
 🧎🏾‍♀	knäsittande kvinna mellanmörk hy	none
 🧎🏿‍♀	knäsittande kvinna mörk hy	none
+🧎‍➡	knäsittande person åt höger	none
+🧎🏻‍➡	knäsittande person åt höger	none
+🧎🏼‍➡	knäsittande person åt höger	none
+🧎🏽‍➡	knäsittande person åt höger	none
+🧎🏾‍➡	knäsittande person åt höger	none
+🧎🏿‍➡	knäsittande person åt höger	none
+🧎‍♀‍➡	knäsittande kvinna åt höger	none
+🧎🏻‍♀‍➡	knäsittande kvinna åt höger	none
+🧎🏼‍♀‍➡	knäsittande kvinna åt höger	none
+🧎🏽‍♀‍➡	knäsittande kvinna åt höger	none
+🧎🏾‍♀‍➡	knäsittande kvinna åt höger	none
+🧎🏿‍♀‍➡	knäsittande kvinna åt höger	none
+🧎‍♂‍➡	knäsittande man åt höger	none
+🧎🏻‍♂‍➡	knäsittande man åt höger	none
+🧎🏼‍♂‍➡	knäsittande man åt höger	none
+🧎🏽‍♂‍➡	knäsittande man åt höger	none
+🧎🏾‍♂‍➡	knäsittande man åt höger	none
+🧎🏿‍♂‍➡	knäsittande man åt höger	none
 🧑🏻‍🦯	person med vit käpp ljus hy	none
 🧑🏼‍🦯	person med vit käpp mellanljus hy	none
 🧑🏽‍🦯	person med vit käpp mellanfärgad hy	none
 🧑🏾‍🦯	person med vit käpp mellanmörk hy	none
 🧑🏿‍🦯	person med vit käpp mörk hy	none
+🧑‍🦯‍➡	person med vit käpp åt höger	none
+🧑🏻‍🦯‍➡	person med vit käpp åt höger	none
+🧑🏼‍🦯‍➡	person med vit käpp åt höger	none
+🧑🏽‍🦯‍➡	person med vit käpp åt höger	none
+🧑🏾‍🦯‍➡	person med vit käpp åt höger	none
+🧑🏿‍🦯‍➡	person med vit käpp åt höger	none
 👨🏻‍🦯	man med vit käpp ljus hy	none
 👨🏼‍🦯	man med vit käpp mellanljus hy	none
 👨🏽‍🦯	man med vit käpp mellanfärgad hy	none
 👨🏾‍🦯	man med vit käpp mellanmörk hy	none
 👨🏿‍🦯	man med vit käpp mörk hy	none
+👨‍🦯‍➡	man med vit käpp åt höger	none
+👨🏻‍🦯‍➡	man med vit käpp åt höger	none
+👨🏼‍🦯‍➡	man med vit käpp åt höger	none
+👨🏽‍🦯‍➡	man med vit käpp åt höger	none
+👨🏾‍🦯‍➡	man med vit käpp åt höger	none
+👨🏿‍🦯‍➡	man med vit käpp åt höger	none
 👩🏻‍🦯	kvinna med vit käpp ljus hy	none
 👩🏼‍🦯	kvinna med vit käpp mellanljus hy	none
 👩🏽‍🦯	kvinna med vit käpp mellanfärgad hy	none
 👩🏾‍🦯	kvinna med vit käpp mellanmörk hy	none
 👩🏿‍🦯	kvinna med vit käpp mörk hy	none
+👩‍🦯‍➡	kvinna med vit käpp åt höger	none
+👩🏻‍🦯‍➡	kvinna med vit käpp åt höger	none
+👩🏼‍🦯‍➡	kvinna med vit käpp åt höger	none
+👩🏽‍🦯‍➡	kvinna med vit käpp åt höger	none
+👩🏾‍🦯‍➡	kvinna med vit käpp åt höger	none
+👩🏿‍🦯‍➡	kvinna med vit käpp åt höger	none
 🧑🏻‍🦼	person i permobil ljus hy	none
 🧑🏼‍🦼	person i permobil mellanljus hy	none
 🧑🏽‍🦼	person i permobil mellanfärgad hy	none
 🧑🏾‍🦼	person i permobil mellanmörk hy	none
 🧑🏿‍🦼	person i permobil mörk hy	none
+🧑‍🦼‍➡	person i permobil åt höger	none
+🧑🏻‍🦼‍➡	person i permobil åt höger	none
+🧑🏼‍🦼‍➡	person i permobil åt höger	none
+🧑🏽‍🦼‍➡	person i permobil åt höger	none
+🧑🏾‍🦼‍➡	person i permobil åt höger	none
+🧑🏿‍🦼‍➡	person i permobil åt höger	none
 👨🏻‍🦼	man i permobil ljus hy	none
 👨🏼‍🦼	man i permobil mellanljus hy	none
 👨🏽‍🦼	man i permobil mellanfärgad hy	none
 👨🏾‍🦼	man i permobil mellanmörk hy	none
 👨🏿‍🦼	man i permobil mörk hy	none
+👨‍🦼‍➡	man i permobil åt höger	none
+👨🏻‍🦼‍➡	man i permobil åt höger	none
+👨🏼‍🦼‍➡	man i permobil åt höger	none
+👨🏽‍🦼‍➡	man i permobil åt höger	none
+👨🏾‍🦼‍➡	man i permobil åt höger	none
+👨🏿‍🦼‍➡	man i permobil åt höger	none
 👩🏻‍🦼	kvinna i permobil ljus hy	none
 👩🏼‍🦼	kvinna i permobil mellanljus hy	none
 👩🏽‍🦼	kvinna i permobil mellanfärgad hy	none
 👩🏾‍🦼	kvinna i permobil mellanmörk hy	none
 👩🏿‍🦼	kvinna i permobil mörk hy	none
+👩‍🦼‍➡	kvinna i permobil åt höger	none
+👩🏻‍🦼‍➡	kvinna i permobil åt höger	none
+👩🏼‍🦼‍➡	kvinna i permobil åt höger	none
+👩🏽‍🦼‍➡	kvinna i permobil åt höger	none
+👩🏾‍🦼‍➡	kvinna i permobil åt höger	none
+👩🏿‍🦼‍➡	kvinna i permobil åt höger	none
 🧑🏻‍🦽	person i manuell rullstol ljus hy	none
 🧑🏼‍🦽	person i manuell rullstol mellanljus hy	none
 🧑🏽‍🦽	person i manuell rullstol mellanfärgad hy	none
 🧑🏾‍🦽	person i manuell rullstol mellanmörk hy	none
 🧑🏿‍🦽	person i manuell rullstol mörk hy	none
+🧑‍🦽‍➡	person i manuell rullstol åt höger	none
+🧑🏻‍🦽‍➡	person i manuell rullstol åt höger	none
+🧑🏼‍🦽‍➡	person i manuell rullstol åt höger	none
+🧑🏽‍🦽‍➡	person i manuell rullstol åt höger	none
+🧑🏾‍🦽‍➡	person i manuell rullstol åt höger	none
+🧑🏿‍🦽‍➡	person i manuell rullstol åt höger	none
 👨🏻‍🦽	man i manuell rullstol ljus hy	none
 👨🏼‍🦽	man i manuell rullstol mellanljus hy	none
 👨🏽‍🦽	man i manuell rullstol mellanfärgad hy	none
 👨🏾‍🦽	man i manuell rullstol mellanmörk hy	none
 👨🏿‍🦽	man i manuell rullstol mörk hy	none
+👨‍🦽‍➡	man i manuell rullstol åt höger	none
+👨🏻‍🦽‍➡	man i manuell rullstol åt höger	none
+👨🏼‍🦽‍➡	man i manuell rullstol åt höger	none
+👨🏽‍🦽‍➡	man i manuell rullstol åt höger	none
+👨🏾‍🦽‍➡	man i manuell rullstol åt höger	none
+👨🏿‍🦽‍➡	man i manuell rullstol åt höger	none
 👩🏻‍🦽	kvinna i manuell rullstol ljus hy	none
 👩🏼‍🦽	kvinna i manuell rullstol mellanljus hy	none
 👩🏽‍🦽	kvinna i manuell rullstol mellanfärgad hy	none
 👩🏾‍🦽	kvinna i manuell rullstol mellanmörk hy	none
 👩🏿‍🦽	kvinna i manuell rullstol mörk hy	none
+👩‍🦽‍➡	kvinna i manuell rullstol åt höger	none
+👩🏻‍🦽‍➡	kvinna i manuell rullstol åt höger	none
+👩🏼‍🦽‍➡	kvinna i manuell rullstol åt höger	none
+👩🏽‍🦽‍➡	kvinna i manuell rullstol åt höger	none
+👩🏾‍🦽‍➡	kvinna i manuell rullstol åt höger	none
+👩🏿‍🦽‍➡	kvinna i manuell rullstol åt höger	none
 🏃🏻	person som springer ljus hy	none
 🏃🏼	person som springer mellanljus hy	none
 🏃🏽	person som springer mellanfärgad hy	none
@@ -3251,6 +3341,24 @@ symbols:
 🏃🏽‍♀	kvinna som springer mellanfärgad hy	none
 🏃🏾‍♀	kvinna som springer mellanmörk hy	none
 🏃🏿‍♀	kvinna som springer mörk hy	none
+🏃‍➡	person som springer åt höger	none
+🏃🏻‍➡	person som springer åt höger	none
+🏃🏼‍➡	person som springer åt höger	none
+🏃🏽‍➡	person som springer åt höger	none
+🏃🏾‍➡	person som springer åt höger	none
+🏃🏿‍➡	person som springer åt höger	none
+🏃‍♀‍➡	kvinna som springer åt höger	none
+🏃🏻‍♀‍➡	kvinna som springer åt höger	none
+🏃🏼‍♀‍➡	kvinna som springer åt höger	none
+🏃🏽‍♀‍➡	kvinna som springer åt höger	none
+🏃🏾‍♀‍➡	kvinna som springer åt höger	none
+🏃🏿‍♀‍➡	kvinna som springer åt höger	none
+🏃‍♂‍➡	man som springer åt höger	none
+🏃🏻‍♂‍➡	man som springer åt höger	none
+🏃🏼‍♂‍➡	man som springer åt höger	none
+🏃🏽‍♂‍➡	man som springer åt höger	none
+🏃🏾‍♂‍➡	man som springer åt höger	none
+🏃🏿‍♂‍➡	man som springer åt höger	none
 💃🏻	dansande kvinna ljus hy	none
 💃🏼	dansande kvinna mellanljus hy	none
 💃🏽	dansande kvinna mellanfärgad hy	none

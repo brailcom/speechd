@@ -3161,6 +3161,24 @@ symbols:
 🚶🏽‍♀	donna che cammina carnagione olivastra	none
 🚶🏾‍♀	donna che cammina carnagione abbastanza scura	none
 🚶🏿‍♀	donna che cammina carnagione scura	none
+🚶‍➡	pedone a destra	none
+🚶🏻‍➡	pedone a destra	none
+🚶🏼‍➡	pedone a destra	none
+🚶🏽‍➡	pedone a destra	none
+🚶🏾‍➡	pedone a destra	none
+🚶🏿‍➡	pedone a destra	none
+🚶‍♀‍➡	donna che cammina a destra	none
+🚶🏻‍♀‍➡	donna che cammina a destra	none
+🚶🏼‍♀‍➡	donna che cammina a destra	none
+🚶🏽‍♀‍➡	donna che cammina a destra	none
+🚶🏾‍♀‍➡	donna che cammina a destra	none
+🚶🏿‍♀‍➡	donna che cammina a destra	none
+🚶‍♂‍➡	uomo che cammina a destra	none
+🚶🏻‍♂‍➡	uomo che cammina a destra	none
+🚶🏼‍♂‍➡	uomo che cammina a destra	none
+🚶🏽‍♂‍➡	uomo che cammina a destra	none
+🚶🏾‍♂‍➡	uomo che cammina a destra	none
+🚶🏿‍♂‍➡	uomo che cammina a destra	none
 🧍🏻	persona in piedi carnagione chiara	none
 🧍🏼	persona in piedi carnagione abbastanza chiara	none
 🧍🏽	persona in piedi carnagione olivastra	none
@@ -3191,51 +3209,123 @@ symbols:
 🧎🏽‍♀	donna inginocchiata carnagione olivastra	none
 🧎🏾‍♀	donna inginocchiata carnagione abbastanza scura	none
 🧎🏿‍♀	donna inginocchiata carnagione scura	none
+🧎‍➡	persona inginocchiata a destra	none
+🧎🏻‍➡	persona inginocchiata a destra	none
+🧎🏼‍➡	persona inginocchiata a destra	none
+🧎🏽‍➡	persona inginocchiata a destra	none
+🧎🏾‍➡	persona inginocchiata a destra	none
+🧎🏿‍➡	persona inginocchiata a destra	none
+🧎‍♀‍➡	donna inginocchiata a destra	none
+🧎🏻‍♀‍➡	donna inginocchiata a destra	none
+🧎🏼‍♀‍➡	donna inginocchiata a destra	none
+🧎🏽‍♀‍➡	donna inginocchiata a destra	none
+🧎🏾‍♀‍➡	donna inginocchiata a destra	none
+🧎🏿‍♀‍➡	donna inginocchiata a destra	none
+🧎‍♂‍➡	uomo inginocchiato a destra	none
+🧎🏻‍♂‍➡	uomo inginocchiato a destra	none
+🧎🏼‍♂‍➡	uomo inginocchiato a destra	none
+🧎🏽‍♂‍➡	uomo inginocchiato a destra	none
+🧎🏾‍♂‍➡	uomo inginocchiato a destra	none
+🧎🏿‍♂‍➡	uomo inginocchiato a destra	none
 🧑🏻‍🦯	persona con bastone di orientamento carnagione chiara	none
 🧑🏼‍🦯	persona con bastone di orientamento carnagione abbastanza chiara	none
 🧑🏽‍🦯	persona con bastone di orientamento carnagione olivastra	none
 🧑🏾‍🦯	persona con bastone di orientamento carnagione abbastanza scura	none
 🧑🏿‍🦯	persona con bastone di orientamento carnagione scura	none
+🧑‍🦯‍➡	persona con bastone di orientamento a destra	none
+🧑🏻‍🦯‍➡	persona con bastone di orientamento a destra	none
+🧑🏼‍🦯‍➡	persona con bastone di orientamento a destra	none
+🧑🏽‍🦯‍➡	persona con bastone di orientamento a destra	none
+🧑🏾‍🦯‍➡	persona con bastone di orientamento a destra	none
+🧑🏿‍🦯‍➡	persona con bastone di orientamento a destra	none
 👨🏻‍🦯	uomo con bastone bianco di orientamento carnagione chiara	none
 👨🏼‍🦯	uomo con bastone bianco di orientamento carnagione abbastanza chiara	none
 👨🏽‍🦯	uomo con bastone bianco di orientamento carnagione olivastra	none
 👨🏾‍🦯	uomo con bastone bianco di orientamento carnagione abbastanza scura	none
 👨🏿‍🦯	uomo con bastone bianco di orientamento carnagione scura	none
+👨‍🦯‍➡	uomo con bastone bianco di orientamento a destra	none
+👨🏻‍🦯‍➡	uomo con bastone bianco di orientamento a destra	none
+👨🏼‍🦯‍➡	uomo con bastone bianco di orientamento a destra	none
+👨🏽‍🦯‍➡	uomo con bastone bianco di orientamento a destra	none
+👨🏾‍🦯‍➡	uomo con bastone bianco di orientamento a destra	none
+👨🏿‍🦯‍➡	uomo con bastone bianco di orientamento a destra	none
 👩🏻‍🦯	donna con bastone bianco di orientamento carnagione chiara	none
 👩🏼‍🦯	donna con bastone bianco di orientamento carnagione abbastanza chiara	none
 👩🏽‍🦯	donna con bastone bianco di orientamento carnagione olivastra	none
 👩🏾‍🦯	donna con bastone bianco di orientamento carnagione abbastanza scura	none
 👩🏿‍🦯	donna con bastone bianco di orientamento carnagione scura	none
+👩‍🦯‍➡	donna con bastone bianco di orientamento a destra	none
+👩🏻‍🦯‍➡	donna con bastone bianco di orientamento a destra	none
+👩🏼‍🦯‍➡	donna con bastone bianco di orientamento a destra	none
+👩🏽‍🦯‍➡	donna con bastone bianco di orientamento a destra	none
+👩🏾‍🦯‍➡	donna con bastone bianco di orientamento a destra	none
+👩🏿‍🦯‍➡	donna con bastone bianco di orientamento a destra	none
 🧑🏻‍🦼	persona su sedia a rotelle motorizzata carnagione chiara	none
 🧑🏼‍🦼	persona su sedia a rotelle motorizzata carnagione abbastanza chiara	none
 🧑🏽‍🦼	persona su sedia a rotelle motorizzata carnagione olivastra	none
 🧑🏾‍🦼	persona su sedia a rotelle motorizzata carnagione abbastanza scura	none
 🧑🏿‍🦼	persona su sedia a rotelle motorizzata carnagione scura	none
+🧑‍🦼‍➡	persona su sedia a rotelle motorizzata a destra	none
+🧑🏻‍🦼‍➡	persona su sedia a rotelle motorizzata a destra	none
+🧑🏼‍🦼‍➡	persona su sedia a rotelle motorizzata a destra	none
+🧑🏽‍🦼‍➡	persona su sedia a rotelle motorizzata a destra	none
+🧑🏾‍🦼‍➡	persona su sedia a rotelle motorizzata a destra	none
+🧑🏿‍🦼‍➡	persona su sedia a rotelle motorizzata a destra	none
 👨🏻‍🦼	uomo su sedia a rotelle motorizzata carnagione chiara	none
 👨🏼‍🦼	uomo su sedia a rotelle motorizzata carnagione abbastanza chiara	none
 👨🏽‍🦼	uomo su sedia a rotelle motorizzata carnagione olivastra	none
 👨🏾‍🦼	uomo su sedia a rotelle motorizzata carnagione abbastanza scura	none
 👨🏿‍🦼	uomo su sedia a rotelle motorizzata carnagione scura	none
+👨‍🦼‍➡	uomo su sedia a rotelle motorizzata a destra	none
+👨🏻‍🦼‍➡	uomo su sedia a rotelle motorizzata a destra	none
+👨🏼‍🦼‍➡	uomo su sedia a rotelle motorizzata a destra	none
+👨🏽‍🦼‍➡	uomo su sedia a rotelle motorizzata a destra	none
+👨🏾‍🦼‍➡	uomo su sedia a rotelle motorizzata a destra	none
+👨🏿‍🦼‍➡	uomo su sedia a rotelle motorizzata a destra	none
 👩🏻‍🦼	donna su sedia a rotelle motorizzata carnagione chiara	none
 👩🏼‍🦼	donna su sedia a rotelle motorizzata carnagione abbastanza chiara	none
 👩🏽‍🦼	donna su sedia a rotelle motorizzata carnagione olivastra	none
 👩🏾‍🦼	donna su sedia a rotelle motorizzata carnagione abbastanza scura	none
 👩🏿‍🦼	donna su sedia a rotelle motorizzata carnagione scura	none
+👩‍🦼‍➡	donna su sedia a rotelle motorizzata a destra	none
+👩🏻‍🦼‍➡	donna su sedia a rotelle motorizzata a destra	none
+👩🏼‍🦼‍➡	donna su sedia a rotelle motorizzata a destra	none
+👩🏽‍🦼‍➡	donna su sedia a rotelle motorizzata a destra	none
+👩🏾‍🦼‍➡	donna su sedia a rotelle motorizzata a destra	none
+👩🏿‍🦼‍➡	donna su sedia a rotelle motorizzata a destra	none
 🧑🏻‍🦽	persona su sedia a rotelle manuale carnagione chiara	none
 🧑🏼‍🦽	persona su sedia a rotelle manuale carnagione abbastanza chiara	none
 🧑🏽‍🦽	persona su sedia a rotelle manuale carnagione olivastra	none
 🧑🏾‍🦽	persona su sedia a rotelle manuale carnagione abbastanza scura	none
 🧑🏿‍🦽	persona su sedia a rotelle manuale carnagione scura	none
+🧑‍🦽‍➡	persona su sedia a rotelle manuale a destra	none
+🧑🏻‍🦽‍➡	persona su sedia a rotelle manuale a destra	none
+🧑🏼‍🦽‍➡	persona su sedia a rotelle manuale a destra	none
+🧑🏽‍🦽‍➡	persona su sedia a rotelle manuale a destra	none
+🧑🏾‍🦽‍➡	persona su sedia a rotelle manuale a destra	none
+🧑🏿‍🦽‍➡	persona su sedia a rotelle manuale a destra	none
 👨🏻‍🦽	uomo su sedia a rotelle manuale carnagione chiara	none
 👨🏼‍🦽	uomo su sedia a rotelle manuale carnagione abbastanza chiara	none
 👨🏽‍🦽	uomo su sedia a rotelle manuale carnagione olivastra	none
 👨🏾‍🦽	uomo su sedia a rotelle manuale carnagione abbastanza scura	none
 👨🏿‍🦽	uomo su sedia a rotelle manuale carnagione scura	none
+👨‍🦽‍➡	uomo su sedia a rotelle manuale a destra	none
+👨🏻‍🦽‍➡	uomo su sedia a rotelle manuale a destra	none
+👨🏼‍🦽‍➡	uomo su sedia a rotelle manuale a destra	none
+👨🏽‍🦽‍➡	uomo su sedia a rotelle manuale a destra	none
+👨🏾‍🦽‍➡	uomo su sedia a rotelle manuale a destra	none
+👨🏿‍🦽‍➡	uomo su sedia a rotelle manuale a destra	none
 👩🏻‍🦽	donna su sedia a rotelle manuale carnagione chiara	none
 👩🏼‍🦽	donna su sedia a rotelle manuale carnagione abbastanza chiara	none
 👩🏽‍🦽	donna su sedia a rotelle manuale carnagione olivastra	none
 👩🏾‍🦽	donna su sedia a rotelle manuale carnagione abbastanza scura	none
 👩🏿‍🦽	donna su sedia a rotelle manuale carnagione scura	none
+👩‍🦽‍➡	donna su sedia a rotelle manuale a destra	none
+👩🏻‍🦽‍➡	donna su sedia a rotelle manuale a destra	none
+👩🏼‍🦽‍➡	donna su sedia a rotelle manuale a destra	none
+👩🏽‍🦽‍➡	donna su sedia a rotelle manuale a destra	none
+👩🏾‍🦽‍➡	donna su sedia a rotelle manuale a destra	none
+👩🏿‍🦽‍➡	donna su sedia a rotelle manuale a destra	none
 🏃🏻	persona che corre carnagione chiara	none
 🏃🏼	persona che corre carnagione abbastanza chiara	none
 🏃🏽	persona che corre carnagione olivastra	none
@@ -3251,6 +3341,24 @@ symbols:
 🏃🏽‍♀	donna che corre carnagione olivastra	none
 🏃🏾‍♀	donna che corre carnagione abbastanza scura	none
 🏃🏿‍♀	donna che corre carnagione scura	none
+🏃‍➡	persona che corre a destra	none
+🏃🏻‍➡	persona che corre a destra	none
+🏃🏼‍➡	persona che corre a destra	none
+🏃🏽‍➡	persona che corre a destra	none
+🏃🏾‍➡	persona che corre a destra	none
+🏃🏿‍➡	persona che corre a destra	none
+🏃‍♀‍➡	donna che corre a destra	none
+🏃🏻‍♀‍➡	donna che corre a destra	none
+🏃🏼‍♀‍➡	donna che corre a destra	none
+🏃🏽‍♀‍➡	donna che corre a destra	none
+🏃🏾‍♀‍➡	donna che corre a destra	none
+🏃🏿‍♀‍➡	donna che corre a destra	none
+🏃‍♂‍➡	uomo che corre a destra	none
+🏃🏻‍♂‍➡	uomo che corre a destra	none
+🏃🏼‍♂‍➡	uomo che corre a destra	none
+🏃🏽‍♂‍➡	uomo che corre a destra	none
+🏃🏾‍♂‍➡	uomo che corre a destra	none
+🏃🏿‍♂‍➡	uomo che corre a destra	none
 💃🏻	donna che balla carnagione chiara	none
 💃🏼	donna che balla carnagione abbastanza chiara	none
 💃🏽	donna che balla carnagione olivastra	none

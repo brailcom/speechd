@@ -3161,6 +3161,24 @@ symbols:
 🚶🏽‍♀	kävelevä nainen tummanvaalea iho	none
 🚶🏾‍♀	kävelevä nainen keskitumma iho	none
 🚶🏿‍♀	kävelevä nainen tumma iho	none
+🚶‍➡	jalankulkija kohti oikeaa	none
+🚶🏻‍➡	jalankulkija kohti oikeaa	none
+🚶🏼‍➡	jalankulkija kohti oikeaa	none
+🚶🏽‍➡	jalankulkija kohti oikeaa	none
+🚶🏾‍➡	jalankulkija kohti oikeaa	none
+🚶🏿‍➡	jalankulkija kohti oikeaa	none
+🚶‍♀‍➡	kävelevä nainen kohti oikeaa	none
+🚶🏻‍♀‍➡	kävelevä nainen kohti oikeaa	none
+🚶🏼‍♀‍➡	kävelevä nainen kohti oikeaa	none
+🚶🏽‍♀‍➡	kävelevä nainen kohti oikeaa	none
+🚶🏾‍♀‍➡	kävelevä nainen kohti oikeaa	none
+🚶🏿‍♀‍➡	kävelevä nainen kohti oikeaa	none
+🚶‍♂‍➡	kävelevä mies kohti oikeaa	none
+🚶🏻‍♂‍➡	kävelevä mies kohti oikeaa	none
+🚶🏼‍♂‍➡	kävelevä mies kohti oikeaa	none
+🚶🏽‍♂‍➡	kävelevä mies kohti oikeaa	none
+🚶🏾‍♂‍➡	kävelevä mies kohti oikeaa	none
+🚶🏿‍♂‍➡	kävelevä mies kohti oikeaa	none
 🧍🏻	seisova ihminen vaalea iho	none
 🧍🏼	seisova ihminen keskivaalea iho	none
 🧍🏽	seisova ihminen tummanvaalea iho	none
@@ -3191,51 +3209,123 @@ symbols:
 🧎🏽‍♀	polvistuva nainen tummanvaalea iho	none
 🧎🏾‍♀	polvistuva nainen keskitumma iho	none
 🧎🏿‍♀	polvistuva nainen tumma iho	none
+🧎‍➡	polvistuva ihminen kohti oikeaa	none
+🧎🏻‍➡	polvistuva ihminen kohti oikeaa	none
+🧎🏼‍➡	polvistuva ihminen kohti oikeaa	none
+🧎🏽‍➡	polvistuva ihminen kohti oikeaa	none
+🧎🏾‍➡	polvistuva ihminen kohti oikeaa	none
+🧎🏿‍➡	polvistuva ihminen kohti oikeaa	none
+🧎‍♀‍➡	polvistuva nainen kohti oikeaa	none
+🧎🏻‍♀‍➡	polvistuva nainen kohti oikeaa	none
+🧎🏼‍♀‍➡	polvistuva nainen kohti oikeaa	none
+🧎🏽‍♀‍➡	polvistuva nainen kohti oikeaa	none
+🧎🏾‍♀‍➡	polvistuva nainen kohti oikeaa	none
+🧎🏿‍♀‍➡	polvistuva nainen kohti oikeaa	none
+🧎‍♂‍➡	polvistuva mies kohti oikeaa	none
+🧎🏻‍♂‍➡	polvistuva mies kohti oikeaa	none
+🧎🏼‍♂‍➡	polvistuva mies kohti oikeaa	none
+🧎🏽‍♂‍➡	polvistuva mies kohti oikeaa	none
+🧎🏾‍♂‍➡	polvistuva mies kohti oikeaa	none
+🧎🏿‍♂‍➡	polvistuva mies kohti oikeaa	none
 🧑🏻‍🦯	henkilö ja valkoinen keppi vaalea iho	none
 🧑🏼‍🦯	henkilö ja valkoinen keppi keskivaalea iho	none
 🧑🏽‍🦯	henkilö ja valkoinen keppi tummanvaalea iho	none
 🧑🏾‍🦯	henkilö ja valkoinen keppi keskitumma iho	none
 🧑🏿‍🦯	henkilö ja valkoinen keppi tumma iho	none
+🧑‍🦯‍➡	henkilö ja valkoinen keppi kohti oikeaa	none
+🧑🏻‍🦯‍➡	henkilö ja valkoinen keppi kohti oikeaa	none
+🧑🏼‍🦯‍➡	henkilö ja valkoinen keppi kohti oikeaa	none
+🧑🏽‍🦯‍➡	henkilö ja valkoinen keppi kohti oikeaa	none
+🧑🏾‍🦯‍➡	henkilö ja valkoinen keppi kohti oikeaa	none
+🧑🏿‍🦯‍➡	henkilö ja valkoinen keppi kohti oikeaa	none
 👨🏻‍🦯	mies ja valkoinen keppi vaalea iho	none
 👨🏼‍🦯	mies ja valkoinen keppi keskivaalea iho	none
 👨🏽‍🦯	mies ja valkoinen keppi tummanvaalea iho	none
 👨🏾‍🦯	mies ja valkoinen keppi keskitumma iho	none
 👨🏿‍🦯	mies ja valkoinen keppi tumma iho	none
+👨‍🦯‍➡	mies ja valkoinen keppi kohti oikeaa	none
+👨🏻‍🦯‍➡	mies ja valkoinen keppi kohti oikeaa	none
+👨🏼‍🦯‍➡	mies ja valkoinen keppi kohti oikeaa	none
+👨🏽‍🦯‍➡	mies ja valkoinen keppi kohti oikeaa	none
+👨🏾‍🦯‍➡	mies ja valkoinen keppi kohti oikeaa	none
+👨🏿‍🦯‍➡	mies ja valkoinen keppi kohti oikeaa	none
 👩🏻‍🦯	nainen ja valkoinen keppi vaalea iho	none
 👩🏼‍🦯	nainen ja valkoinen keppi keskivaalea iho	none
 👩🏽‍🦯	nainen ja valkoinen keppi tummanvaalea iho	none
 👩🏾‍🦯	nainen ja valkoinen keppi keskitumma iho	none
 👩🏿‍🦯	nainen ja valkoinen keppi tumma iho	none
+👩‍🦯‍➡	nainen ja valkoinen keppi kohti oikeaa	none
+👩🏻‍🦯‍➡	nainen ja valkoinen keppi kohti oikeaa	none
+👩🏼‍🦯‍➡	nainen ja valkoinen keppi kohti oikeaa	none
+👩🏽‍🦯‍➡	nainen ja valkoinen keppi kohti oikeaa	none
+👩🏾‍🦯‍➡	nainen ja valkoinen keppi kohti oikeaa	none
+👩🏿‍🦯‍➡	nainen ja valkoinen keppi kohti oikeaa	none
 🧑🏻‍🦼	henkilö moottoroidussa pyörätuolissa vaalea iho	none
 🧑🏼‍🦼	henkilö moottoroidussa pyörätuolissa keskivaalea iho	none
 🧑🏽‍🦼	henkilö moottoroidussa pyörätuolissa tummanvaalea iho	none
 🧑🏾‍🦼	henkilö moottoroidussa pyörätuolissa keskitumma iho	none
 🧑🏿‍🦼	henkilö moottoroidussa pyörätuolissa tumma iho	none
+🧑‍🦼‍➡	henkilö moottoroidussa pyörätuolissa kohti oikeaa	none
+🧑🏻‍🦼‍➡	henkilö moottoroidussa pyörätuolissa kohti oikeaa	none
+🧑🏼‍🦼‍➡	henkilö moottoroidussa pyörätuolissa kohti oikeaa	none
+🧑🏽‍🦼‍➡	henkilö moottoroidussa pyörätuolissa kohti oikeaa	none
+🧑🏾‍🦼‍➡	henkilö moottoroidussa pyörätuolissa kohti oikeaa	none
+🧑🏿‍🦼‍➡	henkilö moottoroidussa pyörätuolissa kohti oikeaa	none
 👨🏻‍🦼	mies moottoroidussa pyörätuolissa vaalea iho	none
 👨🏼‍🦼	mies moottoroidussa pyörätuolissa keskivaalea iho	none
 👨🏽‍🦼	mies moottoroidussa pyörätuolissa tummanvaalea iho	none
 👨🏾‍🦼	mies moottoroidussa pyörätuolissa keskitumma iho	none
 👨🏿‍🦼	mies moottoroidussa pyörätuolissa tumma iho	none
+👨‍🦼‍➡	mies moottoroidussa pyörätuolissa kohti oikeaa	none
+👨🏻‍🦼‍➡	mies moottoroidussa pyörätuolissa kohti oikeaa	none
+👨🏼‍🦼‍➡	mies moottoroidussa pyörätuolissa kohti oikeaa	none
+👨🏽‍🦼‍➡	mies moottoroidussa pyörätuolissa kohti oikeaa	none
+👨🏾‍🦼‍➡	mies moottoroidussa pyörätuolissa kohti oikeaa	none
+👨🏿‍🦼‍➡	mies moottoroidussa pyörätuolissa kohti oikeaa	none
 👩🏻‍🦼	nainen moottoroidussa pyörätuolissa vaalea iho	none
 👩🏼‍🦼	nainen moottoroidussa pyörätuolissa keskivaalea iho	none
 👩🏽‍🦼	nainen moottoroidussa pyörätuolissa tummanvaalea iho	none
 👩🏾‍🦼	nainen moottoroidussa pyörätuolissa keskitumma iho	none
 👩🏿‍🦼	nainen moottoroidussa pyörätuolissa tumma iho	none
+👩‍🦼‍➡	nainen moottoroidussa pyörätuolissa kohti oikeaa	none
+👩🏻‍🦼‍➡	nainen moottoroidussa pyörätuolissa kohti oikeaa	none
+👩🏼‍🦼‍➡	nainen moottoroidussa pyörätuolissa kohti oikeaa	none
+👩🏽‍🦼‍➡	nainen moottoroidussa pyörätuolissa kohti oikeaa	none
+👩🏾‍🦼‍➡	nainen moottoroidussa pyörätuolissa kohti oikeaa	none
+👩🏿‍🦼‍➡	nainen moottoroidussa pyörätuolissa kohti oikeaa	none
 🧑🏻‍🦽	henkilö käsikäyttöisessä pyörätuolissa vaalea iho	none
 🧑🏼‍🦽	henkilö käsikäyttöisessä pyörätuolissa keskivaalea iho	none
 🧑🏽‍🦽	henkilö käsikäyttöisessä pyörätuolissa tummanvaalea iho	none
 🧑🏾‍🦽	henkilö käsikäyttöisessä pyörätuolissa keskitumma iho	none
 🧑🏿‍🦽	henkilö käsikäyttöisessä pyörätuolissa tumma iho	none
+🧑‍🦽‍➡	henkilö käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+🧑🏻‍🦽‍➡	henkilö käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+🧑🏼‍🦽‍➡	henkilö käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+🧑🏽‍🦽‍➡	henkilö käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+🧑🏾‍🦽‍➡	henkilö käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+🧑🏿‍🦽‍➡	henkilö käsikäyttöisessä pyörätuolissa kohti oikeaa	none
 👨🏻‍🦽	mies käsikäyttöisessä pyörätuolissa vaalea iho	none
 👨🏼‍🦽	mies käsikäyttöisessä pyörätuolissa keskivaalea iho	none
 👨🏽‍🦽	mies käsikäyttöisessä pyörätuolissa tummanvaalea iho	none
 👨🏾‍🦽	mies käsikäyttöisessä pyörätuolissa keskitumma iho	none
 👨🏿‍🦽	mies käsikäyttöisessä pyörätuolissa tumma iho	none
+👨‍🦽‍➡	mies käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+👨🏻‍🦽‍➡	mies käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+👨🏼‍🦽‍➡	mies käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+👨🏽‍🦽‍➡	mies käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+👨🏾‍🦽‍➡	mies käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+👨🏿‍🦽‍➡	mies käsikäyttöisessä pyörätuolissa kohti oikeaa	none
 👩🏻‍🦽	nainen käsikäyttöisessä pyörätuolissa vaalea iho	none
 👩🏼‍🦽	nainen käsikäyttöisessä pyörätuolissa keskivaalea iho	none
 👩🏽‍🦽	nainen käsikäyttöisessä pyörätuolissa tummanvaalea iho	none
 👩🏾‍🦽	nainen käsikäyttöisessä pyörätuolissa keskitumma iho	none
 👩🏿‍🦽	nainen käsikäyttöisessä pyörätuolissa tumma iho	none
+👩‍🦽‍➡	nainen käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+👩🏻‍🦽‍➡	nainen käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+👩🏼‍🦽‍➡	nainen käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+👩🏽‍🦽‍➡	nainen käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+👩🏾‍🦽‍➡	nainen käsikäyttöisessä pyörätuolissa kohti oikeaa	none
+👩🏿‍🦽‍➡	nainen käsikäyttöisessä pyörätuolissa kohti oikeaa	none
 🏃🏻	juoksija vaalea iho	none
 🏃🏼	juoksija keskivaalea iho	none
 🏃🏽	juoksija tummanvaalea iho	none
@@ -3251,6 +3341,24 @@ symbols:
 🏃🏽‍♀	juokseva nainen tummanvaalea iho	none
 🏃🏾‍♀	juokseva nainen keskitumma iho	none
 🏃🏿‍♀	juokseva nainen tumma iho	none
+🏃‍➡	juoksija kohti oikeaa	none
+🏃🏻‍➡	juoksija kohti oikeaa	none
+🏃🏼‍➡	juoksija kohti oikeaa	none
+🏃🏽‍➡	juoksija kohti oikeaa	none
+🏃🏾‍➡	juoksija kohti oikeaa	none
+🏃🏿‍➡	juoksija kohti oikeaa	none
+🏃‍♀‍➡	juokseva nainen kohti oikeaa	none
+🏃🏻‍♀‍➡	juokseva nainen kohti oikeaa	none
+🏃🏼‍♀‍➡	juokseva nainen kohti oikeaa	none
+🏃🏽‍♀‍➡	juokseva nainen kohti oikeaa	none
+🏃🏾‍♀‍➡	juokseva nainen kohti oikeaa	none
+🏃🏿‍♀‍➡	juokseva nainen kohti oikeaa	none
+🏃‍♂‍➡	juokseva mies kohti oikeaa	none
+🏃🏻‍♂‍➡	juokseva mies kohti oikeaa	none
+🏃🏼‍♂‍➡	juokseva mies kohti oikeaa	none
+🏃🏽‍♂‍➡	juokseva mies kohti oikeaa	none
+🏃🏾‍♂‍➡	juokseva mies kohti oikeaa	none
+🏃🏿‍♂‍➡	juokseva mies kohti oikeaa	none
 💃🏻	tanssiva nainen vaalea iho	none
 💃🏼	tanssiva nainen keskivaalea iho	none
 💃🏽	tanssiva nainen tummanvaalea iho	none

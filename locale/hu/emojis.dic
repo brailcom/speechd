@@ -3161,6 +3161,24 @@ symbols:
 🚶🏽‍♀	sétáló nő közepes bőrtónus	none
 🚶🏾‍♀	sétáló nő közepesen sötét bőrtónus	none
 🚶🏿‍♀	sétáló nő sötét bőrtónus	none
+🚶‍➡	jobbra néző gyalogos	none
+🚶🏻‍➡	jobbra néző gyalogos	none
+🚶🏼‍➡	jobbra néző gyalogos	none
+🚶🏽‍➡	jobbra néző gyalogos	none
+🚶🏾‍➡	jobbra néző gyalogos	none
+🚶🏿‍➡	jobbra néző gyalogos	none
+🚶‍♀‍➡	jobbra néző sétáló nő	none
+🚶🏻‍♀‍➡	jobbra néző sétáló nő	none
+🚶🏼‍♀‍➡	jobbra néző sétáló nő	none
+🚶🏽‍♀‍➡	jobbra néző sétáló nő	none
+🚶🏾‍♀‍➡	jobbra néző sétáló nő	none
+🚶🏿‍♀‍➡	jobbra néző sétáló nő	none
+🚶‍♂‍➡	jobbra néző sétáló férfi	none
+🚶🏻‍♂‍➡	jobbra néző sétáló férfi	none
+🚶🏼‍♂‍➡	jobbra néző sétáló férfi	none
+🚶🏽‍♂‍➡	jobbra néző sétáló férfi	none
+🚶🏾‍♂‍➡	jobbra néző sétáló férfi	none
+🚶🏿‍♂‍➡	jobbra néző sétáló férfi	none
 🧍🏻	álló ember világos bőrtónus	none
 🧍🏼	álló ember közepesen világos bőrtónus	none
 🧍🏽	álló ember közepes bőrtónus	none
@@ -3191,51 +3209,123 @@ symbols:
 🧎🏽‍♀	térdelő nő közepes bőrtónus	none
 🧎🏾‍♀	térdelő nő közepesen sötét bőrtónus	none
 🧎🏿‍♀	térdelő nő sötét bőrtónus	none
+🧎‍➡	jobbra néző térdelő ember	none
+🧎🏻‍➡	jobbra néző térdelő ember	none
+🧎🏼‍➡	jobbra néző térdelő ember	none
+🧎🏽‍➡	jobbra néző térdelő ember	none
+🧎🏾‍➡	jobbra néző térdelő ember	none
+🧎🏿‍➡	jobbra néző térdelő ember	none
+🧎‍♀‍➡	jobbra néző térdelő nő	none
+🧎🏻‍♀‍➡	jobbra néző térdelő nő	none
+🧎🏼‍♀‍➡	jobbra néző térdelő nő	none
+🧎🏽‍♀‍➡	jobbra néző térdelő nő	none
+🧎🏾‍♀‍➡	jobbra néző térdelő nő	none
+🧎🏿‍♀‍➡	jobbra néző térdelő nő	none
+🧎‍♂‍➡	jobbra néző térdelő férfi	none
+🧎🏻‍♂‍➡	jobbra néző térdelő férfi	none
+🧎🏼‍♂‍➡	jobbra néző térdelő férfi	none
+🧎🏽‍♂‍➡	jobbra néző térdelő férfi	none
+🧎🏾‍♂‍➡	jobbra néző térdelő férfi	none
+🧎🏿‍♂‍➡	jobbra néző térdelő férfi	none
 🧑🏻‍🦯	ember fehér bottal világos bőrtónus	none
 🧑🏼‍🦯	ember fehér bottal közepesen világos bőrtónus	none
 🧑🏽‍🦯	ember fehér bottal közepes bőrtónus	none
 🧑🏾‍🦯	ember fehér bottal közepesen sötét bőrtónus	none
 🧑🏿‍🦯	ember fehér bottal sötét bőrtónus	none
+🧑‍🦯‍➡	jobbra néző ember fehér bottal	none
+🧑🏻‍🦯‍➡	jobbra néző ember fehér bottal	none
+🧑🏼‍🦯‍➡	jobbra néző ember fehér bottal	none
+🧑🏽‍🦯‍➡	jobbra néző ember fehér bottal	none
+🧑🏾‍🦯‍➡	jobbra néző ember fehér bottal	none
+🧑🏿‍🦯‍➡	jobbra néző ember fehér bottal	none
 👨🏻‍🦯	férfi fehér bottal világos bőrtónus	none
 👨🏼‍🦯	férfi fehér bottal közepesen világos bőrtónus	none
 👨🏽‍🦯	férfi fehér bottal közepes bőrtónus	none
 👨🏾‍🦯	férfi fehér bottal közepesen sötét bőrtónus	none
 👨🏿‍🦯	férfi fehér bottal sötét bőrtónus	none
+👨‍🦯‍➡	jobbra néző férfi fehér bottal	none
+👨🏻‍🦯‍➡	jobbra néző férfi fehér bottal	none
+👨🏼‍🦯‍➡	jobbra néző férfi fehér bottal	none
+👨🏽‍🦯‍➡	jobbra néző férfi fehér bottal	none
+👨🏾‍🦯‍➡	jobbra néző férfi fehér bottal	none
+👨🏿‍🦯‍➡	jobbra néző férfi fehér bottal	none
 👩🏻‍🦯	nő fehér bottal világos bőrtónus	none
 👩🏼‍🦯	nő fehér bottal közepesen világos bőrtónus	none
 👩🏽‍🦯	nő fehér bottal közepes bőrtónus	none
 👩🏾‍🦯	nő fehér bottal közepesen sötét bőrtónus	none
 👩🏿‍🦯	nő fehér bottal sötét bőrtónus	none
+👩‍🦯‍➡	jobbra néző nő fehér bottal	none
+👩🏻‍🦯‍➡	jobbra néző nő fehér bottal	none
+👩🏼‍🦯‍➡	jobbra néző nő fehér bottal	none
+👩🏽‍🦯‍➡	jobbra néző nő fehér bottal	none
+👩🏾‍🦯‍➡	jobbra néző nő fehér bottal	none
+👩🏿‍🦯‍➡	jobbra néző nő fehér bottal	none
 🧑🏻‍🦼	ember motoros kerekesszékben világos bőrtónus	none
 🧑🏼‍🦼	ember motoros kerekesszékben közepesen világos bőrtónus	none
 🧑🏽‍🦼	ember motoros kerekesszékben közepes bőrtónus	none
 🧑🏾‍🦼	ember motoros kerekesszékben közepesen sötét bőrtónus	none
 🧑🏿‍🦼	ember motoros kerekesszékben sötét bőrtónus	none
+🧑‍🦼‍➡	jobbra néző ember motoros kerekesszékben	none
+🧑🏻‍🦼‍➡	jobbra néző ember motoros kerekesszékben	none
+🧑🏼‍🦼‍➡	jobbra néző ember motoros kerekesszékben	none
+🧑🏽‍🦼‍➡	jobbra néző ember motoros kerekesszékben	none
+🧑🏾‍🦼‍➡	jobbra néző ember motoros kerekesszékben	none
+🧑🏿‍🦼‍➡	jobbra néző ember motoros kerekesszékben	none
 👨🏻‍🦼	férfi motoros kerekesszékben világos bőrtónus	none
 👨🏼‍🦼	férfi motoros kerekesszékben közepesen világos bőrtónus	none
 👨🏽‍🦼	férfi motoros kerekesszékben közepes bőrtónus	none
 👨🏾‍🦼	férfi motoros kerekesszékben közepesen sötét bőrtónus	none
 👨🏿‍🦼	férfi motoros kerekesszékben sötét bőrtónus	none
+👨‍🦼‍➡	jobbra néző férfi motoros kerekesszékben	none
+👨🏻‍🦼‍➡	jobbra néző férfi motoros kerekesszékben	none
+👨🏼‍🦼‍➡	jobbra néző férfi motoros kerekesszékben	none
+👨🏽‍🦼‍➡	jobbra néző férfi motoros kerekesszékben	none
+👨🏾‍🦼‍➡	jobbra néző férfi motoros kerekesszékben	none
+👨🏿‍🦼‍➡	jobbra néző férfi motoros kerekesszékben	none
 👩🏻‍🦼	nő motoros kerekesszékben világos bőrtónus	none
 👩🏼‍🦼	nő motoros kerekesszékben közepesen világos bőrtónus	none
 👩🏽‍🦼	nő motoros kerekesszékben közepes bőrtónus	none
 👩🏾‍🦼	nő motoros kerekesszékben közepesen sötét bőrtónus	none
 👩🏿‍🦼	nő motoros kerekesszékben sötét bőrtónus	none
+👩‍🦼‍➡	jobbra néző nő motoros kerekesszékben	none
+👩🏻‍🦼‍➡	jobbra néző nő motoros kerekesszékben	none
+👩🏼‍🦼‍➡	jobbra néző nő motoros kerekesszékben	none
+👩🏽‍🦼‍➡	jobbra néző nő motoros kerekesszékben	none
+👩🏾‍🦼‍➡	jobbra néző nő motoros kerekesszékben	none
+👩🏿‍🦼‍➡	jobbra néző nő motoros kerekesszékben	none
 🧑🏻‍🦽	kerekesszékes ember világos bőrtónus	none
 🧑🏼‍🦽	kerekesszékes ember közepesen világos bőrtónus	none
 🧑🏽‍🦽	kerekesszékes ember közepes bőrtónus	none
 🧑🏾‍🦽	kerekesszékes ember közepesen sötét bőrtónus	none
 🧑🏿‍🦽	kerekesszékes ember sötét bőrtónus	none
+🧑‍🦽‍➡	jobbra néző kerekesszékes ember	none
+🧑🏻‍🦽‍➡	jobbra néző kerekesszékes ember	none
+🧑🏼‍🦽‍➡	jobbra néző kerekesszékes ember	none
+🧑🏽‍🦽‍➡	jobbra néző kerekesszékes ember	none
+🧑🏾‍🦽‍➡	jobbra néző kerekesszékes ember	none
+🧑🏿‍🦽‍➡	jobbra néző kerekesszékes ember	none
 👨🏻‍🦽	férfi kézi hajtású kerekesszékben világos bőrtónus	none
 👨🏼‍🦽	férfi kézi hajtású kerekesszékben közepesen világos bőrtónus	none
 👨🏽‍🦽	férfi kézi hajtású kerekesszékben közepes bőrtónus	none
 👨🏾‍🦽	férfi kézi hajtású kerekesszékben közepesen sötét bőrtónus	none
 👨🏿‍🦽	férfi kézi hajtású kerekesszékben sötét bőrtónus	none
+👨‍🦽‍➡	jobbra néző férfi kézi hajtású kerekesszékben	none
+👨🏻‍🦽‍➡	jobbra néző férfi kézi hajtású kerekesszékben	none
+👨🏼‍🦽‍➡	jobbra néző férfi kézi hajtású kerekesszékben	none
+👨🏽‍🦽‍➡	jobbra néző férfi kézi hajtású kerekesszékben	none
+👨🏾‍🦽‍➡	jobbra néző férfi kézi hajtású kerekesszékben	none
+👨🏿‍🦽‍➡	jobbra néző férfi kézi hajtású kerekesszékben	none
 👩🏻‍🦽	nő kézi hajtású kerekesszékben világos bőrtónus	none
 👩🏼‍🦽	nő kézi hajtású kerekesszékben közepesen világos bőrtónus	none
 👩🏽‍🦽	nő kézi hajtású kerekesszékben közepes bőrtónus	none
 👩🏾‍🦽	nő kézi hajtású kerekesszékben közepesen sötét bőrtónus	none
 👩🏿‍🦽	nő kézi hajtású kerekesszékben sötét bőrtónus	none
+👩‍🦽‍➡	jobbra néző nő kézi hajtású kerekesszékben	none
+👩🏻‍🦽‍➡	jobbra néző nő kézi hajtású kerekesszékben	none
+👩🏼‍🦽‍➡	jobbra néző nő kézi hajtású kerekesszékben	none
+👩🏽‍🦽‍➡	jobbra néző nő kézi hajtású kerekesszékben	none
+👩🏾‍🦽‍➡	jobbra néző nő kézi hajtású kerekesszékben	none
+👩🏿‍🦽‍➡	jobbra néző nő kézi hajtású kerekesszékben	none
 🏃🏻	futó világos bőrtónus	none
 🏃🏼	futó közepesen világos bőrtónus	none
 🏃🏽	futó közepes bőrtónus	none
@@ -3251,6 +3341,24 @@ symbols:
 🏃🏽‍♀	futó nő közepes bőrtónus	none
 🏃🏾‍♀	futó nő közepesen sötét bőrtónus	none
 🏃🏿‍♀	futó nő sötét bőrtónus	none
+🏃‍➡	jobbra néző futó	none
+🏃🏻‍➡	jobbra néző futó	none
+🏃🏼‍➡	jobbra néző futó	none
+🏃🏽‍➡	jobbra néző futó	none
+🏃🏾‍➡	jobbra néző futó	none
+🏃🏿‍➡	jobbra néző futó	none
+🏃‍♀‍➡	jobbra néző futó nő	none
+🏃🏻‍♀‍➡	jobbra néző futó nő	none
+🏃🏼‍♀‍➡	jobbra néző futó nő	none
+🏃🏽‍♀‍➡	jobbra néző futó nő	none
+🏃🏾‍♀‍➡	jobbra néző futó nő	none
+🏃🏿‍♀‍➡	jobbra néző futó nő	none
+🏃‍♂‍➡	jobbra néző futó férfi	none
+🏃🏻‍♂‍➡	jobbra néző futó férfi	none
+🏃🏼‍♂‍➡	jobbra néző futó férfi	none
+🏃🏽‍♂‍➡	jobbra néző futó férfi	none
+🏃🏾‍♂‍➡	jobbra néző futó férfi	none
+🏃🏿‍♂‍➡	jobbra néző futó férfi	none
 💃🏻	táncoló nő világos bőrtónus	none
 💃🏼	táncoló nő közepesen világos bőrtónus	none
 💃🏽	táncoló nő közepes bőrtónus	none
