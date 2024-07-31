@@ -121,6 +121,12 @@ queue_message(TSpeechDMessage * new, int fd, int history_flag,
 		new->time = time(NULL);
 
 		new->settings.paused_while_speaking = 0;
+
+		/* Ignore possible SSML mode for anything but TEXT, as it doesn't make
+		 * sense anything else and can cause problems if the message processing
+		 * assumes SSML although it isn't */
+		if (type != SPD_MSGTYPE_TEXT)
+			new->settings.ssml_mode = SPD_DATA_TEXT;
 	}
 	id = new->id;
 
