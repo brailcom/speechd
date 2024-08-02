@@ -695,6 +695,7 @@ static gint modules_compare (gconstpointer a, gconstpointer b)
 	/* This gives the prioritization order of modules, to automatically select the best quality */
 	static const char *modules_order[] = {
 		"voxin",
+		"baratinoo",
 		"ivona",
 		"pico",
 		"pico-generic",
