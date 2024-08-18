@@ -8,17 +8,17 @@ msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2024-04-29 01:03+0200\n"
-"PO-Revision-Date: 2020-09-07 19:02+0000\n"
-"Last-Translator: Artem <KovalevArtem.ru@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/speech-"
-"dispatcher/po/ru/>\n"
+"PO-Revision-Date: 2024-08-19 14:09+0000\n"
+"Last-Translator: Roman Inflianskas <rominf@pm.me>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/"
+"speech-dispatcher/po/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.3-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.7\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -52,7 +52,7 @@ msgstr "Запустить как отдельное приложение\n"
 #: src/server/options.c:75
 #, c-format
 msgid "Start only if autospawn is not disabled\n"
-msgstr "Запустить только если autospawn не отключён\n"
+msgstr "Запустить, только если autospawn не отключён\n"
 
 #: src/server/options.c:77
 #, c-format
@@ -92,14 +92,14 @@ msgstr "Номер порта для метода '%s'\n"
 #: src/server/options.c:93
 #, c-format
 msgid "Set time in seconds for the server to wait before it\n"
-msgstr "Установить время ожидания сервера прежде чем он\n"
+msgstr "Установить время ожидания сервера, прежде чем он\n"
 
 #: src/server/options.c:95
 #, c-format
 msgid "shuts down, if it has no clients connected. Setting to\n"
 msgstr ""
-"завершится в случае отсутствия подключенных к нему клиентов. Установка "
-"значения\n"
+"завершит свою работу в случае отсутствия подключенных к нему клиентов. "
+"Установка значения\n"
 
 #: src/server/options.c:97
 #, c-format
@@ -287,6 +287,9 @@ msgid ""
 "Read text to be spoken on stdin, write it on stdout unchanged, and the\n"
 "corresponding speech through Speech Dispatcher.\n"
 msgstr ""
+"Прочитать текст из стандартного ввода, вывести на стандартный вывод без "
+"изменений и\n"
+"произнести его при помощи Speech Dispatcher.\n"
 
 #: src/clients/say/options.c:134
 #, c-format
@@ -506,7 +509,7 @@ msgid ""
 "warning, but most likely sound is not working."
 msgstr ""
 "выбрано %s, но %s не установлено. Это может быть ложным срабатыванием,\n"
-"но скорее всего звук работать не будет."
+"но скорее всего, звук работать не будет."
 
 #: src/api/python/speechd_config/config.py:259
 #, python-format
@@ -545,7 +548,7 @@ msgid ""
 msgstr ""
 "Пожалуйста, проверьте вывод из утилиты воспроизведения звука,\n"
 "приведённый выше. Если всё правильно, проверьте, что ваш звук\n"
-"достаточно громкий и не отключен в микшере. Сначала исправьте вашу\n"
+"достаточно громкий и не отключён в микшере. Сначала исправьте вашу\n"
 "аудиосистему или выберите другой метод вывода звука в конфигурации."
 
 #: src/api/python/speechd_config/config.py:279
@@ -563,11 +566,11 @@ msgid ""
 "it is very likely that Speech Dispatcher is not installed."
 msgstr ""
 "Не могу запустить исполняемый файл spd-say.\n"
-"Скорее всего Speech Dispatcher не установлен."
+"Скорее всего, Speech Dispatcher не установлен."
 
 #: src/api/python/speechd_config/config.py:292
 msgid "Did you hear the message about Speech Dispatcher working?"
-msgstr "Слышали ли вы сообщение о том что Speech Dispatcher работает?"
+msgstr "Слышали ли вы сообщение о том, что Speech Dispatcher работает?"
 
 #: src/api/python/speechd_config/config.py:294
 msgid "Speech Dispatcher is installed and working!"
@@ -603,7 +606,7 @@ msgid ""
 "is not installed."
 msgstr ""
 "Не могу запустить исполняемый файл espeak,\n"
-"скорее всего espeak не установлен."
+"скорее всего, espeak не установлен."
 
 #: src/api/python/speechd_config/config.py:326
 msgid "Testing ALSA sound output"
@@ -625,8 +628,9 @@ msgid ""
 "what is wrong)"
 msgstr ""
 "\n"
-"Speech Dispatcher не работает или к нему невозможно подключиться,\n"
-"см. выше. Хотите ли продолжить диагностику? Оставшиеся проверки могут\n"
+"Speech Dispatcher не работает или к нему невозможно подключиться (см. выше),"
+"\n"
+"Хотите ли продолжить диагностику? Оставшиеся проверки могут\n"
 "помочь выяснить причину неисправности."
 
 #: src/api/python/speechd_config/config.py:365
@@ -679,7 +683,7 @@ msgid ""
 "Either not installed or not in path."
 msgstr ""
 "Модуль Python Speech Dispatcher нельзя импортировать.\n"
-"Он либо не установлен, ли не находится в пути."
+"Он либо не установлен, либо не находится в пути."
 
 #: src/api/python/speechd_config/config.py:417
 msgid "End of diagnostics results"
@@ -756,7 +760,7 @@ msgstr "Не могу продолжать"
 
 #: src/api/python/speechd_config/config.py:491
 msgid "Speech Dispatcher failed to start, continuing anyway?"
-msgstr "Speech Dispatcher не смог запуститься, продолжить всё равно?"
+msgstr "Speech Dispatcher не смог запуститься, всё равно продолжить?"
 
 #: src/api/python/speechd_config/config.py:494
 msgid "Trying to speak some messages"
@@ -871,7 +875,7 @@ msgid ""
 msgstr ""
 "\n"
 "Настройки записаны в %s\n"
-"Базовая настройка завершена. Возможно вам потребуются дополнительные\n"
+"Базовая настройка завершена. Возможно, вам потребуются дополнительные\n"
 "правки файла настроек указанного выше, особенно в случае, если вам\n"
 "требуются особые настройки звука, нестандартные порты синтезаторов и т.п."
 
@@ -907,7 +911,7 @@ msgstr "Использует ли система скрипт /etc/init.d/speech
 
 #: src/api/python/speechd_config/config.py:722
 msgid "Stopping Speech Dispatcher in case any is running already"
-msgstr "Останов Speech Dispatcher, если он уже запущен"
+msgstr "Остановка Speech Dispatcher, если он уже запущен"
 
 #: src/api/python/speechd_config/config.py:724
 msgid "Starting Speech Dispatcher via /etc/init.d/speech-dispatcher"
@@ -972,8 +976,8 @@ msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."
 msgstr ""
-"Запустите, пожалуйста, команду ещё раз и выберите, что вы хотите "
-"осуществить\n"
+"Запустите, пожалуйста, команду ещё раз, выбрав то, что вы хотите осуществить,"
+"\n"
 "или получите краткую справку при помощи параметров '-h' или '--help'."
 
 #: src/clients/say/options.c:131
