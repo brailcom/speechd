@@ -29,12 +29,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-AC_PREREQ([2.63])
+AC_PREREQ([2.72])
 m4_define([MAJOR_VERSION], [0])
 m4_define([MINOR_VERSION], [12])
 m4_define([MICRO_VERSION], [0])
 m4_define([AC_PACKAGE_VERSION],[MAJOR_VERSION.MINOR_VERSION.MICRO_VERSION-rc3])
-AC_INIT([speech-dispatcher], [AC_PACKAGE_VERSION], [speechd-discuss@nongnu.org])
+AC_INIT([speech-dispatcher],[AC_PACKAGE_VERSION],[speechd-discuss@nongnu.org])
 AC_CONFIG_MACRO_DIRS([m4])
 AM_INIT_AUTOMAKE([foreign info-in-builddir])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES(yes)])
@@ -185,7 +185,7 @@ AC_SUBST([ERROR_CFLAGS])
 AC_SUBST([RDYNAMIC])
 
 AC_ARG_ENABLE([doc],
-              [AC_HELP_STRING([--disable-doc], [turn off documentation])])
+              [AS_HELP_STRING([--disable-doc],[turn off documentation])])
 AM_CONDITIONAL(ENABLE_DOC, test "$enable_doc" != "no")
 
 # Check for python support.
@@ -420,7 +420,23 @@ AM_CONDITIONAL([libao_support], [test $with_libao = "yes"])
 AC_SUBST([LIBAO_CFLAGS])
 AC_SUBST([LIBAO_LIBS])
 AS_IF([test $with_libao = "yes"], [audio_methods="${audio_methods} libao"])
-
+# check for pipewire support
+AC_ARG_WITH([pipewire],
+	[AS_HELP_STRING([--with-pipewire], [include pipewire support])],
+	[],
+	[with_pipewire=check])
+AS_IF([test $with_pipewire != "no"],
+	[PKG_CHECK_MODULES([pipewire], [libpipewire-0.3],
+		[with_pipewire=yes
+		AS_IF([test -z "$default_audio_method"],
+			[default_audio_method=pipewire])
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen ../audio/spd_pipewire.la"],
+		[AS_IF([test $with_pipewire = yes],
+			[AC_MSG_FAILURE([pipewire is not available])])])])
+AM_CONDITIONAL([pipewire_support], [test $with_pipewire = "yes"])
+AC_SUBST([pipewire_CFLAGS])
+AC_SUBST([pipewire_LIBS])
+AS_IF([test $with_pipewire = "yes"], [audio_methods="${audio_methods} pipewire"])
 # check for alsa support
 AC_ARG_WITH([alsa],
 	[AS_HELP_STRING([--with-alsa], [include ALSA support])],
