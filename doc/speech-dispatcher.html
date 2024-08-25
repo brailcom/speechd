@@ -1100,7 +1100,15 @@ only if they are followed by a space. This way for example
 &ldquo;file123.tmp&rdquo; would not be cut in two parts, but &ldquo;The horse
 raced around the fence, that was lately painted green, fell.&rdquo;
 would be. (This is an interesting sentence, by the way.)
-</p></li></ul>
+</p>
+
+<p>Note: Due to [Empty options yield to a warning #102](https://gist.github.com/guest271314/8279ddaeeb44b9ef5f1855f6f1588d33)
+to remove extended silence between sentences a workaround is to include the following configuration option in, for example `/modules/piper.conf` file</p>
+<div class="example">
+<pre class="example-preformatted">
+    GenericDelimiters  &quot;|;&quot;
+</pre></div>
+</li></ul>
 
 <hr>
 </div>
