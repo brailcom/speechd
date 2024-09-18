@@ -906,7 +906,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 
 			if (!strncmp(identifier, "mb/mb-", 6)) {
 				voicename = g_strdup(identifier + 6);
-				dash = index(voicename, '-');
+				dash = strchr(voicename, '-');
 				if (dash)
 					/* Ignore "-en" language specification */
 					*dash = 0;
