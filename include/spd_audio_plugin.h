@@ -54,6 +54,23 @@ typedef struct {
 } AudioID;
 
 /* These methods are called from a single thread, except stop which can be called from another thread */
+/* open is called first, which returns an AudioID, which is passed to other methods, so plugins can extend
+ * the AudioID structure as they see fit to include their own data.
+ *
+ * Then if feed_sync_overlap is available, begin is called first to set up the
+ * format, and several calls to feed_sync_overlap are made to feed audio
+ * progressively with overlapping to avoid any underrun. Eventually, end is called.
+ *
+ * If feed_sync_overlap is not available, begin is called first to set up the format,
+ * and several calls to feed_sync are made to feed audio progressively, but we
+ * don't have overlap so we may have underrun. Eventually, end is called.
+ *
+ * If neither feed_sync_overlap nor feed_sync are available, play is called with
+ * the whole piece. That doesn't allow pipelining, thus risking underruns.
+ *
+ * If stop is called, the playback currently happening should be stopped as soon
+ * as possible.
+ */
 typedef struct spd_audio_plugin {
 	const char *name;
 	AudioID *(*open) (void **pars);
@@ -64,6 +81,7 @@ typedef struct spd_audio_plugin {
 	int (*close) (AudioID * id);
 	int (*set_volume) (AudioID * id, int);
 	void (*set_loglevel) (int level);
+	/* Return the command that sd_generic modules can use to play sound */
 	char const *(*get_playcmd) (void);
 
 	/* Optional */
