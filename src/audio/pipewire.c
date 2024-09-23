@@ -33,12 +33,12 @@ typedef struct
     struct pw_stream *stream;    // this represents an instance of this module, a node of the media graph along with other metadata, which will be linked to the default output device
     struct spa_ringbuffer rb;    // a thread-safe ring buffer implementation which uses atomic operations  to guarantee some semblance of thread safety, therefore it doesn't require a mutex
     char *sample_buffer;         // the heap storage memory which will be backing the atomic ring buffer implementation, it's on the heap because this struct would be transfered across callback functions a lot, and such a large buffer could cause a stack overflow on some hardware architectures
+    uint32_t channel_count;      // the amount of channels the sink should have
     char *sink_name;             // the name of the sink, as given by speech dispatcher
 } module_state;
 
 // pipewire on process callback
 // this function would be called each time the server requests data from us
-// for now, it playes silence
 static void on_process(void *userdata)
 {
     module_state *state = (module_state *)userdata;
@@ -46,20 +46,55 @@ static void on_process(void *userdata)
 
     struct pw_buffer *b;
     struct spa_buffer *buf;
-    uint16_t *dst;
+    uint32_t *destination_memory, read_index, available_for_loading, must_load_with_silence;
+    int32_t available_samples, stride, number_of_frames;
     if ((b = pw_stream_dequeue_buffer(state->stream)) == NULL)
     {
         pw_log_warn("out of buffers: %m");
         return;
     }
-
     buf = b->buffer;
     // pipewire's buffers are mapped directly from the server to the client
     // As such, if the memory we're given doesn't exist, we have to abort imediately, because doing otherwise most certainly would lead to undefined behaviour
-    if ((dst = buf->datas[0].data) == NULL)
+    if ((destination_memory = buf->datas[0].data) == NULL)
         return;
-    // play silence, for now
-    b->size = 0;
+    // in the process callback, we take the samples from the ring buffer we used in the pipewire_play function and send it to pipewire for playback
+    // this will be done using the following two step algorythm:
+    // we first get the read index of the ringbuffer, which also returns the amount available in there
+    // if we have enough data in the ringbuffer, aka if the read index isn't less than requested, then we load all of it at once in pipewire
+    // however, if the remainder between the filled part of the buffer and the value of requested is greatter than 0, then we fill that part of the buffer with silence, while taking everything else, hoping we will have more samples next time
+    available_samples = spa_ringbuffer_get_read_index(&state->rb, &read_index);
+    // stride is essentially how many samples there are per channel, in relation to how many channels there are in the output format
+    stride = sizeof(int16_t) * state->channel_count;   // not sure about this one, this could be wrong if the format is 8bit only. This is impractical nowadays, but speech dispatcher still has that case in some modules, so this is left as a mystery and a todo for later
+    number_of_frames = buf->datas[0].maxsize / stride; // how many frames of audio are in this chunk, aka how many channel_count touples are available this call to on_process. Technically, requested itself could be used, but this is done instead to avoid some very rare, but important, edge cases
+    if (b->requested > 0)
+    {
+        number_of_frames = SPA_MIN(number_of_frames, b->requested);
+    }
+    // if there's something to be read from the ring buffer at this time, we do so now
+    if (available_samples > 0)
+    {
+        available_for_loading = SPA_MIN(available_samples, number_of_frames);
+    }
+    else
+    {
+        available_for_loading = 0;
+    }
+    // if there's anything else to fill and the ring buffer doesn't contain enough at this point, fill the difference with silence
+    must_load_with_silence = number_of_frames - available_for_loading;
+    if (available_for_loading > 0)
+    {
+        spa_ringbuffer_read_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, read_index, destination_memory, available_for_loading);
+        spa_ringbuffer_read_update(&state->rb, read_index + available_for_loading);
+    }
+    if (must_load_with_silence > 0)
+    {
+        memset(destination_memory + available_for_loading, 0, must_load_with_silence);
+    }
+    // now, we should have most of the data ready, we fill in some metadata and push the buffer object to pipewire
+    buf->datas[0].chunk->offset = 0;
+    buf->datas[0].chunk->size = number_of_frames;
+    buf->datas[0].chunk->stride = stride;
     pw_stream_queue_buffer(state->stream, b);
 }
 // pipewire internal: structure describing what kind of events we subscribe to
@@ -93,8 +128,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     uint8_t buffer[1024];
     struct spa_pod_builder b = SPA_POD_BUILDER_INIT(buffer, sizeof(buffer));
     int format;
-    int rate = track.sample_rate;
-    int channels = track.num_channels;
+    state->channel_count = track.num_channels;
     if (track.bits == 16)
     {
         switch (state->id.format)
@@ -120,7 +154,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
         return -1;
     }
 
-    params[0] = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = channels, .rate = rate));
+    params[0] = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = track.num_channels, .rate = track.sample_rate));
     pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, params, 1);
     pw_thread_loop_start(state->loop);
     return 0;
