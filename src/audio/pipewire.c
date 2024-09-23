@@ -201,7 +201,7 @@ static int pipewire_set_volume(AudioID *id, int volume)
 }
 // this function is responsible for cleanning up all the memory used by all the objects collected by the module_state structure
 // if any memory leaks appear, this is the place to look for, or if this is never called, why it's never called is yet another mystery which should be resolved
-static int pipewire__close(AudioID *id)
+static int pipewire_close(AudioID *id)
 {
     module_state *state = (module_state *)id;
     // stop the thread loop first
@@ -227,8 +227,28 @@ static const char *pipewire_get_play_command()
 {
     return "pw-play -";
 }
-static void pipewire_set_log_level(void)
+static void pipewire_set_log_level(int level)
 {
     // I don't care about this
     return;
+}
+static spd_audio_plugin_t pipewire_exports = {
+    .name = "pipewire",
+    .open = pipewire_open,
+    .begin = pipewire_begin,
+    .close = pipewire_close,
+    .stop = pipewire_stop,
+    .play = pipewire_play,
+    .get_playcmd = pipewire_get_play_command,
+    .set_volume = pipewire_set_volume,
+    .set_loglevel = pipewire_set_log_level};
+spd_audio_plugin_t *pipewire_plugin_get(void)
+{
+    return &pipewire_exports;
+}
+
+spd_audio_plugin_t *__attribute__((weak))
+SPD_AUDIO_PLUGIN_ENTRY(void)
+{
+    return &pipewire_exports;
 }
