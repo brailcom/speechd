@@ -12,10 +12,11 @@
 
 #include <spd_audio_plugin.h>
 #include "../common/common.h"
+#include <spa/utils/defs.h>
 
 // for the buffer size which will be allocated on the heap, to store the samples produced by speech dispatcher and read by pipewire
 //  this buffer will be used as backing storage by a ring buffer, which will also insure that the threads are syncronised when reading from and writing to the storage area
-#define SAMPLE_BUFFER_SIZE 16*1024 //taken from the pipewire ringbuffer example
+#define SAMPLE_BUFFER_SIZE 16 * 1024 // taken from the pipewire ringbuffer example
 
 // speech dispatcher backend entry point, defined in multiple configurations
 #ifdef USE_DLOPEN
@@ -82,7 +83,7 @@ static AudioID *pipewire_open(void **pars)
     // to ensure that the params array belongs to us and only we can free it, we will duplicate the string contained in params[1], even if such an operation would have not been necesary in the end
     state->sink_name = strdup(pars[1]);
     state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, &state);
-return (AudioID *)state;
+    return (AudioID *)state;
 }
 // configure a pipewire stream for the given speech dispatcher configuration and then prepair loop for playback
 static int pipewire_begin(AudioID *id, AudioTrack track)
@@ -122,5 +123,21 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     params[0] = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = channels, .rate = rate));
     pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, params, 1);
     pw_thread_loop_start(state->loop);
+    return 0;
+}
+static int pipewire_play(AudioID *id, AudioTrack track)
+{
+    module_state *state = (module_state *)id;
+    uint32_t write_index;
+    int fill_quantity;
+    fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
+    // we make sure we don't xrun here at least, aka write somehow beyond the beginning of the buffer, or past its end. This is illogical, but we should still ensure that's not the case
+    spa_assert(fill_quantity >= 0);
+    spa_assert(fill_quantity <= SAMPLE_BUFFER_SIZE);
+    // we write the samples provided in the track we were given, assuming num_samples is the actual length in samples of that memory area, to the ringbuffer, to then be consumed by the on_process callback
+    //  we assume speech dispatcher gives us the correct number of bytes for the format it chose, enough for this chunk. If that's not the case, there's not much we could do besides reading uninitialized memory or an incomplete chunk, unfortunately
+    spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index, track.samples, track.num_samples);
+    // now, we update the write index to account for the chunk of samples we just wrote
+    spa_ringbuffer_write_update(&state->rb, write_index + track.num_samples);
     return 0;
 }
