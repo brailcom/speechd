@@ -164,6 +164,11 @@ static int pipewire_play(AudioID *id, AudioTrack track)
     module_state *state = (module_state *)id;
     uint32_t write_index;
     int fill_quantity;
+    // if the stream has been deactivated because of a pipewire_stop call, we activate it
+    if (pw_stream_get_state(state->stream, NULL) == PW_STREAM_STATE_PAUSED)
+    {
+        pw_stream_set_active(state->stream, true);
+    }
     fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
     // we make sure we don't xrun here at least, aka write somehow beyond the beginning of the buffer, or past its end. This is illogical, but we should still ensure that's not the case
     spa_assert(fill_quantity >= 0);
@@ -173,5 +178,17 @@ static int pipewire_play(AudioID *id, AudioTrack track)
     spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index, track.samples, track.num_samples);
     // now, we update the write index to account for the chunk of samples we just wrote
     spa_ringbuffer_write_update(&state->rb, write_index + track.num_samples);
+    return 0;
+}
+static int pipewire_stop(AudioID *id)
+{
+    module_state *state = (module_state *)id;
+    // I don't know how to pause or stop a stream without setting properties on it, so that won't be used in the first version of this. So, for now, setting a stream as inactive will suspend it from being called at all, similar to pausing it
+    //  this function returns error codes directly, so I use this as the return value
+    return pw_stream_set_active(state->stream, false);
+}
+static int pipewire_set_volume(AudioID *id, int volume)
+{
+    // not implemented yet, use pwvucontrol or similar to adjust it. Till then, we return success
     return 0;
 }
