@@ -9,6 +9,7 @@
 
 #include <spa/param/audio/format-utils.h>
 #include <spa/utils/ringbuffer.h>
+#include <spa/param/props.h>
 
 #include <spd_audio_plugin.h>
 #include "../common/common.h"
@@ -189,7 +190,13 @@ static int pipewire_stop(AudioID *id)
 }
 static int pipewire_set_volume(AudioID *id, int volume)
 {
-    // not implemented yet, use pwvucontrol or similar to adjust it. Till then, we return success
+    module_state *state = (module_state *)id;
+    // because volume is given to us in the range -100, 100 and pipewire requests a floating point number between 0 and 1, we have to normalize it first
+    int min_value = -100;
+    int max_value = 100;
+    float normalized = (float)(volume - min_value) / (max_value - min_value);
+    // use that normalized value to set the volume
+    pw_stream_set_control(state->stream, SPA_PROP_volume, 1, &normalized, 0);
     return 0;
 }
 // this function is responsible for cleanning up all the memory used by all the objects collected by the module_state structure
@@ -209,7 +216,7 @@ static int pipewire__close(AudioID *id)
     // uninitialize pipewire
     pw_deinit();
     // make audio_id point to null, I dk if there's a way to free that one
-    state->id = NULL;
+    id = NULL;
     // free the module state structure itself, since it was allocated on the heap at the beginning of pipewire_open
     free(state);
     // if there are any more memory leaks past this point, then I forgot to free something, and I have no idea what. If you recently made memory allocation changes in this module, or if you added another heap allocated value, make sure you free it here, in the appropriate order, aka don't free the state structure before you free all of its members
