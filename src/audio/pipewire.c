@@ -222,3 +222,13 @@ static int pipewire__close(AudioID *id)
     // if there are any more memory leaks past this point, then I forgot to free something, and I have no idea what. If you recently made memory allocation changes in this module, or if you added another heap allocated value, make sure you free it here, in the appropriate order, aka don't free the state structure before you free all of its members
     return 0;
 }
+// set the play command for the pipewire backend
+static const char *pipewire_get_play_command()
+{
+    return "pw-play -";
+}
+static void pipewire_set_log_level(void)
+{
+    // I don't care about this
+    return;
+}
