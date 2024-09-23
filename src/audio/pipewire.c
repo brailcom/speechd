@@ -192,3 +192,26 @@ static int pipewire_set_volume(AudioID *id, int volume)
     // not implemented yet, use pwvucontrol or similar to adjust it. Till then, we return success
     return 0;
 }
+// this function is responsible for cleanning up all the memory used by all the objects collected by the module_state structure
+// if any memory leaks appear, this is the place to look for, or if this is never called, why it's never called is yet another mystery which should be resolved
+static int pipewire__close(AudioID *id)
+{
+    module_state *state = (module_state *)id;
+    // stop the thread loop first
+    pw_thread_loop_stop(state->loop);
+    pw_thread_loop_destroy(state->loop);
+    // unlink and disconnect the stream
+    pw_stream_disconnect(state->stream);
+    pw_stream_destroy(state->stream);
+    // free the memory allocated by both the duplication of that string in pipewire_begin and the sample buffer allocated to hold samples between pipewire and speech dispatcher
+    free(state->sample_buffer);
+    free(state->sink_name);
+    // uninitialize pipewire
+    pw_deinit();
+    // make audio_id point to null, I dk if there's a way to free that one
+    state->id = NULL;
+    // free the module state structure itself, since it was allocated on the heap at the beginning of pipewire_open
+    free(state);
+    // if there are any more memory leaks past this point, then I forgot to free something, and I have no idea what. If you recently made memory allocation changes in this module, or if you added another heap allocated value, make sure you free it here, in the appropriate order, aka don't free the state structure before you free all of its members
+    return 0;
+}
