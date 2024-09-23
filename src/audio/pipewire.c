@@ -14,8 +14,8 @@
 #include "../common/common.h"
 
 // for the buffer size which will be allocated on the heap, to store the samples produced by speech dispatcher and read by pipewire
-// 128  integers wide, this buffer will be used as backing storage by a ring buffer, which will also insure that the threads are syncronised when reading from and writing to the storage area
-#define SAMPLE_BUFFER_SIZE 128
+//  this buffer will be used as backing storage by a ring buffer, which will also insure that the threads are syncronised when reading from and writing to the storage area
+#define SAMPLE_BUFFER_SIZE 16*1024 //taken from the pipewire ringbuffer example
 
 // speech dispatcher backend entry point, defined in multiple configurations
 #ifdef USE_DLOPEN
@@ -69,7 +69,7 @@ static const struct pw_stream_events stream_events = {
 };
 
 //  open a pipewire connection and initialize a non-blocking main loop
-//  pars[0] contains
+//  pars[1] contains the name of the sink
 static AudioID *pipewire_open(void **pars)
 {
     module_state *state = (module_state *)malloc(sizeof(module_state));
@@ -81,7 +81,8 @@ static AudioID *pipewire_open(void **pars)
     // it  could be freed by speech dispatcher at a later date, which means we could be storing a pointer to freed memory
     // to ensure that the params array belongs to us and only we can free it, we will duplicate the string contained in params[1], even if such an operation would have not been necesary in the end
     state->sink_name = strdup(pars[1]);
-    return (AudioID *)state;
+    state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, &state);
+return (AudioID *)state;
 }
 // configure a pipewire stream for the given speech dispatcher configuration and then prepair loop for playback
 static int pipewire_begin(AudioID *id, AudioTrack track)
@@ -91,7 +92,6 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     uint8_t buffer[1024];
     struct spa_pod_builder b = SPA_POD_BUILDER_INIT(buffer, sizeof(buffer));
     int format;
-    state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, &state);
     int rate = track.sample_rate;
     int channels = track.num_channels;
     if (track.bits == 16)
