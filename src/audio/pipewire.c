@@ -53,7 +53,7 @@ typedef struct
     struct pw_stream *stream;    // this represents an instance of this module, a node of the media graph along with other metadata, which will be linked to the default output device
     struct spa_ringbuffer rb;    // a thread-safe ring buffer implementation which uses atomic operations  to guarantee some semblance of thread safety, therefore it doesn't require a mutex
     char *sample_buffer;         // the heap storage memory which will be backing the atomic ring buffer implementation, it's on the heap because this struct would be transfered across callback functions a lot, and such a large buffer could cause a stack overflow on some hardware architectures
-    uint32_t channel_count;      // the amount of channels the sink should have
+    uint32_t stride;             // the amount of bytes per frame. This is in state because it's computed dynamically, according to each format specifyer
     char *sink_name;             // the name of the sink, as given by speech dispatcher
 } module_state;
 
@@ -67,7 +67,7 @@ static void on_process(void *userdata)
     struct pw_buffer *b;
     struct spa_buffer *buf;
     uint32_t *destination_memory, read_index, available_for_loading, must_load_with_silence;
-    int32_t available_samples, stride, number_of_frames;
+    int32_t available_samples, number_of_frames;
     if ((b = pw_stream_dequeue_buffer(state->stream)) == NULL)
     {
         pw_log_warn("out of buffers: %m");
@@ -84,9 +84,7 @@ static void on_process(void *userdata)
     // if we have enough data in the ringbuffer, aka if the read index isn't less than requested, then we load all of it at once in pipewire
     // however, if the remainder between the filled part of the buffer and the value of requested is greatter than 0, then we fill that part of the buffer with silence, while taking everything else, hoping we will have more samples next time
     available_samples = spa_ringbuffer_get_read_index(&state->rb, &read_index);
-    // stride is essentially how many samples there are per channel, in relation to how many channels there are in the output format
-    stride = sizeof(int16_t) * state->channel_count;   // not sure about this one, this could be wrong if the format is 8bit only. This is impractical nowadays, but speech dispatcher still has that case in some modules, so this is left as a mystery and a todo for later
-    number_of_frames = buf->datas[0].maxsize / stride; // how many frames of audio are in this chunk, aka how many channel_count touples are available this call to on_process. Technically, requested itself could be used, but this is done instead to avoid some very rare, but important, edge cases
+    number_of_frames = buf->datas[0].maxsize / state->stride; // how many frames of audio are in this chunk, aka how many channel_count touples are available this call to on_process. Technically, requested itself could be used, but this is done instead to avoid some very rare, but important, edge cases
     if (b->requested > 0)
     {
         number_of_frames = SPA_MIN(number_of_frames, b->requested);
@@ -114,7 +112,7 @@ static void on_process(void *userdata)
     // now, we should have most of the data ready, we fill in some metadata and push the buffer object to pipewire
     buf->datas[0].chunk->offset = 0;
     buf->datas[0].chunk->size = number_of_frames;
-    buf->datas[0].chunk->stride = stride;
+    buf->datas[0].chunk->stride = state->stride;
     pw_stream_queue_buffer(state->stream, b);
 }
 // pipewire internal: structure describing what kind of events we subscribe to
@@ -138,7 +136,7 @@ static AudioID *pipewire_open(void **pars)
     // to ensure that the params array belongs to us and only we can free it, we will duplicate the string contained in params[1], even if such an operation would have not been necesary in the end
     state->sink_name = strdup(pars[1]);
     state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, &state);
-    //start the threaded loop
+    // start the threaded loop
     pw_thread_loop_start(state->loop);
     return (AudioID *)state;
 }
@@ -150,9 +148,9 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     uint8_t buffer[1024];
     struct spa_pod_builder b = SPA_POD_BUILDER_INIT(buffer, sizeof(buffer));
     int format;
-    state->channel_count = track.num_channels;
     if (track.bits == 16)
     {
+        state->stride = track.num_channels * sizeof(uint16_t);
         switch (state->id.format)
         {
         case SPD_AUDIO_LE:
@@ -168,6 +166,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     }
     else if (track.bits == 8)
     {
+        state->stride = track.num_channels * sizeof(uint8_t);
         format = SPA_AUDIO_FORMAT_S8;
     }
     else
@@ -178,7 +177,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
 
     params[0] = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = track.num_channels, .rate = track.sample_rate));
     pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, params, 1);
-    
+
     return 0;
 }
 static int pipewire_play(AudioID *id, AudioTrack track)
