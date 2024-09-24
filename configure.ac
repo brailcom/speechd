@@ -29,12 +29,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-AC_PREREQ([2.72])
+AC_PREREQ([2.63])
 m4_define([MAJOR_VERSION], [0])
 m4_define([MINOR_VERSION], [12])
 m4_define([MICRO_VERSION], [0])
 m4_define([AC_PACKAGE_VERSION],[MAJOR_VERSION.MINOR_VERSION.MICRO_VERSION-rc3])
-AC_INIT([speech-dispatcher],[AC_PACKAGE_VERSION],[speechd-discuss@nongnu.org])
+AC_INIT([speech-dispatcher], [AC_PACKAGE_VERSION], [speechd-discuss@nongnu.org])
 AC_CONFIG_MACRO_DIRS([m4])
 AM_INIT_AUTOMAKE([foreign info-in-builddir])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES(yes)])
@@ -185,7 +185,7 @@ AC_SUBST([ERROR_CFLAGS])
 AC_SUBST([RDYNAMIC])
 
 AC_ARG_ENABLE([doc],
-              [AS_HELP_STRING([--disable-doc],[turn off documentation])])
+              [AC_HELP_STRING([--disable-doc], [turn off documentation])])
 AM_CONDITIONAL(ENABLE_DOC, test "$enable_doc" != "no")
 
 # Check for python support.
