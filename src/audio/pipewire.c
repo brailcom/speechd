@@ -138,6 +138,8 @@ static AudioID *pipewire_open(void **pars)
     // to ensure that the params array belongs to us and only we can free it, we will duplicate the string contained in params[1], even if such an operation would have not been necesary in the end
     state->sink_name = strdup(pars[1]);
     state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, &state);
+    //start the threaded loop
+    pw_thread_loop_start(state->loop);
     return (AudioID *)state;
 }
 // configure a pipewire stream for the given speech dispatcher configuration and then prepair loop for playback
@@ -176,7 +178,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
 
     params[0] = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = track.num_channels, .rate = track.sample_rate));
     pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, params, 1);
-    pw_thread_loop_start(state->loop);
+    
     return 0;
 }
 static int pipewire_play(AudioID *id, AudioTrack track)
