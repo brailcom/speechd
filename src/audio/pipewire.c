@@ -236,8 +236,6 @@ static int pipewire_close(AudioID *id)
     free(state->sink_name);
     // uninitialize pipewire
     pw_deinit();
-    // make audio_id point to null, I dk if there's a way to free that one
-    id = NULL;
     // free the module state structure itself, since it was allocated on the heap at the beginning of pipewire_open
     free(state);
     // if there are any more memory leaks past this point, then I forgot to free something, and I have no idea what. If you recently made memory allocation changes in this module, or if you added another heap allocated value, make sure you free it here, in the appropriate order, aka don't free the state structure before you free all of its members
