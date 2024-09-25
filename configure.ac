@@ -567,7 +567,8 @@ AM_CONDITIONAL([USE_LIBSYSTEMD], [test "x$use_libsystemd" = "xyes"])
 AM_CONDITIONAL(BUILD_HTML_DOC, [test "$EMAIL" = samuel.thibault@ens-lyon.org])
 
 AC_CONFIG_FILES([Makefile
-		 run-speechd
+                 run-speechd
+                 run-spd-say
                  speech-dispatcher.pc
                  config/Makefile
                  config/clients/Makefile
@@ -591,7 +592,7 @@ AC_CONFIG_FILES([Makefile
                  src/modules/Makefile
                  src/server/Makefile
                  src/tests/Makefile],
-	 	[chmod +x run-speechd])
+                [chmod +x run-speechd run-spd-say])
 AC_OUTPUT
 AC_MSG_NOTICE([output modules to be built are $output_modules])
 AC_MSG_NOTICE([audio methods to be built are $audio_methods])

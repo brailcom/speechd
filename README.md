@@ -88,6 +88,20 @@ To build and install speech-dispatcher and all of it's components, read the
 file [INSTALL](INSTALL).
 
 
+To try speech-dispatcher without installing it (e.g. to avoid disturbing an
+existing speech-dispatcher instance), you can run
+
+```
+./run-speechd -t 0 -s
+```
+
+and in another terminal run
+
+```
+./run-spd-say foo
+```
+
+
 People
 ------
 
