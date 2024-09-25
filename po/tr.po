@@ -5,19 +5,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
+"Project-Id-Version: speech-dispatcher 0.12.0-rc3\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2024-04-29 01:03+0200\n"
-"PO-Revision-Date: 2024-08-26 01:09+0000\n"
-"Last-Translator: phlostically <phlostically@mailinator.com>\n"
-"Language-Team: Esperanto <https://hosted.weblate.org/projects/"
-"speech-dispatcher/po/eo/>\n"
-"Language: eo\n"
+"PO-Revision-Date: 2024-09-09 09:09+0000\n"
+"Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/"
+"speech-dispatcher/po/tr/>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.7.1-dev\n"
+"X-Generator: Weblate 5.8-dev\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -25,118 +25,118 @@ msgid ""
 "%s -- Common interface for Speech Synthesis %s\n"
 "\n"
 msgstr ""
-"%s -- Komuna interfaco pri Parolsintezo %s\n"
+"%s -- Sesli metin okuma için ortak arayüz %s\n"
 "\n"
 
 #: src/server/options.c:65
 #, c-format
 msgid "Usage: "
-msgstr "Uzado: "
+msgstr "Kullanım: "
 
 #: src/server/options.c:69
 #, c-format
 msgid "Options: \n"
-msgstr "Opcioj: \n"
+msgstr "Seçenekler: \n"
 
 #: src/server/options.c:71
 #, c-format
 msgid "Run as a daemon\n"
-msgstr "Ruli kiel demonon\n"
+msgstr "Arka plan hizmeti olarak çalıştır\n"
 
 #: src/server/options.c:73
 #, c-format
 msgid "Run as single application\n"
-msgstr "Ruli kiel unu aplikaĵon\n"
+msgstr "Kendi başına uygulama olarak çalıştır\n"
 
 #: src/server/options.c:75
 #, c-format
 msgid "Start only if autospawn is not disabled\n"
-msgstr "Lanĉi nur se aŭtomata lanĉado estas ŝaltita\n"
+msgstr "Yalnızca otomatik başlatma devre dışı bırakılmamışsa başlat\n"
 
 #: src/server/options.c:77
 #, c-format
 msgid "Set log level (between %d and %d)\n"
-msgstr "Agordi nivelon de protokoloj (inter %d kaj %d)\n"
+msgstr "Günlük seviyesini ayarla (%d ile %d arasında)\n"
 
 #: src/server/options.c:79
 #, c-format
 msgid "Set path to logging\n"
-msgstr "Agordi lokon de protokoloj\n"
+msgstr "Günlük kaydı için yolu ayarla\n"
 
 #: src/server/options.c:82
 #, c-format
 msgid "Communication method to use ('%s'\n"
-msgstr "Uzota metodo de komunikado ('%s'\n"
+msgstr "Kullanılacak iletişim yöntemi ('%s'\n"
 
 #: src/server/options.c:84
 #, c-format
 msgid "or '%s')\n"
-msgstr "aŭ '%s')\n"
+msgstr "veya '%s')\n"
 
 #: src/server/options.c:87
 #, c-format
 msgid "Socket path to use for '%s' method\n"
-msgstr "Konektinterfaco uzota por la metodo '%s'\n"
+msgstr "'%s' yöntemi için kullanılacak soket yolu\n"
 
 #: src/server/options.c:89
 #, c-format
 msgid "(filesystem path or '%s')\n"
-msgstr "(dosierindiko aŭ '%s')\n"
+msgstr "(dosya sistemi yolu veya '%s')\n"
 
 #: src/server/options.c:91
 #, c-format
 msgid "Specify a port number for '%s' method\n"
-msgstr "Specifu pordan numeron por metodo \"%s\"\n"
+msgstr "'%s' yöntemi için bir bağlantı noktası belirt\n"
 
 #: src/server/options.c:93
 #, c-format
 msgid "Set time in seconds for the server to wait before it\n"
-msgstr "Agordi la nombron de sekundoj, kiom la servilo atendos antaŭ\n"
+msgstr "Bağlı istemci yoksa, sunucunun kapanmadan önce\n"
 
 #: src/server/options.c:95
 #, c-format
 msgid "shuts down, if it has no clients connected. Setting to\n"
-msgstr "ĉeso, se mankas konektitaj klientoj. Agordado\n"
+msgstr "bekleyeceği süreyi saniye cinsinden ayarla. 0 olarak\n"
 
 #: src/server/options.c:97
 #, c-format
 msgid "0 disables such shutdown\n"
-msgstr "de ĝi kiel 0 malebligas tian ĉeson\n"
+msgstr "ayarlamak bu tür bir kapatmayı devre dışı bırakır\n"
 
 #: src/server/options.c:99
 #, c-format
 msgid "Set path to pid file\n"
-msgstr "Agordi lokon de PID-dosiero\n"
+msgstr "PID dosyasının yolunu ayarla\n"
 
 #: src/server/options.c:101
 #, c-format
 msgid "Set path to configuration\n"
-msgstr "Agordi lokon de agordodosiero\n"
+msgstr "Yapılandırma yolunu ayarla\n"
 
 #: src/server/options.c:103
 #, c-format
 msgid "Set path to modules\n"
-msgstr "Agordi lokon de moduloj\n"
+msgstr "Modüllerin yolunu ayarla\n"
 
 #: src/server/options.c:105
 #, c-format
 msgid "Report version of this program\n"
-msgstr "Raporti la version de ĉi tiu programo\n"
+msgstr "Programın sürümünü yazdır\n"
 
 #: src/server/options.c:107
 #, c-format
 msgid "Output debugging information into $TMPDIR/%s\n"
-msgstr "Deponi informojn por erarserĉado en $TMPDIR/%s\n"
+msgstr "Hata ayıklama bilgilerini $TMPDIR/%s içine yazdır\n"
 
 #: src/server/options.c:110
 #, c-format
 msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
-msgstr "se la medivariablo TMPDIR ekzistas, alie en /tmp/%s\n"
+msgstr "TMPDIR ayarlanmamışsa /tmp/%s kullanılır\n"
 
 #: src/server/options.c:113 src/clients/say/options.c:171
 #, c-format
 msgid "Print this info\n"
-msgstr "Montri ĉi tiun informon\n"
+msgstr "Bu bilgileri yazdır\n"
 
 #: src/server/options.c:115 src/clients/say/options.c:174
 #, c-format
@@ -144,7 +144,7 @@ msgid ""
 "Please report bugs to %s\n"
 "\n"
 msgstr ""
-"Bonvolu raporti cimojn ĉe %s\n"
+"Lütfen hataları %s adresine bildirin\n"
 "\n"
 
 #: src/server/options.c:121 src/clients/say/options.c:181
@@ -158,11 +158,13 @@ msgid ""
 "any later version. Please see COPYING for more details.\n"
 "\n"
 msgstr ""
-"Kopirajto (C) %d - %d Brailcom, o.p.s.\n"
-"Ĉi tio estas libera programaro; vi rajtas redistribui ĝin kaj/aŭ modifi ĝin\n"
-"laŭ la kondiĉoj de la Ĝenerala Publika Permesilo GNU eldonita de\n"
-"Free Software Foundation; aŭ versio 2, aŭ (laŭ via elekto)\n"
-"ajna posta versio. Bonvolu vidi la dosieron COPYING por pliaj detaloj.\n"
+"Telif hakkı (C) %d-%d Brailcom, o.p.s.\n"
+"Bu özgür bir yazılımdır; Özgür Yazılım Vakfı tarafından yayınlanan GNU\n"
+"Genel Kamu Lisansı sürüm 2 veya (sizin tercihinize bağlı olarak) daha "
+"sonraki\n"
+"herhangi bir sürüm koşulları altında yeniden dağıtabilir ve/veya\n"
+"değiştirebilirsiniz. Daha fazla ayrıntı için lütfen COPYING dosyasına bakın."
+"\n"
 "\n"
 
 #: src/clients/say/options.c:67
@@ -171,7 +173,7 @@ msgid ""
 "send text-to-speech output request to speech-dispatcher\n"
 "\n"
 msgstr ""
-"sendi peton pri parolsintezo al Speech Dispatcher\n"
+"metinden konuşmaya çıktı isteğini speech-dispatcher'a gönder\n"
 "\n"
 
 #: src/clients/say/options.c:68
@@ -180,99 +182,99 @@ msgid ""
 "Usage: %s [options] \"some text\"\n"
 "\n"
 msgstr ""
-"Uzado: %s [opcioj] \"iu teksto\"\n"
+"Kullanım: %s [seçenekler] \"okunacak metin\"\n"
 "\n"
 
 #: src/clients/say/options.c:70
 #, c-format
 msgid "Options:\n"
-msgstr "Opcioj:\n"
+msgstr "Seçenekler:\n"
 
 #: src/clients/say/options.c:72
 #, c-format
 msgid "Set the rate of the speech\n"
-msgstr "Agordi rapidon de parolado\n"
+msgstr "Konuşma hızını ayarla\n"
 
 #: src/clients/say/options.c:74 src/clients/say/options.c:79
 #: src/clients/say/options.c:84 src/clients/say/options.c:89
 #, c-format
 msgid "(between %+d and %+d, default: %d)\n"
-msgstr "(inter %+d kaj %+d, apriore: %d)\n"
+msgstr "(%+d ve %+d arasında, öntanımlı: %d)\n"
 
 #: src/clients/say/options.c:77
 #, c-format
 msgid "Set the pitch of the speech\n"
-msgstr "Agordi tonon de parolado\n"
+msgstr "Konuşma perdesini ayarla\n"
 
 #: src/clients/say/options.c:82
 #, c-format
 msgid "Set the pitch range of the speech\n"
-msgstr "Agordi tonan gamon de parolado\n"
+msgstr "Konuşma perde aralığını ayarla\n"
 
 #: src/clients/say/options.c:87
 #, c-format
 msgid "Set the volume (intensity) of the speech\n"
-msgstr "Agord laŭton de parolado\n"
+msgstr "Konuşma ses seviyesini (yoğunluğunu) ayarla\n"
 
 #: src/clients/say/options.c:92
 #, c-format
 msgid "Set the output module\n"
-msgstr "Agordi sonadan modulon\n"
+msgstr "Çıktı modülünü ayarla\n"
 
 #: src/clients/say/options.c:95
 #, c-format
 msgid "Get the list of output modules\n"
-msgstr "Akiri liston de sonadaj moduloj\n"
+msgstr "Çıktı modüllerinin listesini yazdır\n"
 
 #: src/clients/say/options.c:98
 #, c-format
 msgid "Play the sound icon\n"
-msgstr "Ludi la sonan ikonon\n"
+msgstr "Ses simgesini oynat\n"
 
 #: src/clients/say/options.c:101
 #, c-format
 msgid "Set the language (ISO code)\n"
-msgstr "Agordi la lingvon (per ISO-kodo)\n"
+msgstr "Dili ayarla (ISO kodu)\n"
 
 #: src/clients/say/options.c:104
 #, c-format
 msgid "Set the preferred voice type\n"
-msgstr "Agordi la preferatan voĉan tipon\n"
+msgstr "Tercih edilen ses türünü ayarla\n"
 
 #: src/clients/say/options.c:109
 #, c-format
 msgid "Get the list of synthesis voices\n"
-msgstr "Akiri liston de sintezaj voĉoj\n"
+msgstr "Konuşma seslerinin listesini yazdır\n"
 
 #: src/clients/say/options.c:112
 #, c-format
 msgid "Set the synthesis voice\n"
-msgstr "Agordi la sintezan voĉon\n"
+msgstr "Konuşma sesini ayarla\n"
 
 #: src/clients/say/options.c:115
 #, c-format
 msgid "Speak the character\n"
-msgstr "Paroli la signon\n"
+msgstr "Karakteri oku\n"
 
 #: src/clients/say/options.c:118
 #, c-format
 msgid "Speak the key\n"
-msgstr "Paroli la klavon\n"
+msgstr "Tuşu oku\n"
 
 #: src/clients/say/options.c:121
 #, c-format
 msgid "Set the punctuation mode\n"
-msgstr "Agordi la interpunkcian reĝimon kiel\n"
+msgstr "Noktalama modunu ayarla\n"
 
 #: src/clients/say/options.c:125
 #, c-format
 msgid "Spell the message\n"
-msgstr "Literumi la mesaĝon\n"
+msgstr "Mesajı hecele\n"
 
 #: src/clients/say/options.c:128
 #, c-format
 msgid "Set SSML mode on (default: off)\n"
-msgstr "Ŝalti reĝimon de SSML (apriore malŝaltita)\n"
+msgstr "SSML modunu aç (öntanımlı: kapalı)\n"
 
 #: src/clients/say/options.c:132
 #, c-format
@@ -280,18 +282,18 @@ msgid ""
 "Read text to be spoken on stdin, write it on stdout unchanged, and the\n"
 "corresponding speech through Speech Dispatcher.\n"
 msgstr ""
-"Legi parolotan tekston el stdin, skribi ĝin al stdout senŝanĝe, kaj\n"
-"paroli ĝin per Speech Dispatcher.\n"
+"Konuşulacak metni standart girdiden oku, değiştirmeden standart\n"
+"çıktıya yaz ve Speech Dispatcher aracılığıyla konuş.\n"
 
 #: src/clients/say/options.c:136
 #, c-format
 msgid "Set priority of the message "
-msgstr "Agordi la prioritaton de la mesaĝo "
+msgstr "Mesajın önceliğini ayarla "
 
 #: src/clients/say/options.c:140
 #, c-format
 msgid "default: %s)\n"
-msgstr "apriore: %s)\n"
+msgstr "öntanımlı: %s)\n"
 
 #: src/clients/say/options.c:143
 #, c-format
@@ -299,13 +301,13 @@ msgid ""
 "Set the application name used to establish\n"
 "%1$sthe connection to specified string value\n"
 msgstr ""
-"Agordi la nomon de programo uzotan por konekti\n"
-"%1$skiel specifan signoĉenon\n"
+"Bağlantı kurmak için kullanılan uygulama adını\n"
+"%1$sbelirtilen dizge değerine ayarla\n"
 
 #: src/clients/say/options.c:147 src/clients/say/options.c:154
 #, c-format
 msgid "(default: %s)\n"
-msgstr "(apriore: %s)\n"
+msgstr "(öntanımlı: %s)\n"
 
 #: src/clients/say/options.c:150
 #, c-format
@@ -313,43 +315,43 @@ msgid ""
 "Set the connection name used to establish\n"
 "%1$sthe connection to specified string value\n"
 msgstr ""
-"Agordi la uzotan nomon de konekto\n"
-"%1$skiel specifan signoĉenon\n"
+"Bağlantı kurmak için kullanılan bağlantı adını\n"
+"%1$sbelirtilen dizge değerine ayarla\n"
 
 #: src/clients/say/options.c:158
 #, c-format
 msgid "Wait till the message is spoken or discarded\n"
-msgstr "Atendi ĝis la mesaĝo estos parolata aŭ nuligita\n"
+msgstr "Mesaj okunana veya atılana kadar bekle\n"
 
 #: src/clients/say/options.c:161
 #, c-format
 msgid "Stop speaking the message being spoken\n"
-msgstr "Haltigi parolatan mesaĝon\n"
+msgstr "Okunan mesajı okumayı durdur\n"
 
 #: src/clients/say/options.c:164
 #, c-format
 msgid "Cancel all messages\n"
-msgstr "Nuligi ĉiujn mesaĝojn\n"
+msgstr "Tüm mesajları iptal et\n"
 
 #: src/clients/say/options.c:168
 #, c-format
 msgid "Print version and copyright info\n"
-msgstr "Montri la version kaj informojn pri kopirajto\n"
+msgstr "Sürüm ve telif hakkı bilgilerini yazdır\n"
 
 #: src/clients/say/options.c:193
 #, c-format
 msgid "Syntax error or bad parameter!\n"
-msgstr "Sintaksa eraro aŭ netaŭga parametro!\n"
+msgstr "Söz dizimi hatası veya yanlış parametre!\n"
 
 #: src/clients/say/options.c:204
 #, c-format
 msgid "Missing argument!\n"
-msgstr "Mankas argumento!\n"
+msgstr "Eksik argüman!\n"
 
 #: src/clients/say/options.c:305
 #, c-format
 msgid "Unrecognized option\n"
-msgstr "Nekonata opcio\n"
+msgstr "Bilinmeyen seçenek\n"
 
 #: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Speech Dispatcher"
@@ -357,7 +359,7 @@ msgstr "Speech Dispatcher"
 
 #: src/api/python/speechd_config/speechd.desktop.in:22
 msgid "Interface to Text to Speech services"
-msgstr "Interfaco al parolsintezaj servoj"
+msgstr "Metinden konuşma hizmetleri için arayüz"
 
 #: src/api/python/speechd_config/config.py:103
 #, python-format
@@ -365,81 +367,80 @@ msgid ""
 "The value you have chosen is not among the suggested values.\n"
 "You have chosen '%s'."
 msgstr ""
-"La valoro elektita de vi ne estas unu el la sugestataj valoroj.\n"
-"Vi elektis la valoron '%s'."
+"Seçtiğiniz değer önerilen değerler arasında değil.\n"
+"'%s' değerini seçtiniz."
 
 #: src/api/python/speechd_config/config.py:105
 msgid "The suggested values are "
-msgstr "La sugestataj valoroj estas "
+msgstr "Önerilen değerler: "
 
 #: src/api/python/speechd_config/config.py:106
 msgid "Do you want to correct your answer?"
-msgstr "Ĉu vi volas korekti vian respondon?"
+msgstr "Yanıtınızı düzeltmek istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:118
 #, python-format
 msgid "You have chosen '%s'. Please choose one of %s"
-msgstr "Vi elektis '%s'. Bonvolu elekti unu el %s"
+msgstr "'%s' seçtiniz. Lütfen %s içinden birini seçin"
 
 #: src/api/python/speechd_config/config.py:125
 msgid ""
 "A simple tool for basic configuration of Speech Dispatcher and problem "
 "diagnostics"
 msgstr ""
-"Simpla ilprogramo por baza agordado de Speech Dispatcher kaj diagnozado pri "
-"problemoj"
+"Speech Dispatcher temel yapılandırması ve sorun tanılama için basit bir araç"
 
 #: src/api/python/speechd_config/config.py:128
 msgid "Create Speech Dispatcher configuration for the given user"
-msgstr "Agordi Speech Dispatcher por la specifita uzanto"
+msgstr "Belirtilen kullanıcı için Speech Dispatcher yapılandırması oluştur"
 
 #: src/api/python/speechd_config/config.py:131
 msgid "Configure basic settings in user configuration"
-msgstr "Baze agordi por uzanto"
+msgstr "Kullanıcı yapılandırmasında temel ayarları yapılandır"
 
 #: src/api/python/speechd_config/config.py:134
 msgid "Configure basic settings in system-wide configuration"
-msgstr "Baze agordi sisteme"
+msgstr "Sistem genelindeki yapılandırmada temel ayarları yapılandır"
 
 #: src/api/python/speechd_config/config.py:137
 msgid "Diagnose problems with the current setup"
-msgstr "Diagnozi problemojn pri la aktualaj agordoj"
+msgstr "Geçerli kurulumla ilgili sorunları tanıla"
 
 #: src/api/python/speechd_config/config.py:140
 msgid "Test connection to Speech Dispatcher using spd-say"
-msgstr "Provi konekton al Speech Dispatcher per spd-say"
+msgstr "spd-say kullanarak Speech Dispatcher ile bağlantıyı test et"
 
 #: src/api/python/speechd_config/config.py:143
 msgid "Test whether Festival works as a server"
-msgstr "Provi servilon de Festival"
+msgstr "Festival sunucu olarak çalışıyor mu test et"
 
 #: src/api/python/speechd_config/config.py:145
 msgid "Test whether Espeak works as a standalone binary"
-msgstr "Provi eSpeak kiel memstaran programon"
+msgstr "Espeak tek başına bir program olarak çalışıyor mu test et"
 
 #: src/api/python/speechd_config/config.py:147
 msgid "Test ALSA audio output"
-msgstr "Provi sonadon per ALSA"
+msgstr "ALSA ses çıktısını test et"
 
 #: src/api/python/speechd_config/config.py:149
 msgid "Test Pulse Audio output"
-msgstr "Provi sonadon per PulseAudio"
+msgstr "Pulse Audio çıktısını test et"
 
 #: src/api/python/speechd_config/config.py:152
 msgid "Use espeak to synthesize messages"
-msgstr "Uzi eSpeak por sintezi mesaĝojn"
+msgstr "Mesajları okumak için espeak kullan"
 
 #: src/api/python/speechd_config/config.py:155
 msgid "Do not ask any questions, always use default values"
-msgstr "Ne demandi, ĉiam uzante apriorajn agordojn"
+msgstr "Herhangi bir soru sorma, her zaman öntanımlı değerleri kullan"
 
 #: src/api/python/speechd_config/config.py:158
 msgid "Debug a problem and generate a report"
-msgstr "Serĉi problemon kaj fari raporton"
+msgstr "Sorunda hata ayıkla ve rapor oluştur"
 
 #: src/api/python/speechd_config/config.py:161
 msgid "Print version and copyright info"
-msgstr "Montri la version kaj informojn pri kopirajto"
+msgstr "Sürüm ve telif hakkı bilgilerini yazdır"
 
 #: src/api/python/speechd_config/config.py:203
 #, python-format
@@ -447,8 +448,8 @@ msgid ""
 "ERROR: It was not possible to connect to Festival on the\n"
 "given host and port. Connection failed with error %d : %s ."
 msgstr ""
-"ERARO: Ne eblis konekti al Festival ĉe la specifita\n"
-"gastiganto kaj pordo. Konekto malsukcesis kun eraro %d: %s."
+"HATA: Belirtilen ana makine ve bağlantı noktasında Festival\n"
+"ile bağlantı kurulamadı. Bağlantı %d hatası ile başarısız oldu: %s ."
 
 #: src/api/python/speechd_config/config.py:205
 #, python-format
@@ -459,15 +460,15 @@ msgid ""
 "Try /etc/init.d/festival start or run 'festival --server' from the command "
 "line."
 msgstr ""
-"Konsilo: Verŝajne, la servilo de Festival ne funkcias nun\n"
-"aŭ ne ĉe la apriora pordo %d.\n"
+"İpucu: Büyük olasılıkla Festival sunucunuz şu anda çalışmıyor\n"
+"veya öntanımlı bağlantı noktası %d değil.\n"
 "\n"
-"Provu la terminalajn komandojn '/etc/init.d/festival start' aŭ 'festival --"
-"server'."
+"Komut satırından '/etc/init.d/festival start' veya 'festival --server' "
+"komutunu çalıştırmayı deneyin."
 
 #: src/api/python/speechd_config/config.py:221
 msgid "Festival contains freebsoft-utils."
-msgstr "Festival enhavas freebsoft-utils."
+msgstr "Festival freebsoft-utils içeriyor."
 
 #: src/api/python/speechd_config/config.py:224
 msgid ""
@@ -476,9 +477,9 @@ msgid ""
 "utils\n"
 "to be able to use Festival with Speech Dispatcher."
 msgstr ""
-"ERARO: Servilo de Festival funkcias, sed ĝi ŝajne ne ŝargas\n"
-"festival-freebsoft-utils. Vi devas instali festival-freebsoft-utils\n"
-"por uzi Festival kun Speech Dispatcher."
+"HATA: Festival sunucunuz çalışıyor ancak festival-freebsoft-utils\n"
+"yüklemiyor gibi görünüyor. Festival'i Speech Dispatcher ile kullanabilmek\n"
+"için festival-freebsoft-utils paketini kurmanız gerekiyor."
 
 #: src/api/python/speechd_config/config.py:235
 msgid ""
@@ -487,10 +488,10 @@ msgid ""
 "Python applications like Orca will be able to use it.\n"
 "Search for package like python-speechd, download and install it."
 msgstr ""
-"Python ne trovis la bibliotekon de Speech Dispatcher.\n"
-"Ĉu ĝi estas instalita? Tio ne malhelpos funkciadon de Speech Dispatcher,\n"
-"sed Python-programoj kiel Orca ne povos uzi ĝin.\n"
-"Serĉu pakon kiel python-speechd; elŝutu kaj instalu ĝin."
+"Python Speech Dispatcher kütüphanesini bulamıyor.\n"
+"Kurulu mu? Bu, Speech Dispatcher'ın çalışmasını engellemez,\n"
+"ancak Orca gibi hiçbir Python uygulaması onu kullanamaz.\n"
+"python-speechd gibi bir paket arayın, indirin ve kurun."
 
 #: src/api/python/speechd_config/config.py:257
 #, python-format
@@ -498,13 +499,13 @@ msgid ""
 "%s selected, but %s not installed. This might be a false\n"
 "warning, but most likely sound is not working."
 msgstr ""
-"%s estis elektita, sed %s ne estas instalita. Tio povas esti\n"
-"malĝusta averto, sed probable sonado ne funkcias."
+"%s seçildi, ancak %s kurulu değil. Bu yanlış bir uyarı\n"
+"olabilir, ancak büyük olasılıkla ses çalışmıyor."
 
 #: src/api/python/speechd_config/config.py:259
 #, python-format
 msgid "Are you sure that %s audio is working?"
-msgstr "Ĉu vi certas, ke funkcias sonado per %s?"
+msgstr "%s sesinin çalıştığından emin misiniz?"
 
 #: src/api/python/speechd_config/config.py:264
 #, python-format
@@ -512,20 +513,20 @@ msgid ""
 "Can't play audio via\n"
 "     %s"
 msgstr ""
-"Ne eblas soni per\n"
-"     %s"
+"%s ile ses\n"
+"     oynatılamıyor"
 
 #: src/api/python/speechd_config/config.py:265
 msgid ""
 "Your audio doesn't seem to work, please fix audio first or choose\n"
 "a different method."
 msgstr ""
-"Sonado ŝajne ne funkcias. Bonvolu ripari sonadon aŭ elekti\n"
-"alian metodon."
+"Sesiniz çalışmıyor gibi görünüyor, lütfen önce sesi düzeltin\n"
+"veya farklı bir yöntem seçin."
 
 #: src/api/python/speechd_config/config.py:270
 msgid "Did you hear the sound?"
-msgstr "Ĉu vi aŭdis la sonon?"
+msgstr "Sesi duydunuz mu?"
 
 #: src/api/python/speechd_config/config.py:273
 msgid ""
@@ -536,79 +537,80 @@ msgid ""
 "different\n"
 "audio output method in configuration."
 msgstr ""
-"Bonvolu ekzameni la ĉi-supran eligon de la sonada ilprogramo.\n"
-"Se ĉio ŝajnas ĝusta, ĉu vi certas, ke la sonsistemo estas sufiĉe laŭta kaj\n"
-"ne silentigita per la miksilo? Bonvolu ripari vian sonsistemon,\n"
-"aŭ agordu alian sonadan metodon."
+"Lütfen ses oynatma aracının yukarıdaki çıktısını inceleyin.\n"
+"Her şey doğru görünüyorsa, sesinizin yeterince yüksek olduğundan ve\n"
+"karıştırıcıda sessize alınmadığından emin misiniz? Lütfen önce ses "
+"sisteminizi\n"
+"düzeltin veya yapılandırmada farklı bir ses çıktı yöntemi seçin."
 
 #: src/api/python/speechd_config/config.py:279
 #, python-format
 msgid "Audio output '%s' works"
-msgstr "Funkcias sonado per '%s'"
+msgstr "'%s' ses çıktısı çalışıyor"
 
 #: src/api/python/speechd_config/config.py:285
 msgid "Testing Speech Dispatcher using spd_say"
-msgstr "Provante Speech Dispatcher per spd_say"
+msgstr "spd_say kullanarak Speech Dispatcher test ediliyor"
 
 #: src/api/python/speechd_config/config.py:289
 msgid ""
 "Can't execute the spd-say binary,\n"
 "it is very likely that Speech Dispatcher is not installed."
 msgstr ""
-"Ne eblas lanĉi la programon spd-say;\n"
-"verŝajne, Speech Dispatcher ne estas instalita."
+"spd-say programı çalıştırılamıyor,\n"
+"büyük olasılıkla Speech Dispatcher kurulu değil."
 
 #: src/api/python/speechd_config/config.py:292
 msgid "Did you hear the message about Speech Dispatcher working?"
-msgstr "Ĉu vi aŭdis la mesaĝon pri funkciado de Speech Dispatcher?"
+msgstr "Speech Dispatcher çalıştığıyla ilgili mesajı duydunuz mu?"
 
 #: src/api/python/speechd_config/config.py:294
 msgid "Speech Dispatcher is installed and working!"
-msgstr "Speech Dispatcher estas instalita kaj funkcianta!"
+msgstr "Speech Dispatcher kurulu ve çalışıyor!"
 
 #: src/api/python/speechd_config/config.py:297
 msgid "Speech Dispatcher is installed but there is some problem"
-msgstr "Speech Dispatcher estas instalita, sed ekzistas problemo"
+msgstr "Speech Dispatcher kurulu ancak bazı sorunlar var"
 
 #: src/api/python/speechd_config/config.py:302
 msgid "Testing whether Festival works as a server"
-msgstr "Provante Festival kiel servilon"
+msgstr "Festival'in sunucu olarak çalışıp çalışmadığı test ediliyor"
 
 #: src/api/python/speechd_config/config.py:306
 msgid "Festival server is not working."
-msgstr "Ne funkcias servilo de Festival."
+msgstr "Festival sunucusu çalışmıyor."
 
 #: src/api/python/speechd_config/config.py:309
 msgid "Festival server seems to work correctly"
-msgstr "Ŝajne funkcias servilo de Festival"
+msgstr "Festival sunucusu düzgün çalışıyor görünüyor"
 
 #: src/api/python/speechd_config/config.py:315
 msgid "Testing whether Espeak works"
-msgstr "Provante eSpeak"
+msgstr "Espeak'in çalışıp çalışmadığı test ediliyor"
 
 #: src/api/python/speechd_config/config.py:317
 msgid "Espeak is installed"
-msgstr "eSpeak estas instalita"
+msgstr "Espeak kurulu"
 
 #: src/api/python/speechd_config/config.py:320
 msgid ""
 "Can't execute the espeak binary, it is likely that espeak\n"
 "is not installed."
 msgstr ""
-"Ne eblas lanĉi eSpeak; verŝajne, eSpeak\n"
-"ne estas instalita."
+"Espeak programı çalıştırılamıyor, büyük olasılıkla\n"
+"espeak kurulu değil."
 
 #: src/api/python/speechd_config/config.py:326
 msgid "Testing ALSA sound output"
-msgstr "Provante sonadon per ALSA"
+msgstr "ALSA ses çıktısı test ediliyor"
 
 #: src/api/python/speechd_config/config.py:331
 msgid "Testing PULSE sound output"
-msgstr "Provante sonadon per PulseAudio"
+msgstr "PULSE ses çıktısı test ediliyor"
 
 #: src/api/python/speechd_config/config.py:344
 msgid "Speech Dispatcher works. Do you want to skip other tests?"
-msgstr "Speech Dispatcher funkcias. Ĉu ignori la aliajn testojn?"
+msgstr "Speech Dispatcher çalışıyor. Diğer testleri atlamak istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:354
 msgid ""
@@ -618,19 +620,21 @@ msgid ""
 "what is wrong)"
 msgstr ""
 "\n"
-"Aŭ Speech Dispatcher ne ruliĝas, aŭ oni ne povas konekti al ĝi\n"
-"(vidu ĉi-supre). Ĉu daŭrigi aliajn provojn? (Ili povas helpi trovi\n"
-"misfunkciadon.)"
+"Speech Dispatcher çalışmıyor veya ona bağlanamıyoruz (yukarıya bakın),\n"
+"diğer testlerle devam etmek istiyor musunuz? (Neyin yanlış olduğunu\n"
+"belirlemeye yardımcı olabilirler)"
 
 #: src/api/python/speechd_config/config.py:365
 #, python-format
 msgid "Do you want to test the %s now?"
-msgstr "Ĉu vi volas provi %s nun?"
+msgstr "Şimdi %s test etmek istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:386
 msgid ""
 "Testing whether Python Speech Dispatcher library is in path and importable"
-msgstr "Provante ĉu Python-biblioteko de Speech Dispatcher estas uzebla"
+msgstr ""
+"Python Speech Dispatcher kütüphanesinin yol içinde ve içe aktarılabilir olup "
+"olmadığı test ediliyor"
 
 #: src/api/python/speechd_config/config.py:397
 msgid ""
@@ -640,45 +644,46 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Diagnozaj rezultoj:"
+"Tanılama sonuçları:"
 
 #: src/api/python/speechd_config/config.py:402
 msgid "Speech Dispatcher is working"
-msgstr "Speech Dispatcher funkcias"
+msgstr "Speech Dispatcher çalışıyor"
 
 #: src/api/python/speechd_config/config.py:404
 msgid "Speech Dispatcher not working through spd-say"
-msgstr "Speech Dispatcher ne funkcias per spd-say"
+msgstr "Speech Dispatcher spd-say aracılığıyla çalışmıyor"
 
 #: src/api/python/speechd_config/config.py:406
 #, python-format
 msgid "Synthesizers that were tested and seem to work: %s"
-msgstr "Provitaj kaj ŝajne funkciantaj sinteziloj: %s"
+msgstr "Test edilen ve çalıştığı görülen okuyucular: %s"
 
 #: src/api/python/speechd_config/config.py:409
 #, python-format
 msgid "Audio systems that were tested and seem to work: %s"
-msgstr "Provitaj kaj ŝajne funkciantaj sonsistemoj: %s"
+msgstr "Test edilen ve çalıştığı görülen ses sistemleri: %s"
 
 #: src/api/python/speechd_config/config.py:413
 msgid "Python Speech Dispatcher module is importable"
-msgstr "Python-biblioteko de Speech Dispatcher estas uzebla"
+msgstr "Python Speech Dispatcher modülü içe aktarılabilir"
 
 #: src/api/python/speechd_config/config.py:415
 msgid ""
 "Python Speech Dispatcher module not importable.\n"
 "Either not installed or not in path."
 msgstr ""
-"Python-biblioteko de Speech Dispatcher ne estas uzebla.\n"
-"Aŭ ne instalita, aŭ ne en modulserĉa dosierujo."
+"Python Speech Dispatcher modülü içe aktarılamıyor.\n"
+"Kurulu değil veya yol içinde bulunamadı."
 
 #: src/api/python/speechd_config/config.py:417
 msgid "End of diagnostics results"
-msgstr "Fino de diagnozaj rezultoj"
+msgstr "Tanılama sonuçlarının sonu"
 
 #: src/api/python/speechd_config/config.py:439
 msgid "Starting collecting debugging output, configuration and logfiles"
-msgstr "Ekkolektante informojn por erarserĉado, agordojn, kaj protokolojn"
+msgstr ""
+"Hata ayıklama çıktısı, yapılandırma ve günlük dosyaları toplanmaya başlanıyor"
 
 #: src/api/python/speechd_config/config.py:442
 msgid ""
@@ -686,15 +691,16 @@ msgid ""
 "Do you want to debug 'system' or  'user' Speech Dispatcher?"
 msgstr ""
 "\n"
-"Ĉu serĉi erarojn pri Speech Dispatcher sistema aŭ de uzanto?"
+"'sistem' veya 'kullanıcı' Speech Dispatcher için hata ayıklamak istiyor "
+"musunuz?"
 
 #: src/api/python/speechd_config/config.py:447
 msgid ""
 "It is necessary to kill the currently running Speech Dispatcher\n"
 "processes. Do you want to do it now?"
 msgstr ""
-"Necesas ĉesigi la nuntempe ruliĝantajn procezojn\n"
-"de Speech Dispatcher. Ĉu fari tion nun?"
+"Şu anda çalışan Speech Dispatcher işlemlerini sonlandırmak\n"
+"gerekiyor. Bunu şimdi yapmak istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:454
 msgid ""
@@ -703,28 +709,27 @@ msgid ""
 "Please make sure your Speech Dispatcher is not running now."
 msgstr ""
 "\n"
-"Vi decidis ne ĉesigi ruliĝantajn procezojn de Speech Dispatcher.\n"
-"Bonvolu certigi, ke Speech Dispatcher ne ruliĝas nun."
+"Çalışan Speech Dispatcher işlemlerini sonlandırmamaya karar verdiniz.\n"
+"Lütfen Speech Dispatcher'ınızın şu anda çalışmadığından emin olun."
 
 #: src/api/python/speechd_config/config.py:457
 msgid "Is your Speech Dispatcher not running now?"
-msgstr "Ĉu via Speech Dispatcher ne funkcias nun?"
+msgstr "Speech Dispatcher'ınız şu anda çalışmıyor mu?"
 
 #: src/api/python/speechd_config/config.py:459
 msgid "Can't continue, please stop your Speech Dispatcher and try again"
-msgstr "Ne eblas daŭrigi; bonvolu ĉesigi Speech Dispatcher kaj reprovi"
+msgstr ""
+"Devam edilemiyor, lütfen Speech Dispatcher'ınızı durdurun ve tekrar deneyin"
 
 #: src/api/python/speechd_config/config.py:475
 msgid "Speech Dispatcher will be started now in debugging mode"
-msgstr "Speech Dispatcher estas nun lanĉota en erarserĉa reĝimo"
+msgstr "Speech Dispatcher şimdi hata ayıklama modunda başlatılacak"
 
 #: src/api/python/speechd_config/config.py:479
 #: src/api/python/speechd_config/config.py:625
 #: src/api/python/speechd_config/config.py:716
 msgid "Warning: You must be root or under sudo to do this."
-msgstr ""
-"Averto: Vi devas esti la ĉefuzanto aŭ havi rajtojn de ĉefuzanto por fari ĉi "
-"tion."
+msgstr "Uyarı: Bunu yapmak için root veya sudo kullanmanız gerekir."
 
 #: src/api/python/speechd_config/config.py:480
 msgid ""
@@ -732,37 +737,36 @@ msgid ""
 "Please start your system Speech Dispatcher now with parameter '-D'"
 msgstr ""
 "\n"
-"Bonvolu nun lanĉi vian sisteman Speech Dispatcher kun parametro '-D'"
+"Lütfen sistem Speech Dispatcher'ınızı şimdi '-D' parametresi ile başlatın"
 
 #: src/api/python/speechd_config/config.py:482
 msgid "Is your Speech Dispatcher running now?"
-msgstr "Ĉu via Speech Dispatcher funkcias nun?"
+msgstr "Speech Dispatcher'ınız şu anda çalışıyor mu?"
 
 #: src/api/python/speechd_config/config.py:486
 #: src/api/python/speechd_config/config.py:734
 msgid "Can't continue"
-msgstr "Ne eblas daŭrigi"
+msgstr "Devam edilemiyor"
 
 #: src/api/python/speechd_config/config.py:491
 msgid "Speech Dispatcher failed to start, continuing anyway?"
-msgstr "Malsukcesis lanĉi Speech Dispatcher; ĉu daŭrigi malgraŭ tio?"
+msgstr "Speech Dispatcher başlatılamadı, yine de devam edilsin mi?"
 
 #: src/api/python/speechd_config/config.py:494
 msgid "Trying to speak some messages"
-msgstr "Provante paroli kelkajn mesaĝojn"
+msgstr "Birkaç mesaj okunmaya çalışılıyor"
 
 #: src/api/python/speechd_config/config.py:500
 msgid "Can't test Speech Dispatcher connection, can't connect"
-msgstr ""
-"Ne eblas provi konekton al Speech Dispatcher, pro malsukceso pri konektado"
+msgstr "Speech Dispatcher bağlantısı test edilemiyor, bağlanılamıyor"
 
 #: src/api/python/speechd_config/config.py:502
 msgid "Please wait (about 5 seconds)"
-msgstr "Bonvolu atendi (ĉirkaŭ 5 sekundojn)"
+msgstr "Lütfen bekleyin (yaklaşık 5 saniye)"
 
 #: src/api/python/speechd_config/config.py:505
 msgid "Collecting debugging output and your configuration information"
-msgstr "Kolektante informojn por erarserĉado kaj pri viaj agordoj"
+msgstr "Hata ayıklama çıktısı ve yapılandırma bilgileriniz toplanıyor"
 
 #: src/api/python/speechd_config/config.py:515
 #, python-format
@@ -773,70 +777,70 @@ msgid ""
 "and suggest a solution."
 msgstr ""
 "\n"
-"Bonvolu sendi %s al speechd-discuss@nongnu.org kun\n"
-"mallonga priskribo de tio, kion vi faris. Ni baldaŭ kontaktos vin\n"
-"kaj proponos solvon."
+"Lütfen ne yaptığınızın kısa bir açıklamasıyla birlikte\n"
+"speechd-discuss@nongnu.org adresine %s dosyasını gönderin.\n"
+"Yakında sizinle iletişime geçeceğiz ve bir çözüm önereceğiz."
 
 #: src/api/python/speechd_config/config.py:588
 msgid ""
 "User configuration already exists.\n"
 "Do you want to rewrite it with a new one?"
 msgstr ""
-"Agordo por uzanto jam ekzistas.\n"
-"Ĉu superskribi ĝin per nova?"
+"Kullanıcı yapılandırması zaten var.\n"
+"Yeni bir tane ile yeniden yazmak istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:591
 msgid "Keeping configuration intact and continuing with settings."
-msgstr "Lasante agordon neŝanĝita kaj daŭrigante agordadon."
+msgstr "Yapılandırma olduğu gibi bırakılıyor ve ayarlarla devam ediliyor."
 
 #: src/api/python/speechd_config/config.py:596
 msgid ""
 "User configuration already exists, but it seems to be incomplete.\n"
 "Do you want to keep it?"
 msgstr ""
-"Agordo por uzanto jam ekzistas, sed ĝi ŝajnas nekompleta.\n"
-"Ĉu konservi ĝin?"
+"Kullanıcı yapılandırması zaten var, ancak eksik görünüyor.\n"
+"Bunu tutmak istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:601
 msgid "Keeping configuration intact and aborting."
-msgstr "Lasante agordon neŝanĝita kaj ĉesante."
+msgstr "Yapılandırma olduğu gibi bırakılıyor ve iptal ediliyor."
 
 #: src/api/python/speechd_config/config.py:617
 #, python-format
 msgid "User configuration created in %s"
-msgstr "Agordoj de uzanto kreiĝis en %s"
+msgstr "Kullanıcı yapılandırması %s içinde oluşturuldu"
 
 #: src/api/python/speechd_config/config.py:623
 msgid "Configuring user settings for Speech Dispatcher"
-msgstr "Agordante Speech Dispatcher por uzanto"
+msgstr "Speech Dispatcher için kullanıcı ayarları yapılandırılıyor"
 
 #: src/api/python/speechd_config/config.py:626
 msgid "Configuring system settings for Speech Dispatcher"
-msgstr "Sisteme agordante Speech Dispatcher"
+msgstr "Speech Dispatcher için sistem ayarları yapılandırılıyor"
 
 #: src/api/python/speechd_config/config.py:649
 msgid ""
 "Default speech rate (on the scale of -100..100, 0 is default, 50 is faster, "
 "-50 is slower)"
 msgstr ""
-"Apriora rapido de parolado (en la intervalo inter -100 kaj 100; 0 estas "
-"aprioro, 50 estas pli rapida, -50 estas malpli rapida)"
+"Öntanımlı konuşma hızı (-100..100 aralığında, 0 öntanımlı, 50 daha hızlı, -"
+"50 daha yavaş)"
 
 #: src/api/python/speechd_config/config.py:653
 msgid ""
 "Default speech pitch (on the scale of -100..100, 0 is default, 50 is higher, "
 "-50 is lower)"
 msgstr ""
-"Apriora tono de parolado (en la intervalo inter -100 kaj 100; 0 estas "
-"aprioro, 50 estas pli alta, -50 estas malpli alta)"
+"Öntanımlı konuşma perdesi (-100..100 aralığında, 0 öntanımlı, 50 daha "
+"yüksek, -50 daha alçak)"
 
 #: src/api/python/speechd_config/config.py:657
 msgid ""
 "Default speech pitch range (on the scale of -100..100, 0 is default, 50 is "
 "higher, -50 is lower)"
 msgstr ""
-"Apriora tona gamo de parolado (en la intervalo inter -100 kaj 100; 0 estas "
-"aprioro, 50 estas pli alta, -50 estas malpli alta)"
+"Öntanımlı konuşma perde aralığı (-100..100 aralığında, 0 öntanımlı, 50 daha "
+"yüksek, -50 daha alçak)"
 
 #: src/api/python/speechd_config/config.py:676
 msgid ""
@@ -845,9 +849,10 @@ msgid ""
 "This is usually not necessary, most applications will start Speech "
 "Dispatcher automatically."
 msgstr ""
-"Ĉu igi Speech Dispatcher aŭtomate lanĉota per ~/.config/autostart?\n"
-"Tio ordinare ne necesas; ordinare programoj lanĉos Speech Dispatcher "
-"aŭtomate."
+"Speech Dispatcher'ın ~/.config/autostart içinden otomatik olarak "
+"başlatılmasını istiyor musunuz?\n"
+"Bu genellikle gerekli değildir, çoğu uygulama Speech Dispatcher'ı otomatik "
+"olarak başlatacaktır."
 
 #: src/api/python/speechd_config/config.py:685
 #, python-format
@@ -859,82 +864,90 @@ msgid ""
 "use special audio settings, non-standard synthesizer ports etc."
 msgstr ""
 "\n"
-"Agordo skribita sur %s\n"
-"Baza agordado estas finita. Vi eble ankoraŭ bezonos modifi ĝin per\n"
-"mana redaktado de la ĉi-supra agorda dosiero, precipe se vi bezonas\n"
-"specialajn sonajn agordojn, nenormajn sintezilajn pordojn, ktp."
+"Yapılandırma %s içine yazıldı\n"
+"Temel yapılandırma şimdi tamamlandı. Yine de yukarıdaki yapılandırma\n"
+"dosyasını elle düzenleyerek ince ayar yapmanız gerekebilir. Özellikle özel "
+"ses ayarları,\n"
+"standart olmayan okuyucu bağlantı noktaları vb. kullanmanız gerekiyorsa."
 
 #: src/api/python/speechd_config/config.py:694
 msgid "Starting Speech Dispatcher in user-mode"
-msgstr "Lanĉante Speech Dispatcher en reĝimo de uzanto"
+msgstr "Speech Dispatcher kullanıcı modunda başlatılıyor"
 
 #: src/api/python/speechd_config/config.py:698
 #: src/api/python/speechd_config/config.py:727
 #, python-format
 msgid "Can't start Speech Dispatcher. Exited with status %d"
-msgstr "Malsukcesis lanĉi Speech Dispatcher, kiu liveris elirstaton %d"
+msgstr "Speech Dispatcher başlatılamıyor. %d durum kodu ile çıkıldı"
 
 #: src/api/python/speechd_config/config.py:699
 msgid ""
 "Perhaps this is because your Speech Dispatcher is already running.\n"
 "Do you want to kill all running Speech Dispatchers and try again?"
 msgstr ""
-"Eble tio okazis, ĉar Speech Dispatcher ankoraŭ ruliĝas.\n"
-"Ĉu ĉesigi ĉiujn ruliĝantajn procezojn de Speech Dispatcher kaj reprovi?"
+"Bunun nedeni Speech Dispatcher'ınızın zaten çalışıyor olması olabilir.\n"
+"Çalışan tüm Speech Dispatcher'ları sonlandırıp tekrar denemek ister misiniz?"
 
 #: src/api/python/speechd_config/config.py:707
 msgid "Can't start Speech Dispatcher"
-msgstr "Malsukcesis lanĉi Speech Dispatcher"
+msgstr "Speech Dispatcher başlatılamıyor"
 
 #: src/api/python/speechd_config/config.py:717
 msgid "Starting Speech Dispatcher in system-mode"
-msgstr "Lanĉante Speech Dispatcher en sistema reĝimo"
+msgstr "Speech Dispatcher sistem modunda başlatılıyor"
 
 #: src/api/python/speechd_config/config.py:719
 msgid "Is your system using an /etc/init.d/speech-dispatcher script?"
-msgstr "Ĉu via sistemo uzas programon /etc/init.d/speech-dispatcher?"
+msgstr "Sisteminiz bir /etc/init.d/speech-dispatcher betiği mi kullanıyor?"
 
 #: src/api/python/speechd_config/config.py:722
 msgid "Stopping Speech Dispatcher in case any is running already"
-msgstr "Ĉesigante Speech Dispatcher, se ĝi ankoraŭ ruliĝas"
+msgstr "Zaten çalışıyor olması durumunda Speech Dispatcher durduruluyor"
 
 #: src/api/python/speechd_config/config.py:724
 msgid "Starting Speech Dispatcher via /etc/init.d/speech-dispatcher"
-msgstr "Lanĉante Speech Dispatcher laŭ /etc/init.d/speech-dispatcher"
+msgstr ""
+"/etc/init.d/speech-dispatcher aracılığıyla Speech Dispatcher başlatılıyor"
 
 #: src/api/python/speechd_config/config.py:730
 msgid ""
 "Do not know how to start system Speech Dispatcher,\n"
 "you have to start it manually to continue."
 msgstr ""
-"Estas nekonate kiel lanĉi sisteman Speech Dispatcher;\n"
-"vi devas mane lanĉi ĝin por daŭrigi."
+"Sistem Speech Dispatcher'ını nasıl başlatacağınızı bilmiyorsanız,\n"
+"devam etmek için elle başlatmanız gerekir."
 
 #: src/api/python/speechd_config/config.py:732
 msgid "Have you started Speech Dispatcher now?"
-msgstr "Ĉu vi ekrulis Speech Dispatcher?"
+msgstr "Speech Dispatcher'ı başlattınız mı?"
 
 #: src/api/python/speechd_config/config.py:742
 msgid "Do you want to create/setup a 'user' or 'system' configuration?"
-msgstr "Ĉu vi volas agordi sisteme aŭ por uzanto?"
+msgstr ""
+"Bir 'kullanıcı' veya 'sistem' yapılandırması oluşturmak/ayarlamak istiyor "
+"musunuz?"
 
 #: src/api/python/speechd_config/config.py:753
 msgid "Do you want to start/restart Speech Dispatcher now and run some tests?"
-msgstr "Ĉu lanĉi/relanĉi Speech Dispatcher nun kaj provi ĝin?"
+msgstr ""
+"Speech Dispatcher'ı şimdi başlatmak/yeniden başlatmak ve bazı testler yapmak "
+"istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:755
 msgid "Your configuration is now done but not tested"
-msgstr "Agordado finiĝis sen provado"
+msgstr "Yapılandırmanız tamamlandı ancak test edilmedi"
 
 #: src/api/python/speechd_config/config.py:764
 msgid "Your Speech Dispatcher is not running"
-msgstr "Via Speech Dispatcher ne funkcias"
+msgstr "Speech Dispatcher'ınız çalışmıyor"
 
 #: src/api/python/speechd_config/config.py:772
 msgid ""
 "Do you want to run debugging now and send a request for help to the "
 "developers?"
-msgstr "Ĉu serĉi eraron nun kaj sendi peton pri helpo al la programistoj?"
+msgstr ""
+"Şimdi hata ayıklamayı çalıştırmak ve geliştiricilere bir yardım isteği "
+"göndermek istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:792
 msgid ""
@@ -942,28 +955,24 @@ msgid ""
 "Speech Dispatcher configuration tool\n"
 msgstr ""
 "\n"
-"Agordilo de Speech Dispatcher\n"
+"Speech Dispatcher yapılandırma aracı\n"
 
 #: src/api/python/speechd_config/config.py:797
 msgid "Do you want to continue with basic settings?"
-msgstr "Ĉu daŭrigi per bazaj agordoj?"
+msgstr "Temel ayarlarla devam etmek istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:832
 msgid "Do you want to setup a completely new configuration?"
-msgstr "Ĉu agordi tute nove?"
+msgstr "Tamamen yeni bir yapılandırma ayarlamak istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:836
 msgid "Do you want to run diagnosis of problems?"
-msgstr "Ĉu diagnozi problemojn?"
+msgstr "Sorunları tanılamak istiyor musunuz?"
 
 #: src/api/python/speechd_config/config.py:841
 msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."
 msgstr ""
-"Bonvolu reruli ĉi tiun komandon kaj elekti tion, kion vi volas fari,\n"
-"aŭ legu la rapidhelpilon haveblan per '-h' aŭ '--help'."
-
-#, c-format
-#~ msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
-#~ msgstr "Duktekonekti ĉefenigujon al ĉefeligujo kaj Speech Dispatcher\n"
+"Lütfen bu komutu tekrar çalıştırın ve ne yapmak istediğinizi seçin\n"
+"veya '-h' veya '--help' ile ulaşabileceğiniz hızlı yardımı okuyun."

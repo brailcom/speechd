@@ -3,7 +3,7 @@
  * espeak.c - Speech Dispatcher backend for espeak
  *
  * Copyright (C) 2007 Brailcom, o.p.s.
- * Copyright (C) 2019-2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019-2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -677,15 +677,10 @@ static gboolean espeak_send_audio_upto(short *wav, int *sent, int upto)
 	if (wav == NULL || numsamples == 0) {
 		return TRUE;
 	}
-#ifdef ESPEAK_NG_INCLUDE
-	int rate = espeak_ng_GetSampleRate();
-#else
-	int rate = espeak_sample_rate;
-#endif
 	AudioTrack track = {
 		.bits = 16,
 		.num_channels = 1,
-		.sample_rate = rate,
+		.sample_rate = espeak_sample_rate,
 		.num_samples = numsamples,
 		.samples = wav + (*sent),
 	};
@@ -743,6 +738,13 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 			return 1;
 		/* Process actual event */
 		switch (events->type) {
+		case espeakEVENT_SENTENCE:
+		case espeakEVENT_WORD:
+		case espeakEVENT_PHONEME:
+		case espeakEVENT_END:
+			// Ignore
+			break;
+
 		case espeakEVENT_MARK:
 			if (EspeakIndexing) {
 				DBG(DBG_MODNAME " Reporting mark %s", events->id.name);
@@ -763,7 +765,12 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 			// This event never has any audio in the same callback
 			DBG(DBG_MODNAME " Synth terminated");
 			break;
+		case espeakEVENT_SAMPLERATE:
+			DBG(DBG_MODNAME " Got sample rate %d", events->id.number);
+			espeak_sample_rate = events->id.number;
+			break;
 		default:
+			DBG(DBG_MODNAME " Got unsupported event %d\n", events->type);
 			break;
 		}
 		if (stop_requested)
@@ -899,7 +906,7 @@ static SPDVoice **espeak_list_synthesis_voices()
 
 			if (!strncmp(identifier, "mb/mb-", 6)) {
 				voicename = g_strdup(identifier + 6);
-				dash = index(voicename, '-');
+				dash = strchr(voicename, '-');
 				if (dash)
 					/* Ignore "-en" language specification */
 					*dash = 0;

@@ -869,6 +869,16 @@ only if they are followed by a space. This way for example
 ``file123.tmp'' would not be cut in two parts, but ``The horse
 raced around the fence, that was lately painted green, fell.''
 would be. (This is an interesting sentence, by the way.)
+
+Note: Due to
+@uref{https://gist.github.com/guest271314/8279ddaeeb44b9ef5f1855f6f1588d33,Bug #102 (Empty options yield to a warning)},
+to remove extended silence between sentences a workaround is to
+include charcters that are not used in the text to speech output in the configuration,
+for example in a @code{~/.config/speech-dispatcher/modules/piper.conf} file
+
+@example
+    GenericDelimiters  "|"
+@end example
 @end itemize
 
 @node Configuration of the Generic Output Module,  , Configuration files of output modules, Output Modules Configuration
