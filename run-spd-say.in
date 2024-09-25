@@ -1,0 +1,4 @@
+#!/bin/bash
+abs_builddir=@abs_builddir@
+abs_srcdir=@abs_srcdir@
+LD_LIBRARY_PATH=$abs_builddir/src/audio${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH} SPEECHD_ADDRESS=inet_socket:127.0.0.1:6561 $abs_builddir/src/clients/say/spd-say "$@"
