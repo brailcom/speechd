@@ -135,7 +135,9 @@ static AudioID *pipewire_open(void **pars)
     // it  could be freed by speech dispatcher at a later date, which means we could be storing a pointer to freed memory
     // to ensure that the params array belongs to us and only we can free it, we will duplicate the string contained in params[1], even if such an operation would have not been necesary in the end
     state->sink_name = strdup(pars[1]);
+    pw_thread_loop_lock(state->loop);
     state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, &state);
+    pw_thread_loop_unlock(state->loop);
     // start the threaded loop
     pw_thread_loop_start(state->loop);
     return (AudioID *)state;
@@ -176,8 +178,9 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     }
 
     params[0] = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = track.num_channels, .rate = track.sample_rate));
+    pw_thread_loop_lock(state->loop);
     pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, params, 1);
-
+    pw_thread_loop_unlock(state->loop);
     return 0;
 }
 static int pipewire_play(AudioID *id, AudioTrack track)
@@ -186,10 +189,12 @@ static int pipewire_play(AudioID *id, AudioTrack track)
     uint32_t write_index;
     int fill_quantity;
     // if the stream has been deactivated because of a pipewire_stop call, we activate it
+    pw_thread_loop_lock(state->loop);
     if (pw_stream_get_state(state->stream, NULL) == PW_STREAM_STATE_PAUSED)
     {
         pw_stream_set_active(state->stream, true);
     }
+    pw_thread_loop_unlock(state->loop);
     fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
     // we make sure we don't xrun here at least, aka write somehow beyond the beginning of the buffer, or past its end. This is illogical, but we should still ensure that's not the case
     spa_assert(fill_quantity >= 0);
