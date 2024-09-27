@@ -152,7 +152,7 @@ static AudioID *pipewire_open(void **pars)
 static int pipewire_begin(AudioID *id, AudioTrack track)
 {
     module_state *state = (module_state *)id;
-    const struct spa_pod *params[1];
+    const struct spa_pod *params;
     uint8_t buffer[1024];
     struct spa_pod_builder b = SPA_POD_BUILDER_INIT(buffer, sizeof(buffer));
     int format;
@@ -183,9 +183,9 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
         return -1;
     }
 
-    params[0] = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = track.num_channels, .rate = track.sample_rate));
+    params = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = track.num_channels, .rate = track.sample_rate));
     pw_thread_loop_lock(state->loop);
-    pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, params, 1);
+    pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, &params, 1);
     pw_thread_loop_unlock(state->loop);
     return 0;
 }
