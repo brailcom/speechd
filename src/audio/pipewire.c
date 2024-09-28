@@ -119,9 +119,12 @@ static void on_process(void *userdata)
     }
 // if the required pipewire version doesn't match for requested to be available, we may have had plenty more time to buffer some more data, and instead we fill the whole buffer, while reading everything from the ringbuffer prematurely
 #if PW_CHECK_VERSION(0, 3, 49)
-    if (must_load_with_silence > 0)
+    if (b->requested > 0)
     {
-        memset(destination_memory + available_for_loading, 0, must_load_with_silence);
+        if (must_load_with_silence > 0)
+        {
+            memset(destination_memory + available_for_loading, 0, must_load_with_silence);
+        }
     }
 #endif
     // now, we should have most of the data ready, we fill in some metadata and push the buffer object to pipewire
