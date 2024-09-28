@@ -34,6 +34,8 @@
 #include "../common/common.h"
 #include <spa/utils/defs.h>
 
+#include <pthread.h>
+
 // for the buffer size which will be allocated on the heap, to store the samples produced by speech dispatcher and read by pipewire
 //  this buffer will be used as backing storage by a ring buffer, which will also insure that the threads are syncronised when reading from and writing to the storage area
 #define SAMPLE_BUFFER_SIZE 16 * 1024 // taken from the pipewire ringbuffer example
@@ -48,13 +50,15 @@
 // state of the backend, where all components are gathered. This will be allocated on the heap
 typedef struct
 {
-    AudioID id;                  // to comply with the speech dispatcher contract, make the first field of the struct the type expected by the spd callbacks, so that casting from it isn't entirely undefined behaviour
-    struct pw_thread_loop *loop; // a pipewire loop object which can be used without blocking the main thread, in this case the thread of speech dispatcher
-    struct pw_stream *stream;    // this represents an instance of this module, a node of the media graph along with other metadata, which will be linked to the default output device
-    struct spa_ringbuffer rb;    // a thread-safe ring buffer implementation which uses atomic operations  to guarantee some semblance of thread safety, therefore it doesn't require a mutex
-    char *sample_buffer;         // the heap storage memory which will be backing the atomic ring buffer implementation, it's on the heap because this struct would be transfered across callback functions a lot, and such a large buffer could cause a stack overflow on some hardware architectures
-    uint32_t stride;             // the amount of bytes per frame. This is in state because it's computed dynamically, according to each format specifyer
-    char *sink_name;             // the name of the sink, as given by speech dispatcher
+    AudioID id;                              // to comply with the speech dispatcher contract, make the first field of the struct the type expected by the spd callbacks, so that casting from it isn't entirely undefined behaviour
+    struct pw_thread_loop *loop;             // a pipewire loop object which can be used without blocking the main thread, in this case the thread of speech dispatcher
+    struct pw_stream *stream;                // this represents an instance of this module, a node of the media graph along with other metadata, which will be linked to the default output device
+    struct spa_ringbuffer rb;                // a thread-safe ring buffer implementation which uses atomic operations  to guarantee some semblance of thread safety, therefore it doesn't require a mutex
+    char *sample_buffer;                     // the heap storage memory which will be backing the atomic ring buffer implementation, it's on the heap because this struct would be transfered across callback functions a lot, and such a large buffer could cause a stack overflow on some hardware architectures
+    uint32_t stride;                         // the amount of bytes per frame. This is in state because it's computed dynamically, according to each format specifyer
+    char *sink_name;                         // the name of the sink, as given by speech dispatcher
+    pthread_cond_t playback_finished_signal; // used in on_process to signal the thread where pipewire_play is running that the ringbuffer has been drained to the point where playback either finished or is in progress, but for sure to the point where we could push more audio, because our side of the buffer at least is drained
+    pthread_mutex_t buffer_contention_lock;  // will be used to safely lock the ringbuffer, to not allow the signaling to happen between checking for fill quantity  and the cond_wait in pipewire_play
 } module_state;
 
 // pipewire on process callback
@@ -141,6 +145,9 @@ static AudioID *pipewire_open(void **pars)
     // it  could be freed by speech dispatcher at a later date, which means we could be storing a pointer to freed memory
     // to ensure that the params array belongs to us and only we can free it, we will duplicate the string contained in params[1], even if such an operation would have not been necesary in the end
     state->sink_name = strdup(pars[1]);
+    // initialize the required threading primitives
+    pthread_cond_init(&state->playback_finished_signal, NULL);
+    pthread_mutex_init(&state->buffer_contention_lock, NULL);
     pw_thread_loop_lock(state->loop);
     state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, &state);
     pw_thread_loop_unlock(state->loop);
@@ -205,7 +212,7 @@ static int pipewire_play(AudioID *id, AudioTrack track)
     // we make sure we don't xrun here at least, aka write somehow beyond the beginning of the buffer, or past its end. This is illogical, but we should still ensure that's not the case
     spa_assert(fill_quantity >= 0);
     spa_assert(fill_quantity <= SAMPLE_BUFFER_SIZE);
-    // we write the samples provided in the track we were given, assuming num_samples is the actual length in samples of that memory area, to the ringbuffer, to then be consumed by the on_process callback
+    //  we write the samples provided in the track we were given, assuming num_samples is the actual length in samples of that memory area, to the ringbuffer, to then be consumed by the on_process callback
     //  we assume speech dispatcher gives us the correct number of bytes for the format it chose, enough for this chunk. If that's not the case, there's not much we could do besides reading uninitialized memory or an incomplete chunk, unfortunately
     spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index, track.samples, track.num_samples);
     // now, we update the write index to account for the chunk of samples we just wrote
@@ -246,6 +253,9 @@ static int pipewire_close(AudioID *id)
     free(state->sink_name);
     // uninitialize pipewire
     pw_deinit();
+    // destroy the threading primitives
+    pthread_cond_destroy(&state->playback_finished_signal);
+    pthread_mutex_destroy(&state->buffer_contention_lock);
     // free the module state structure itself, since it was allocated on the heap at the beginning of pipewire_open
     free(state);
     // if there are any more memory leaks past this point, then I forgot to free something, and I have no idea what. If you recently made memory allocation changes in this module, or if you added another heap allocated value, make sure you free it here, in the appropriate order, aka don't free the state structure before you free all of its members
