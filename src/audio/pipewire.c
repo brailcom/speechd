@@ -204,7 +204,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     pw_thread_loop_unlock(state->loop);
     return 0;
 }
-static int pipewire_play(AudioID *id, AudioTrack track)
+static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
 {
     module_state *state = (module_state *)id;
     uint32_t write_index, fill_quantity, actually_sent_samples_count, track_buffer_size;
@@ -315,7 +315,7 @@ static spd_audio_plugin_t pipewire_exports = {
     .begin = pipewire_begin,
     .close = pipewire_close,
     .stop = pipewire_stop,
-    .play = pipewire_play,
+    .feed_sync_overlap = pipewire_feed_sink_overlap,
     .get_playcmd = pipewire_get_play_command,
     .set_volume = pipewire_set_volume,
     .set_loglevel = pipewire_set_log_level};
