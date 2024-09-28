@@ -110,7 +110,12 @@ static void on_process(void *userdata)
     if (available_for_loading > 0)
     {
         spa_ringbuffer_read_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, read_index, destination_memory, available_for_loading);
+        // make sure that the update can't happen between the signaling here and the waiting in pipewire_play
+        pthread_mutex_lock(&state->buffer_contention_lock);
         spa_ringbuffer_read_update(&state->rb, read_index + available_for_loading);
+        pthread_mutex_unlock(&state->buffer_contention_lock);
+        // the playback buffer, such as it is, has been filled, so now we wake up pipewire_play because there's more room in the buffer
+        pthread_cond_signal(&state->playback_finished_signal);
     }
 // if the required pipewire version doesn't match for requested to be available, we may have had plenty more time to buffer some more data, and instead we fill the whole buffer, while reading everything from the ringbuffer prematurely
 #if PW_CHECK_VERSION(0, 3, 49)
@@ -209,7 +214,27 @@ static int pipewire_play(AudioID *id, AudioTrack track)
     }
     pw_thread_loop_unlock(state->loop);
     fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
-    // we make sure we don't xrun here at least, aka write somehow beyond the beginning of the buffer, or past its end. This is illogical, but we should still ensure that's not the case
+    // if we have something in the ringbuffer, that means on_process didn't finish playback of what we pushed the the last time
+
+    if (!fill_quantity > 0)
+    {
+        pthread_mutex_lock(&state->buffer_contention_lock);
+        // drainage spinlock!
+        // we wait till fill_quantity is not empty after this thread can continue, aka after on_process updated that ringbuffer index with what it managed to play, so that we have some room in the buffer to fill from what's remaining of what was given to us by speech dispatcher
+        while (true)
+        {
+            fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
+            if (fill_quantity > 0)
+                // then we have room in the buffer still, so stop spinning
+                break;
+            // otherwise, to not starve a cpu core of resources, we suspend our spinning until something, in this case on_process, wakes us up. In an embedded system without these primitives, spinning endlessly like that would be the only option. We could do the same here, but for efficiency reasons alone, we don't
+            pthread_cond_wait(&state->playback_finished_signal, &state->buffer_contention_lock);
+        }
+    }
+    // if we stopped spinning, time to let on_process continue to update that ringbuffer
+    pthread_mutex_unlock(&state->buffer_contention_lock);
+    // now that we managed to push buffers across, properly syncronise things with the realtime audio thread, we can have some invariants
+    //  we make sure we don't xrun here at least, aka write somehow beyond the beginning of the buffer, or past its end. This is illogical, but we should still ensure that's not the case
     spa_assert(fill_quantity >= 0);
     spa_assert(fill_quantity <= SAMPLE_BUFFER_SIZE);
     //  we write the samples provided in the track we were given, assuming num_samples is the actual length in samples of that memory area, to the ringbuffer, to then be consumed by the on_process callback
