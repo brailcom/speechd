@@ -204,8 +204,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
 static int pipewire_play(AudioID *id, AudioTrack track)
 {
     module_state *state = (module_state *)id;
-    uint32_t write_index;
-    int fill_quantity;
+    uint32_t write_index, fill_quantity, actually_sent_samples_count, track_buffer_size;
     // if the stream has been deactivated because of a pipewire_stop call, we activate it
     pw_thread_loop_lock(state->loop);
     if (pw_stream_get_state(state->stream, NULL) == PW_STREAM_STATE_PAUSED)
@@ -213,35 +212,46 @@ static int pipewire_play(AudioID *id, AudioTrack track)
         pw_stream_set_active(state->stream, true);
     }
     pw_thread_loop_unlock(state->loop);
-    fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
-    // if we have something in the ringbuffer, that means on_process didn't finish playback of what we pushed the the last time
-
-    if (!fill_quantity > 0)
+    track_buffer_size = track.num_samples * state->stride; // we assume here that num_samples is given in frames
+    // as long as we have samples in the buffer sent by speech dispatcher, we loop, blocking spd from calling us till the audio system played what we loaded in it
+    do
     {
-        pthread_mutex_lock(&state->buffer_contention_lock);
-        // drainage spinlock!
-        // we wait till fill_quantity is not empty after this thread can continue, aka after on_process updated that ringbuffer index with what it managed to play, so that we have some room in the buffer to fill from what's remaining of what was given to us by speech dispatcher
-        while (true)
+        fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
+        // if we have something in the ringbuffer, that means on_process didn't finish playback of what we pushed the the last time
+
+        if (!fill_quantity > 0)
         {
-            fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
-            if (fill_quantity > 0)
-                // then we have room in the buffer still, so stop spinning
-                break;
-            // otherwise, to not starve a cpu core of resources, we suspend our spinning until something, in this case on_process, wakes us up. In an embedded system without these primitives, spinning endlessly like that would be the only option. We could do the same here, but for efficiency reasons alone, we don't
-            pthread_cond_wait(&state->playback_finished_signal, &state->buffer_contention_lock);
+            pthread_mutex_lock(&state->buffer_contention_lock);
+            // drainage spinlock!
+            // we wait till fill_quantity is not empty after this thread can continue, aka after on_process updated that ringbuffer index with what it managed to play, so that we have some room in the buffer to fill from what's remaining of what was given to us by speech dispatcher
+            while (true)
+            {
+                fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
+                if (fill_quantity > 0)
+                {
+                    // then we have room in the buffer still, so stop spinning
+                    // but before that, update the number of samples we managed to push
+                    actually_sent_samples_count = SPA_MIN(track_buffer_size, fill_quantity);
+                    break;
+                }
+                // otherwise, to not starve a cpu core of resources, we suspend our spinning until something, in this case on_process, wakes us up. In an embedded system without these primitives, spinning endlessly like that would be the only option. We could do the same here, but for efficiency reasons alone, we don't
+                pthread_cond_wait(&state->playback_finished_signal, &state->buffer_contention_lock);
+            }
         }
-    }
-    // if we stopped spinning, time to let on_process continue to update that ringbuffer
-    pthread_mutex_unlock(&state->buffer_contention_lock);
-    // now that we managed to push buffers across, properly syncronise things with the realtime audio thread, we can have some invariants
-    //  we make sure we don't xrun here at least, aka write somehow beyond the beginning of the buffer, or past its end. This is illogical, but we should still ensure that's not the case
-    spa_assert(fill_quantity >= 0);
-    spa_assert(fill_quantity <= SAMPLE_BUFFER_SIZE);
-    //  we write the samples provided in the track we were given, assuming num_samples is the actual length in samples of that memory area, to the ringbuffer, to then be consumed by the on_process callback
-    //  we assume speech dispatcher gives us the correct number of bytes for the format it chose, enough for this chunk. If that's not the case, there's not much we could do besides reading uninitialized memory or an incomplete chunk, unfortunately
-    spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index, track.samples, track.num_samples);
-    // now, we update the write index to account for the chunk of samples we just wrote
-    spa_ringbuffer_write_update(&state->rb, write_index + track.num_samples);
+        // if we stopped spinning, time to let on_process continue to update that ringbuffer
+        pthread_mutex_unlock(&state->buffer_contention_lock);
+        // now that we managed to push buffers across, properly syncronise things with the realtime audio thread, we can have some invariants
+        //  we make sure we don't xrun here at least, aka write somehow beyond the beginning of the buffer, or past its end. This is illogical, but we should still ensure that's not the case
+        spa_assert(fill_quantity >= 0);
+        spa_assert(fill_quantity <= SAMPLE_BUFFER_SIZE);
+        // we write the amount of samples we can at this time without overflowing the buffer, to the memory area, to then be enqueued by pipewire
+        //  we assume speech dispatcher gives us the correct number of bytes for the format it chose, enough for this chunk. If that's not the case, there's not much we could do besides reading uninitialized memory or an incomplete chunk, unfortunately
+        spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index, track.samples, actually_sent_samples_count);
+        // now, we update the write index to account for the chunk of samples we just wrote
+        spa_ringbuffer_write_update(&state->rb, write_index + actually_sent_samples_count);
+        // subtract from the total buffer what we were already able to write, in order to indicate that the buffer  has more room
+        track_buffer_size -= actually_sent_samples_count;
+    } while (track_buffer_size > 0);
     return 0;
 }
 static int pipewire_stop(AudioID *id)
