@@ -207,7 +207,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
 static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
 {
     module_state *state = (module_state *)id;
-    uint32_t write_index, fill_quantity, actually_sent_samples_count, track_buffer_size;
+    uint32_t write_index, fill_quantity, actually_sent_samples_count = 0, track_buffer_size;
     // if the stream has been deactivated because of a pipewire_stop call, we activate it
     pw_thread_loop_lock(state->loop);
     if (pw_stream_get_state(state->stream, NULL) == PW_STREAM_STATE_PAUSED)
@@ -220,9 +220,8 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
     do
     {
         fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
-        // if we have something in the ringbuffer, that means on_process didn't finish playback of what we pushed the the last time
-
-        if (!fill_quantity > 0)
+        // if we have nothing in the ringbuffer, we assume playback is finished, because our buffer got empty
+        if (fill_quantity == 0)
         {
             pthread_mutex_lock(&state->buffer_contention_lock);
             // drainage spinlock!
