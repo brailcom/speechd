@@ -35,6 +35,8 @@
 #include <spa/utils/defs.h>
 
 #include <pthread.h>
+#include <pipewire/loop.h>
+#include <spa/support/system.h>
 
 // for the buffer size which will be allocated on the heap, to store the samples produced by speech dispatcher and read by pipewire
 //  this buffer will be used as backing storage by a ring buffer, which will also insure that the threads are syncronised when reading from and writing to the storage area
@@ -50,15 +52,14 @@
 // state of the backend, where all components are gathered. This will be allocated on the heap
 typedef struct
 {
-    AudioID id;                              // to comply with the speech dispatcher contract, make the first field of the struct the type expected by the spd callbacks, so that casting from it isn't entirely undefined behaviour
-    struct pw_thread_loop *loop;             // a pipewire loop object which can be used without blocking the main thread, in this case the thread of speech dispatcher
-    struct pw_stream *stream;                // this represents an instance of this module, a node of the media graph along with other metadata, which will be linked to the default output device
-    struct spa_ringbuffer rb;                // a thread-safe ring buffer implementation which uses atomic operations  to guarantee some semblance of thread safety, therefore it doesn't require a mutex
-    char *sample_buffer;                     // the heap storage memory which will be backing the atomic ring buffer implementation, it's on the heap because this struct would be transfered across callback functions a lot, and such a large buffer could cause a stack overflow on some hardware architectures
-    uint32_t stride;                         // the amount of bytes per frame. This is in state because it's computed dynamically, according to each format specifyer
-    char *sink_name;                         // the name of the sink, as given by speech dispatcher
-    pthread_cond_t playback_finished_signal; // used in on_process to signal the thread where pipewire_play is running that the ringbuffer has been drained to the point where playback either finished or is in progress, but for sure to the point where we could push more audio, because our side of the buffer at least is drained
-    pthread_mutex_t buffer_contention_lock;  // will be used to safely lock the ringbuffer, to not allow the signaling to happen between checking for fill quantity  and the cond_wait in pipewire_play
+    AudioID id;                  // to comply with the speech dispatcher contract, make the first field of the struct the type expected by the spd callbacks, so that casting from it isn't entirely undefined behaviour
+    struct pw_thread_loop *loop; // a pipewire loop object which can be used without blocking the main thread, in this case the thread of speech dispatcher
+    struct pw_stream *stream;    // this represents an instance of this module, a node of the media graph along with other metadata, which will be linked to the default output device
+    struct spa_ringbuffer rb;    // a thread-safe ring buffer implementation which uses atomic operations  to guarantee some semblance of thread safety, therefore it doesn't require a mutex
+    char *sample_buffer;         // the heap storage memory which will be backing the atomic ring buffer implementation, it's on the heap because this struct would be transfered across callback functions a lot, and such a large buffer could cause a stack overflow on some hardware architectures
+    uint32_t stride;             // the amount of bytes per frame. This is in state because it's computed dynamically, according to each format specifyer
+    char *sink_name;             // the name of the sink, as given by speech dispatcher
+    int32_t eventfd_number;      // used in on_process to signal the thread where pipewire_play is running that the ringbuffer has been drained to the point where playback either finished or is in progress, but for sure to the point where we could push more audio, because our side of the buffer at least is drained
 } module_state;
 
 // pipewire on process callback
@@ -110,12 +111,7 @@ static void on_process(void *userdata)
     if (available_for_loading > 0)
     {
         spa_ringbuffer_read_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, read_index, destination_memory, available_for_loading);
-        // make sure that the update can't happen between the signaling here and the waiting in pipewire_play
-        pthread_mutex_lock(&state->buffer_contention_lock);
         spa_ringbuffer_read_update(&state->rb, read_index + available_for_loading);
-        pthread_mutex_unlock(&state->buffer_contention_lock);
-        // the playback buffer, such as it is, has been filled, so now we wake up pipewire_play because there's more room in the buffer
-        pthread_cond_signal(&state->playback_finished_signal);
     }
 // if the required pipewire version doesn't match for requested to be available, we may have had plenty more time to buffer some more data, and instead we fill the whole buffer, while reading everything from the ringbuffer prematurely
 #if PW_CHECK_VERSION(0, 3, 49)
@@ -132,6 +128,8 @@ static void on_process(void *userdata)
     buf->datas[0].chunk->size = number_of_samples;
     buf->datas[0].chunk->stride = state->stride;
     pw_stream_queue_buffer(state->stream, b);
+    // signal to the main thread that data can be written again
+    spa_system_eventfd_write(pw_thread_loop_get_loop(state->loop)->system, state->eventfd_number, 42);
 }
 // pipewire internal: structure describing what kind of events we subscribe to
 // For now, this is only on_process
@@ -153,11 +151,11 @@ static AudioID *pipewire_open(void **pars)
     // it  could be freed by speech dispatcher at a later date, which means we could be storing a pointer to freed memory
     // to ensure that the params array belongs to us and only we can free it, we will duplicate the string contained in params[1], even if such an operation would have not been necesary in the end
     state->sink_name = strdup(pars[1]);
-    // initialize the required threading primitives
-    pthread_cond_init(&state->playback_finished_signal, NULL);
-    pthread_mutex_init(&state->buffer_contention_lock, NULL);
+    // initialise the event file descripter and the stream
     pw_thread_loop_lock(state->loop);
     state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, state);
+    if ((state->eventfd_number = spa_system_eventfd_create(pw_thread_loop_get_loop(state->loop)->system, SPA_FD_CLOEXEC)) < 0)
+        return NULL;
     pw_thread_loop_unlock(state->loop);
     // start the threaded loop
     pw_thread_loop_start(state->loop);
@@ -207,7 +205,8 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
 static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
 {
     module_state *state = (module_state *)id;
-    uint32_t write_index, fill_quantity, actually_sent_samples_count = 0, track_buffer_size;
+    uint32_t write_index, fill_quantity, room_left_in_buffer = 0, track_buffer_size;
+    uint64_t dummy; // used to read from the event file descripter. We don't use this for anything, at the moment, it's always 42
     // if the stream has been deactivated because of a pipewire_stop call, we activate it
     pw_thread_loop_lock(state->loop);
     if (pw_stream_get_state(state->stream, NULL) == PW_STREAM_STATE_PAUSED)
@@ -215,45 +214,35 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         pw_stream_set_active(state->stream, true);
     }
     pw_thread_loop_unlock(state->loop);
-    track_buffer_size = track.num_samples * state->stride; // we assume here that num_samples is given in frames
+    track_buffer_size = track.num_samples;
     // as long as we have samples in the buffer sent by speech dispatcher, we loop, blocking spd from calling us till the audio system played what we loaded in it
-    do
+    while (track_buffer_size > 0)
     {
-        fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
-        // if we have nothing in the ringbuffer, we assume playback is finished, because our buffer got empty
-        if (fill_quantity == 0)
+        // drainage spinlock!
+        // we wait till fill_quantity is not empty after this thread can continue, aka after on_process updated that ringbuffer index with what it managed to play, so that we have some room in the buffer to fill from what's remaining of what was given to us by speech dispatcher
+        while (true)
         {
-            pthread_mutex_lock(&state->buffer_contention_lock);
-            // drainage spinlock!
-            // we wait till fill_quantity is not empty after this thread can continue, aka after on_process updated that ringbuffer index with what it managed to play, so that we have some room in the buffer to fill from what's remaining of what was given to us by speech dispatcher
-            while (true)
-            {
-                fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
-                if (fill_quantity > 0)
-                {
-                    // then we have room in the buffer still, so stop spinning
-                    // but before that, update the number of samples we managed to push
-                    actually_sent_samples_count = SPA_MIN(track_buffer_size, fill_quantity);
-                    break;
-                }
-                // otherwise, to not starve a cpu core of resources, we suspend our spinning until something, in this case on_process, wakes us up. In an embedded system without these primitives, spinning endlessly like that would be the only option. We could do the same here, but for efficiency reasons alone, we don't
-                pthread_cond_wait(&state->playback_finished_signal, &state->buffer_contention_lock);
-            }
+            fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
+            // see if there's some room in the buffer, if so, stop spinning
+            room_left_in_buffer = SAMPLE_BUFFER_SIZE - fill_quantity;
+            if (room_left_in_buffer > 0)
+                // then we have room in the buffer, so stop spinning
+                break;
+            // otherwise, to not starve a cpu core of resources, we suspend our spinning until something, in this case on_process, wakes us up. In an embedded system without these primitives, spinning endlessly like that would be the only option. We could do the same here, but for efficiency reasons alone, we don't
+            pw_thread_loop_lock(state->loop);
+            spa_system_eventfd_read(pw_thread_loop_get_loop(state->loop)->system, state->eventfd_number, &dummy);
+            pw_thread_loop_unlock(state->loop);
         }
-        // if we stopped spinning, time to let on_process continue to update that ringbuffer
-        pthread_mutex_unlock(&state->buffer_contention_lock);
-        // now that we managed to push buffers across, properly syncronise things with the realtime audio thread, we can have some invariants
-        //  we make sure we don't xrun here at least, aka write somehow beyond the beginning of the buffer, or past its end. This is illogical, but we should still ensure that's not the case
-        spa_assert(fill_quantity >= 0);
-        spa_assert(fill_quantity <= SAMPLE_BUFFER_SIZE);
-        // we write the amount of samples we can at this time without overflowing the buffer, to the memory area, to then be enqueued by pipewire
+        // we write the amount of samples we can at this time without overflowing the buffer, to the memory area represented by the amount of room that's free after the last on_process call, to then be enqueued by pipewire
         //  we assume speech dispatcher gives us the correct number of bytes for the format it chose, enough for this chunk. If that's not the case, there's not much we could do besides reading uninitialized memory or an incomplete chunk, unfortunately
-        spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index, track.samples, actually_sent_samples_count);
-        // now, we update the write index to account for the chunk of samples we just wrote
-        spa_ringbuffer_write_update(&state->rb, write_index + actually_sent_samples_count);
+        // if we are about to overflow the buffer, better sharply clamp it than cause a buffer overflow vulnerability
+        room_left_in_buffer = SPA_MIN(SAMPLE_BUFFER_SIZE, room_left_in_buffer);
+        spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index % SAMPLE_BUFFER_SIZE, track.samples, room_left_in_buffer);
         // subtract from the total buffer what we were already able to write, in order to indicate that the buffer  has more room
-        track_buffer_size -= actually_sent_samples_count;
-    } while (track_buffer_size > 0);
+        track_buffer_size -= room_left_in_buffer;
+        // now, we update the write index to account for the chunk of samples we just wrote
+        spa_ringbuffer_write_update(&state->rb, write_index + room_left_in_buffer);
+    }
     return 0;
 }
 static int pipewire_stop(AudioID *id)
@@ -264,6 +253,7 @@ static int pipewire_stop(AudioID *id)
     pw_thread_loop_lock(state->loop);
     pw_stream_set_active(state->stream, false);
     pw_thread_loop_unlock(state->loop);
+    return 0;
 }
 static int pipewire_set_volume(AudioID *id, int volume)
 {
@@ -294,9 +284,6 @@ static int pipewire_close(AudioID *id)
     free(state->sink_name);
     // uninitialize pipewire
     pw_deinit();
-    // destroy the threading primitives
-    pthread_cond_destroy(&state->playback_finished_signal);
-    pthread_mutex_destroy(&state->buffer_contention_lock);
     // free the module state structure itself, since it was allocated on the heap at the beginning of pipewire_open
     free(state);
     // if there are any more memory leaks past this point, then I forgot to free something, and I have no idea what. If you recently made memory allocation changes in this module, or if you added another heap allocated value, make sure you free it here, in the appropriate order, aka don't free the state structure before you free all of its members
