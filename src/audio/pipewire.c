@@ -129,7 +129,7 @@ static void on_process(void *userdata)
 #endif
     // now, we should have most of the data ready, we fill in some metadata and push the buffer object to pipewire
     buf->datas[0].chunk->offset = 0;
-    buf->datas[0].chunk->size = number_of_samples / state->stride; // we convert back into frames here, because that's what pw seemns to expect from us
+    buf->datas[0].chunk->size = number_of_samples;
     buf->datas[0].chunk->stride = state->stride;
     pw_stream_queue_buffer(state->stream, b);
 }
@@ -157,7 +157,7 @@ static AudioID *pipewire_open(void **pars)
     pthread_cond_init(&state->playback_finished_signal, NULL);
     pthread_mutex_init(&state->buffer_contention_lock, NULL);
     pw_thread_loop_lock(state->loop);
-    state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, &state);
+    state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, state);
     pw_thread_loop_unlock(state->loop);
     // start the threaded loop
     pw_thread_loop_start(state->loop);
@@ -261,7 +261,9 @@ static int pipewire_stop(AudioID *id)
     module_state *state = (module_state *)id;
     // I don't know how to pause or stop a stream without setting properties on it, so that won't be used in the first version of this. So, for now, setting a stream as inactive will suspend it from being called at all, similar to pausing it
     //  this function returns error codes directly, so I use this as the return value
-    return pw_stream_set_active(state->stream, false);
+    pw_thread_loop_lock(state->loop);
+    pw_stream_set_active(state->stream, false);
+    pw_thread_loop_unlock(state->loop);
 }
 static int pipewire_set_volume(AudioID *id, int volume)
 {
@@ -271,7 +273,9 @@ static int pipewire_set_volume(AudioID *id, int volume)
     int max_value = 100;
     float normalized = (float)(volume - min_value) / (max_value - min_value);
     // use that normalized value to set the volume
+    pw_thread_loop_lock(state->loop);
     pw_stream_set_control(state->stream, SPA_PROP_volume, 1, &normalized, 0);
+    pw_thread_loop_unlock(state->loop);
     return 0;
 }
 // this function is responsible for cleanning up all the memory used by all the objects collected by the module_state structure
