@@ -230,8 +230,9 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
                 break;
             // otherwise, to not starve a cpu core of resources, we suspend our spinning until something, in this case on_process, wakes us up. In an embedded system without these primitives, spinning endlessly like that would be the only option. We could do the same here, but for efficiency reasons alone, we don't
             pw_thread_loop_lock(state->loop);
-            spa_system_eventfd_read(pw_thread_loop_get_loop(state->loop)->system, state->eventfd_number, &dummy);
+            struct pw_loop *program_loop = pw_thread_loop_get_loop(state->loop);
             pw_thread_loop_unlock(state->loop);
+            spa_system_eventfd_read(program_loop->system, state->eventfd_number, &dummy);
         }
         // we write the amount of samples we can at this time without overflowing the buffer, to the memory area represented by the amount of room that's free after the last on_process call, to then be enqueued by pipewire
         //  we assume speech dispatcher gives us the correct number of bytes for the format it chose, enough for this chunk. If that's not the case, there's not much we could do besides reading uninitialized memory or an incomplete chunk, unfortunately
