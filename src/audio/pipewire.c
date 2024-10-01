@@ -210,7 +210,7 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         pw_stream_set_active(state->stream, true);
     }
     pw_thread_loop_unlock(state->loop);
-    track_buffer_size = track.num_samples;
+    track_buffer_size = track.num_samples * state->stride; // we want bytes, not frames
     // as long as we have samples in the buffer sent by speech dispatcher, we loop, blocking spd from calling us till the audio system played what we loaded in it
     while (track_buffer_size > 0)
     {
