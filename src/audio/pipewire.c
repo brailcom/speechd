@@ -58,7 +58,6 @@ typedef struct
     struct spa_ringbuffer rb;    // a thread-safe ring buffer implementation which uses atomic operations  to guarantee some semblance of thread safety, therefore it doesn't require a mutex
     char *sample_buffer;         // the heap storage memory which will be backing the atomic ring buffer implementation, it's on the heap because this struct would be transfered across callback functions a lot, and such a large buffer could cause a stack overflow on some hardware architectures
     uint32_t stride;             // the amount of bytes per frame. This is in state because it's computed dynamically, according to each format specifyer
-    char *sink_name;             // the name of the sink, as given by speech dispatcher
     int32_t eventfd_number;      // used in on_process to signal the thread where pipewire_play is running that the ringbuffer has been drained to the point where playback either finished or is in progress, but for sure to the point where we could push more audio, because our side of the buffer at least is drained
 } module_state;
 
@@ -148,13 +147,9 @@ static AudioID *pipewire_open(void **pars)
     state->loop = pw_thread_loop_new("pipewire audio thread", NULL);
     state->rb = SPA_RINGBUFFER_INIT();
     state->sample_buffer = malloc(SAMPLE_BUFFER_SIZE);
-    // we don't know if the params array belongs to us
-    // it  could be freed by speech dispatcher at a later date, which means we could be storing a pointer to freed memory
-    // to ensure that the params array belongs to us and only we can free it, we will duplicate the string contained in params[1], even if such an operation would have not been necesary in the end
-    state->sink_name = strdup(pars[1]);
     // initialise the event file descripter and the stream
     pw_thread_loop_lock(state->loop);
-    state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), state->sink_name, pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, state);
+    state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), pars[1], pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, state);
     if ((state->eventfd_number = spa_system_eventfd_create(pw_thread_loop_get_loop(state->loop)->system, SPA_FD_CLOEXEC)) < 0)
         return NULL;
     pw_thread_loop_unlock(state->loop);
@@ -281,9 +276,8 @@ static int pipewire_close(AudioID *id)
     // unlink and disconnect the stream
     pw_stream_disconnect(state->stream);
     pw_stream_destroy(state->stream);
-    // free the memory allocated by both the duplication of that string in pipewire_begin and the sample buffer allocated to hold samples between pipewire and speech dispatcher
+    // free the memory allocated by  the sample buffer used to hold samples between pipewire and speech dispatcher
     free(state->sample_buffer);
-    free(state->sink_name);
     // uninitialize pipewire
     pw_deinit();
     // free the module state structure itself, since it was allocated on the heap at the beginning of pipewire_open
