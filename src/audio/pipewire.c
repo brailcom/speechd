@@ -72,7 +72,7 @@ static void on_process(void *userdata)
     struct spa_buffer *buf;
     void *destination_memory; // where we end up writing to, after reading from the ringbuffer
     uint32_t read_index, available_for_loading, must_load_with_silence;
-    int32_t available_samples, number_of_samples;
+    int32_t available_bytes, number_of_bytes;
     if ((b = pw_stream_dequeue_buffer(state->stream)) == NULL)
     {
         pw_log_warn("out of buffers: %m");
@@ -88,26 +88,26 @@ static void on_process(void *userdata)
     // we first get the read index of the ringbuffer, which also returns the amount available in there
     // if we have enough data in the ringbuffer, aka if the read index isn't less than requested, then we load all of it at once in pipewire
     // however, if the remainder between the filled part of the buffer and the value of requested is greatter than 0, then we fill that part of the buffer with silence, while taking everything else, hoping we will have more samples next time
-    available_samples = spa_ringbuffer_get_read_index(&state->rb, &read_index);
-    number_of_samples = buf->datas[0].maxsize; // how many samples, in bytes,  of audio are in this chunk. Technically, requested itself could be used, but this is done instead to avoid some very rare, but important, edge cases, for example buggy hardware drivers which don't probe the card correctly, so on_process gets called very often, with a value of requested samples greatter than what pipewire could allocate, in maxsize
+    available_bytes = spa_ringbuffer_get_read_index(&state->rb, &read_index);
+    number_of_bytes = buf->datas[0].maxsize; // how many samples, in bytes,  of audio are in this chunk. Technically, requested itself could be used, but this is done instead to avoid some very rare, but important, edge cases, for example buggy hardware drivers which don't probe the card correctly, so on_process gets called very often, with a value of requested samples greatter than what pipewire could allocate, in maxsize
 #if PW_CHECK_VERSION(0, 3, 49)
     if (b->requested > 0)
     {
-        number_of_samples = SPA_MIN(number_of_samples, b->requested * state->stride); // because this value is given in frames, and we want samples
+        number_of_bytes = SPA_MIN(number_of_bytes, b->requested * state->stride); // because this value is given in frames/samples, and we want bytes
     }
 #endif
 
     // if there's something to be read from the ring buffer at this time, we do so now
-    if (available_samples > 0)
+    if (available_bytes > 0)
     {
-        available_for_loading = SPA_MIN(available_samples, number_of_samples);
+        available_for_loading = SPA_MIN(available_bytes, number_of_bytes);
     }
     else
     {
         available_for_loading = 0;
     }
     // if there's anything else to fill and the ring buffer doesn't contain enough at this point, fill the difference with silence
-    must_load_with_silence = number_of_samples - available_for_loading;
+    must_load_with_silence = number_of_bytes - available_for_loading;
     if (available_for_loading > 0)
     {
         spa_ringbuffer_read_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, read_index % SAMPLE_BUFFER_SIZE, destination_memory, available_for_loading);
@@ -125,7 +125,7 @@ static void on_process(void *userdata)
 #endif
     // now, we should have most of the data ready, we fill in some metadata and push the buffer object to pipewire
     buf->datas[0].chunk->offset = 0;
-    buf->datas[0].chunk->size = number_of_samples;
+    buf->datas[0].chunk->size = number_of_bytes;
     buf->datas[0].chunk->stride = state->stride;
     pw_stream_queue_buffer(state->stream, b);
     // signal to the main thread that data can be written again
