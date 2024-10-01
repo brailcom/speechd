@@ -219,10 +219,10 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         while (true)
         {
             fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
-            // see if there's some room in the buffer, if so, stop spinning
+            // see if there's some room in the buffer, if so, stop locking
             room_left_in_buffer = SAMPLE_BUFFER_SIZE - fill_quantity;
             if (room_left_in_buffer > 0)
-                // then we have room in the buffer, so stop spinning
+                // then we have room in the buffer, so stop locking our thread
                 break;
             // otherwise, to not starve a cpu core of resources, we suspend our spinning until something, in this case on_process, wakes us up. In an embedded system without these primitives, spinning endlessly like that would be the only option. We could do the same here, but for efficiency reasons alone, we don't
             pw_thread_loop_lock(state->loop);
@@ -236,7 +236,7 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         room_left_in_buffer = SPA_MIN(track_buffer_size, room_left_in_buffer);
         // everything has been accounted for, so write the first batch of data, keeping into account that we can't overflow the initially allocated block for the buffer, represented by SAMPLE_BUFFER_SIZE
         spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index % SAMPLE_BUFFER_SIZE, track.samples, room_left_in_buffer);
-        // subtract from the total buffer what we were already able to write, in order to indicate that the buffer  has more room
+        // subtract from the total buffer what we were already able to write, in order to indicate that we played some of the initial capacity of the buffer by queueing it to on_process
         track_buffer_size -= room_left_in_buffer;
         // now, we update the write index to account for the chunk of samples we just wrote
         spa_ringbuffer_write_update(&state->rb, write_index + room_left_in_buffer);
