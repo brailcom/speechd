@@ -232,8 +232,9 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         }
         // we write the amount of samples we can at this time without overflowing the buffer, to the memory area represented by the amount of room that's free after the last on_process call, to then be enqueued by pipewire
         //  we assume speech dispatcher gives us the correct number of bytes for the format it chose, enough for this chunk. If that's not the case, there's not much we could do besides reading uninitialized memory or an incomplete chunk, unfortunately
-        // if we are about to overflow the buffer, better sharply clamp it than cause a buffer overflow vulnerability
-        room_left_in_buffer = SPA_MIN(SAMPLE_BUFFER_SIZE, room_left_in_buffer);
+        // in case we produced more audio than the available room in the buffer that got freed by on_process, we only push what we can, otherwise we would read from uninitialised memory
+        room_left_in_buffer = SPA_MIN(track_buffer_size, room_left_in_buffer);
+        // everything has been accounted for, so write the first batch of data, keeping into account that we can't overflow the initially allocated block for the buffer, represented by SAMPLE_BUFFER_SIZE
         spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index % SAMPLE_BUFFER_SIZE, track.samples, room_left_in_buffer);
         // subtract from the total buffer what we were already able to write, in order to indicate that the buffer  has more room
         track_buffer_size -= room_left_in_buffer;
