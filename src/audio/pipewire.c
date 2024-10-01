@@ -71,7 +71,8 @@ static void on_process(void *userdata)
 
     struct pw_buffer *b;
     struct spa_buffer *buf;
-    uint32_t *destination_memory, read_index, available_for_loading, must_load_with_silence;
+    void *destination_memory; // where we end up writing to, after reading from the ringbuffer
+    uint32_t read_index, available_for_loading, must_load_with_silence;
     int32_t available_samples, number_of_samples;
     if ((b = pw_stream_dequeue_buffer(state->stream)) == NULL)
     {
@@ -110,7 +111,7 @@ static void on_process(void *userdata)
     must_load_with_silence = number_of_samples - available_for_loading;
     if (available_for_loading > 0)
     {
-        spa_ringbuffer_read_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, read_index, destination_memory, available_for_loading);
+        spa_ringbuffer_read_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, read_index % SAMPLE_BUFFER_SIZE, destination_memory, available_for_loading);
         spa_ringbuffer_read_update(&state->rb, read_index + available_for_loading);
     }
 // if the required pipewire version doesn't match for requested to be available, we may have had plenty more time to buffer some more data, and instead we fill the whole buffer, while reading everything from the ringbuffer prematurely
