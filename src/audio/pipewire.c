@@ -128,8 +128,8 @@ static void on_process(void *userdata)
     buf->datas[0].chunk->size = number_of_bytes;
     buf->datas[0].chunk->stride = state->stride;
     pw_stream_queue_buffer(state->stream, b);
-    // signal to the main thread that data can be written again
-    spa_system_eventfd_write(pw_thread_loop_get_loop(state->loop)->system, state->eventfd_number, 42);
+    // signal to the main thread that data can be written again, make sure it's woken only once
+    spa_system_eventfd_write(pw_thread_loop_get_loop(state->loop)->system, state->eventfd_number, 1);
 }
 // pipewire internal: structure describing what kind of events we subscribe to
 // For now, this is only on_process
@@ -202,7 +202,7 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
 {
     module_state *state = (module_state *)id;
     uint32_t write_index, fill_quantity, room_left_in_buffer = 0, track_buffer_size;
-    uint64_t dummy; // used to read from the event file descripter. We don't use this for anything, at the moment, it's always 42
+    uint64_t dummy; // used to read from the event file descripter. We don't use this for anything, at the moment.
     // if the stream has been deactivated because of a pipewire_stop call, we activate it
     pw_thread_loop_lock(state->loop);
     if (pw_stream_get_state(state->stream, NULL) == PW_STREAM_STATE_PAUSED)
