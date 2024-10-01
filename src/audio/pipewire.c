@@ -240,6 +240,8 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         track_buffer_size -= room_left_in_buffer;
         // now, we update the write index to account for the chunk of samples we just wrote
         spa_ringbuffer_write_update(&state->rb, write_index + room_left_in_buffer);
+        // advance our pointer by how much we were able to free by playing it
+        track.samples += room_left_in_buffer;
     }
     return 0;
 }
