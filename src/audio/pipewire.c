@@ -55,6 +55,7 @@ typedef struct
     AudioID id;                  // to comply with the speech dispatcher contract, make the first field of the struct the type expected by the spd callbacks, so that casting from it isn't entirely undefined behaviour
     struct pw_thread_loop *loop; // a pipewire loop object which can be used without blocking the main thread, in this case the thread of speech dispatcher
     struct pw_stream *stream;    // this represents an instance of this module, a node of the media graph along with other metadata, which will be linked to the default output device
+    struct pw_loop *inner_loop;  // to be able to use pipewire functions without taking the lock too many times, potentially causing an xrun
     struct spa_ringbuffer rb;    // a thread-safe ring buffer implementation which uses atomic operations  to guarantee some semblance of thread safety, therefore it doesn't require a mutex
     char *sample_buffer;         // the heap storage memory which will be backing the atomic ring buffer implementation, it's on the heap because this struct would be transfered across callback functions a lot, and such a large buffer could cause a stack overflow on some hardware architectures
     uint32_t stride;             // the amount of bytes per frame. This is in state because it's computed dynamically, according to each format specifyer
@@ -129,7 +130,7 @@ static void on_process(void *userdata)
     buf->datas[0].chunk->stride = state->stride;
     pw_stream_queue_buffer(state->stream, b);
     // signal to the main thread that data can be written again, make sure it's woken only once
-    spa_system_eventfd_write(pw_thread_loop_get_loop(state->loop)->system, state->eventfd_number, 1);
+    spa_system_eventfd_write(state->inner_loop->system, state->eventfd_number, 1);
 }
 // pipewire internal: structure describing what kind of events we subscribe to
 // For now, this is only on_process
@@ -144,15 +145,16 @@ static AudioID *pipewire_open(void **pars)
 {
     module_state *state = (module_state *)malloc(sizeof(module_state));
     pw_init(0, NULL);
+    // initialise the main loop, and then get the inner loop from it, so that locks are kepped from the most often contended path as much as possible
     state->loop = pw_thread_loop_new("pipewire audio thread", NULL);
+    state->inner_loop = pw_thread_loop_get_loop(state->loop);
+    // the ring bufer and its backing memory
     state->rb = SPA_RINGBUFFER_INIT();
     state->sample_buffer = malloc(SAMPLE_BUFFER_SIZE);
     // initialise the event file descripter and the stream
-    pw_thread_loop_lock(state->loop);
-    state->stream = pw_stream_new_simple(pw_thread_loop_get_loop(state->loop), pars[1], pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, state);
-    if ((state->eventfd_number = spa_system_eventfd_create(pw_thread_loop_get_loop(state->loop)->system, SPA_FD_CLOEXEC)) < 0)
+    state->stream = pw_stream_new_simple(state->inner_loop, pars[1], pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, state);
+    if ((state->eventfd_number = spa_system_eventfd_create(state->inner_loop->system, SPA_FD_CLOEXEC)) < 0)
         return NULL;
-    pw_thread_loop_unlock(state->loop);
     // start the threaded loop
     pw_thread_loop_start(state->loop);
     return (AudioID *)state;
@@ -226,10 +228,7 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
                 // then we have room in the buffer, so stop locking our thread
                 break;
             // otherwise, to not starve a cpu core of resources, we suspend our spinning until something, in this case on_process, wakes us up. In an embedded system without these primitives, spinning endlessly like that would be the only option. We could do the same here, but for efficiency reasons alone, we don't
-            pw_thread_loop_lock(state->loop);
-            struct pw_loop *program_loop = pw_thread_loop_get_loop(state->loop);
-            pw_thread_loop_unlock(state->loop);
-            spa_system_eventfd_read(program_loop->system, state->eventfd_number, &dummy);
+            spa_system_eventfd_read(state->inner_loop->system, state->eventfd_number, &dummy);
         }
         // we write the amount of samples we can at this time without overflowing the buffer, to the memory area represented by the amount of room that's free after the last on_process call, to then be enqueued by pipewire
         //  we assume speech dispatcher gives us the correct number of bytes for the format it chose, enough for this chunk. If that's not the case, there's not much we could do besides reading uninitialized memory or an incomplete chunk, unfortunately
@@ -271,7 +270,7 @@ static int pipewire_set_volume(AudioID *id, int volume)
     return 0;
 }
 // this function is responsible for cleanning up all the memory used by all the objects collected by the module_state structure
-// if any memory leaks appear, this is the place to look for, or if this is never called, why it's never called is yet another mystery which should be resolved
+// if any memory leaks appear, this isa the place to look for, or if this is never called, why it's never called is yet another mystery which should be resolved
 static int pipewire_close(AudioID *id)
 {
     module_state *state = (module_state *)id;
