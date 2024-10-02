@@ -40,7 +40,7 @@
 
 // for the buffer size which will be allocated on the heap, to store the samples produced by speech dispatcher and read by pipewire
 //  this buffer will be used as backing storage by a ring buffer, which will also insure that the threads are syncronised when reading from and writing to the storage area
-#define SAMPLE_BUFFER_SIZE 16 * 1024 // taken from the pipewire ringbuffer example
+#define SAMPLE_BUFFER_SIZE (16 * 1024) // taken from the pipewire ringbuffer example
 
 // speech dispatcher backend entry point, defined in multiple configurations
 #ifdef USE_DLOPEN
