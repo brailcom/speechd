@@ -292,12 +292,15 @@ static int pipewire_set_volume(AudioID *id, int volume)
 static int pipewire_close(AudioID *id)
 {
     module_state *state = (module_state *)id;
-    // stop the thread loop first
-    pw_thread_loop_stop(state->loop);
-    pw_thread_loop_destroy(state->loop);
     // unlink and disconnect the stream
+    // but make sure the loop doesn't continue to call on_process, so we lock the loop while doing this
+    pw_thread_loop_lock(state->loop);
     pw_stream_disconnect(state->stream);
     pw_stream_destroy(state->stream);
+    pw_thread_loop_unlock(state->loop);
+    // now that the stream is destroyed, we can kill the loop
+    pw_thread_loop_stop(state->loop);
+    pw_thread_loop_destroy(state->loop);
     // free the memory allocated by  the sample buffer used to hold samples between pipewire and speech dispatcher
     free(state->sample_buffer);
     // uninitialize pipewire
