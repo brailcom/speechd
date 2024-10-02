@@ -269,6 +269,8 @@ static int pipewire_stop(AudioID *id)
     pw_thread_loop_lock(state->loop);
     pw_stream_set_active(state->stream, false);
     pw_thread_loop_unlock(state->loop);
+    // empty the tringbuffer, to make sure we don't play garbage next time, or that we play unnecesary silence
+    state->rb = SPA_RINGBUFFER_INIT();
     // all done, quit
     return 0;
 }
