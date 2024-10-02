@@ -53,6 +53,7 @@
 typedef struct
 {
     AudioID id;                  // to comply with the speech dispatcher contract, make the first field of the struct the type expected by the spd callbacks, so that casting from it isn't entirely undefined behaviour
+    bool is_running;             // a flag to tell the audio thread that we got stopped by pipewire_stop or similar, and as such the thread should unlock
     struct pw_thread_loop *loop; // a pipewire loop object which can be used without blocking the main thread, in this case the thread of speech dispatcher
     struct pw_stream *stream;    // this represents an instance of this module, a node of the media graph along with other metadata, which will be linked to the default output device
     struct pw_loop *inner_loop;  // to be able to use pipewire functions without taking the lock too many times, potentially causing an xrun
@@ -63,7 +64,7 @@ typedef struct
 } module_state;
 
 // pipewire on process callback
-// this function would be called each time the server requests data from us
+// this function would be called each time the server requests data from usa
 static void on_process(void *userdata)
 {
     module_state *state = (module_state *)userdata;
@@ -155,6 +156,9 @@ static AudioID *pipewire_open(void **pars)
     state->stream = pw_stream_new_simple(state->inner_loop, pars[1], pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, state);
     if ((state->eventfd_number = spa_system_eventfd_create(state->inner_loop->system, SPA_FD_CLOEXEC)) < 0)
         return NULL;
+    // set our flag to true
+    state->is_running = true;
+
     // start the threaded loop
     pw_thread_loop_start(state->loop);
     return (AudioID *)state;
@@ -210,7 +214,11 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
     pw_thread_loop_lock(state->loop);
     if (pw_stream_get_state(state->stream, NULL) == PW_STREAM_STATE_PAUSED)
     {
-        pw_stream_set_active(state->stream, true);
+        if (state->is_running == false)
+        {
+            state->is_running = true;
+            pw_stream_set_active(state->stream, true);
+        }
     }
     pw_thread_loop_unlock(state->loop);
     track_buffer_size = track.num_samples * state->stride; // we want bytes, not frames
@@ -221,13 +229,17 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         // we wait till fill_quantity is not empty after this thread can continue, aka after on_process updated that ringbuffer index with what it managed to play, so that we have some room in the buffer to fill from what's remaining of what was given to us by speech dispatcher
         while (true)
         {
+            // we generally spend a lot of time waiting for this to happen, enough so that there can be something interrupting us, for example, speech dispatcher deciding that another piece of audio must have priority, while we're blocked in here. So, we check, each iteration of this loop, if  we were stopped by something, upon which we imediately return
+            if (state->is_running == false)
+                return 0;
+            // how much of the buffer was actually filled and not played yet by on_process
             fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
             // see if there's some room in the buffer, if so, stop locking
             room_left_in_buffer = SAMPLE_BUFFER_SIZE - fill_quantity;
             if (room_left_in_buffer > 0)
                 // then we have room in the buffer, so stop locking our thread
                 break;
-            // otherwise, to not starve a cpu core of resources, we suspend our spinning until something, in this case on_process, wakes us up. In an embedded system without these primitives, spinning endlessly like that would be the only option. We could do the same here, but for efficiency reasons alone, we don't
+            // otherwise, to not starve a cpu core of resources, we suspend our spinning until something, in this case on_process, wakes us up
             spa_system_eventfd_read(state->inner_loop->system, state->eventfd_number, &dummy);
         }
         // we write the amount of samples we can at this time without overflowing the buffer, to the memory area represented by the amount of room that's free after the last on_process call, to then be enqueued by pipewire
@@ -249,11 +261,15 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
 static int pipewire_stop(AudioID *id)
 {
     module_state *state = (module_state *)id;
-    // I don't know how to pause or stop a stream without setting properties on it, so that won't be used in the first version of this. So, for now, setting a stream as inactive will suspend it from being called at all, similar to pausing it
-    //  this function returns error codes directly, so I use this as the return value
+    // unset the running flag
+    state->is_running = false;
+    // from here too, we must wake the audio thread, so that the locking loop can be aware of our flag change and terminate as a consequnce
+    spa_system_eventfd_write(state->inner_loop->system, state->eventfd_number, 1);
+    // signal our intentions on the pipewire side
     pw_thread_loop_lock(state->loop);
     pw_stream_set_active(state->stream, false);
     pw_thread_loop_unlock(state->loop);
+    // all done, quit
     return 0;
 }
 static int pipewire_set_volume(AudioID *id, int volume)
