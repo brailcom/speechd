@@ -203,6 +203,7 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
     module_state *state = (module_state *)id;
     uint32_t write_index, fill_quantity, room_left_in_buffer = 0, track_buffer_size;
     uint64_t dummy; // used to read from the event file descripter. We don't use this for anything, at the moment.
+    uint8_t *samples_buffer_copy = (uint8_t *)track.samples;
     // if the stream has been deactivated because of a pipewire_stop call, we activate it
     pw_thread_loop_lock(state->loop);
     if (pw_stream_get_state(state->stream, NULL) == PW_STREAM_STATE_PAUSED)
@@ -235,13 +236,14 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         // in case we produced more audio than the available room in the buffer that got freed by on_process, we only push what we can, otherwise we would read from uninitialised memory
         room_left_in_buffer = SPA_MIN(track_buffer_size, room_left_in_buffer);
         // everything has been accounted for, so write the first batch of data, keeping into account that we can't overflow the initially allocated block for the buffer, represented by SAMPLE_BUFFER_SIZE
-        spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index % SAMPLE_BUFFER_SIZE, track.samples, room_left_in_buffer);
+        spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index % SAMPLE_BUFFER_SIZE, samples_buffer_copy, room_left_in_buffer);
         // subtract from the total buffer what we were already able to write, in order to indicate that we played some of the initial capacity of the buffer by queueing it to on_process
         track_buffer_size -= room_left_in_buffer;
+
         // now, we update the write index to account for the chunk of samples we just wrote
         spa_ringbuffer_write_update(&state->rb, write_index + room_left_in_buffer);
         // advance our pointer by how much we were able to free by playing it
-        track.samples += room_left_in_buffer;
+        samples_buffer_copy += room_left_in_buffer;
     }
     return 0;
 }
