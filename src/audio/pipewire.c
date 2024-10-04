@@ -77,14 +77,17 @@ static void on_process(void *userdata)
     int32_t available_bytes, number_of_bytes;
     if ((b = pw_stream_dequeue_buffer(state->stream)) == NULL)
     {
-        pw_log_warn("out of buffers: %m");
-        return;
+        pw_log_error("fatal: out of buffers. Aborting");
+        abort();
     }
     buf = b->buffer;
     // pipewire's buffers are mapped directly from the server to the client
     // As such, if the memory we're given doesn't exist, we have to abort imediately, because doing otherwise most certainly would lead to undefined behaviour
     if ((destination_memory = buf->datas[0].data) == NULL)
-        return;
+    {
+        pw_log_error("fatal: out of shared memory blocks. Aborting");
+        abort();
+    }
     // in the process callback, we take the samples from the ring buffer we used in the pipewire_play function and send it to pipewire for playback
     // this will be done using the following two step algorythm:
     // we first get the read index of the ringbuffer, which also returns the amount available in there
@@ -155,7 +158,10 @@ static AudioID *pipewire_open(void **pars)
     // initialise the event file descripter and the stream
     state->stream = pw_stream_new_simple(state->inner_loop, pars[1], pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, state);
     if ((state->eventfd_number = spa_system_eventfd_create(state->inner_loop->system, SPA_FD_CLOEXEC)) < 0)
-        return NULL;
+    {
+        pw_log_error("fatal: can not create event file descriptor");
+        abort();
+    }
     // set our flag to true
     state->is_running = true;
 
