@@ -52,15 +52,16 @@
 // state of the backend, where all components are gathered. This will be allocated on the heap
 typedef struct
 {
-    AudioID id;                  // to comply with the speech dispatcher contract, make the first field of the struct the type expected by the spd callbacks, so that casting from it isn't entirely undefined behaviour
-    bool is_running;             // a flag to tell the audio thread that we got stopped by pipewire_stop or similar, and as such the thread should unlock
-    struct pw_thread_loop *loop; // a pipewire loop object which can be used without blocking the main thread, in this case the thread of speech dispatcher
-    struct pw_stream *stream;    // this represents an instance of this module, a node of the media graph along with other metadata, which will be linked to the default output device
-    struct pw_loop *inner_loop;  // to be able to use pipewire functions without taking the lock too many times, potentially causing an xrun
-    struct spa_ringbuffer rb;    // a thread-safe ring buffer implementation which uses atomic operations  to guarantee some semblance of thread safety, therefore it doesn't require a mutex
-    char *sample_buffer;         // the heap storage memory which will be backing the atomic ring buffer implementation, it's on the heap because this struct would be transfered across callback functions a lot, and such a large buffer could cause a stack overflow on some hardware architectures
-    uint32_t stride;             // the amount of bytes per frame. This is in state because it's computed dynamically, according to each format specifyer
-    int32_t eventfd_number;      // used in on_process to signal the thread where pipewire_play is running that the ringbuffer has been drained to the point where playback either finished or is in progress, but for sure to the point where we could push more audio, because our side of the buffer at least is drained
+    AudioID id;                    // to comply with the speech dispatcher contract, make the first field of the struct the type expected by the spd callbacks, so that casting from it isn't entirely undefined behaviour
+    bool is_running;               // a flag to tell the audio thread that we got stopped by pipewire_stop or similar, and as such the thread should unlock
+    struct pw_thread_loop *loop;   // a pipewire loop object which can be used without blocking the main thread, in this case the thread of speech dispatcher
+    struct pw_stream *stream;      // this represents an instance of this module, a node of the media graph along with other metadata, which will be linked to the default output device
+    struct pw_loop *inner_loop;    // to be able to use pipewire functions without taking the lock too many times, potentially causing an xrun
+    struct spa_ringbuffer rb;      // a thread-safe ring buffer implementation which uses atomic operations  to guarantee some semblance of thread safety, therefore it doesn't require a mutex
+    char *sample_buffer;           // the heap storage memory which will be backing the atomic ring buffer implementation, it's on the heap because this struct would be transfered across callback functions a lot, and such a large buffer could cause a stack overflow on some hardware architectures
+    uint32_t stride;               // the amount of bytes per frame. This is in state because it's computed dynamically, according to each format specifyer
+    uint32_t playback_sample_rate; // store this in here so that we can detect when spd changes the sample rate because of another module
+    int32_t eventfd_number;        // used in on_process to signal the thread where pipewire_play is running that the ringbuffer has been drained to the point where playback either finished or is in progress, but for sure to the point where we could push more audio, because our side of the buffer at least is drained
 } module_state;
 
 // pipewire on process callback
@@ -152,7 +153,7 @@ static AudioID *pipewire_open(void **pars)
     // initialise the main loop, and then get the inner loop from it, so that locks are kepped from the most often contended path as much as possible
     state->loop = pw_thread_loop_new("pipewire audio thread", NULL);
     state->inner_loop = pw_thread_loop_get_loop(state->loop);
-    // the ring bufer and its backing memory
+    // the ring buffer and its backing memory
     state->rb = SPA_RINGBUFFER_INIT();
     state->sample_buffer = malloc(SAMPLE_BUFFER_SIZE);
     // initialise the event file descripter and the stream
@@ -164,8 +165,9 @@ static AudioID *pipewire_open(void **pars)
     }
     // set our flag to true
     state->is_running = true;
-
-    // start the threaded loop
+    // set sample rate to 0, to then be able to check if this is the first time pipewire_begin has been called. We explicitly set this to 0 as a sentinel value of sorts, because we can't rely on uninitialised memory, as that's unpredictable
+    state->playback_sample_rate = 0;
+    //  start the threaded loop
     pw_thread_loop_start(state->loop);
     return (AudioID *)state;
 }
@@ -203,8 +205,27 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
         pw_log_error("invalid audio format specifier");
         return -1;
     }
-
-    params = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = track.num_channels, .rate = track.sample_rate));
+    // is this the first time this function is called? then our sentinel value must still be there
+    if (state->playback_sample_rate == 0)
+    {
+        state->playback_sample_rate = track.sample_rate;
+    }
+    // if we went here before and we got a new rate from spd, aka a new module with a different sample rate connected
+    else if (state->playback_sample_rate != 0 && state->playback_sample_rate != track.sample_rate)
+    {
+        // then we disconnect the stream, letting the rest of the function reconnect it with the new values, since format was computed before
+        pw_stream_disconnect(state->stream);
+        // but don't forget to update the value of sample rate we cache, for next time
+        state->playback_sample_rate = track.sample_rate;
+    }
+    // otherwise, we went here before, but we got an identical sample rate, why are we called by spd? this must be a spurious wakeup
+    else
+    {
+        pw_log_warn("spurious call by speech dispatcher, sample rate is the same");
+        // nothing to do here, so get out
+        return 0;
+    }
+    params = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = track.num_channels, .rate = state->playback_sample_rate));
     pw_thread_loop_lock(state->loop);
     pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, &params, 1);
     pw_thread_loop_unlock(state->loop);
