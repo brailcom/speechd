@@ -116,7 +116,7 @@ static void on_process(void *userdata)
     }
 // otherwise however, we have no idea how much we should push, so we push as much as we have in the ring buffer, making sure we don't push more than maxsize. If that ends up being less than what would have been requested if we had access to that, we have no choice but to underrun
 #else
-    total_number_of_bytes_in_pipewire_buffer = SPA_MIN(available_bytes_in_speech_dispatcher_buffer, buf->datas[0].maxsize * state->stride); // bytes, not frames)
+    total_number_of_bytes_in_pipewire_buffer = SPA_MIN(available_bytes_in_speech_dispatcher_buffer, total_number_of_bytes_in_pipewire_buffer);
 #endif
     message(4, "we should fill %i bytes in the pipewire provided buffer", total_number_of_bytes_in_pipewire_buffer)
         // if there's something to be read from the ring buffer at this time, we do so now
