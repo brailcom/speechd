@@ -250,10 +250,10 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
         // but don't forget to update the value of sample rate we cache, for next time
         state->playback_sample_rate = track.sample_rate;
     }
-    // otherwise, we went here before, but we got an identical sample rate, why are we called by spd? this must be a spurious wakeup
+    // otherwise, we went here before, but we got an identical sample rate, so this must be a new utterance begun by the same module. In that case, log that and do nothing more
     else
     {
-        message(3, "warning: spurious call by speech dispatcher, sample rate is the same as what this backend was initialised with");
+        message(4, "new utterance from the same configuration, no action taken");
         // nothing to do here, so get out
         return 0;
     }
