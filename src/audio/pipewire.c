@@ -113,8 +113,6 @@ static void on_process(void *userdata)
     if (b->requested > 0)
     {
         total_number_of_bytes_in_pipewire_buffer = SPA_MIN(total_number_of_bytes_in_pipewire_buffer, b->requested * state->stride); // because this value is given in frames/samples, and we want bytes
-        // if there's anything else to fill and the ring buffer doesn't contain enough at this point, fill the difference with silence
-        must_load_with_silence = total_number_of_bytes_in_pipewire_buffer - available_for_loading;
     }
 // otherwise however, we have no idea how much we should push, so we push as much as we have in the ring buffer, making sure we don't push more than maxsize. If that ends up being less than what would have been requested if we had access to that, we have no choice but to underrun
 #else
@@ -142,6 +140,8 @@ static void on_process(void *userdata)
 #if PW_CHECK_VERSION(0, 3, 49)
     if (b->requested > 0)
     {
+        // if there's anything else to fill and the ring buffer doesn't contain enough at this point, fill the difference with silence
+        must_load_with_silence = total_number_of_bytes_in_pipewire_buffer - available_for_loading;
         if (must_load_with_silence > 0)
         {
             message(4, "not enough bytes to load from spd buffer, must fill %i bytes with silence", must_load_with_silence);
