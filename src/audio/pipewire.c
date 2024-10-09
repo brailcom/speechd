@@ -325,12 +325,11 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         message(4, "writing completed without errors");
     }
     // because this is feed_sink_overlap, we wait till the ringbuffer falls below 10 ms, to not lose some small segments of speech
-    fill_quantity = 0;                                                     // reset
     while (fill_quantity >= track.sample_rate * state->stride * 10 / 1000) // untill there's less than 10 ms in the ringbuffer
     {
-        fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index); // update the value
         spa_system_eventfd_read(state->inner_loop->system, state->eventfd_number, &dummy);
-    }
+        fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index); // update the value
+}
     message(4, "buffer drained from spd side, nothing else to do");
     return 0;
 }
