@@ -203,7 +203,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     uint8_t buffer[1024];
     struct spa_pod_builder b = SPA_POD_BUILDER_INIT(buffer, sizeof(buffer));
     int format;
-    message(3, "entering per-module configuration procedure");
+    message(4, "entering per-utterance configuration procedure");
     if (track.bits == 16)
     {
         state->stride = track.num_channels * sizeof(uint16_t);
@@ -211,11 +211,11 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
         {
         case SPD_AUDIO_LE:
             format = SPA_AUDIO_FORMAT_S16_LE;
-            message(3, "audio format is signed 16 bit, little endian");
+            message(4, "audio format is signed 16 bit, little endian");
             break;
         case SPD_AUDIO_BE:
             format = SPA_AUDIO_FORMAT_S16_BE;
-            message(3, "audio format is signed 16 bit, big endian");
+            message(4, "audio format is signed 16 bit, big endian");
             break;
         default:
             error("invalid audio format specifier");
@@ -226,7 +226,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     {
         state->stride = track.num_channels * sizeof(uint8_t);
         format = SPA_AUDIO_FORMAT_S8;
-        message(3, "audio format is signed 8bit");
+        message(4, "audio format is signed 8bit");
     }
     else
     {
@@ -234,7 +234,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
         return -1;
     }
     message(4, "current stride is: %i", state->stride);
-    message(3, "the sample rate provided by the module is: %i", track.sample_rate);
+    message(4, "the sample rate provided by the module is: %i", track.sample_rate);
     // is this the first time this function is called? then our sentinel value must still be there
     if (state->playback_sample_rate == 0)
     {
@@ -330,7 +330,7 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
 static int pipewire_stop(AudioID *id)
 {
     module_state *state = (module_state *)id;
-    message(3, "stopping audio playback");
+    message(4, "stopping audio playback");
     // unset the running flag
     state->is_running = false;
     // drain the stream, to make sure there are no more samples playing, to avoid crackling
