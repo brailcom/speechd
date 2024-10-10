@@ -63,4 +63,12 @@ spd_pulse_la_LIBADD = $(PULSE_LIBS) $(GLIB_LIBS)
 spd_pulse_la_LDFLAGS = -module -avoid-version
 endif
 
+if pipewire_support
+audio_LTLIBRARIES +=  spd_pipewire.la
+spd_pipewire_la_SOURCES = pipewire.c
+spd_pipewire_la_CPPFLAGS = $(GLIB_CFLAGS) $(inc_local)  $(pipewire_CFLAGS)
+spd_pipewire_la_LIBADD = $(pipewire_LIBS) $(GLIB_LIBS)
+spd_pipewire_la_LDFLAGS = -module -avoid-version
+endif
+
 -include $(top_srcdir)/git.mk

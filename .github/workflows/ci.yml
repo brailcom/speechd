@@ -71,7 +71,7 @@ jobs:
                         flite1-dev flite
                         libespeak-dev libespeak-ng-dev
                         libttspico-dev
-                        libao-dev libasound2-dev libaudio-dev libpulse-dev libxau-dev libsndfile1-dev
+                        libao-dev libasound2-dev libaudio-dev libpulse-dev libpipewire-0.3-dev libxau-dev libsndfile1-dev
                         libdotconf-dev libglib2.0-dev libltdl-dev systemd
                         gettext help2man texinfo texlive texlive-plain-generic
                         pulseaudio ${{ matrix.deps }}
@@ -127,7 +127,7 @@ jobs:
                         flite1-dev flite
                         libespeak-dev libespeak-ng-dev
                         libttspico-dev
-                        libao-dev libasound2-dev libaudio-dev libpulse-dev libxau-dev libsndfile1-dev
+                        libao-dev libasound2-dev libaudio-dev libpulse-dev libpipewire-0.3-dev libxau-dev libsndfile1-dev
                         libdotconf-dev libglib2.0-dev libltdl-dev- libsystemd-dev systemd
                         gettext help2man texinfo texlive texlive-plain-generic
                         pulseaudio
