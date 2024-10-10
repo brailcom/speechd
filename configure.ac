@@ -421,6 +421,22 @@ AC_SUBST([LIBAO_CFLAGS])
 AC_SUBST([LIBAO_LIBS])
 AS_IF([test $with_libao = "yes"], [audio_methods="${audio_methods} libao"])
 
+# check for pipewire support
+AC_ARG_WITH([pipewire],
+	[AS_HELP_STRING([--with-pipewire], [include pipewire support])],
+	[],
+	[with_pipewire=check])
+AS_IF([test $with_pipewire != "no"],
+	[PKG_CHECK_MODULES([pipewire], [libpipewire-0.3],
+		[with_pipewire=yes
+		audio_dlopen_modules="$audio_dlopen_modules -dlopen ../audio/spd_pipewire.la"],
+		[AS_IF([test $with_pipewire = yes],
+			[AC_MSG_FAILURE([pipewire is not available])])])])
+AM_CONDITIONAL([pipewire_support], [test $with_pipewire = "yes"])
+AC_SUBST([pipewire_CFLAGS])
+AC_SUBST([pipewire_LIBS])
+AS_IF([test $with_pipewire = "yes"], [audio_methods="${audio_methods} pipewire"])
+
 # check for alsa support
 AC_ARG_WITH([alsa],
 	[AS_HELP_STRING([--with-alsa], [include ALSA support])],
