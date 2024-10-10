@@ -428,8 +428,6 @@ AC_ARG_WITH([pipewire],
 AS_IF([test $with_pipewire != "no"],
 	[PKG_CHECK_MODULES([pipewire], [libpipewire-0.3],
 		[with_pipewire=yes
-		AS_IF([test -z "$default_audio_method"],
-			[default_audio_method=pipewire])
 		audio_dlopen_modules="$audio_dlopen_modules -dlopen ../audio/spd_pipewire.la"],
 		[AS_IF([test $with_pipewire = yes],
 			[AC_MSG_FAILURE([pipewire is not available])])])])
