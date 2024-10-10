@@ -626,7 +626,7 @@ class SSIPClient(object):
         try:
             _method = address_params[0]
         except:
-            raise SSIPCommunicationErrror("Wrong format of server address")
+            raise SSIPCommunicationError("Wrong format of server address")
         connection_args['communication_method'] = _method
         if _method == CommunicationMethod.UNIX_SOCKET:
             try:
@@ -1099,7 +1099,7 @@ class SSIPClient(object):
         else:
             ssip_val = "OFF"
 
-        self._conn.send_command('SET', scope.ALL, 'DEBUG', ssip_val)
+        self._conn.send_command('SET', Scope.ALL, 'DEBUG', ssip_val)
 
 
     def set_debug_destination(self, path):
@@ -1111,9 +1111,9 @@ class SSIPClient(object):
           scope -- see the documentation of this class.
         
         """
-        assert isinstance(val, string)
+        assert isinstance(path, str)
 
-        self._conn.send_command('SET', scope.ALL, 'DEBUG_DESTINATION', val)
+        self._conn.send_command('SET', Scope.ALL, 'DEBUG_DESTINATION', path)
 
     def block_begin(self):
         """Begin an SSIP block.
