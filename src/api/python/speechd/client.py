@@ -24,7 +24,7 @@ A more convenient interface is provided by the 'Speaker' class.
 
 #TODO: Blocking variants for speak, char, key, sound_icon.
 
-import socket, sys, os, subprocess, time, tempfile
+import socket, os, subprocess, time, tempfile
 
 try:
     import threading
@@ -231,7 +231,7 @@ class _SSIP_Connection(object):
                 code, msg, data = self._recv_message()
             except IOError:
                 # If the socket has been closed, exit the thread
-                sys.exit()
+                return
             if code//100 != 7:
                 # This is not an index mark nor an event
                 self._com_buffer.append((code, msg, data))
