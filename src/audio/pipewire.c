@@ -248,7 +248,9 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
         // then we disconnect the stream, letting the rest of the function reconnect it with the new values, since format was computed before
         message(4, "backend initialised with different sample rate, another module connecting?");
         message(4, "disconnecting the old stream now");
+        pw_thread_loop_lock(state->loop);
         pw_stream_disconnect(state->stream);
+        pw_thread_loop_unlock(state->loop);
         // but don't forget to update the value of sample rate we cache, for next time
         state->playback_sample_rate = track.sample_rate;
     }
