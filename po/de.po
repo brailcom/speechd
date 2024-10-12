@@ -115,7 +115,7 @@ msgstr "falls er mit keinen Clients verbunden ist\n"
 #: src/server/options.c:97
 #, c-format
 msgid "0 disables such shutdown\n"
-msgstr ""
+msgstr "0 deaktiviert dieses Herunterfahren\n"
 
 #: src/server/options.c:99
 #, c-format
