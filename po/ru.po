@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2024-04-29 01:03+0200\n"
+"POT-Creation-Date: 2024-10-29 00:58+0100\n"
 "PO-Revision-Date: 2024-08-19 14:09+0000\n"
 "Last-Translator: Roman Inflianskas <rominf@pm.me>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/"
-"speech-dispatcher/po/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/speech-"
+"dispatcher/po/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -137,13 +137,11 @@ msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
 msgstr "если TMPDIR была определена, иначе в /tmp/%s\n"
 
 #: src/server/options.c:113 src/clients/say/options.c:171
-#: src/clients/say/options.c:169
 #, c-format
 msgid "Print this info\n"
 msgstr "Распечатать эту информацию\n"
 
 #: src/server/options.c:115 src/clients/say/options.c:174
-#: src/clients/say/options.c:172
 #, c-format
 msgid ""
 "Please report bugs to %s\n"
@@ -152,7 +150,7 @@ msgstr ""
 "Пожалуйста, сообщайте об ошибках в %s\n"
 "\n"
 
-#: src/server/options.c:121 src/clients/say/options.c:179
+#: src/server/options.c:121 src/clients/say/options.c:181
 #: src/api/python/speechd_config/config.py:174
 #, c-format, python-format
 msgid ""
@@ -271,12 +269,12 @@ msgstr "Произнести клавишу\n"
 msgid "Set the punctuation mode\n"
 msgstr "Режим пунктуации\n"
 
-#: src/clients/say/options.c:124
+#: src/clients/say/options.c:125
 #, c-format
 msgid "Spell the message\n"
 msgstr "Произнести сообщение по буквам\n"
 
-#: src/clients/say/options.c:127
+#: src/clients/say/options.c:128
 #, c-format
 msgid "Set SSML mode on (default: off)\n"
 msgstr "Включить SSML режим (выключен по умолчанию)\n"
@@ -291,17 +289,17 @@ msgstr ""
 "изменений и\n"
 "произнести его при помощи Speech Dispatcher.\n"
 
-#: src/clients/say/options.c:134
+#: src/clients/say/options.c:136
 #, c-format
 msgid "Set priority of the message "
 msgstr "Приоритет сообщения "
 
-#: src/clients/say/options.c:138
+#: src/clients/say/options.c:140
 #, c-format
 msgid "default: %s)\n"
 msgstr "по умолчанию: %s)\n"
 
-#: src/clients/say/options.c:141
+#: src/clients/say/options.c:143
 #, c-format
 msgid ""
 "Set the application name used to establish\n"
@@ -310,12 +308,12 @@ msgstr ""
 "Имя приложения, используемое для установления \n"
 "%1$sсоединения\n"
 
-#: src/clients/say/options.c:145 src/clients/say/options.c:152
+#: src/clients/say/options.c:147 src/clients/say/options.c:154
 #, c-format
 msgid "(default: %s)\n"
 msgstr "(по умолчанию: %s)\n"
 
-#: src/clients/say/options.c:148
+#: src/clients/say/options.c:150
 #, c-format
 msgid ""
 "Set the connection name used to establish\n"
@@ -324,37 +322,37 @@ msgstr ""
 "Имя соединения, используемое для установления \n"
 "%1$sсоединения\n"
 
-#: src/clients/say/options.c:156
+#: src/clients/say/options.c:158
 #, c-format
 msgid "Wait till the message is spoken or discarded\n"
 msgstr "Ожидать, пока сообщение будет прочитано или отменено\n"
 
-#: src/clients/say/options.c:159
+#: src/clients/say/options.c:161
 #, c-format
 msgid "Stop speaking the message being spoken\n"
 msgstr "Прекратить чтение текущего сообщения\n"
 
-#: src/clients/say/options.c:162
+#: src/clients/say/options.c:164
 #, c-format
 msgid "Cancel all messages\n"
 msgstr "Отменить все сообщения\n"
 
-#: src/clients/say/options.c:166
+#: src/clients/say/options.c:168
 #, c-format
 msgid "Print version and copyright info\n"
 msgstr "Вывести версию и информацию об авторских правах\n"
 
-#: src/clients/say/options.c:191
+#: src/clients/say/options.c:193
 #, c-format
 msgid "Syntax error or bad parameter!\n"
 msgstr "Синтаксическая ошибка или неправильный параметр!\n"
 
-#: src/clients/say/options.c:202
+#: src/clients/say/options.c:204
 #, c-format
 msgid "Missing argument!\n"
 msgstr "Отсутствует аргумент!\n"
 
-#: src/clients/say/options.c:303
+#: src/clients/say/options.c:305
 #, c-format
 msgid "Unrecognized option\n"
 msgstr "Параметр не распознан\n"
@@ -628,8 +626,8 @@ msgid ""
 "what is wrong)"
 msgstr ""
 "\n"
-"Speech Dispatcher не работает или к нему невозможно подключиться (см. выше),"
-"\n"
+"Speech Dispatcher не работает или к нему невозможно подключиться (см. "
+"выше),\n"
 "Хотите ли продолжить диагностику? Оставшиеся проверки могут\n"
 "помочь выяснить причину неисправности."
 
@@ -976,11 +974,10 @@ msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."
 msgstr ""
-"Запустите, пожалуйста, команду ещё раз, выбрав то, что вы хотите осуществить,"
-"\n"
+"Запустите, пожалуйста, команду ещё раз, выбрав то, что вы хотите "
+"осуществить,\n"
 "или получите краткую справку при помощи параметров '-h' или '--help'."
 
-#: src/clients/say/options.c:131
 #, c-format
-msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
-msgstr "Перенаправить из stdin в stdout и Speech Dispatcher\n"
+#~ msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
+#~ msgstr "Перенаправить из stdin в stdout и Speech Dispatcher\n"

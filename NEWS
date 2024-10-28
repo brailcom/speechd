@@ -6,13 +6,19 @@ Version 0.12 (unreleased)
 * libspeechd: Simplify buffer management.
 * Fix use of semaphores on MacOS.
 * Fix splitting long UTF-8 sequences.
-* Update CLDR to version 44, symbols from orca 45.2, and symbols from NVDA.
+* Update CLDR to version 45, symbols from orca 45.2, and symbols from NVDA.
 * Add spd_fd function to C api.
 * Detect module failures from generic module.
 * Make the fallback espeak-ng and dummy modules hardcoded.
 * Better detect generic module failures to disable them.
 * pulse: Use asynchronous API to avoid buffer underruns.
 * generic: Make stripping punctuation use locale charset.
+* audio: Fix logging from audio modules in server-side audio.
+* Sort Baratinoo engine higher.
+* espeak-ng-mbrola: Fix mbrola voices with rate different from 22KHz
+* Add a run-spd-say script and make run-speechd and run-spd-say able to talk directly.
+* server: fix daemon mode on macOS with libao.
+* Add initial pipewire support.
 
 Version 0.11.5
 * Update CLDR to version 43 and symbols from NVDA.
