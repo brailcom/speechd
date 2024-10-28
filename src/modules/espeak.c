@@ -696,6 +696,7 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 	static int numsamples_sent_msg = 0;
 	/* Number of samples already sent during this call to the callback. */
 	int numsamples_sent = 0;
+	int first = 1, nextfirst;
 
 	/* Process server events in case we were told to stop in between */
 	module_process(STDIN_FILENO, 0);
@@ -714,6 +715,7 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 
 	/* Process events and audio data */
 	while (events->type != espeakEVENT_LIST_TERMINATED) {
+		nextfirst = 0;
 		/* Enqueue audio upto event */
 		switch (events->type) {
 		case espeakEVENT_MARK:
@@ -767,7 +769,15 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 			break;
 		case espeakEVENT_SAMPLERATE:
 			DBG(DBG_MODNAME " Got sample rate %d", events->id.number);
-			espeak_sample_rate = events->id.number;
+			if (first) {
+				/* espeak-ng currently seems to produce odd
+				 * sample rate changes, so ignore them but the
+				 * initial event for now.
+				 * See https://github.com/espeak-ng/espeak-ng/issues/2028 */
+				espeak_sample_rate = events->id.number;
+				/* Keep looking at sample rate changes until we get something else */
+				nextfirst = 1;
+			}
 			break;
 		default:
 			DBG(DBG_MODNAME " Got unsupported event %d\n", events->type);
@@ -776,6 +786,7 @@ static int synth_callback(short *wav, int numsamples, espeak_EVENT * events)
 		if (stop_requested)
 			return 1;
 		events++;
+		first = nextfirst;
 	}
 	espeak_send_audio_upto(wav, &numsamples_sent, numsamples);
 	numsamples_sent_msg += numsamples;
