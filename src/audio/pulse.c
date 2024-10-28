@@ -527,8 +527,9 @@ static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 
 	/* Set prebuf to one sample so that keys are spoken as soon as typed rather than delayed until the next key pressed */
 	buffAttr.maxlength = (uint32_t) - 1;
-	buffAttr.tlength = (uint32_t) -1;
-	buffAttr.prebuf = (uint32_t) id->pa_min_audio_length * sample_rate * num_channels * bytes_per_sample / 1000;
+	//buffAttr.tlength = (uint32_t)-1; - this is the default, which causes key echo to not work properly.
+	buffAttr.tlength = id->pa_min_audio_length * sample_rate * num_channels * bytes_per_sample / 1000;
+	buffAttr.prebuf = (uint32_t) - 1;
 	buffAttr.minreq = (uint32_t) - 1;
 	buffAttr.fragsize = (uint32_t) - 1;
 
