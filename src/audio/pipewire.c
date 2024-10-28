@@ -182,6 +182,8 @@ static AudioID *pipewire_open(void **pars)
     state->sample_buffer = malloc(SAMPLE_BUFFER_SIZE);
     // initialise the event file descripter and the stream
     state->stream = pw_stream_new_simple(state->inner_loop, pars[1], pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, state);
+    if (!state->stream)
+	return NULL;
     if ((state->eventfd_number = spa_system_eventfd_create(state->inner_loop->system, SPA_FD_CLOEXEC)) < 0)
     {
         error("can not create event file descriptor");
