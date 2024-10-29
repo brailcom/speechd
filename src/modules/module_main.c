@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "module_main.h"
+#include "spd_module_main.h"
 
 /*
  * This provides the main startup structure for modules.

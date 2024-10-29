@@ -39,7 +39,7 @@
 #include <espeak-ng/espeak_ng.h>
 #include <espeak-ng/speak_lib.h>
 
-#include "module_main.h"
+#include "spd_module_main.h"
 
 static char *voicetype;
 static char *voicename;

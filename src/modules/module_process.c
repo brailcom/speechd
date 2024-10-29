@@ -34,7 +34,7 @@
 #include <pthread.h>
 
 #include <spd_audio.h>
-#include "module_main.h"
+#include "spd_module_main.h"
 
 pthread_mutex_t module_stdout_mutex = PTHREAD_MUTEX_INITIALIZER;
 
