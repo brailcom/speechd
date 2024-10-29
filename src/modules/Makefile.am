@@ -41,7 +41,7 @@ AM_CPPFLAGS = $(inc_local) -DDATADIR=\"$(snddatadir)\" $(GLIB_CFLAGS)
 # This is the BSD-licensed helper library that people can use to create their
 # own speech-dispatcher module
 #
-spdinclude_HEADERS = module_main.h
+spdinclude_HEADERS = spd_module_main.h
 lib_LTLIBRARIES = libspeechd_module.la
 libspeechd_module_la_SOURCES = module_main.c module_readline.c module_process.c
 libspeechd_module_la_LDFLAGS = -version-info 0:0:0

@@ -41,7 +41,7 @@
 #include <speechd_types.h>
 #include "common.h"
 #include "spd_audio.h"
-#include "module_main.h"
+#include "spd_module_main.h"
 
 G_BEGIN_DECLS
 

@@ -39,7 +39,7 @@
 #define MODULE_NAME	"skeleton_config"
 #define MODULE_VERSION	"0.1"
 
-#include "module_main.h"
+#include "spd_module_main.h"
 #include "module_utils.h"
 
 #define DEBUG_MODULE 1

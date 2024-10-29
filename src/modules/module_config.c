@@ -25,7 +25,7 @@
 #include <ltdl.h>
 #endif
 
-#include "module_main.h"
+#include "spd_module_main.h"
 #include "module_utils.h"
 
 int module_config(const char *configfilename) {

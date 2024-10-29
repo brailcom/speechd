@@ -37,7 +37,7 @@
 #include <limits.h>
 #include <sys/stat.h>
 
-#include "module_main.h"
+#include "spd_module_main.h"
 #include "module_utils.h"
 
 #define MODULE_NAME "open_jtalk"

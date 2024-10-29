@@ -26,7 +26,7 @@
 #include <fdsetconv.h>
 #include <wchar.h>
 #include "module_utils.h"
-#include "module_main.h"
+#include "spd_module_main.h"
 
 static char *module_audio_pars[10];
 

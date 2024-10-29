@@ -33,7 +33,7 @@
 #include <string.h>
 #include <sys/select.h>
 
-#include "module_main.h"
+#include "spd_module_main.h"
 
 /*
  * This provides simple input buffering for modules.
