@@ -85,9 +85,10 @@ void free_config_options(configoption_t * opts, int *num)
 	DOTCONF_CB(cb_ ## name) \
 	{ \
 		assert(cmd->data.str != NULL); \
-		if (!cl_spec_section) \
+		if (!cl_spec_section) { \
+			free(GlobalFDSet.arg); \
 			GlobalFDSet.arg = g_strdup(cmd->data.str); \
-		else \
+		} else \
 			cl_spec_section->val.arg = g_strdup(cmd->data.str); \
 		return NULL; \
 	}
