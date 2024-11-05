@@ -400,6 +400,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 			module_conf_dir = g_strdup_printf("%s/modules",
 							  SpeechdOptions.conf_dir);
 			MSG(4, "%s does not exist, looking in %s", module->configfilename, module_conf_dir);
+			g_free(module->configfilename);
 			module->configfilename =
 			    (char *)spd_get_path(mod_cfgfile, module_conf_dir);
 			g_free(module_conf_dir);
