@@ -963,10 +963,18 @@ static void output_queue_event(speak_queue_entry *entry)
 	if (!speaking_module)
 		// We were cancelled
 		return;
+	/* Get the output module.  This is done so that we have a local
+	 * copy of the output module as 'speaking_module' could be set
+	 * to NULL in another thread */
+	OutputModule *output = speaking_module;
+	if (output == NULL)
+	{
+		return;
+	}
 	pthread_mutex_lock(&playback_events_mutex);
 	playback_events = g_slist_append(playback_events, entry);
 	pthread_mutex_unlock(&playback_events_mutex);
-	ret = write(speaking_module->pipe_speak[1], &c, 1);
+	ret = write(output->pipe_speak[1], &c, 1);
 	if (ret != 1)
 		MSG(1, "Warning: couldn't write to pipe_speak: %d returned, (errno = %d, %s)\n", ret, errno, strerror(errno));
 }
