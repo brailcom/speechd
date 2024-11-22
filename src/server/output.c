@@ -960,15 +960,13 @@ static void output_queue_event(speak_queue_entry *entry)
 {
 	char c = 0;
 	int ret;
-	if (!speaking_module)
-		// We were cancelled
-		return;
 	/* Get the output module.  This is done so that we have a local
 	 * copy of the output module as 'speaking_module' could be set
 	 * to NULL in another thread */
 	OutputModule *output = speaking_module;
 	if (output == NULL)
 	{
+		// We were cancelled
 		return;
 	}
 	pthread_mutex_lock(&playback_events_mutex);
