@@ -43,7 +43,7 @@ gint message_compare_id(gconstpointer element, gconstpointer value)
 	return ret;
 }
 
-gint(*p_msg_comp_id) () = message_compare_id;
+gint(*p_msg_comp_id) (gconstpointer element, gconstpointer value) = message_compare_id;
 
 char *history_get_client_list()
 {
