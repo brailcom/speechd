@@ -99,7 +99,7 @@ extern Success send_command(Stream s, Connection_Id id)
 	SEND_HEADER(A_DATA);
 	if (read_reply(s) == NONE)
 		return ERROR;
-	if (forward_data(0, s, TRUE) == OK && forward_data(s, 1, FALSE) == OK)
+	if (forward_data(0, s, true) == OK && forward_data(s, 1, false) == OK)
 		return OK;
 	else
 		return ERROR;
