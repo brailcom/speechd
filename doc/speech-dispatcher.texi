@@ -1095,9 +1095,18 @@ output modules provide good synchronization, you can combine them when
 reading messages.  For example if module1 can speak English and Czech while
 module2 speaks only German, the idea is that if there is some message in
 German, module2 is used, while module1 is used for the other languages.
-However the language is not the only criteria for the decision.  The rules for
-selection of an output module can be influenced through the configuration file
-@file{speech-dispatcher/speechd.conf}.
+However the language is not the only criteria for the decision.
+
+The set of modules can be set in @file{speech-dispatcher/speechd.conf}, or left
+to be determined automatically. It can be refreshed by making Speech Dispatcher
+reload the configuration, with e.g.
+
+@example
+killall -HUP speech-dispatcher
+@end example
+
+The rules for selection of an output module can be influenced through the
+configuration file @file{speech-dispatcher/speechd.conf}.
 
 @menu
 * Provided Functionality::      Some synthesizers don't support the full set of SSIP features.
