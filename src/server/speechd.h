@@ -46,26 +46,8 @@
 #include <glib-unix.h>
 
 #include <semaphore.h>
-#include <sys/ipc.h>
-#include <sys/sem.h>
 
 #define SPEECHD_DEBUG 0
-
-/* Definition of semun needed for semaphore manipulation */
-/* TODO: This fixes compilation for Mac OS X but might not be a correct
-   solution for other platforms. A better check is needed, possibly including
-   _POSIX_C_SOURCE and friends*/
-#if (defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED)) || defined(__APPLE__)
-/* union semun is defined by including <sys/sem.h> */
-#else
-/* according to X/OPEN we have to define it ourselves */
-union semun {
-	int val;		/* value for SETVAL */
-	struct semid_ds *buf;	/* buffer for IPC_STAT, IPC_SET */
-	unsigned short int *array;	/* array for GETALL, SETALL */
-	struct seminfo *__buf;	/* buffer for IPC_INFO */
-};
-#endif
 
 #include <speechd_types.h>
 #include "module.h"

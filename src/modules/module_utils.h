@@ -36,8 +36,6 @@
 #include <errno.h>
 #include <dotconf.h>
 
-#include <sys/ipc.h>
-
 #include <speechd_types.h>
 #include "common.h"
 #include "spd_audio.h"
