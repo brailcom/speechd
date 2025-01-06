@@ -705,6 +705,7 @@ static gint modules_compare (gconstpointer a, gconstpointer b)
 		"ibmtts",
 		"festival",
 		"flite",
+		"multispeech",
 		"espeak-ng-mbrola",
 		"espeak-ng-mbrola-generic",
 		"espeak-ng",
