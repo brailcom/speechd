@@ -24,21 +24,29 @@ speech subsystem.
 Supported TTS engines:
 ----------------------
 
+  * Baratinoo (Voxygen)
+  * Cicero
+  * DECtalk Software (through a generic driver)
+  * Epos (through a generic driver)
+  * eSpeak
+  * eSpeak+MBROLA (through a generic driver)
+  * eSpeak NG
+  * eSpeak NG+MBROLA
+  * eSpeak NG+MBROLA (through a generic driver)
   * Festival
   * Flite
-  * Espeak
-  * Cicero
   * IBM TTS
-  * Espeak+MBROLA (through a generic driver)
-  * Epos (through a generic driver)
-  * DecTalk software (through a generic driver)
-  * Cepstral Swift (through a generic driver)
   * Ivona
-  * Pico (possibly through a generic driver)
-  * Espeak NG
   * Kali TTS
-  * Baratinoo (Voxygen)
-  * Mary-TTS
+  * llia_phon (through a generic driver)
+  * MaryTTS (through a generic driver)
+  * Mimic3 (through a generic driver)
+  * Multispeech (driver is distributed together with the TTS engine)
+  * Open JTalk
+  * Pico (SVOX)
+  * RHVoice (driver is distributed together with the TTS engine)
+  * Swift (Cepstral) (through a generic driver)
+  * Voxin
 
 Supported sound output subsystems:
 ----------------------------------
