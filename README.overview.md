@@ -51,11 +51,12 @@ Supported TTS engines:
 Supported sound output subsystems:
 ----------------------------------
 
-  * OSS
   * ALSA
-  * PulseAudio
-  * NAS
   * Libao
+  * NAS
+  * OSS
+  * PipeWire
+  * PulseAudio
 
 The architecture is based on a client/server model. The clients are all the
 applications in the system that want to produce speech (typically assisting
