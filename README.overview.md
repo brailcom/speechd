@@ -82,11 +82,17 @@ A rust crate is also available on https://crates.io/crates/ssip-client https://g
 
 Existing assistive technologies known to work with Speech Dispatcher:
 
+  * BRLTTY (see https://brltty.app/)
+  * ChromeVox Classic (https://chromewebstore.google.com/detail/screen-reader/kgejglhpjiefppelpmljglcjbhoiplfn)
+  * Emacspeak+e2spd (see https://github.com/mglambda/e2spd)
+  * Emacspeak+emacspeak-speechd (see https://github.com/taniodev/emacspeak-speechd)
+  * Emacspeak+espd (see https://github.com/bartbunting/espd)
+  * Fenrir (see https://github.com/chrys87/fenrir)
+  * KMouth (see https://apps.kde.org/kmouth/)
+  * Orca (see https://orca.gnome.org/)
   * speechd-el (see https://devel.freebsoft.org/speechd-el)
-  * Orca (see http://live.gnome.org/Orca/SpeechDispatcher)
-  * Yasr (see http://yasr.sourceforge.net/)
-  * BrlTTY (see http://brltty.com)
-  * Chromevox (extension of the Chrome and Chromium browsers)
+  * TDSR (see https://github.com/tspivey/tdsr)
+  * YASR (see https://yasr.sourceforge.net/)
 
 Voices settings
 ---------------
