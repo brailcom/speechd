@@ -11,7 +11,7 @@
  * Copyright 2010 Christopher Brannon <cmbrannon79@gmail.com>
  * Copyright 2010-2011 William Hubbs <w.d.hubbs@gmail.com>
  * Copyright 2015 Jeremy Whiting <jpwhiting@kde.org>
- * Copyright 2018-2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright 2018-2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * Copyright 2004-2006 Lennart Poettering
  *
  * Copied from Luke Yelavich's libao.c driver, and merged with code from
@@ -359,10 +359,10 @@ static int spd_pa_simple_write(spd_pa_simple *p, const void*data, size_t length,
 			CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
 		}
 
-		CHECK_SUCCESS_GOTO(p, rerror, l != (size_t) -1, unlock_and_fail);
-
 		if (!p->playing)
 			break;
+
+		CHECK_SUCCESS_GOTO(p, rerror, l != (size_t) -1, unlock_and_fail);
 
 		if (l > length)
 			l = length;
