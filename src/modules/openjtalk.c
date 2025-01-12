@@ -1,7 +1,7 @@
 /*
  * open_jtalk.c - Speech Dispatcher backend for Open JTalk
  *
- * Copyright (C) 2020-2021, 2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2020-2021, 2024-2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * Copyright (C) 2023 Chinamu Kawano <tinaxd@protonmail.com>
  * All rights reserved.
  *
@@ -54,22 +54,13 @@ DECLARE_DEBUG();
 MOD_OPTION_1_STR(OpenjtalkDictionaryDirectory);
 MOD_OPTION_1_STR(OpenjtalkVoice);
 
-int module_init(char **msg)
-{
-	fprintf(stderr, "initializing\n");
-
-	*msg = strdup("ok!");
-
-	return 0;
-}
-
 int module_load(void)
 {
 	INIT_SETTINGS_TABLES();
 	REGISTER_DEBUG();
 
 	MOD_OPTION_1_STR_REG(OpenjtalkDictionaryDirectory,
-			     "/var/lib/mecab/dic/open-jtalk");
+			     "/var/lib/mecab/dic/open-jtalk/naist-jdic");
 	MOD_OPTION_1_STR_REG(OpenjtalkVoice,
 			     "/usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice");
 
@@ -77,6 +68,44 @@ int module_load(void)
 	DBG("OpenjtalkVoice: %s", OpenjtalkVoice);
 
 	module_audio_set_server();
+
+	return 0;
+}
+
+int module_init(char **msg)
+{
+	fprintf(stderr, "initializing\n");
+
+	/* Check configured data */
+	if (access(OpenjtalkVoice, R_OK) != 0)
+	{
+		fprintf(stderr, "cannot access %s\n", OpenjtalkVoice);
+		perror("open");
+		return -1;
+	}
+
+	if (access(OpenjtalkDictionaryDirectory, R_OK|X_OK) != 0)
+	{
+		fprintf(stderr, "cannot access %s\n", OpenjtalkDictionaryDirectory);
+		perror("open");
+		return -1;
+	}
+
+	/* Check that Open JTalk works */
+	char *cmd;
+	if (asprintf(&cmd,
+		     "echo hello | open_jtalk -x %s -m %s -ow /dev/null",
+		     OpenjtalkDictionaryDirectory, OpenjtalkVoice) < 0) {
+		DBG("failed to construct command line");
+		return -1;
+	}
+
+	if (system(cmd) != 0) {
+		fprintf(stderr, "Open JTalk failed\n");
+		return -1;
+	}
+
+	*msg = strdup("ok!");
 
 	return 0;
 }
