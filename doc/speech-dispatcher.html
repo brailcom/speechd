@@ -3903,6 +3903,11 @@ should clean up everything, cancel threads, deallocate memory etc.; no
 more functions of this output module will be touched (except for other
 tries to load and initialize the module).
 </p>
+<p>It is very important that <code class="code">module_init</code> tries to check that the synthesis
+works as much as possible. Otherwise, if users switch to this module and it does
+not emit sound at all without reporting errors, blind users will have no audio
+feedback to be able to switch back to a working module.
+</p>
 <p>Example from Flite:
 </p>
 <div class="example">
