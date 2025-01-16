@@ -704,6 +704,7 @@ static gpointer speech_symbols_new(const gchar *locale, const gchar *file)
 {
 	SpeechSymbols *ss = g_malloc(sizeof *ss);
 	gchar *path;
+	int ret;
 
 	ss->complex_symbols = NULL;
 	ss->source = NULL;
@@ -711,9 +712,20 @@ static gpointer speech_symbols_new(const gchar *locale, const gchar *file)
 					    g_free,
 					    (GDestroyNotify) speech_symbol_free);
 
-	path = g_build_filename(LOCALE_DATA, locale, file, NULL);
-	MSG2(5, "symbols", "Trying to load %s for '%s' from '%s'", file, locale, path);
-	if (speech_symbols_load(ss, path, TRUE) >= 0) {
+	path = g_build_filename(SpeechdOptions.user_conf_dir, locale, file, NULL);
+	MSG2(5, "symbols", "Trying to load %s for '%s' from '%s'", file, locale, SpeechdOptions.user_conf_dir);
+	ret = speech_symbols_load(ss, path, TRUE);
+	if (ret < 0) {
+		path = g_build_filename(SpeechdOptions.user_conf_dir, file, NULL);
+		MSG2(5, "symbols", "Trying to load %s from '%s'", file, SpeechdOptions.user_conf_dir);
+		ret = speech_symbols_load(ss, path, TRUE);
+	}
+	if (ret < 0) {
+		path = g_build_filename(LOCALE_DATA, locale, file, NULL);
+		MSG2(5, "symbols", "Trying to load %s for '%s' from '%s'", file, locale, path);
+		ret = speech_symbols_load(ss, path, TRUE);
+	}
+	if (ret >= 0) {
 		MSG2(5, "symbols", "Successful");
 		/* The elements are added to the start of the list in
 		 * speech_symbols_load_complex_symbol() for better speed (as adding to
