@@ -137,15 +137,16 @@ General Public License&rdquo;
     <ul class="toc-numbered-mark">
       <li><a id="toc-Configuration-file-syntax-1" href="#Configuration-file-syntax">2.4.1 Configuration file syntax</a></li>
       <li><a id="toc-Configuration-options-1" href="#Configuration-options">2.4.2 Configuration options</a></li>
-      <li><a id="toc-Audio-Output-Configuration-1" href="#Audio-Output-Configuration">2.4.3 Audio Output Configuration</a></li>
-      <li><a id="toc-Client-Specific-Configuration-1" href="#Client-Specific-Configuration">2.4.4 Client Specific Configuration</a></li>
-      <li><a id="toc-Output-Modules-Configuration-1" href="#Output-Modules-Configuration">2.4.5 Output Modules Configuration</a>
+      <li><a id="toc-Symbols-processing-configuration-1" href="#Symbols-processing-configuration">2.4.3 Symbols processing configuration</a></li>
+      <li><a id="toc-Audio-Output-Configuration-1" href="#Audio-Output-Configuration">2.4.4 Audio Output Configuration</a></li>
+      <li><a id="toc-Client-Specific-Configuration-1" href="#Client-Specific-Configuration">2.4.5 Client Specific Configuration</a></li>
+      <li><a id="toc-Output-Modules-Configuration-1" href="#Output-Modules-Configuration">2.4.6 Output Modules Configuration</a>
       <ul class="toc-numbered-mark">
-        <li><a id="toc-Loading-Modules-in-speechd_002econf-1" href="#Loading-Modules-in-speechd_002econf">2.4.5.1 Loading Modules in speechd.conf</a></li>
-        <li><a id="toc-Configuration-Files-of-Output-Modules" href="#Configuration-files-of-output-modules">2.4.5.2 Configuration Files of Output Modules</a></li>
-        <li><a id="toc-Configuration-files-of-the-Generic-Output-Module" href="#Configuration-of-the-Generic-Output-Module">2.4.5.3 Configuration files of the Generic Output Module</a></li>
+        <li><a id="toc-Loading-Modules-in-speechd_002econf-1" href="#Loading-Modules-in-speechd_002econf">2.4.6.1 Loading Modules in speechd.conf</a></li>
+        <li><a id="toc-Configuration-Files-of-Output-Modules" href="#Configuration-files-of-output-modules">2.4.6.2 Configuration Files of Output Modules</a></li>
+        <li><a id="toc-Configuration-files-of-the-Generic-Output-Module" href="#Configuration-of-the-Generic-Output-Module">2.4.6.3 Configuration files of the Generic Output Module</a></li>
       </ul></li>
-      <li><a id="toc-Log-Levels-1" href="#Log-Levels">2.4.6 Log Levels</a></li>
+      <li><a id="toc-Log-Levels-1" href="#Log-Levels">2.4.7 Log Levels</a></li>
     </ul></li>
     <li><a id="toc-Tools-1" href="#Tools">2.5 Tools</a>
     <ul class="toc-numbered-mark">
@@ -819,10 +820,11 @@ application for details about application specific configuration.
 <ul class="mini-toc">
 <li><a href="#Configuration-file-syntax" accesskey="1">Configuration file syntax</a></li>
 <li><a href="#Configuration-options" accesskey="2">Configuration options</a></li>
-<li><a href="#Audio-Output-Configuration" accesskey="3">Audio Output Configuration</a></li>
-<li><a href="#Client-Specific-Configuration" accesskey="4">Client Specific Configuration</a></li>
-<li><a href="#Output-Modules-Configuration" accesskey="5">Output Modules Configuration</a></li>
-<li><a href="#Log-Levels" accesskey="6">Log Levels</a></li>
+<li><a href="#Symbols-processing-configuration" accesskey="3">Symbols processing configuration</a></li>
+<li><a href="#Audio-Output-Configuration" accesskey="4">Audio Output Configuration</a></li>
+<li><a href="#Client-Specific-Configuration" accesskey="5">Client Specific Configuration</a></li>
+<li><a href="#Output-Modules-Configuration" accesskey="6">Output Modules Configuration</a></li>
+<li><a href="#Log-Levels" accesskey="7">Log Levels</a></li>
 </ul>
 <hr>
 <div class="subsection-level-extent" id="Configuration-file-syntax">
@@ -868,7 +870,7 @@ character and set it to the desired value.
 <div class="subsection-level-extent" id="Configuration-options">
 <div class="nav-panel">
 <p>
-Next: <a href="#Audio-Output-Configuration" accesskey="n" rel="next">Audio Output Configuration</a>, Previous: <a href="#Configuration-file-syntax" accesskey="p" rel="prev">Configuration file syntax</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Symbols-processing-configuration" accesskey="n" rel="next">Symbols processing configuration</a>, Previous: <a href="#Configuration-file-syntax" accesskey="p" rel="prev">Configuration file syntax</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
 <h4 class="subsection" id="Configuration-options-1"><span>2.4.2 Configuration options<a class="copiable-link" href="#Configuration-options-1"> &para;</a></span></h4>
 
@@ -879,12 +881,45 @@ remove the comment symbol <code class="code">#</code>.
 </p>
 <hr>
 </div>
+<div class="subsection-level-extent" id="Symbols-processing-configuration">
+<div class="nav-panel">
+<p>
+Next: <a href="#Audio-Output-Configuration" accesskey="n" rel="next">Audio Output Configuration</a>, Previous: <a href="#Configuration-options" accesskey="p" rel="prev">Configuration options</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+</div>
+<h4 class="subsection" id="Symbols-processing-configuration-1"><span>2.4.3 Symbols processing configuration<a class="copiable-link" href="#Symbols-processing-configuration-1"> &para;</a></span></h4>
+
+<p>Speech Dispatcher preprocesses text before giving it to output modules, to
+support ample sets of characters (including emojis) and provide a homogeneous
+behavior.
+</p>
+<p>This is configured through the use of the <code class="code">SymbolsPreprocFile</code> lines in
+the main configuration file, which load a series of dictionaries. When text is
+preprocessed, each dictionary is applied, in the order of appearance in the
+configuration file. The principle is to first apply quite generic
+transformations (e.g. various unicode fonts forms) before applying more specific
+transformations (e.g. abbreviations).
+</p>
+<p>The dictionaries are localized, to provide translation adapted to each
+language. They can be found in locale-named directories in
+<samp class="file">/usr/share/speech-dispatcher/locale/</samp>
+Speech-dispatcher tries to open them from most specific locales to least
+specific: for instance for brazilian speech, it will first try to load from
+<samp class="file">pt_BR</samp>, then from <samp class="file">pt</samp>, before falling back to <samp class="file">base</samp>.
+</p>
+<p>Users can override the dictionaries by copying a dictionary into their
+<samp class="file">~/.config/speech-dispatcher/locale/</samp> directory, or even locale-named
+subdirectories of it, and modifying them at will. They can also add
+<code class="code">SymbolsPreprocFile</code> in the configuration file to add their own dictionary
+files along the series, before, after or among the existing dictionaries.
+</p>
+<hr>
+</div>
 <div class="subsection-level-extent" id="Audio-Output-Configuration">
 <div class="nav-panel">
 <p>
-Next: <a href="#Client-Specific-Configuration" accesskey="n" rel="next">Client Specific Configuration</a>, Previous: <a href="#Configuration-options" accesskey="p" rel="prev">Configuration options</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Client-Specific-Configuration" accesskey="n" rel="next">Client Specific Configuration</a>, Previous: <a href="#Symbols-processing-configuration" accesskey="p" rel="prev">Symbols processing configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="subsection" id="Audio-Output-Configuration-1"><span>2.4.3 Audio Output Configuration<a class="copiable-link" href="#Audio-Output-Configuration-1"> &para;</a></span></h4>
+<h4 class="subsection" id="Audio-Output-Configuration-1"><span>2.4.4 Audio Output Configuration<a class="copiable-link" href="#Audio-Output-Configuration-1"> &para;</a></span></h4>
 
 <p>Audio output method (ALSA, Pulse etc.) can be configured centrally
 from the main configuration file <code class="code">speechd.conf</code>. The option
@@ -919,7 +954,7 @@ directory the audio modules should be loaded from.
 <p>
 Next: <a href="#Output-Modules-Configuration" accesskey="n" rel="next">Output Modules Configuration</a>, Previous: <a href="#Audio-Output-Configuration" accesskey="p" rel="prev">Audio Output Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="subsection" id="Client-Specific-Configuration-1"><span>2.4.4 Client Specific Configuration<a class="copiable-link" href="#Client-Specific-Configuration-1"> &para;</a></span></h4>
+<h4 class="subsection" id="Client-Specific-Configuration-1"><span>2.4.5 Client Specific Configuration<a class="copiable-link" href="#Client-Specific-Configuration-1"> &para;</a></span></h4>
 
 <p>It is possible to automatically set different default values of speech
 parameters (e.g.  rate, volume, punctuation, default voice...) for
@@ -955,7 +990,7 @@ use more connections for different purposes).
 <p>
 Next: <a href="#Log-Levels" accesskey="n" rel="next">Log Levels</a>, Previous: <a href="#Client-Specific-Configuration" accesskey="p" rel="prev">Client Specific Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="subsection" id="Output-Modules-Configuration-1"><span>2.4.5 Output Modules Configuration<a class="copiable-link" href="#Output-Modules-Configuration-1"> &para;</a></span></h4>
+<h4 class="subsection" id="Output-Modules-Configuration-1"><span>2.4.6 Output Modules Configuration<a class="copiable-link" href="#Output-Modules-Configuration-1"> &para;</a></span></h4>
 
 <p>Each user should turn on at least one output module in his
 configuration, if he wants Speech Dispatcher to produce
@@ -985,7 +1020,7 @@ configuration files in <code class="code">~/.config/speech-dispatcher/modules/</
 <p>
 Next: <a href="#Configuration-files-of-output-modules" accesskey="n" rel="next">Configuration Files of Output Modules</a>, Previous: <a href="#Output-Modules-Configuration" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="subsubsection" id="Loading-Modules-in-speechd_002econf-1"><span>2.4.5.1 Loading Modules in speechd.conf<a class="copiable-link" href="#Loading-Modules-in-speechd_002econf-1"> &para;</a></span></h4>
+<h4 class="subsubsection" id="Loading-Modules-in-speechd_002econf-1"><span>2.4.6.1 Loading Modules in speechd.conf<a class="copiable-link" href="#Loading-Modules-in-speechd_002econf-1"> &para;</a></span></h4>
 
 <a class="anchor" id="AddModule"></a><p>Each module that should be run when Speech Dispatcher starts must be loaded
 by the <code class="code">AddModule</code> command in the configuration. Note that you can load
@@ -1014,7 +1049,7 @@ to <samp class="file">etc/speech-dispatcher/modules/</samp>. This parameter is o
 <p>
 Next: <a href="#Configuration-of-the-Generic-Output-Module" accesskey="n" rel="next">Configuration files of the Generic Output Module</a>, Previous: <a href="#Loading-Modules-in-speechd_002econf" accesskey="p" rel="prev">Loading Modules in speechd.conf</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="subsubsection" id="Configuration-Files-of-Output-Modules"><span>2.4.5.2 Configuration Files of Output Modules<a class="copiable-link" href="#Configuration-Files-of-Output-Modules"> &para;</a></span></h4>
+<h4 class="subsubsection" id="Configuration-Files-of-Output-Modules"><span>2.4.6.2 Configuration Files of Output Modules<a class="copiable-link" href="#Configuration-Files-of-Output-Modules"> &para;</a></span></h4>
 
 <p>Each output module is different and therefore has different
 configuration options. Please look at the comments in its
@@ -1119,7 +1154,7 @@ for example in a <code class="code">~/.config/speech-dispatcher/modules/piper.co
 <p>
 Previous: <a href="#Configuration-files-of-output-modules" accesskey="p" rel="prev">Configuration Files of Output Modules</a>, Up: <a href="#Output-Modules-Configuration" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="subsubsection" id="Configuration-files-of-the-Generic-Output-Module"><span>2.4.5.3 Configuration files of the Generic Output Module<a class="copiable-link" href="#Configuration-files-of-the-Generic-Output-Module"> &para;</a></span></h4>
+<h4 class="subsubsection" id="Configuration-files-of-the-Generic-Output-Module"><span>2.4.6.3 Configuration files of the Generic Output Module<a class="copiable-link" href="#Configuration-files-of-the-Generic-Output-Module"> &para;</a></span></h4>
 
 <p>The generic output module allows you to easily write your
 own output module for synthesizers that have a simple
@@ -1232,7 +1267,7 @@ so on.)
 <p>
 Previous: <a href="#Output-Modules-Configuration" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Configuration" accesskey="u" rel="up">Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
 </div>
-<h4 class="subsection" id="Log-Levels-1"><span>2.4.6 Log Levels<a class="copiable-link" href="#Log-Levels-1"> &para;</a></span></h4>
+<h4 class="subsection" id="Log-Levels-1"><span>2.4.7 Log Levels<a class="copiable-link" href="#Log-Levels-1"> &para;</a></span></h4>
 
 <p>There are 6 different verbosity levels of Speech Dispatcher logging.
 0 means no logging, while 5 means that nearly all the information

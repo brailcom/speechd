@@ -624,6 +624,7 @@ application for details about application specific configuration.
 @menu
 * Configuration file syntax::   Basic rules.
 * Configuration options::       What to configure.
+* Symbols processing configuration:: How text is processed with symbols.
 * Audio Output Configuration::  How to switch to ALSA, Pulse...
 * Client Specific Configuration::  Specific default values for applications.
 * Output Modules Configuration::  Adding and customizing output modules.
@@ -664,7 +665,7 @@ Boolean values use On (for true) and Off (for false).
 Debug Off
 @end example
 
-@node Configuration options, Audio Output Configuration, Configuration file syntax, Configuration
+@node Configuration options, Symbols processing configuration, Configuration file syntax, Configuration
 @subsection Configuration options
 
 All available options are documented directly in the file and examples
@@ -672,7 +673,34 @@ are provided.  Most of the options are set to their default value and
 commented out.  If you want to change them, just change the value and
 remove the comment symbol @code{#}.
 
-@node Audio Output Configuration, Client Specific Configuration, Configuration options, Configuration
+@node Symbols processing configuration, Audio Output Configuration, Configuration options, Configuration
+@subsection Symbols processing configuration
+
+Speech Dispatcher preprocesses text before giving it to output modules, to
+support ample sets of characters (including emojis) and provide a homogeneous
+behavior.
+
+This is configured through the use of the @code{SymbolsPreprocFile} lines in
+the main configuration file, which load a series of dictionaries. When text is
+preprocessed, each dictionary is applied, in the order of appearance in the
+configuration file. The principle is to first apply quite generic
+transformations (e.g. various unicode fonts forms) before applying more specific
+transformations (e.g. abbreviations).
+
+The dictionaries are localized, to provide translation adapted to each
+language. They can be found in locale-named directories in
+@file{/usr/share/speech-dispatcher/locale/}
+Speech-dispatcher tries to open them from most specific locales to least
+specific: for instance for brazilian speech, it will first try to load from
+@file{pt_BR}, then from @file{pt}, before falling back to @file{base}.
+
+Users can override the dictionaries by copying a dictionary into their
+@file{~/.config/speech-dispatcher/locale/} directory, or even locale-named
+subdirectories of it, and modifying them at will. They can also add
+@code{SymbolsPreprocFile} in the configuration file to add their own dictionary
+files along the series, before, after or among the existing dictionaries.
+
+@node Audio Output Configuration, Client Specific Configuration, Symbols processing configuration, Configuration
 @subsection Audio Output Configuration
 
 Audio output method (ALSA, Pulse etc.) can be configured centrally
