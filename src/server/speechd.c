@@ -965,7 +965,7 @@ void logging_init(void)
 				file_name);
 			logfile = stdout;
 		} else {
-			MSG(3, "Speech Dispatcher Logging to file %s at level %d",
+			MSG(3, "Speech Dispatcher "PACKAGE_VERSION" Logging to file %s at level %d",
 			    file_name, SpeechdOptions.log_level);
 		}
 	}
