@@ -712,12 +712,12 @@ static gpointer speech_symbols_new(const gchar *locale, const gchar *file)
 					    g_free,
 					    (GDestroyNotify) speech_symbol_free);
 
-	path = g_build_filename(SpeechdOptions.user_conf_dir, locale, file, NULL);
-	MSG2(5, "symbols", "Trying to load %s for '%s' from '%s'", file, locale, SpeechdOptions.user_conf_dir);
+	path = g_build_filename(SpeechdOptions.user_conf_dir, "locale", locale, file, NULL);
+	MSG2(5, "symbols", "Trying to load %s for '%s' from '%s/locale'", file, locale, SpeechdOptions.user_conf_dir);
 	ret = speech_symbols_load(ss, path, TRUE);
 	if (ret < 0) {
-		path = g_build_filename(SpeechdOptions.user_conf_dir, file, NULL);
-		MSG2(5, "symbols", "Trying to load %s from '%s'", file, SpeechdOptions.user_conf_dir);
+		path = g_build_filename(SpeechdOptions.user_conf_dir, "locale", file, NULL);
+		MSG2(5, "symbols", "Trying to load %s from '%s/locale'", file, SpeechdOptions.user_conf_dir);
 		ret = speech_symbols_load(ss, path, TRUE);
 	}
 	if (ret < 0) {
