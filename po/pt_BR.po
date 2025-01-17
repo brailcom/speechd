@@ -282,6 +282,8 @@ msgid ""
 "Read text to be spoken on stdin, write it on stdout unchanged, and the\n"
 "corresponding speech through Speech Dispatcher.\n"
 msgstr ""
+"Lê o texto a ser falado no stdin, escreve-o no stdout sem alterações e\n"
+"a fala correspondente no Speech Dispatcher.\n"
 
 #: src/clients/say/options.c:136
 #, c-format
