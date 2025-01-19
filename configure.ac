@@ -35,6 +35,7 @@ m4_define([MINOR_VERSION], [12])
 m4_define([MICRO_VERSION], [0])
 m4_define([AC_PACKAGE_VERSION],[MAJOR_VERSION.MINOR_VERSION.MICRO_VERSION-rc4])
 AC_INIT([speech-dispatcher], [AC_PACKAGE_VERSION], [speechd-discuss@nongnu.org])
+AC_USE_SYSTEM_EXTENSIONS
 AC_CONFIG_MACRO_DIRS([m4])
 AM_INIT_AUTOMAKE([foreign info-in-builddir])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES(yes)])
@@ -68,7 +69,6 @@ AC_PROG_LN_S
 AC_CHECK_PROGS([HELP2MAN], [help2man])
 AM_CONDITIONAL([HAVE_HELP2MAN], [test "x$HELP2MAN" != "x"])
 
-AC_USE_SYSTEM_EXTENSIONS
 
 # Checks for libraries.
 AC_SEARCH_LIBS([sqrt], [m], [],
