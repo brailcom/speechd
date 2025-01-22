@@ -27,7 +27,6 @@ EXTRA_DIST += dummy-message.txt
 CLEANFILES = dummy-message.wav
 
 inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/common
-LDFLAGS =
 
 if DARWIN_HOST
 LDFLAGS += -Wl,-U,_module_speak -Wl,-U,_module_speak_sync
@@ -285,6 +284,22 @@ lib%.so: $(srcdir)/kali_%_shim.cpp
 
 CLEANFILES += $(EXTRA_sd_kali_DEPENDENCIES)
 endif
+endif
+
+#
+#  cxxpiper
+#
+if piper_support
+modulebin_PROGRAMS += sd_cxxpiper
+sd_cxxpiper_SOURCES = cxxpiper.cpp module_utils_addvoice.c module_utils_play.c $(common_SOURCES)
+sd_cxxpiper_CPPFLAGS = -I$(PIPER_SRC_DIR) $(ONNXRUNTIME_CFLAGS) $(RUBBERBAND_CFLAGS) $(AM_CPPFLAGS)
+sd_cxxpiper_LDADD = $(top_builddir)/src/common/libcommon.la \
+	-lpiper_phonemize \
+	$(ONNXRUNTIME_LIBS) \
+	-lespeak-ng \
+	$(RUBBERBAND_LIBS) \
+	$(SNDFILE_LIBS) \
+	$(common_LDADD)
 endif
 
 #

@@ -377,6 +377,75 @@ AM_CONDITIONAL([kali_support], [test $with_kali != no])
 AM_CONDITIONAL([kali_shim], [test $with_kali = shim])
 AS_IF([test $with_kali != no], [output_modules="${output_modules} kali"])
 
+# check for piper support
+AC_ARG_WITH([piper],
+	[AS_HELP_STRING([--with-piper=/path], [include Piper support])],
+	[],
+	[with_piper=no])
+AS_IF([test $with_espeak = yes -a $with_piper != no], [
+	# We currently need various headers of piper
+	PIPER_SRC_DIR="$with_piper/src/cpp"
+	OLDCXXFLAGS="$CXXFLAGS"
+	OLDLDFLAGS="$LDFLAGS"
+	CXXFLAGS="$CXXFLAGS -I$PIPER_SRC_DIR"
+
+	AS_IF([test $with_piper != no],
+		[PKG_CHECK_MODULES([ONNXRUNTIME], [libonnxruntime], [
+				CXXFLAGS="$CXXFLAGS $ONNXRUNTIME_CFLAGS"
+				LDFLAGS="$LDFLAGS $ONNXRUNTIME_LIBS"
+			], [AC_CHECK_LIB([onnxruntime], [OrtGetApiBase],
+				[ONNXRUNTIME_LIBS="-lonnxruntime"],
+				[with_piper=no])
+			])])
+
+	AS_IF([test $with_piper != no],
+		[PKG_CHECK_MODULES([RUBBERBAND], [rubberband], [
+				CXXFLAGS="$CXXFLAGS $RUBBERBAND_CFLAGS"
+				LDFLAGS="$LDFLAGS $RUBBERBAND_LIBS"
+			], [with_piper=no])])
+
+	AC_LANG_PUSH(C++)
+	AS_IF([test $with_piper != no],
+		[AC_CHECK_LIB([piper_phonemize], [_ZN5piper19DEFAULT_PHONEME_MAPB5cxx11E],
+			[:],
+			[with_piper=no])])
+
+	AS_IF([test $with_piper != no],
+		[AC_CHECK_HEADER([json.hpp],
+			[],
+			[with_piper=no])])
+	AS_IF([test $with_piper != no],
+		[AC_CHECK_HEADER([piper.hpp],
+			[],
+			[with_piper=no])])
+	AS_IF([test $with_piper != no],
+		[AC_CHECK_HEADER([utf8.h],
+			[],
+			[with_piper=no])])
+	AS_IF([test $with_piper != no],
+		[AC_CHECK_HEADER([wavfile.hpp],
+			[],
+			[with_piper=no])])
+
+	AS_IF([test $with_piper != no],
+		# We need espeak with https://github.com/espeak-ng/espeak-ng/pull/2127 applied
+		[AC_CHECK_LIB([espeak-ng], [espeak_TextToPhonemesWithTerminator],
+			[:],
+			[with_piper=no],
+			[$ESPEAK_NG_LIBS])])
+
+	AC_LANG_POP(C++)
+	CXXFLAGS="$OLDCXXFLAGS"
+	LDFLAGS="$OLDLDFLAGS"
+])
+AM_CONDITIONAL([piper_support], [test $with_piper != no])
+AS_IF([test $with_piper != no], [output_modules="${output_modules} cxxpiper"])
+AC_SUBST([PIPER_SRC_DIR])
+AC_SUBST([ONNXRUNTIME_CFLAGS])
+AC_SUBST([ONNXRUNTIME_LIBS])
+AC_SUBST([RUBBERBAND_CFLAGS])
+AC_SUBST([RUBBERBAND_LIBS])
+
 audio_dlopen='-dlopen force'
 audio_dlopen_modules=
 
