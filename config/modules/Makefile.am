@@ -53,6 +53,11 @@ dist_moduleconf_DATA += kali.conf
 dist_moduleconforig_DATA += kali.conf
 endif
 
+if piper_support
+dist_moduleconf_DATA += cxxpiper.conf
+dist_moduleconforig_DATA += cxxpiper.conf
+endif
+
 if ibmtts_support
 dist_moduleconf_DATA += ibmtts.conf
 dist_moduleconforig_DATA += ibmtts.conf

@@ -75,22 +75,24 @@ jobs:
                         libao-dev libasound2-dev libaudio-dev libpulse-dev libpipewire-0.3-dev libxau-dev libsndfile1-dev
                         libdotconf-dev libglib2.0-dev libltdl-dev systemd
                         gettext help2man texinfo texlive texlive-plain-generic
+                        librubberband-dev
                         pulseaudio ${{ matrix.deps }}
     - name: install piper
       run: |
-        wget https://github.com/rhasspy/piper-phonemize/releases/download/v1.0.0/libpiper_phonemize-amd64.tar.gz
-        echo "698358c5362250f315f400468199c40bfff41b56b4e079d4b93bfa67019e2cd28a88d385dd4de79ea24b923272826cf4e4191b81a7b33d3164cb5615b8c66be9  libpiper_phonemize-amd64.tar.gz" | sha512sum --check
-        tar -C /opt -xvf libpiper_phonemize-amd64.tar.gz
-        wget https://github.com/rhasspy/piper/releases/download/v1.2.0/piper_amd64.tar.gz
-        echo "e255e804b7ba1f837ea76d5c3693abf32514dd4ca30239d80d2b5131b5886c76a00a741d405b762658ae4444b90a8a857f7d65f1c25da250d14d705cbc580cc1  piper_amd64.tar.gz" | sha512sum --check
-        tar -C /opt -xvf piper_amd64.tar.gz
+        wget https://github.com/rhasspy/piper-phonemize/releases/download/2023.11.14-4/piper-phonemize_linux_x86_64.tar.gz
+        echo "22ae85dba1c07e328b33e8311ae6e67ad1ea2a57068d08238c452c69b0b1761eb39b064bf7e51f7413317a8200f6f92c23426a5a575abbb4dbdde86c81825601  piper-phonemize_linux_x86_64.tar.gz" | sha512sum --check
+        tar -C /opt -xvf piper-phonemize_linux_x86_64.tar.gz
+        wget https://github.com/rhasspy/piper/archive/refs/tags/2023.11.14-2.tar.gz
+        echo "2156c8d384aafc977a41eea181855b5e3fddab1eca353528d919d421958e4c10dbcf6526d03433e4246ac847a2fe4a7c43a57d2cb5666993ad0f28ed9fb68fe6  2023.11.14-2.tar.gz" | sha512sum --check
+        tar -C /opt -xvf 2023.11.14-2.tar.gz
     - name: autoconf
       run: ./build.sh
     - name: configure
       run: ${{ matrix.configenv }}
            CFLAGS="${{ matrix.configflags }}"
-           CXXFLAGS="${{ matrix.configflags }}"
-           ./configure --prefix=/tmp/foobar ${{ matrix.config }}
+           CXXFLAGS="${{ matrix.configflags }} -I/opt/piper_phonemize/include"
+           LDFLAGS="-L/opt/piper_phonemize/lib"
+           ./configure --prefix=/tmp/foobar --with-piper=/opt/piper-2023.11.14-2 ${{ matrix.config }}
     - name: Store the config
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
