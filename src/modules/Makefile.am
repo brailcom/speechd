@@ -288,6 +288,25 @@ endif
 endif
 
 #
+#  cxxpiper
+#
+modulebin_PROGRAMS += sd_cxxpiper
+PIPER_LIB_DIR = /usr/lib/piper
+PIPER_SRC_DIR = /usr/local/src/piper
+sd_cxxpiper_SOURCES = cxxpiper.cpp module_utils_addvoice.c module_utils_play.c $(common_SOURCES)
+sd_cxxpiper_CPPFLAGS = -I/usr/include/piper_phonemize/include/ \
+	-I$(PIPER_SRC_DIR)/src/cpp/ \
+	$(AM_CPPFLAGS)
+sd_cxxpiper_LDADD = $(top_builddir)/src/common/libcommon.la \
+	-L$(PIPER_LIB_DIR) \
+	-lpiper_phonemize \
+	-lonnxruntime \
+	-lespeak-ng \
+	-lrubberband \
+	$(SNDFILE_LIBS) \
+	$(common_LDADD)
+
+#
 # voxin module
 #
 if voxin_support
