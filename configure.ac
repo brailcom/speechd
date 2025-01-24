@@ -201,7 +201,7 @@ AS_IF([test $enable_python != "no"],
 			[AC_MSG_FAILURE([python 3 or greater is not available])])])])
 AM_CONDITIONAL([HAVE_PYTHON], [test $enable_python = "yes"])
 
-output_modules="cicero dummy festival openjtalk generic"
+output_modules="cicero dummy festival openjtalk generic piper"
 # checks for output modules
 # check for espeak support
 AC_ARG_WITH([espeak],
