@@ -30,7 +30,7 @@ jobs:
            ./configure --prefix=/tmp/foobar
     - name: Store the config
       if: ${{ always() }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: config.log
         path: config.log
@@ -44,7 +44,7 @@ jobs:
       run: dbus-run-session sh -c '( pulseaudio & cd src/tests ; ASAN_OPTIONS=fast_unwind_on_malloc=0 LSAN_OPTIONS=malloc_context_size=24 MALLOC_PERTURB_=1234 ./clibrary3 )'
     - name: Store the log
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: speech-dispatcher-alusan.log
         path: /home/runner/.cache/speech-dispatcher/log/speech-dispatcher.log
@@ -72,7 +72,7 @@ jobs:
            ./configure --prefix=/tmp/foobar
     - name: Store the config
       if: ${{ always() }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: config.log
         path: config.log
@@ -86,7 +86,7 @@ jobs:
       run: dbus-run-session sh -c '( pulseaudio & cd src/tests ; MALLOC_PERTURB_=1234 ./clibrary3 )'
     - name: Store the log
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: speech-dispatcher-tsan.log
         path: /home/runner/.cache/speech-dispatcher/log/speech-dispatcher.log
