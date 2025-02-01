@@ -92,7 +92,7 @@ jobs:
            ./configure --prefix=/tmp/foobar ${{ matrix.config }}
     - name: Store the config
       if: ${{ always() }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: config-${{ matrix.sanitizer }}.log
         path: config.log
@@ -112,7 +112,7 @@ jobs:
       if: ${{ matrix.sanitizer == 'valgrind' }}
     - name: Store the log
       if: ${{ failure() }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: testsuite-${{ matrix.sanitizer }}
         path: |
@@ -145,7 +145,7 @@ jobs:
       run: ./configure
     - name: Store the config
       if: ${{ always() }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: config-${{ matrix.sanitizer }}.log
         path: config.log
