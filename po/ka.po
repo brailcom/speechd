@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: speech-dispatcher 0.11.2\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2022-08-25 23:48+0200\n"
-"PO-Revision-Date: 2023-01-22 22:18+0000\n"
+"PO-Revision-Date: 2025-02-02 06:02+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/"
 "speech-dispatcher/po/ka/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -61,12 +61,12 @@ msgstr ""
 #: src/server/options.c:79
 #, c-format
 msgid "Set path to logging\n"
-msgstr ""
+msgstr "ბილიკი ჟურნალისთვის\n"
 
 #: src/server/options.c:82
 #, c-format
 msgid "Communication method to use ('%s'\n"
-msgstr ""
+msgstr "გამოსაყენებელი კომუნიკაციის მეთოდი ('%s'\n"
 
 #: src/server/options.c:84
 #, c-format
@@ -81,7 +81,7 @@ msgstr ""
 #: src/server/options.c:89
 #, c-format
 msgid "(filesystem path or '%s')\n"
-msgstr ""
+msgstr "(ფაილური სისტემის ბილიკი, ან '%s')\n"
 
 #: src/server/options.c:91
 #, c-format
@@ -101,27 +101,27 @@ msgstr ""
 #: src/server/options.c:97
 #, c-format
 msgid "0 disables such shutdown\n"
-msgstr ""
+msgstr "0 გათიშავს ამნაირ გამორთვას\n"
 
 #: src/server/options.c:99
 #, c-format
 msgid "Set path to pid file\n"
-msgstr ""
+msgstr "ბილიკი pid ფაილამდე\n"
 
 #: src/server/options.c:101
 #, c-format
 msgid "Set path to configuration\n"
-msgstr ""
+msgstr "ბილიკი კონფიგურაციის ფაილამდე\n"
 
 #: src/server/options.c:103
 #, c-format
 msgid "Set path to modules\n"
-msgstr ""
+msgstr "ბილიკი მოდულებამდე\n"
 
 #: src/server/options.c:105
 #, c-format
 msgid "Report version of this program\n"
-msgstr ""
+msgstr "ამ პროგრამის ვერსიის შეტყობინება\n"
 
 #: src/server/options.c:107
 #, c-format
@@ -205,7 +205,7 @@ msgstr ""
 #: src/clients/say/options.c:92
 #, c-format
 msgid "Set the output module\n"
-msgstr ""
+msgstr "გამოტანის მოდული\n"
 
 #: src/clients/say/options.c:95
 #, c-format
@@ -215,7 +215,7 @@ msgstr ""
 #: src/clients/say/options.c:98
 #, c-format
 msgid "Play the sound icon\n"
-msgstr ""
+msgstr "ხმის ხატულის დაკვრა\n"
 
 #: src/clients/say/options.c:101
 #, c-format
@@ -348,7 +348,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:105
 msgid "The suggested values are "
-msgstr ""
+msgstr "შეთავაზებული მნიშვნელობებია "
 
 #: src/api/python/speechd_config/config.py:106
 msgid "Do you want to correct your answer?"
@@ -436,7 +436,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:221
 msgid "Festival contains freebsoft-utils."
-msgstr ""
+msgstr "Festival შეიცავს freebsoft-utils."
 
 #: src/api/python/speechd_config/config.py:224
 msgid ""
@@ -496,7 +496,7 @@ msgstr ""
 #: src/api/python/speechd_config/config.py:279
 #, python-format
 msgid "Audio output '%s' works"
-msgstr ""
+msgstr "აუდიოს გამოტანა '%s' მუშაობს"
 
 #: src/api/python/speechd_config/config.py:285
 msgid "Testing Speech Dispatcher using spd_say"
@@ -534,7 +534,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:315
 msgid "Testing whether Espeak works"
-msgstr ""
+msgstr "შემოწმება, მუშაობს თუ არა Espeak"
 
 #: src/api/python/speechd_config/config.py:317
 msgid "Espeak is installed"
@@ -548,11 +548,11 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:326
 msgid "Testing ALSA sound output"
-msgstr ""
+msgstr "მიმდინარეობს ALSA-ით ხმის გამოტანის შემოწმება"
 
 #: src/api/python/speechd_config/config.py:331
 msgid "Testing PULSE sound output"
-msgstr ""
+msgstr "მიმდინარეობს PULSE-ით ხმის გამოტანის შემოწმება"
 
 #: src/api/python/speechd_config/config.py:344
 msgid "Speech Dispatcher works. Do you want to skip other tests?"
@@ -588,7 +588,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:402
 msgid "Speech Dispatcher is working"
-msgstr ""
+msgstr "Speech Dispatcher მუშაობს"
 
 #: src/api/python/speechd_config/config.py:404
 msgid "Speech Dispatcher not working through spd-say"
@@ -616,7 +616,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:417
 msgid "End of diagnostics results"
-msgstr ""
+msgstr "დიაგნოსტიკის შედეგების დასასრული"
 
 #: src/api/python/speechd_config/config.py:439
 msgid "Starting collecting debugging output, configuration and logfiles"
@@ -790,7 +790,7 @@ msgstr ""
 
 #: src/api/python/speechd_config/config.py:707
 msgid "Can't start Speech Dispatcher"
-msgstr ""
+msgstr "Speech Dispatcher-ის გაშვება შეუძლებელია"
 
 #: src/api/python/speechd_config/config.py:717
 msgid "Starting Speech Dispatcher in system-mode"
@@ -845,6 +845,8 @@ msgid ""
 "\n"
 "Speech Dispatcher configuration tool\n"
 msgstr ""
+"\n"
+"Speech Dispatcher-ის მორგების ხელსაწყო\n"
 
 #: src/api/python/speechd_config/config.py:797
 msgid "Do you want to continue with basic settings?"
