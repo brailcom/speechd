@@ -79,10 +79,10 @@ jobs:
       run: |
         wget https://github.com/rhasspy/piper-phonemize/releases/download/v1.0.0/libpiper_phonemize-amd64.tar.gz
         echo "698358c5362250f315f400468199c40bfff41b56b4e079d4b93bfa67019e2cd28a88d385dd4de79ea24b923272826cf4e4191b81a7b33d3164cb5615b8c66be9  libpiper_phonemize-amd64.tar.gz" | sha512sum --check
-        tar -C /opt -xfv libpiper_phonemize-amd64.tar.gz
+        tar -C /opt -xvf libpiper_phonemize-amd64.tar.gz
         wget https://github.com/rhasspy/piper/releases/download/v1.2.0/piper_amd64.tar.gz
         echo "e255e804b7ba1f837ea76d5c3693abf32514dd4ca30239d80d2b5131b5886c76a00a741d405b762658ae4444b90a8a857f7d65f1c25da250d14d705cbc580cc1  piper_amd64.tar.gz" | sha512sum --check
-        tar -C /opt -xfv piper_amd64.tar.gz
+        tar -C /opt -xvf piper_amd64.tar.gz
     - name: autoconf
       run: ./build.sh
     - name: configure
