@@ -732,7 +732,7 @@ Text, kterï¿½ by mï¿½l bï¿½t pï¿½eï¿½ï¿½kï¿½n.  Znaky ï¿½etï¿½zce, kterï¿½ by nï
 se zpracovï¿½nï¿½m v bashi budou automaticky nahrazeny odpovï¿½dajï¿½cï¿½mi escape
 sekvencemi.  Asi bude ale nutnï¿½ uvï¿½st kolem tï¿½to promï¿½nnï¿½ uvozovky
 (napï¿½. takto: @code{\"$DATA\"}).
-@item @code{$LANG}
+@item @code{$LANGUAGE}
 Identifikaï¿½nï¿½ ï¿½etï¿½zec jazyka (ten je definovï¿½n pomocï¿½ GenericLanguage).
 @item @code{$VOICE}
 Identifikaï¿½nï¿½ ï¿½etï¿½zec hlasu (ten je definovï¿½n pomocï¿½ AddVoice).
@@ -747,7 +747,7 @@ GenericRateMultiply)
 Tady je pï¿½ï¿½klad z @file{etc/speech-dispatcher/modules/epos-generic.conf}
 @example
 GenericExecuteSynth \
-"epos-say -o --language $LANG --voice $VOICE --init_f $PITCH --init_t $RATE \
+"epos-say -o --language $LANGUAGE --voice $VOICE --init_f $PITCH --init_t $RATE \
 \"$DATA\" | sed -e s+unknown.*$++ >/tmp/epos-said.wav && play /tmp/epos-said.wav >/dev/null"
 @end example
 @end defvr
@@ -758,7 +758,7 @@ GenericExecuteSynth \
 
 @defvr {Konfigurace generickï¿½ho modulu} GenericLanguage "iso-code" "string-subst"
 
-Definuje, jakï¿½ ï¿½etï¿½zec @code{string-subst} by mï¿½l bï¿½t nahrazen za @code{$LANG}
+Definuje, jakï¿½ ï¿½etï¿½zec @code{string-subst} by mï¿½l bï¿½t nahrazen za @code{$LANGUAGE}
 pro danï¿½ @code{iso-code} ISO kï¿½d jazyka.
 
 Opï¿½t pï¿½ï¿½klad z Epos generic:

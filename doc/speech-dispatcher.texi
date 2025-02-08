@@ -940,7 +940,7 @@ the command.
 The text data that should be said. The string's characters that would interfere
 with bash processing are already escaped. However, it may be necessary to put
 double quotes around it (like this: @code{\"$DATA\"}).
-@item @code{$LANG}
+@item @code{$LANGUAGE}
 The language identification string (it's defined by GenericLanguage).
 @item @code{$VOICE}
 The voice identification string (it's defined by AddVoice).
@@ -955,7 +955,7 @@ The desired rate or speed (a float number defined in GenericRateAdd and GenericR
 Here is an example from @file{etc/speech-dispatcher/modules/epos-generic.conf}
 @example
 GenericExecuteSynth \
-"epos-say -o --language $LANG --voice $VOICE --init_f $PITCH --init_t $RATE \
+"epos-say -o --language $LANGUAGE --voice $VOICE --init_f $PITCH --init_t $RATE \
 \"$DATA\" | sed -e s+unknown.*$++ >/tmp/epos-said.wav && play /tmp/epos-said.wav >/dev/null"
 @end example
 @end defvr
@@ -966,7 +966,7 @@ GenericExecuteSynth \
 
 @defvr {GenericModuleConfiguration} GenericLanguage "iso-code" "string-subst" "character-set"
 
-Defines which string @code{string-subst} should be substituted for @code{$LANG}
+Defines which string @code{string-subst} should be substituted for @code{$LANGUAGE}
 given an @code{iso-code} language code. Optionally, the character set in which
 the text will be passed to the module can be specified. If unset, it will
 default to iso-8859-1.
