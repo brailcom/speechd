@@ -324,6 +324,17 @@ sd_openjtalk_CPPFLAGS = $(AM_CPPFLAGS) \
 	$(DOTCONF_CFLAGS)
 
 #
+# piper module
+#
+modulebin_PROGRAMS += sd_piper
+sd_piper_SOURCES = piper.c $(common_SOURCES) \
+	module_utils_addvoice.c
+sd_piper_LDADD = $(top_builddir)/src/common/libcommon.la \
+	$(common_LDADD)
+sd_piper_CPPFLAGS = $(AM_CPPFLAGS) \
+	$(DOTCONF_CFLAGS)
+
+#
 # Dummy module speech message
 #
 if flite_dummy_message
