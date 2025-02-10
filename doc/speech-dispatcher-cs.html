@@ -928,7 +928,7 @@ Text, kterï¿½ by mï¿½l bï¿½t pï¿½eï¿½ï¿½kï¿½n.  Znaky ï¿½etï¿½zce, kterï¿½ by nï
 se zpracovï¿½nï¿½m v bashi budou automaticky nahrazeny odpovï¿½dajï¿½cï¿½mi escape
 sekvencemi.  Asi bude ale nutnï¿½ uvï¿½st kolem tï¿½to promï¿½nnï¿½ uvozovky
 (napï¿½. takto: <code class="code">\&quot;$DATA\&quot;</code>).
-</li><li><code class="code">$LANG</code>
+</li><li><code class="code">$LANGUAGE</code>
 Identifikaï¿½nï¿½ ï¿½etï¿½zec jazyka (ten je definovï¿½n pomocï¿½ GenericLanguage).
 </li><li><code class="code">$VOICE</code>
 Identifikaï¿½nï¿½ ï¿½etï¿½zec hlasu (ten je definovï¿½n pomocï¿½ AddVoice).
@@ -943,7 +943,7 @@ GenericRateMultiply)
 <p>Tady je pï¿½ï¿½klad z <samp class="file">etc/speech-dispatcher/modules/epos-generic.conf</samp>
 </p><div class="example">
 <pre class="example-preformatted">GenericExecuteSynth \
-&quot;epos-say -o --language $LANG --voice $VOICE --init_f $PITCH --init_t $RATE \
+&quot;epos-say -o --language $LANGUAGE --voice $VOICE --init_f $PITCH --init_t $RATE \
 \&quot;$DATA\&quot; | sed -e s+unknown.*$++ &gt;/tmp/epos-said.wav &amp;&amp; play /tmp/epos-said.wav &gt;/dev/null&quot;
 </pre></div>
 </dd></dl>
@@ -956,7 +956,7 @@ GenericRateMultiply)
 <dl class="first-defvr">
 <dt class="defvr" id="index-GenericLanguage"><span class="category-def">Konfigurace generickï¿½ho modulu: </span><span><strong class="def-name">GenericLanguage</strong> <var class="def-var-arguments">&quot;iso-code&quot; &quot;string-subst&quot;</var><a class="copiable-link" href="#index-GenericLanguage"> &para;</a></span></dt>
 <dd>
-<p>Definuje, jakï¿½ ï¿½etï¿½zec <code class="code">string-subst</code> by mï¿½l bï¿½t nahrazen za <code class="code">$LANG</code>
+<p>Definuje, jakï¿½ ï¿½etï¿½zec <code class="code">string-subst</code> by mï¿½l bï¿½t nahrazen za <code class="code">$LANGUAGE</code>
 pro danï¿½ <code class="code">iso-code</code> ISO kï¿½d jazyka.
 </p>
 <p>Opï¿½t pï¿½ï¿½klad z Epos generic:

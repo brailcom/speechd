@@ -1185,7 +1185,7 @@ the command.
 The text data that should be said. The string&rsquo;s characters that would interfere
 with bash processing are already escaped. However, it may be necessary to put
 double quotes around it (like this: <code class="code">\&quot;$DATA\&quot;</code>).
-</li><li><code class="code">$LANG</code>
+</li><li><code class="code">$LANGUAGE</code>
 The language identification string (it&rsquo;s defined by GenericLanguage).
 </li><li><code class="code">$VOICE</code>
 The voice identification string (it&rsquo;s defined by AddVoice).
@@ -1200,7 +1200,7 @@ The desired rate or speed (a float number defined in GenericRateAdd and GenericR
 <p>Here is an example from <samp class="file">etc/speech-dispatcher/modules/epos-generic.conf</samp>
 </p><div class="example">
 <pre class="example-preformatted">GenericExecuteSynth \
-&quot;epos-say -o --language $LANG --voice $VOICE --init_f $PITCH --init_t $RATE \
+&quot;epos-say -o --language $LANGUAGE --voice $VOICE --init_f $PITCH --init_t $RATE \
 \&quot;$DATA\&quot; | sed -e s+unknown.*$++ &gt;/tmp/epos-said.wav &amp;&amp; play /tmp/epos-said.wav &gt;/dev/null&quot;
 </pre></div>
 </dd></dl>
@@ -1213,7 +1213,7 @@ The desired rate or speed (a float number defined in GenericRateAdd and GenericR
 <dl class="first-defvr">
 <dt class="defvr" id="index-GenericLanguage"><span class="category-def">GenericModuleConfiguration: </span><span><strong class="def-name">GenericLanguage</strong> <var class="def-var-arguments">&quot;iso-code&quot; &quot;string-subst&quot; &quot;character-set&quot;</var><a class="copiable-link" href="#index-GenericLanguage"> &para;</a></span></dt>
 <dd>
-<p>Defines which string <code class="code">string-subst</code> should be substituted for <code class="code">$LANG</code>
+<p>Defines which string <code class="code">string-subst</code> should be substituted for <code class="code">$LANGUAGE</code>
 given an <code class="code">iso-code</code> language code. Optionally, the character set in which
 the text will be passed to the module can be specified. If unset, it will
 default to iso-8859-1.
