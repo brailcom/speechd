@@ -65,6 +65,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: firebuild/apt-eatmydata-action@v1
     - name: dependencies
       run: sudo apt-get update ; sudo apt-get install autopoint
                         python3 python3-xdg
@@ -129,6 +130,7 @@ jobs:
     name: Build with no ltdl
     steps:
     - uses: actions/checkout@v3
+    - uses: firebuild/apt-eatmydata-action@v1
     - name: dependencies
       run: sudo apt-get update ; sudo apt-get install autopoint
                         python3 python3-xdg
