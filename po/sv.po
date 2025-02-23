@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.11.3\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2022-08-25 23:48+0200\n"
+"POT-Creation-Date: 2025-02-23 22:18+0100\n"
 "PO-Revision-Date: 2022-12-14 10:51+0000\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
-"Language-Team: Swedish <https://hosted.weblate.org/projects/"
-"speech-dispatcher/po/sv/>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/speech-"
+"dispatcher/po/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -133,12 +133,12 @@ msgstr "Mata ut felsökningsinformation till $TMPDIR/%s\n"
 msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
 msgstr "om TMPDIR exporteras, annars till /tmp/%s\n"
 
-#: src/server/options.c:113 src/clients/say/options.c:169
+#: src/server/options.c:113 src/clients/say/options.c:171
 #, c-format
 msgid "Print this info\n"
 msgstr "Skriv ut denna information\n"
 
-#: src/server/options.c:115 src/clients/say/options.c:172
+#: src/server/options.c:115 src/clients/say/options.c:174
 #, c-format
 msgid ""
 "Please report bugs to %s\n"
@@ -148,7 +148,7 @@ msgstr ""
 "Skicka synpunkter på översättningen till <tp-sv@listor.tp-sv.se>.\n"
 "\n"
 
-#: src/server/options.c:121 src/clients/say/options.c:179
+#: src/server/options.c:121 src/clients/say/options.c:181
 #: src/api/python/speechd_config/config.py:174
 #, c-format, python-format
 msgid ""
@@ -265,32 +265,34 @@ msgstr "Läs upp tangenten\n"
 msgid "Set the punctuation mode\n"
 msgstr "Ställ in skiljeteckenläget\n"
 
-#: src/clients/say/options.c:124
+#: src/clients/say/options.c:125
 #, c-format
 msgid "Spell the message\n"
 msgstr "Bokstavera meddelandet\n"
 
-#: src/clients/say/options.c:127
+#: src/clients/say/options.c:128
 #, c-format
 msgid "Set SSML mode on (default: off)\n"
 msgstr "Slå på SSML-läge (standard: av)\n"
 
-#: src/clients/say/options.c:131
+#: src/clients/say/options.c:132
 #, c-format
-msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
-msgstr "Skapa rör från standard in till standard ut plus Speech Dispatcher\n"
+msgid ""
+"Read text to be spoken on stdin, write it on stdout unchanged, and the\n"
+"corresponding speech through Speech Dispatcher.\n"
+msgstr ""
 
-#: src/clients/say/options.c:134
+#: src/clients/say/options.c:136
 #, c-format
 msgid "Set priority of the message "
 msgstr "Ställ in meddelandets prioritet "
 
-#: src/clients/say/options.c:138
+#: src/clients/say/options.c:140
 #, c-format
 msgid "default: %s)\n"
 msgstr "standard: %s)\n"
 
-#: src/clients/say/options.c:141
+#: src/clients/say/options.c:143
 #, c-format
 msgid ""
 "Set the application name used to establish\n"
@@ -300,12 +302,12 @@ msgstr ""
 "%1$setablera anslutningen till angivet\n"
 "%1$ssträngvärde\n"
 
-#: src/clients/say/options.c:145 src/clients/say/options.c:152
+#: src/clients/say/options.c:147 src/clients/say/options.c:154
 #, c-format
 msgid "(default: %s)\n"
 msgstr "(standard: %s)\n"
 
-#: src/clients/say/options.c:148
+#: src/clients/say/options.c:150
 #, c-format
 msgid ""
 "Set the connection name used to establish\n"
@@ -315,46 +317,46 @@ msgstr ""
 "%1$sför att etablera anslutningen till\n"
 "%1$sangivet strängvärde\n"
 
-#: src/clients/say/options.c:156
+#: src/clients/say/options.c:158
 #, c-format
 msgid "Wait till the message is spoken or discarded\n"
 msgstr "Vänta till meddelandet läses upp eller förkastas\n"
 
-#: src/clients/say/options.c:159
+#: src/clients/say/options.c:161
 #, c-format
 msgid "Stop speaking the message being spoken\n"
 msgstr "Sluta läsa upp det lästa meddelandet\n"
 
-#: src/clients/say/options.c:162
+#: src/clients/say/options.c:164
 #, c-format
 msgid "Cancel all messages\n"
 msgstr "Avbryt alla meddelanden\n"
 
-#: src/clients/say/options.c:166
+#: src/clients/say/options.c:168
 #, c-format
 msgid "Print version and copyright info\n"
 msgstr "Skriv ut information om version och copyright\n"
 
-#: src/clients/say/options.c:191
+#: src/clients/say/options.c:193
 #, c-format
 msgid "Syntax error or bad parameter!\n"
 msgstr "Syntaxfel eller felaktig parameter!\n"
 
-#: src/clients/say/options.c:202
+#: src/clients/say/options.c:204
 #, c-format
 msgid "Missing argument!\n"
 msgstr "Argument saknas!\n"
 
-#: src/clients/say/options.c:303
+#: src/clients/say/options.c:305
 #, c-format
 msgid "Unrecognized option\n"
 msgstr "Okänd flagga\n"
 
-#: src/api/python/speechd_config/speechd.desktop.in:21
+#: src/api/python/speechd_config/speechd.desktop.in:20
 msgid "Speech Dispatcher"
 msgstr "Speech Dispatcher"
 
-#: src/api/python/speechd_config/speechd.desktop.in:22
+#: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Interface to Text to Speech services"
 msgstr "Gränssnitt till text-till-tal-tjänster"
 
@@ -765,10 +767,10 @@ msgid "Collecting debugging output and your configuration information"
 msgstr "Samlar felsökningsutdata och din konfigurationsinformation"
 
 #: src/api/python/speechd_config/config.py:515
-#, python-format
+#, fuzzy, python-format
 msgid ""
 "\n"
-"Please send %s to speechd@bugs.freebsoft.org with\n"
+"Please send %s to speechd-discuss@nongnu.org with\n"
 "a short description of what you did. We will get in touch with you soon\n"
 "and suggest a solution."
 msgstr ""
@@ -966,3 +968,8 @@ msgid ""
 msgstr ""
 "Kör detta kommando igen och välj vad du vill göra eller läs\n"
 "den tillgängliga snabbhjälpen genom ”-h” eller ”--help”."
+
+#, c-format
+#~ msgid "Pipe from stdin to stdout plus Speech Dispatcher\n"
+#~ msgstr ""
+#~ "Skapa rör från standard in till standard ut plus Speech Dispatcher\n"

@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.12.0-rc3\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2024-04-29 01:03+0200\n"
+"POT-Creation-Date: 2025-02-23 22:18+0100\n"
 "PO-Revision-Date: 2024-09-09 09:09+0000\n"
 "Last-Translator: Oğuz Ersen <oguz@ersen.moe>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/"
-"speech-dispatcher/po/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/speech-"
+"dispatcher/po/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -163,8 +163,8 @@ msgstr ""
 "Genel Kamu Lisansı sürüm 2 veya (sizin tercihinize bağlı olarak) daha "
 "sonraki\n"
 "herhangi bir sürüm koşulları altında yeniden dağıtabilir ve/veya\n"
-"değiştirebilirsiniz. Daha fazla ayrıntı için lütfen COPYING dosyasına bakın."
-"\n"
+"değiştirebilirsiniz. Daha fazla ayrıntı için lütfen COPYING dosyasına "
+"bakın.\n"
 "\n"
 
 #: src/clients/say/options.c:67
@@ -353,11 +353,11 @@ msgstr "Eksik argüman!\n"
 msgid "Unrecognized option\n"
 msgstr "Bilinmeyen seçenek\n"
 
-#: src/api/python/speechd_config/speechd.desktop.in:21
+#: src/api/python/speechd_config/speechd.desktop.in:20
 msgid "Speech Dispatcher"
 msgstr "Speech Dispatcher"
 
-#: src/api/python/speechd_config/speechd.desktop.in:22
+#: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Interface to Text to Speech services"
 msgstr "Metinden konuşma hizmetleri için arayüz"
 
@@ -823,8 +823,8 @@ msgid ""
 "Default speech rate (on the scale of -100..100, 0 is default, 50 is faster, "
 "-50 is slower)"
 msgstr ""
-"Öntanımlı konuşma hızı (-100..100 aralığında, 0 öntanımlı, 50 daha hızlı, -"
-"50 daha yavaş)"
+"Öntanımlı konuşma hızı (-100..100 aralığında, 0 öntanımlı, 50 daha hızlı, "
+"-50 daha yavaş)"
 
 #: src/api/python/speechd_config/config.py:653
 msgid ""

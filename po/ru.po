@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2024-10-29 00:58+0100\n"
+"POT-Creation-Date: 2025-02-23 22:18+0100\n"
 "PO-Revision-Date: 2025-01-07 16:29+0300\n"
 "Last-Translator: Nikita Tseykovets <tseikovets@rambler.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/speech-"
@@ -357,11 +357,11 @@ msgstr "Отсутствует аргумент!\n"
 msgid "Unrecognized option\n"
 msgstr "Параметр не распознан\n"
 
-#: src/api/python/speechd_config/speechd.desktop.in:21
+#: src/api/python/speechd_config/speechd.desktop.in:20
 msgid "Speech Dispatcher"
 msgstr "Speech Dispatcher"
 
-#: src/api/python/speechd_config/speechd.desktop.in:22
+#: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Interface to Text to Speech services"
 msgstr "Интерфейс для сервисов преобразования текста в речь"
 
