@@ -62,6 +62,7 @@ MOD_OPTION_1_INT(KaliNormalVolume);
 MOD_OPTION_1_INT(KaliNormalPitch);
 MOD_OPTION_1_STR(KaliVoiceParameters);
 MOD_OPTION_1_INT(KaliExpandAbbreviations);
+MOD_OPTION_1_INT(KaliMulticasesWords);
 
 /* Public functions */
 
@@ -78,6 +79,7 @@ int module_load(void)
 	MOD_OPTION_1_INT_REG(KaliNormalPitch, 6);
 	MOD_OPTION_1_STR_REG(KaliVoiceParameters, "Patrick");
 	MOD_OPTION_1_INT_REG(KaliExpandAbbreviations, 1);
+	MOD_OPTION_1_INT_REG(KaliMulticasesWords, 1);
 
 	return 0;
 }
@@ -109,6 +111,7 @@ int module_init(char **status_info)
 	DBG("KaliMaxChunkLength = %d\n", KaliMaxChunkLength);
 	DBG("KaliDelimiters = %s\n", KaliDelimiters);
 	DBG("KaliExpandAbbreviations = %d\n", KaliExpandAbbreviations);
+	DBG("KaliMulticasesWords = %d\n", KaliMulticasesWords);
 
 	kali_speaking = 0;
 
@@ -147,6 +150,8 @@ void module_speak_sync(const char * data, size_t len, SPDMessageType msgtype)
 	char *kali_message;
 
 	kali_message = module_strip_ssml(data);
+	if (KaliMulticasesWords)
+		kali_message = module_multicases_string(kali_message);
 
 	module_speak_ok();
 
