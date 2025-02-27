@@ -258,6 +258,7 @@ MOD_OPTION_6_INT_HT(IbmttsVoiceParameters,
 		    gender, breathiness, head_size, pitch_baseline,
 		    pitch_fluctuation, roughness, speed);
 MOD_OPTION_3_STR_HT_DLL(IbmttsKeySubstitution, lang, key, newkey);
+MOD_OPTION_1_INT(IbmttsMulticasesWords);
 
 #ifdef VOXIN
 /* Array of installed voices returned by voxGetVoices() */
@@ -346,6 +347,7 @@ int module_load(void)
 	MOD_OPTION_1_INT_REG(IbmttsAudioChunkSize, 20000);
 	MOD_OPTION_1_STR_REG(IbmttsSoundIconFolder,
 			     "/usr/share/sounds/sound-icons/");
+	MOD_OPTION_1_INT_REG(IbmttsMulticasesWords, 1);
 
 	/* Register voices. */
 	module_register_settings_voices();
@@ -496,6 +498,8 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 			message = tmp;
 		}
 	}
+	if (IbmttsMulticasesWords)
+		message = module_multicases_string(message);
 
 	stop_requested = FALSE;
 	pause_requested = FALSE;
