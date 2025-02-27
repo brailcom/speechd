@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.8.6\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2024-10-29 00:58+0100\n"
+"POT-Creation-Date: 2025-02-23 22:18+0100\n"
 "PO-Revision-Date: 2021-03-16 21:58+0000\n"
 "Last-Translator: Samuel Thibault <samuel.thibault@ens-lyon.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/speech-dispatcher/"
@@ -367,11 +367,11 @@ msgstr "fehlendes Argument!\n"
 msgid "Unrecognized option\n"
 msgstr "Option nicht erkannt\n"
 
-#: src/api/python/speechd_config/speechd.desktop.in:21
+#: src/api/python/speechd_config/speechd.desktop.in:20
 msgid "Speech Dispatcher"
 msgstr "Speech Dispatcher"
 
-#: src/api/python/speechd_config/speechd.desktop.in:22
+#: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Interface to Text to Speech services"
 msgstr "Schnittstelle zu den Text-zu-Sprache-Diensten"
 

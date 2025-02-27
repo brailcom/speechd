@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
-"POT-Creation-Date: 2024-10-29 00:58+0100\n"
+"POT-Creation-Date: 2025-02-23 22:18+0100\n"
 "PO-Revision-Date: 2020-10-26 17:17+0000\n"
 "Last-Translator: Samuel Thibault <samuel.thibault@ens-lyon.org>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/speech-dispatcher/"
@@ -349,11 +349,11 @@ msgstr "Argument manquant !\n"
 msgid "Unrecognized option\n"
 msgstr "Option non reconnue\n"
 
-#: src/api/python/speechd_config/speechd.desktop.in:21
+#: src/api/python/speechd_config/speechd.desktop.in:20
 msgid "Speech Dispatcher"
 msgstr "Speech Dispatcher"
 
-#: src/api/python/speechd_config/speechd.desktop.in:22
+#: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Interface to Text to Speech services"
 msgstr "Interface avec des services de synthèse vocale"
 
@@ -858,8 +858,8 @@ msgid ""
 "This is usually not necessary, most applications will start Speech "
 "Dispatcher automatically."
 msgstr ""
-"Voulez-vous que Speech Dispatcher démarre automatiquement à partir de ~/."
-"config/autostart ?\n"
+"Voulez-vous que Speech Dispatcher démarre automatiquement à partir de "
+"~/.config/autostart ?\n"
 "Ce n'est généralement pas nécessaire, la plupart des applications démarrent "
 "automatiquement Speech Dispatcher."
 
