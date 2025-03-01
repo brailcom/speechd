@@ -223,7 +223,7 @@ V této sekci je detailnější popis základních funkcí Speech Dispatcheru.
 * Model priorit zpráv::         Zpracování současně příchozích zpráv  
 * Historie zpráv::              Ukládání zpráv pro pozdější nahlédnutí
 * Více výstupních modulů::      Interakce s různými syntetizéry  
-* Autentifikace uživatelů::     Autentifikace pro přístup k historii  
+* Autentizace uživatelů::     Autentizace pro přístup k historii  
 @end menu
 
 @node Model priorit zpráv, Historie zpráv, Základní funkce, Základní funkce
@@ -424,11 +424,11 @@ na daném systému, pod kterým běží Speech Dispatcher ve skupině @code{spee
 
 Dvě zprávy jsou považovány za identické jestliže jejich spojení pocházejí z
 toho samého počítače, uživatelská jména jsou stejná a jejich identita může být
-ověřena, jak je popsáno v @ref{Autentifikace uživatelů}.  Pokud nemůže být
+ověřena, jak je popsáno v @ref{Autentizace uživatelů}.  Pokud nemůže být
 uživatelova identita ověřena, tento uživatel je považován za jiného než všichni
 připojení nebo dříve připojení uživatelé.
 
-@node Více výstupních modulů, Autentifikace uživatelů, Historie zpráv, Základní funkce
+@node Více výstupních modulů, Autentizace uživatelů, Historie zpráv, Základní funkce
 @subsection Více výstupních modulů
 @cindex výstupní modul
 @cindex syntetizátory
@@ -441,8 +441,8 @@ ostatní jazyky se použije modul1.  Na druhé straně jazyk není jediným krit
 pro takové rozhodnutí.  Přesná pravidla pro výběr výstupního modulu mohou být
 ovlivněna v konfiguračním souboru @file{speechd.conf}.
 
-@node Autentifikace uživatelů,  , Více výstupních modulů, Základní funkce
-@subsection Autentifikace uživatelů
+@node Autentizace uživatelů,  , Více výstupních modulů, Základní funkce
+@subsection Autentizace uživatelů
 @cindex Identification Protocol
 @cindex identd
 @cindex RFC 1413
@@ -450,7 +450,7 @@ ovlivněna v konfiguračním souboru @file{speechd.conf}.
 NOTE: Na implementaci této vlastnosti se pracuje, ale současná verze ji
 nepodporuje.
 
-Speech Dispatcher neposkytuje žádný explicitní autentifikační mechanismus.  K
+Speech Dispatcher neposkytuje žádný explicitní autentizační mechanismus.  K
 ověření identity uživatelů používáme Identification Protocol definovaný v RFC
 1413.
 
