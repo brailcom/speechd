@@ -199,9 +199,9 @@ any later version. Please see COPYING for more details.\n\n""") % \
         try:
             self.festival_socket.connect((socket.gethostbyname(host), port))
         except socket.error as e:
-            (num, reson) = e.args
+            (num, reason) = e.args
             report(_("""ERROR: It was not possible to connect to Festival on the
-given host and port. Connection failed with error %d : %s .""" % (num, reson)))
+given host and port. Connection failed with error %d : %s .""" % (num, reason)))
             report(_("""Hint: Most likely, your Festival server is not running now
 or not at the default port %d.
 
