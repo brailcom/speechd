@@ -31,7 +31,7 @@
 @page
 @vskip 0pt plus 1filll
 
-Tento manuál se vzathuje ke Speech Dispatcher, verze @value{VERSION}.  Jedná se
+Tento manuál se vztahuje ke Speech Dispatcher, verze @value{VERSION}.  Jedná se
 však pouze o uživatelskou část dokumentace a upozorňujeme, že tento překlad již
 není aktuální! Poskytujeme jej s tím, že možná bude užitečný a to zejména v
 sekcích, které popisují obecné koncepty a myšlenky projektu, a to těm, kteří si
@@ -41,7 +41,7 @@ technické detaily zde uvedené, protože mnoho věcí je již dnes jinak.
 Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 
 @quotation
-Dáváme povolení kopírovat, distribuovat a/nebo modifikovate tento dokument pod
+Dáváme povolení kopírovat, distribuovat a/nebo modifikovat tento dokument pod
 podmínkami GNU Free Documentation License, Verze 1.2 nebo jakékoliv novější
 verze vydané Free Software Foundation, bez jakýchkoliv Invariant Sections
 (neměnných sekcí), bez Front-Cover Texts (texty na přední straně obálky) a bez
@@ -58,7 +58,7 @@ přiložena v sekci nazvané ,,GNU Free Documentation License''.
 @node Top, Úvod, (dir), (dir)
 @top Speech Dispatcher
 
-Tento manuál se vzathuje ke Speech Dispatcher, verze @value{VERSION}.  Jedná se
+Tento manuál se vztahuje ke Speech Dispatcher, verze @value{VERSION}.  Jedná se
 však pouze o uživatelskou část dokumentace a upozorňujeme, že tento překlad již
 není aktuální!  Poskytujeme jej s tím, že možná bude užitečný a to zejména v
 sekcích, které popisují obecné koncepty a myšlenky projektu, a to těm, kteří si
@@ -68,7 +68,7 @@ technické detaily zde uvedené, protože mnoho věcí je již dnes jinak.
 Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
 
 @quotation
-Dáváme povolení kopírovat, distribuovat a/nebo modifikovate tento dokument pod
+Dáváme povolení kopírovat, distribuovat a/nebo modifikovat tento dokument pod
 podmínkami GNU Free Documentation License, Verze 1.2 nebo jakékoliv novější
 verze vydané Free Software Foundation; bez jakýchkoliv Invariant Sections
 (neměnných sekcí), bez Front-Cover Texts (texty na přední straně obálky) a bez
@@ -143,7 +143,7 @@ syntetizérem implementována.  V ideálním světě by byl v každé GNU/Linuxo
 distribuci nějaký řečový syntetizér a nějaké rozhraní starající se o aplikace,
 které chtějí mluvit, dovolující uživatelům nastavit si parametry řeči a
 poskytující nějaké jednoduché rozhraní (jako speech_printf()) pomocí nějaké
-sdílené knihovny pro programátory.  Bude to jěště dlouhá cesta než se nám
+sdílené knihovny pro programátory.  Bude to ještě dlouhá cesta než se nám
 podaří dosáhnout tohoto stavu věcí, ale se Speech Dispatcherem děláme první
 krůčky...
 
@@ -289,7 +289,7 @@ Tato zpráva bude přeříkána, když ve frontě nečeká žádná zpráva prio
 @code{important} nebo @code{message}.  Pokud čeká, tato nová zpráva je
 pozdržena dokud nebudou předchozí zprávy přeříkány.
 
-Priorita text přerqušuje sama sebe.  To znamená, že když přijde několik zpráv
+Priorita text přerušuje sama sebe.  To znamená, že když přijde několik zpráv
 priority text, ty nejsou přeříkány v pořadí, ve kterém přišly, ale bude vyřčena
 pouze poslední z nich a ostatní jsou přerušeny a zahozeny.
 
@@ -385,7 +385,7 @@ Příklady použití priority @code{progress} jsou:
 Pro nevidomé a zrakově postižené je dobrou vlastností, pokud mají možnost
 nějakým jednoduchým klientem procházet historii vyslovených zpráv.
 
-Některé méně důležité zprávy jsou přijmuty Speech Dispatcherem bez toho, aby
+Některé méně důležité zprávy jsou přijaty Speech Dispatcherem bez toho, aby
 byly přeříkány, protože jsou potlačeny důležitějšími informacemi.  To je
 nedělitelná vlastnost každého řečového rozhraní, protože není možné podat v
 řečovém výstupu tolik informací, kolik se jich vejde na obrazovku.  To je jeden
@@ -438,7 +438,7 @@ tyto moduly poskytují dobrou synchronizaci, lze je při čtení zpráv kombinov
 Pokud např. modul1 mluví anglicky a česky, zatímco modul2 mluví pouze německy,
 tak pokud přijde nějaká zpráva v němčině, použije se modul2, zatímco pro
 ostatní jazyky se použije modul1.  Na druhé straně jazyk není jediným kritériem
-pro takové rozhodnutí.  Přesná pravidla pro výběr výstupího modulu mohou být
+pro takové rozhodnutí.  Přesná pravidla pro výběr výstupního modulu mohou být
 ovlivněna v konfiguračním souboru @file{speechd.conf}.
 
 @node Autentifikace uživatelů,  , Více výstupních modulů, Základní funkce
@@ -451,10 +451,10 @@ NOTE: Na implementaci této vlastnosti se pracuje, ale současná verze ji
 nepodporuje.
 
 Speech Dispatcher neposkytuje žádný explicitní autentifikační mechanismus.  K
-ověření identity uživatlů používáme Identification Protocol definovaný v RFC
+ověření identity uživatelů používáme Identification Protocol definovaný v RFC
 1413.
 
-@cindex mapování uživatlů
+@cindex mapování uživatelů
 V konfiguraci je možné specifikovat mapování uživatelů. To umožňuje jednat s
 určitými uživateli jako s jedním a přidělit jim stejná práva (např. procházet
 jejich @ref{Historie zpráv}).
@@ -546,7 +546,7 @@ konfigurační soubor.
 @node Syntaxe konfiguračního souboru, Volby v konfiguraci, Konfigurace, Konfigurace
 @subsection Syntaxe konfiguračního souboru
 
-Pro načítání configurace založené na textových souborech používáme knihovnu
+Pro načítání konfigurace založené na textových souborech používáme knihovnu
 DotConf, takže bude syntaxe nejspíš mnoha uživatelům povědomá.
 
 Každá z řetězcových konstant, pokud není uvedeno jinak, by měla být zakódována
@@ -558,7 +558,7 @@ takovu volbu zapnout, stačí smazat znak komentáře a nastavit volbu na
 požadovanou hodnotu.
 @example
 # toto je komentar
-# InactiveOption "tato volba je zatim vypla komentarem"
+# InactiveOption "tato volba je zatim vypnuta komentarem"
 @end example
 
 Řetězce jsou uzavřeny v uvozovkách.
@@ -657,7 +657,7 @@ použít.
 komentáře v příslušném konfiguračním souboru v sekci AddModule pro detailnější
 informace.
 
-Např. definice, kterou v součastnosti používáme pro Epos (generic) vypadá
+Např. definice, kterou v současnosti používáme pro Epos (generic) vypadá
 takto:
 
 @example
@@ -723,7 +723,7 @@ použité příkazy po obdržení KILL okamžitě přestaly mluvit. (Na většin
 GNU/Linuxových systémů má tuto vlastnost utilita @code{play})
 
 V @code{execution_string} můžete využít těchto proměnných, které budou
-nahrazeny pořadovanými hodnotami, než bude příkaz vykonán.
+nahrazeny požadovanými hodnotami, než bude příkaz vykonán.
 
 @itemize
 @item @code{$DATA}
