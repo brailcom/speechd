@@ -431,7 +431,7 @@ připojení nebo dříve připojení uživatelé.
 @node Více výstupních modulů, Autentizace uživatelů, Historie zpráv, Základní funkce
 @subsection Více výstupních modulů
 @cindex výstupní modul
-@cindex syntetizátory
+@cindex syntezátory
 
 Speech Dispatcher podporuje souběžné používání více výstupních modulů.  Pokud
 tyto moduly poskytují dobrou synchronizaci, lze je při čtení zpráv kombinovat.
@@ -641,8 +641,8 @@ několik voleb, které jsou pro některé výstupní moduly společné.
 Každý výstupní modul poskytuje nějaké hlasy a někdy dokonce podporuje různé
 jazyky.  Z toho důvodu byl zaveden společný mechanismus, kterým můžou být tyto
 hlasy definovány v konfiguraci.  Žádný modul ovšem není povinen tuto volbu
-používat.  Některé syntetizátory, např. Festival, podporují symbolická jména
-SSIP přímo, takže konfigurace konkrétních hlasů se provádí v syntetizátoru
+používat.  Některé syntezátory, např. Festival, podporují symbolická jména
+SSIP přímo, takže konfigurace konkrétních hlasů se provádí v syntezátoru
 samotném.
 
 Každému definovanému hlasu odpovídá přesně jedna řádka @code{AddVoice}.
