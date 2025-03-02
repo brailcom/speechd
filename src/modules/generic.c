@@ -216,7 +216,7 @@ SPDVoice **module_list_voices(void)
 
 int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 {
-	char *tmp = data, *newtmp;
+	char *tmp, *newtmp;
 	GError *gerror = NULL;
 
 	DBG("speak()\n");
@@ -234,11 +234,17 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_PARAMETER(rate, generic_set_rate);
 	UPDATE_PARAMETER(volume, generic_set_volume);
 
+	DBG("Requested data (%d): |%s|\n", msgtype, data);
+
 	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	if (msgtype == SPD_MSGTYPE_TEXT)
 	{
 		tmp = module_strip_ssml(tmp);
 		bytes = strlen(tmp);
+	}
+	else
+	{
+		tmp = g_strndup(data, bytes);
 	}
 
 	module_strip_punctuation_some(tmp, GenericStripPunctChars);
@@ -280,7 +286,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	generic_message = tmp;
 	generic_message_type = msgtype;
 
-	DBG("Requested data (%d): |%s|\n", msgtype, data);
+	DBG("Converted data to (%d): |%s|\n", msgtype, tmp);
 
 	/* Send semaphore signal to the speaking thread */
 	generic_speaking = 1;
