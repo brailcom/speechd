@@ -3,7 +3,7 @@
  * espeak.c - Speech Dispatcher backend for espeak
  *
  * Copyright (C) 2007 Brailcom, o.p.s.
- * Copyright (C) 2019-2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019-2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by
@@ -333,11 +333,20 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 			break;
 		}
 	case SPD_MSGTYPE_KEY:{
-			/* TODO: Convert unspeakable keys to speakable form */
+			const char *key = data;
+			/* Convert unspeakable keys to speakable form, see espeak-ng's ReplaceKeyName */
+			if (!strcmp(key, " "))
+				key = "space";
+			else if (!strcmp(key, "\t"))
+				key = "tab";
+			else if (!strcmp(key, "_"))
+				key = "underscore";
+			else if (!strcmp(key, "\""))
+				key = "double-quote";
 			char *msg =
 			    g_strdup_printf
 			    ("<say-as interpret-as=\"tts:key\">%s</say-as>",
-			     data);
+			     key);
 			result =
 			    espeak_Synth(msg, strlen(msg) + 1, 0, POS_CHARACTER,
 					 0, flags, NULL, NULL);
