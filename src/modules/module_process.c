@@ -1,7 +1,7 @@
 /*
  * module_process.c - Processing loop of output modules.
  *
- * Copyright (C) 2020-2023 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2020-2023, 2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -252,6 +252,7 @@ static void cmd_speak(int fd, SPDMessageType msgtype)
 		if (!strcmp(text, "space")) {
 			free(text);
 			text = strdup(" ");
+			text_len = 1;
 		}
 	}
 
