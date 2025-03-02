@@ -862,6 +862,8 @@ spd_key(SPDConnection * connection, SPDPriority priority, const char *key_name)
 
 	if (key_name == NULL)
 		return -1;
+	if (!strcmp(key_name, " "))
+		key_name = "space";
 
 	pthread_mutex_lock(&connection->ssip_mutex);
 
