@@ -68,6 +68,7 @@ int main(int argc, char *argv[])
 			msg = strdup("Unspecified initialization error\n");
 		printf("399-%s\n", msg);
 		printf("399 ERR CANT INIT MODULE\n");
+		fflush(stdout);
 		free(msg);
 		module_close();
 		exit(1);
