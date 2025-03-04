@@ -49,10 +49,14 @@ const char *module_name;
 int current_index_mark;
 char *module_index_mark;
 
+typedef struct {
+	gchar *pattern;
+	gchar *replace;
+} MulticasesString;
+
 gchar *module_multicases_string_replace(
 	const gchar *text,
-	const gchar *pattern,
-	const gchar *replace);
+	const MulticasesString *mcstr);
 
 void MSG(int level, const char *format, ...) {
 	if (level < 4 || Debug) {
@@ -420,22 +424,21 @@ void module_strip_punctuation_default(char *buf)
 
 gchar *module_multicases_string_replace(
 	const gchar *text,
-	const gchar *pattern,
-	const gchar *replace)
+	const MulticasesString *mcstr)
 {
 	GRegex *regex;
 	GError *error = NULL;
 	gchar *result;
 
 	result = g_strdup(text);
-	regex = g_regex_new(pattern, G_REGEX_OPTIMIZE, 0, &error);
+	regex = g_regex_new(mcstr->pattern, G_REGEX_OPTIMIZE, 0, &error);
 	if (!regex) {
 		DBG("ERROR compiling regular expression: %s.", error->message);
 		g_error_free(error);
 		return result;
 	}
 
-	result = g_regex_replace(regex, text, -1, 0, replace, G_REGEX_MATCH_DEFAULT, NULL);
+	result = g_regex_replace(regex, text, -1, 0, mcstr->replace, G_REGEX_MATCH_DEFAULT, NULL);
 
 	g_error_free(error);
 	g_regex_unref(regex);
@@ -445,33 +448,26 @@ gchar *module_multicases_string_replace(
 
 char *module_multicases_string(const char *message)
 {
-	gchar *pattern[4];
-	gchar *replace[4];
+	static MulticasesString mcstr[] = {
+		{"(\\B[a-z]+\\B)(\\B[A-Z][a-z]+\\B)", "\\1 \\2"},
+		{"(\\B[a-z]+\\B)(\\B[A-Z]+\\B)", "\\1 \\2"},
+		{"(\\B[A-Z]+\\B)(\\B[A-Z][a-z]+\\B)", "\\1 \\2"},
+		{"([A-Z])([A-Z][a-z]+)", "\\1 \\2"}
+	};
 	gchar *multicases;
-	gchar *text;
 	guint i;
 
 	assert(message != NULL);
 
-	pattern[0] = "([a-z]+)([A-Z][a-z]+)";
-	replace[0] = "\\1 \\2";
-	pattern[1] = "([a-z]+)([A-Z]+)";
-	replace[1] = "\\1 \\2";
-	pattern[2] = "([A-Z]{2}[A-Z]+)([a-z]+)";
-	replace[2] = "\\1 \\2";
-	pattern[3] = "([A-Z])([A-Z][a-z]+)";
-	replace[3] = "\\1 \\2";
-
-	text = g_strdup(message);
+	multicases = g_strdup(message);
 	
 	for (i = 0; i < 4; i++) {
-		multicases = module_multicases_string_replace(text, pattern[i], replace[i]);
-		text = g_strdup(multicases);
+		multicases = module_multicases_string_replace(multicases, &mcstr[i]);
 	}
 
-	DBG("Multicases string '%s'\n", text);
+	DBG("Multicases string '%s'\n", multicases);
 
-	return (char*)text;
+	return (char*)multicases;
 }
 
 size_t
