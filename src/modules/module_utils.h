@@ -174,7 +174,7 @@ void module_signal_end(void);
 void module_strip_punctuation_default(char *buf);
 void module_strip_punctuation_some(char *buf, char *punct_some);
 char *module_strip_ssml(const char *buf);
-char *module_multicases_string(const char *message);
+char *module_multicases_string(char *message);
 
 void module_sigblockall(void);
 void module_sigblockusr(sigset_t * signal_set);

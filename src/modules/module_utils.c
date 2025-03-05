@@ -446,7 +446,7 @@ gchar *module_multicases_string_replace(
 	return result;
 }
 
-char *module_multicases_string(const char *message)
+char *module_multicases_string(char *message)
 {
 	static MulticasesString mcstr[] = {
 		{"(\\B[a-z]+\\B)(\\B[A-Z][a-z]+\\B)", "\\1 \\2"},
@@ -454,20 +454,17 @@ char *module_multicases_string(const char *message)
 		{"(\\B[A-Z]+\\B)(\\B[A-Z][a-z]+\\B)", "\\1 \\2"},
 		{"([A-Z])([A-Z][a-z]+)", "\\1 \\2"}
 	};
-	gchar *multicases;
 	guint i;
 
 	assert(message != NULL);
-
-	multicases = g_strdup(message);
 	
 	for (i = 0; i < 4; i++) {
-		multicases = module_multicases_string_replace(multicases, &mcstr[i]);
+		message = (char*)module_multicases_string_replace((gchar*)message, &mcstr[i]);
 	}
 
-	DBG("Multicases string '%s'\n", multicases);
+	DBG("Multicases string '%s'\n", message);
 
-	return (char*)multicases;
+	return message;
 }
 
 size_t
