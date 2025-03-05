@@ -8,13 +8,16 @@ msgstr ""
 "Project-Id-Version: speech-dispatcher 0.12.0\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2025-02-23 22:18+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-03-05 10:00+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/speech-dispatcher/"
+"po/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -22,116 +25,118 @@ msgid ""
 "%s -- Common interface for Speech Synthesis %s\n"
 "\n"
 msgstr ""
+"%s - பேச்சு தொகுப்புக்கான பொதுவான இடைமுகம் %s\n"
+"\n"
 
 #: src/server/options.c:65
 #, c-format
 msgid "Usage: "
-msgstr ""
+msgstr "பயன்பாடு: "
 
 #: src/server/options.c:69
 #, c-format
 msgid "Options: \n"
-msgstr ""
+msgstr "விருப்பங்கள்: \n"
 
 #: src/server/options.c:71
 #, c-format
 msgid "Run as a daemon\n"
-msgstr ""
+msgstr "ஒரு டீமனாக இயக்கவும்\n"
 
 #: src/server/options.c:73
 #, c-format
 msgid "Run as single application\n"
-msgstr ""
+msgstr "ஒற்றை பயன்பாடாக இயக்கவும்\n"
 
 #: src/server/options.c:75
 #, c-format
 msgid "Start only if autospawn is not disabled\n"
-msgstr ""
+msgstr "ஆட்டோச்பான் முடக்கப்படாவிட்டால் மட்டுமே தொடங்கவும்\n"
 
 #: src/server/options.c:77
 #, c-format
 msgid "Set log level (between %d and %d)\n"
-msgstr ""
+msgstr "பதிவு அளவை அமைக்கவும் ( %d மற்றும் %d க்கு இடையில்)\n"
 
 #: src/server/options.c:79
 #, c-format
 msgid "Set path to logging\n"
-msgstr ""
+msgstr "பதிவு செய்வதற்கான பாதையை அமைக்கவும்\n"
 
 #: src/server/options.c:82
 #, c-format
 msgid "Communication method to use ('%s'\n"
-msgstr ""
+msgstr "பயன்படுத்த தொடர்பு முறை ('%s'\n"
 
 #: src/server/options.c:84
 #, c-format
 msgid "or '%s')\n"
-msgstr ""
+msgstr "அல்லது '%s')\n"
 
 #: src/server/options.c:87
 #, c-format
 msgid "Socket path to use for '%s' method\n"
-msgstr ""
+msgstr "'%s' முறைக்கு பயன்படுத்த சாக்கெட் பாதை\n"
 
 #: src/server/options.c:89
 #, c-format
 msgid "(filesystem path or '%s')\n"
-msgstr ""
+msgstr "(கோப்பு முறைமை பாதை அல்லது '%s')\n"
 
 #: src/server/options.c:91
 #, c-format
 msgid "Specify a port number for '%s' method\n"
-msgstr ""
+msgstr "'%s' முறைக்கு ஒரு துறைமுகம் எண்ணைக் குறிப்பிடவும்\n"
 
 #: src/server/options.c:93
 #, c-format
 msgid "Set time in seconds for the server to wait before it\n"
-msgstr ""
+msgstr "சேவையகம் அதற்கு முன் காத்திருக்க நொடிகளில் நேரத்தை அமைக்கவும்\n"
 
 #: src/server/options.c:95
 #, c-format
 msgid "shuts down, if it has no clients connected. Setting to\n"
-msgstr ""
+msgstr "வாடிக்கையாளர்கள் இணைக்கப்படாவிட்டால், அதை மூடுகிறது. அமைத்தல்\n"
 
 #: src/server/options.c:97
 #, c-format
 msgid "0 disables such shutdown\n"
-msgstr ""
+msgstr "0 அத்தகைய பணிநிறுத்தத்தை முடக்குகிறது\n"
 
 #: src/server/options.c:99
 #, c-format
 msgid "Set path to pid file\n"
-msgstr ""
+msgstr "PID கோப்புக்கு பாதையை அமைக்கவும்\n"
 
 #: src/server/options.c:101
 #, c-format
 msgid "Set path to configuration\n"
-msgstr ""
+msgstr "உள்ளமைவுக்கான பாதையை அமைக்கவும்\n"
 
 #: src/server/options.c:103
 #, c-format
 msgid "Set path to modules\n"
-msgstr ""
+msgstr "தொகுதிகளுக்கு பாதையை அமைக்கவும்\n"
 
 #: src/server/options.c:105
 #, c-format
 msgid "Report version of this program\n"
-msgstr ""
+msgstr "இந்த திட்டத்தின் புகாரைப் புகாரளிக்கவும்\n"
 
 #: src/server/options.c:107
 #, c-format
 msgid "Output debugging information into $TMPDIR/%s\n"
-msgstr ""
+msgstr "வெளியீட்டு பிழைத்திருத்த செய்தி $ tmpdir/%s\n"
 
 #: src/server/options.c:110
 #, c-format
 msgid "if TMPDIR is exported, otherwise to /tmp/%s\n"
-msgstr ""
+msgstr "TMPDIR ஏற்றுமதி செய்யப்பட்டால், இல்லையெனில் /tmp /%s\n"
 
 #: src/server/options.c:113 src/clients/say/options.c:171
 #, c-format
 msgid "Print this info\n"
-msgstr ""
+msgstr "இந்த தகவலை அச்சிடுக\n"
 
 #: src/server/options.c:115 src/clients/say/options.c:174
 #, c-format
@@ -139,6 +144,8 @@ msgid ""
 "Please report bugs to %s\n"
 "\n"
 msgstr ""
+"பிழைகளை %s க்கு புகாரளிக்கவும்\n"
+"\n"
 
 #: src/server/options.c:121 src/clients/say/options.c:181
 #: src/api/python/speechd_config/config.py:174
@@ -151,6 +158,12 @@ msgid ""
 "any later version. Please see COPYING for more details.\n"
 "\n"
 msgstr ""
+"பதிப்புரிமை (சி) %d- %d பிரெயில்காம், O.P.S.\n"
+" இது இலவச மென்பொருள்; நீங்கள் அதை மறுபகிர்வு செய்யலாம் மற்றும்/அல்லது மாற்றலாம்\n"
+" வெளியிட்டபடி குனு பொது பொது உரிமத்தின் விதிமுறைகளின் கீழ்\n"
+" இலவச மென்பொருள் அறக்கட்டளை; பதிப்பு 2, அல்லது (உங்கள் விருப்பத்தில்)\n"
+" பின்னர் எந்த பதிப்பும். மேலும் விவரங்களுக்கு நகலெடுப்பதைப் பார்க்கவும்.\n"
+"\n"
 
 #: src/clients/say/options.c:67
 #, c-format
@@ -158,6 +171,8 @@ msgid ""
 "send text-to-speech output request to speech-dispatcher\n"
 "\n"
 msgstr ""
+"உரை-க்கு-பேச்சு வெளியீட்டு கோரிக்கையை பேச்சு-டிச்பாட்சருக்கு அனுப்பவும்\n"
+"\n"
 
 #: src/clients/say/options.c:68
 #, c-format
@@ -165,97 +180,99 @@ msgid ""
 "Usage: %s [options] \"some text\"\n"
 "\n"
 msgstr ""
+"பயன்பாடு: %s [விருப்பங்கள்] \"சில உரை\"\n"
+"\n"
 
 #: src/clients/say/options.c:70
 #, c-format
 msgid "Options:\n"
-msgstr ""
+msgstr "விருப்பங்கள்:\n"
 
 #: src/clients/say/options.c:72
 #, c-format
 msgid "Set the rate of the speech\n"
-msgstr ""
+msgstr "பேச்சின் வீதத்தை அமைக்கவும்\n"
 
 #: src/clients/say/options.c:74 src/clients/say/options.c:79
 #: src/clients/say/options.c:84 src/clients/say/options.c:89
 #, c-format
 msgid "(between %+d and %+d, default: %d)\n"
-msgstr ""
+msgstr "( %+d மற்றும் %+d க்கு இடையில், இயல்புநிலை: %d)\n"
 
 #: src/clients/say/options.c:77
 #, c-format
 msgid "Set the pitch of the speech\n"
-msgstr ""
+msgstr "பேச்சின் சுருதியை அமைக்கவும்\n"
 
 #: src/clients/say/options.c:82
 #, c-format
 msgid "Set the pitch range of the speech\n"
-msgstr ""
+msgstr "பேச்சின் சுருதி வரம்பை அமைக்கவும்\n"
 
 #: src/clients/say/options.c:87
 #, c-format
 msgid "Set the volume (intensity) of the speech\n"
-msgstr ""
+msgstr "பேச்சின் தொகுதி (தீவிரம்) அமைக்கவும்\n"
 
 #: src/clients/say/options.c:92
 #, c-format
 msgid "Set the output module\n"
-msgstr ""
+msgstr "வெளியீட்டு தொகுதியை அமைக்கவும்\n"
 
 #: src/clients/say/options.c:95
 #, c-format
 msgid "Get the list of output modules\n"
-msgstr ""
+msgstr "வெளியீட்டு தொகுதிகளின் பட்டியலைப் பெறுங்கள்\n"
 
 #: src/clients/say/options.c:98
 #, c-format
 msgid "Play the sound icon\n"
-msgstr ""
+msgstr "ஒலி ஐகானை விளையாடுங்கள்\n"
 
 #: src/clients/say/options.c:101
 #, c-format
 msgid "Set the language (ISO code)\n"
-msgstr ""
+msgstr "மொழியை அமைக்கவும் (ஐஎச்ஓ குறியீடு)\n"
 
 #: src/clients/say/options.c:104
 #, c-format
 msgid "Set the preferred voice type\n"
-msgstr ""
+msgstr "விருப்பமான குரல் வகையை அமைக்கவும்\n"
 
 #: src/clients/say/options.c:109
 #, c-format
 msgid "Get the list of synthesis voices\n"
-msgstr ""
+msgstr "தொகுப்பு குரல்களின் பட்டியலைப் பெறுங்கள்\n"
 
 #: src/clients/say/options.c:112
 #, c-format
 msgid "Set the synthesis voice\n"
-msgstr ""
+msgstr "தொகுப்பு குரலை அமைக்கவும்\n"
 
 #: src/clients/say/options.c:115
 #, c-format
 msgid "Speak the character\n"
-msgstr ""
+msgstr "பாத்திரத்தை பேசுங்கள்\n"
 
 #: src/clients/say/options.c:118
 #, c-format
 msgid "Speak the key\n"
-msgstr ""
+msgstr "சாவியைப் பேசுங்கள்\n"
 
 #: src/clients/say/options.c:121
 #, c-format
 msgid "Set the punctuation mode\n"
-msgstr ""
+msgstr "நிறுத்தற்குறி பயன்முறையை அமைக்கவும்\n"
 
 #: src/clients/say/options.c:125
 #, c-format
 msgid "Spell the message\n"
-msgstr ""
+msgstr "செய்தியை உச்சரிக்கவும்\n"
 
 #: src/clients/say/options.c:128
 #, c-format
 msgid "Set SSML mode on (default: off)\n"
-msgstr ""
+msgstr "SSML பயன்முறையை அமைக்கவும் (இயல்புநிலை: முடக்கப்பட்டுள்ளது)\n"
 
 #: src/clients/say/options.c:132
 #, c-format
@@ -263,16 +280,18 @@ msgid ""
 "Read text to be spoken on stdin, write it on stdout unchanged, and the\n"
 "corresponding speech through Speech Dispatcher.\n"
 msgstr ""
+"Stdin இல் பேச வேண்டிய உரையைப் படியுங்கள், அதை மாறாமல் stdout இல் எழுதுங்கள்\n"
+" பேச்சு அனுப்பியவர் மூலம் தொடர்புடைய பேச்சு.\n"
 
 #: src/clients/say/options.c:136
 #, c-format
 msgid "Set priority of the message "
-msgstr ""
+msgstr "செய்தியின் முன்னுரிமையை அமைக்கவும் "
 
 #: src/clients/say/options.c:140
 #, c-format
 msgid "default: %s)\n"
-msgstr ""
+msgstr "இயல்புநிலை: %s)\n"
 
 #: src/clients/say/options.c:143
 #, c-format
@@ -280,11 +299,13 @@ msgid ""
 "Set the application name used to establish\n"
 "%1$sthe connection to specified string value\n"
 msgstr ""
+"நிறுவ பயன்பாட்டு பெயரை அமைக்கவும்\n"
+" குறிப்பிட்ட சரம் மதிப்புக்கு %1$sthe இணைப்பு\n"
 
 #: src/clients/say/options.c:147 src/clients/say/options.c:154
 #, c-format
 msgid "(default: %s)\n"
-msgstr ""
+msgstr "(இயல்புநிலை: %s)\n"
 
 #: src/clients/say/options.c:150
 #, c-format
@@ -292,49 +313,51 @@ msgid ""
 "Set the connection name used to establish\n"
 "%1$sthe connection to specified string value\n"
 msgstr ""
+"நிறுவ பயன்படுத்தப்படும் இணைப்பு பெயரை அமைக்கவும்\n"
+" குறிப்பிட்ட சரம் மதிப்புக்கு %1$sthe இணைப்பு\n"
 
 #: src/clients/say/options.c:158
 #, c-format
 msgid "Wait till the message is spoken or discarded\n"
-msgstr ""
+msgstr "செய்தி பேசப்படும் அல்லது நிராகரிக்கப்படும் வரை காத்திருங்கள்\n"
 
 #: src/clients/say/options.c:161
 #, c-format
 msgid "Stop speaking the message being spoken\n"
-msgstr ""
+msgstr "பேசப்படும் செய்தியைப் பேசுவதை நிறுத்துங்கள்\n"
 
 #: src/clients/say/options.c:164
 #, c-format
 msgid "Cancel all messages\n"
-msgstr ""
+msgstr "எல்லா செய்திகளையும் ரத்துசெய்\n"
 
 #: src/clients/say/options.c:168
 #, c-format
 msgid "Print version and copyright info\n"
-msgstr ""
+msgstr "பதிப்பு மற்றும் பதிப்புரிமை செய்தி\n"
 
 #: src/clients/say/options.c:193
 #, c-format
 msgid "Syntax error or bad parameter!\n"
-msgstr ""
+msgstr "தொடரியல் பிழை அல்லது மோசமான அளவுரு!\n"
 
 #: src/clients/say/options.c:204
 #, c-format
 msgid "Missing argument!\n"
-msgstr ""
+msgstr "வாதையைக் காணவில்லை!\n"
 
 #: src/clients/say/options.c:305
 #, c-format
 msgid "Unrecognized option\n"
-msgstr ""
+msgstr "அங்கீகரிக்கப்படாத விருப்பம்\n"
 
 #: src/api/python/speechd_config/speechd.desktop.in:20
 msgid "Speech Dispatcher"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவர்"
 
 #: src/api/python/speechd_config/speechd.desktop.in:21
 msgid "Interface to Text to Speech services"
-msgstr ""
+msgstr "பேச்சு சேவைகளுக்கு உரைக்கான இடைமுகம்"
 
 #: src/api/python/speechd_config/config.py:103
 #, python-format
@@ -342,77 +365,82 @@ msgid ""
 "The value you have chosen is not among the suggested values.\n"
 "You have chosen '%s'."
 msgstr ""
+"நீங்கள் தேர்ந்தெடுத்த மதிப்பு பரிந்துரைக்கப்பட்ட மதிப்புகளில் இல்லை.\n"
+" நீங்கள் '%s' என்பதைத் தேர்ந்தெடுத்துள்ளீர்கள்."
 
 #: src/api/python/speechd_config/config.py:105
 msgid "The suggested values are "
-msgstr ""
+msgstr "பரிந்துரைக்கப்பட்ட மதிப்புகள் "
 
 #: src/api/python/speechd_config/config.py:106
 msgid "Do you want to correct your answer?"
-msgstr ""
+msgstr "உங்கள் பதிலை சரிசெய்ய விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:118
 #, python-format
 msgid "You have chosen '%s'. Please choose one of %s"
 msgstr ""
+"நீங்கள் '%s' என்பதைத் தேர்ந்தெடுத்துள்ளீர்கள். தயவுசெய்து %s ஒன்றைத் தேர்வுசெய்க"
 
 #: src/api/python/speechd_config/config.py:125
 msgid ""
 "A simple tool for basic configuration of Speech Dispatcher and problem "
 "diagnostics"
 msgstr ""
+"பேச்சு அனுப்பியவர் மற்றும் சிக்கல் கண்டறிதலின் அடிப்படை உள்ளமைவுக்கான எளிய கருவி"
 
 #: src/api/python/speechd_config/config.py:128
 msgid "Create Speech Dispatcher configuration for the given user"
-msgstr ""
+msgstr "கொடுக்கப்பட்ட பயனருக்கு பேச்சு அனுப்பி உள்ளமைவை உருவாக்கவும்"
 
 #: src/api/python/speechd_config/config.py:131
 msgid "Configure basic settings in user configuration"
-msgstr ""
+msgstr "பயனர் உள்ளமைவில் அடிப்படை அமைப்புகளை உள்ளமைக்கவும்"
 
 #: src/api/python/speechd_config/config.py:134
 msgid "Configure basic settings in system-wide configuration"
-msgstr ""
+msgstr "கணினி அளவிலான உள்ளமைவில் அடிப்படை அமைப்புகளை உள்ளமைக்கவும்"
 
 #: src/api/python/speechd_config/config.py:137
 msgid "Diagnose problems with the current setup"
-msgstr ""
+msgstr "தற்போதைய அமைப்பில் சிக்கல்களைக் கண்டறியவும்"
 
 #: src/api/python/speechd_config/config.py:140
 msgid "Test connection to Speech Dispatcher using spd-say"
-msgstr ""
+msgstr "SPD-SAY ஐப் பயன்படுத்தி பேச்சு அனுப்பியவருக்கு சோதனை இணைப்பு"
 
 #: src/api/python/speechd_config/config.py:143
 msgid "Test whether Festival works as a server"
-msgstr ""
+msgstr "திருவிழா ஒரு சேவையகமாக செயல்படுகிறதா என்பதை சோதிக்கவும்"
 
 #: src/api/python/speechd_config/config.py:145
 msgid "Test whether Espeak works as a standalone binary"
-msgstr ""
+msgstr "எச்பீக் ஒரு முழுமையான பைனரியாக செயல்படுகிறதா என்பதை சோதிக்கவும்"
 
 #: src/api/python/speechd_config/config.py:147
 msgid "Test ALSA audio output"
-msgstr ""
+msgstr "ALSA ஆடியோ வெளியீட்டை சோதிக்கவும்"
 
 #: src/api/python/speechd_config/config.py:149
 msgid "Test Pulse Audio output"
-msgstr ""
+msgstr "சோதனை துடிப்பு ஆடியோ வெளியீடு"
 
 #: src/api/python/speechd_config/config.py:152
 msgid "Use espeak to synthesize messages"
-msgstr ""
+msgstr "செய்திகளை ஒருங்கிணைக்க ESPEAK ஐப் பயன்படுத்தவும்"
 
 #: src/api/python/speechd_config/config.py:155
 msgid "Do not ask any questions, always use default values"
 msgstr ""
+"எந்த கேள்விகளையும் கேட்க வேண்டாம், எப்போதும் இயல்புநிலை மதிப்புகளைப் பயன்படுத்துங்கள்"
 
 #: src/api/python/speechd_config/config.py:158
 msgid "Debug a problem and generate a report"
-msgstr ""
+msgstr "ஒரு சிக்கலை பிழைத்தி மற்றும் ஒரு அறிக்கையை உருவாக்கவும்"
 
 #: src/api/python/speechd_config/config.py:161
 msgid "Print version and copyright info"
-msgstr ""
+msgstr "பதிப்பு மற்றும் பதிப்புரிமை செய்தி"
 
 #: src/api/python/speechd_config/config.py:203
 #, python-format
@@ -420,6 +448,8 @@ msgid ""
 "ERROR: It was not possible to connect to Festival on the\n"
 "given host and port. Connection failed with error %d : %s ."
 msgstr ""
+"பிழை: திருவிழாவுடன் இணைக்க முடியவில்லை\n"
+" வழங்கப்பட்ட புரவலன் மற்றும் துறைமுகம். பிழை %d: %s உடன் இணைப்பு தோல்வியடைந்தது."
 
 #: src/api/python/speechd_config/config.py:205
 #, python-format
@@ -430,10 +460,15 @@ msgid ""
 "Try /etc/init.d/festival start or run 'festival --server' from the command "
 "line."
 msgstr ""
+"குறிப்பு: பெரும்பாலும், உங்கள் திருவிழா சேவையகம் இப்போது இயங்கவில்லை\n"
+" அல்லது இயல்புநிலை போர்ட்டில் இல்லை %d.\n"
+"\n"
+" /Etc/init.d/festival கட்டளை வரியிலிருந்து 'திருவிழா -சேவையகத்தை' தொடங்கவும் அல்லது"
+" இயக்கவும்."
 
 #: src/api/python/speechd_config/config.py:221
 msgid "Festival contains freebsoft-utils."
-msgstr ""
+msgstr "திருவிழாவில் ஃப்ரீபிப்சாஃப்ட்-பயன்பாடுகள் உள்ளன."
 
 #: src/api/python/speechd_config/config.py:224
 msgid ""
@@ -442,6 +477,10 @@ msgid ""
 "utils\n"
 "to be able to use Festival with Speech Dispatcher."
 msgstr ""
+"பிழை: உங்கள் திருவிழா சேவையகம் செயல்படுகிறது, ஆனால் அது தெரியவில்லை\n"
+" திருவிழா-ஃப்ரீஃபெப்சாஃப்ட்-பயன்பாடுகளை ஏற்ற. நீங்கள் திருவிழா-ஃப்ரீஃபெப்சாஃப்ட்-பயன்பாடுகளை "
+"நிறுவ வேண்டும்\n"
+" பேச்சு அனுப்பியவருடன் திருவிழாவைப் பயன்படுத்த முடியும்."
 
 #: src/api/python/speechd_config/config.py:235
 msgid ""
@@ -450,6 +489,10 @@ msgid ""
 "Python applications like Orca will be able to use it.\n"
 "Search for package like python-speechd, download and install it."
 msgstr ""
+"பேச்சு அனுப்பும் நூலகத்தை பைத்தானால் கண்டுபிடிக்க முடியவில்லை.\n"
+" இது நிறுவப்பட்டுள்ளதா? இது பேச்சு அனுப்பியவர் வேலை செய்வதைத் தடுக்காது, ஆனால் இல்லை\n"
+" ஓர்கா போன்ற பைதான் பயன்பாடுகள் இதைப் பயன்படுத்த முடியும்.\n"
+" பைதான்-ச்பீச் போன்ற தொகுப்பைத் தேடுங்கள், அதை பதிவிறக்கம் செய்து நிறுவவும்."
 
 #: src/api/python/speechd_config/config.py:257
 #, python-format
@@ -457,11 +500,13 @@ msgid ""
 "%s selected, but %s not installed. This might be a false\n"
 "warning, but most likely sound is not working."
 msgstr ""
+"%s தேர்ந்தெடுக்கப்பட்டன, ஆனால் %s நிறுவப்படவில்லை. இது ஒரு பொய்யாக இருக்கலாம்\n"
+" எச்சரிக்கை, ஆனால் பெரும்பாலும் ஒலி செயல்படவில்லை."
 
 #: src/api/python/speechd_config/config.py:259
 #, python-format
 msgid "Are you sure that %s audio is working?"
-msgstr ""
+msgstr "%s ஆடியோ வேலை செய்கிறது என்பது உறுதி?"
 
 #: src/api/python/speechd_config/config.py:264
 #, python-format
@@ -469,16 +514,21 @@ msgid ""
 "Can't play audio via\n"
 "     %s"
 msgstr ""
+"வழியாக ஆடியோவை இயக்க முடியாது\n"
+" %s"
 
 #: src/api/python/speechd_config/config.py:265
 msgid ""
 "Your audio doesn't seem to work, please fix audio first or choose\n"
 "a different method."
 msgstr ""
+"உங்கள் ஆடியோ வேலை செய்யத் தெரியவில்லை, முதலில் ஆடியோவை சரிசெய்யவும் அல்லது தேர்வு "
+"செய்யவும்\n"
+" வேறு முறை."
 
 #: src/api/python/speechd_config/config.py:270
 msgid "Did you hear the sound?"
-msgstr ""
+msgstr "நீங்கள் ஒலி கேட்டீர்களா?"
 
 #: src/api/python/speechd_config/config.py:273
 msgid ""
@@ -489,71 +539,82 @@ msgid ""
 "different\n"
 "audio output method in configuration."
 msgstr ""
+"சவுண்ட் பிளேபேக்கிலிருந்து மேலே உள்ள வெளியீட்டை ஆராயுங்கள்\n"
+" பயன்பாடு. எல்லாம் சரியாகத் தெரிந்தால், உங்கள் ஆடியோ போதுமான சத்தமாக இருக்கிறது என்பதில் "
+"உறுதியாக இருக்கிறீர்களா?\n"
+" மிக்சியில் முடக்கப்பட்டவில்லையா? முதலில் உங்கள் ஆடியோ அமைப்பை சரிசெய்யவும் அல்லது வேறு "
+"தேர்வு செய்யவும்\n"
+" உள்ளமைவில் ஆடியோ வெளியீட்டு முறை."
 
 #: src/api/python/speechd_config/config.py:279
 #, python-format
 msgid "Audio output '%s' works"
-msgstr ""
+msgstr "ஆடியோ வெளியீடு '%s' வேலை செய்கிறது"
 
 #: src/api/python/speechd_config/config.py:285
 msgid "Testing Speech Dispatcher using spd_say"
-msgstr ""
+msgstr "SPD_SAY ஐப் பயன்படுத்தி பேச்சு அனுப்பியவர் சோதனை"
 
 #: src/api/python/speechd_config/config.py:289
 msgid ""
 "Can't execute the spd-say binary,\n"
 "it is very likely that Speech Dispatcher is not installed."
 msgstr ""
+"SPD- SAY பைனரியை இயக்க முடியாது,\n"
+" பேச்சு அனுப்பியவர் நிறுவப்படவில்லை என்பது மிகவும் சாத்தியம்."
 
 #: src/api/python/speechd_config/config.py:292
 msgid "Did you hear the message about Speech Dispatcher working?"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவர் வேலை செய்வது பற்றிய செய்தியை நீங்கள் கேட்டீர்களா?"
 
 #: src/api/python/speechd_config/config.py:294
 msgid "Speech Dispatcher is installed and working!"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவர் நிறுவப்பட்டு வேலை செய்கிறார்!"
 
 #: src/api/python/speechd_config/config.py:297
 msgid "Speech Dispatcher is installed but there is some problem"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவர் நிறுவப்பட்டுள்ளது, ஆனால் சில சிக்கல் உள்ளது"
 
 #: src/api/python/speechd_config/config.py:302
 msgid "Testing whether Festival works as a server"
-msgstr ""
+msgstr "திருவிழா ஒரு சேவையகமாக செயல்படுகிறதா என்பதை சோதிக்கிறது"
 
 #: src/api/python/speechd_config/config.py:306
 msgid "Festival server is not working."
-msgstr ""
+msgstr "திருவிழா சேவையகம் வேலை செய்யவில்லை."
 
 #: src/api/python/speechd_config/config.py:309
 msgid "Festival server seems to work correctly"
-msgstr ""
+msgstr "திருவிழா சேவையகம் சரியாக வேலை செய்வதாக தெரிகிறது"
 
 #: src/api/python/speechd_config/config.py:315
 msgid "Testing whether Espeak works"
-msgstr ""
+msgstr "எச்பீக் செயல்படுகிறதா என்பதை சோதிக்கிறது"
 
 #: src/api/python/speechd_config/config.py:317
 msgid "Espeak is installed"
-msgstr ""
+msgstr "எச்பீக் நிறுவப்பட்டுள்ளது"
 
 #: src/api/python/speechd_config/config.py:320
 msgid ""
 "Can't execute the espeak binary, it is likely that espeak\n"
 "is not installed."
 msgstr ""
+"எச்பீக் பைனரியை இயக்க முடியாது, அது எச்பீக்\n"
+" நிறுவப்படவில்லை."
 
 #: src/api/python/speechd_config/config.py:326
 msgid "Testing ALSA sound output"
-msgstr ""
+msgstr "ALSA ஒலி வெளியீட்டை சோதித்தல்"
 
 #: src/api/python/speechd_config/config.py:331
 msgid "Testing PULSE sound output"
-msgstr ""
+msgstr "துடிப்பு ஒலி வெளியீட்டை சோதித்தல்"
 
 #: src/api/python/speechd_config/config.py:344
 msgid "Speech Dispatcher works. Do you want to skip other tests?"
 msgstr ""
+"பேச்சு அனுப்பியவர் படைப்புகள். மற்ற சோதனைகளைத் தவிர்க்க விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:354
 msgid ""
@@ -562,16 +623,22 @@ msgid ""
 "do you want to proceed with other tests? (They can help to determine\n"
 "what is wrong)"
 msgstr ""
+"\n"
+"பேச்சு அனுப்பியவர் இயங்கவில்லை அல்லது அதை இணைக்க முடியாது (மேலே காண்க),\n"
+" நீங்கள் மற்ற சோதனைகளுடன் தொடர விரும்புகிறீர்களா? (அவை தீர்மானிக்க உதவலாம்\n"
+" என்ன தவறு)"
 
 #: src/api/python/speechd_config/config.py:365
 #, python-format
 msgid "Do you want to test the %s now?"
-msgstr ""
+msgstr "நீங்கள் இப்போது %s ஐ சோதிக்க விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:386
 msgid ""
 "Testing whether Python Speech Dispatcher library is in path and importable"
 msgstr ""
+"பைதான் பேச்சு அனுப்பி நூலகம் பாதையில் உள்ளதா மற்றும் இறக்குமதி செய்யப்படுகிறதா என்பதை "
+"சோதிக்கிறது"
 
 #: src/api/python/speechd_config/config.py:397
 msgid ""
@@ -579,54 +646,64 @@ msgid ""
 "\n"
 "Diagnostics results:"
 msgstr ""
+"\n"
+"\n"
+"கண்டறிதல் முடிவுகள்:"
 
 #: src/api/python/speechd_config/config.py:402
 msgid "Speech Dispatcher is working"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவர் வேலை செய்கிறார்"
 
 #: src/api/python/speechd_config/config.py:404
 msgid "Speech Dispatcher not working through spd-say"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவர் SPD-say மூலம் வேலை செய்யவில்லை"
 
 #: src/api/python/speechd_config/config.py:406
 #, python-format
 msgid "Synthesizers that were tested and seem to work: %s"
-msgstr ""
+msgstr "சோதிக்கப்பட்ட மற்றும் வேலை செய்யத் தோன்றும் சின்தசைசர்கள்: %s"
 
 #: src/api/python/speechd_config/config.py:409
 #, python-format
 msgid "Audio systems that were tested and seem to work: %s"
-msgstr ""
+msgstr "சோதனை செய்யப்பட்டு வேலை செய்யத் தோன்றும் ஆடியோ அமைப்புகள்: %s"
 
 #: src/api/python/speechd_config/config.py:413
 msgid "Python Speech Dispatcher module is importable"
-msgstr ""
+msgstr "பைதான் பேச்சு அனுப்பி தொகுதி இறக்குமதி செய்யக்கூடியது"
 
 #: src/api/python/speechd_config/config.py:415
 msgid ""
 "Python Speech Dispatcher module not importable.\n"
 "Either not installed or not in path."
 msgstr ""
+"பைதான் பேச்சு அனுப்பி தொகுதி இறக்குமதி செய்யப்படவில்லை.\n"
+" ஒன்று நிறுவப்படவில்லை அல்லது பாதையில் இல்லை."
 
 #: src/api/python/speechd_config/config.py:417
 msgid "End of diagnostics results"
-msgstr ""
+msgstr "கண்டறியும் முடிவுகளின் முடிவு"
 
 #: src/api/python/speechd_config/config.py:439
 msgid "Starting collecting debugging output, configuration and logfiles"
 msgstr ""
+"பிழைத்திருத்த வெளியீடு, உள்ளமைவு மற்றும் பதிவு கோப்புகளை சேகரிக்கத் தொடங்குகிறது"
 
 #: src/api/python/speechd_config/config.py:442
 msgid ""
 "\n"
 "Do you want to debug 'system' or  'user' Speech Dispatcher?"
 msgstr ""
+"\n"
+"'சிச்டம்' அல்லது 'பயனர்' பேச்சு அனுப்பியவரை பிழைத்திருத்த விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:447
 msgid ""
 "It is necessary to kill the currently running Speech Dispatcher\n"
 "processes. Do you want to do it now?"
 msgstr ""
+"தற்போது இயங்கும் பேச்சு அனுப்பியவரைக் கொல்ல வேண்டியது தேவை\n"
+" செயல்முறைகள். இப்போது அதை செய்ய விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:454
 msgid ""
@@ -634,59 +711,66 @@ msgid ""
 "You decided not to kill running Speech Dispatcher processes.\n"
 "Please make sure your Speech Dispatcher is not running now."
 msgstr ""
+"\n"
+"இயங்கும் பேச்சு அனுப்பும் செயல்முறைகளை கொல்ல வேண்டாம் என்று முடிவு செய்தீர்கள்.\n"
+" உங்கள் பேச்சு அனுப்பியவர் இப்போது இயங்கவில்லை என்பதை உறுதிப்படுத்தவும்."
 
 #: src/api/python/speechd_config/config.py:457
 msgid "Is your Speech Dispatcher not running now?"
-msgstr ""
+msgstr "உங்கள் பேச்சு அனுப்பியவர் இப்போது இயங்கவில்லையா?"
 
 #: src/api/python/speechd_config/config.py:459
 msgid "Can't continue, please stop your Speech Dispatcher and try again"
 msgstr ""
+"தொடர முடியாது, தயவுசெய்து உங்கள் பேச்சு அனுப்பியவரை நிறுத்தி மீண்டும் முயற்சிக்கவும்"
 
 #: src/api/python/speechd_config/config.py:475
 msgid "Speech Dispatcher will be started now in debugging mode"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவர் இப்போது பிழைத்திருத்த பயன்முறையில் தொடங்கப்படுவார்"
 
 #: src/api/python/speechd_config/config.py:479
 #: src/api/python/speechd_config/config.py:625
 #: src/api/python/speechd_config/config.py:716
 msgid "Warning: You must be root or under sudo to do this."
 msgstr ""
+"எச்சரிக்கை: இதைச் செய்ய நீங்கள் வேர் அல்லது சூடோவின் கீழ் இருக்க வேண்டும்."
 
 #: src/api/python/speechd_config/config.py:480
 msgid ""
 "\n"
 "Please start your system Speech Dispatcher now with parameter '-D'"
 msgstr ""
+"\n"
+"உங்கள் கணினி பேச்சு அனுப்பியவரை இப்போது '-d' அளவுருவுடன் தொடங்கவும்"
 
 #: src/api/python/speechd_config/config.py:482
 msgid "Is your Speech Dispatcher running now?"
-msgstr ""
+msgstr "உங்கள் பேச்சு அனுப்பியவர் இப்போது இயங்குகிறாரா?"
 
 #: src/api/python/speechd_config/config.py:486
 #: src/api/python/speechd_config/config.py:734
 msgid "Can't continue"
-msgstr ""
+msgstr "தொடர முடியாது"
 
 #: src/api/python/speechd_config/config.py:491
 msgid "Speech Dispatcher failed to start, continuing anyway?"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவர் தொடங்கத் தவறிவிட்டார், எப்படியும் தொடர்கிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:494
 msgid "Trying to speak some messages"
-msgstr ""
+msgstr "சில செய்திகளைப் பேச முயற்சிக்கிறது"
 
 #: src/api/python/speechd_config/config.py:500
 msgid "Can't test Speech Dispatcher connection, can't connect"
-msgstr ""
+msgstr "பேச்சு அனுப்பி இணைப்பை சோதிக்க முடியாது, இணைக்க முடியாது"
 
 #: src/api/python/speechd_config/config.py:502
 msgid "Please wait (about 5 seconds)"
-msgstr ""
+msgstr "தயவுசெய்து காத்திருங்கள் (சுமார் 5 வினாடிகள்)"
 
 #: src/api/python/speechd_config/config.py:505
 msgid "Collecting debugging output and your configuration information"
-msgstr ""
+msgstr "பிழைத்திருத்த வெளியீடு மற்றும் உங்கள் உள்ளமைவு தகவல்களை சேகரித்தல்"
 
 #: src/api/python/speechd_config/config.py:515
 #, python-format
@@ -696,57 +780,71 @@ msgid ""
 "a short description of what you did. We will get in touch with you soon\n"
 "and suggest a solution."
 msgstr ""
+"\n"
+"தயவுசெய்து %s உடன் speechord-discuss@nongnu.org க்கு அனுப்பவும்\n"
+" நீங்கள் செய்ததைப் பற்றிய ஒரு குறுகிய விளக்கம். நாங்கள் விரைவில் உங்களுடன் தொடர்பு கொள்வோம்\n"
+" மற்றும் ஒரு தீர்வை பரிந்துரைக்கவும்."
 
 #: src/api/python/speechd_config/config.py:588
 msgid ""
 "User configuration already exists.\n"
 "Do you want to rewrite it with a new one?"
 msgstr ""
+"பயனர் உள்ளமைவு ஏற்கனவே உள்ளது.\n"
+" புதிய ஒன்றைக் கொண்டு அதை மீண்டும் எழுத விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:591
 msgid "Keeping configuration intact and continuing with settings."
-msgstr ""
+msgstr "உள்ளமைவை அப்படியே வைத்திருத்தல் மற்றும் அமைப்புகளுடன் தொடர்கிறது."
 
 #: src/api/python/speechd_config/config.py:596
 msgid ""
 "User configuration already exists, but it seems to be incomplete.\n"
 "Do you want to keep it?"
 msgstr ""
+"பயனர் உள்ளமைவு ஏற்கனவே உள்ளது, ஆனால் அது முழுமையடையாது என்று தெரிகிறது.\n"
+" நீங்கள் அதை வைத்திருக்க விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:601
 msgid "Keeping configuration intact and aborting."
-msgstr ""
+msgstr "உள்ளமைவை அப்படியே வைத்திருத்தல் மற்றும் கருக்கலைப்பு செய்தல்."
 
 #: src/api/python/speechd_config/config.py:617
 #, python-format
 msgid "User configuration created in %s"
-msgstr ""
+msgstr "பயனர் உள்ளமைவு %s இல் உருவாக்கப்பட்டது"
 
 #: src/api/python/speechd_config/config.py:623
 msgid "Configuring user settings for Speech Dispatcher"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவருக்கான பயனர் அமைப்புகளை உள்ளமைத்தல்"
 
 #: src/api/python/speechd_config/config.py:626
 msgid "Configuring system settings for Speech Dispatcher"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவருக்கான கணினி அமைப்புகளை உள்ளமைத்தல்"
 
 #: src/api/python/speechd_config/config.py:649
 msgid ""
 "Default speech rate (on the scale of -100..100, 0 is default, 50 is faster, "
 "-50 is slower)"
 msgstr ""
+"இயல்புநிலை பேச்சு வீதம் (-100..100 அளவில், 0 இயல்புநிலை, 50 வேகமானது, -50 மெதுவாக "
+"உள்ளது)"
 
 #: src/api/python/speechd_config/config.py:653
 msgid ""
 "Default speech pitch (on the scale of -100..100, 0 is default, 50 is higher, "
 "-50 is lower)"
 msgstr ""
+"இயல்புநிலை பேச்சு சுருதி (-100..100 அளவில், 0 இயல்புநிலை, 50 அதிகமாக உள்ளது, -50 "
+"குறைவாக உள்ளது)"
 
 #: src/api/python/speechd_config/config.py:657
 msgid ""
 "Default speech pitch range (on the scale of -100..100, 0 is default, 50 is "
 "higher, -50 is lower)"
 msgstr ""
+"இயல்புநிலை பேச்சு சுருதி வரம்பு (-100..100 என்ற அளவில், 0 இயல்புநிலை, 50 அதிகமாக "
+"உள்ளது, -50 குறைவாக உள்ளது)"
 
 #: src/api/python/speechd_config/config.py:676
 msgid ""
@@ -755,6 +853,8 @@ msgid ""
 "This is usually not necessary, most applications will start Speech "
 "Dispatcher automatically."
 msgstr ""
+"~/.Config/autostart இலிருந்து தானாகவே பேச்சு அனுப்பியவர் தொடங்க விரும்புகிறீர்களா?\n"
+" இது பொதுவாக தேவையில்லை, பெரும்பாலான பயன்பாடுகள் தானாக பேச்சு அனுப்பியவரைத் தொடங்கும்."
 
 #: src/api/python/speechd_config/config.py:685
 #, python-format
@@ -765,95 +865,114 @@ msgid ""
 "manually editing the configuration file above. Especially if you need to\n"
 "use special audio settings, non-standard synthesizer ports etc."
 msgstr ""
+"\n"
+"உள்ளமைவு %s க்கு எழுதப்பட்டது\n"
+" அடிப்படை உள்ளமைவு இப்போது முடிந்தது. நீங்கள் இன்னும் அதை நன்றாக மாற்ற வேண்டும்\n"
+" மேலே உள்ள உள்ளமைவு கோப்பை கைமுறையாக திருத்துதல். குறிப்பாக உங்களுக்கு தேவைப்பட்டால்\n"
+" சிறப்பு ஆடியோ அமைப்புகள், தரமற்ற சின்தசைசர் போர்ட்கள் போன்றவற்றைப் பயன்படுத்தவும்."
 
 #: src/api/python/speechd_config/config.py:694
 msgid "Starting Speech Dispatcher in user-mode"
-msgstr ""
+msgstr "பயனர் பயன்முறையில் பேச்சு அனுப்பியவர்"
 
 #: src/api/python/speechd_config/config.py:698
 #: src/api/python/speechd_config/config.py:727
 #, python-format
 msgid "Can't start Speech Dispatcher. Exited with status %d"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவரைத் தொடங்க முடியாது. நிலை %d உடன் வெளியேறியது"
 
 #: src/api/python/speechd_config/config.py:699
 msgid ""
 "Perhaps this is because your Speech Dispatcher is already running.\n"
 "Do you want to kill all running Speech Dispatchers and try again?"
 msgstr ""
+"உங்கள் பேச்சு அனுப்பியவர் ஏற்கனவே இயங்குவதால் இருக்கலாம்.\n"
+" இயங்கும் அனைத்து பேச்சு அனுப்புபவர்களையும் கொன்று மீண்டும் முயற்சிக்க விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:707
 msgid "Can't start Speech Dispatcher"
-msgstr ""
+msgstr "பேச்சு அனுப்பியவரைத் தொடங்க முடியாது"
 
 #: src/api/python/speechd_config/config.py:717
 msgid "Starting Speech Dispatcher in system-mode"
-msgstr ""
+msgstr "கணினி-பயன்முறையில் பேச்சு அனுப்பியவர்"
 
 #: src/api/python/speechd_config/config.py:719
 msgid "Is your system using an /etc/init.d/speech-dispatcher script?"
 msgstr ""
+"உங்கள் கணினி /etc/init.d/speech-dispatcher ச்கிரிப்டைப் பயன்படுத்துகிறதா?"
 
 #: src/api/python/speechd_config/config.py:722
 msgid "Stopping Speech Dispatcher in case any is running already"
-msgstr ""
+msgstr "ஏதேனும் ஏற்கனவே இயங்கினால் பேச்சு அனுப்பியவரை நிறுத்துதல்"
 
 #: src/api/python/speechd_config/config.py:724
 msgid "Starting Speech Dispatcher via /etc/init.d/speech-dispatcher"
-msgstr ""
+msgstr "/Etc/init.d/speech-dispatcher வழியாக பேச்சு அனுப்பியவர்"
 
 #: src/api/python/speechd_config/config.py:730
 msgid ""
 "Do not know how to start system Speech Dispatcher,\n"
 "you have to start it manually to continue."
 msgstr ""
+"கணினி பேச்சு அனுப்பியவரை எவ்வாறு தொடங்குவது என்று தெரியவில்லை,\n"
+" தொடர நீங்கள் அதை கைமுறையாக தொடங்க வேண்டும்."
 
 #: src/api/python/speechd_config/config.py:732
 msgid "Have you started Speech Dispatcher now?"
-msgstr ""
+msgstr "நீங்கள் இப்போது பேச்சு அனுப்பியவரைத் தொடங்கினீர்களா?"
 
 #: src/api/python/speechd_config/config.py:742
 msgid "Do you want to create/setup a 'user' or 'system' configuration?"
-msgstr ""
+msgstr "'பயனர்' அல்லது 'கணினி' உள்ளமைவை உருவாக்க/அமைக்க விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:753
 msgid "Do you want to start/restart Speech Dispatcher now and run some tests?"
 msgstr ""
+"பேச்சு அனுப்பியவரை இப்போது தொடங்க/மறுதொடக்கம் செய்து சில சோதனைகளை இயக்க "
+"விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:755
 msgid "Your configuration is now done but not tested"
-msgstr ""
+msgstr "உங்கள் உள்ளமைவு இப்போது செய்யப்பட்டுள்ளது, ஆனால் சோதிக்கப்படவில்லை"
 
 #: src/api/python/speechd_config/config.py:764
 msgid "Your Speech Dispatcher is not running"
-msgstr ""
+msgstr "உங்கள் பேச்சு அனுப்பியவர் இயங்கவில்லை"
 
 #: src/api/python/speechd_config/config.py:772
 msgid ""
 "Do you want to run debugging now and send a request for help to the "
 "developers?"
 msgstr ""
+"நீங்கள் இப்போது பிழைத்திருத்தத்தை இயக்க விரும்புகிறீர்களா மற்றும் டெவலப்பர்களுக்கு உதவிக்கான "
+"கோரிக்கையை அனுப்ப விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:792
 msgid ""
 "\n"
 "Speech Dispatcher configuration tool\n"
 msgstr ""
+"\n"
+"பேச்சு அனுப்பி உள்ளமைவு கருவி\n"
 
 #: src/api/python/speechd_config/config.py:797
 msgid "Do you want to continue with basic settings?"
-msgstr ""
+msgstr "அடிப்படை அமைப்புகளுடன் தொடர விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:832
 msgid "Do you want to setup a completely new configuration?"
-msgstr ""
+msgstr "முற்றிலும் புதிய உள்ளமைவை அமைக்க விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:836
 msgid "Do you want to run diagnosis of problems?"
-msgstr ""
+msgstr "சிக்கல்களைக் கண்டறிவதை இயக்க விரும்புகிறீர்களா?"
 
 #: src/api/python/speechd_config/config.py:841
 msgid ""
 "Please run this command again and select what you want to do\n"
 "or read the quick help available through '-h' or '--help'."
 msgstr ""
+"தயவுசெய்து இந்த கட்டளையை மீண்டும் இயக்கவும், நீங்கள் என்ன செய்ய விரும்புகிறீர்கள் என்பதைத் "
+"தேர்ந்தெடுக்கவும்\n"
+" அல்லது '-h' அல்லது '-உதவி' மூலம் கிடைக்கும் விரைவான உதவியைப் படியுங்கள்."
