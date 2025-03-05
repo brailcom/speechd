@@ -55,7 +55,7 @@ typedef struct {
 } MulticasesString;
 
 gchar *module_multicases_string_replace(
-	const gchar *text,
+	gchar *text,
 	const MulticasesString *mcstr);
 
 void MSG(int level, const char *format, ...) {
@@ -423,19 +423,18 @@ void module_strip_punctuation_default(char *buf)
 }
 
 gchar *module_multicases_string_replace(
-	const gchar *text,
+	gchar *text,
 	const MulticasesString *mcstr)
 {
 	GRegex *regex;
 	GError *error = NULL;
 	gchar *result;
 
-	result = g_strdup(text);
 	regex = g_regex_new(mcstr->pattern, G_REGEX_OPTIMIZE, 0, &error);
 	if (!regex) {
 		DBG("ERROR compiling regular expression: %s.", error->message);
 		g_error_free(error);
-		return result;
+		return text;
 	}
 
 	result = g_regex_replace(regex, text, -1, 0, mcstr->replace, G_REGEX_MATCH_DEFAULT, NULL);
