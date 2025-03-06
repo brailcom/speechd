@@ -54,10 +54,6 @@ typedef struct {
 	gchar *replace;
 } MulticasesString;
 
-gchar *module_multicases_string_replace(
-	gchar *text,
-	const MulticasesString *mcstr);
-
 void MSG(int level, const char *format, ...) {
 	if (level < 4 || Debug) {
 		va_list ap;
@@ -422,7 +418,7 @@ void module_strip_punctuation_default(char *buf)
 	module_strip_punctuation_some(buf, "~#$%^&*+=|<>[]_");
 }
 
-gchar *module_multicases_string_replace(
+static gchar *module_multicases_string_replace(
 	gchar *text,
 	const MulticasesString *mcstr)
 {
@@ -441,6 +437,7 @@ gchar *module_multicases_string_replace(
 
 	g_error_free(error);
 	g_regex_unref(regex);
+	g_free(text);
 							 
 	return result;
 }
@@ -448,9 +445,9 @@ gchar *module_multicases_string_replace(
 char *module_multicases_string(char *message)
 {
 	static MulticasesString mcstr[] = {
-		{"(\\B[a-z]+\\B)(\\B[A-Z][a-z]+\\B)", "\\1 \\2"},
-		{"(\\B[a-z]+\\B)(\\B[A-Z]+\\B)", "\\1 \\2"},
-		{"(\\B[A-Z]+\\B)(\\B[A-Z][a-z]+\\B)", "\\1 \\2"},
+		{"([a-z]+)([A-Z][a-z]+)", "\\1 \\2"},
+		{"([a-z]+)([A-Z]+)", "\\1 \\2"},
+		{"([A-Z]+)([A-Z][a-z]+)", "\\1 \\2"},
 		{"([A-Z])([A-Z][a-z]+)", "\\1 \\2"}
 	};
 	guint i;
