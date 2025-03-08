@@ -1211,12 +1211,23 @@ The desired rate or speed (a float number defined in GenericRateAdd and GenericR
 </p></dd></dl>
 
 <dl class="first-defvr">
+<dt class="defvr" id="index-GenericDefaultCharset"><span class="category-def">GenericModuleConfiguration: </span><span><strong class="def-name">GenericDefaultCharset</strong> <var class="def-var-arguments">&quot;character-set&quot;</var><a class="copiable-link" href="#index-GenericDefaultCharset"> &para;</a></span></dt>
+<dd>
+<p>Defines the default character set in which the text will be passed to the
+module. If unset, it defaults to <code class="code">iso-8859-1</code>.
+</p>
+<div class="example">
+<pre class="example-preformatted">GenericDefaultCharset &quot;iso-8859-2&quot;
+</pre></div>
+</dd></dl>
+
+<dl class="first-defvr">
 <dt class="defvr" id="index-GenericLanguage"><span class="category-def">GenericModuleConfiguration: </span><span><strong class="def-name">GenericLanguage</strong> <var class="def-var-arguments">&quot;iso-code&quot; &quot;string-subst&quot; &quot;character-set&quot;</var><a class="copiable-link" href="#index-GenericLanguage"> &para;</a></span></dt>
 <dd>
 <p>Defines which string <code class="code">string-subst</code> should be substituted for <code class="code">$LANGUAGE</code>
 given an <code class="code">iso-code</code> language code. Optionally, the character set in which
 the text will be passed to the module can be specified. If unset, it will
-default to iso-8859-1.
+default to the <code class="code">GenericDefaultCharset</code> parameter.
 </p>
 <p>Another example from Epos generic:
 </p><div class="example">
@@ -5664,6 +5675,7 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <tr><td></td><td class="printindex-index-entry"><a href="#index-FDL_002c-GNU-Free-Documentation-License">FDL, GNU Free Documentation License</a></td><td class="printindex-index-section"><a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></td></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-G">G</th></tr>
+<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericDefaultCharset"><code>GenericDefaultCharset</code></a></td><td class="printindex-index-section"><a href="#Configuration-of-the-Generic-Output-Module">Configuration of the Generic Output Module</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-GenericExecuteSynth"><code>GenericExecuteSynth</code></a></td><td class="printindex-index-section"><a href="#Configuration-of-the-Generic-Output-Module">Configuration of the Generic Output Module</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-GenericLanguage"><code>GenericLanguage</code></a></td><td class="printindex-index-section"><a href="#Configuration-of-the-Generic-Output-Module">Configuration of the Generic Output Module</a></td></tr>
 <tr><td></td><td class="printindex-index-entry"><a href="#index-GenericPitchAdd"><code>GenericPitchAdd</code></a></td><td class="printindex-index-section"><a href="#Configuration-of-the-Generic-Output-Module">Configuration of the Generic Output Module</a></td></tr>
