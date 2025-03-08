@@ -964,12 +964,22 @@ GenericExecuteSynth \
 @xref{AddVoice}.
 @end defvr
 
+@defvr {GenericModuleConfiguration} GenericDefaultCharset "character-set"
+
+Defines the default character set in which the text will be passed to the
+module. If unset, it defaults to @code{iso-8859-1}.
+
+@example
+GenericDefaultCharset "iso-8859-2"
+@end example
+@end defvr
+
 @defvr {GenericModuleConfiguration} GenericLanguage "iso-code" "string-subst" "character-set"
 
 Defines which string @code{string-subst} should be substituted for @code{$LANGUAGE}
 given an @code{iso-code} language code. Optionally, the character set in which
 the text will be passed to the module can be specified. If unset, it will
-default to iso-8859-1.
+default to the @code{GenericDefaultCharset} parameter.
 
 Another example from Epos generic:
 @example

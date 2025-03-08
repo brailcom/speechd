@@ -87,6 +87,7 @@ MOD_OPTION_1_STR(GenericExecuteSynth)
     MOD_OPTION_1_STR(GenericPunctAll)
     MOD_OPTION_1_STR(GenericStripPunctChars)
     MOD_OPTION_1_STR(GenericRecodeFallback)
+    MOD_OPTION_1_STR(GenericDefaultCharset)
 
     MOD_OPTION_1_INT(GenericRateAdd)
     MOD_OPTION_1_FLOAT(GenericRateMultiply)
@@ -127,6 +128,7 @@ int module_load(void)
 	MOD_OPTION_1_STR_REG(GenericDelimiters, ".");
 	MOD_OPTION_1_STR_REG(GenericStripPunctChars, "");
 	MOD_OPTION_1_STR_REG(GenericRecodeFallback, "?");
+	MOD_OPTION_1_STR_REG(GenericDefaultCharset, "iso-8859-1");
 
 	MOD_OPTION_1_INT_REG(GenericRateAdd, 0);
 	MOD_OPTION_1_FLOAT_REG(GenericRateMultiply, 1);
@@ -179,7 +181,7 @@ int module_init(char **status_info)
 	generic_msg_language =
 	    (TGenericLanguage *) g_malloc(sizeof(TGenericLanguage));
 	generic_msg_language->code = g_strdup("en-US");
-	generic_msg_language->charset = g_strdup("iso-8859-1");
+	generic_msg_language->charset = g_strdup(GenericDefaultCharset);
 	generic_msg_language->name = g_strdup("english");
 
 	/* For mbtowc to work in locale charset */
@@ -266,9 +268,9 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 			tmp = newtmp;
 		}
 	} else {
-		DBG("Warning: Preferred charset not specified, recoding to iso-8859-1");
+		DBG("Warning: Preferred charset not specified, recoding to %s", GenericDefaultCharset);
 		newtmp =
-		    (char *)g_convert_with_fallback(tmp, bytes, "iso-8859-1",
+		    (char *)g_convert_with_fallback(tmp, bytes, GenericDefaultCharset,
 						    "UTF-8",
 						    GenericRecodeFallback, NULL,
 						    NULL, &gerror);
@@ -769,7 +771,7 @@ void generic_set_language(char *lang)
 		generic_msg_language =
 		    (TGenericLanguage *) g_malloc(sizeof(TGenericLanguage));
 		generic_msg_language->code = g_strdup("en-US");
-		generic_msg_language->charset = g_strdup("iso-8859-1");
+		generic_msg_language->charset = g_strdup(GenericDefaultCharset);
 		generic_msg_language->name = g_strdup("english");
 	}
 
