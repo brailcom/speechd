@@ -123,13 +123,14 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 	libname = g_strdup_printf("%s/" SPD_AUDIO_LIB_PREFIX "%s.so", plugin_dir, name);
 	dlhandle = dlopen(libname, RTLD_NOW | RTLD_GLOBAL);
 
-	g_free(libname);
 	if (NULL == dlhandle) {
 		*error =
 			(char *)g_strdup_printf("Cannot open plugin %s at %s. error: %s",
 						name, libname, dlerror());
+		g_free(libname);
 		return (AudioID *) NULL;
 	}
+	g_free(libname);
 
 	fn = dlsym(dlhandle, SPD_AUDIO_PLUGIN_ENTRY_STR);
 #else
@@ -145,6 +146,7 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 		*error =
 		    (char *)g_strdup_printf("Cannot open plugin %s in %s/%s. error: %s",
 					    name, plugin_dir, libname, lt_dlerror());
+		g_free(libname);
 		return (AudioID *) NULL;
 	}
 	g_free(libname);
