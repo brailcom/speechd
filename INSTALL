@@ -149,6 +149,24 @@ then go to the pico subdirectory and type
 chmod +x autogen.sh
 ./autogen.sh
 ./configure
+make
+make install
+
+Notes about cxxpiper support
+============================
+
+The cxxpiper module uses the Piper synthesis
+https://github.com/rhasspy/piper/
+
+Upstream piper however does not provide an API that can really be used nicely,
+so the build is quite convoluted. The following should be working:
+
+wget https://github.com/rhasspy/piper-phonemize/releases/download/2023.11.14-4/piper-phonemize_linux_x86_64.tar.gz
+sudo tar -C /opt -xvf piper-phonemize_linux_x86_64.tar.gz
+wget https://github.com/rhasspy/piper/archive/refs/tags/2023.11.14-2.tar.gz
+sudo tar -C /opt -xvf 2023.11.14-2.tar.gz
+CXXFLAGS=-I/opt/piper_phonemize/include LDFLAGS=-L/opt/piper_phonemize/lib ./configure --with-piper=/opt/piper-2023.11.14-2
+make
 make install
 
 Continue building Speech Dispatcher
