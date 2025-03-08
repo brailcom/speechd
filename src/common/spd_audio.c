@@ -141,13 +141,13 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 
 	libname = g_strdup_printf(SPD_AUDIO_LIB_PREFIX "%s", name);
 	lt_h = my_dlopenextglobal(libname);
-	g_free(libname);
 	if (NULL == lt_h) {
 		*error =
 		    (char *)g_strdup_printf("Cannot open plugin %s in %s/%s. error: %s",
 					    name, plugin_dir, libname, lt_dlerror());
 		return (AudioID *) NULL;
 	}
+	g_free(libname);
 
 	fn = lt_dlsym(lt_h, SPD_AUDIO_PLUGIN_ENTRY_STR);
 #endif
