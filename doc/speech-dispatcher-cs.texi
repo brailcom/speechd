@@ -85,6 +85,7 @@ přiložena v sekci nazvané ,,GNU Free Documentation License''.
 * Úvod::                        Co to je Speech Dispatcher
 * Uživatelská dokumentace::     Používání, konfigurace
 
+* Standardní hlasy::            Standardní hlasy
 * GNU General Public License::  Podmínky kopírování Speech Dispatcher
 * GNU Free Documentation License::  Podmínky kopírování tohoto manuálu
 
@@ -838,8 +839,8 @@ dat. Používejte opatrně.)
 @end itemize
 @end itemize
 
+@node Standardní hlasy, GNU General Public License, Úrovně logování, Top
 @appendix Standardní hlasy
-@anchor{Standardní hlasy}
 
 @table @code
 @item MALE1
