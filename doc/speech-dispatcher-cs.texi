@@ -11,6 +11,10 @@
 @syncodeindex fn cp
 @syncodeindex vr cp
 
+@tex
+\gdef\putwordAppendix{Pøílohy}
+@end tex
+
 @include version-2.texi
 
 @dircategory Sound
