@@ -2611,10 +2611,6 @@ The client library should redirect its stdout and stderr outputs
 either to nowhere or to its logging system. It should subsequently
 completely detach from the newly spawned process.
 
-Due to a bug in Speech Dispatcher, it is currently necessary to
-include a wait statement after the autospawn for about 0.5 seconds
-before attempting a connection.
-
 Please see how autospawn is implemented in the C API and in the Python
 API for an example.
 
