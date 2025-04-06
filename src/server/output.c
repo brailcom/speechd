@@ -315,6 +315,7 @@ GString *output_read_reply(OutputModule * output)
 			message = output_read_message(output);
 			pthread_mutex_lock(&output->read_mutex);
 			output->reading_message = FALSE;
+			pthread_cond_signal(&output->reply_cond);
 			if (!message)
 				/* Module broke */
 				break;
@@ -361,6 +362,7 @@ GString *output_read_event(OutputModule * output)
 			message = output_read_message(output);
 			pthread_mutex_lock(&output->read_mutex);
 			output->reading_message = FALSE;
+			pthread_cond_signal(&output->reply_cond);
 			if (!message)
 				/* Module broke */
 				break;
