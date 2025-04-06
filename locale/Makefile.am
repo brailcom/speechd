@@ -19,7 +19,7 @@
 
 nobase_localedata_DATA = \
 	base/font-variants.dic \
-	base/symbols-fallback.dic \
+	base/symbols.dic \
 	\
 	af/emojis.dic \
 	am/emojis.dic \
