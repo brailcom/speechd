@@ -855,7 +855,7 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 			SpeechSymbol *sym;
 
 			sym = g_hash_table_lookup(ssp->symbols, key);
-			if (!sym) {
+			if (!sym && syms != ssbase) {
 				/* This is a new simple symbol.
 				 * (All complex symbols have already been added.) */
 				sym = speech_symbol_new();
@@ -879,15 +879,17 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 					multi_chars_list = g_slist_prepend(multi_chars_list, sym->identifier);
 				}
 			}
-			/* If fields weren't explicitly specified, inherit the value from later sources. */
-			if (sym->replacement == NULL)
-				sym->replacement = g_strdup(source_sym->replacement);
-			if (sym->level == SYMLVL_INVALID)
-				sym->level = source_sym->level;
-			if (sym->preserve == SYMPRES_INVALID)
-				sym->preserve = source_sym->preserve;
-			if (sym->display_name == NULL)
-				sym->display_name = g_strdup(source_sym->display_name);
+			if (sym) {
+				/* If fields weren't explicitly specified, inherit the value from later sources. */
+				if (sym->replacement == NULL)
+					sym->replacement = g_strdup(source_sym->replacement);
+				if (sym->level == SYMLVL_INVALID)
+					sym->level = source_sym->level;
+				if (sym->preserve == SYMPRES_INVALID)
+					sym->preserve = source_sym->preserve;
+				if (sym->display_name == NULL)
+					sym->display_name = g_strdup(source_sym->display_name);
+			}
 		}
 	}
 
