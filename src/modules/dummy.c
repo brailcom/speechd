@@ -182,6 +182,8 @@ void *_dummy_speak(void *nothing)
 {
 	int status;
 
+	spd_pthread_setname("_dummy_speak");
+
 	DBG("dummy: speaking thread starting.......\n");
 
 	/* Make interruptible */

@@ -51,6 +51,7 @@
 #include <speechd_types.h>
 #include <speechd_defines.h>
 #include "libspeechd.h"
+#include "../../common/common.h"
 
 /* Comment/uncomment to switch debugging on/off */
 // #define LIBSPEECHD_DEBUG 1
@@ -1893,6 +1894,8 @@ static void *spd_events_handler(void *conn)
 	char *reply;
 	int reply_code;
 	SPDConnection *connection = conn;
+
+	spd_pthread_setname("events handler");
 
 	while (1) {
 

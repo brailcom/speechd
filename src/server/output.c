@@ -1318,6 +1318,8 @@ static void *output_thread_func(void *data)
 	OutputModule *output = data;
 	int ret;
 
+	spd_pthread_setname("output_thread_func");
+
 	while (1) {
 		ret = output_module_is_speaking(output);
 		if (ret < 0) {

@@ -399,6 +399,8 @@ void *_generic_speak(void *nothing)
 	int ret;
 	int status;
 
+	spd_pthread_setname("_generic_speak");
+
 	DBG("generic: speaking thread starting.......\n");
 
 	/* Make interruptible */

@@ -75,6 +75,7 @@ AC_SEARCH_LIBS([sqrt], [m], [],
 	[AC_MSG_FAILURE([Math library missing])])
 AC_SEARCH_LIBS([pthread_create], [pthread], [],
 	[AC_MSG_FAILURE([Threads library missing])])
+AC_CHECK_DECL([pthread_setname_np], AC_CHECK_FUNCS([pthread_setname_np]), , [#include <pthread.h>])
 AC_ARG_ENABLE([ltdl],
 	[AS_HELP_STRING([--disable-ltdl], [do not use ltdl for modules])],
 	[],

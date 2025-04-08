@@ -63,6 +63,8 @@ static void *_nas_handle_events(void *par)
 	spd_nas_id_t *nas_id = (spd_nas_id_t *) par;
 	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
 
+	spd_pthread_setname("_nas_handle_events");
+
 	while (1)
 		AuHandleEvents(nas_id->aud);
 

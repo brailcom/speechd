@@ -70,6 +70,8 @@ void *speak(void *data)
 	int revents;
 	OutputModule *output;
 
+	spd_pthread_setname("speak");
+
 	/* Make interruptible */
 	set_speaking_thread_parameters();
 
