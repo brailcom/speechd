@@ -48,6 +48,7 @@ typedef struct {
 	GString *reply;
 	GString *event;
 	gboolean reading_message;
+	gboolean reading_events;
 	gboolean waiting_for_reply;
 } OutputModule;
 #define AUDIOID_TOOPEN ((AudioID*) (-1))

@@ -320,6 +320,12 @@ GString *output_read_reply(OutputModule * output)
 				/* Module broke */
 				break;
 			if (message->str[0] == '7') {
+				if (!output->reading_events) {
+					MSG(2, "unexpected event |%s|", message->str);
+					g_string_free(message, TRUE);
+					message = NULL;
+					continue;
+				}
 				/* An event, leave it up to the event thread */
 				output->event = message;
 				message = NULL;
@@ -335,8 +341,15 @@ GString *output_read_reply(OutputModule * output)
 	return message;
 }
 
+static void output_start_reading_events(OutputModule * output)
+{
+	pthread_mutex_lock(&output->read_mutex);
+	output->reading_events = TRUE;
+	pthread_mutex_unlock(&output->read_mutex);
+}
+
 /* This is run by the module output thread during speech, to process events. */
-GString *output_read_event(OutputModule * output)
+static GString *output_read_event(OutputModule * output)
 {
 	GString *message = NULL;
 	pthread_mutex_lock(&output->read_mutex);
@@ -388,6 +401,19 @@ GString *output_read_event(OutputModule * output)
 	pthread_mutex_unlock(&output->read_mutex);
 	return message;
 }
+
+static void output_stop_reading_events(OutputModule * output)
+{
+	pthread_mutex_lock(&output->read_mutex);
+	if (output->event)
+	{
+		g_string_free(output->event, TRUE);
+		output->event = NULL;
+	}
+	output->reading_events = FALSE;
+	pthread_mutex_unlock(&output->read_mutex);
+}
+
 
 int output_send_data(const char *cmd, OutputModule * output, int wfr)
 {
@@ -882,6 +908,7 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 	output_stop_requested = 0;
 	output_pause_requested = 0;
 	output_pause_queued = 0;
+	output_start_reading_events(output);
 	spd_pthread_create(&output_thread, NULL, output_thread_func, output);
 
 	output_unlock();
@@ -1390,6 +1417,7 @@ int output_is_speaking(char **index_mark)
 		/* Wait for all audio processing to terminate before cleaning
 		 * everything */
 		pthread_join(output_thread, NULL);
+		output_stop_reading_events(output);
 	}
 
 	return 0;
