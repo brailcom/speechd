@@ -281,7 +281,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	sem_post(cicero_semaphore);
 
 	DBG("Cicero: leaving module_speak() normally\n\r");
-	return bytes;
+	return 1;
 }
 
 int module_stop(void)
