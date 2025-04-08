@@ -124,7 +124,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	sem_post(dummy_semaphore);
 
 	DBG("Dummy: leaving write() normally\n\r");
-	return bytes;
+	return 1;
 }
 
 int module_stop(void)
