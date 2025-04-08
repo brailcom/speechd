@@ -4088,7 +4088,8 @@ server, but in that case <code class="code">module_speak_sync</code> could as we
 <p>Note: if the synthesis creates separate threads, you have to set
 them to ignore all signals. The simplest way to do this is to use
 <code class="code">spd_pthread_create()</code> (which is defined in
-module_utils.c) instead of <code class="code">pthread_create()</code>.
+module_utils.c) instead of <code class="code">pthread_create()</code>. It is also interesting to
+call <code class="code">spd_thread_setname</code> to set the thread name for debugging.
 </p></dd></dl>
 
 <dl class="first-deffn">

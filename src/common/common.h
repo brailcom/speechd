@@ -25,6 +25,8 @@
 extern "C" {
 #endif
 
+#include <pthread.h>
+
 /* Debugging */
 void MSG(int level, const char *format, ...) __attribute__((format(printf, 2, 3)));
 void MSG2(int level, const char *kind, const char *format, ...) __attribute__((format(printf, 3, 4)));
@@ -32,6 +34,12 @@ void MSG2(int level, const char *kind, const char *format, ...) __attribute__((f
 
 int spd_pthread_create(pthread_t *thread, const pthread_attr_t *attr,
                           void *(*start_routine) (void *), void *arg);
+
+#ifdef HAVE_PTHREAD_SETNAME_NP
+#define spd_pthread_setname(name) pthread_setname_np(pthread_self(), name)
+#else
+#define spd_pthread_setname(name) ((void) name)
+#endif
 
 void set_speaking_thread_parameters(void);
 

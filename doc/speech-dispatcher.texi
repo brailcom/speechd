@@ -3541,7 +3541,8 @@ server, but in that case @code{module_speak_sync} could as well be used.
 Note: if the synthesis creates separate threads, you have to set
 them to ignore all signals. The simplest way to do this is to use
 @code{spd_pthread_create()} (which is defined in
-module_utils.c) instead of @code{pthread_create()}.
+module_utils.c) instead of @code{pthread_create()}. It is also interesting to
+call @code{spd_thread_setname} to set the thread name for debugging.
 @end deffn
 
 @deffn {Output module function}  {int module_stop} (void)

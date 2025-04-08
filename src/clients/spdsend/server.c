@@ -25,6 +25,7 @@
 #endif
 
 #include "spdsend.h"
+#include "../../common/common.h"
 
 #ifndef USE_THREADS
 #define USE_THREADS 1
@@ -323,6 +324,7 @@ static void process_request(Stream s)
 static void *process_request_thread(void *s)
 {
 	Stream s_deref = *((Stream *) s);
+	spd_pthread_setname("process_request_thread");
 	free(s);
 	pthread_detach(pthread_self());
 	process_request(s_deref);

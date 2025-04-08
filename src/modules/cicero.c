@@ -338,6 +338,8 @@ void *_cicero_speak(void *nothing)
 	char buf[CiceroMaxChunkLength], l[5], b[2];
 	struct pollfd ufds = { fd1[0], POLLIN | POLLPRI, 0 };
 
+	spd_pthread_setname("_cicero_speak");
+
 	DBG("cicero: speaking thread starting.......\n");
 	/* Make interruptible */
 	set_speaking_thread_parameters();
