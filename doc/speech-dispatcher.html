@@ -55,7 +55,7 @@ Next: <a href="#Introduction" accesskey="n" rel="next">Introduction</a>, Previou
 </div>
 <h1 class="top" id="Speech-Dispatcher"><span>Speech Dispatcher<a class="copiable-link" href="#Speech-Dispatcher"> &para;</a></span></h1>
 
-<p>This manual documents Speech Dispatcher, version 0.12.0.
+<p>This manual documents Speech Dispatcher, version 0.12.1.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 </p>
@@ -3093,10 +3093,6 @@ fallback to the <code class="code">SPD_SPAWN_CMD</code> compile-time constant, i
 <p>The client library should redirect its stdout and stderr outputs
 either to nowhere or to its logging system. It should subsequently
 completely detach from the newly spawned process.
-</p>
-<p>Due to a bug in Speech Dispatcher, it is currently necessary to
-include a wait statement after the autospawn for about 0.5 seconds
-before attempting a connection.
 </p>
 <p>Please see how autospawn is implemented in the C API and in the Python
 API for an example.

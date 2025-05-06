@@ -1,3 +1,13 @@
+Version 0.12.1
+* Fix spd-say -k ' '
+* Fix output getting stuck in some rare condition triggered in Orca preference dialog
+* Fix taking character punctuation levels from NVDA files.
+* espeak: Fix translated pronounciation.
+* generic: Fix getting stuck on speaking nothing.
+* generic: Add GenericDefaultCharset parameter
+* generic: Fix random garbage on non-text utterances
+* Fix Czech documentation encoding.
+
 Version 0.12
 * Add openjtalk module.
 * Add socket activation.
