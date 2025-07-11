@@ -88,8 +88,8 @@ To build and install speech-dispatcher and all of it's components, read the
 file [INSTALL](INSTALL).
 
 
-To try speech-dispatcher without installing it (e.g. to avoid disturbing an
-existing speech-dispatcher instance), you can run
+To try the just-built speech-dispatcher without installing it (e.g. to avoid
+disturbing an existing speech-dispatcher instance), you can run
 
 ```
 ./run-speechd -t 0 -s
@@ -99,6 +99,20 @@ and in another terminal run
 
 ```
 ./run-spd-say foo
+```
+
+You can also make other speech-dispatcher clients connect to your dedicated
+instance by first running
+
+```
+export SPEECHD_ADDRESS=inet_socket:127.0.0.1:6561
+```
+
+If you want those clients to also use the just-built libspeechd, you can
+additionally use
+
+```
+export LD_LIBRARY_PATH=$PWD/src/api/c/.libs
 ```
 
 
@@ -183,7 +197,7 @@ LGPLv2.1-or-later source code.
 
 
 Copyright (C) 2001-2009 Brailcom, o.p.s
-Copyright (C) 2018-2020, 2022, 2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2020, 2022, 2024-2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Didier Spaier <didier@slint.fr>
 
 This README file is free software; you can redistribute it and/or modify it under
