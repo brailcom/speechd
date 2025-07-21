@@ -53,10 +53,12 @@
 static int32_t pipewire_log_level; // only one per module, accessing this from multiple threads is unsafe, etc etc etc
 // the message and error macros are used for the actual logging part
 #define message(level, arg, ...)                 \
+do {                                             \
     if (level <= pipewire_log_level)             \
     {                                            \
         MSG(0, "pipewire: " arg, ##__VA_ARGS__); \
-    }
+    }                                            \
+} while (0)
 #define error(arg, ...) message(0, "pipewire: fatal: " arg, ##__VA_ARGS__)
 
 // state of the backend, where all components are gathered. This will be allocated on the heap
@@ -118,7 +120,7 @@ static void on_process(void *userdata)
 #else
     total_number_of_bytes_in_pipewire_buffer = SPA_MIN(available_bytes_in_speech_dispatcher_buffer, total_number_of_bytes_in_pipewire_buffer);
 #endif
-    message(4, "we should fill %i/%i bytes in the pipewire provided buffer", total_number_of_bytes_in_pipewire_buffer, buf->datas[0].maxsize)
+    message(4, "we should fill %i/%i bytes in the pipewire provided buffer", total_number_of_bytes_in_pipewire_buffer, buf->datas[0].maxsize);
     // if there's something to be read from the ring buffer at this time, we do so now
     if (available_bytes_in_speech_dispatcher_buffer > 0)
     {
@@ -267,6 +269,22 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     message(4, "connecting pipewire stream");
     pw_thread_loop_lock(state->loop);
     pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, &params, 1);
+
+    // The default quality 4 notably make espeak-ng's output lame
+    int quality = 10;
+    struct spa_pod_frame f[2];
+    spa_pod_builder_push_object(&b, &f[0], SPA_TYPE_OBJECT_Props, SPA_PARAM_Props);
+    spa_pod_builder_prop(&b, SPA_PROP_params, 0);
+    spa_pod_builder_push_struct(&b, &f[1]);
+    spa_pod_builder_string(&b, "resample.quality");
+    spa_pod_builder_int(&b, quality);
+    spa_pod_builder_pop(&b, &f[1]);
+    params = spa_pod_builder_pop(&b, &f[0]);
+    if (pw_stream_set_param(state->stream, SPA_PARAM_Props, params) != 0)
+	error("could not set quality");
+    else
+	message(4, "quality set to %d", quality);
+
     pw_thread_loop_unlock(state->loop);
     message(4, "stream connecting successful");
     return 0;
@@ -367,7 +385,7 @@ static int pipewire_stop(AudioID *id)
 static int pipewire_set_volume(AudioID *id, int volume)
 {
     module_state *state = (module_state *)id;
-    message(3, "setting audio stream volume to %i", volume)
+    message(3, "setting audio stream volume to %i", volume);
         // because volume is given to us in the range -100, 100 and pipewire requests a floating point number between 0 and 1, we have to normalize it first
         int min_value = -100;
     int max_value = 100;
