@@ -590,6 +590,8 @@ clientconfdir='${spdconfdir}/clients'
 AC_SUBST([clientconfdir])
 moduleconfdir='${spdconfdir}/modules'
 AC_SUBST([moduleconfdir])
+pwpuconfdir='${sysconfdir}/pipewire/pipewire-pulse.conf.d'
+AC_SUBST([pwpuconfdir])
 
 # Paths for read-only copy of configuration files:
 spdconforigdir='${datadir}/speech-dispatcher/conf'
