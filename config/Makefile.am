@@ -23,4 +23,6 @@ dist_spdconf_DATA= speechd.conf
 
 dist_spdconforig_DATA= speechd.conf
 
+dist_pwpuconf_DATA= speechd-quality.conf
+
 -include $(top_srcdir)/git.mk
