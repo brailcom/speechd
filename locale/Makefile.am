@@ -289,6 +289,55 @@ nobase_localedata_DATA = \
 	zh_HK/orca-chars.dic \
 	zh_TW/orca-chars.dic \
 	\
+	base/orca-math.dic \
+	be/orca-math.dic \
+	bg/orca-math.dic \
+	bs/orca-math.dic \
+	ca/orca-math.dic \
+	ca@valencia/orca-math.dic \
+	ckb/orca-math.dic \
+	cs/orca-math.dic \
+	da/orca-math.dic \
+	de/orca-math.dic \
+	el/orca-math.dic \
+	en_GB/orca-math.dic \
+	eo/orca-math.dic \
+	es/orca-math.dic \
+	eu/orca-math.dic \
+	fa/orca-math.dic \
+	fr/orca-math.dic \
+	gl/orca-math.dic \
+	he/orca-math.dic \
+	hr/orca-math.dic \
+	hu/orca-math.dic \
+	id/orca-math.dic \
+	it/orca-math.dic \
+	kab/orca-math.dic \
+	ka/orca-math.dic \
+	kk/orca-math.dic \
+	lt/orca-math.dic \
+	lv/orca-math.dic \
+	ml/orca-math.dic \
+	ms/orca-math.dic \
+	nb/orca-math.dic \
+	ne/orca-math.dic \
+	nl/orca-math.dic \
+	oc/orca-math.dic \
+	pl/orca-math.dic \
+	pt_BR/orca-math.dic \
+	pt/orca-math.dic \
+	ro/orca-math.dic \
+	ru/orca-math.dic \
+	sk/orca-math.dic \
+	sl/orca-math.dic \
+	sr@latin/orca-math.dic \
+	sr/orca-math.dic \
+	sv/orca-math.dic \
+	tr/orca-math.dic \
+	uk/orca-math.dic \
+	uz/orca-math.dic \
+	zh_CN/orca-math.dic \
+	\
 	an/symbols.dic \
 	ar/symbols.dic \
 	bg/symbols.dic \
