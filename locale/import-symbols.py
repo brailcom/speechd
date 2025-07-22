@@ -113,7 +113,7 @@ with open(unicodeDataPath, "r", newline='') as uDataFile:
 			if pronouncedCharacter != GLib.utf8_normalize(fontVariant, -1, GLib.NormalizeMode.ALL_COMPOSE):
 			    fontVariantsDict[fontVariant] = pronouncedCharacter
 
-# Write the dictionary to en/font-variants.dic with documentation at the top
+# Write the dictionary to base/font-variants.dic with documentation at the top
 with codecs.open("base/font-variants.dic", "w", "utf_8_sig", errors="replace") as dicFile:
 	dicFile.write(docHeader)
 	dicFile.write(str(fontVariantsDict))
