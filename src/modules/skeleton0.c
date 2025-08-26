@@ -1,7 +1,7 @@
 /*
  * skeleton0.c - Trivial module example
  *
- * Copyright (C) 2020-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2020-2021, 2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -222,6 +222,8 @@ size_t module_pause(void)
 	fprintf(stderr, "pausing\n");
 	stop_requested = 1;
 
+	module_report_event_stop();
+
 	return 0;
 }
 
@@ -230,6 +232,8 @@ int module_stop(void)
 	/* TODO: Stop any current synth */
 	fprintf(stderr, "stopping\n");
 	stop_requested = 1;
+
+	module_report_event_stop();
 
 	return 0;
 }
