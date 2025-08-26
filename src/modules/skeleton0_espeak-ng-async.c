@@ -293,6 +293,7 @@ static int callback(short *wav, int numsamples, espeak_EVENT *events)
 
 	if (!began) {
 		began = 1;
+		/* We started producing audio */
 		module_report_event_begin();
 	}
 	while (cur->type != espeakEVENT_LIST_TERMINATED)
@@ -300,6 +301,7 @@ static int callback(short *wav, int numsamples, espeak_EVENT *events)
 		fprintf(stderr, "got event %d from synth\n", cur->type);
 		switch (cur->type) {
 			case espeakEVENT_MSG_TERMINATED:
+				/* We have finished the synth, tell the server so it can send us the next message. */
 				module_report_event_end();
 				break;
 			default:
