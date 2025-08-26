@@ -1,7 +1,7 @@
 /*
  * skeleton0.c - Trivial module example
  *
- * Copyright (C) 2020-2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2020-2022, 2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -347,6 +347,8 @@ size_t module_pause(void)
 	/* Only supports stopping */
 	espeak_Cancel();
 
+	module_report_event_stop();
+
 	return 0;
 }
 
@@ -356,6 +358,8 @@ int module_stop(void)
 	fprintf(stderr, "stopping\n");
 
 	espeak_Cancel();
+
+	module_report_event_stop();
 
 	return 0;
 }
