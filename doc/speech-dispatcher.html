@@ -3736,14 +3736,14 @@ for messages from the server. Or the synthesis can run asynchronously in a
 separate thread, in which case you need to use
 <code class="code">module_speak</code> instead of <code class="code">module_speak_sync</code>: it should return
 immediately after starting the production of synthesis. Then
-<code class="code">module_speak_begin()</code> should be called when it actually
-starts emitting audio, and <code class="code">module_speak_end()</code> should be called when it is
+<code class="code">module_report_event_begin()</code> should be called when it actually
+starts emitting audio, and <code class="code">module_report_event_end()</code> should be called when it is
 finished emitting audio. In either cases, if <code class="code">module_stop</code>
 is getting called, the synthesis should stop as soon as possible and
-<code class="code">module_speak_stop()</code> be called instead of <code class="code">module_speak_end()</code>.
+<code class="code">module_report_event_stop()</code> be called instead of <code class="code">module_report_event_end()</code>.
 Similarly, if <code class="code">module_pause</code> is getting called, the synthesis should stop
 on next mark whose name starts with <code class="code">__spd_</code>, and
-<code class="code">module_speak_pause()</code> be called instead of <code class="code">module_speak_end()</code>.
+<code class="code">module_report_event_paused()</code> be called instead of <code class="code">module_report_event_end()</code>.
 As a first step, <code class="code">module_pause</code> can be made to behave just like
 <code class="code">module_stop</code>.
 </p>
@@ -4057,9 +4057,9 @@ accepted. From then on, the server may send stop requests, so resetting the stop
 state must be done before calling this.
 On errors, <code class="code">module_speak_error()</code> has to be called instead.
 </p>
-<p>When actual synthesis starts, <code class="code">module_speak_begin()</code> must be called to let
-the server know of this. On synthesis termination, <code class="code">module_speak_end()</code>
-should be called (or <code class="code">module_speak_pause()</code>, <code class="code">module_speak_stopped()</code>
+<p>When actual synthesis starts, <code class="code">module_report_event_begin()</code> must be called to let
+the server know of this. On synthesis termination, <code class="code">module_report_event_end()</code>
+should be called (or <code class="code">module_report_event_paused()</code>, <code class="code">module_report_event_stop()</code>
 if the synthesis was interrupted through <code class="code">module_pause()</code> or <code class="code">module_stop()</code>).
 </p>
 <p>This function should return only when it is finished with synthesizing.  It
