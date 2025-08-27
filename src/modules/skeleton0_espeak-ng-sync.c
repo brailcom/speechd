@@ -279,7 +279,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	module_report_event_begin();
 
 	/* TODO: ideally, espeak would call a callback from times to times, so
-	 * we'd be able to call module_process_STDIN_FILENO, 0) in it so as to
+	 * we'd be able to call module_process(STDIN_FILENO, 0) in it so as to
 	 * process any stop request from the server before the end of the synth.
 	 */
 	espeak_Synth(data, strlen(data) + 1, 0, POS_CHARACTER, 0,
