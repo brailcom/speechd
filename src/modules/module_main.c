@@ -1,7 +1,7 @@
 /*
  * module_main.c - Main file of output modules.
  *
- * Copyright (C) 2020-2021, 2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2020-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -42,15 +42,9 @@ int main(int argc, char *argv[])
 	char *configfile = NULL;
 	char *line, *msg = NULL;
 	int ret;
-	pthread_mutexattr_t attr;
 
 	if (argc >= 2)
 		configfile = argv[1];
-
-	/* To make it convenient for some async modules to make some sync calls.  */
-	pthread_mutexattr_init(&attr);
-	pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-	pthread_mutex_init(&module_stdout_mutex, &attr);
 
 	/* Read configuration */
 	ret = module_config(configfile);
