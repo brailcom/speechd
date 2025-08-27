@@ -3201,14 +3201,14 @@ for messages from the server. Or the synthesis can run asynchronously in a
 separate thread, in which case you need to use
 @code{module_speak} instead of @code{module_speak_sync}: it should return
 immediately after starting the production of synthesis. Then
-@code{module_speak_begin()} should be called when it actually
-starts emitting audio, and @code{module_speak_end()} should be called when it is
+@code{module_report_event_begin()} should be called when it actually
+starts emitting audio, and @code{module_report_event_end()} should be called when it is
 finished emitting audio. In either cases, if @code{module_stop}
 is getting called, the synthesis should stop as soon as possible and
-@code{module_speak_stop()} be called instead of @code{module_speak_end()}.
+@code{module_report_event_stop()} be called instead of @code{module_report_event_end()}.
 Similarly, if @code{module_pause} is getting called, the synthesis should stop
 on next mark whose name starts with @code{__spd_}, and
-@code{module_speak_pause()} be called instead of @code{module_speak_end()}.
+@code{module_report_event_paused()} be called instead of @code{module_report_event_end()}.
 As a first step, @code{module_pause} can be made to behave just like
 @code{module_stop}.
 
@@ -3511,9 +3511,9 @@ accepted. From then on, the server may send stop requests, so resetting the stop
 state must be done before calling this.
 On errors, @code{module_speak_error()} has to be called instead.
 
-When actual synthesis starts, @code{module_speak_begin()} must be called to let
-the server know of this. On synthesis termination, @code{module_speak_end()}
-should be called (or @code{module_speak_pause()}, @code{module_speak_stopped()}
+When actual synthesis starts, @code{module_report_event_begin()} must be called to let
+the server know of this. On synthesis termination, @code{module_report_event_end()}
+should be called (or @code{module_report_event_paused()}, @code{module_report_event_stop()}
 if the synthesis was interrupted through @code{module_pause()} or @code{module_stop()}).
 
 This function should return only when it is finished with synthesizing.  It
