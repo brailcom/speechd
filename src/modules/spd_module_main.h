@@ -1,7 +1,7 @@
 /*
  * spd_module_main.h - Interface for main loop of output modules.
  *
- * Copyright (C) 2020-2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2020-2021, 2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -61,23 +61,11 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype);
 /* Synchronous Speak */
 void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype);
 
-/* Report speak start */
-void module_speak_begin(void);
-
-/* Report speak end */
-void module_speak_end(void);
-
 /* Pause */
 size_t module_pause(void);
 
-/* Report speak pause */
-void module_speak_pause(void);
-
 /* Stop */
 int module_stop(void);
-
-/* Report speak stop */
-void module_speak_stop(void);
 
 /* Called before exit.  */
 int module_close(void);
