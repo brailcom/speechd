@@ -687,6 +687,8 @@ static int speech_symbols_load(SpeechSymbols *ss, const char *filename, gboolean
 	free(line);
 	fclose(fp);
 
+	MSG2(1, "symbols", "Loaded file '%s'", filename);
+
 	return 0;
 }
 
