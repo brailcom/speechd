@@ -269,7 +269,10 @@ GString *output_read_message(OutputModule * output)
 		}
 		/* terminate if we reached the last line (without '-' after numcode) */
 	} while (!errors && !((strlen(line) < 4) || (line[3] == ' ')));
-	MSG(5, "Finished reading message, with errors %d", errors);
+	if (errors)
+		MSG(5, "Finished reading message, with errors");
+	else
+		MSG(5, "Finished reading message");
 
 	if (line != NULL)
 		free(line);
