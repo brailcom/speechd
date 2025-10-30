@@ -675,8 +675,8 @@ static void *speak_queue_stop_or_pause(void *nothing)
 		DBG(DBG_MODNAME " Clearing playback queue.");
 		speak_queue_clear_playback_queue();
 
-		int save_pause_state = speak_queue_pause_state;
 		pthread_mutex_lock(&speak_queue_mutex);
+		int save_pause_state = speak_queue_pause_state;
 		module_speak_queue_reset();
 		pthread_mutex_unlock(&speak_queue_mutex);
 
