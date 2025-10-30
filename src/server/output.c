@@ -1249,10 +1249,6 @@ static int output_module_is_speaking(OutputModule * output)
 		if (retcode < 0)
 			goto out;
 
-		size = track.num_channels * track.num_samples * track.bits / 8;
-		track.samples = malloc(size);
-		filled = 0;
-
 		end = memchr(p, '\n', end - p);
 		if (!end) {
 			MSG2(2, "output_module",
@@ -1260,6 +1256,10 @@ static int output_module_is_speaking(OutputModule * output)
 			retcode = -5;
 			goto out;
 		}
+
+		size = track.num_channels * track.num_samples * track.bits / 8;
+		track.samples = malloc(size);
+		filled = 0;
 
 		char *data = (char*) track.samples;
 
