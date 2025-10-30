@@ -689,8 +689,8 @@ static gint modules_compare (gconstpointer a, gconstpointer b)
 	const char *name_a = params_a[0];
 	const char **params_b = (const char **) b;
 	const char *name_b = params_b[0];
-	unsigned index_a;
-	unsigned index_b;
+	int index_a;
+	int index_b;
 
 	/* This gives the prioritization order of modules, to automatically select the best quality */
 	static const char *modules_order[] = {
