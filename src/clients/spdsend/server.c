@@ -339,7 +339,7 @@ static const char *login_name()
 	return getpwuid(getuid())->pw_name;
 }
 
-static const char *server_socket_name()
+static char *server_socket_name()
 {
 	char *name;
 	if (asprintf(&name, "/tmp/spdsend-server.%s", login_name()) < 0)
@@ -352,7 +352,7 @@ static void serve()
 	struct sockaddr_un name;
 	int sock;
 	size_t size;
-	const char *filename = server_socket_name();
+	char *filename = server_socket_name();
 
 	sock = socket(PF_LOCAL, SOCK_STREAM, 0);
 	if (sock < 0)
@@ -367,6 +367,7 @@ static void serve()
 		system_error("bind");
 	if (listen(sock, LISTEN_QUEUE_LENGTH) < 0)
 		system_error("listen");
+	free(filename);
 
 	while (1) {
 		struct sockaddr_un client_address;
