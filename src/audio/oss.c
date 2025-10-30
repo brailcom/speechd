@@ -91,10 +91,12 @@ static int _oss_close(spd_oss_id_t * id)
 	MSG(1, "_oss_close()")
 	    if (id == NULL)
 		return 0;
-	if (id->fd < 0)
-		return 0;
-
 	pthread_mutex_lock(&id->fd_mutex);
+	if (id->fd < 0) {
+		pthread_mutex_unlock(&id->fd_mutex);
+		return 0;
+	}
+
 	close(id->fd);
 	id->fd = -1;
 	pthread_mutex_unlock(&id->fd_mutex);
