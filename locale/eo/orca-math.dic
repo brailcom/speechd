@@ -7,6 +7,8 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
+←	maldekstra sago	none
+↑	supren sago	none
 →	dekstra sago	none
 ↓	malsupren sago	none
 ↔	maldekstra dekstra sago	none
@@ -14,63 +16,293 @@ symbols:
 ↖	nordokcidenta sago	none
 ↗	nordorienta sago	none
 ↘	sudorienta sago	none
+↤	maldekstra sago el strio	none
 ↥	supren sago de stango	none
 ↦	dekstra sago de stango	none
+↧	malsupren sago el strio	none
 ⇐	maldekstra duobla sago	none
 ⇑	supren duobla sago	none
 ⇒	dekstra duobla sago	none
 ⇓	malsupren duobla sago	none
+⇔	maldekstra-dekstra duobla sago	none
+⇕	supren-malsupren duobla sago	none
+⇖	nordokcidenta duobla sago	none
+⇗	nordorienta duobla sago	none
+⇘	sudorienta duobla sago	none
+⇙	sudokcidenta duobla sago	none
+➔	dekstren montranta sago	none
+➢	dekstren montranta sagopinto	none
 ⟨	maldekstra angula krampo	none
 ⟩	dekstra angula krampo	none
+∠	angulo	none
+∡	mezurita angulo	none
+∢	sfera angulo	none
+∣	dividas	none
+∤	ne dividas	none
+∥	paralela al	none
+∦	ne paralela al	none
+∧	logika kaj	none
+∨	logika aŭ	none
 ∩	intersekciĝo	none
 ∪	kuniĝo	none
+∫	integralo	none
 ∬	duobla integralo	none
 ∭	triobla integralo	none
+∮	kontura integralo	none
 ∯	surfaca integralo	none
+∰	voluma integralo	none
+∱	horloĝnadla integralo	none
+∲	horloĝnadla kontura integralo	none
+∳	malhorloĝnadla kontura integralo	none
+∴	tial	none
 ∵	ĉar	none
 ∶	proporcio	none
+∷	proporcio	none
+∸	punkta minus	none
+∹	troaĵo	none
+∺	geometria proporcio	none
+∻	homotetia	none
 ∼	tildo	none
+∽	renversita tildo	none
 ∾	renversita maldiligenta S	none
+∿	sinusoido	none
+≀	girlanda produkto	none
+≁	ne tildo	none
+≂	minus tildo	none
+≃	asimptote egala al	none
+≄	ne asimptote egala al	none
+≅	proksimume egala al	none
+≆	proksimume sed ne efektive egala al	none
+≇	nek proksimume nek efektive egala al	none
+≈	preskaŭ egala al	none
+≉	ne preskaŭ egala al	none
+≊	preskaŭ egala aŭ egala al	none
+≋	triobla tildo	none
+≌	ĉio egala al	none
+≍	ekvivalenta al	none
+≎	geometrie ekvivalenta al	none
+≏	diferenco inter	none
 ≐	alproksimiĝas al la limo	none
+≑	geometrie egala al	none
+≒	proksimume egala al aŭ la bildo de	none
+≓	bildo de aŭ proksimume egala al	none
+≔	dupunkto egalo	none
+≕	egalo dupunkto	none
+≖	ringo ene egala al	none
+≗	ringo egala al	none
 ≘	respondas al	none
 ≙	taksoj	none
+≚	egalangula al	none
+≛	stela egalo	none
 ≜	delto egala al	none
 ≝	egala al per difino	none
 ≞	mezurita per	none
+≟	duba egalo	none
 ≠	ne egala al	none
 ≡	identa al	none
 ≢	ne identa al	none
+≣	strikte ekvivalenta al	none
+≤	malpli ol aŭ egala al	none
+≥	pli ol aŭ egala al	none
+≦	malpli ol super egala al	none
+≧	pli granda ol super egala al	none
+≨	malpli ol sed ne egala al	none
+≩	pli granda ol sed ne egala al	none
+≪	multe malpli ol	none
+≫	multe pli granda ol	none
 ≬	inter	none
+≭	ne ekvivalenta al	none
+≮	ne malpli ol	none
+≯	ne pli granda ol	none
+≰	nek malpli ol nek egala al	none
+≱	nek pli granda ol nek egala al	none
+≲	malpli ol aŭ ekvivalenta al	none
+≳	pli granda ol aŭ ekvivalenta al	none
+≴	nek malpli ol nek ekvivalenta al	none
+≵	nek pli granda ol nek ekvivalenta al	none
 ≶	malpli ol aŭ pli granda ol	none
 ≷	pli granda ol aŭ malpli ol	none
+≸	nek malpli ol nek pli granda ol	none
+≹	nek pli granda ol nek malpli ol	none
+≺	antaŭas	none
+≻	sekvas	none
+≼	antaŭas aŭ egala al	none
+≽	sekvas aŭ egala al	none
+≾	antaŭas aŭ ekvivalenta al	none
+≿	sekvas aŭ ekvivalenta al	none
+⊀	ne antaŭas	none
+⊁	ne sekvas	none
+⊂	subaro de	none
+⊃	superaro de	none
+⊄	ne subaro de	none
+⊅	ne superaro de	none
+⊆	subaro de aŭ egala al	none
+⊇	superaro de aŭ egala al	none
+⊈	nek subaro de nek egala al	none
+⊉	nek superaro de nek egala al	none
+⊊	subaro de sed ne egala al	none
+⊋	superaro de sed ne egala al	none
+⊌	pluraro	none
+⊍	plurara multipliko	none
+⊎	plurara kuniĝo	none
+⊏	kvadrata bildo de	none
 ⊐	kvadrata originalo de	none
+⊑	kvadrata bildo de aŭ egala al	none
+⊒	kvadrata originalo de aŭ egala al	none
+⊓	kvadrata kapo	none
+⊔	kvadrata taso	none
+⊕	en cirklo plus	none
+⊖	en cirklo minus	none
+⊗	en cirklo multipliko	none
+⊘	en cirklo divid-signo	none
+⊙	en cirklo punkto	none
+⊚	en cirklo ringo	none
 ⊛	cirkulita asterisko operatoro	none
+⊜	en cirklo egalo	none
+⊝	en cirklo streko	none
+⊞	en kvadrato plus	none
+⊟	en kvadrato minus	none
+⊠	en kvadrato multipliko	none
 ⊡	kvadrata punkto operatoro	none
+⊢	dekstra krampo	none
+⊣	maldekstra krampo	none
+⊤	malsuprena krampo	none
+⊥	suprena krampo	none
+⊦	aserto	none
+⊧	modeloj	none
 ⊨	vere	none
+⊩	devigas	none
+⊪	triobla vertikala strio dekstra turnostilo	none
+⊫	duobla vertikala strio duobla dekstra turnostilo	none
+⊬	ne pruvas	none
+⊭	malvera	none
+⊮	ne devigas	none
+⊯	negaciita duobla vertikala strio duobla dekstra turnostilo	none
+⊰	antaŭas sub rilato	none
+⊱	sekvas sub rilato	none
+⊲	normala subgrupo de	none
+⊳	enhavas kiel normalan subgrupon	none
+⊴	normala subgrupo de aŭ egala al	none
+⊵	enhavas kiel normalan subgrupon de aŭ egala al	none
 ⊶	originalo de	none
+⊷	bildo de	none
+⊸	plura mapo	none
+⊹	hermitia konjugita matrico	none
+⊺	interkalki	none
+⊻	ekskluziva aŭ	none
+⊼	ne kaj	none
+⊽	ne aŭ	none
+⊾	dekstra angulo kun arko	none
 ⊿	dekstra triangulo	none
+⋀	logika kaj	none
+⋁	logika aŭ	none
 ⋂	intersekciĝo	none
 ⋃	kuniĝo	none
-⋄	diamanta funkciigisto	none
+⋄	diamanta operatoro	none
 ⋅	punkta operatoro	none
+⋆	operacio stelo	none
+⋇	divido signmultoblo	none
+⋈	papilio	none
+⋉	maldekstra normala faktora durekta produkto	none
+⋊	dekstra normala faktora durekta produkto	none
+⋋	maldekstra durekta produkto	none
+⋌	dekstra durekta produkto	none
+⋍	renversita tildo egala	none
+⋎	bukla logika aŭ	none
+⋏	bukla logika kaj	none
+⋐	duobla subaro	none
+⋑	duobla superaro	none
 ⋒	duobla intersekco	none
 ⋓	duobla kuniĝo	none
 ⋔	forko	none
+⋕	egala kaj paralela al	none
+⋖	malpli ol kun punkto	none
+⋗	pli ol kun punkto	none
+⋘	tre multe malpli ol	none
+⋙	tre multe pli ol	none
+⋚	malpli ol egala al aŭ pli ol	none
+⋛	pli ol egala al aŭ malpli ol	none
+⋜	egala al aŭ malpli ol	none
+⋝	egala al aŭ pli ol	none
+⋞	egala al aŭ antaŭas	none
+⋟	egala al aŭ sekvas	none
+⋠	ne antaŭas aŭ egala	none
+⋡	ne sekvas aŭ egala	none
+⋢	ne kvadrata bildo de aŭ egala al	none
+⋣	ne kvadrata originalo de aŭ egala al	none
+⋤	kvadrata bildo de aŭ ne egala al	none
+⋥	kvadrata originalo de aŭ ne egala al	none
+⋦	malpli ol sed ne ekvivalenta al	none
+⋧	pli ol sed ne ekvivalenta al	none
+⋨	antaŭas sed ne ekvivalenta al	none
+⋩	sekvas sed ne ekvivalenta al	none
+⋪	ne normala subgrupo de	none
+⋫	ne enhavas kiel normalan subgrupon	none
+⋬	ne normala subgrupo de aŭ egala al	none
+⋭	ne enhavas kiel normalan subgrupon aŭ egala	none
 ⋮	vertikala elipso	none
 ⋯	mezlinia horizontala elipso	none
+⋰	supren dekstra diagonala elipso	none
+⋱	malsupren dekstra diagonala elipso	none
+⋲	elemento de kun longa horizonta streko	none
+⋳	elemento de kun vertikala strio fine de horizonta streko	none
+⋴	malgranda elemento de kun vertikala strio fine de horizonta streko	none
 ⋵	elemento de kun punkto supre	none
+⋶	elemento de kun superstrio	none
+⋷	malgranda elemento de kun superstrio	none
+⋸	elemento de kun substrio	none
+⋹	elemento de kun du horizontaj strekoj	none
+⋺	enhavas kun longa horizonta streko	none
+⋻	enhavas kun vertikala strio fine de horizonta streko	none
+⋼	malgrande enhavas kun vertikala strio fine de horizonta streko	none
+⋽	enhavas kun superstrio	none
+⋾	malgrande enhavas kun superstrio	none
+⋿	z-notacia sak-aparteneco	none
 ⨀	rondigita punkto	none
+⨁	en cirklo plus	none
+⨂	en cirklo multipliko	none
 ⨃	kuniĝo kun punkto	none
 ⨄	kuniĝo kun pluso	none
 ⨅	kvadrata intersekco	none
 ⨆	kvadrata kuniĝo	none
+<	malpli ol	none
+>	pli granda ol	none
 ^	cirkumflekso	none
+ˇ	harketo	none
+˘	kurbeto	none
 ˙	punkto	none
+‖	duobla vertikala linio	none
+…	horizontala tripunkto	none
 ∀	por ĉiuj	none
+∁	komplemento	none
+∂	parta diferenco	none
+∃	ekzistas	none
+∄	ne ekzistas	none
+∅	malplena aro	none
+∆	inkremento	none
 ∇	nabla simbolo	none
+∈	elemento de	none
+∉	ne elemento de	none
+∊	malgranda elemento de	none
+∋	entenanta kiel membro	none
+∌	ne entenas kiel membron	none
+∍	malgranda entenas kiel membron	none
+∎	fino de pruvo	none
 ∏	produkto	none
 ∐	kunprodukto	none
 ∓	minus aŭ plus	none
+∔	punkta plus	none
+∕	divida oblikvo	none
+∖	aro-minus	none
+∗	operacio stelo	none
+∘	riga operacio	none
+∙	punkta operacio	none
+√	kvadrata radiko	none
+∛	kuba radiko	none
+∜	kvara radiko	none
+∝	proporcia al	none
+∞	senfineco	none
+∟	rekta angulo	none
 ⌈	maldekstra plafono	none
 ⌉	dekstra plafono	none
 ⌊	maldekstra planko	none

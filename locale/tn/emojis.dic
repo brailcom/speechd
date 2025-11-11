@@ -467,6 +467,9 @@ symbols:
 🦈	shaka	none
 🐙	okothopase	none
 🐚	kgapetla e e itshopang	none
+🦀	lekakaie	none
+🦐	shrimp	none
+🦑	squid	none
 🐌	kgopa	none
 🦋	serurubele	none
 🐛	setshedinyana	none
@@ -568,9 +571,6 @@ symbols:
 🥟	ledombolo	none
 🥠	khukhi ya lesego	none
 🥡	lebokoso la dijo tse di jelwang kwa gae	none
-🦀	lekakaie	none
-🦐	shrimp	none
-🦑	squid	none
 🍦	aese kirimi e e seng thata	none
 🍧	shaved ice	none
 🍨	aese kirimi	none
@@ -922,9 +922,9 @@ symbols:
 🎧	sereetsaditsebeng	none
 📻	radio	none
 🎷	sekesofouno	none
+🎺	lenaka	none
 🎸	katara	none
 🎹	khiiboto ya mmino	none
-🎺	lenaka	none
 🎻	bayolene	none
 🥁	moropa	none
 📱	founo ya mobaele	none
@@ -1507,6 +1507,46 @@ symbols:
 🧑🏿‍❤‍🧑🏼	bobedi ka pelo mogolo, mogolo, letlalo la mmala o montsho, letlalo le le bosweu jo bo mo magareng	none
 🧑🏿‍❤‍🧑🏽	bobedi ka pelo mogolo, mogolo, letlalo la mmala o montsho, letlalo la mmala o o mo magareng	none
 🧑🏿‍❤‍🧑🏾	bobedi ka pelo mogolo, mogolo, letlalo la mmala o montsho, letlalo la mmala wa bontsho jo bo mo magareng	none
+🧑🏻‍🫯‍🧑🏼	batho ba ba lwang ka go mekamekana letlalo le lesweu, letlalo le le bosweu jo bo mo magareng	none
+🧑🏻‍🫯‍🧑🏽	batho ba ba lwang ka go mekamekana letlalo le lesweu, letlalo la mmala o o mo magareng	none
+🧑🏻‍🫯‍🧑🏾	batho ba ba lwang ka go mekamekana letlalo le lesweu, letlalo la mmala wa bontsho jo bo mo magareng	none
+🧑🏻‍🫯‍🧑🏿	batho ba ba lwang ka go mekamekana letlalo le lesweu, letlalo la mmala o montsho	none
+🧑🏼‍🫯‍🧑🏻	batho ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo le lesweu	none
+🧑🏼‍🫯‍🧑🏽	batho ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo la mmala o o mo magareng	none
+🧑🏼‍🫯‍🧑🏾	batho ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+🧑🏼‍🫯‍🧑🏿	batho ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo la mmala o montsho	none
+🧑🏽‍🫯‍🧑🏻	batho ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo le lesweu	none
+🧑🏽‍🫯‍🧑🏼	batho ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo le le bosweu jo bo mo magareng	none
+🧑🏽‍🫯‍🧑🏾	batho ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+🧑🏽‍🫯‍🧑🏿	batho ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo la mmala o montsho	none
+🧑🏾‍🫯‍🧑🏻	batho ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo le lesweu	none
+🧑🏾‍🫯‍🧑🏼	batho ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo le le bosweu jo bo mo magareng	none
+🧑🏾‍🫯‍🧑🏽	batho ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o o mo magareng	none
+🧑🏾‍🫯‍🧑🏿	batho ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o montsho	none
+🧑🏿‍🫯‍🧑🏻	batho ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo le lesweu	none
+🧑🏿‍🫯‍🧑🏼	batho ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo le le bosweu jo bo mo magareng	none
+🧑🏿‍🫯‍🧑🏽	batho ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo la mmala o o mo magareng	none
+🧑🏿‍🫯‍🧑🏾	batho ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo la mmala wa bontsho jo bo mo magareng	none
+🧑🏻‍🐰‍🧑🏼	batho ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo le le bosweu jo bo mo magareng	none
+🧑🏻‍🐰‍🧑🏽	batho ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo la mmala o o mo magareng	none
+🧑🏻‍🐰‍🧑🏾	batho ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo la mmala wa bontsho jo bo mo magareng	none
+🧑🏻‍🐰‍🧑🏿	batho ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo la mmala o montsho	none
+🧑🏼‍🐰‍🧑🏻	batho ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo le lesweu	none
+🧑🏼‍🐰‍🧑🏽	batho ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo la mmala o o mo magareng	none
+🧑🏼‍🐰‍🧑🏾	batho ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+🧑🏼‍🐰‍🧑🏿	batho ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo la mmala o montsho	none
+🧑🏽‍🐰‍🧑🏻	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo le lesweu	none
+🧑🏽‍🐰‍🧑🏼	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo le le bosweu jo bo mo magareng	none
+🧑🏽‍🐰‍🧑🏾	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+🧑🏽‍🐰‍🧑🏿	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo la mmala o montsho	none
+🧑🏾‍🐰‍🧑🏻	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo le lesweu	none
+🧑🏾‍🐰‍🧑🏼	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo le le bosweu jo bo mo magareng	none
+🧑🏾‍🐰‍🧑🏽	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o o mo magareng	none
+🧑🏾‍🐰‍🧑🏿	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o montsho	none
+🧑🏿‍🐰‍🧑🏻	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo le lesweu	none
+🧑🏿‍🐰‍🧑🏼	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo le le bosweu jo bo mo magareng	none
+🧑🏿‍🐰‍🧑🏽	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo la mmala o o mo magareng	none
+🧑🏿‍🐰‍🧑🏾	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo la mmala wa bontsho jo bo mo magareng	none
 👨🏻	monna letlalo le lesweu	none
 👨🏼	monna letlalo le le bosweu jo bo mo magareng	none
 👨🏽	monna letlalo la mmala o o mo magareng	none
@@ -1572,6 +1612,46 @@ symbols:
 👨🏿‍❤‍👨🏽	bobedi ka pelo monna, monna, letlalo la mmala o montsho, letlalo la mmala o o mo magareng	none
 👨🏿‍❤‍👨🏾	bobedi ka pelo monna, monna, letlalo la mmala o montsho, letlalo la mmala wa bontsho jo bo mo magareng	none
 👨🏿‍❤‍👨🏿	bobedi ka pelo monna, monna, letlalo la mmala o montsho	none
+👨🏻‍🫯‍👨🏼	banna ba ba lwang ka go mekamekana letlalo le lesweu, letlalo le le bosweu jo bo mo magareng	none
+👨🏻‍🫯‍👨🏽	banna ba ba lwang ka go mekamekana letlalo le lesweu, letlalo la mmala o o mo magareng	none
+👨🏻‍🫯‍👨🏾	banna ba ba lwang ka go mekamekana letlalo le lesweu, letlalo la mmala wa bontsho jo bo mo magareng	none
+👨🏻‍🫯‍👨🏿	banna ba ba lwang ka go mekamekana letlalo le lesweu, letlalo la mmala o montsho	none
+👨🏼‍🫯‍👨🏻	banna ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo le lesweu	none
+👨🏼‍🫯‍👨🏽	banna ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo la mmala o o mo magareng	none
+👨🏼‍🫯‍👨🏾	banna ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+👨🏼‍🫯‍👨🏿	banna ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo la mmala o montsho	none
+👨🏽‍🫯‍👨🏻	banna ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo le lesweu	none
+👨🏽‍🫯‍👨🏼	banna ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo le le bosweu jo bo mo magareng	none
+👨🏽‍🫯‍👨🏾	banna ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+👨🏽‍🫯‍👨🏿	banna ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo la mmala o montsho	none
+👨🏾‍🫯‍👨🏻	banna ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo le lesweu	none
+👨🏾‍🫯‍👨🏼	banna ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo le le bosweu jo bo mo magareng	none
+👨🏾‍🫯‍👨🏽	banna ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o o mo magareng	none
+👨🏾‍🫯‍👨🏿	banna ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o montsho	none
+👨🏿‍🫯‍👨🏻	banna ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo le lesweu	none
+👨🏿‍🫯‍👨🏼	banna ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo le le bosweu jo bo mo magareng	none
+👨🏿‍🫯‍👨🏽	banna ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo la mmala o o mo magareng	none
+👨🏿‍🫯‍👨🏾	banna ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo la mmala wa bontsho jo bo mo magareng	none
+👨🏻‍🐰‍👨🏼	banna ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo le le bosweu jo bo mo magareng	none
+👨🏻‍🐰‍👨🏽	banna ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo la mmala o o mo magareng	none
+👨🏻‍🐰‍👨🏾	banna ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo la mmala wa bontsho jo bo mo magareng	none
+👨🏻‍🐰‍👨🏿	banna ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo la mmala o montsho	none
+👨🏼‍🐰‍👨🏻	banna ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo le lesweu	none
+👨🏼‍🐰‍👨🏽	banna ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo la mmala o o mo magareng	none
+👨🏼‍🐰‍👨🏾	banna ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+👨🏼‍🐰‍👨🏿	banna ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo la mmala o montsho	none
+👨🏽‍🐰‍👨🏻	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo le lesweu	none
+👨🏽‍🐰‍👨🏼	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo le le bosweu jo bo mo magareng	none
+👨🏽‍🐰‍👨🏾	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+👨🏽‍🐰‍👨🏿	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo la mmala o montsho	none
+👨🏾‍🐰‍👨🏻	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo le lesweu	none
+👨🏾‍🐰‍👨🏼	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo le le bosweu jo bo mo magareng	none
+👨🏾‍🐰‍👨🏽	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o o mo magareng	none
+👨🏾‍🐰‍👨🏿	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o montsho	none
+👨🏿‍🐰‍👨🏻	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo le lesweu	none
+👨🏿‍🐰‍👨🏼	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo le le bosweu jo bo mo magareng	none
+👨🏿‍🐰‍👨🏽	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo la mmala o o mo magareng	none
+👨🏿‍🐰‍👨🏾	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo la mmala wa bontsho jo bo mo magareng	none
 👩🏻	mosadi letlalo le lesweu	none
 👩🏼	mosadi letlalo le le bosweu jo bo mo magareng	none
 👩🏽	mosadi letlalo la mmala o o mo magareng	none
@@ -1682,6 +1762,46 @@ symbols:
 👩🏿‍❤‍👩🏽	bobedi ka pelo mosadi, mosadi, letlalo la mmala o montsho, letlalo la mmala o o mo magareng	none
 👩🏿‍❤‍👩🏾	bobedi ka pelo mosadi, mosadi, letlalo la mmala o montsho, letlalo la mmala wa bontsho jo bo mo magareng	none
 👩🏿‍❤‍👩🏿	bobedi ka pelo mosadi, mosadi, letlalo la mmala o montsho	none
+👩🏻‍🫯‍👩🏼	basadi ba ba lwang ka go mekamekana letlalo le lesweu, letlalo le le bosweu jo bo mo magareng	none
+👩🏻‍🫯‍👩🏽	basadi ba ba lwang ka go mekamekana letlalo le lesweu, letlalo la mmala o o mo magareng	none
+👩🏻‍🫯‍👩🏾	basadi ba ba lwang ka go mekamekana letlalo le lesweu, letlalo la mmala wa bontsho jo bo mo magareng	none
+👩🏻‍🫯‍👩🏿	basadi ba ba lwang ka go mekamekana letlalo le lesweu, letlalo la mmala o montsho	none
+👩🏼‍🫯‍👩🏻	basadi ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo le lesweu	none
+👩🏼‍🫯‍👩🏽	basadi ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo la mmala o o mo magareng	none
+👩🏼‍🫯‍👩🏾	basadi ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+👩🏼‍🫯‍👩🏿	basadi ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng, letlalo la mmala o montsho	none
+👩🏽‍🫯‍👩🏻	basadi ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo le lesweu	none
+👩🏽‍🫯‍👩🏼	basadi ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo le le bosweu jo bo mo magareng	none
+👩🏽‍🫯‍👩🏾	basadi ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+👩🏽‍🫯‍👩🏿	basadi ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng, letlalo la mmala o montsho	none
+👩🏾‍🫯‍👩🏻	basadi ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo le lesweu	none
+👩🏾‍🫯‍👩🏼	basadi ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo le le bosweu jo bo mo magareng	none
+👩🏾‍🫯‍👩🏽	basadi ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o o mo magareng	none
+👩🏾‍🫯‍👩🏿	basadi ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o montsho	none
+👩🏿‍🫯‍👩🏻	basadi ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo le lesweu	none
+👩🏿‍🫯‍👩🏼	basadi ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo le le bosweu jo bo mo magareng	none
+👩🏿‍🫯‍👩🏽	basadi ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo la mmala o o mo magareng	none
+👩🏿‍🫯‍👩🏾	basadi ba ba lwang ka go mekamekana letlalo la mmala o montsho, letlalo la mmala wa bontsho jo bo mo magareng	none
+👩🏻‍🐰‍👩🏼	basadi ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo le le bosweu jo bo mo magareng	none
+👩🏻‍🐰‍👩🏽	basadi ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo la mmala o o mo magareng	none
+👩🏻‍🐰‍👩🏾	basadi ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo la mmala wa bontsho jo bo mo magareng	none
+👩🏻‍🐰‍👩🏿	basadi ka ditsebe tsa mmutla mo moletlong letlalo le lesweu, letlalo la mmala o montsho	none
+👩🏼‍🐰‍👩🏻	basadi ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo le lesweu	none
+👩🏼‍🐰‍👩🏽	basadi ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo la mmala o o mo magareng	none
+👩🏼‍🐰‍👩🏾	basadi ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+👩🏼‍🐰‍👩🏿	basadi ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng, letlalo la mmala o montsho	none
+👩🏽‍🐰‍👩🏻	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo le lesweu	none
+👩🏽‍🐰‍👩🏼	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo le le bosweu jo bo mo magareng	none
+👩🏽‍🐰‍👩🏾	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo la mmala wa bontsho jo bo mo magareng	none
+👩🏽‍🐰‍👩🏿	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng, letlalo la mmala o montsho	none
+👩🏾‍🐰‍👩🏻	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo le lesweu	none
+👩🏾‍🐰‍👩🏼	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo le le bosweu jo bo mo magareng	none
+👩🏾‍🐰‍👩🏽	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o o mo magareng	none
+👩🏾‍🐰‍👩🏿	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng, letlalo la mmala o montsho	none
+👩🏿‍🐰‍👩🏻	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo le lesweu	none
+👩🏿‍🐰‍👩🏼	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo le le bosweu jo bo mo magareng	none
+👩🏿‍🐰‍👩🏽	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo la mmala o o mo magareng	none
+👩🏿‍🐰‍👩🏾	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho, letlalo la mmala wa bontsho jo bo mo magareng	none
 🧓🏻	mogolo yo o tsofetseng letlalo le lesweu	none
 🧓🏼	mogolo yo o tsofetseng letlalo le le bosweu jo bo mo magareng	none
 🧓🏽	mogolo yo o tsofetseng letlalo la mmala o o mo magareng	none
@@ -2272,6 +2392,21 @@ symbols:
 🕴🏽	monna mo sutung ya kgwebo a ya godimo letlalo la mmala o o mo magareng	none
 🕴🏾	monna mo sutung ya kgwebo a ya godimo letlalo la mmala wa bontsho jo bo mo magareng	none
 🕴🏿	monna mo sutung ya kgwebo a ya godimo letlalo la mmala o montsho	none
+👯🏻	batho ka ditsebe tsa mmutla mo moletlong letlalo le lesweu	none
+👯🏼	batho ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng	none
+👯🏽	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng	none
+👯🏾	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng	none
+👯🏿	batho ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho	none
+👯🏻‍♂	banna ka ditsebe tsa mmutla mo moletlong letlalo le lesweu	none
+👯🏼‍♂	banna ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng	none
+👯🏽‍♂	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng	none
+👯🏾‍♂	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng	none
+👯🏿‍♂	banna ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho	none
+👯🏻‍♀	basadi ka ditsebe tsa mmutla mo moletlong letlalo le lesweu	none
+👯🏼‍♀	basadi ka ditsebe tsa mmutla mo moletlong letlalo le le bosweu jo bo mo magareng	none
+👯🏽‍♀	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala o o mo magareng	none
+👯🏾‍♀	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala wa bontsho jo bo mo magareng	none
+👯🏿‍♀	basadi ka ditsebe tsa mmutla mo moletlong letlalo la mmala o montsho	none
 🧖🏻	motho mo kamoreng ya metsi a a belang letlalo le lesweu	none
 🧖🏼	motho mo kamoreng ya metsi a a belang letlalo le le bosweu jo bo mo magareng	none
 🧖🏽	motho mo kamoreng ya metsi a a belang letlalo la mmala o o mo magareng	none
@@ -2447,6 +2582,21 @@ symbols:
 🤸🏽‍♀	mosadi yo o tsamaisang kolotsana letlalo la mmala o o mo magareng	none
 🤸🏾‍♀	mosadi yo o tsamaisang kolotsana letlalo la mmala wa bontsho jo bo mo magareng	none
 🤸🏿‍♀	mosadi yo o tsamaisang kolotsana letlalo la mmala o montsho	none
+🤼🏻	batho ba ba lwang ka go mekamekana letlalo le lesweu	none
+🤼🏼	batho ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng	none
+🤼🏽	batho ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng	none
+🤼🏾	batho ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng	none
+🤼🏿	batho ba ba lwang ka go mekamekana letlalo la mmala o montsho	none
+🤼🏻‍♂	banna ba ba lwang ka go mekamekana letlalo le lesweu	none
+🤼🏼‍♂	banna ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng	none
+🤼🏽‍♂	banna ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng	none
+🤼🏾‍♂	banna ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng	none
+🤼🏿‍♂	banna ba ba lwang ka go mekamekana letlalo la mmala o montsho	none
+🤼🏻‍♀	basadi ba ba lwang ka go mekamekana letlalo le lesweu	none
+🤼🏼‍♀	basadi ba ba lwang ka go mekamekana letlalo le le bosweu jo bo mo magareng	none
+🤼🏽‍♀	basadi ba ba lwang ka go mekamekana letlalo la mmala o o mo magareng	none
+🤼🏾‍♀	basadi ba ba lwang ka go mekamekana letlalo la mmala wa bontsho jo bo mo magareng	none
+🤼🏿‍♀	basadi ba ba lwang ka go mekamekana letlalo la mmala o montsho	none
 🤽🏻	motho yo o tshamekang polo ya metsi letlalo le lesweu	none
 🤽🏼	motho yo o tshamekang polo ya metsi letlalo le le bosweu jo bo mo magareng	none
 🤽🏽	motho yo o tshamekang polo ya metsi letlalo la mmala o o mo magareng	none

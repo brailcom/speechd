@@ -34,17 +34,17 @@ symbols:
 💯	kant poent	none
 💥	tarzhadenn	none
 🕳	toull	none
-💤	zzz	none
+💤	ZZZ	none
 🤳	emboltred	none
 💪	kigenn daoubennek argrezet	none
-🦾	brecʼh mekanikel	none
-🦿	gar mekanikel	none
+🦾	brecʼh vekanikel	none
+🦿	gar vekanikel	none
 🦵	gar	none
 🦶	troad	none
 👂	skouarn	none
 👃	fri	none
 🧠	empenn	none
-🫀	kalon	none
+🫀	kalon korfadurel	none
 🫁	skevent	none
 🦷	dant	none
 🦴	askorn	none
@@ -165,7 +165,7 @@ symbols:
 🦙	lama	none
 🦒	jirafenn	none
 🐘	olifant	none
-🦣	mamout	none
+🦣	mammout	none
 🦏	frikorneg	none
 🦛	dourvarc’h	none
 🐭	penn logodenn	none
@@ -178,7 +178,7 @@ symbols:
 🦫	avank	none
 🦔	heureuchin	none
 🦇	logodenn-zall	none
-🐻	penn arzh	none
+🐻	arzh	none
 🐻‍❄	arzh gwenn	none
 🐨	koala	none
 🐼	panda	none
@@ -215,6 +215,7 @@ symbols:
 🦖	tiranosaor roue	none
 🐋	balum	none
 🐬	delfin	none
+🫍	skoazog	none
 🦭	reunig	none
 🐟	pesk	none
 🐠	pesk trovanel	none
@@ -222,6 +223,11 @@ symbols:
 🦈	rinkin	none
 🐙	morgazh	none
 🐚	krogenn droellennek	none
+🦀	krank	none
+🦞	legestr	none
+🦐	chevr	none
+🦑	stivell	none
+🦪	istr	none
 🐌	maligorn	none
 🦋	balafenn	none
 🐛	biskoulenn	none
@@ -344,11 +350,6 @@ symbols:
 🥮	gwastell-loar	none
 🍡	beriad madigoù	none
 🥟	pouloud	none
-🦀	krank	none
-🦞	legestr	none
-🦐	chevr	none
-🦑	stivell	none
-🦪	istr	none
 🍦	dienn-skorn mod Italia	none
 🍧	greunitad	none
 🍨	dienn-skorn	none
@@ -394,6 +395,7 @@ symbols:
 🧭	nadoz-vor	none
 🏔	menez ercʼhek	none
 ⛰	menez	none
+🛘	riskladur douar	none
 🌋	menez-tan	none
 🗻	menez Fuji	none
 🏕	kampiñ	none
@@ -714,10 +716,11 @@ symbols:
 🎧	selaouelloù	none
 📻	skingomzer	none
 🎷	saksofon	none
+🎺	trompilh	none
+🪊	trombon	none
 🪗	akordeoñs	none
 🎸	gitar	none
 🎹	klavier sonerezh	none
-🎺	trompilh	none
 🎻	violoñs	none
 🪕	banjo	none
 🥁	taboulin	none
@@ -773,8 +776,8 @@ symbols:
 📑	sinedoù	none
 🔖	merk-pajenn	none
 🏷	tikedenn	none
-💰	sacʼhad moneiz	none
 🪙	pezh moneiz	none
+💰	sacʼhad moneiz	none
 💴	bilhed e yenoù	none
 💵	bilhed e dollaroù	none
 💶	bilhed en euroioù	none
@@ -1148,9 +1151,9 @@ symbols:
 👩‍👧‍👧	familh  maouez, placʼh, placʼh	none
 🇦🇨	banniel  Enez Ascension	none
 🇦🇩	banniel  Andorra	none
-🇦🇪	banniel  Emirelezhioù Arab Unanet	none
+🇦🇪	banniel  Emirelezhioù-Arab-Unanet	none
 🇦🇫	banniel  Afghanistan	none
-🇦🇬	banniel  Antigua ha Barbuda	none
+🇦🇬	banniel  Antigua-ha-Barbuda	none
 🇦🇮	banniel  Anguilla	none
 🇦🇱	banniel  Albania	none
 🇦🇲	banniel  Armenia	none
@@ -1163,7 +1166,7 @@ symbols:
 🇦🇼	banniel  Aruba	none
 🇦🇽	banniel  Inizi Åland	none
 🇦🇿	banniel  Azerbaidjan	none
-🇧🇦	banniel  Bosnia ha Herzegovina	none
+🇧🇦	banniel  Bosnia-ha-Herzegovina	none
 🇧🇧	banniel  Barbados	none
 🇧🇩	banniel  Bangladesh	none
 🇧🇪	banniel  Belgia	none
@@ -1172,8 +1175,8 @@ symbols:
 🇧🇭	banniel  Bahrein	none
 🇧🇮	banniel  Burundi	none
 🇧🇯	banniel  Benin	none
-🇧🇱	banniel  Saint Barthélemy	none
-🇧🇲	banniel  Bermuda	none
+🇧🇱	banniel  Sant-Bertele	none
+🇧🇲	banniel  Bermudez	none
 🇧🇳	banniel  Brunei	none
 🇧🇴	banniel  Bolivia	none
 🇧🇶	banniel  Karib Nederlandat	none
@@ -1190,13 +1193,14 @@ symbols:
 🇨🇫	banniel  Republik Kreizafrikan	none
 🇨🇬	banniel  Kongo - Brazzaville	none
 🇨🇭	banniel  Suis	none
-🇨🇮	banniel  Aod an Olifant	none
+🇨🇮	banniel  Aod-an-Olifant	none
 🇨🇰	banniel  Inizi Cook	none
 🇨🇱	banniel  Chile	none
 🇨🇲	banniel  Kameroun	none
 🇨🇳	banniel  Sina	none
 🇨🇴	banniel  Kolombia	none
 🇨🇵	banniel  Enez Clipperton	none
+🇨🇶	banniel  Sark	none
 🇨🇷	banniel  Costa Rica	none
 🇨🇺	banniel  Kuba	none
 🇨🇻	banniel  Kab-Glas	none
@@ -1238,7 +1242,7 @@ symbols:
 🇬🇲	banniel  Gambia	none
 🇬🇳	banniel  Ginea	none
 🇬🇵	banniel  Gwadeloup	none
-🇬🇶	banniel  Ginea ar Cʼheheder	none
+🇬🇶	banniel  Ginea-ar-Cʼheheder	none
 🇬🇷	banniel  Gres	none
 🇬🇸	banniel  Inizi Georgia ar Su hag Inizi Sandwich ar Su	none
 🇬🇹	banniel  Guatemala	none
@@ -1246,7 +1250,7 @@ symbols:
 🇬🇼	banniel  Ginea-Bissau	none
 🇬🇾	banniel  Guyana	none
 🇭🇰	banniel  Hong Kong RMD Sina	none
-🇭🇲	banniel  Inizi Heard ha McDonald	none
+🇭🇲	banniel  Inizi Heard-ha-McDonald	none
 🇭🇳	banniel  Honduras	none
 🇭🇷	banniel  Kroatia	none
 🇭🇹	banniel  Haiti	none
@@ -1255,7 +1259,7 @@ symbols:
 🇮🇩	banniel  Indonezia	none
 🇮🇪	banniel  Iwerzhon	none
 🇮🇱	banniel  Israel	none
-🇮🇲	banniel  Enez Vanav	none
+🇮🇲	banniel  Enez-Vanav	none
 🇮🇳	banniel  India	none
 🇮🇴	banniel  Tiriad breizhveurat Meurvor Indez	none
 🇮🇶	banniel  Iraq	none
@@ -1271,9 +1275,9 @@ symbols:
 🇰🇭	banniel  Kambodja	none
 🇰🇮	banniel  Kiribati	none
 🇰🇲	banniel  Komorez	none
-🇰🇳	banniel  Saint Kitts ha Nevis	none
-🇰🇵	banniel  Korea an Norzh	none
-🇰🇷	banniel  Korea ar Su	none
+🇰🇳	banniel  Saint Kitts-ha-Nevis	none
+🇰🇵	banniel  Norzhkorea	none
+🇰🇷	banniel  Sukorea	none
 🇰🇼	banniel  Koweit	none
 🇰🇾	banniel  Inizi Cayman	none
 🇰🇿	banniel  Kazakstan	none
@@ -1292,14 +1296,14 @@ symbols:
 🇲🇨	banniel  Monaco	none
 🇲🇩	banniel  Moldova	none
 🇲🇪	banniel  Montenegro	none
-🇲🇫	banniel  Saint Martin	none
+🇲🇫	banniel  Sant-Martin	none
 🇲🇬	banniel  Madagaskar	none
 🇲🇭	banniel  Inizi Marshall	none
 🇲🇰	banniel  Makedonia an Norzh	none
 🇲🇱	banniel  Mali	none
 🇲🇲	banniel  Myanmar (Birmania)	none
 🇲🇳	banniel  Mongolia	none
-🇲🇴	banniel  Macau RMD Sina	none
+🇲🇴	banniel  Makao RMD Sina	none
 🇲🇵	banniel  Inizi Mariana an Norzh	none
 🇲🇶	banniel  Martinik	none
 🇲🇷	banniel  Maouritania	none
@@ -1312,7 +1316,7 @@ symbols:
 🇲🇾	banniel  Malaysia	none
 🇲🇿	banniel  Mozambik	none
 🇳🇦	banniel  Namibia	none
-🇳🇨	banniel  Kaledonia Nevez	none
+🇳🇨	banniel  Kaledonia-Nevez	none
 🇳🇪	banniel  Niger	none
 🇳🇫	banniel  Enez Norfolk	none
 🇳🇬	banniel  Nigeria	none
@@ -1349,7 +1353,7 @@ symbols:
 🇸🇨	banniel  Sechelez	none
 🇸🇩	banniel  Soudan	none
 🇸🇪	banniel  Sveden	none
-🇸🇬	banniel  Singapour	none
+🇸🇬	banniel  Singapoura	none
 🇸🇭	banniel  Saint-Helena	none
 🇸🇮	banniel  Slovenia	none
 🇸🇯	banniel  Svalbard	none
@@ -1359,14 +1363,14 @@ symbols:
 🇸🇳	banniel  Senegal	none
 🇸🇴	banniel  Somalia	none
 🇸🇷	banniel  Surinam	none
-🇸🇸	banniel  Susoudan	none
-🇸🇹	banniel  São Tomé ha Príncipe	none
+🇸🇸	banniel  Soudan ar Su	none
+🇸🇹	banniel  São-Tomé-ha-Príncipe	none
 🇸🇻	banniel  Salvador	none
 🇸🇽	banniel  Sint Maarten	none
 🇸🇾	banniel  Siria	none
 🇸🇿	banniel  Eswatini	none
 🇹🇦	banniel  Tristan da Cunha	none
-🇹🇨	banniel  Inizi Turks ha Caicos	none
+🇹🇨	banniel  Inizi Turks-ha-Caicos	none
 🇹🇩	banniel  Tchad	none
 🇹🇫	banniel  Douaroù aostral Frañs	none
 🇹🇬	banniel  Togo	none
@@ -1378,7 +1382,7 @@ symbols:
 🇹🇳	banniel  Tunizia	none
 🇹🇴	banniel  Tonga	none
 🇹🇷	banniel  Turkia	none
-🇹🇹	banniel  Trinidad ha Tobago	none
+🇹🇹	banniel  Trinidad-ha-Tobago	none
 🇹🇻	banniel  Tuvalu	none
 🇹🇼	banniel  Taiwan	none
 🇹🇿	banniel  Tanzania	none
@@ -1390,13 +1394,13 @@ symbols:
 🇺🇾	banniel  Uruguay	none
 🇺🇿	banniel  Ouzbekistan	none
 🇻🇦	banniel  Vatikan	none
-🇻🇨	banniel  Sant Visant hag ar Grenadinez	none
+🇻🇨	banniel  Sant-Visant hag ar Grenadinez	none
 🇻🇪	banniel  Venezuela	none
 🇻🇬	banniel  Inizi Gwercʼh Breizh-Veur	none
 🇻🇮	banniel  Inizi Gwercʼh ar Stadoù-Unanet	none
 🇻🇳	banniel  Viêt Nam	none
 🇻🇺	banniel  Vanuatu	none
-🇼🇫	banniel  Wallis ha Futuna	none
+🇼🇫	banniel  Wallis-ha-Futuna	none
 🇼🇸	banniel  Samoa	none
 🇽🇰	banniel  Kosovo	none
 🇾🇪	banniel  Yemen	none

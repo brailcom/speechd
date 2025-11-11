@@ -467,6 +467,9 @@ symbols:
 🦈	mangō	none
 🐙	wheke	none
 🐚	anga tōrino	none
+🦀	pāpaka	none
+🦐	kōuraura	none
+🦑	ngū	none
 🐌	hātaretare	none
 🦋	pūrerehua	none
 🐛	tātaka	none
@@ -568,9 +571,6 @@ symbols:
 🥟	parāoa kinikini	none
 🥠	pihikete matapae	none
 🥡	pouaka kaweatu	none
-🦀	pāpaka	none
-🦐	kōuraura	none
-🦑	ngū	none
 🍦	aihikirīmi ngohengohe	none
 🍧	huka heuheu	none
 🍨	aihikirīmi	none
@@ -922,9 +922,9 @@ symbols:
 🎧	maupane	none
 📻	irirangi	none
 🎷	pūtohe	none
+🎺	pūawanui	none
 🎸	kitā	none
 🎹	papapurei puoro	none
-🎺	pūawanui	none
 🎻	tōiri	none
 🥁	pahū	none
 📱	waea pūkoro	none
@@ -1507,6 +1507,46 @@ symbols:
 🧑🏿‍❤‍🧑🏼	tokorua me te manawa pakeke, pakeke, kiri āhua parauri, kiri āhua māmā-waenga	none
 🧑🏿‍❤‍🧑🏽	tokorua me te manawa pakeke, pakeke, kiri āhua parauri, kiri āhua waenga	none
 🧑🏿‍❤‍🧑🏾	tokorua me te manawa pakeke, pakeke, kiri āhua parauri, kiri āhua waenga-parauri	none
+🧑🏻‍🫯‍🧑🏼	tāngata mamau kiri āhua māmā, kiri āhua māmā-waenga	none
+🧑🏻‍🫯‍🧑🏽	tāngata mamau kiri āhua māmā, kiri āhua waenga	none
+🧑🏻‍🫯‍🧑🏾	tāngata mamau kiri āhua māmā, kiri āhua waenga-parauri	none
+🧑🏻‍🫯‍🧑🏿	tāngata mamau kiri āhua māmā, kiri āhua parauri	none
+🧑🏼‍🫯‍🧑🏻	tāngata mamau kiri āhua māmā-waenga, kiri āhua māmā	none
+🧑🏼‍🫯‍🧑🏽	tāngata mamau kiri āhua māmā-waenga, kiri āhua waenga	none
+🧑🏼‍🫯‍🧑🏾	tāngata mamau kiri āhua māmā-waenga, kiri āhua waenga-parauri	none
+🧑🏼‍🫯‍🧑🏿	tāngata mamau kiri āhua māmā-waenga, kiri āhua parauri	none
+🧑🏽‍🫯‍🧑🏻	tāngata mamau kiri āhua waenga, kiri āhua māmā	none
+🧑🏽‍🫯‍🧑🏼	tāngata mamau kiri āhua waenga, kiri āhua māmā-waenga	none
+🧑🏽‍🫯‍🧑🏾	tāngata mamau kiri āhua waenga, kiri āhua waenga-parauri	none
+🧑🏽‍🫯‍🧑🏿	tāngata mamau kiri āhua waenga, kiri āhua parauri	none
+🧑🏾‍🫯‍🧑🏻	tāngata mamau kiri āhua waenga-parauri, kiri āhua māmā	none
+🧑🏾‍🫯‍🧑🏼	tāngata mamau kiri āhua waenga-parauri, kiri āhua māmā-waenga	none
+🧑🏾‍🫯‍🧑🏽	tāngata mamau kiri āhua waenga-parauri, kiri āhua waenga	none
+🧑🏾‍🫯‍🧑🏿	tāngata mamau kiri āhua waenga-parauri, kiri āhua parauri	none
+🧑🏿‍🫯‍🧑🏻	tāngata mamau kiri āhua parauri, kiri āhua māmā	none
+🧑🏿‍🫯‍🧑🏼	tāngata mamau kiri āhua parauri, kiri āhua māmā-waenga	none
+🧑🏿‍🫯‍🧑🏽	tāngata mamau kiri āhua parauri, kiri āhua waenga	none
+🧑🏿‍🫯‍🧑🏾	tāngata mamau kiri āhua parauri, kiri āhua waenga-parauri	none
+🧑🏻‍🐰‍🧑🏼	tāngata taringa rāpeti whakangahau kiri āhua māmā, kiri āhua māmā-waenga	none
+🧑🏻‍🐰‍🧑🏽	tāngata taringa rāpeti whakangahau kiri āhua māmā, kiri āhua waenga	none
+🧑🏻‍🐰‍🧑🏾	tāngata taringa rāpeti whakangahau kiri āhua māmā, kiri āhua waenga-parauri	none
+🧑🏻‍🐰‍🧑🏿	tāngata taringa rāpeti whakangahau kiri āhua māmā, kiri āhua parauri	none
+🧑🏼‍🐰‍🧑🏻	tāngata taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua māmā	none
+🧑🏼‍🐰‍🧑🏽	tāngata taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua waenga	none
+🧑🏼‍🐰‍🧑🏾	tāngata taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua waenga-parauri	none
+🧑🏼‍🐰‍🧑🏿	tāngata taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua parauri	none
+🧑🏽‍🐰‍🧑🏻	tāngata taringa rāpeti whakangahau kiri āhua waenga, kiri āhua māmā	none
+🧑🏽‍🐰‍🧑🏼	tāngata taringa rāpeti whakangahau kiri āhua waenga, kiri āhua māmā-waenga	none
+🧑🏽‍🐰‍🧑🏾	tāngata taringa rāpeti whakangahau kiri āhua waenga, kiri āhua waenga-parauri	none
+🧑🏽‍🐰‍🧑🏿	tāngata taringa rāpeti whakangahau kiri āhua waenga, kiri āhua parauri	none
+🧑🏾‍🐰‍🧑🏻	tāngata taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua māmā	none
+🧑🏾‍🐰‍🧑🏼	tāngata taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua māmā-waenga	none
+🧑🏾‍🐰‍🧑🏽	tāngata taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua waenga	none
+🧑🏾‍🐰‍🧑🏿	tāngata taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua parauri	none
+🧑🏿‍🐰‍🧑🏻	tāngata taringa rāpeti whakangahau kiri āhua parauri, kiri āhua māmā	none
+🧑🏿‍🐰‍🧑🏼	tāngata taringa rāpeti whakangahau kiri āhua parauri, kiri āhua māmā-waenga	none
+🧑🏿‍🐰‍🧑🏽	tāngata taringa rāpeti whakangahau kiri āhua parauri, kiri āhua waenga	none
+🧑🏿‍🐰‍🧑🏾	tāngata taringa rāpeti whakangahau kiri āhua parauri, kiri āhua waenga-parauri	none
 👨🏻	tāne kiri āhua māmā	none
 👨🏼	tāne kiri āhua māmā-waenga	none
 👨🏽	tāne kiri āhua waenga	none
@@ -1572,6 +1612,46 @@ symbols:
 👨🏿‍❤‍👨🏽	tokorua me te manawa tāne, tāne, kiri āhua parauri, kiri āhua waenga	none
 👨🏿‍❤‍👨🏾	tokorua me te manawa tāne, tāne, kiri āhua parauri, kiri āhua waenga-parauri	none
 👨🏿‍❤‍👨🏿	tokorua me te manawa tāne, tāne, kiri āhua parauri	none
+👨🏻‍🫯‍👨🏼	tāne mamau kiri āhua māmā, kiri āhua māmā-waenga	none
+👨🏻‍🫯‍👨🏽	tāne mamau kiri āhua māmā, kiri āhua waenga	none
+👨🏻‍🫯‍👨🏾	tāne mamau kiri āhua māmā, kiri āhua waenga-parauri	none
+👨🏻‍🫯‍👨🏿	tāne mamau kiri āhua māmā, kiri āhua parauri	none
+👨🏼‍🫯‍👨🏻	tāne mamau kiri āhua māmā-waenga, kiri āhua māmā	none
+👨🏼‍🫯‍👨🏽	tāne mamau kiri āhua māmā-waenga, kiri āhua waenga	none
+👨🏼‍🫯‍👨🏾	tāne mamau kiri āhua māmā-waenga, kiri āhua waenga-parauri	none
+👨🏼‍🫯‍👨🏿	tāne mamau kiri āhua māmā-waenga, kiri āhua parauri	none
+👨🏽‍🫯‍👨🏻	tāne mamau kiri āhua waenga, kiri āhua māmā	none
+👨🏽‍🫯‍👨🏼	tāne mamau kiri āhua waenga, kiri āhua māmā-waenga	none
+👨🏽‍🫯‍👨🏾	tāne mamau kiri āhua waenga, kiri āhua waenga-parauri	none
+👨🏽‍🫯‍👨🏿	tāne mamau kiri āhua waenga, kiri āhua parauri	none
+👨🏾‍🫯‍👨🏻	tāne mamau kiri āhua waenga-parauri, kiri āhua māmā	none
+👨🏾‍🫯‍👨🏼	tāne mamau kiri āhua waenga-parauri, kiri āhua māmā-waenga	none
+👨🏾‍🫯‍👨🏽	tāne mamau kiri āhua waenga-parauri, kiri āhua waenga	none
+👨🏾‍🫯‍👨🏿	tāne mamau kiri āhua waenga-parauri, kiri āhua parauri	none
+👨🏿‍🫯‍👨🏻	tāne mamau kiri āhua parauri, kiri āhua māmā	none
+👨🏿‍🫯‍👨🏼	tāne mamau kiri āhua parauri, kiri āhua māmā-waenga	none
+👨🏿‍🫯‍👨🏽	tāne mamau kiri āhua parauri, kiri āhua waenga	none
+👨🏿‍🫯‍👨🏾	tāne mamau kiri āhua parauri, kiri āhua waenga-parauri	none
+👨🏻‍🐰‍👨🏼	tāne taringa rāpeti whakangahau kiri āhua māmā, kiri āhua māmā-waenga	none
+👨🏻‍🐰‍👨🏽	tāne taringa rāpeti whakangahau kiri āhua māmā, kiri āhua waenga	none
+👨🏻‍🐰‍👨🏾	tāne taringa rāpeti whakangahau kiri āhua māmā, kiri āhua waenga-parauri	none
+👨🏻‍🐰‍👨🏿	tāne taringa rāpeti whakangahau kiri āhua māmā, kiri āhua parauri	none
+👨🏼‍🐰‍👨🏻	tāne taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua māmā	none
+👨🏼‍🐰‍👨🏽	tāne taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua waenga	none
+👨🏼‍🐰‍👨🏾	tāne taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua waenga-parauri	none
+👨🏼‍🐰‍👨🏿	tāne taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua parauri	none
+👨🏽‍🐰‍👨🏻	tāne taringa rāpeti whakangahau kiri āhua waenga, kiri āhua māmā	none
+👨🏽‍🐰‍👨🏼	tāne taringa rāpeti whakangahau kiri āhua waenga, kiri āhua māmā-waenga	none
+👨🏽‍🐰‍👨🏾	tāne taringa rāpeti whakangahau kiri āhua waenga, kiri āhua waenga-parauri	none
+👨🏽‍🐰‍👨🏿	tāne taringa rāpeti whakangahau kiri āhua waenga, kiri āhua parauri	none
+👨🏾‍🐰‍👨🏻	tāne taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua māmā	none
+👨🏾‍🐰‍👨🏼	tāne taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua māmā-waenga	none
+👨🏾‍🐰‍👨🏽	tāne taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua waenga	none
+👨🏾‍🐰‍👨🏿	tāne taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua parauri	none
+👨🏿‍🐰‍👨🏻	tāne taringa rāpeti whakangahau kiri āhua parauri, kiri āhua māmā	none
+👨🏿‍🐰‍👨🏼	tāne taringa rāpeti whakangahau kiri āhua parauri, kiri āhua māmā-waenga	none
+👨🏿‍🐰‍👨🏽	tāne taringa rāpeti whakangahau kiri āhua parauri, kiri āhua waenga	none
+👨🏿‍🐰‍👨🏾	tāne taringa rāpeti whakangahau kiri āhua parauri, kiri āhua waenga-parauri	none
 👩🏻	wahine kiri āhua māmā	none
 👩🏼	wahine kiri āhua māmā-waenga	none
 👩🏽	wahine kiri āhua waenga	none
@@ -1682,6 +1762,46 @@ symbols:
 👩🏿‍❤‍👩🏽	tokorua me te manawa wahine, wahine, kiri āhua parauri, kiri āhua waenga	none
 👩🏿‍❤‍👩🏾	tokorua me te manawa wahine, wahine, kiri āhua parauri, kiri āhua waenga-parauri	none
 👩🏿‍❤‍👩🏿	tokorua me te manawa wahine, wahine, kiri āhua parauri	none
+👩🏻‍🫯‍👩🏼	wāhine mamau kiri āhua māmā, kiri āhua māmā-waenga	none
+👩🏻‍🫯‍👩🏽	wāhine mamau kiri āhua māmā, kiri āhua waenga	none
+👩🏻‍🫯‍👩🏾	wāhine mamau kiri āhua māmā, kiri āhua waenga-parauri	none
+👩🏻‍🫯‍👩🏿	wāhine mamau kiri āhua māmā, kiri āhua parauri	none
+👩🏼‍🫯‍👩🏻	wāhine mamau kiri āhua māmā-waenga, kiri āhua māmā	none
+👩🏼‍🫯‍👩🏽	wāhine mamau kiri āhua māmā-waenga, kiri āhua waenga	none
+👩🏼‍🫯‍👩🏾	wāhine mamau kiri āhua māmā-waenga, kiri āhua waenga-parauri	none
+👩🏼‍🫯‍👩🏿	wāhine mamau kiri āhua māmā-waenga, kiri āhua parauri	none
+👩🏽‍🫯‍👩🏻	wāhine mamau kiri āhua waenga, kiri āhua māmā	none
+👩🏽‍🫯‍👩🏼	wāhine mamau kiri āhua waenga, kiri āhua māmā-waenga	none
+👩🏽‍🫯‍👩🏾	wāhine mamau kiri āhua waenga, kiri āhua waenga-parauri	none
+👩🏽‍🫯‍👩🏿	wāhine mamau kiri āhua waenga, kiri āhua parauri	none
+👩🏾‍🫯‍👩🏻	wāhine mamau kiri āhua waenga-parauri, kiri āhua māmā	none
+👩🏾‍🫯‍👩🏼	wāhine mamau kiri āhua waenga-parauri, kiri āhua māmā-waenga	none
+👩🏾‍🫯‍👩🏽	wāhine mamau kiri āhua waenga-parauri, kiri āhua waenga	none
+👩🏾‍🫯‍👩🏿	wāhine mamau kiri āhua waenga-parauri, kiri āhua parauri	none
+👩🏿‍🫯‍👩🏻	wāhine mamau kiri āhua parauri, kiri āhua māmā	none
+👩🏿‍🫯‍👩🏼	wāhine mamau kiri āhua parauri, kiri āhua māmā-waenga	none
+👩🏿‍🫯‍👩🏽	wāhine mamau kiri āhua parauri, kiri āhua waenga	none
+👩🏿‍🫯‍👩🏾	wāhine mamau kiri āhua parauri, kiri āhua waenga-parauri	none
+👩🏻‍🐰‍👩🏼	wāhine taringa rāpeti whakangahau kiri āhua māmā, kiri āhua māmā-waenga	none
+👩🏻‍🐰‍👩🏽	wāhine taringa rāpeti whakangahau kiri āhua māmā, kiri āhua waenga	none
+👩🏻‍🐰‍👩🏾	wāhine taringa rāpeti whakangahau kiri āhua māmā, kiri āhua waenga-parauri	none
+👩🏻‍🐰‍👩🏿	wāhine taringa rāpeti whakangahau kiri āhua māmā, kiri āhua parauri	none
+👩🏼‍🐰‍👩🏻	wāhine taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua māmā	none
+👩🏼‍🐰‍👩🏽	wāhine taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua waenga	none
+👩🏼‍🐰‍👩🏾	wāhine taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua waenga-parauri	none
+👩🏼‍🐰‍👩🏿	wāhine taringa rāpeti whakangahau kiri āhua māmā-waenga, kiri āhua parauri	none
+👩🏽‍🐰‍👩🏻	wāhine taringa rāpeti whakangahau kiri āhua waenga, kiri āhua māmā	none
+👩🏽‍🐰‍👩🏼	wāhine taringa rāpeti whakangahau kiri āhua waenga, kiri āhua māmā-waenga	none
+👩🏽‍🐰‍👩🏾	wāhine taringa rāpeti whakangahau kiri āhua waenga, kiri āhua waenga-parauri	none
+👩🏽‍🐰‍👩🏿	wāhine taringa rāpeti whakangahau kiri āhua waenga, kiri āhua parauri	none
+👩🏾‍🐰‍👩🏻	wāhine taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua māmā	none
+👩🏾‍🐰‍👩🏼	wāhine taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua māmā-waenga	none
+👩🏾‍🐰‍👩🏽	wāhine taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua waenga	none
+👩🏾‍🐰‍👩🏿	wāhine taringa rāpeti whakangahau kiri āhua waenga-parauri, kiri āhua parauri	none
+👩🏿‍🐰‍👩🏻	wāhine taringa rāpeti whakangahau kiri āhua parauri, kiri āhua māmā	none
+👩🏿‍🐰‍👩🏼	wāhine taringa rāpeti whakangahau kiri āhua parauri, kiri āhua māmā-waenga	none
+👩🏿‍🐰‍👩🏽	wāhine taringa rāpeti whakangahau kiri āhua parauri, kiri āhua waenga	none
+👩🏿‍🐰‍👩🏾	wāhine taringa rāpeti whakangahau kiri āhua parauri, kiri āhua waenga-parauri	none
 🧓🏻	kaumātua kiri āhua māmā	none
 🧓🏼	kaumātua kiri āhua māmā-waenga	none
 🧓🏽	kaumātua kiri āhua waenga	none
@@ -2272,6 +2392,21 @@ symbols:
 🕴🏽	tāne mau hūtu e rewa ana kiri āhua waenga	none
 🕴🏾	tāne mau hūtu e rewa ana kiri āhua waenga-parauri	none
 🕴🏿	tāne mau hūtu e rewa ana kiri āhua parauri	none
+👯🏻	tāngata taringa rāpeti whakangahau kiri āhua māmā	none
+👯🏼	tāngata taringa rāpeti whakangahau kiri āhua māmā-waenga	none
+👯🏽	tāngata taringa rāpeti whakangahau kiri āhua waenga	none
+👯🏾	tāngata taringa rāpeti whakangahau kiri āhua waenga-parauri	none
+👯🏿	tāngata taringa rāpeti whakangahau kiri āhua parauri	none
+👯🏻‍♂	tāne taringa rāpeti whakangahau kiri āhua māmā	none
+👯🏼‍♂	tāne taringa rāpeti whakangahau kiri āhua māmā-waenga	none
+👯🏽‍♂	tāne taringa rāpeti whakangahau kiri āhua waenga	none
+👯🏾‍♂	tāne taringa rāpeti whakangahau kiri āhua waenga-parauri	none
+👯🏿‍♂	tāne taringa rāpeti whakangahau kiri āhua parauri	none
+👯🏻‍♀	wāhine taringa rāpeti whakangahau kiri āhua māmā	none
+👯🏼‍♀	wāhine taringa rāpeti whakangahau kiri āhua māmā-waenga	none
+👯🏽‍♀	wāhine taringa rāpeti whakangahau kiri āhua waenga	none
+👯🏾‍♀	wāhine taringa rāpeti whakangahau kiri āhua waenga-parauri	none
+👯🏿‍♀	wāhine taringa rāpeti whakangahau kiri āhua parauri	none
 🧖🏻	tangata rō taiwhanga mamaoa kiri āhua māmā	none
 🧖🏼	tangata rō taiwhanga mamaoa kiri āhua māmā-waenga	none
 🧖🏽	tangata rō taiwhanga mamaoa kiri āhua waenga	none
@@ -2447,6 +2582,21 @@ symbols:
 🤸🏽‍♀	wahine kātawīra kiri āhua waenga	none
 🤸🏾‍♀	wahine kātawīra kiri āhua waenga-parauri	none
 🤸🏿‍♀	wahine kātawīra kiri āhua parauri	none
+🤼🏻	tāngata mamau kiri āhua māmā	none
+🤼🏼	tāngata mamau kiri āhua māmā-waenga	none
+🤼🏽	tāngata mamau kiri āhua waenga	none
+🤼🏾	tāngata mamau kiri āhua waenga-parauri	none
+🤼🏿	tāngata mamau kiri āhua parauri	none
+🤼🏻‍♂	tāne mamau kiri āhua māmā	none
+🤼🏼‍♂	tāne mamau kiri āhua māmā-waenga	none
+🤼🏽‍♂	tāne mamau kiri āhua waenga	none
+🤼🏾‍♂	tāne mamau kiri āhua waenga-parauri	none
+🤼🏿‍♂	tāne mamau kiri āhua parauri	none
+🤼🏻‍♀	wāhine mamau kiri āhua māmā	none
+🤼🏼‍♀	wāhine mamau kiri āhua māmā-waenga	none
+🤼🏽‍♀	wāhine mamau kiri āhua waenga	none
+🤼🏾‍♀	wāhine mamau kiri āhua waenga-parauri	none
+🤼🏿‍♀	wāhine mamau kiri āhua parauri	none
 🤽🏻	tangata tākaro poro wai kiri āhua māmā	none
 🤽🏼	tangata tākaro poro wai kiri āhua māmā-waenga	none
 🤽🏽	tangata tākaro poro wai kiri āhua waenga	none
@@ -2651,7 +2801,7 @@ symbols:
 🇦🇼	haki Arūpa	none
 🇦🇽	haki Motu Ōrana	none
 🇦🇿	haki Atepaihānia	none
-🇧🇦	haki Pōngia-Herekōwini	none
+🇧🇦	haki Pōngia & Herekōwini	none
 🇧🇧	haki Papatohe	none
 🇧🇩	haki Pākaratēhi	none
 🇧🇪	haki Peretiama	none
@@ -2685,6 +2835,7 @@ symbols:
 🇨🇳	haki Haina	none
 🇨🇴	haki Koromōpia	none
 🇨🇵	haki Te Moutere Kiripetone	none
+🇨🇶	haki Hāka	none
 🇨🇷	haki Koto Rīka	none
 🇨🇺	haki Kiupa	none
 🇨🇻	haki Te Kūrae Matomato	none

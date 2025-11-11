@@ -321,6 +321,7 @@ symbols:
 😪	miegaina seja	none
 🤤	siekalojas	none
 😴	guļoša seja	none
+🫩	seja ar maisiņiem zem acīm	none
 😷	seja ar medicīnas masku	none
 🤒	seja ar termometru	none
 🤕	seja ar galvas apsēju	none
@@ -348,6 +349,7 @@ symbols:
 😯	pārsteigta seja	none
 😲	šokēta seja	none
 😳	nosarkusi seja	none
+🫪	sašķobīta seja	none
 🥺	lūdzoša seja	none
 🥹	seja ar aizturētām asarām	none
 😦	bēdīga seja ar atvērtu muti	none
@@ -421,6 +423,7 @@ symbols:
 💋	skūpsta nospiedums	none
 💯	simt punktu	none
 💢	dusmu simbols	none
+🫯	juceklis	none
 💥	sadursme	none
 💫	apdullis	none
 💦	sviedru lāses	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	zombijvīrietis	none
 🧟‍♀	zombijsieviete	none
 🧌	trollis	none
+🫈	matiem noaudzis radījums	none
 💆	sejas masāža	none
 💆‍♂	vīrietim masē seju	none
 💆‍♀	sievietei masē seju	none
@@ -680,6 +684,7 @@ symbols:
 🏃	skrējējs	none
 🏃‍♂	vīrietis skrien	none
 🏃‍♀	sieviete skrien	none
+🧑‍🩰	baletdejotājs	none
 💃	sieviete dejo	none
 🕺	vīrietis dejo	none
 🕴	levitējošs cilvēks uzvalkā	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	ģimene pieaugušais, bērns	none
 🧑‍🧒‍🧒	ģimene pieaugušais, bērns, bērns	none
 👣	pēdu nospiedumi	none
+🫆	pirksta nospiedums	none
 🦰	sarkani mati	none
 🦱	sprogaini mati	none
 🦳	sirmi mati	none
@@ -860,6 +866,7 @@ symbols:
 🐳	valis šļāc ūdeni	none
 🐋	valis	none
 🐬	delfīns	none
+🫍	zobenvalis	none
 🦭	ronis	none
 🐟	zivs	none
 🐠	tropu zivs	none
@@ -869,6 +876,11 @@ symbols:
 🐚	gliemežvāks	none
 🪸	koraļļi	none
 🪼	medūza	none
+🦀	krabis	none
+🦞	omārs	none
+🦐	garnele	none
+🦑	kalmārs	none
+🦪	austere	none
 🐌	gliemezis	none
 🦋	taurenis	none
 🐛	kukainis	none
@@ -913,6 +925,7 @@ symbols:
 🪹	tukša ligzda	none
 🪺	ligzda ar olām	none
 🍄	sēne	none
+🪾	koks bez lapām	none
 🍇	vīnogas	none
 🍈	melone	none
 🍉	arbūzs	none
@@ -951,6 +964,7 @@ symbols:
 🫚	ingvera sakne	none
 🫛	zirņu pāksts	none
 🍄‍🟫	brūna sēne	none
+🫜	sakņu dārzenis	none
 🍞	maize	none
 🥐	kruasāns	none
 🥖	bagete	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	pelmeņi	none
 🥠	laimes cepumiņš	none
 🥡	kastīte līdzņemšanai	none
-🦀	krabis	none
-🦞	omārs	none
-🦐	garnele	none
-🦑	kalmārs	none
-🦪	austere	none
 🍦	saldējums vafeļu glāzītē	none
 🍧	smalcināts ledus ar sīrupu	none
 🍨	saldējums	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	kompass	none
 🏔	sniegoti kalni	none
 ⛰	kalns	none
+🛘	nogruvums	none
 🌋	vulkāns	none
 🗻	Fudzi kalns	none
 🏕	kempings	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	austiņas	none
 📻	radio	none
 🎷	saksofons	none
+🎺	trompete	none
+🪊	trombons	none
 🪗	akordeons	none
 🎸	ģitāra	none
 🎹	klavieru taustiņi	none
-🎺	trompete	none
 🎻	vijole	none
 🪕	bandžo	none
 🥁	bungas	none
 🪘	garās bungas	none
 🪇	marakass	none
 🪈	flauta	none
+🪉	arfa	none
 📱	mobilais tālrunis	none
 📲	mobilais tālrunis ar bultiņu	none
 ☎	tālrunis	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	līmkarodziņi	none
 🔖	grāmatzīme	none
 🏷	atzīme	none
-💰	naudas maiss	none
 🪙	monēta	none
+💰	naudas maiss	none
+🪎	dārgumu lāde	none
 💴	jenas banknote	none
 💵	dolāra banknote	none
 💶	eiro banknote	none
@@ -1565,6 +1578,7 @@ symbols:
 🧰	darbarīku kaste	none
 🧲	magnēts	none
 🪜	kāpnes	none
+🪏	lāpsta	none
 ⚗	destilēšanas aparāts	none
 🧪	mēģene	none
 🧫	Petri trauks	none
@@ -1745,6 +1759,7 @@ symbols:
 ✴	četrstaru zvaigzne	none
 ❇	dzirkstis	none
 ™	preču zīme	none
+🫟	šļakatas	none
 🔠	lielie latīņu burti	none
 🔡	mazie latīņu burti	none
 🔢	cipari	none
@@ -2159,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	pāris ar sirdi pieaugušais, pieaugušais, tumšs ādas tonis un vidēji gaišs ādas tonis	none
 🧑🏿‍❤‍🧑🏽	pāris ar sirdi pieaugušais, pieaugušais, tumšs ādas tonis un vidējs ādas tonis	none
 🧑🏿‍❤‍🧑🏾	pāris ar sirdi pieaugušais, pieaugušais, tumšs ādas tonis un vidēji tumšs ādas tonis	none
+🧑🏻‍🫯‍🧑🏼	cīkstoņi gaišs ādas tonis un vidēji gaišs ādas tonis	none
+🧑🏻‍🫯‍🧑🏽	cīkstoņi gaišs ādas tonis un vidējs ādas tonis	none
+🧑🏻‍🫯‍🧑🏾	cīkstoņi gaišs ādas tonis un vidēji tumšs ādas tonis	none
+🧑🏻‍🫯‍🧑🏿	cīkstoņi gaišs ādas tonis un tumšs ādas tonis	none
+🧑🏼‍🫯‍🧑🏻	cīkstoņi vidēji gaišs ādas tonis un gaišs ādas tonis	none
+🧑🏼‍🫯‍🧑🏽	cīkstoņi vidēji gaišs ādas tonis un vidējs ādas tonis	none
+🧑🏼‍🫯‍🧑🏾	cīkstoņi vidēji gaišs ādas tonis un vidēji tumšs ādas tonis	none
+🧑🏼‍🫯‍🧑🏿	cīkstoņi vidēji gaišs ādas tonis un tumšs ādas tonis	none
+🧑🏽‍🫯‍🧑🏻	cīkstoņi vidējs ādas tonis un gaišs ādas tonis	none
+🧑🏽‍🫯‍🧑🏼	cīkstoņi vidējs ādas tonis un vidēji gaišs ādas tonis	none
+🧑🏽‍🫯‍🧑🏾	cīkstoņi vidējs ādas tonis un vidēji tumšs ādas tonis	none
+🧑🏽‍🫯‍🧑🏿	cīkstoņi vidējs ādas tonis un tumšs ādas tonis	none
+🧑🏾‍🫯‍🧑🏻	cīkstoņi vidēji tumšs ādas tonis un gaišs ādas tonis	none
+🧑🏾‍🫯‍🧑🏼	cīkstoņi vidēji tumšs ādas tonis un vidēji gaišs ādas tonis	none
+🧑🏾‍🫯‍🧑🏽	cīkstoņi vidēji tumšs ādas tonis un vidējs ādas tonis	none
+🧑🏾‍🫯‍🧑🏿	cīkstoņi vidēji tumšs ādas tonis un tumšs ādas tonis	none
+🧑🏿‍🫯‍🧑🏻	cīkstoņi tumšs ādas tonis un gaišs ādas tonis	none
+🧑🏿‍🫯‍🧑🏼	cīkstoņi tumšs ādas tonis un vidēji gaišs ādas tonis	none
+🧑🏿‍🫯‍🧑🏽	cīkstoņi tumšs ādas tonis un vidējs ādas tonis	none
+🧑🏿‍🫯‍🧑🏾	cīkstoņi tumšs ādas tonis un vidēji tumšs ādas tonis	none
 🧑‍🦰	pieaugušais sarkani mati	none
 🧑🏻‍🦰	pieaugušais gaišs ādas tonis un sarkani mati	none
 🧑🏼‍🦰	pieaugušais vidēji gaišs ādas tonis un sarkani mati	none
@@ -2183,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	pieaugušais vidējs ādas tonis un bez matiem	none
 🧑🏾‍🦲	pieaugušais vidēji tumšs ādas tonis un bez matiem	none
 🧑🏿‍🦲	pieaugušais tumšs ādas tonis un bez matiem	none
+🧑🏻‍🐰‍🧑🏼	dejotāju šovs gaišs ādas tonis un vidēji gaišs ādas tonis	none
+🧑🏻‍🐰‍🧑🏽	dejotāju šovs gaišs ādas tonis un vidējs ādas tonis	none
+🧑🏻‍🐰‍🧑🏾	dejotāju šovs gaišs ādas tonis un vidēji tumšs ādas tonis	none
+🧑🏻‍🐰‍🧑🏿	dejotāju šovs gaišs ādas tonis un tumšs ādas tonis	none
+🧑🏼‍🐰‍🧑🏻	dejotāju šovs vidēji gaišs ādas tonis un gaišs ādas tonis	none
+🧑🏼‍🐰‍🧑🏽	dejotāju šovs vidēji gaišs ādas tonis un vidējs ādas tonis	none
+🧑🏼‍🐰‍🧑🏾	dejotāju šovs vidēji gaišs ādas tonis un vidēji tumšs ādas tonis	none
+🧑🏼‍🐰‍🧑🏿	dejotāju šovs vidēji gaišs ādas tonis un tumšs ādas tonis	none
+🧑🏽‍🐰‍🧑🏻	dejotāju šovs vidējs ādas tonis un gaišs ādas tonis	none
+🧑🏽‍🐰‍🧑🏼	dejotāju šovs vidējs ādas tonis un vidēji gaišs ādas tonis	none
+🧑🏽‍🐰‍🧑🏾	dejotāju šovs vidējs ādas tonis un vidēji tumšs ādas tonis	none
+🧑🏽‍🐰‍🧑🏿	dejotāju šovs vidējs ādas tonis un tumšs ādas tonis	none
+🧑🏾‍🐰‍🧑🏻	dejotāju šovs vidēji tumšs ādas tonis un gaišs ādas tonis	none
+🧑🏾‍🐰‍🧑🏼	dejotāju šovs vidēji tumšs ādas tonis un vidēji gaišs ādas tonis	none
+🧑🏾‍🐰‍🧑🏽	dejotāju šovs vidēji tumšs ādas tonis un vidējs ādas tonis	none
+🧑🏾‍🐰‍🧑🏿	dejotāju šovs vidēji tumšs ādas tonis un tumšs ādas tonis	none
+🧑🏿‍🐰‍🧑🏻	dejotāju šovs tumšs ādas tonis un gaišs ādas tonis	none
+🧑🏿‍🐰‍🧑🏼	dejotāju šovs tumšs ādas tonis un vidēji gaišs ādas tonis	none
+🧑🏿‍🐰‍🧑🏽	dejotāju šovs tumšs ādas tonis un vidējs ādas tonis	none
+🧑🏿‍🐰‍🧑🏾	dejotāju šovs tumšs ādas tonis un vidēji tumšs ādas tonis	none
 👨🏻	vīrietis gaišs ādas tonis	none
 👨🏼	vīrietis vidēji gaišs ādas tonis	none
 👨🏽	vīrietis vidējs ādas tonis	none
@@ -2253,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	pāris ar sirdi vīrietis, vīrietis, tumšs ādas tonis un vidējs ādas tonis	none
 👨🏿‍❤‍👨🏾	pāris ar sirdi vīrietis, vīrietis, tumšs ādas tonis un vidēji tumšs ādas tonis	none
 👨🏿‍❤‍👨🏿	pāris ar sirdi vīrietis, vīrietis un tumšs ādas tonis	none
+👨🏻‍🫯‍👨🏼	cīkstonis gaišs ādas tonis un vidēji gaišs ādas tonis	none
+👨🏻‍🫯‍👨🏽	cīkstonis gaišs ādas tonis un vidējs ādas tonis	none
+👨🏻‍🫯‍👨🏾	cīkstonis gaišs ādas tonis un vidēji tumšs ādas tonis	none
+👨🏻‍🫯‍👨🏿	cīkstonis gaišs ādas tonis un tumšs ādas tonis	none
+👨🏼‍🫯‍👨🏻	cīkstonis vidēji gaišs ādas tonis un gaišs ādas tonis	none
+👨🏼‍🫯‍👨🏽	cīkstonis vidēji gaišs ādas tonis un vidējs ādas tonis	none
+👨🏼‍🫯‍👨🏾	cīkstonis vidēji gaišs ādas tonis un vidēji tumšs ādas tonis	none
+👨🏼‍🫯‍👨🏿	cīkstonis vidēji gaišs ādas tonis un tumšs ādas tonis	none
+👨🏽‍🫯‍👨🏻	cīkstonis vidējs ādas tonis un gaišs ādas tonis	none
+👨🏽‍🫯‍👨🏼	cīkstonis vidējs ādas tonis un vidēji gaišs ādas tonis	none
+👨🏽‍🫯‍👨🏾	cīkstonis vidējs ādas tonis un vidēji tumšs ādas tonis	none
+👨🏽‍🫯‍👨🏿	cīkstonis vidējs ādas tonis un tumšs ādas tonis	none
+👨🏾‍🫯‍👨🏻	cīkstonis vidēji tumšs ādas tonis un gaišs ādas tonis	none
+👨🏾‍🫯‍👨🏼	cīkstonis vidēji tumšs ādas tonis un vidēji gaišs ādas tonis	none
+👨🏾‍🫯‍👨🏽	cīkstonis vidēji tumšs ādas tonis un vidējs ādas tonis	none
+👨🏾‍🫯‍👨🏿	cīkstonis vidēji tumšs ādas tonis un tumšs ādas tonis	none
+👨🏿‍🫯‍👨🏻	cīkstonis tumšs ādas tonis un gaišs ādas tonis	none
+👨🏿‍🫯‍👨🏼	cīkstonis tumšs ādas tonis un vidēji gaišs ādas tonis	none
+👨🏿‍🫯‍👨🏽	cīkstonis tumšs ādas tonis un vidējs ādas tonis	none
+👨🏿‍🫯‍👨🏾	cīkstonis tumšs ādas tonis un vidēji tumšs ādas tonis	none
 👨‍🦰	vīrietis sarkani mati	none
 👨🏻‍🦰	vīrietis gaišs ādas tonis un sarkani mati	none
 👨🏼‍🦰	vīrietis vidēji gaišs ādas tonis un sarkani mati	none
@@ -2277,6 +2352,26 @@ symbols:
 👨🏽‍🦲	vīrietis vidējs ādas tonis un bez matiem	none
 👨🏾‍🦲	vīrietis vidēji tumšs ādas tonis un bez matiem	none
 👨🏿‍🦲	vīrietis tumšs ādas tonis un bez matiem	none
+👨🏻‍🐰‍👨🏼	dejotāji gaišs ādas tonis un vidēji gaišs ādas tonis	none
+👨🏻‍🐰‍👨🏽	dejotāji gaišs ādas tonis un vidējs ādas tonis	none
+👨🏻‍🐰‍👨🏾	dejotāji gaišs ādas tonis un vidēji tumšs ādas tonis	none
+👨🏻‍🐰‍👨🏿	dejotāji gaišs ādas tonis un tumšs ādas tonis	none
+👨🏼‍🐰‍👨🏻	dejotāji vidēji gaišs ādas tonis un gaišs ādas tonis	none
+👨🏼‍🐰‍👨🏽	dejotāji vidēji gaišs ādas tonis un vidējs ādas tonis	none
+👨🏼‍🐰‍👨🏾	dejotāji vidēji gaišs ādas tonis un vidēji tumšs ādas tonis	none
+👨🏼‍🐰‍👨🏿	dejotāji vidēji gaišs ādas tonis un tumšs ādas tonis	none
+👨🏽‍🐰‍👨🏻	dejotāji vidējs ādas tonis un gaišs ādas tonis	none
+👨🏽‍🐰‍👨🏼	dejotāji vidējs ādas tonis un vidēji gaišs ādas tonis	none
+👨🏽‍🐰‍👨🏾	dejotāji vidējs ādas tonis un vidēji tumšs ādas tonis	none
+👨🏽‍🐰‍👨🏿	dejotāji vidējs ādas tonis un tumšs ādas tonis	none
+👨🏾‍🐰‍👨🏻	dejotāji vidēji tumšs ādas tonis un gaišs ādas tonis	none
+👨🏾‍🐰‍👨🏼	dejotāji vidēji tumšs ādas tonis un vidēji gaišs ādas tonis	none
+👨🏾‍🐰‍👨🏽	dejotāji vidēji tumšs ādas tonis un vidējs ādas tonis	none
+👨🏾‍🐰‍👨🏿	dejotāji vidēji tumšs ādas tonis un tumšs ādas tonis	none
+👨🏿‍🐰‍👨🏻	dejotāji tumšs ādas tonis un gaišs ādas tonis	none
+👨🏿‍🐰‍👨🏼	dejotāji tumšs ādas tonis un vidēji gaišs ādas tonis	none
+👨🏿‍🐰‍👨🏽	dejotāji tumšs ādas tonis un vidējs ādas tonis	none
+👨🏿‍🐰‍👨🏾	dejotāji tumšs ādas tonis un vidēji tumšs ādas tonis	none
 👩🏻	sieviete gaišs ādas tonis	none
 👩🏼	sieviete vidēji gaišs ādas tonis	none
 👩🏽	sieviete vidējs ādas tonis	none
@@ -2392,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	pāris ar sirdi sieviete, sieviete, tumšs ādas tonis un vidējs ādas tonis	none
 👩🏿‍❤‍👩🏾	pāris ar sirdi sieviete, sieviete, tumšs ādas tonis un vidēji tumšs ādas tonis	none
 👩🏿‍❤‍👩🏿	pāris ar sirdi sieviete, sieviete un tumšs ādas tonis	none
+👩🏻‍🫯‍👩🏼	cīkstone gaišs ādas tonis un vidēji gaišs ādas tonis	none
+👩🏻‍🫯‍👩🏽	cīkstone gaišs ādas tonis un vidējs ādas tonis	none
+👩🏻‍🫯‍👩🏾	cīkstone gaišs ādas tonis un vidēji tumšs ādas tonis	none
+👩🏻‍🫯‍👩🏿	cīkstone gaišs ādas tonis un tumšs ādas tonis	none
+👩🏼‍🫯‍👩🏻	cīkstone vidēji gaišs ādas tonis un gaišs ādas tonis	none
+👩🏼‍🫯‍👩🏽	cīkstone vidēji gaišs ādas tonis un vidējs ādas tonis	none
+👩🏼‍🫯‍👩🏾	cīkstone vidēji gaišs ādas tonis un vidēji tumšs ādas tonis	none
+👩🏼‍🫯‍👩🏿	cīkstone vidēji gaišs ādas tonis un tumšs ādas tonis	none
+👩🏽‍🫯‍👩🏻	cīkstone vidējs ādas tonis un gaišs ādas tonis	none
+👩🏽‍🫯‍👩🏼	cīkstone vidējs ādas tonis un vidēji gaišs ādas tonis	none
+👩🏽‍🫯‍👩🏾	cīkstone vidējs ādas tonis un vidēji tumšs ādas tonis	none
+👩🏽‍🫯‍👩🏿	cīkstone vidējs ādas tonis un tumšs ādas tonis	none
+👩🏾‍🫯‍👩🏻	cīkstone vidēji tumšs ādas tonis un gaišs ādas tonis	none
+👩🏾‍🫯‍👩🏼	cīkstone vidēji tumšs ādas tonis un vidēji gaišs ādas tonis	none
+👩🏾‍🫯‍👩🏽	cīkstone vidēji tumšs ādas tonis un vidējs ādas tonis	none
+👩🏾‍🫯‍👩🏿	cīkstone vidēji tumšs ādas tonis un tumšs ādas tonis	none
+👩🏿‍🫯‍👩🏻	cīkstone tumšs ādas tonis un gaišs ādas tonis	none
+👩🏿‍🫯‍👩🏼	cīkstone tumšs ādas tonis un vidēji gaišs ādas tonis	none
+👩🏿‍🫯‍👩🏽	cīkstone tumšs ādas tonis un vidējs ādas tonis	none
+👩🏿‍🫯‍👩🏾	cīkstone tumšs ādas tonis un vidēji tumšs ādas tonis	none
 👩‍🦰	sieviete sarkani mati	none
 👩🏻‍🦰	sieviete gaišs ādas tonis un sarkani mati	none
 👩🏼‍🦰	sieviete vidēji gaišs ādas tonis un sarkani mati	none
@@ -2416,6 +2531,26 @@ symbols:
 👩🏽‍🦲	sieviete vidējs ādas tonis un bez matiem	none
 👩🏾‍🦲	sieviete vidēji tumšs ādas tonis un bez matiem	none
 👩🏿‍🦲	sieviete tumšs ādas tonis un bez matiem	none
+👩🏻‍🐰‍👩🏼	dejotājas gaišs ādas tonis un vidēji gaišs ādas tonis	none
+👩🏻‍🐰‍👩🏽	dejotājas gaišs ādas tonis un vidējs ādas tonis	none
+👩🏻‍🐰‍👩🏾	dejotājas gaišs ādas tonis un vidēji tumšs ādas tonis	none
+👩🏻‍🐰‍👩🏿	dejotājas gaišs ādas tonis un tumšs ādas tonis	none
+👩🏼‍🐰‍👩🏻	dejotājas vidēji gaišs ādas tonis un gaišs ādas tonis	none
+👩🏼‍🐰‍👩🏽	dejotājas vidēji gaišs ādas tonis un vidējs ādas tonis	none
+👩🏼‍🐰‍👩🏾	dejotājas vidēji gaišs ādas tonis un vidēji tumšs ādas tonis	none
+👩🏼‍🐰‍👩🏿	dejotājas vidēji gaišs ādas tonis un tumšs ādas tonis	none
+👩🏽‍🐰‍👩🏻	dejotājas vidējs ādas tonis un gaišs ādas tonis	none
+👩🏽‍🐰‍👩🏼	dejotājas vidējs ādas tonis un vidēji gaišs ādas tonis	none
+👩🏽‍🐰‍👩🏾	dejotājas vidējs ādas tonis un vidēji tumšs ādas tonis	none
+👩🏽‍🐰‍👩🏿	dejotājas vidējs ādas tonis un tumšs ādas tonis	none
+👩🏾‍🐰‍👩🏻	dejotājas vidēji tumšs ādas tonis un gaišs ādas tonis	none
+👩🏾‍🐰‍👩🏼	dejotājas vidēji tumšs ādas tonis un vidēji gaišs ādas tonis	none
+👩🏾‍🐰‍👩🏽	dejotājas vidēji tumšs ādas tonis un vidējs ādas tonis	none
+👩🏾‍🐰‍👩🏿	dejotājas vidēji tumšs ādas tonis un tumšs ādas tonis	none
+👩🏿‍🐰‍👩🏻	dejotājas tumšs ādas tonis un gaišs ādas tonis	none
+👩🏿‍🐰‍👩🏼	dejotājas tumšs ādas tonis un vidēji gaišs ādas tonis	none
+👩🏿‍🐰‍👩🏽	dejotājas tumšs ādas tonis un vidējs ādas tonis	none
+👩🏿‍🐰‍👩🏾	dejotājas tumšs ādas tonis un vidēji tumšs ādas tonis	none
 🧓🏻	vecāks pieaugušais gaišs ādas tonis	none
 🧓🏼	vecāks pieaugušais vidēji gaišs ādas tonis	none
 🧓🏽	vecāks pieaugušais vidējs ādas tonis	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	sieviete pastaigājas vidēji tumšs ādas tonis	none
 🚶🏿‍♀	sieviete pastaigājas tumšs ādas tonis	none
 🚶‍➡	gājējs skatās pa labi	none
-🚶🏻‍➡	gājējs skatās pa labi	none
-🚶🏼‍➡	gājējs skatās pa labi	none
-🚶🏽‍➡	gājējs skatās pa labi	none
-🚶🏾‍➡	gājējs skatās pa labi	none
-🚶🏿‍➡	gājējs skatās pa labi	none
+🚶🏻‍➡	gājējs gaišs ādas tonis un skatās pa labi	none
+🚶🏼‍➡	gājējs vidēji gaišs ādas tonis un skatās pa labi	none
+🚶🏽‍➡	gājējs vidējs ādas tonis un skatās pa labi	none
+🚶🏾‍➡	gājējs vidēji tumšs ādas tonis un skatās pa labi	none
+🚶🏿‍➡	gājējs tumšs ādas tonis un skatās pa labi	none
 🚶‍♀‍➡	sieviete pastaigājas skatās pa labi	none
-🚶🏻‍♀‍➡	sieviete pastaigājas skatās pa labi	none
-🚶🏼‍♀‍➡	sieviete pastaigājas skatās pa labi	none
-🚶🏽‍♀‍➡	sieviete pastaigājas skatās pa labi	none
-🚶🏾‍♀‍➡	sieviete pastaigājas skatās pa labi	none
-🚶🏿‍♀‍➡	sieviete pastaigājas skatās pa labi	none
+🚶🏻‍♀‍➡	sieviete pastaigājas gaišs ādas tonis un skatās pa labi	none
+🚶🏼‍♀‍➡	sieviete pastaigājas vidēji gaišs ādas tonis un skatās pa labi	none
+🚶🏽‍♀‍➡	sieviete pastaigājas vidējs ādas tonis un skatās pa labi	none
+🚶🏾‍♀‍➡	sieviete pastaigājas vidēji tumšs ādas tonis un skatās pa labi	none
+🚶🏿‍♀‍➡	sieviete pastaigājas tumšs ādas tonis un skatās pa labi	none
 🚶‍♂‍➡	vīrietis pastaigājas skatās pa labi	none
-🚶🏻‍♂‍➡	vīrietis pastaigājas skatās pa labi	none
-🚶🏼‍♂‍➡	vīrietis pastaigājas skatās pa labi	none
-🚶🏽‍♂‍➡	vīrietis pastaigājas skatās pa labi	none
-🚶🏾‍♂‍➡	vīrietis pastaigājas skatās pa labi	none
-🚶🏿‍♂‍➡	vīrietis pastaigājas skatās pa labi	none
+🚶🏻‍♂‍➡	vīrietis pastaigājas gaišs ādas tonis un skatās pa labi	none
+🚶🏼‍♂‍➡	vīrietis pastaigājas vidēji gaišs ādas tonis un skatās pa labi	none
+🚶🏽‍♂‍➡	vīrietis pastaigājas vidējs ādas tonis un skatās pa labi	none
+🚶🏾‍♂‍➡	vīrietis pastaigājas vidēji tumšs ādas tonis un skatās pa labi	none
+🚶🏿‍♂‍➡	vīrietis pastaigājas tumšs ādas tonis un skatās pa labi	none
 🧍🏻	stāvoša persona gaišs ādas tonis	none
 🧍🏼	stāvoša persona vidēji gaišs ādas tonis	none
 🧍🏽	stāvoša persona vidējs ādas tonis	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	sieviete uz ceļiem vidēji tumšs ādas tonis	none
 🧎🏿‍♀	sieviete uz ceļiem tumšs ādas tonis	none
 🧎‍➡	persona uz ceļiem skatās pa labi	none
-🧎🏻‍➡	persona uz ceļiem skatās pa labi	none
-🧎🏼‍➡	persona uz ceļiem skatās pa labi	none
-🧎🏽‍➡	persona uz ceļiem skatās pa labi	none
-🧎🏾‍➡	persona uz ceļiem skatās pa labi	none
-🧎🏿‍➡	persona uz ceļiem skatās pa labi	none
+🧎🏻‍➡	persona uz ceļiem gaišs ādas tonis un skatās pa labi	none
+🧎🏼‍➡	persona uz ceļiem vidēji gaišs ādas tonis un skatās pa labi	none
+🧎🏽‍➡	persona uz ceļiem vidējs ādas tonis un skatās pa labi	none
+🧎🏾‍➡	persona uz ceļiem vidēji tumšs ādas tonis un skatās pa labi	none
+🧎🏿‍➡	persona uz ceļiem tumšs ādas tonis un skatās pa labi	none
 🧎‍♀‍➡	sieviete uz ceļiem skatās pa labi	none
-🧎🏻‍♀‍➡	sieviete uz ceļiem skatās pa labi	none
-🧎🏼‍♀‍➡	sieviete uz ceļiem skatās pa labi	none
-🧎🏽‍♀‍➡	sieviete uz ceļiem skatās pa labi	none
-🧎🏾‍♀‍➡	sieviete uz ceļiem skatās pa labi	none
-🧎🏿‍♀‍➡	sieviete uz ceļiem skatās pa labi	none
+🧎🏻‍♀‍➡	sieviete uz ceļiem gaišs ādas tonis un skatās pa labi	none
+🧎🏼‍♀‍➡	sieviete uz ceļiem vidēji gaišs ādas tonis un skatās pa labi	none
+🧎🏽‍♀‍➡	sieviete uz ceļiem vidējs ādas tonis un skatās pa labi	none
+🧎🏾‍♀‍➡	sieviete uz ceļiem vidēji tumšs ādas tonis un skatās pa labi	none
+🧎🏿‍♀‍➡	sieviete uz ceļiem tumšs ādas tonis un skatās pa labi	none
 🧎‍♂‍➡	vīrietis uz ceļiem skatās pa labi	none
-🧎🏻‍♂‍➡	vīrietis uz ceļiem skatās pa labi	none
-🧎🏼‍♂‍➡	vīrietis uz ceļiem skatās pa labi	none
-🧎🏽‍♂‍➡	vīrietis uz ceļiem skatās pa labi	none
-🧎🏾‍♂‍➡	vīrietis uz ceļiem skatās pa labi	none
-🧎🏿‍♂‍➡	vīrietis uz ceļiem skatās pa labi	none
+🧎🏻‍♂‍➡	vīrietis uz ceļiem gaišs ādas tonis un skatās pa labi	none
+🧎🏼‍♂‍➡	vīrietis uz ceļiem vidēji gaišs ādas tonis un skatās pa labi	none
+🧎🏽‍♂‍➡	vīrietis uz ceļiem vidējs ādas tonis un skatās pa labi	none
+🧎🏾‍♂‍➡	vīrietis uz ceļiem vidēji tumšs ādas tonis un skatās pa labi	none
+🧎🏿‍♂‍➡	vīrietis uz ceļiem tumšs ādas tonis un skatās pa labi	none
 🧑🏻‍🦯	persona ar balto spieķi gaišs ādas tonis	none
 🧑🏼‍🦯	persona ar balto spieķi vidēji gaišs ādas tonis	none
 🧑🏽‍🦯	persona ar balto spieķi vidējs ādas tonis	none
 🧑🏾‍🦯	persona ar balto spieķi vidēji tumšs ādas tonis	none
 🧑🏿‍🦯	persona ar balto spieķi tumšs ādas tonis	none
 🧑‍🦯‍➡	persona ar balto spieķi skatās pa labi	none
-🧑🏻‍🦯‍➡	persona ar balto spieķi skatās pa labi	none
-🧑🏼‍🦯‍➡	persona ar balto spieķi skatās pa labi	none
-🧑🏽‍🦯‍➡	persona ar balto spieķi skatās pa labi	none
-🧑🏾‍🦯‍➡	persona ar balto spieķi skatās pa labi	none
-🧑🏿‍🦯‍➡	persona ar balto spieķi skatās pa labi	none
+🧑🏻‍🦯‍➡	persona ar balto spieķi gaišs ādas tonis un skatās pa labi	none
+🧑🏼‍🦯‍➡	persona ar balto spieķi vidēji gaišs ādas tonis un skatās pa labi	none
+🧑🏽‍🦯‍➡	persona ar balto spieķi vidējs ādas tonis un skatās pa labi	none
+🧑🏾‍🦯‍➡	persona ar balto spieķi vidēji tumšs ādas tonis un skatās pa labi	none
+🧑🏿‍🦯‍➡	persona ar balto spieķi tumšs ādas tonis un skatās pa labi	none
 👨🏻‍🦯	vīrietis ar balto atbalsta spieķi gaišs ādas tonis	none
 👨🏼‍🦯	vīrietis ar balto atbalsta spieķi vidēji gaišs ādas tonis	none
 👨🏽‍🦯	vīrietis ar balto atbalsta spieķi vidējs ādas tonis	none
 👨🏾‍🦯	vīrietis ar balto atbalsta spieķi vidēji tumšs ādas tonis	none
 👨🏿‍🦯	vīrietis ar balto atbalsta spieķi tumšs ādas tonis	none
 👨‍🦯‍➡	vīrietis ar balto atbalsta spieķi skatās pa labi	none
-👨🏻‍🦯‍➡	vīrietis ar balto atbalsta spieķi skatās pa labi	none
-👨🏼‍🦯‍➡	vīrietis ar balto atbalsta spieķi skatās pa labi	none
-👨🏽‍🦯‍➡	vīrietis ar balto atbalsta spieķi skatās pa labi	none
-👨🏾‍🦯‍➡	vīrietis ar balto atbalsta spieķi skatās pa labi	none
-👨🏿‍🦯‍➡	vīrietis ar balto atbalsta spieķi skatās pa labi	none
+👨🏻‍🦯‍➡	vīrietis ar balto atbalsta spieķi gaišs ādas tonis un skatās pa labi	none
+👨🏼‍🦯‍➡	vīrietis ar balto atbalsta spieķi vidēji gaišs ādas tonis un skatās pa labi	none
+👨🏽‍🦯‍➡	vīrietis ar balto atbalsta spieķi vidējs ādas tonis un skatās pa labi	none
+👨🏾‍🦯‍➡	vīrietis ar balto atbalsta spieķi vidēji tumšs ādas tonis un skatās pa labi	none
+👨🏿‍🦯‍➡	vīrietis ar balto atbalsta spieķi tumšs ādas tonis un skatās pa labi	none
 👩🏻‍🦯	sieviete ar balto atbalsta spieķi gaišs ādas tonis	none
 👩🏼‍🦯	sieviete ar balto atbalsta spieķi vidēji gaišs ādas tonis	none
 👩🏽‍🦯	sieviete ar balto atbalsta spieķi vidējs ādas tonis	none
 👩🏾‍🦯	sieviete ar balto atbalsta spieķi vidēji tumšs ādas tonis	none
 👩🏿‍🦯	sieviete ar balto atbalsta spieķi tumšs ādas tonis	none
 👩‍🦯‍➡	sieviete ar balto atbalsta spieķi skatās pa labi	none
-👩🏻‍🦯‍➡	sieviete ar balto atbalsta spieķi skatās pa labi	none
-👩🏼‍🦯‍➡	sieviete ar balto atbalsta spieķi skatās pa labi	none
-👩🏽‍🦯‍➡	sieviete ar balto atbalsta spieķi skatās pa labi	none
-👩🏾‍🦯‍➡	sieviete ar balto atbalsta spieķi skatās pa labi	none
-👩🏿‍🦯‍➡	sieviete ar balto atbalsta spieķi skatās pa labi	none
+👩🏻‍🦯‍➡	sieviete ar balto atbalsta spieķi gaišs ādas tonis un skatās pa labi	none
+👩🏼‍🦯‍➡	sieviete ar balto atbalsta spieķi vidēji gaišs ādas tonis un skatās pa labi	none
+👩🏽‍🦯‍➡	sieviete ar balto atbalsta spieķi vidējs ādas tonis un skatās pa labi	none
+👩🏾‍🦯‍➡	sieviete ar balto atbalsta spieķi vidēji tumšs ādas tonis un skatās pa labi	none
+👩🏿‍🦯‍➡	sieviete ar balto atbalsta spieķi tumšs ādas tonis un skatās pa labi	none
 🧑🏻‍🦼	persona ratiņkrēslā gaišs ādas tonis	none
 🧑🏼‍🦼	persona ratiņkrēslā vidēji gaišs ādas tonis	none
 🧑🏽‍🦼	persona ratiņkrēslā vidējs ādas tonis	none
 🧑🏾‍🦼	persona ratiņkrēslā vidēji tumšs ādas tonis	none
 🧑🏿‍🦼	persona ratiņkrēslā tumšs ādas tonis	none
 🧑‍🦼‍➡	persona ratiņkrēslā skatās pa labi	none
-🧑🏻‍🦼‍➡	persona ratiņkrēslā skatās pa labi	none
-🧑🏼‍🦼‍➡	persona ratiņkrēslā skatās pa labi	none
-🧑🏽‍🦼‍➡	persona ratiņkrēslā skatās pa labi	none
-🧑🏾‍🦼‍➡	persona ratiņkrēslā skatās pa labi	none
-🧑🏿‍🦼‍➡	persona ratiņkrēslā skatās pa labi	none
+🧑🏻‍🦼‍➡	persona ratiņkrēslā gaišs ādas tonis un skatās pa labi	none
+🧑🏼‍🦼‍➡	persona ratiņkrēslā vidēji gaišs ādas tonis un skatās pa labi	none
+🧑🏽‍🦼‍➡	persona ratiņkrēslā vidējs ādas tonis un skatās pa labi	none
+🧑🏾‍🦼‍➡	persona ratiņkrēslā vidēji tumšs ādas tonis un skatās pa labi	none
+🧑🏿‍🦼‍➡	persona ratiņkrēslā tumšs ādas tonis un skatās pa labi	none
 👨🏻‍🦼	vīrietis motorizētā ratiņkrēslā gaišs ādas tonis	none
 👨🏼‍🦼	vīrietis motorizētā ratiņkrēslā vidēji gaišs ādas tonis	none
 👨🏽‍🦼	vīrietis motorizētā ratiņkrēslā vidējs ādas tonis	none
 👨🏾‍🦼	vīrietis motorizētā ratiņkrēslā vidēji tumšs ādas tonis	none
 👨🏿‍🦼	vīrietis motorizētā ratiņkrēslā tumšs ādas tonis	none
 👨‍🦼‍➡	vīrietis motorizētā ratiņkrēslā skatās pa labi	none
-👨🏻‍🦼‍➡	vīrietis motorizētā ratiņkrēslā skatās pa labi	none
-👨🏼‍🦼‍➡	vīrietis motorizētā ratiņkrēslā skatās pa labi	none
-👨🏽‍🦼‍➡	vīrietis motorizētā ratiņkrēslā skatās pa labi	none
-👨🏾‍🦼‍➡	vīrietis motorizētā ratiņkrēslā skatās pa labi	none
-👨🏿‍🦼‍➡	vīrietis motorizētā ratiņkrēslā skatās pa labi	none
+👨🏻‍🦼‍➡	vīrietis motorizētā ratiņkrēslā gaišs ādas tonis un skatās pa labi	none
+👨🏼‍🦼‍➡	vīrietis motorizētā ratiņkrēslā vidēji gaišs ādas tonis un skatās pa labi	none
+👨🏽‍🦼‍➡	vīrietis motorizētā ratiņkrēslā vidējs ādas tonis un skatās pa labi	none
+👨🏾‍🦼‍➡	vīrietis motorizētā ratiņkrēslā vidēji tumšs ādas tonis un skatās pa labi	none
+👨🏿‍🦼‍➡	vīrietis motorizētā ratiņkrēslā tumšs ādas tonis un skatās pa labi	none
 👩🏻‍🦼	sieviete motorizētā ratiņkrēslā gaišs ādas tonis	none
 👩🏼‍🦼	sieviete motorizētā ratiņkrēslā vidēji gaišs ādas tonis	none
 👩🏽‍🦼	sieviete motorizētā ratiņkrēslā vidējs ādas tonis	none
 👩🏾‍🦼	sieviete motorizētā ratiņkrēslā vidēji tumšs ādas tonis	none
 👩🏿‍🦼	sieviete motorizētā ratiņkrēslā tumšs ādas tonis	none
 👩‍🦼‍➡	sieviete motorizētā ratiņkrēslā skatās pa labi	none
-👩🏻‍🦼‍➡	sieviete motorizētā ratiņkrēslā skatās pa labi	none
-👩🏼‍🦼‍➡	sieviete motorizētā ratiņkrēslā skatās pa labi	none
-👩🏽‍🦼‍➡	sieviete motorizētā ratiņkrēslā skatās pa labi	none
-👩🏾‍🦼‍➡	sieviete motorizētā ratiņkrēslā skatās pa labi	none
-👩🏿‍🦼‍➡	sieviete motorizētā ratiņkrēslā skatās pa labi	none
+👩🏻‍🦼‍➡	sieviete motorizētā ratiņkrēslā gaišs ādas tonis un skatās pa labi	none
+👩🏼‍🦼‍➡	sieviete motorizētā ratiņkrēslā vidēji gaišs ādas tonis un skatās pa labi	none
+👩🏽‍🦼‍➡	sieviete motorizētā ratiņkrēslā vidējs ādas tonis un skatās pa labi	none
+👩🏾‍🦼‍➡	sieviete motorizētā ratiņkrēslā vidēji tumšs ādas tonis un skatās pa labi	none
+👩🏿‍🦼‍➡	sieviete motorizētā ratiņkrēslā tumšs ādas tonis un skatās pa labi	none
 🧑🏻‍🦽	persona manuālajā ratiņkrēslā gaišs ādas tonis	none
 🧑🏼‍🦽	persona manuālajā ratiņkrēslā vidēji gaišs ādas tonis	none
 🧑🏽‍🦽	persona manuālajā ratiņkrēslā vidējs ādas tonis	none
 🧑🏾‍🦽	persona manuālajā ratiņkrēslā vidēji tumšs ādas tonis	none
 🧑🏿‍🦽	persona manuālajā ratiņkrēslā tumšs ādas tonis	none
 🧑‍🦽‍➡	persona manuālajā ratiņkrēslā skatās pa labi	none
-🧑🏻‍🦽‍➡	persona manuālajā ratiņkrēslā skatās pa labi	none
-🧑🏼‍🦽‍➡	persona manuālajā ratiņkrēslā skatās pa labi	none
-🧑🏽‍🦽‍➡	persona manuālajā ratiņkrēslā skatās pa labi	none
-🧑🏾‍🦽‍➡	persona manuālajā ratiņkrēslā skatās pa labi	none
-🧑🏿‍🦽‍➡	persona manuālajā ratiņkrēslā skatās pa labi	none
+🧑🏻‍🦽‍➡	persona manuālajā ratiņkrēslā gaišs ādas tonis un skatās pa labi	none
+🧑🏼‍🦽‍➡	persona manuālajā ratiņkrēslā vidēji gaišs ādas tonis un skatās pa labi	none
+🧑🏽‍🦽‍➡	persona manuālajā ratiņkrēslā vidējs ādas tonis un skatās pa labi	none
+🧑🏾‍🦽‍➡	persona manuālajā ratiņkrēslā vidēji tumšs ādas tonis un skatās pa labi	none
+🧑🏿‍🦽‍➡	persona manuālajā ratiņkrēslā tumšs ādas tonis un skatās pa labi	none
 👨🏻‍🦽	vīrietis manuālā ratiņkrēslā gaišs ādas tonis	none
 👨🏼‍🦽	vīrietis manuālā ratiņkrēslā vidēji gaišs ādas tonis	none
 👨🏽‍🦽	vīrietis manuālā ratiņkrēslā vidējs ādas tonis	none
 👨🏾‍🦽	vīrietis manuālā ratiņkrēslā vidēji tumšs ādas tonis	none
 👨🏿‍🦽	vīrietis manuālā ratiņkrēslā tumšs ādas tonis	none
 👨‍🦽‍➡	vīrietis manuālā ratiņkrēslā skatās pa labi	none
-👨🏻‍🦽‍➡	vīrietis manuālā ratiņkrēslā skatās pa labi	none
-👨🏼‍🦽‍➡	vīrietis manuālā ratiņkrēslā skatās pa labi	none
-👨🏽‍🦽‍➡	vīrietis manuālā ratiņkrēslā skatās pa labi	none
-👨🏾‍🦽‍➡	vīrietis manuālā ratiņkrēslā skatās pa labi	none
-👨🏿‍🦽‍➡	vīrietis manuālā ratiņkrēslā skatās pa labi	none
+👨🏻‍🦽‍➡	vīrietis manuālā ratiņkrēslā gaišs ādas tonis un skatās pa labi	none
+👨🏼‍🦽‍➡	vīrietis manuālā ratiņkrēslā vidēji gaišs ādas tonis un skatās pa labi	none
+👨🏽‍🦽‍➡	vīrietis manuālā ratiņkrēslā vidējs ādas tonis un skatās pa labi	none
+👨🏾‍🦽‍➡	vīrietis manuālā ratiņkrēslā vidēji tumšs ādas tonis un skatās pa labi	none
+👨🏿‍🦽‍➡	vīrietis manuālā ratiņkrēslā tumšs ādas tonis un skatās pa labi	none
 👩🏻‍🦽	sieviete manuālā ratiņkrēslā gaišs ādas tonis	none
 👩🏼‍🦽	sieviete manuālā ratiņkrēslā vidēji gaišs ādas tonis	none
 👩🏽‍🦽	sieviete manuālā ratiņkrēslā vidējs ādas tonis	none
 👩🏾‍🦽	sieviete manuālā ratiņkrēslā vidēji tumšs ādas tonis	none
 👩🏿‍🦽	sieviete manuālā ratiņkrēslā tumšs ādas tonis	none
 👩‍🦽‍➡	sieviete manuālā ratiņkrēslā skatās pa labi	none
-👩🏻‍🦽‍➡	sieviete manuālā ratiņkrēslā skatās pa labi	none
-👩🏼‍🦽‍➡	sieviete manuālā ratiņkrēslā skatās pa labi	none
-👩🏽‍🦽‍➡	sieviete manuālā ratiņkrēslā skatās pa labi	none
-👩🏾‍🦽‍➡	sieviete manuālā ratiņkrēslā skatās pa labi	none
-👩🏿‍🦽‍➡	sieviete manuālā ratiņkrēslā skatās pa labi	none
+👩🏻‍🦽‍➡	sieviete manuālā ratiņkrēslā gaišs ādas tonis un skatās pa labi	none
+👩🏼‍🦽‍➡	sieviete manuālā ratiņkrēslā vidēji gaišs ādas tonis un skatās pa labi	none
+👩🏽‍🦽‍➡	sieviete manuālā ratiņkrēslā vidējs ādas tonis un skatās pa labi	none
+👩🏾‍🦽‍➡	sieviete manuālā ratiņkrēslā vidēji tumšs ādas tonis un skatās pa labi	none
+👩🏿‍🦽‍➡	sieviete manuālā ratiņkrēslā tumšs ādas tonis un skatās pa labi	none
 🏃🏻	skrējējs gaišs ādas tonis	none
 🏃🏼	skrējējs vidēji gaišs ādas tonis	none
 🏃🏽	skrējējs vidējs ādas tonis	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	sieviete skrien vidēji tumšs ādas tonis	none
 🏃🏿‍♀	sieviete skrien tumšs ādas tonis	none
 🏃‍➡	skrējējs skatās pa labi	none
-🏃🏻‍➡	skrējējs skatās pa labi	none
-🏃🏼‍➡	skrējējs skatās pa labi	none
-🏃🏽‍➡	skrējējs skatās pa labi	none
-🏃🏾‍➡	skrējējs skatās pa labi	none
-🏃🏿‍➡	skrējējs skatās pa labi	none
+🏃🏻‍➡	skrējējs gaišs ādas tonis un skatās pa labi	none
+🏃🏼‍➡	skrējējs vidēji gaišs ādas tonis un skatās pa labi	none
+🏃🏽‍➡	skrējējs vidējs ādas tonis un skatās pa labi	none
+🏃🏾‍➡	skrējējs vidēji tumšs ādas tonis un skatās pa labi	none
+🏃🏿‍➡	skrējējs tumšs ādas tonis un skatās pa labi	none
 🏃‍♀‍➡	sieviete skrien skatās pa labi	none
-🏃🏻‍♀‍➡	sieviete skrien skatās pa labi	none
-🏃🏼‍♀‍➡	sieviete skrien skatās pa labi	none
-🏃🏽‍♀‍➡	sieviete skrien skatās pa labi	none
-🏃🏾‍♀‍➡	sieviete skrien skatās pa labi	none
-🏃🏿‍♀‍➡	sieviete skrien skatās pa labi	none
+🏃🏻‍♀‍➡	sieviete skrien gaišs ādas tonis un skatās pa labi	none
+🏃🏼‍♀‍➡	sieviete skrien vidēji gaišs ādas tonis un skatās pa labi	none
+🏃🏽‍♀‍➡	sieviete skrien vidējs ādas tonis un skatās pa labi	none
+🏃🏾‍♀‍➡	sieviete skrien vidēji tumšs ādas tonis un skatās pa labi	none
+🏃🏿‍♀‍➡	sieviete skrien tumšs ādas tonis un skatās pa labi	none
 🏃‍♂‍➡	vīrietis skrien skatās pa labi	none
-🏃🏻‍♂‍➡	vīrietis skrien skatās pa labi	none
-🏃🏼‍♂‍➡	vīrietis skrien skatās pa labi	none
-🏃🏽‍♂‍➡	vīrietis skrien skatās pa labi	none
-🏃🏾‍♂‍➡	vīrietis skrien skatās pa labi	none
-🏃🏿‍♂‍➡	vīrietis skrien skatās pa labi	none
+🏃🏻‍♂‍➡	vīrietis skrien gaišs ādas tonis un skatās pa labi	none
+🏃🏼‍♂‍➡	vīrietis skrien vidēji gaišs ādas tonis un skatās pa labi	none
+🏃🏽‍♂‍➡	vīrietis skrien vidējs ādas tonis un skatās pa labi	none
+🏃🏾‍♂‍➡	vīrietis skrien vidēji tumšs ādas tonis un skatās pa labi	none
+🏃🏿‍♂‍➡	vīrietis skrien tumšs ādas tonis un skatās pa labi	none
+🧑🏻‍🩰	baletdejotājs gaišs ādas tonis	none
+🧑🏼‍🩰	baletdejotājs vidēji gaišs ādas tonis	none
+🧑🏽‍🩰	baletdejotājs vidējs ādas tonis	none
+🧑🏾‍🩰	baletdejotājs vidēji tumšs ādas tonis	none
+🧑🏿‍🩰	baletdejotājs tumšs ādas tonis	none
 💃🏻	sieviete dejo gaišs ādas tonis	none
 💃🏼	sieviete dejo vidēji gaišs ādas tonis	none
 💃🏽	sieviete dejo vidējs ādas tonis	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	levitējošs cilvēks uzvalkā vidējs ādas tonis	none
 🕴🏾	levitējošs cilvēks uzvalkā vidēji tumšs ādas tonis	none
 🕴🏿	levitējošs cilvēks uzvalkā tumšs ādas tonis	none
+👯🏻	dejotāju šovs gaišs ādas tonis	none
+👯🏼	dejotāju šovs vidēji gaišs ādas tonis	none
+👯🏽	dejotāju šovs vidējs ādas tonis	none
+👯🏾	dejotāju šovs vidēji tumšs ādas tonis	none
+👯🏿	dejotāju šovs tumšs ādas tonis	none
+👯🏻‍♂	dejotāji gaišs ādas tonis	none
+👯🏼‍♂	dejotāji vidēji gaišs ādas tonis	none
+👯🏽‍♂	dejotāji vidējs ādas tonis	none
+👯🏾‍♂	dejotāji vidēji tumšs ādas tonis	none
+👯🏿‍♂	dejotāji tumšs ādas tonis	none
+👯🏻‍♀	dejotājas gaišs ādas tonis	none
+👯🏼‍♀	dejotājas vidēji gaišs ādas tonis	none
+👯🏽‍♀	dejotājas vidējs ādas tonis	none
+👯🏾‍♀	dejotājas vidēji tumšs ādas tonis	none
+👯🏿‍♀	dejotājas tumšs ādas tonis	none
 🧖🏻	cilvēks tvaika telpā gaišs ādas tonis	none
 🧖🏼	cilvēks tvaika telpā vidēji gaišs ādas tonis	none
 🧖🏽	cilvēks tvaika telpā vidējs ādas tonis	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	akrobāte vidējs ādas tonis	none
 🤸🏾‍♀	akrobāte vidēji tumšs ādas tonis	none
 🤸🏿‍♀	akrobāte tumšs ādas tonis	none
+🤼🏻	cīkstoņi gaišs ādas tonis	none
+🤼🏼	cīkstoņi vidēji gaišs ādas tonis	none
+🤼🏽	cīkstoņi vidējs ādas tonis	none
+🤼🏾	cīkstoņi vidēji tumšs ādas tonis	none
+🤼🏿	cīkstoņi tumšs ādas tonis	none
+🤼🏻‍♂	cīkstonis gaišs ādas tonis	none
+🤼🏼‍♂	cīkstonis vidēji gaišs ādas tonis	none
+🤼🏽‍♂	cīkstonis vidējs ādas tonis	none
+🤼🏾‍♂	cīkstonis vidēji tumšs ādas tonis	none
+🤼🏿‍♂	cīkstonis tumšs ādas tonis	none
+🤼🏻‍♀	cīkstone gaišs ādas tonis	none
+🤼🏼‍♀	cīkstone vidēji gaišs ādas tonis	none
+🤼🏽‍♀	cīkstone vidējs ādas tonis	none
+🤼🏾‍♀	cīkstone vidēji tumšs ādas tonis	none
+🤼🏿‍♀	cīkstone tumšs ādas tonis	none
 🤽🏻	ūdenspolo sportists gaišs ādas tonis	none
 🤽🏼	ūdenspolo sportists vidēji gaišs ādas tonis	none
 🤽🏽	ūdenspolo sportists vidējs ādas tonis	none
@@ -3812,6 +3982,7 @@ symbols:
 🇨🇳	karogs Ķīna	none
 🇨🇴	karogs Kolumbija	none
 🇨🇵	karogs Klipertona sala	none
+🇨🇶	karogs Sarka	none
 🇨🇷	karogs Kostarika	none
 🇨🇺	karogs Kuba	none
 🇨🇻	karogs Kaboverde	none

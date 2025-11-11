@@ -75,6 +75,7 @@ symbols:
 😪	udem yeṭṭsen	none
 🤤	udem yeslulduyen	none
 😴	udem yennudmen	none
+🫩	udem s tcullaḍ ddaw wallen	none
 😷	udem s tekmamt	none
 🤒	udem s utirmumitr	none
 🤕	udem s cced ɣef uqerru	none
@@ -137,9 +138,11 @@ symbols:
 😸	amcic yeḍsan s wallen yeḍsan	none
 😹	amcic s yimeṭṭawen n lferḥ	none
 😻	amcic yecmumḥen s wallen d ulawen	none
+😼	amcic s teḍsa n ukellex	none
 😽	tasudent n umcic	none
 🙀	amcic yeɛyan	none
 😿	amcic yettrun	none
+😾	amcic imesxenfeṛ	none
 🙈	iddew ur nettwal adɣu	none
 🙉	iddew ur yettḥessisen i udeɣu	none
 🙊	iddew ur nettmeslay ɣef udɣu	none
@@ -171,6 +174,7 @@ symbols:
 💋	later n tsudent	none
 💯	tawinest n tezmilin	none
 💢	azamul n reffu	none
+💫	tuzzya n leεqel	none
 💦	aquder n tidi	none
 💨	tarewla	none
 🕳	amruj	none
@@ -256,7 +260,24 @@ symbols:
 🧓	amdan meqqren	none
 👴	amɣar	none
 👵	tamɣart	none
+🙍	amdan imexenfeṛ	none
+🙍‍♂	argaz imesxenfeṛ	none
+🙍‍♀	tameṭṭut timesxenfeṛt	none
+🙎	amdan imcennef	none
+🙎‍♂	argaz imcennef	none
+🙎‍♀	tameṭṭut timcenneft	none
 🧏	amdan aɛeẓẓug	none
+🧏‍♂	argaz aεeẓẓug	none
+🧏‍♀	tameṭṭut taεeẓẓugt	none
+🙇	amdan yettanez	none
+🙇‍♂	argaz yettanez	none
+🙇‍♀	tameṭṭut tettanez	none
+🧑‍🎓	anelmad	none
+👨‍🎓	argaz anelmad	none
+👩‍🎓	tameṭṭut tanelmadt	none
+🧑‍🏫	aselmad	none
+👨‍🏫	argaz aselmad	none
+👩‍🏫	tameṭṭut taselmadt	none
 👮	amsaltu	none
 💂	aɛessas	none
 🥷	aninja	none
@@ -411,6 +432,9 @@ symbols:
 🐙	iqirniḍ	none
 🐚	ajeɣlal yennḍen	none
 🪸	lmerǧan	none
+🦀	tifiraqest	none
+🦐	aqemrun	none
+🦪	idway	none
 🐌	aεarus	none
 🦋	aferteṭṭu	none
 🐛	aburbu	none
@@ -519,9 +543,6 @@ symbols:
 🍠	baṭaṭa taẓidant ikenfen	none
 🍢	tifarrugt	none
 🍣	aṣuci	none
-🦀	tifiraqest	none
-🦐	aqemrun	none
-🦪	idway	none
 🍫	tabewwaḍt n ccakula	none
 🍬	taḥlawat	none
 🍭	tameccaḥt	none
@@ -777,8 +798,8 @@ symbols:
 📑	accaren n tecraḍ	none
 🔖	tacreṭ n usebter	none
 🏷	tabzimt	none
-💰	sselfa	none
 🪙	aṣurdi	none
+💰	sselfa	none
 💴	lkaɣeḍ n yen	none
 💵	lkaɣeḍ n udular	none
 💶	lkareḍ n uru	none
@@ -1294,6 +1315,26 @@ symbols:
 🧑🏽‍🦲	amdan taglimt talemmast, aferḍas	none
 🧑🏾‍🦲	amdan taglimt tubrikt talemmast, aferḍas	none
 🧑🏿‍🦲	amdan taglimt tubrikt, aferḍas	none
+🧑🏻‍🐰‍🧑🏼	imdanen s yimeẓẓuɣen n yiwtal taglimt taceɛlalt, tagwlimt taceɛlalt talemmast	none
+🧑🏻‍🐰‍🧑🏽	imdanen s yimeẓẓuɣen n yiwtal taglimt taceɛlalt, taglimt talemmast	none
+🧑🏻‍🐰‍🧑🏾	imdanen s yimeẓẓuɣen n yiwtal taglimt taceɛlalt, taglimt tubrikt talemmast	none
+🧑🏻‍🐰‍🧑🏿	imdanen s yimeẓẓuɣen n yiwtal taglimt taceɛlalt, taglimt tubrikt	none
+🧑🏼‍🐰‍🧑🏻	imdanen s yimeẓẓuɣen n yiwtal tagwlimt taceɛlalt talemmast, taglimt taceɛlalt	none
+🧑🏼‍🐰‍🧑🏽	imdanen s yimeẓẓuɣen n yiwtal tagwlimt taceɛlalt talemmast, taglimt talemmast	none
+🧑🏼‍🐰‍🧑🏾	imdanen s yimeẓẓuɣen n yiwtal tagwlimt taceɛlalt talemmast, taglimt tubrikt talemmast	none
+🧑🏼‍🐰‍🧑🏿	imdanen s yimeẓẓuɣen n yiwtal tagwlimt taceɛlalt talemmast, taglimt tubrikt	none
+🧑🏽‍🐰‍🧑🏻	imdanen s yimeẓẓuɣen n yiwtal taglimt talemmast, taglimt taceɛlalt	none
+🧑🏽‍🐰‍🧑🏼	imdanen s yimeẓẓuɣen n yiwtal taglimt talemmast, tagwlimt taceɛlalt talemmast	none
+🧑🏽‍🐰‍🧑🏾	imdanen s yimeẓẓuɣen n yiwtal taglimt talemmast, taglimt tubrikt talemmast	none
+🧑🏽‍🐰‍🧑🏿	imdanen s yimeẓẓuɣen n yiwtal taglimt talemmast, taglimt tubrikt	none
+🧑🏾‍🐰‍🧑🏻	imdanen s yimeẓẓuɣen n yiwtal taglimt tubrikt talemmast, taglimt taceɛlalt	none
+🧑🏾‍🐰‍🧑🏼	imdanen s yimeẓẓuɣen n yiwtal taglimt tubrikt talemmast, tagwlimt taceɛlalt talemmast	none
+🧑🏾‍🐰‍🧑🏽	imdanen s yimeẓẓuɣen n yiwtal taglimt tubrikt talemmast, taglimt talemmast	none
+🧑🏾‍🐰‍🧑🏿	imdanen s yimeẓẓuɣen n yiwtal taglimt tubrikt talemmast, taglimt tubrikt	none
+🧑🏿‍🐰‍🧑🏻	imdanen s yimeẓẓuɣen n yiwtal taglimt tubrikt, taglimt taceɛlalt	none
+🧑🏿‍🐰‍🧑🏼	imdanen s yimeẓẓuɣen n yiwtal taglimt tubrikt, tagwlimt taceɛlalt talemmast	none
+🧑🏿‍🐰‍🧑🏽	imdanen s yimeẓẓuɣen n yiwtal taglimt tubrikt, taglimt talemmast	none
+🧑🏿‍🐰‍🧑🏾	imdanen s yimeẓẓuɣen n yiwtal taglimt tubrikt, taglimt tubrikt talemmast	none
 👨🏻	argaz taglimt taceɛlalt	none
 👨🏼	argaz tagwlimt taceɛlalt talemmast	none
 👨🏽	argaz taglimt talemmast	none
@@ -1467,11 +1508,96 @@ symbols:
 👵🏽	tamɣart taglimt talemmast	none
 👵🏾	tamɣart taglimt tubrikt talemmast	none
 👵🏿	tamɣart taglimt tubrikt	none
+🙍🏻	amdan imexenfeṛ taglimt taceɛlalt	none
+🙍🏼	amdan imexenfeṛ tagwlimt taceɛlalt talemmast	none
+🙍🏽	amdan imexenfeṛ taglimt talemmast	none
+🙍🏾	amdan imexenfeṛ taglimt tubrikt talemmast	none
+🙍🏿	amdan imexenfeṛ taglimt tubrikt	none
+🙍🏻‍♂	argaz imesxenfeṛ taglimt taceɛlalt	none
+🙍🏼‍♂	argaz imesxenfeṛ tagwlimt taceɛlalt talemmast	none
+🙍🏽‍♂	argaz imesxenfeṛ taglimt talemmast	none
+🙍🏾‍♂	argaz imesxenfeṛ taglimt tubrikt talemmast	none
+🙍🏿‍♂	argaz imesxenfeṛ taglimt tubrikt	none
+🙍🏻‍♀	tameṭṭut timesxenfeṛt taglimt taceɛlalt	none
+🙍🏼‍♀	tameṭṭut timesxenfeṛt tagwlimt taceɛlalt talemmast	none
+🙍🏽‍♀	tameṭṭut timesxenfeṛt taglimt talemmast	none
+🙍🏾‍♀	tameṭṭut timesxenfeṛt taglimt tubrikt talemmast	none
+🙍🏿‍♀	tameṭṭut timesxenfeṛt taglimt tubrikt	none
+🙎🏻	amdan imcennef taglimt taceɛlalt	none
+🙎🏼	amdan imcennef tagwlimt taceɛlalt talemmast	none
+🙎🏽	amdan imcennef taglimt talemmast	none
+🙎🏾	amdan imcennef taglimt tubrikt talemmast	none
+🙎🏿	amdan imcennef taglimt tubrikt	none
+🙎🏻‍♂	argaz imcennef taglimt taceɛlalt	none
+🙎🏼‍♂	argaz imcennef tagwlimt taceɛlalt talemmast	none
+🙎🏽‍♂	argaz imcennef taglimt talemmast	none
+🙎🏾‍♂	argaz imcennef taglimt tubrikt talemmast	none
+🙎🏿‍♂	argaz imcennef taglimt tubrikt	none
+🙎🏻‍♀	tameṭṭut timcenneft taglimt taceɛlalt	none
+🙎🏼‍♀	tameṭṭut timcenneft tagwlimt taceɛlalt talemmast	none
+🙎🏽‍♀	tameṭṭut timcenneft taglimt talemmast	none
+🙎🏾‍♀	tameṭṭut timcenneft taglimt tubrikt talemmast	none
+🙎🏿‍♀	tameṭṭut timcenneft taglimt tubrikt	none
 🧏🏻	amdan aɛeẓẓug taglimt taceɛlalt	none
 🧏🏼	amdan aɛeẓẓug tagwlimt taceɛlalt talemmast	none
 🧏🏽	amdan aɛeẓẓug taglimt talemmast	none
 🧏🏾	amdan aɛeẓẓug taglimt tubrikt talemmast	none
 🧏🏿	amdan aɛeẓẓug taglimt tubrikt	none
+🧏🏻‍♂	argaz aεeẓẓug taglimt taceɛlalt	none
+🧏🏼‍♂	argaz aεeẓẓug tagwlimt taceɛlalt talemmast	none
+🧏🏽‍♂	argaz aεeẓẓug taglimt talemmast	none
+🧏🏾‍♂	argaz aεeẓẓug taglimt tubrikt talemmast	none
+🧏🏿‍♂	argaz aεeẓẓug taglimt tubrikt	none
+🧏🏻‍♀	tameṭṭut taεeẓẓugt taglimt taceɛlalt	none
+🧏🏼‍♀	tameṭṭut taεeẓẓugt tagwlimt taceɛlalt talemmast	none
+🧏🏽‍♀	tameṭṭut taεeẓẓugt taglimt talemmast	none
+🧏🏾‍♀	tameṭṭut taεeẓẓugt taglimt tubrikt talemmast	none
+🧏🏿‍♀	tameṭṭut taεeẓẓugt taglimt tubrikt	none
+🙇🏻	amdan yettanez taglimt taceɛlalt	none
+🙇🏼	amdan yettanez tagwlimt taceɛlalt talemmast	none
+🙇🏽	amdan yettanez taglimt talemmast	none
+🙇🏾	amdan yettanez taglimt tubrikt talemmast	none
+🙇🏿	amdan yettanez taglimt tubrikt	none
+🙇🏻‍♂	argaz yettanez taglimt taceɛlalt	none
+🙇🏼‍♂	argaz yettanez tagwlimt taceɛlalt talemmast	none
+🙇🏽‍♂	argaz yettanez taglimt talemmast	none
+🙇🏾‍♂	argaz yettanez taglimt tubrikt talemmast	none
+🙇🏿‍♂	argaz yettanez taglimt tubrikt	none
+🙇🏻‍♀	tameṭṭut tettanez taglimt taceɛlalt	none
+🙇🏼‍♀	tameṭṭut tettanez tagwlimt taceɛlalt talemmast	none
+🙇🏽‍♀	tameṭṭut tettanez taglimt talemmast	none
+🙇🏾‍♀	tameṭṭut tettanez taglimt tubrikt talemmast	none
+🙇🏿‍♀	tameṭṭut tettanez taglimt tubrikt	none
+🧑🏻‍🎓	anelmad taglimt taceɛlalt	none
+🧑🏼‍🎓	anelmad tagwlimt taceɛlalt talemmast	none
+🧑🏽‍🎓	anelmad taglimt talemmast	none
+🧑🏾‍🎓	anelmad taglimt tubrikt talemmast	none
+🧑🏿‍🎓	anelmad taglimt tubrikt	none
+👨🏻‍🎓	argaz anelmad taglimt taceɛlalt	none
+👨🏼‍🎓	argaz anelmad tagwlimt taceɛlalt talemmast	none
+👨🏽‍🎓	argaz anelmad taglimt talemmast	none
+👨🏾‍🎓	argaz anelmad taglimt tubrikt talemmast	none
+👨🏿‍🎓	argaz anelmad taglimt tubrikt	none
+👩🏻‍🎓	tameṭṭut tanelmadt taglimt taceɛlalt	none
+👩🏼‍🎓	tameṭṭut tanelmadt tagwlimt taceɛlalt talemmast	none
+👩🏽‍🎓	tameṭṭut tanelmadt taglimt talemmast	none
+👩🏾‍🎓	tameṭṭut tanelmadt taglimt tubrikt talemmast	none
+👩🏿‍🎓	tameṭṭut tanelmadt taglimt tubrikt	none
+🧑🏻‍🏫	aselmad taglimt taceɛlalt	none
+🧑🏼‍🏫	aselmad tagwlimt taceɛlalt talemmast	none
+🧑🏽‍🏫	aselmad taglimt talemmast	none
+🧑🏾‍🏫	aselmad taglimt tubrikt talemmast	none
+🧑🏿‍🏫	aselmad taglimt tubrikt	none
+👨🏻‍🏫	argaz aselmad taglimt taceɛlalt	none
+👨🏼‍🏫	argaz aselmad tagwlimt taceɛlalt talemmast	none
+👨🏽‍🏫	argaz aselmad taglimt talemmast	none
+👨🏾‍🏫	argaz aselmad taglimt tubrikt talemmast	none
+👨🏿‍🏫	argaz aselmad taglimt tubrikt	none
+👩🏻‍🏫	tameṭṭut taselmadt taglimt taceɛlalt	none
+👩🏼‍🏫	tameṭṭut taselmadt tagwlimt taceɛlalt talemmast	none
+👩🏽‍🏫	tameṭṭut taselmadt taglimt talemmast	none
+👩🏾‍🏫	tameṭṭut taselmadt taglimt tubrikt talemmast	none
+👩🏿‍🏫	tameṭṭut taselmadt taglimt tubrikt	none
 👮🏻	amsaltu taglimt taceɛlalt	none
 👮🏼	amsaltu tagwlimt taceɛlalt talemmast	none
 👮🏽	amsaltu taglimt talemmast	none
@@ -1592,6 +1718,11 @@ symbols:
 🕺🏽	argaz iceṭṭḥen taglimt talemmast	none
 🕺🏾	argaz iceṭṭḥen taglimt tubrikt talemmast	none
 🕺🏿	argaz iceṭṭḥen taglimt tubrikt	none
+👯🏻	imdanen s yimeẓẓuɣen n yiwtal taglimt taceɛlalt	none
+👯🏼	imdanen s yimeẓẓuɣen n yiwtal tagwlimt taceɛlalt talemmast	none
+👯🏽	imdanen s yimeẓẓuɣen n yiwtal taglimt talemmast	none
+👯🏾	imdanen s yimeẓẓuɣen n yiwtal taglimt tubrikt talemmast	none
+👯🏿	imdanen s yimeẓẓuɣen n yiwtal taglimt tubrikt	none
 🚴🏻	amdan s uvilu taglimt taceɛlalt	none
 🚴🏼	amdan s uvilu tagwlimt taceɛlalt talemmast	none
 🚴🏽	amdan s uvilu taglimt talemmast	none

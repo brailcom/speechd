@@ -463,6 +463,11 @@ symbols:
 🐚	conchiggia	none
 🪸	coalo	none
 🪼	carnassa	none
+🦀	gritta	none
+🦞	ägosta	none
+🦐	gambao	none
+🦑	cämâ	none
+🦪	òstrega	none
 🐌	cägòllo	none
 🦋	parpaggia	none
 🐛	bestieta	none
@@ -594,11 +599,6 @@ symbols:
 🥟	ravieu	none
 🥠	bescheutto da fortuña	none
 🥡	scatoa da portâ via	none
-🦀	gritta	none
-🦞	ägosta	none
-🦐	gambao	none
-🦑	cämâ	none
-🦪	òstrega	none
 🍦	gelato inta negia	none
 🍧	granita	none
 🍨	coppa de sciorbetto	none
@@ -1009,10 +1009,10 @@ symbols:
 🎧	scuffie	none
 📻	aradio	none
 🎷	sasciòfono	none
+🎺	tromba	none
 🪗	fisa	none
 🎸	chitara	none
 🎹	piano	none
-🎺	tromba	none
 🎻	violin	none
 🪕	banjo	none
 🥁	tambuo	none
@@ -1072,8 +1072,8 @@ symbols:
 📑	marcapagina	none
 🔖	segnalibbro	none
 🏷	etichetta	none
-💰	sacco de dinæ	none
 🪙	monæa	none
+💰	sacco de dinæ	none
 💴	biggetto Yen	none
 💵	biggetto Dòllao	none
 💶	biggetto Euro	none
@@ -1735,6 +1735,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon scua e carnaxon assæ ciæa	none
 🧑🏿‍❤‍🧑🏽	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon scua e carnaxon cô d’öiva	none
 🧑🏿‍❤‍🧑🏾	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon scua e carnaxon assæ scua	none
+🧑🏻‍🫯‍🧑🏼	persoñe che lòttan carnaxon ciæa e carnaxon assæ ciæa	none
+🧑🏻‍🫯‍🧑🏽	persoñe che lòttan carnaxon ciæa e carnaxon cô d’öiva	none
+🧑🏻‍🫯‍🧑🏾	persoñe che lòttan carnaxon ciæa e carnaxon assæ scua	none
+🧑🏻‍🫯‍🧑🏿	persoñe che lòttan carnaxon ciæa e carnaxon scua	none
+🧑🏼‍🫯‍🧑🏻	persoñe che lòttan carnaxon assæ ciæa e carnaxon ciæa	none
+🧑🏼‍🫯‍🧑🏽	persoñe che lòttan carnaxon assæ ciæa e carnaxon cô d’öiva	none
+🧑🏼‍🫯‍🧑🏾	persoñe che lòttan carnaxon assæ ciæa e carnaxon assæ scua	none
+🧑🏼‍🫯‍🧑🏿	persoñe che lòttan carnaxon assæ ciæa e carnaxon scua	none
+🧑🏽‍🫯‍🧑🏻	persoñe che lòttan carnaxon cô d’öiva e carnaxon ciæa	none
+🧑🏽‍🫯‍🧑🏼	persoñe che lòttan carnaxon cô d’öiva e carnaxon assæ ciæa	none
+🧑🏽‍🫯‍🧑🏾	persoñe che lòttan carnaxon cô d’öiva e carnaxon assæ scua	none
+🧑🏽‍🫯‍🧑🏿	persoñe che lòttan carnaxon cô d’öiva e carnaxon scua	none
+🧑🏾‍🫯‍🧑🏻	persoñe che lòttan carnaxon assæ scua e carnaxon ciæa	none
+🧑🏾‍🫯‍🧑🏼	persoñe che lòttan carnaxon assæ scua e carnaxon assæ ciæa	none
+🧑🏾‍🫯‍🧑🏽	persoñe che lòttan carnaxon assæ scua e carnaxon cô d’öiva	none
+🧑🏾‍🫯‍🧑🏿	persoñe che lòttan carnaxon assæ scua e carnaxon scua	none
+🧑🏿‍🫯‍🧑🏻	persoñe che lòttan carnaxon scua e carnaxon ciæa	none
+🧑🏿‍🫯‍🧑🏼	persoñe che lòttan carnaxon scua e carnaxon assæ ciæa	none
+🧑🏿‍🫯‍🧑🏽	persoñe che lòttan carnaxon scua e carnaxon cô d’öiva	none
+🧑🏿‍🫯‍🧑🏾	persoñe che lòttan carnaxon scua e carnaxon assæ scua	none
 🧑‍🦰	persoña cavelli rosci	none
 🧑🏻‍🦰	persoña carnaxon ciæa e cavelli rosci	none
 🧑🏼‍🦰	persoña carnaxon assæ ciæa e cavelli rosci	none
@@ -1759,6 +1779,26 @@ symbols:
 🧑🏽‍🦲	persoña carnaxon cô d’öiva e peou	none
 🧑🏾‍🦲	persoña carnaxon assæ scua e peou	none
 🧑🏿‍🦲	persoña carnaxon scua e peou	none
+🧑🏻‍🐰‍🧑🏼	persoñe co-e oege da coniggio carnaxon ciæa e carnaxon assæ ciæa	none
+🧑🏻‍🐰‍🧑🏽	persoñe co-e oege da coniggio carnaxon ciæa e carnaxon cô d’öiva	none
+🧑🏻‍🐰‍🧑🏾	persoñe co-e oege da coniggio carnaxon ciæa e carnaxon assæ scua	none
+🧑🏻‍🐰‍🧑🏿	persoñe co-e oege da coniggio carnaxon ciæa e carnaxon scua	none
+🧑🏼‍🐰‍🧑🏻	persoñe co-e oege da coniggio carnaxon assæ ciæa e carnaxon ciæa	none
+🧑🏼‍🐰‍🧑🏽	persoñe co-e oege da coniggio carnaxon assæ ciæa e carnaxon cô d’öiva	none
+🧑🏼‍🐰‍🧑🏾	persoñe co-e oege da coniggio carnaxon assæ ciæa e carnaxon assæ scua	none
+🧑🏼‍🐰‍🧑🏿	persoñe co-e oege da coniggio carnaxon assæ ciæa e carnaxon scua	none
+🧑🏽‍🐰‍🧑🏻	persoñe co-e oege da coniggio carnaxon cô d’öiva e carnaxon ciæa	none
+🧑🏽‍🐰‍🧑🏼	persoñe co-e oege da coniggio carnaxon cô d’öiva e carnaxon assæ ciæa	none
+🧑🏽‍🐰‍🧑🏾	persoñe co-e oege da coniggio carnaxon cô d’öiva e carnaxon assæ scua	none
+🧑🏽‍🐰‍🧑🏿	persoñe co-e oege da coniggio carnaxon cô d’öiva e carnaxon scua	none
+🧑🏾‍🐰‍🧑🏻	persoñe co-e oege da coniggio carnaxon assæ scua e carnaxon ciæa	none
+🧑🏾‍🐰‍🧑🏼	persoñe co-e oege da coniggio carnaxon assæ scua e carnaxon assæ ciæa	none
+🧑🏾‍🐰‍🧑🏽	persoñe co-e oege da coniggio carnaxon assæ scua e carnaxon cô d’öiva	none
+🧑🏾‍🐰‍🧑🏿	persoñe co-e oege da coniggio carnaxon assæ scua e carnaxon scua	none
+🧑🏿‍🐰‍🧑🏻	persoñe co-e oege da coniggio carnaxon scua e carnaxon ciæa	none
+🧑🏿‍🐰‍🧑🏼	persoñe co-e oege da coniggio carnaxon scua e carnaxon assæ ciæa	none
+🧑🏿‍🐰‍🧑🏽	persoñe co-e oege da coniggio carnaxon scua e carnaxon cô d’öiva	none
+🧑🏿‍🐰‍🧑🏾	persoñe co-e oege da coniggio carnaxon scua e carnaxon assæ scua	none
 👨🏻	òmmo carnaxon ciæa	none
 👨🏼	òmmo carnaxon assæ ciæa	none
 👨🏽	òmmo carnaxon cô d’öiva	none
@@ -2217,6 +2257,11 @@ symbols:
 🕴🏽	persoña co-o vestî elegante ch’a levita carnaxon cô d’öiva	none
 🕴🏾	persoña co-o vestî elegante ch’a levita carnaxon assæ scua	none
 🕴🏿	persoña co-o vestî elegante ch’a levita carnaxon scua	none
+👯🏻	persoñe co-e oege da coniggio carnaxon ciæa	none
+👯🏼	persoñe co-e oege da coniggio carnaxon assæ ciæa	none
+👯🏽	persoñe co-e oege da coniggio carnaxon cô d’öiva	none
+👯🏾	persoñe co-e oege da coniggio carnaxon assæ scua	none
+👯🏿	persoñe co-e oege da coniggio carnaxon scua	none
 🧖🏻	persoña inte unna stansia piña de vapô carnaxon ciæa	none
 🧖🏼	persoña inte unna stansia piña de vapô carnaxon assæ ciæa	none
 🧖🏽	persoña inte unna stansia piña de vapô carnaxon cô d’öiva	none
@@ -2282,6 +2327,11 @@ symbols:
 🤸🏽	persoña ch’a fa a reua carnaxon cô d’öiva	none
 🤸🏾	persoña ch’a fa a reua carnaxon assæ scua	none
 🤸🏿	persoña ch’a fa a reua carnaxon scua	none
+🤼🏻	persoñe che lòttan carnaxon ciæa	none
+🤼🏼	persoñe che lòttan carnaxon assæ ciæa	none
+🤼🏽	persoñe che lòttan carnaxon cô d’öiva	none
+🤼🏾	persoñe che lòttan carnaxon assæ scua	none
+🤼🏿	persoñe che lòttan carnaxon scua	none
 🤽🏻	persoña ch’a zeuga à waterpölo carnaxon ciæa	none
 🤽🏼	persoña ch’a zeuga à waterpölo carnaxon assæ ciæa	none
 🤽🏽	persoña ch’a zeuga à waterpölo carnaxon cô d’öiva	none

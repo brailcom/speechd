@@ -321,6 +321,7 @@ symbols:
 😪	uya puñuywan	none
 🤤	llawsasuru uyu	none
 😴	puñusqa uya	none
+🫩	ñawi urapi bolsayuq uya	none
 😷	uya barbijowan	none
 🤒	termometrowan uya	none
 🤕	uya manku umawan	none
@@ -348,6 +349,7 @@ symbols:
 😯	chin kasqa uya	none
 😲	añasqa uya	none
 😳	manchakusqa uya	none
+🫪	distorsionado uya	none
 🥺	uyllasqa uya	none
 🥹	uya wiqikunawan hapisqa	none
 😦	añasqa uya kichasqa simiwan	none
@@ -421,6 +423,7 @@ symbols:
 💋	muchʼa unancha	none
 💯	pachaq chikukuna	none
 💢	phiñakuy unancha	none
+🫯	maqanakuy phuyu	none
 💥	tupa	none
 💫	muyu muyu	none
 💦	jumpʼi sutukuna	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	tata zombi	none
 🧟‍♀	warmi zombi	none
 🧌	troll nisqa	none
+🫈	chukchasapa kawsaq	none
 💆	runa masaje uyapi	none
 💆‍♂	tata masaje uyapi	none
 💆‍♀	warmi masaje uyapi	none
@@ -680,6 +684,7 @@ symbols:
 🏃	runa phawachkan	none
 🏃‍♂	tata phawachkan	none
 🏃‍♀	warmi phawachkan	none
+🧑‍🩰	ballet tusuq	none
 💃	warmi tusuchkan	none
 🕺	runa tusuchkan	none
 🕴	runa trajepi levitando	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	ayllu runa, warma	none
 🧑‍🧒‍🧒	ayllu runa, warma, warma	none
 👣	yupinay	none
+🫆	dedopa marcan	none
 🦰	puka chukcha	none
 🦱	qaspa chukcha	none
 🦳	yuraq chukcha	none
@@ -860,6 +866,7 @@ symbols:
 🐳	ballena yakuta chamqachkan	none
 🐋	ballena	none
 🐬	delfin	none
+🫍	orca	none
 🦭	foca	none
 🐟	challwa	none
 🐠	tropical challwa	none
@@ -869,6 +876,11 @@ symbols:
 🐚	muyusqa churu	none
 🪸	coral nisqa	none
 🪼	medusa	none
+🦀	cangrejo	none
+🦞	langosta	none
+🦐	camaron	none
+🦑	calamar	none
+🦪	ostra	none
 🐌	churu	none
 🦋	pillpintu	none
 🐛	khuru	none
@@ -913,11 +925,13 @@ symbols:
 🪹	chusaq qisa	none
 🪺	qisa runtukunawan	none
 🍄	kʼallnpa	none
+🪾	sacha manam rapiwan	none
 🍇	uwas	none
 🍈	melón	none
 🍉	sandía	none
 🍊	mandarina	none
 🍋	limun	none
+🍋‍🟩	lima	none
 🍌	platanu	none
 🍍	piña	none
 🥭	mango	none
@@ -949,6 +963,8 @@ symbols:
 🌰	chʼumpi	none
 🫚	jenjibre sapi	none
 🫛	arwijakuna	none
+🍄‍🟫	chumpi hongo	none
+🫜	rábano nisqa	none
 🍞	tʼanta	none
 🥐	croissant	none
 🥖	baguette tʼanta	none
@@ -1000,11 +1016,6 @@ symbols:
 🥟	dumpling	none
 🥠	galleta samipaq	none
 🥡	tawak’uchu aparikuypaq	none
-🦀	cangrejo	none
-🦞	langosta	none
-🦐	camaron	none
-🦑	calamar	none
-🦪	ostra	none
 🍦	llampʼu helado	none
 🍧	raspadillo	none
 🍨	helado	none
@@ -1055,6 +1066,7 @@ symbols:
 🧭	compas	none
 🏔	rit’i urqupi	none
 ⛰	urqu	none
+🛘	allpa kuyuriy	none
 🌋	ariq	none
 🗻	fuji urqi	none
 🏕	tampuchay	none
@@ -1176,7 +1188,6 @@ symbols:
 🛫	lata pʼisqu luqsina	none
 🛬	lata pʼisqu chayana	none
 🪂	paracaídas	none
-💺	tiyana	none
 🚁	helicoptero	none
 🚟	warkhusqa ferrocarril	none
 🚠	teleferico urqupi	none
@@ -1414,16 +1425,18 @@ symbols:
 🎧	audifono	none
 📻	radio	none
 🎷	saxofon	none
+🎺	trompeta	none
+🪊	trombón nisqa	none
 🪗	acordion	none
 🎸	guitarra	none
 🎹	teclas musicales	none
-🎺	trompeta	none
 🎻	violin	none
 🪕	banjo	none
 🥁	tambor	none
 🪘	tambor kullumanta	none
 🪇	maracas	none
 🪈	flauta	none
+🪉	arpa	none
 📱	apaykachana telefono	none
 📲	apaykachana telefono wachʼiwan	none
 ☎	fono	none
@@ -1477,8 +1490,9 @@ symbols:
 📑	rapi chinpuqkunawan	none
 🔖	chinpuq	none
 🏷	sutichaq	none
-💰	qulli qipi	none
 🪙	moneda	none
+💰	qulli qipi	none
+🪎	qulliwan kufri	none
 💴	yen billete	none
 💵	dolar billete	none
 💶	euro billete	none
@@ -1492,19 +1506,67 @@ symbols:
 📨	yaykumuq carta	none
 📩	carta wachiwan	none
 📤	lluqsina wandiha	none
+📥	bandeja de entrada	none
+📫	wisq’asqa correo caja hoqarisqa banderayuq	none
+📪	wisq’asqa correo caja uraykachisqa banderayuq	none
+📬	open mailbox with raised flag	none
+📭	uraykachisqa banderayuq correo cajata kichay	none
 📮	chaski churana	none
+🗳	urna caja de voto nisqawan	none
 ✏	qillqana	none
+✒	yana lapisiru	none
 🖋	fuente qillqana	none
 🖊	tintawan qillqana	none
 🖌	pincel	none
 🖍	crayon	none
 📝	qillqa	none
+💼	maletín	none
+📁	willañiqi qillqana maytʼu	none
+📂	willañiqi qillqana maytʼuta kichay	none
+🗂	tarjeta indis rakiqkuna	none
+📅	calendario nisqa	none
+📆	llikisqa calendario nisqa	none
+🗒	bloc de notas espiral nisqa	none
+🗓	calendario espiral nisqa	none
+📇	tarjetapa indisnin	none
+📈	tabla yapakuq	none
+📉	tabla pisiyachiq	none
+📊	tabla de barras nisqa	none
+📋	portapapeles nisqa	none
+📌	t’ikakuna	none
+📍	round pushpin	none
 📎	clip rapipaq	none
 🖇	tinkisqa clipkuna rapipaq	none
+📏	chiqan kamachiq	none
+📐	kimsa kuchuyuq kamachiq	none
+✂	kuchuna	none
+🗃	tarjeta archivo caja	none
+🗄	file cabinet	none
+🗑	basura	none
 🔒	harkana	none
+🔓	mana wichqasqa	none
+🔏	plumawan wichqasqa	none
+🔐	llavewan wichqasqa	none
 🔑	kichana	none
 🗝	ñawpa kichana	none
+🔨	martillo	none
+⛏	akllay	none
+⚒	martillowan pilluy	none
+🛠	martillowan llavewan	none
+🗡	puñal	none
+⚔	chakasqa espadakuna	none
 💣	bomba	none
+🪃	boomerang nisqa	none
+🏹	bow and arrow	none
+🛡	harkay	none
+🪚	carpintería saw	none
+🔧	llave	none
+🪛	screwdriver	none
+🔩	tuerca y perno	none
+⚙	engranaje	none
+🗜	abrazadera	none
+⚖	balanza nisqa escala	none
+🦯	yuraq kaspi	none
 🔗	tinkina	none
 ⛓‍💥	pakisqa cadena	none
 ⛓	cadenakuna	none
@@ -1512,11 +1574,46 @@ symbols:
 🧰	llamkanakuna huñusqa	none
 🧲	magnetu	none
 🪜	escalera nisqa	none
+🪏	pala	none
+⚗	hinallataq	none
+🧪	tubo de prueba nisqa	none
+🧫	petri plato	none
+🧬	dna	none
 🔬	microscopio	none
 🔭	telescopio	none
+📡	satélite nisqamanta antena nisqa	none
+💉	jeringa nisqa	none
+🩸	yawar gota	none
+💊	pastilla	none
+🩹	vendaje adhesivo nisqa	none
+🩼	crutch	none
+🩺	estetoscopio nisqawan	none
+🩻	x-ray	none
 🚪	punku	none
 🛗	elevador	none
 🪞	espejo	none
+🪟	wasi tuqu	none
+🛏	puñuna	none
+🛋	sofá y lampa	none
+🪑	tiyana	none
+🚽	mayllakuna	none
+🪠	émbolo	none
+🚿	ducha	none
+🛁	bañera	none
+🪤	siwi trampa	none
+🪒	navajas	none
+🧴	loción botella	none
+🧷	seguridad pin	none
+🧹	pichana	none
+🧺	canasta	none
+🧻	rollo de papel	none
+🪣	cubo	none
+🧼	jabon	none
+🫧	bubbles	none
+🪥	toothbrush	none
+🧽	sponge	none
+🧯	fire extinguisher	none
+🛒	shopping cart	none
 🚬	cigarru	none
 ⚰	tawakuchu wañuypaq	none
 🪦	rumi wañusqakunapaq	none
@@ -1658,6 +1755,7 @@ symbols:
 ✴	pusaq ñawpikunawan quyllur	none
 ❇	k’anchay	none
 ™	waqaychasqa chinpuy	none
+🫟	salpicay	none
 🔠	latina hatun sananpakuna yaykuy	none
 🔡	latina uchuy sananpakuna yaykuy	none
 🔢	yupaykuna yaykuy	none
@@ -2072,6 +2170,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	pitu runakuna sunquwan runa, runa, yana qara niraq, tunpa chuya qara niraq	none
 🧑🏿‍❤‍🧑🏽	pitu runakuna sunquwan runa, runa, yana qara niraq, tunpa qara niraq	none
 🧑🏿‍❤‍🧑🏾	pitu runakuna sunquwan runa, runa, yana qara niraq, tunpa yana qara niraq	none
+🧑🏻‍🫯‍🧑🏼	maqanakuq runa chuya qara niraq, tunpa chuya qara niraq	none
+🧑🏻‍🫯‍🧑🏽	maqanakuq runa chuya qara niraq, tunpa qara niraq	none
+🧑🏻‍🫯‍🧑🏾	maqanakuq runa chuya qara niraq, tunpa yana qara niraq	none
+🧑🏻‍🫯‍🧑🏿	maqanakuq runa chuya qara niraq, yana qara niraq	none
+🧑🏼‍🫯‍🧑🏻	maqanakuq runa tunpa chuya qara niraq, chuya qara niraq	none
+🧑🏼‍🫯‍🧑🏽	maqanakuq runa tunpa chuya qara niraq, tunpa qara niraq	none
+🧑🏼‍🫯‍🧑🏾	maqanakuq runa tunpa chuya qara niraq, tunpa yana qara niraq	none
+🧑🏼‍🫯‍🧑🏿	maqanakuq runa tunpa chuya qara niraq, yana qara niraq	none
+🧑🏽‍🫯‍🧑🏻	maqanakuq runa tunpa qara niraq, chuya qara niraq	none
+🧑🏽‍🫯‍🧑🏼	maqanakuq runa tunpa qara niraq, tunpa chuya qara niraq	none
+🧑🏽‍🫯‍🧑🏾	maqanakuq runa tunpa qara niraq, tunpa yana qara niraq	none
+🧑🏽‍🫯‍🧑🏿	maqanakuq runa tunpa qara niraq, yana qara niraq	none
+🧑🏾‍🫯‍🧑🏻	maqanakuq runa tunpa yana qara niraq, chuya qara niraq	none
+🧑🏾‍🫯‍🧑🏼	maqanakuq runa tunpa yana qara niraq, tunpa chuya qara niraq	none
+🧑🏾‍🫯‍🧑🏽	maqanakuq runa tunpa yana qara niraq, tunpa qara niraq	none
+🧑🏾‍🫯‍🧑🏿	maqanakuq runa tunpa yana qara niraq, yana qara niraq	none
+🧑🏿‍🫯‍🧑🏻	maqanakuq runa yana qara niraq, chuya qara niraq	none
+🧑🏿‍🫯‍🧑🏼	maqanakuq runa yana qara niraq, tunpa chuya qara niraq	none
+🧑🏿‍🫯‍🧑🏽	maqanakuq runa yana qara niraq, tunpa qara niraq	none
+🧑🏿‍🫯‍🧑🏾	maqanakuq runa yana qara niraq, tunpa yana qara niraq	none
 🧑‍🦰	runa puka chukcha	none
 🧑🏻‍🦰	runa chuya qara niraq, puka chukcha	none
 🧑🏼‍🦰	runa tunpa chuya qara niraq, puka chukcha	none
@@ -2096,6 +2214,26 @@ symbols:
 🧑🏽‍🦲	runa tunpa qara niraq, paqla	none
 🧑🏾‍🦲	runa tunpa yana qara niraq, paqla	none
 🧑🏿‍🦲	runa yana qara niraq, paqla	none
+🧑🏻‍🐰‍🧑🏼	runakuna quwi ninrikunawan chuya qara niraq, tunpa chuya qara niraq	none
+🧑🏻‍🐰‍🧑🏽	runakuna quwi ninrikunawan chuya qara niraq, tunpa qara niraq	none
+🧑🏻‍🐰‍🧑🏾	runakuna quwi ninrikunawan chuya qara niraq, tunpa yana qara niraq	none
+🧑🏻‍🐰‍🧑🏿	runakuna quwi ninrikunawan chuya qara niraq, yana qara niraq	none
+🧑🏼‍🐰‍🧑🏻	runakuna quwi ninrikunawan tunpa chuya qara niraq, chuya qara niraq	none
+🧑🏼‍🐰‍🧑🏽	runakuna quwi ninrikunawan tunpa chuya qara niraq, tunpa qara niraq	none
+🧑🏼‍🐰‍🧑🏾	runakuna quwi ninrikunawan tunpa chuya qara niraq, tunpa yana qara niraq	none
+🧑🏼‍🐰‍🧑🏿	runakuna quwi ninrikunawan tunpa chuya qara niraq, yana qara niraq	none
+🧑🏽‍🐰‍🧑🏻	runakuna quwi ninrikunawan tunpa qara niraq, chuya qara niraq	none
+🧑🏽‍🐰‍🧑🏼	runakuna quwi ninrikunawan tunpa qara niraq, tunpa chuya qara niraq	none
+🧑🏽‍🐰‍🧑🏾	runakuna quwi ninrikunawan tunpa qara niraq, tunpa yana qara niraq	none
+🧑🏽‍🐰‍🧑🏿	runakuna quwi ninrikunawan tunpa qara niraq, yana qara niraq	none
+🧑🏾‍🐰‍🧑🏻	runakuna quwi ninrikunawan tunpa yana qara niraq, chuya qara niraq	none
+🧑🏾‍🐰‍🧑🏼	runakuna quwi ninrikunawan tunpa yana qara niraq, tunpa chuya qara niraq	none
+🧑🏾‍🐰‍🧑🏽	runakuna quwi ninrikunawan tunpa yana qara niraq, tunpa qara niraq	none
+🧑🏾‍🐰‍🧑🏿	runakuna quwi ninrikunawan tunpa yana qara niraq, yana qara niraq	none
+🧑🏿‍🐰‍🧑🏻	runakuna quwi ninrikunawan yana qara niraq, chuya qara niraq	none
+🧑🏿‍🐰‍🧑🏼	runakuna quwi ninrikunawan yana qara niraq, tunpa chuya qara niraq	none
+🧑🏿‍🐰‍🧑🏽	runakuna quwi ninrikunawan yana qara niraq, tunpa qara niraq	none
+🧑🏿‍🐰‍🧑🏾	runakuna quwi ninrikunawan yana qara niraq, tunpa yana qara niraq	none
 👨🏻	qari chuya qara niraq	none
 👨🏼	qari tunpa chuya qara niraq	none
 👨🏽	qari tunpa qara niraq	none
@@ -2166,6 +2304,26 @@ symbols:
 👨🏿‍❤‍👨🏽	pitu runakuna sunquwan qari, qari, yana qara niraq, tunpa qara niraq	none
 👨🏿‍❤‍👨🏾	pitu runakuna sunquwan qari, qari, yana qara niraq, tunpa yana qara niraq	none
 👨🏿‍❤‍👨🏿	pitu runakuna sunquwan qari, qari, yana qara niraq	none
+👨🏻‍🫯‍👨🏼	maqanakuq tata chuya qara niraq, tunpa chuya qara niraq	none
+👨🏻‍🫯‍👨🏽	maqanakuq tata chuya qara niraq, tunpa qara niraq	none
+👨🏻‍🫯‍👨🏾	maqanakuq tata chuya qara niraq, tunpa yana qara niraq	none
+👨🏻‍🫯‍👨🏿	maqanakuq tata chuya qara niraq, yana qara niraq	none
+👨🏼‍🫯‍👨🏻	maqanakuq tata tunpa chuya qara niraq, chuya qara niraq	none
+👨🏼‍🫯‍👨🏽	maqanakuq tata tunpa chuya qara niraq, tunpa qara niraq	none
+👨🏼‍🫯‍👨🏾	maqanakuq tata tunpa chuya qara niraq, tunpa yana qara niraq	none
+👨🏼‍🫯‍👨🏿	maqanakuq tata tunpa chuya qara niraq, yana qara niraq	none
+👨🏽‍🫯‍👨🏻	maqanakuq tata tunpa qara niraq, chuya qara niraq	none
+👨🏽‍🫯‍👨🏼	maqanakuq tata tunpa qara niraq, tunpa chuya qara niraq	none
+👨🏽‍🫯‍👨🏾	maqanakuq tata tunpa qara niraq, tunpa yana qara niraq	none
+👨🏽‍🫯‍👨🏿	maqanakuq tata tunpa qara niraq, yana qara niraq	none
+👨🏾‍🫯‍👨🏻	maqanakuq tata tunpa yana qara niraq, chuya qara niraq	none
+👨🏾‍🫯‍👨🏼	maqanakuq tata tunpa yana qara niraq, tunpa chuya qara niraq	none
+👨🏾‍🫯‍👨🏽	maqanakuq tata tunpa yana qara niraq, tunpa qara niraq	none
+👨🏾‍🫯‍👨🏿	maqanakuq tata tunpa yana qara niraq, yana qara niraq	none
+👨🏿‍🫯‍👨🏻	maqanakuq tata yana qara niraq, chuya qara niraq	none
+👨🏿‍🫯‍👨🏼	maqanakuq tata yana qara niraq, tunpa chuya qara niraq	none
+👨🏿‍🫯‍👨🏽	maqanakuq tata yana qara niraq, tunpa qara niraq	none
+👨🏿‍🫯‍👨🏾	maqanakuq tata yana qara niraq, tunpa yana qara niraq	none
 👨‍🦰	qari puka chukcha	none
 👨🏻‍🦰	qari chuya qara niraq, puka chukcha	none
 👨🏼‍🦰	qari tunpa chuya qara niraq, puka chukcha	none
@@ -2190,6 +2348,26 @@ symbols:
 👨🏽‍🦲	qari tunpa qara niraq, paqla	none
 👨🏾‍🦲	qari tunpa yana qara niraq, paqla	none
 👨🏿‍🦲	qari yana qara niraq, paqla	none
+👨🏻‍🐰‍👨🏼	runa quwi ninrikunawan chuya qara niraq, tunpa chuya qara niraq	none
+👨🏻‍🐰‍👨🏽	runa quwi ninrikunawan chuya qara niraq, tunpa qara niraq	none
+👨🏻‍🐰‍👨🏾	runa quwi ninrikunawan chuya qara niraq, tunpa yana qara niraq	none
+👨🏻‍🐰‍👨🏿	runa quwi ninrikunawan chuya qara niraq, yana qara niraq	none
+👨🏼‍🐰‍👨🏻	runa quwi ninrikunawan tunpa chuya qara niraq, chuya qara niraq	none
+👨🏼‍🐰‍👨🏽	runa quwi ninrikunawan tunpa chuya qara niraq, tunpa qara niraq	none
+👨🏼‍🐰‍👨🏾	runa quwi ninrikunawan tunpa chuya qara niraq, tunpa yana qara niraq	none
+👨🏼‍🐰‍👨🏿	runa quwi ninrikunawan tunpa chuya qara niraq, yana qara niraq	none
+👨🏽‍🐰‍👨🏻	runa quwi ninrikunawan tunpa qara niraq, chuya qara niraq	none
+👨🏽‍🐰‍👨🏼	runa quwi ninrikunawan tunpa qara niraq, tunpa chuya qara niraq	none
+👨🏽‍🐰‍👨🏾	runa quwi ninrikunawan tunpa qara niraq, tunpa yana qara niraq	none
+👨🏽‍🐰‍👨🏿	runa quwi ninrikunawan tunpa qara niraq, yana qara niraq	none
+👨🏾‍🐰‍👨🏻	runa quwi ninrikunawan tunpa yana qara niraq, chuya qara niraq	none
+👨🏾‍🐰‍👨🏼	runa quwi ninrikunawan tunpa yana qara niraq, tunpa chuya qara niraq	none
+👨🏾‍🐰‍👨🏽	runa quwi ninrikunawan tunpa yana qara niraq, tunpa qara niraq	none
+👨🏾‍🐰‍👨🏿	runa quwi ninrikunawan tunpa yana qara niraq, yana qara niraq	none
+👨🏿‍🐰‍👨🏻	runa quwi ninrikunawan yana qara niraq, chuya qara niraq	none
+👨🏿‍🐰‍👨🏼	runa quwi ninrikunawan yana qara niraq, tunpa chuya qara niraq	none
+👨🏿‍🐰‍👨🏽	runa quwi ninrikunawan yana qara niraq, tunpa qara niraq	none
+👨🏿‍🐰‍👨🏾	runa quwi ninrikunawan yana qara niraq, tunpa yana qara niraq	none
 👩🏻	warmi chuya qara niraq	none
 👩🏼	warmi tunpa chuya qara niraq	none
 👩🏽	warmi tunpa qara niraq	none
@@ -2305,6 +2483,26 @@ symbols:
 👩🏿‍❤‍👩🏽	pitu runakuna sunquwan warmi, warmi, yana qara niraq, tunpa qara niraq	none
 👩🏿‍❤‍👩🏾	pitu runakuna sunquwan warmi, warmi, yana qara niraq, tunpa yana qara niraq	none
 👩🏿‍❤‍👩🏿	pitu runakuna sunquwan warmi, warmi, yana qara niraq	none
+👩🏻‍🫯‍👩🏼	maqanakuq warmi chuya qara niraq, tunpa chuya qara niraq	none
+👩🏻‍🫯‍👩🏽	maqanakuq warmi chuya qara niraq, tunpa qara niraq	none
+👩🏻‍🫯‍👩🏾	maqanakuq warmi chuya qara niraq, tunpa yana qara niraq	none
+👩🏻‍🫯‍👩🏿	maqanakuq warmi chuya qara niraq, yana qara niraq	none
+👩🏼‍🫯‍👩🏻	maqanakuq warmi tunpa chuya qara niraq, chuya qara niraq	none
+👩🏼‍🫯‍👩🏽	maqanakuq warmi tunpa chuya qara niraq, tunpa qara niraq	none
+👩🏼‍🫯‍👩🏾	maqanakuq warmi tunpa chuya qara niraq, tunpa yana qara niraq	none
+👩🏼‍🫯‍👩🏿	maqanakuq warmi tunpa chuya qara niraq, yana qara niraq	none
+👩🏽‍🫯‍👩🏻	maqanakuq warmi tunpa qara niraq, chuya qara niraq	none
+👩🏽‍🫯‍👩🏼	maqanakuq warmi tunpa qara niraq, tunpa chuya qara niraq	none
+👩🏽‍🫯‍👩🏾	maqanakuq warmi tunpa qara niraq, tunpa yana qara niraq	none
+👩🏽‍🫯‍👩🏿	maqanakuq warmi tunpa qara niraq, yana qara niraq	none
+👩🏾‍🫯‍👩🏻	maqanakuq warmi tunpa yana qara niraq, chuya qara niraq	none
+👩🏾‍🫯‍👩🏼	maqanakuq warmi tunpa yana qara niraq, tunpa chuya qara niraq	none
+👩🏾‍🫯‍👩🏽	maqanakuq warmi tunpa yana qara niraq, tunpa qara niraq	none
+👩🏾‍🫯‍👩🏿	maqanakuq warmi tunpa yana qara niraq, yana qara niraq	none
+👩🏿‍🫯‍👩🏻	maqanakuq warmi yana qara niraq, chuya qara niraq	none
+👩🏿‍🫯‍👩🏼	maqanakuq warmi yana qara niraq, tunpa chuya qara niraq	none
+👩🏿‍🫯‍👩🏽	maqanakuq warmi yana qara niraq, tunpa qara niraq	none
+👩🏿‍🫯‍👩🏾	maqanakuq warmi yana qara niraq, tunpa yana qara niraq	none
 👩‍🦰	warmi puka chukcha	none
 👩🏻‍🦰	warmi chuya qara niraq, puka chukcha	none
 👩🏼‍🦰	warmi tunpa chuya qara niraq, puka chukcha	none
@@ -2329,6 +2527,26 @@ symbols:
 👩🏽‍🦲	warmi tunpa qara niraq, paqla	none
 👩🏾‍🦲	warmi tunpa yana qara niraq, paqla	none
 👩🏿‍🦲	warmi yana qara niraq, paqla	none
+👩🏻‍🐰‍👩🏼	warmi quwi ninrikunawan chuya qara niraq, tunpa chuya qara niraq	none
+👩🏻‍🐰‍👩🏽	warmi quwi ninrikunawan chuya qara niraq, tunpa qara niraq	none
+👩🏻‍🐰‍👩🏾	warmi quwi ninrikunawan chuya qara niraq, tunpa yana qara niraq	none
+👩🏻‍🐰‍👩🏿	warmi quwi ninrikunawan chuya qara niraq, yana qara niraq	none
+👩🏼‍🐰‍👩🏻	warmi quwi ninrikunawan tunpa chuya qara niraq, chuya qara niraq	none
+👩🏼‍🐰‍👩🏽	warmi quwi ninrikunawan tunpa chuya qara niraq, tunpa qara niraq	none
+👩🏼‍🐰‍👩🏾	warmi quwi ninrikunawan tunpa chuya qara niraq, tunpa yana qara niraq	none
+👩🏼‍🐰‍👩🏿	warmi quwi ninrikunawan tunpa chuya qara niraq, yana qara niraq	none
+👩🏽‍🐰‍👩🏻	warmi quwi ninrikunawan tunpa qara niraq, chuya qara niraq	none
+👩🏽‍🐰‍👩🏼	warmi quwi ninrikunawan tunpa qara niraq, tunpa chuya qara niraq	none
+👩🏽‍🐰‍👩🏾	warmi quwi ninrikunawan tunpa qara niraq, tunpa yana qara niraq	none
+👩🏽‍🐰‍👩🏿	warmi quwi ninrikunawan tunpa qara niraq, yana qara niraq	none
+👩🏾‍🐰‍👩🏻	warmi quwi ninrikunawan tunpa yana qara niraq, chuya qara niraq	none
+👩🏾‍🐰‍👩🏼	warmi quwi ninrikunawan tunpa yana qara niraq, tunpa chuya qara niraq	none
+👩🏾‍🐰‍👩🏽	warmi quwi ninrikunawan tunpa yana qara niraq, tunpa qara niraq	none
+👩🏾‍🐰‍👩🏿	warmi quwi ninrikunawan tunpa yana qara niraq, yana qara niraq	none
+👩🏿‍🐰‍👩🏻	warmi quwi ninrikunawan yana qara niraq, chuya qara niraq	none
+👩🏿‍🐰‍👩🏼	warmi quwi ninrikunawan yana qara niraq, tunpa chuya qara niraq	none
+👩🏿‍🐰‍👩🏽	warmi quwi ninrikunawan yana qara niraq, tunpa qara niraq	none
+👩🏿‍🐰‍👩🏾	warmi quwi ninrikunawan yana qara niraq, tunpa yana qara niraq	none
 🧓🏻	ñawpa runa chuya qara niraq	none
 🧓🏼	ñawpa runa tunpa chuya qara niraq	none
 🧓🏽	ñawpa runa tunpa qara niraq	none
@@ -3164,6 +3382,11 @@ symbols:
 🏃🏽‍♀	warmi phawachkan tunpa qara niraq	none
 🏃🏾‍♀	warmi phawachkan tunpa yana qara niraq	none
 🏃🏿‍♀	warmi phawachkan yana qara niraq	none
+🧑🏻‍🩰	ballet tusuq chuya qara niraq	none
+🧑🏼‍🩰	ballet tusuq tunpa chuya qara niraq	none
+🧑🏽‍🩰	ballet tusuq tunpa qara niraq	none
+🧑🏾‍🩰	ballet tusuq tunpa yana qara niraq	none
+🧑🏿‍🩰	ballet tusuq yana qara niraq	none
 💃🏻	warmi tusuchkan chuya qara niraq	none
 💃🏼	warmi tusuchkan tunpa chuya qara niraq	none
 💃🏽	warmi tusuchkan tunpa qara niraq	none
@@ -3179,6 +3402,21 @@ symbols:
 🕴🏽	runa trajepi levitando tunpa qara niraq	none
 🕴🏾	runa trajepi levitando tunpa yana qara niraq	none
 🕴🏿	runa trajepi levitando yana qara niraq	none
+👯🏻	runakuna quwi ninrikunawan chuya qara niraq	none
+👯🏼	runakuna quwi ninrikunawan tunpa chuya qara niraq	none
+👯🏽	runakuna quwi ninrikunawan tunpa qara niraq	none
+👯🏾	runakuna quwi ninrikunawan tunpa yana qara niraq	none
+👯🏿	runakuna quwi ninrikunawan yana qara niraq	none
+👯🏻‍♂	runa quwi ninrikunawan chuya qara niraq	none
+👯🏼‍♂	runa quwi ninrikunawan tunpa chuya qara niraq	none
+👯🏽‍♂	runa quwi ninrikunawan tunpa qara niraq	none
+👯🏾‍♂	runa quwi ninrikunawan tunpa yana qara niraq	none
+👯🏿‍♂	runa quwi ninrikunawan yana qara niraq	none
+👯🏻‍♀	warmi quwi ninrikunawan chuya qara niraq	none
+👯🏼‍♀	warmi quwi ninrikunawan tunpa chuya qara niraq	none
+👯🏽‍♀	warmi quwi ninrikunawan tunpa qara niraq	none
+👯🏾‍♀	warmi quwi ninrikunawan tunpa yana qara niraq	none
+👯🏿‍♀	warmi quwi ninrikunawan yana qara niraq	none
 🧖🏻	runa wapsi wasipi chuya qara niraq	none
 🧖🏼	runa wapsi wasipi tunpa chuya qara niraq	none
 🧖🏽	runa wapsi wasipi tunpa qara niraq	none
@@ -3354,6 +3592,21 @@ symbols:
 🤸🏽‍♀	warmi gimnasia ruwachkan tunpa qara niraq	none
 🤸🏾‍♀	warmi gimnasia ruwachkan tunpa yana qara niraq	none
 🤸🏿‍♀	warmi gimnasia ruwachkan yana qara niraq	none
+🤼🏻	maqanakuq runa chuya qara niraq	none
+🤼🏼	maqanakuq runa tunpa chuya qara niraq	none
+🤼🏽	maqanakuq runa tunpa qara niraq	none
+🤼🏾	maqanakuq runa tunpa yana qara niraq	none
+🤼🏿	maqanakuq runa yana qara niraq	none
+🤼🏻‍♂	maqanakuq tata chuya qara niraq	none
+🤼🏼‍♂	maqanakuq tata tunpa chuya qara niraq	none
+🤼🏽‍♂	maqanakuq tata tunpa qara niraq	none
+🤼🏾‍♂	maqanakuq tata tunpa yana qara niraq	none
+🤼🏿‍♂	maqanakuq tata yana qara niraq	none
+🤼🏻‍♀	maqanakuq warmi chuya qara niraq	none
+🤼🏼‍♀	maqanakuq warmi tunpa chuya qara niraq	none
+🤼🏽‍♀	maqanakuq warmi tunpa qara niraq	none
+🤼🏾‍♀	maqanakuq warmi tunpa yana qara niraq	none
+🤼🏿‍♀	maqanakuq warmi yana qara niraq	none
 🤽🏻	runa water polo pukllachkan chuya qara niraq	none
 🤽🏼	runa water polo pukllachkan tunpa chuya qara niraq	none
 🤽🏽	runa water polo pukllachkan tunpa qara niraq	none

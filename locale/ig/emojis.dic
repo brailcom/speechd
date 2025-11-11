@@ -13,7 +13,7 @@ symbols:
 ↚	akụ na-atụ aka ekpe	none
 →	right-pointing akụ	none
 ↛	akụ na-atụ aka nri	none
-↑	up-pointing arrow	none
+↑	akụ na-atụlị elu	none
 ↓	down-pointing akụ	none
 ↜	akụ na-efegharị na-atụ aka ekpe	none
 ↝	akụ na-efegharị na-atụ aka nri	none
@@ -97,7 +97,7 @@ symbols:
 ∅	set ghere oghe	none
 ∆	mmụba	none
 ∇	nabla	none
-∈	element of	none
+∈	element nke	none
 ∉	abụghị element	none
 ∋	nwere ótú	none
 ∎	njedebe ngosi	none
@@ -107,13 +107,13 @@ symbols:
 ≠	nhaghị nhara	none
 ≯	ebughị ibu karịa	none
 −	akara mwepu	none
-⁻	superscript minus	none
+⁻	akara elu nwepụ	none
 ∓	mwepu-maọbụ-mgbakwunye	none
 ∕	ahịrị nkewa	none
 ∗	akara kpakpando	none
 ∘	opiretọ òkirikiri	none
 ∙	opiretọ mgbọ	none
-√	square root	none
+√	sụkwia rụt	none
 ∝	hatara	none
 ∞	akara ebiyebi	none
 ∟	akụkụ aka nri	none
@@ -293,7 +293,7 @@ symbols:
 🤪	ihu ara	none
 😝	ihu nwere mmipụta ire & nwere mmechi anya	none
 🤑	Ihu ọnụ-ego	none
-🤗	ihu mmakọ̀	none
+🤗	ihu ọchị nwere aka mepere emepe	none
 🤭	ihu n’iji aka mechie ọnụ	none
 🫢	ihu mwute	none
 🫣	ihu anya inyocha	none
@@ -321,6 +321,7 @@ symbols:
 😪	ihu anya ụra	none
 🤤	ihu na-agụsị asọ mmiri	none
 😴	ihu na-ehi ụra	none
+🫩	ihu nwere anya ụra	none
 😷	ihu nwere mkpuchi ihu ngwaọrụ ụlọ ọgwụ	none
 🤒	ihu nwere ngwa ogologo	none
 🤕	ihu nwere akwà mkpuchi	none
@@ -330,7 +331,7 @@ symbols:
 🥵	ihu ọkụ	none
 🥶	ihu oyi	none
 🥴	ihu kpọrọ asị	none
-😵	ihu ajụ	none
+😵	ihu nwere anya a kachiri	none
 😵‍💫	ihu nwere anya na-agba gburugburu	none
 🤯	isi mere nkụwa	none
 🤠	ihu okpu onye ọchụụ nnama	none
@@ -348,6 +349,7 @@ symbols:
 😯	ihu dara jụụ	none
 😲	ihu nwere ịtụnanya	none
 😳	ihu nchagharị ọbara	none
+🫪	ihu gbagọrọ agbagọ	none
 🥺	ihu na-ayọ ayiyọ	none
 🥹	ihu choro ị be akwà	none
 😦	ihu mgbarụ nwere mmepe ọnụ	none
@@ -366,7 +368,7 @@ symbols:
 😫	ihu ume ọgwụgwụ	none
 🥱	ihu na-asụ ude	none
 😤	ihu nwere mpụta anwụrụ ọkụ n’imi	none
-😡	ihu nsụpụta ọnụ	none
+😡	ihu nsụpụta iwe	none
 😠	ihu iwe	none
 🤬	ihu nwere akara n’elu onụ	none
 😈	ihu amụ nwere mpi	none
@@ -381,7 +383,7 @@ symbols:
 👽	ihe nsina mba ọzọ	none
 👾	ihe egwu ihe nsina mba ọzọ	none
 🤖	ihu rọbọtụ	none
-😺	ihu amụ nwamba nwere mmepe ọnụ	none
+😺	nwamba na-achị ọchị	none
 😸	ihu ọchị nwamba nwere anya amụ	none
 😹	ihu nwamba nwere anya mmiri anụrị	none
 😻	ihu ọchị nwamba nwere obi ebere	none
@@ -421,6 +423,7 @@ symbols:
 💋	akara nsusu	none
 💯	pọịntị narị gasị	none
 💢	akara iwe	none
+🫯	igwe ojii ọgụ	none
 💥	nkụkọrịta	none
 💫	ajụ	none
 💦	ntụpụta okpoofù	none
@@ -431,7 +434,7 @@ symbols:
 🗨	blonblo okwu akaèkpè	none
 🗯	blonblo iwe akanri	none
 💭	blonblon echichè	none
-💤	zzz	none
+💤	ZZZ	none
 👋	na-efe aka	none
 🤚	azụ aka nke ewelitere elu	none
 🖐	welitere aka elu n’iji mgbasa mkpịsịaka	none
@@ -476,7 +479,7 @@ symbols:
 💅	nteji mbọaka	none
 🤳	selfi	none
 💪	akpụ̀ aka	none
-🦾	mechanical arm	none
+🦾	aka igwe	none
 🦿	ukwu ụkwụ	none
 🦵	ụkwụ	none
 🦶	ukwu	none
@@ -588,7 +591,7 @@ symbols:
 👨‍🚒	nwoke onyemgbanyụọkụ	none
 👩‍🚒	nwanyị onyemgbanyụọkụ	none
 👮	onye uweojii	none
-👮‍♂	nwoke onye uweojii	none
+👮‍♂	jide	none
 👮‍♀	nwanyị onye uweojii	none
 🕵	nchọpụta	none
 🕵‍♂	nwoke nchọpụta	none
@@ -652,7 +655,8 @@ symbols:
 🧟	onye nwụrụ anwụ na-aga ije	none
 🧟‍♂	nwoke nwụrụ anwụ na-aga ije	none
 🧟‍♀	nwanyị nwụrụ anwụ na-aga ije	none
-🧌	troll	none
+🧌	ihe na-eyi egwu	none
+🫈	anụ nwere ajị	none
 💆	onye na-anata ozi	none
 💆‍♂	nwoke na-anata ozi	none
 💆‍♀	nwanyị na-anata ozi	none
@@ -680,6 +684,7 @@ symbols:
 🏃	onye na-agba ọsọ	none
 🏃‍♂	nwoke na-agba ọsọ	none
 🏃‍♀	nwanyị na-agba ọsọ	none
+🧑‍🩰	onye na-agba egwú ballet	none
 💃	nwanyị na-agba egwu	none
 🕺	nwoke na-agba egwu	none
 🕴	nwoke yi akwà azụmaahịa na-efe n’elu	none
@@ -728,7 +733,7 @@ symbols:
 🤼‍♀	ụmụnwanyị na-agba m̀gba	none
 🤽	onye na-egwu egwuregwu bọọlụ mmiri	none
 🤽‍♂	nwoke na-egwu egwuregwu bọọlụ mmiri	none
-🤽‍♀	ụmụnwanyi ndị na-egwu egwuregwu bọọlụ mmiri	none
+🤽‍♀	nwanyi na-egwu egwuregwu bọọlụ mmiri	none
 🤾	onye na-egwu egwuregwu bọọlụ aka	none
 🤾‍♂	nwoke na-egwu egwuregwu bọọlụ aka	none
 🤾‍♀	nwanyị na-egwu egwuregwu bọọlụ aka	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	ezinaụlọ okenye, nwata	none
 🧑‍🧒‍🧒	ezinaụlọ okenye, nwata, nwata	none
 👣	ụzọụkwụ gasị	none
+🫆	mbipụta aka	none
 🦰	ntutu isi uhie	none
 🦱	ntutu isi gbakọrọ agbakọ	none
 🦳	ntutu isi ocha	none
@@ -769,7 +775,7 @@ symbols:
 🦮	nkịta ndumoodu	none
 🐕‍🦺	nkịta ọrụ	none
 🐩	nkịta ajị ajị	none
-🐺	ihu nkịta ọhịa	none
+🐺	nkịta ọhịa	none
 🦊	ihu ihu nkịta ọhịa na-awụ̀ ọsọ	none
 🦝	akukonta	none
 🐱	ihu nwaologbo	none
@@ -779,12 +785,12 @@ symbols:
 🐯	ihu taịga	none
 🐅	taịga	none
 🐆	agụ àgwagwà	none
-🐴	ihu inyinya	none
+🐴	ihu ịnyịnya	none
 🫎	anụ ọhịa	none
 🫏	inyinya ibu	none
 🐎	inyinya	none
 🦄	ihu inyinya nwere mpi	none
-🦓	anụ zebra	none
+🦓	zebra	none
 🦌	Atụ́	none
 🦬	bison	none
 🐮	ihu ehi	none
@@ -806,17 +812,17 @@ symbols:
 🦣	mammot	none
 🦏	ehi ọhịa otu mpì	none
 🦛	hipopotamos	none
-🐭	ihu òke ọhịa	none
-🐁	òke ọhịa	none
-🐀	òke ụlọ	none
-🐹	ihu òke bèkee	none
+🐭	ihu obere oke	none
+🐁	obere oke	none
+🐀	oke	none
+🐹	òke bèkee	none
 🐰	ihu òke bèkee nti ogologo	none
 🐇	òke bèkee nti ogologo	none
 🐿	uzè	none
-🦫	biva	none
-🦔	ndịka oke	none
+🦫	nwambē	none
+🦔	mpama	none
 🦇	ụsụ	none
-🐻	ihu biar	none
+🐻	biya	none
 🐻‍❄	bịar oyi	none
 🐨	anụmanụ koala	none
 🐼	ihu panda	none
@@ -824,8 +830,8 @@ symbols:
 🦦	otter	none
 🦨	skunk	none
 🦘	kangaruu	none
-🦡	bajer	none
-🐾	aka mbipụta nzọụkwụ anụmanụ	none
+🦡	ewi	none
+🐾	mbipụta nzọụkwụ anụmanụ	none
 🦃	torotoro	none
 🐔	ọkụkọ	none
 🐓	àkwamakwa	none
@@ -837,7 +843,7 @@ symbols:
 🕊	nduri	none
 🦅	ugo	none
 🦆	udele igbo	none
-🦢	swan	none
+🦢	ọbọgwụ	none
 🦉	ikwikwi	none
 🦤	dodo	none
 🪶	nku	none
@@ -848,27 +854,33 @@ symbols:
 🐦‍⬛	nnụnụ ojii	none
 🪿	ọgazị	none
 🐦‍🔥	nnụnụ n’ere ọkụ	none
-🐸	ihu akịrị	none
+🐸	awọ	none
 🐊	agụiyi	none
 🐢	mbè	none
 🦎	ngwere	none
 🐍	agwọ	none
 🐲	ihu dragọn	none
 🐉	dragọn	none
-🦕	sauropod	none
-🦖	Ụdị ngwere egbeigwe	none
+🦕	saropọd	none
+🦖	T-Rex	none
 🐳	nnukwu azụ whelụ na-agbọpụ mmiri	none
 🐋	nnukwu azụ whelụ	none
 🐬	nnukwu azụ dọlphịnụ	none
-🦭	seal	none
+🫍	azụ ọka	none
+🦭	nnukwu anụ mmiri	none
 🐟	azụ̀	none
 🐠	azụ̀ mmiri	none
 🐡	azụ̀ nwere ike itóó abụba	none
-🦈	Nnukwu azụ	none
-🐙	anụ mmiri	none
+🦈	akụm	none
+🐙	ọktopus	none
 🐚	okpokoro okirikiri	none
 🪸	koral	none
-🪼	jeliifish	none
+🪼	azụjelii	none
+🦀	nshịkọ	none
+🦞	oporo	none
+🦐	ayịya	none
+🦑	Azụ sụkwịdị	none
+🦪	oporo gbarampi	none
 🐌	ejù	none
 🦋	mbubara	none
 🐛	Chinchi	none
@@ -876,7 +888,7 @@ symbols:
 🐝	aṅụ́ mmanụaṅụ	none
 🪲	ebe	none
 🐞	ebe nwanyi	none
-🦗	Egwuregwu Kriket	none
+🦗	ụ̀kpàlà	none
 🪳	ochicha	none
 🕷	ududo	none
 🕸	ọnyà ududo	none
@@ -885,7 +897,7 @@ symbols:
 🪰	ofufe	none
 🪱	irighiri	none
 🦠	microbe	none
-💐	ukwu-ihe	none
+💐	ọyọkọ ifuru	none
 🌸	nchapụta cheri	none
 💮	okooko ọcha	none
 🪷	lotus	none
@@ -913,6 +925,7 @@ symbols:
 🪹	akwụ efu	none
 🪺	akwụ nwere akwa	none
 🍄	ero	none
+🪾	osisi na-enweghị akwụkwọ	none
 🍇	grepụ gasị	none
 🍈	mkpụrụosisi melọn	none
 🍉	mkpụrụosisi mmirimelọn	none
@@ -930,7 +943,7 @@ symbols:
 🍓	strawberi	none
 🫐	bluberị	none
 🥝	mkpụrụosisi kiwi	none
-🍅	tomato	none
+🍅	otuboala	none
 🫒	olive	none
 🥥	akị bèkee	none
 🥑	ube bèkee	none
@@ -951,6 +964,7 @@ symbols:
 🫚	mgbọrọgwụ ginger	none
 🫛	azama	none
 🍄‍🟫	ero aja aja	none
+🫜	akwụkwọ nri mgbọrọgwụ	none
 🍞	achịcha nkịtị	none
 🥐	achịcha akpụrụ akpụ	none
 🥖	achịcha ogologo	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	nri achịcha	none
 🥠	kuki achịcha	none
 🥡	igbe were lawa	none
-🦀	nshịkọ	none
-🦞	oporo	none
-🦐	ayịya	none
-🦑	Azụ sụkwịdị	none
-🦪	oporo gbarampi	none
 🍦	ihe nracha dị nrọ	none
 🍧	ihe aracha na-akpụchara akpụcha	none
 🍨	ihe nracha	none
@@ -1035,15 +1044,15 @@ symbols:
 🍻	na-akụkọta iko biya	none
 🥂	Na-akụkọta iko gasị	none
 🥃	ikọ nkụwa	none
-🫗	wụsa mmiri mmiri	none
+🫗	na-agbapụta mmiri	none
 🥤	iko nwere osisi rọba ọmịmị	none
 🧋	tii ufufo	none
 🧃	igbe ihe ọṅụṅụ	none
 🧉	mate	none
-🧊	ice	none
+🧊	aiz	none
 🥢	osisi nri	none
-🍽	ngaji ndụdụ na mma nwere efere	none
-🍴	ngaji ndụdụ na mma	none
+🍽	ngaji ndụdụ na mma na efere	none
+🍴	ndụdụ na mma	none
 🥄	ngaji	none
 🔪	mma usekwu	none
 🫙	ite	none
@@ -1054,9 +1063,10 @@ symbols:
 🌐	ụwa nwere meridiansị	none
 🗺	maapụ ụwa	none
 🗾	mappụ nke Japan	none
-🧭	compass	none
+🧭	kọmpas	none
 🏔	ugwu akụrụ mmiri-kpuchiri	none
 ⛰	ugwu	none
+🛘	oké ọdịda aja	none
 🌋	mgbawa ugwu	none
 🗻	ugwu fuji	none
 🏕	ọgbakọ nzuruike	none
@@ -1068,11 +1078,11 @@ symbols:
 🏛	ụlọ klasịkalụ	none
 🏗	ọrụ arụmụụlọ	none
 🧱	brik	none
-🪨	okute	none
+🪨	okwute	none
 🪵	osisi	none
-🛖	ulo	none
+🛖	ụlọ akịrịka	none
 🏘	ụlọ gasị	none
-🏚	ụlọ gbara ọkụ	none
+🏚	ụlọ dara ada	none
 🏠	ụlọ	none
 🏡	ụlọ nwere ubì	none
 🏢	ụlọ ụlọọrụ	none
@@ -1109,7 +1119,7 @@ symbols:
 🌉	àkwà mmiri n’abalị	none
 ♨	mmiri ọkụ	none
 🎠	inyịnya igwe okirikiri	none
-🛝	playground slide	none
+🛝	ihe egwuregwu mmida	none
 🎡	ụkwụ ferris	none
 🎢	igwe egwuregwu mkpọda	none
 💈	osisi onye ọkpụ isi	none
@@ -1151,8 +1161,8 @@ symbols:
 🛺	keke napep	none
 🚲	igwe	none
 🛴	igwe egwuregwu	none
-🛹	skateboard	none
-🛼	roller skate	none
+🛹	skatebọọdụ	none
+🛼	akpụkpọ ụkwụ nwere wiil	none
 🚏	ebe nkwụsị ụgbọ	none
 🛣	ụzọụgbọala	none
 🛤	ụzọ okporoigwe	none
@@ -1165,7 +1175,7 @@ symbols:
 🛑	akara kwụsị	none
 🚧	ọrụụzọ	none
 ⚓	mkpọrọ	none
-🛟	ring buoy	none
+🛟	rọba ọkirikiri mmiri	none
 ⛵	egwuregwu ụgbọmmiri	none
 🛶	ụgbọ epepe	none
 🚤	ụgbọmmiri oke ọsọ	none
@@ -1189,7 +1199,7 @@ symbols:
 🛎	mgbịrịgba igweibu	none
 🧳	akpa	none
 ⌛	ngwaoge	none
-⏳	ngwaoge nwere mbadà aja	none
+⏳	ugogbe oge emechabeghị	none
 ⌚	elekere aka	none
 ⏰	elekere mgbaama	none
 ⏱	elekerenkwụsị	none
@@ -1197,7 +1207,7 @@ symbols:
 🕰	elekere nkwụrụonwe	none
 🕛	elekere iri na abụọ	none
 🕧	elekere iri na abụọ- ọkara	none
-🕐	elekere mbụ	none
+🕐	otu elekere	none
 🕜	elekere mbụ-ọkara	none
 🕑	elekere abụọ	none
 🕝	elekere abụọ-ọkara	none
@@ -1235,7 +1245,7 @@ symbols:
 ☀	anyanwụ	none
 🌝	ọnwa zuru òkè nwere ihu	none
 🌞	anyanwụ nwere ihu	none
-🪐	ringed planet	none
+🪐	mbara ụwa nwere okirikiri	none
 ⭐	kpakpando ọcha	none
 🌟	kpakpando na-amụke amụke	none
 🌠	Kpakpando na-ada ada	none
@@ -1281,7 +1291,7 @@ symbols:
 🎏	ọkọlọtọ azụ iyi	none
 🎐	ìkùkù ndakọrịta ụda	none
 🎑	emume nlele ọnwa	none
-🧧	red envelope	none
+🧧	envelopu uhie	none
 🎀	ribọn	none
 🎁	onyinye ekere èke	none
 🎗	ihe ncheta ribọn	none
@@ -1301,7 +1311,7 @@ symbols:
 🏈	bọọlụụkwụ Amerikan	none
 🏉	bọọlụụkwụ rugby	none
 🎾	tenis	none
-🥏	flying disc	none
+🥏	efere na-efe efe	none
 🎳	egwuregwu ịkpọ bọọlụ	none
 🏏	egwuregwu kriketi	none
 🏑	họkị fild	none
@@ -1334,9 +1344,9 @@ symbols:
 🧩	ihe egwuregwu	none
 🧸	ihe egwuregwu ụmụaka	none
 🪅	piñata	none
-🪩	bọọlụ mirror	none
-🪆	nwa bebi	none
-♠	egwuregwu joka	none
+🪩	egwu ugegbe	none
+🪆	ntinye nwa bebi n’ime	none
+♠	joka spedi	none
 ♥	egwuregwu joka ịhụnanya	none
 ♦	egwuregwu joka dịamọn	none
 ♣	egwuregwu joka klọb	none
@@ -1349,8 +1359,8 @@ symbols:
 🎨	obosara osisi onye ǹkà	none
 🧵	eriri	none
 🪡	agịga eji akwa àkwà	none
-🧶	yarn	none
-🪢	knot	none
+🧶	eriri owu	none
+🪢	akpụ	none
 👓	ènyò gasị	none
 🕶	ugogbeanya	none
 🥽	enyo anya	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	ekwentịisi	none
 📻	redio	none
 🎷	opi egwu	none
-🪗	accordion	none
+🎺	òpì ike	none
+🪊	opi	none
+🪗	akọdịọn	none
 🎸	ụbọ	none
 🎹	ụgbọọtụgwo ụdà-egwu	none
-🎺	òpì ike	none
 🎻	ụbọ nta	none
 🪕	banjo	none
 🥁	ìgbà	none
 🪘	ogologo igba	none
-🪇	maracas	none
+🪇	marakas	none
 🪈	ọjà	none
+🪉	ụbọ akwara	none
 📱	ekwentị kengaghari	none
 📲	ekwentị kengaghari nwere ube	none
 ☎	ekwentị	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	taabụ bukumakị	none
 🔖	bukumakị	none
 🏷	nnyeaha	none
-💰	àkpà ego	none
 🪙	mkpụrụ ego	none
+💰	àkpà ego	none
+🪎	igbe akụ̀	none
 💴	akwụkwọego yen	none
 💵	akwụkwọego dọlla	none
 💶	akwụkwọego euro	none
@@ -1493,7 +1506,7 @@ symbols:
 ✉	emvelop	none
 📧	ozi-e	none
 📨	emvelop na-abị abịa	none
-📩	emvelop nwere ubè	none
+📩	emvelop nwere akụ	none
 📤	efere igbe ọpụpụ	none
 📥	efere ozi mbata	none
 📦	ngwugwu	none
@@ -1503,7 +1516,7 @@ symbols:
 📭	igbe ozi mepere emepe nwere ọkọlọtọ ewedara eweda	none
 📮	igbeozi	none
 🗳	igbe ngụ nwere igbe ngụ	none
-✏	pensùl	none
+✏	pensụl	none
 ✒	ọnụ ojii	none
 🖋	mkpisiodèè fountaịnụ	none
 🖊	mkpisiodèè	none
@@ -1526,31 +1539,31 @@ symbols:
 📌	pushpinụ̀	none
 📍	pushpinụ̀ okirikiri	none
 📎	kliipụ-akwụkwọ	none
-🖇	njikọ nwere kliipụ-akwụkwọ	none
+🖇	kliipụ-akwụkwọ nwere njikọ	none
 📏	rulà ogologo	none
 📐	rulà trayangulụ	none
-✂	mkpà gasị	none
+✂	mkpà	none
 🗃	igbe kaadị faịlụ	none
 🗄	kabineti failụ	none
-🗑	èkètedọtị	none
+🗑	nkata mkpofu	none
 🔒	akpọchiri	none
 🔓	akpọghere	none
 🔏	akpọchiri n’iji mkpịsịodee	none
 🔐	akpọchiri n’iji ọtụgwo	none
 🔑	ọtụgwo	none
-🗝	ochie ọtụgwo	none
+🗝	ọtụgwo ochie	none
 🔨	nkụigwe	none
-🪓	axe	none
+🪓	anyụike	none
 ⛏	họrọ	none
-⚒	nkụigwe na họrọ	none
+⚒	nkụigwe na nhọrọ	none
 🛠	nkụigwe na igwe ndọpụta	none
 🗡	nwa obere mma	none
 ⚔	mma agha nwere ngabichi	none
 💣	ogbunigwe	none
 🪃	boomerang	none
 🏹	ụta na àkụ	none
-🛡	òzenmgbọ	none
-🪚	carpentry saw	none
+🛡	ọta	none
+🪚	ọwa osisi	none
 🔧	igwe ndọpụta	none
 🪛	screwdriver	none
 🔩	mkpụrụ igwe na okporo igwe	none
@@ -1565,9 +1578,10 @@ symbols:
 🧰	igbe ngwaọrụ	none
 🧲	magnet	none
 🪜	lada	none
+🪏	shọvel	none
 ⚗	ngwaọrụ sayensi	none
 🧪	ule tube	none
-🧫	petri dish	none
+🧫	efere petri	none
 🧬	dna	none
 🔬	ugogbe nnyota nje	none
 🔭	ngwa sọfịa	none
@@ -1577,7 +1591,7 @@ symbols:
 💊	mkpụrụ ọgwụ	none
 🩹	bandeeji	none
 🩼	kroochi	none
-🩺	stethoscope	none
+🩺	stetoscope	none
 🩻	x-ray	none
 🚪	ụzọ	none
 🛗	mbugo	none
@@ -1587,7 +1601,7 @@ symbols:
 🛋	oche na mpanaka	none
 🪑	oche	none
 🚽	ụlọ mpochi	none
-🪠	plunger	none
+🪠	plọnga	none
 🚿	igwe asamụahụ	none
 🛁	ngwa asamụahụ	none
 🪤	ọnyà òké	none
@@ -1608,7 +1622,7 @@ symbols:
 ⚰	igbe ozu	none
 🪦	okwute alaili	none
 ⚱	akpụrụ akpụ olili ozu	none
-🧿	nazar amulet	none
+🧿	ọtụmọkpọ nazar	none
 🪬	hamsa	none
 🗿	Akpụrụ akpụ isi mmadụ	none
 🪧	akara ngosi	none
@@ -1655,24 +1669,24 @@ symbols:
 ⤴	ube-akanri na-eme mgbagọ dị elu	none
 ⤵	ube-akanri na-eme mgbagọ dị ala	none
 🔃	njem okirikiri àkụ kwụọtọ	none
-🔄	ọdụmbi ube nke enweghị ǹjem okirikiri	none
-🔙	UBE àzụ	none
-🔚	UBE ngwụcha	none
-🔛	NA! ube	none
-🔜	UBE mgbe adịghị anya	none
-🔝	UBE kachasị elu	none
+🔄	ọdụmbi ube nke mgbochi ǹjem elekere	none
+🔙	ube AZU	none
+🔚	ube NGWỤCHA	none
+🔛	ube NA!	none
+🔜	ube MGBE ADỊGHỊ ANYA	none
+🔝	ube N’ELU	none
 🛐	ebe nke okpukperechi	none
 ⚛	Ọdịmara atọm	none
 🕉	om	none
 ✡	kpakpando nke David	none
-☸	whelụ nke dharma	none
+☸	wiilị nke dharma	none
 ☯	yin yang	none
 ✝	obe latin	none
 ☦	obe ọthọdọsụ	none
-☪	kpakpando na enyo	none
+☪	kpakpando na ọnwa	none
 ☮	akara udo	none
 🕎	menorah	none
-🔯	nwere ntụpọ nrụaka kpakpando-isii	none
+🔯	kpakpando-isii nwere ntụpọ	none
 🪯	khanda	none
 ♈	Ariis	none
 ♉	Tọrus	none
@@ -1690,9 +1704,9 @@ symbols:
 🔀	gwakọrịta traakị ọdụmbi	none
 🔁	megharịa ọdụmbi	none
 🔂	megharịa ọdụmbi nge	none
-▶	kpọọ ọdụmbi	none
-⏩	meè kà ọdụmbi gbaga ihū	none
-⏭	ọdụmbi traakị ọzọ	none
+▶	ọdụmbi kpọọ	none
+⏩	ọdụmbi gbaga ihū	none
+⏭	ọdụmbi traakị na-esote	none
 ⏯	kpọọ maọbụ cheretụ ọdụmbi	none
 ◀	weghàchie ọdụmbi àzụ	none
 ⏪	mweghàchie ọdụmbi àzụ ọsọ ọsọ	none
@@ -1701,25 +1715,25 @@ symbols:
 ⏫	ọdụmbi elu ọsọ ọsọ	none
 🔽	ọdụmbi ala	none
 ⏬	ọdụmbi ala ọsọ ọsọ	none
-⏸	cheretụ ọdụmbi	none
+⏸	ọdụmbi cheretụ	none
 ⏹	kwụsị ọdụmbi	none
 ⏺	ọdụmbi ndekọ	none
-⏏	wepụta ọdụmbi	none
+⏏	ọdụmbi wepụta	none
 🎦	ụlọ ihe ngosi onyonyo	none
 🔅	ọdụmbi ọyụnyụ	none
 🔆	ọdụmbi nchawàpụ̀	none
 📶	akara ogwe gasị	none
-🛜	wireless	none
+🛜	enwēwayà	none
 📳	moòdù ọma jijiji	none
 📴	mgbanyụ ekwenti kengagharị	none
 ♀	akàrà nwanyị	none
 ♂	akara oke	none
 ⚧	akara ndi transgender	none
 ✖	nnukwu mgbakọ x	none
-➕	nnukwu akara mgbakwunye	none
-➖	nnukwu akara mwepụ	none
-➗	nnukwu akara nkewa	none
-🟰	heavy equals sign	none
+➕	mgbakwunye	none
+➖	mwepụ	none
+➗	nkewa	none
+🟰	nnukwu akara nhata	none
 ♾	ebiyebi	none
 ❓	akara njụajụjụ	none
 ❔	akara njụajụjụ dị ọcha	none
@@ -1733,10 +1747,10 @@ symbols:
 🔱	ihe mmado ube akụkụ atọ	none
 📛	aha baajị	none
 🔰	akara Japan maka nke isimbìdo	none
-⭕	nnukwu okirikiri buru ibu	none
+⭕	okirikiri uhie nwere oghere	none
 ✅	nnukwu ntule akara ọcha	none
 ☑	igbe igbe ngụ nwere ntule	none
-✔	nnukwu akara ntule	none
+✔	akara emechara	none
 ❌	akara nkachi	none
 ❎	ọdụmbị akara nkachi	none
 ➰	memmenwè gbagọrọ agbagọ	none
@@ -1745,7 +1759,8 @@ symbols:
 ✴	kpakpando asatọ-arụtụrụ aka	none
 ❇	icheku ọkụ	none
 ™	akara-ụlọọrụ	none
-🔠	tinye mkpụrụedemede latin	none
+🫟	nfesasị	none
+🔠	tinye mkpụrụedemede latin nnukwu	none
 🔡	tinye obere mkpụrụedemede latin	none
 🔢	tinye nọmbà gasị	none
 🔣	tinye akara gasị	none
@@ -1755,34 +1770,34 @@ symbols:
 🅱	Ọdụmbi B (ụdị ọbara)	none
 🆑	Ọdụmbi CL	none
 🆒	ọdụmbi COOL	none
-🆓	ỌDỤMBI efù	none
+🆓	ọdụmbị EFU	none
 ℹ	ozi	none
-🆔	ỌDỤMBI id	none
-Ⓜ	nwere okirikiri M	none
-🆕	ỌDỤMBI ọhụrụ	none
-🆖	ỌDỤMBI ng	none
+🆔	ọdụmbị ID	none
+Ⓜ	M nwere okirikiri	none
+🆕	ọdụmbị ỌHỤRỤ	none
+🆖	ọdụmbị NG	none
 🅾	O ọdụmbi (ụdị ọbara)	none
-🆗	ọdụmbi DỊ MMA	none
+🆗	ọdụmbi OK	none
 🅿	Ọdụmbi P	none
-🆘	ỌDỤMBI sos	none
-🆙	elu	none
-🆚	ỌDỤMBI vs	none
-🔴	okirikiri ọbara	none
+🆘	ọdụmbị SOS	none
+🆙	ELU! ọdụmbi	none
+🆚	ọdụmbi VS	none
+🔴	okirikiri uhie	none
 🟠	okirikiri oroma	none
 🟡	okirikiri odo	none
 🟢	okirikiri ndụ ndụ	none
 🔵	okirikiri anụnụ	none
 🟣	okirikiri odo odo	none
-🟤	okirikiri brawn	none
+🟤	okirikiri aja aja	none
 ⚫	okirikiri ojii	none
 ⚪	okirikiri ọcha	none
-🟥	square uhie	none
-🟧	square oroma	none
-🟨	square odo	none
-🟩	square ndụ ndụ	none
-🟦	square blu	none
-🟪	square odo odo	none
-🟫	square brawn	none
+🟥	sukwia uhie	none
+🟧	sukwia oroma	none
+🟨	sukwia odo	none
+🟩	sukwia ndụ ndụ	none
+🟦	sukwia blu	none
+🟪	sukwia odo odo	none
+🟫	sukwia aja aja	none
 ⬛	sukwia nnukwu ojii	none
 ⬜	sukwia nnukwu ọcha	none
 ◼	sukwia keetiti ojii	none
@@ -1792,12 +1807,12 @@ symbols:
 ▪	obere sukwia ojii	none
 ▫	obere sukwia ọcha	none
 🔶	nnukwu orenji diamond	none
-🔷	nnukwu anụnụ diamond	none
-🔸	obere orenji diamond	none
-🔹	obere anụnụ diamond	none
-🔺	akomgbà-atọ ncha ọbara chewara ihu elu	none
-🔻	akomgbà-atọ ncha ọbara chewara ihu ala	none
-💠	diamond nwere kpọm	none
+🔷	nnukwu dayamọnd anụnụ	none
+🔸	obere dayamọnd oroma	none
+🔹	obere anụnụ dayamọnd	none
+🔺	akomgbà-atọ uhie chewara ihu elu	none
+🔻	akomgbà-atọ uhie chewara ihu ala	none
+💠	dayamọnd nwere kpọm	none
 🔘	ọdụmbi redio	none
 🔳	ọdụmbi sukwia ọcha	none
 🔲	ọdụmbi sukwia ojii	none
@@ -1854,26 +1869,26 @@ symbols:
 🫱🏽	aka nri ọtanjele ahụ ndịna etiti	none
 🫱🏾	aka nri ọtanjele ahụ maka òji-ndịna etiti	none
 🫱🏿	aka nri ọtanjele ahụ maka òji	none
-🫱🏻‍🫲🏼	nkwenaka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🫱🏻‍🫲🏽	nkwenaka ọtanjele ahụ maka ọcha na ọtanjele ahụ ndịna etiti	none
-🫱🏻‍🫲🏾	nkwenaka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka òji-ndịna etiti	none
-🫱🏻‍🫲🏿	nkwenaka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka òji	none
-🫱🏼‍🫲🏻	nkwenaka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka ọcha	none
-🫱🏼‍🫲🏽	nkwenaka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ ndịna etiti	none
-🫱🏼‍🫲🏾	nkwenaka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka òji-ndịna etiti	none
-🫱🏼‍🫲🏿	nkwenaka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka òji	none
-🫱🏽‍🫲🏻	nkwenaka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka ọcha	none
-🫱🏽‍🫲🏼	nkwenaka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🫱🏽‍🫲🏾	nkwenaka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka òji-ndịna etiti	none
-🫱🏽‍🫲🏿	nkwenaka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka òji	none
-🫱🏾‍🫲🏻	nkwenaka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka ọcha	none
-🫱🏾‍🫲🏼	nkwenaka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🫱🏾‍🫲🏽	nkwenaka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ ndịna etiti	none
-🫱🏾‍🫲🏿	nkwenaka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka òji	none
-🫱🏿‍🫲🏻	nkwenaka ọtanjele ahụ maka òji na ọtanjele ahụ maka ọcha	none
-🫱🏿‍🫲🏼	nkwenaka ọtanjele ahụ maka òji na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🫱🏿‍🫲🏽	nkwenaka ọtanjele ahụ maka òji na ọtanjele ahụ ndịna etiti	none
-🫱🏿‍🫲🏾	nkwenaka ọtanjele ahụ maka òji na ọtanjele ahụ maka òji-ndịna etiti	none
+🫱🏻‍🫲🏼	nkwenaka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🫱🏻‍🫲🏽	nkwenaka ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+🫱🏻‍🫲🏾	nkwenaka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+🫱🏻‍🫲🏿	nkwenaka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+🫱🏼‍🫲🏻	nkwenaka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🫱🏼‍🫲🏽	nkwenaka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🫱🏼‍🫲🏾	nkwenaka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🫱🏼‍🫲🏿	nkwenaka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+🫱🏽‍🫲🏻	nkwenaka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+🫱🏽‍🫲🏼	nkwenaka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🫱🏽‍🫲🏾	nkwenaka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🫱🏽‍🫲🏿	nkwenaka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+🫱🏾‍🫲🏻	nkwenaka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🫱🏾‍🫲🏼	nkwenaka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🫱🏾‍🫲🏽	nkwenaka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🫱🏾‍🫲🏿	nkwenaka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+🫱🏿‍🫲🏻	nkwenaka ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+🫱🏿‍🫲🏼	nkwenaka ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🫱🏿‍🫲🏽	nkwenaka ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+🫱🏿‍🫲🏾	nkwenaka ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 🫲🏻	uzo aka ekpe ọtanjele ahụ maka ọcha	none
 🫲🏼	uzo aka ekpe ọtanjele ahụ maka ọcha-ndịna etiti	none
 🫲🏽	uzo aka ekpe ọtanjele ahụ ndịna etiti	none
@@ -2119,70 +2134,110 @@ symbols:
 👱🏽	Onye-isi awọ ọtanjele ahụ ndịna etiti	none
 👱🏾	Onye-isi awọ ọtanjele ahụ maka òji-ndịna etiti	none
 👱🏿	Onye-isi awọ ọtanjele ahụ maka òji	none
-🧑🏻‍❤‍💋‍🧑🏼	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏻‍❤‍💋‍🧑🏽	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha, na ọtanjele ahụ ndịna etiti	none
-🧑🏻‍❤‍💋‍🧑🏾	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏻‍❤‍💋‍🧑🏿	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji	none
-🧑🏼‍❤‍💋‍🧑🏻	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-🧑🏼‍❤‍💋‍🧑🏽	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-🧑🏼‍❤‍💋‍🧑🏾	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏼‍❤‍💋‍🧑🏿	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji	none
-🧑🏽‍❤‍💋‍🧑🏻	nsusò ọnụ okenye, okenye, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha	none
-🧑🏽‍❤‍💋‍🧑🏼	nsusò ọnụ okenye, okenye, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏽‍❤‍💋‍🧑🏾	nsusò ọnụ okenye, okenye, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏽‍❤‍💋‍🧑🏿	nsusò ọnụ okenye, okenye, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji	none
-🧑🏾‍❤‍💋‍🧑🏻	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-🧑🏾‍❤‍💋‍🧑🏼	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏾‍❤‍💋‍🧑🏽	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-🧑🏾‍❤‍💋‍🧑🏿	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka òji	none
-🧑🏿‍❤‍💋‍🧑🏻	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha	none
-🧑🏿‍❤‍💋‍🧑🏼	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏿‍❤‍💋‍🧑🏽	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji, na ọtanjele ahụ ndịna etiti	none
-🧑🏿‍❤‍💋‍🧑🏾	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji, na ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏻‍❤‍🧑🏼	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏻‍❤‍🧑🏽	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha, na ọtanjele ahụ ndịna etiti	none
-🧑🏻‍❤‍🧑🏾	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏻‍❤‍🧑🏿	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji	none
-🧑🏼‍❤‍🧑🏻	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-🧑🏼‍❤‍🧑🏽	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-🧑🏼‍❤‍🧑🏾	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏼‍❤‍🧑🏿	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji	none
-🧑🏽‍❤‍🧑🏻	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha	none
-🧑🏽‍❤‍🧑🏼	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏽‍❤‍🧑🏾	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏽‍❤‍🧑🏿	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji	none
-🧑🏾‍❤‍🧑🏻	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-🧑🏾‍❤‍🧑🏼	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏾‍❤‍🧑🏽	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-🧑🏾‍❤‍🧑🏿	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka òji	none
-🧑🏿‍❤‍🧑🏻	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha	none
-🧑🏿‍❤‍🧑🏼	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏿‍❤‍🧑🏽	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji, na ọtanjele ahụ ndịna etiti	none
-🧑🏿‍❤‍🧑🏾	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji, na ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏻‍❤‍💋‍🧑🏼	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏻‍❤‍💋‍🧑🏽	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+🧑🏻‍❤‍💋‍🧑🏾	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏻‍❤‍💋‍🧑🏿	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+🧑🏼‍❤‍💋‍🧑🏻	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏼‍❤‍💋‍🧑🏽	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🧑🏼‍❤‍💋‍🧑🏾	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏼‍❤‍💋‍🧑🏿	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏽‍❤‍💋‍🧑🏻	nsusò ọnụ okenye, okenye, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏽‍❤‍💋‍🧑🏼	nsusò ọnụ okenye, okenye, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏽‍❤‍💋‍🧑🏾	nsusò ọnụ okenye, okenye, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏽‍❤‍💋‍🧑🏿	nsusò ọnụ okenye, okenye, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏾‍❤‍💋‍🧑🏻	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏾‍❤‍💋‍🧑🏼	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏾‍❤‍💋‍🧑🏽	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🧑🏾‍❤‍💋‍🧑🏿	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏿‍❤‍💋‍🧑🏻	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+🧑🏿‍❤‍💋‍🧑🏼	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏿‍❤‍💋‍🧑🏽	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+🧑🏿‍❤‍💋‍🧑🏾	nsusò ọnụ okenye, okenye, ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏻‍❤‍🧑🏼	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏻‍❤‍🧑🏽	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+🧑🏻‍❤‍🧑🏾	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏻‍❤‍🧑🏿	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+🧑🏼‍❤‍🧑🏻	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏼‍❤‍🧑🏽	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🧑🏼‍❤‍🧑🏾	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏼‍❤‍🧑🏿	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏽‍❤‍🧑🏻	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏽‍❤‍🧑🏼	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏽‍❤‍🧑🏾	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏽‍❤‍🧑🏿	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏾‍❤‍🧑🏻	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏾‍❤‍🧑🏼	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏾‍❤‍🧑🏽	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🧑🏾‍❤‍🧑🏿	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏿‍❤‍🧑🏻	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+🧑🏿‍❤‍🧑🏼	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏿‍❤‍🧑🏽	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+🧑🏿‍❤‍🧑🏾	di na nwunye nwere obi okenye, okenye, ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏻‍🫯‍🧑🏼	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏻‍🫯‍🧑🏽	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+🧑🏻‍🫯‍🧑🏾	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏻‍🫯‍🧑🏿	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+🧑🏼‍🫯‍🧑🏻	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏼‍🫯‍🧑🏽	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🧑🏼‍🫯‍🧑🏾	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏼‍🫯‍🧑🏿	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏽‍🫯‍🧑🏻	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏽‍🫯‍🧑🏼	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏽‍🫯‍🧑🏾	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏽‍🫯‍🧑🏿	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏾‍🫯‍🧑🏻	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏾‍🫯‍🧑🏼	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏾‍🫯‍🧑🏽	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🧑🏾‍🫯‍🧑🏿	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏿‍🫯‍🧑🏻	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+🧑🏿‍🫯‍🧑🏼	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏿‍🫯‍🧑🏽	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+🧑🏿‍🫯‍🧑🏾	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 🧑‍🦰	okenye ntutu isi uhie	none
-🧑🏻‍🦰	okenye ọtanjele ahụ maka ọcha na ntutu isi uhie	none
-🧑🏼‍🦰	okenye ọtanjele ahụ maka ọcha-ndịna etiti na ntutu isi uhie	none
-🧑🏽‍🦰	okenye ọtanjele ahụ ndịna etiti na ntutu isi uhie	none
-🧑🏾‍🦰	okenye ọtanjele ahụ maka òji-ndịna etiti na ntutu isi uhie	none
-🧑🏿‍🦰	okenye ọtanjele ahụ maka òji na ntutu isi uhie	none
+🧑🏻‍🦰	okenye ọtanjele ahụ maka ọcha, ntutu isi uhie	none
+🧑🏼‍🦰	okenye ọtanjele ahụ maka ọcha-ndịna etiti, ntutu isi uhie	none
+🧑🏽‍🦰	okenye ọtanjele ahụ ndịna etiti, ntutu isi uhie	none
+🧑🏾‍🦰	okenye ọtanjele ahụ maka òji-ndịna etiti, ntutu isi uhie	none
+🧑🏿‍🦰	okenye ọtanjele ahụ maka òji, ntutu isi uhie	none
 🧑‍🦱	okenye ntutu isi gbakọrọ agbakọ	none
-🧑🏻‍🦱	okenye ọtanjele ahụ maka ọcha na ntutu isi gbakọrọ agbakọ	none
-🧑🏼‍🦱	okenye ọtanjele ahụ maka ọcha-ndịna etiti na ntutu isi gbakọrọ agbakọ	none
-🧑🏽‍🦱	okenye ọtanjele ahụ ndịna etiti na ntutu isi gbakọrọ agbakọ	none
-🧑🏾‍🦱	okenye ọtanjele ahụ maka òji-ndịna etiti na ntutu isi gbakọrọ agbakọ	none
-🧑🏿‍🦱	okenye ọtanjele ahụ maka òji na ntutu isi gbakọrọ agbakọ	none
+🧑🏻‍🦱	okenye ọtanjele ahụ maka ọcha, ntutu isi gbakọrọ agbakọ	none
+🧑🏼‍🦱	okenye ọtanjele ahụ maka ọcha-ndịna etiti, ntutu isi gbakọrọ agbakọ	none
+🧑🏽‍🦱	okenye ọtanjele ahụ ndịna etiti, ntutu isi gbakọrọ agbakọ	none
+🧑🏾‍🦱	okenye ọtanjele ahụ maka òji-ndịna etiti, ntutu isi gbakọrọ agbakọ	none
+🧑🏿‍🦱	okenye ọtanjele ahụ maka òji, ntutu isi gbakọrọ agbakọ	none
 🧑‍🦳	okenye ntutu isi ocha	none
-🧑🏻‍🦳	okenye ọtanjele ahụ maka ọcha na ntutu isi ocha	none
-🧑🏼‍🦳	okenye ọtanjele ahụ maka ọcha-ndịna etiti na ntutu isi ocha	none
-🧑🏽‍🦳	okenye ọtanjele ahụ ndịna etiti na ntutu isi ocha	none
-🧑🏾‍🦳	okenye ọtanjele ahụ maka òji-ndịna etiti na ntutu isi ocha	none
-🧑🏿‍🦳	okenye ọtanjele ahụ maka òji na ntutu isi ocha	none
+🧑🏻‍🦳	okenye ọtanjele ahụ maka ọcha, ntutu isi ocha	none
+🧑🏼‍🦳	okenye ọtanjele ahụ maka ọcha-ndịna etiti, ntutu isi ocha	none
+🧑🏽‍🦳	okenye ọtanjele ahụ ndịna etiti, ntutu isi ocha	none
+🧑🏾‍🦳	okenye ọtanjele ahụ maka òji-ndịna etiti, ntutu isi ocha	none
+🧑🏿‍🦳	okenye ọtanjele ahụ maka òji, ntutu isi ocha	none
 🧑‍🦲	okenye isi nkwọcha	none
-🧑🏻‍🦲	okenye ọtanjele ahụ maka ọcha na isi nkwọcha	none
-🧑🏼‍🦲	okenye ọtanjele ahụ maka ọcha-ndịna etiti na isi nkwọcha	none
-🧑🏽‍🦲	okenye ọtanjele ahụ ndịna etiti na isi nkwọcha	none
-🧑🏾‍🦲	okenye ọtanjele ahụ maka òji-ndịna etiti na isi nkwọcha	none
-🧑🏿‍🦲	okenye ọtanjele ahụ maka òji na isi nkwọcha	none
+🧑🏻‍🦲	okenye ọtanjele ahụ maka ọcha, isi nkwọcha	none
+🧑🏼‍🦲	okenye ọtanjele ahụ maka ọcha-ndịna etiti, isi nkwọcha	none
+🧑🏽‍🦲	okenye ọtanjele ahụ ndịna etiti, isi nkwọcha	none
+🧑🏾‍🦲	okenye ọtanjele ahụ maka òji-ndịna etiti, isi nkwọcha	none
+🧑🏿‍🦲	okenye ọtanjele ahụ maka òji, isi nkwọcha	none
+🧑🏻‍🐰‍🧑🏼	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏻‍🐰‍🧑🏽	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+🧑🏻‍🐰‍🧑🏾	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏻‍🐰‍🧑🏿	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+🧑🏼‍🐰‍🧑🏻	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏼‍🐰‍🧑🏽	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🧑🏼‍🐰‍🧑🏾	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏼‍🐰‍🧑🏿	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏽‍🐰‍🧑🏻	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏽‍🐰‍🧑🏼	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏽‍🐰‍🧑🏾	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏽‍🐰‍🧑🏿	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏾‍🐰‍🧑🏻	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏾‍🐰‍🧑🏼	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏾‍🐰‍🧑🏽	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🧑🏾‍🐰‍🧑🏿	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏿‍🐰‍🧑🏻	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+🧑🏿‍🐰‍🧑🏼	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏿‍🐰‍🧑🏽	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+🧑🏿‍🐰‍🧑🏾	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 👨🏻	nwoke ọtanjele ahụ maka ọcha	none
 👨🏼	nwoke ọtanjele ahụ maka ọcha-ndịna etiti	none
 👨🏽	nwoke ọtanjele ahụ ndịna etiti	none
@@ -2193,229 +2248,309 @@ symbols:
 🧔🏽	onye nwere ahụọnụ ọtanjele ahụ ndịna etiti	none
 🧔🏾	onye nwere ahụọnụ ọtanjele ahụ maka òji-ndịna etiti	none
 🧔🏿	onye nwere ahụọnụ ọtanjele ahụ maka òji	none
-🧔🏻‍♂	nwoke ọtanjele ahụ maka ọcha na afụ ọnụ	none
-🧔🏼‍♂	nwoke ọtanjele ahụ maka ọcha-ndịna etiti na afụ ọnụ	none
-🧔🏽‍♂	nwoke ọtanjele ahụ ndịna etiti na afụ ọnụ	none
-🧔🏾‍♂	nwoke ọtanjele ahụ maka òji-ndịna etiti na afụ ọnụ	none
-🧔🏿‍♂	nwoke ọtanjele ahụ maka òji na afụ ọnụ	none
+🧔🏻‍♂	nwoke ọtanjele ahụ maka ọcha, afụ ọnụ	none
+🧔🏼‍♂	nwoke ọtanjele ahụ maka ọcha-ndịna etiti, afụ ọnụ	none
+🧔🏽‍♂	nwoke ọtanjele ahụ ndịna etiti, afụ ọnụ	none
+🧔🏾‍♂	nwoke ọtanjele ahụ maka òji-ndịna etiti, afụ ọnụ	none
+🧔🏿‍♂	nwoke ọtanjele ahụ maka òji, afụ ọnụ	none
 👱🏻‍♂	nwoke nwere isi-awọ ọtanjele ahụ maka ọcha	none
 👱🏼‍♂	nwoke nwere isi-awọ ọtanjele ahụ maka ọcha-ndịna etiti	none
 👱🏽‍♂	nwoke nwere isi-awọ ọtanjele ahụ ndịna etiti	none
 👱🏾‍♂	nwoke nwere isi-awọ ọtanjele ahụ maka òji-ndịna etiti	none
 👱🏿‍♂	nwoke nwere isi-awọ ọtanjele ahụ maka òji	none
-👨🏻‍❤‍💋‍👨🏻	nsusò ọnụ nwoke, nwoke, na ọtanjele ahụ maka ọcha	none
-👨🏻‍❤‍💋‍👨🏼	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏻‍❤‍💋‍👨🏽	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ ndịna etiti	none
-👨🏻‍❤‍💋‍👨🏾	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏻‍❤‍💋‍👨🏿	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji	none
-👨🏼‍❤‍💋‍👨🏻	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👨🏼‍❤‍💋‍👨🏼	nsusò ọnụ nwoke, nwoke, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏼‍❤‍💋‍👨🏽	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👨🏼‍❤‍💋‍👨🏾	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏼‍❤‍💋‍👨🏿	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji	none
-👨🏽‍❤‍💋‍👨🏻	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👨🏽‍❤‍💋‍👨🏼	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏽‍❤‍💋‍👨🏽	nsusò ọnụ nwoke, nwoke, na ọtanjele ahụ ndịna etiti	none
-👨🏽‍❤‍💋‍👨🏾	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏽‍❤‍💋‍👨🏿	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji	none
-👨🏾‍❤‍💋‍👨🏻	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👨🏾‍❤‍💋‍👨🏼	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏾‍❤‍💋‍👨🏽	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👨🏾‍❤‍💋‍👨🏾	nsusò ọnụ nwoke, nwoke, na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏾‍❤‍💋‍👨🏿	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka òji	none
-👨🏿‍❤‍💋‍👨🏻	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha	none
-👨🏿‍❤‍💋‍👨🏼	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏿‍❤‍💋‍👨🏽	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ ndịna etiti	none
-👨🏿‍❤‍💋‍👨🏾	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏿‍❤‍💋‍👨🏿	nsusò ọnụ nwoke, nwoke, na ọtanjele ahụ maka òji	none
-👨🏻‍❤‍👨🏻	di na nwunye nwere obi nwoke, nwoke, na ọtanjele ahụ maka ọcha	none
-👨🏻‍❤‍👨🏼	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏻‍❤‍👨🏽	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ ndịna etiti	none
-👨🏻‍❤‍👨🏾	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏻‍❤‍👨🏿	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji	none
-👨🏼‍❤‍👨🏻	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👨🏼‍❤‍👨🏼	di na nwunye nwere obi nwoke, nwoke, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏼‍❤‍👨🏽	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👨🏼‍❤‍👨🏾	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏼‍❤‍👨🏿	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji	none
-👨🏽‍❤‍👨🏻	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👨🏽‍❤‍👨🏼	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏽‍❤‍👨🏽	di na nwunye nwere obi nwoke, nwoke, na ọtanjele ahụ ndịna etiti	none
-👨🏽‍❤‍👨🏾	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏽‍❤‍👨🏿	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji	none
-👨🏾‍❤‍👨🏻	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👨🏾‍❤‍👨🏼	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏾‍❤‍👨🏽	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👨🏾‍❤‍👨🏾	di na nwunye nwere obi nwoke, nwoke, na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏾‍❤‍👨🏿	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka òji	none
-👨🏿‍❤‍👨🏻	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha	none
-👨🏿‍❤‍👨🏼	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏿‍❤‍👨🏽	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ ndịna etiti	none
-👨🏿‍❤‍👨🏾	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏿‍❤‍👨🏿	di na nwunye nwere obi nwoke, nwoke, na ọtanjele ahụ maka òji	none
+👨🏻‍❤‍💋‍👨🏻	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha	none
+👨🏻‍❤‍💋‍👨🏼	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏻‍❤‍💋‍👨🏽	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👨🏻‍❤‍💋‍👨🏾	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏻‍❤‍💋‍👨🏿	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👨🏼‍❤‍💋‍👨🏻	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏼‍❤‍💋‍👨🏼	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏼‍❤‍💋‍👨🏽	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👨🏼‍❤‍💋‍👨🏾	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏼‍❤‍💋‍👨🏿	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏽‍❤‍💋‍👨🏻	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏽‍❤‍💋‍👨🏼	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏽‍❤‍💋‍👨🏽	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ ndịna etiti	none
+👨🏽‍❤‍💋‍👨🏾	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏽‍❤‍💋‍👨🏿	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏾‍❤‍💋‍👨🏻	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏾‍❤‍💋‍👨🏼	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏾‍❤‍💋‍👨🏽	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👨🏾‍❤‍💋‍👨🏾	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏾‍❤‍💋‍👨🏿	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏿‍❤‍💋‍👨🏻	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👨🏿‍❤‍💋‍👨🏼	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏿‍❤‍💋‍👨🏽	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👨🏿‍❤‍💋‍👨🏾	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏿‍❤‍💋‍👨🏿	nsusò ọnụ nwoke, nwoke, ọtanjele ahụ maka òji	none
+👨🏻‍❤‍👨🏻	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha	none
+👨🏻‍❤‍👨🏼	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏻‍❤‍👨🏽	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👨🏻‍❤‍👨🏾	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏻‍❤‍👨🏿	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👨🏼‍❤‍👨🏻	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏼‍❤‍👨🏼	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏼‍❤‍👨🏽	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👨🏼‍❤‍👨🏾	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏼‍❤‍👨🏿	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏽‍❤‍👨🏻	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏽‍❤‍👨🏼	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏽‍❤‍👨🏽	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ ndịna etiti	none
+👨🏽‍❤‍👨🏾	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏽‍❤‍👨🏿	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏾‍❤‍👨🏻	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏾‍❤‍👨🏼	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏾‍❤‍👨🏽	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👨🏾‍❤‍👨🏾	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏾‍❤‍👨🏿	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏿‍❤‍👨🏻	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👨🏿‍❤‍👨🏼	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏿‍❤‍👨🏽	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👨🏿‍❤‍👨🏾	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏿‍❤‍👨🏿	di na nwunye nwere obi nwoke, nwoke, ọtanjele ahụ maka òji	none
+👨🏻‍🫯‍👨🏼	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏻‍🫯‍👨🏽	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👨🏻‍🫯‍👨🏾	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏻‍🫯‍👨🏿	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👨🏼‍🫯‍👨🏻	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏼‍🫯‍👨🏽	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👨🏼‍🫯‍👨🏾	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏼‍🫯‍👨🏿	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏽‍🫯‍👨🏻	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏽‍🫯‍👨🏼	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏽‍🫯‍👨🏾	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏽‍🫯‍👨🏿	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏾‍🫯‍👨🏻	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏾‍🫯‍👨🏼	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏾‍🫯‍👨🏽	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👨🏾‍🫯‍👨🏿	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏿‍🫯‍👨🏻	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👨🏿‍🫯‍👨🏼	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏿‍🫯‍👨🏽	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👨🏿‍🫯‍👨🏾	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 👨‍🦰	nwoke ntutu isi uhie	none
-👨🏻‍🦰	nwoke ọtanjele ahụ maka ọcha na ntutu isi uhie	none
-👨🏼‍🦰	nwoke ọtanjele ahụ maka ọcha-ndịna etiti na ntutu isi uhie	none
-👨🏽‍🦰	nwoke ọtanjele ahụ ndịna etiti na ntutu isi uhie	none
-👨🏾‍🦰	nwoke ọtanjele ahụ maka òji-ndịna etiti na ntutu isi uhie	none
-👨🏿‍🦰	nwoke ọtanjele ahụ maka òji na ntutu isi uhie	none
+👨🏻‍🦰	nwoke ọtanjele ahụ maka ọcha, ntutu isi uhie	none
+👨🏼‍🦰	nwoke ọtanjele ahụ maka ọcha-ndịna etiti, ntutu isi uhie	none
+👨🏽‍🦰	nwoke ọtanjele ahụ ndịna etiti, ntutu isi uhie	none
+👨🏾‍🦰	nwoke ọtanjele ahụ maka òji-ndịna etiti, ntutu isi uhie	none
+👨🏿‍🦰	nwoke ọtanjele ahụ maka òji, ntutu isi uhie	none
 👨‍🦱	nwoke ntutu isi gbakọrọ agbakọ	none
-👨🏻‍🦱	nwoke ọtanjele ahụ maka ọcha na ntutu isi gbakọrọ agbakọ	none
-👨🏼‍🦱	nwoke ọtanjele ahụ maka ọcha-ndịna etiti na ntutu isi gbakọrọ agbakọ	none
-👨🏽‍🦱	nwoke ọtanjele ahụ ndịna etiti na ntutu isi gbakọrọ agbakọ	none
-👨🏾‍🦱	nwoke ọtanjele ahụ maka òji-ndịna etiti na ntutu isi gbakọrọ agbakọ	none
-👨🏿‍🦱	nwoke ọtanjele ahụ maka òji na ntutu isi gbakọrọ agbakọ	none
+👨🏻‍🦱	nwoke ọtanjele ahụ maka ọcha, ntutu isi gbakọrọ agbakọ	none
+👨🏼‍🦱	nwoke ọtanjele ahụ maka ọcha-ndịna etiti, ntutu isi gbakọrọ agbakọ	none
+👨🏽‍🦱	nwoke ọtanjele ahụ ndịna etiti, ntutu isi gbakọrọ agbakọ	none
+👨🏾‍🦱	nwoke ọtanjele ahụ maka òji-ndịna etiti, ntutu isi gbakọrọ agbakọ	none
+👨🏿‍🦱	nwoke ọtanjele ahụ maka òji, ntutu isi gbakọrọ agbakọ	none
 👨‍🦳	nwoke ntutu isi ocha	none
-👨🏻‍🦳	nwoke ọtanjele ahụ maka ọcha na ntutu isi ocha	none
-👨🏼‍🦳	nwoke ọtanjele ahụ maka ọcha-ndịna etiti na ntutu isi ocha	none
-👨🏽‍🦳	nwoke ọtanjele ahụ ndịna etiti na ntutu isi ocha	none
-👨🏾‍🦳	nwoke ọtanjele ahụ maka òji-ndịna etiti na ntutu isi ocha	none
-👨🏿‍🦳	nwoke ọtanjele ahụ maka òji na ntutu isi ocha	none
+👨🏻‍🦳	nwoke ọtanjele ahụ maka ọcha, ntutu isi ocha	none
+👨🏼‍🦳	nwoke ọtanjele ahụ maka ọcha-ndịna etiti, ntutu isi ocha	none
+👨🏽‍🦳	nwoke ọtanjele ahụ ndịna etiti, ntutu isi ocha	none
+👨🏾‍🦳	nwoke ọtanjele ahụ maka òji-ndịna etiti, ntutu isi ocha	none
+👨🏿‍🦳	nwoke ọtanjele ahụ maka òji, ntutu isi ocha	none
 👨‍🦲	nwoke isi nkwọcha	none
-👨🏻‍🦲	nwoke ọtanjele ahụ maka ọcha na isi nkwọcha	none
-👨🏼‍🦲	nwoke ọtanjele ahụ maka ọcha-ndịna etiti na isi nkwọcha	none
-👨🏽‍🦲	nwoke ọtanjele ahụ ndịna etiti na isi nkwọcha	none
-👨🏾‍🦲	nwoke ọtanjele ahụ maka òji-ndịna etiti na isi nkwọcha	none
-👨🏿‍🦲	nwoke ọtanjele ahụ maka òji na isi nkwọcha	none
+👨🏻‍🦲	nwoke ọtanjele ahụ maka ọcha, isi nkwọcha	none
+👨🏼‍🦲	nwoke ọtanjele ahụ maka ọcha-ndịna etiti, isi nkwọcha	none
+👨🏽‍🦲	nwoke ọtanjele ahụ ndịna etiti, isi nkwọcha	none
+👨🏾‍🦲	nwoke ọtanjele ahụ maka òji-ndịna etiti, isi nkwọcha	none
+👨🏿‍🦲	nwoke ọtanjele ahụ maka òji, isi nkwọcha	none
+👨🏻‍🐰‍👨🏼	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏻‍🐰‍👨🏽	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👨🏻‍🐰‍👨🏾	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏻‍🐰‍👨🏿	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👨🏼‍🐰‍👨🏻	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏼‍🐰‍👨🏽	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👨🏼‍🐰‍👨🏾	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏼‍🐰‍👨🏿	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏽‍🐰‍👨🏻	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏽‍🐰‍👨🏼	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏽‍🐰‍👨🏾	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏽‍🐰‍👨🏿	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏾‍🐰‍👨🏻	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏾‍🐰‍👨🏼	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏾‍🐰‍👨🏽	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👨🏾‍🐰‍👨🏿	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏿‍🐰‍👨🏻	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👨🏿‍🐰‍👨🏼	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏿‍🐰‍👨🏽	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👨🏿‍🐰‍👨🏾	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 👩🏻	nwanyị ọtanjele ahụ maka ọcha	none
 👩🏼	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti	none
 👩🏽	nwanyị ọtanjele ahụ ndịna etiti	none
 👩🏾	nwanyị ọtanjele ahụ maka òji-ndịna etiti	none
 👩🏿	nwanyị ọtanjele ahụ maka òji	none
-🧔🏻‍♀	nwanyị ọtanjele ahụ maka ọcha na afụ ọnụ	none
-🧔🏼‍♀	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti na afụ ọnụ	none
-🧔🏽‍♀	nwanyị ọtanjele ahụ ndịna etiti na afụ ọnụ	none
-🧔🏾‍♀	nwanyị ọtanjele ahụ maka òji-ndịna etiti na afụ ọnụ	none
-🧔🏿‍♀	nwanyị ọtanjele ahụ maka òji na afụ ọnụ	none
+🧔🏻‍♀	nwanyị ọtanjele ahụ maka ọcha, afụ ọnụ	none
+🧔🏼‍♀	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti, afụ ọnụ	none
+🧔🏽‍♀	nwanyị ọtanjele ahụ ndịna etiti, afụ ọnụ	none
+🧔🏾‍♀	nwanyị ọtanjele ahụ maka òji-ndịna etiti, afụ ọnụ	none
+🧔🏿‍♀	nwanyị ọtanjele ahụ maka òji, afụ ọnụ	none
 👱🏻‍♀	nwanyị nwere isi-awọ ọtanjele ahụ maka ọcha	none
 👱🏼‍♀	nwanyị nwere isi-awọ ọtanjele ahụ maka ọcha-ndịna etiti	none
 👱🏽‍♀	nwanyị nwere isi-awọ ọtanjele ahụ ndịna etiti	none
 👱🏾‍♀	nwanyị nwere isi-awọ ọtanjele ahụ maka òji-ndịna etiti	none
 👱🏿‍♀	nwanyị nwere isi-awọ ọtanjele ahụ maka òji	none
-👩🏻‍❤‍💋‍👨🏻	nsusò ọnụ nwanyị, nwoke, na ọtanjele ahụ maka ọcha	none
-👩🏻‍❤‍💋‍👨🏼	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏻‍❤‍💋‍👨🏽	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ ndịna etiti	none
-👩🏻‍❤‍💋‍👨🏾	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏻‍❤‍💋‍👨🏿	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji	none
-👩🏼‍❤‍💋‍👨🏻	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏼‍❤‍💋‍👨🏼	nsusò ọnụ nwanyị, nwoke, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏼‍❤‍💋‍👨🏽	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👩🏼‍❤‍💋‍👨🏾	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏼‍❤‍💋‍👨🏿	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏽‍❤‍💋‍👨🏻	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏽‍❤‍💋‍👨🏼	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏽‍❤‍💋‍👨🏽	nsusò ọnụ nwanyị, nwoke, na ọtanjele ahụ ndịna etiti	none
-👩🏽‍❤‍💋‍👨🏾	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏽‍❤‍💋‍👨🏿	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏾‍❤‍💋‍👨🏻	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏾‍❤‍💋‍👨🏼	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏾‍❤‍💋‍👨🏽	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👩🏾‍❤‍💋‍👨🏾	nsusò ọnụ nwanyị, nwoke, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏾‍❤‍💋‍👨🏿	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏿‍❤‍💋‍👨🏻	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha	none
-👩🏿‍❤‍💋‍👨🏼	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏿‍❤‍💋‍👨🏽	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ ndịna etiti	none
-👩🏿‍❤‍💋‍👨🏾	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏿‍❤‍💋‍👨🏿	nsusò ọnụ nwanyị, nwoke, na ọtanjele ahụ maka òji	none
-👩🏻‍❤‍💋‍👩🏻	nsusò ọnụ nwanyị, nwanyị, na ọtanjele ahụ maka ọcha	none
-👩🏻‍❤‍💋‍👩🏼	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏻‍❤‍💋‍👩🏽	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha, na ọtanjele ahụ ndịna etiti	none
-👩🏻‍❤‍💋‍👩🏾	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏻‍❤‍💋‍👩🏿	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji	none
-👩🏼‍❤‍💋‍👩🏻	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏼‍❤‍💋‍👩🏼	nsusò ọnụ nwanyị, nwanyị, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏼‍❤‍💋‍👩🏽	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👩🏼‍❤‍💋‍👩🏾	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏼‍❤‍💋‍👩🏿	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏽‍❤‍💋‍👩🏻	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏽‍❤‍💋‍👩🏼	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏽‍❤‍💋‍👩🏽	nsusò ọnụ nwanyị, nwanyị, na ọtanjele ahụ ndịna etiti	none
-👩🏽‍❤‍💋‍👩🏾	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏽‍❤‍💋‍👩🏿	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏾‍❤‍💋‍👩🏻	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏾‍❤‍💋‍👩🏼	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏾‍❤‍💋‍👩🏽	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👩🏾‍❤‍💋‍👩🏾	nsusò ọnụ nwanyị, nwanyị, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏾‍❤‍💋‍👩🏿	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏿‍❤‍💋‍👩🏻	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha	none
-👩🏿‍❤‍💋‍👩🏼	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏿‍❤‍💋‍👩🏽	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji, na ọtanjele ahụ ndịna etiti	none
-👩🏿‍❤‍💋‍👩🏾	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏿‍❤‍💋‍👩🏿	nsusò ọnụ nwanyị, nwanyị, na ọtanjele ahụ maka òji	none
-👩🏻‍❤‍👨🏻	di na nwunye nwere obi nwanyị, nwoke, na ọtanjele ahụ maka ọcha	none
-👩🏻‍❤‍👨🏼	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏻‍❤‍👨🏽	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ ndịna etiti	none
-👩🏻‍❤‍👨🏾	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏻‍❤‍👨🏿	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji	none
-👩🏼‍❤‍👨🏻	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏼‍❤‍👨🏼	di na nwunye nwere obi nwanyị, nwoke, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏼‍❤‍👨🏽	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👩🏼‍❤‍👨🏾	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏼‍❤‍👨🏿	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏽‍❤‍👨🏻	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏽‍❤‍👨🏼	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏽‍❤‍👨🏽	di na nwunye nwere obi nwanyị, nwoke, na ọtanjele ahụ ndịna etiti	none
-👩🏽‍❤‍👨🏾	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏽‍❤‍👨🏿	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏾‍❤‍👨🏻	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏾‍❤‍👨🏼	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏾‍❤‍👨🏽	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👩🏾‍❤‍👨🏾	di na nwunye nwere obi nwanyị, nwoke, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏾‍❤‍👨🏿	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏿‍❤‍👨🏻	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha	none
-👩🏿‍❤‍👨🏼	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏿‍❤‍👨🏽	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ ndịna etiti	none
-👩🏿‍❤‍👨🏾	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏿‍❤‍👨🏿	di na nwunye nwere obi nwanyị, nwoke, na ọtanjele ahụ maka òji	none
-👩🏻‍❤‍👩🏻	di na nwunye nwere obi nwanyị, nwanyị, na ọtanjele ahụ maka ọcha	none
-👩🏻‍❤‍👩🏼	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏻‍❤‍👩🏽	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha, na ọtanjele ahụ ndịna etiti	none
-👩🏻‍❤‍👩🏾	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏻‍❤‍👩🏿	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha, na ọtanjele ahụ maka òji	none
-👩🏼‍❤‍👩🏻	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏼‍❤‍👩🏼	di na nwunye nwere obi nwanyị, nwanyị, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏼‍❤‍👩🏽	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👩🏼‍❤‍👩🏾	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏼‍❤‍👩🏿	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏽‍❤‍👩🏻	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏽‍❤‍👩🏼	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏽‍❤‍👩🏽	di na nwunye nwere obi nwanyị, nwanyị, na ọtanjele ahụ ndịna etiti	none
-👩🏽‍❤‍👩🏾	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏽‍❤‍👩🏿	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏾‍❤‍👩🏻	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha	none
-👩🏾‍❤‍👩🏼	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏾‍❤‍👩🏽	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ ndịna etiti	none
-👩🏾‍❤‍👩🏾	di na nwunye nwere obi nwanyị, nwanyị, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏾‍❤‍👩🏿	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, na ọtanjele ahụ maka òji	none
-👩🏿‍❤‍👩🏻	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha	none
-👩🏿‍❤‍👩🏼	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji, na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏿‍❤‍👩🏽	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji, na ọtanjele ahụ ndịna etiti	none
-👩🏿‍❤‍👩🏾	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji, na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏿‍❤‍👩🏿	di na nwunye nwere obi nwanyị, nwanyị, na ọtanjele ahụ maka òji	none
+👩🏻‍❤‍💋‍👨🏻	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha	none
+👩🏻‍❤‍💋‍👨🏼	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏻‍❤‍💋‍👨🏽	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👩🏻‍❤‍💋‍👨🏾	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏻‍❤‍💋‍👨🏿	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👩🏼‍❤‍💋‍👨🏻	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏼‍❤‍💋‍👨🏼	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏼‍❤‍💋‍👨🏽	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏼‍❤‍💋‍👨🏾	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏼‍❤‍💋‍👨🏿	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏽‍❤‍💋‍👨🏻	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏽‍❤‍💋‍👨🏼	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏽‍❤‍💋‍👨🏽	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ ndịna etiti	none
+👩🏽‍❤‍💋‍👨🏾	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏽‍❤‍💋‍👨🏿	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏾‍❤‍💋‍👨🏻	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏾‍❤‍💋‍👨🏼	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏾‍❤‍💋‍👨🏽	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏾‍❤‍💋‍👨🏾	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏾‍❤‍💋‍👨🏿	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏿‍❤‍💋‍👨🏻	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👩🏿‍❤‍💋‍👨🏼	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏿‍❤‍💋‍👨🏽	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👩🏿‍❤‍💋‍👨🏾	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏿‍❤‍💋‍👨🏿	nsusò ọnụ nwanyị, nwoke, ọtanjele ahụ maka òji	none
+👩🏻‍❤‍💋‍👩🏻	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha	none
+👩🏻‍❤‍💋‍👩🏼	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏻‍❤‍💋‍👩🏽	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👩🏻‍❤‍💋‍👩🏾	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏻‍❤‍💋‍👩🏿	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👩🏼‍❤‍💋‍👩🏻	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏼‍❤‍💋‍👩🏼	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏼‍❤‍💋‍👩🏽	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏼‍❤‍💋‍👩🏾	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏼‍❤‍💋‍👩🏿	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏽‍❤‍💋‍👩🏻	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏽‍❤‍💋‍👩🏼	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏽‍❤‍💋‍👩🏽	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ ndịna etiti	none
+👩🏽‍❤‍💋‍👩🏾	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏽‍❤‍💋‍👩🏿	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏾‍❤‍💋‍👩🏻	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏾‍❤‍💋‍👩🏼	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏾‍❤‍💋‍👩🏽	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏾‍❤‍💋‍👩🏾	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏾‍❤‍💋‍👩🏿	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏿‍❤‍💋‍👩🏻	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👩🏿‍❤‍💋‍👩🏼	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏿‍❤‍💋‍👩🏽	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👩🏿‍❤‍💋‍👩🏾	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏿‍❤‍💋‍👩🏿	nsusò ọnụ nwanyị, nwanyị, ọtanjele ahụ maka òji	none
+👩🏻‍❤‍👨🏻	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha	none
+👩🏻‍❤‍👨🏼	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏻‍❤‍👨🏽	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👩🏻‍❤‍👨🏾	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏻‍❤‍👨🏿	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👩🏼‍❤‍👨🏻	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏼‍❤‍👨🏼	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏼‍❤‍👨🏽	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏼‍❤‍👨🏾	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏼‍❤‍👨🏿	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏽‍❤‍👨🏻	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏽‍❤‍👨🏼	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏽‍❤‍👨🏽	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ ndịna etiti	none
+👩🏽‍❤‍👨🏾	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏽‍❤‍👨🏿	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏾‍❤‍👨🏻	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏾‍❤‍👨🏼	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏾‍❤‍👨🏽	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏾‍❤‍👨🏾	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏾‍❤‍👨🏿	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏿‍❤‍👨🏻	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👩🏿‍❤‍👨🏼	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏿‍❤‍👨🏽	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👩🏿‍❤‍👨🏾	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏿‍❤‍👨🏿	di na nwunye nwere obi nwanyị, nwoke, ọtanjele ahụ maka òji	none
+👩🏻‍❤‍👩🏻	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha	none
+👩🏻‍❤‍👩🏼	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏻‍❤‍👩🏽	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👩🏻‍❤‍👩🏾	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏻‍❤‍👩🏿	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👩🏼‍❤‍👩🏻	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏼‍❤‍👩🏼	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏼‍❤‍👩🏽	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏼‍❤‍👩🏾	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏼‍❤‍👩🏿	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏽‍❤‍👩🏻	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏽‍❤‍👩🏼	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏽‍❤‍👩🏽	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ ndịna etiti	none
+👩🏽‍❤‍👩🏾	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏽‍❤‍👩🏿	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏾‍❤‍👩🏻	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏾‍❤‍👩🏼	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏾‍❤‍👩🏽	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏾‍❤‍👩🏾	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏾‍❤‍👩🏿	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏿‍❤‍👩🏻	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👩🏿‍❤‍👩🏼	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏿‍❤‍👩🏽	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👩🏿‍❤‍👩🏾	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏿‍❤‍👩🏿	di na nwunye nwere obi nwanyị, nwanyị, ọtanjele ahụ maka òji	none
+👩🏻‍🫯‍👩🏼	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏻‍🫯‍👩🏽	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👩🏻‍🫯‍👩🏾	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏻‍🫯‍👩🏿	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👩🏼‍🫯‍👩🏻	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏼‍🫯‍👩🏽	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏼‍🫯‍👩🏾	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏼‍🫯‍👩🏿	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏽‍🫯‍👩🏻	ụmụnwanyị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏽‍🫯‍👩🏼	ụmụnwanyị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏽‍🫯‍👩🏾	ụmụnwanyị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏽‍🫯‍👩🏿	ụmụnwanyị na-agba m̀gba ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏾‍🫯‍👩🏻	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏾‍🫯‍👩🏼	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏾‍🫯‍👩🏽	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏾‍🫯‍👩🏿	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏿‍🫯‍👩🏻	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👩🏿‍🫯‍👩🏼	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏿‍🫯‍👩🏽	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👩🏿‍🫯‍👩🏾	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 👩‍🦰	nwanyị ntutu isi uhie	none
-👩🏻‍🦰	nwanyị ọtanjele ahụ maka ọcha na ntutu isi uhie	none
-👩🏼‍🦰	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti na ntutu isi uhie	none
-👩🏽‍🦰	nwanyị ọtanjele ahụ ndịna etiti na ntutu isi uhie	none
-👩🏾‍🦰	nwanyị ọtanjele ahụ maka òji-ndịna etiti na ntutu isi uhie	none
-👩🏿‍🦰	nwanyị ọtanjele ahụ maka òji na ntutu isi uhie	none
+👩🏻‍🦰	nwanyị ọtanjele ahụ maka ọcha, ntutu isi uhie	none
+👩🏼‍🦰	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti, ntutu isi uhie	none
+👩🏽‍🦰	nwanyị ọtanjele ahụ ndịna etiti, ntutu isi uhie	none
+👩🏾‍🦰	nwanyị ọtanjele ahụ maka òji-ndịna etiti, ntutu isi uhie	none
+👩🏿‍🦰	nwanyị ọtanjele ahụ maka òji, ntutu isi uhie	none
 👩‍🦱	nwanyị ntutu isi gbakọrọ agbakọ	none
-👩🏻‍🦱	nwanyị ọtanjele ahụ maka ọcha na ntutu isi gbakọrọ agbakọ	none
-👩🏼‍🦱	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti na ntutu isi gbakọrọ agbakọ	none
-👩🏽‍🦱	nwanyị ọtanjele ahụ ndịna etiti na ntutu isi gbakọrọ agbakọ	none
-👩🏾‍🦱	nwanyị ọtanjele ahụ maka òji-ndịna etiti na ntutu isi gbakọrọ agbakọ	none
-👩🏿‍🦱	nwanyị ọtanjele ahụ maka òji na ntutu isi gbakọrọ agbakọ	none
+👩🏻‍🦱	nwanyị ọtanjele ahụ maka ọcha, ntutu isi gbakọrọ agbakọ	none
+👩🏼‍🦱	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti, ntutu isi gbakọrọ agbakọ	none
+👩🏽‍🦱	nwanyị ọtanjele ahụ ndịna etiti, ntutu isi gbakọrọ agbakọ	none
+👩🏾‍🦱	nwanyị ọtanjele ahụ maka òji-ndịna etiti, ntutu isi gbakọrọ agbakọ	none
+👩🏿‍🦱	nwanyị ọtanjele ahụ maka òji, ntutu isi gbakọrọ agbakọ	none
 👩‍🦳	nwanyị ntutu isi ocha	none
-👩🏻‍🦳	nwanyị ọtanjele ahụ maka ọcha na ntutu isi ocha	none
-👩🏼‍🦳	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti na ntutu isi ocha	none
-👩🏽‍🦳	nwanyị ọtanjele ahụ ndịna etiti na ntutu isi ocha	none
-👩🏾‍🦳	nwanyị ọtanjele ahụ maka òji-ndịna etiti na ntutu isi ocha	none
-👩🏿‍🦳	nwanyị ọtanjele ahụ maka òji na ntutu isi ocha	none
+👩🏻‍🦳	nwanyị ọtanjele ahụ maka ọcha, ntutu isi ocha	none
+👩🏼‍🦳	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti, ntutu isi ocha	none
+👩🏽‍🦳	nwanyị ọtanjele ahụ ndịna etiti, ntutu isi ocha	none
+👩🏾‍🦳	nwanyị ọtanjele ahụ maka òji-ndịna etiti, ntutu isi ocha	none
+👩🏿‍🦳	nwanyị ọtanjele ahụ maka òji, ntutu isi ocha	none
 👩‍🦲	nwanyị isi nkwọcha	none
-👩🏻‍🦲	nwanyị ọtanjele ahụ maka ọcha na isi nkwọcha	none
-👩🏼‍🦲	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti na isi nkwọcha	none
-👩🏽‍🦲	nwanyị ọtanjele ahụ ndịna etiti na isi nkwọcha	none
-👩🏾‍🦲	nwanyị ọtanjele ahụ maka òji-ndịna etiti na isi nkwọcha	none
-👩🏿‍🦲	nwanyị ọtanjele ahụ maka òji na isi nkwọcha	none
+👩🏻‍🦲	nwanyị ọtanjele ahụ maka ọcha, isi nkwọcha	none
+👩🏼‍🦲	nwanyị ọtanjele ahụ maka ọcha-ndịna etiti, isi nkwọcha	none
+👩🏽‍🦲	nwanyị ọtanjele ahụ ndịna etiti, isi nkwọcha	none
+👩🏾‍🦲	nwanyị ọtanjele ahụ maka òji-ndịna etiti, isi nkwọcha	none
+👩🏿‍🦲	nwanyị ọtanjele ahụ maka òji, isi nkwọcha	none
+👩🏻‍🐰‍👩🏼	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏻‍🐰‍👩🏽	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👩🏻‍🐰‍👩🏾	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏻‍🐰‍👩🏿	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👩🏼‍🐰‍👩🏻	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏼‍🐰‍👩🏽	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏼‍🐰‍👩🏾	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏼‍🐰‍👩🏿	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏽‍🐰‍👩🏻	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏽‍🐰‍👩🏼	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏽‍🐰‍👩🏾	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏽‍🐰‍👩🏿	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏾‍🐰‍👩🏻	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏾‍🐰‍👩🏼	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏾‍🐰‍👩🏽	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏾‍🐰‍👩🏿	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏿‍🐰‍👩🏻	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👩🏿‍🐰‍👩🏼	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏿‍🐰‍👩🏽	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👩🏿‍🐰‍👩🏾	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 🧓🏻	kara dị okenye ọtanjele ahụ maka ọcha	none
 🧓🏼	kara dị okenye ọtanjele ahụ maka ọcha-ndịna etiti	none
 🧓🏽	kara dị okenye ọtanjele ahụ ndịna etiti	none
@@ -2826,11 +2961,11 @@ symbols:
 👮🏽	onye uweojii ọtanjele ahụ ndịna etiti	none
 👮🏾	onye uweojii ọtanjele ahụ maka òji-ndịna etiti	none
 👮🏿	onye uweojii ọtanjele ahụ maka òji	none
-👮🏻‍♂	nwoke onye uweojii ọtanjele ahụ maka ọcha	none
-👮🏼‍♂	nwoke onye uweojii ọtanjele ahụ maka ọcha-ndịna etiti	none
-👮🏽‍♂	nwoke onye uweojii ọtanjele ahụ ndịna etiti	none
-👮🏾‍♂	nwoke onye uweojii ọtanjele ahụ maka òji-ndịna etiti	none
-👮🏿‍♂	nwoke onye uweojii ọtanjele ahụ maka òji	none
+👮🏻‍♂	jide ọtanjele ahụ maka ọcha	none
+👮🏼‍♂	jide ọtanjele ahụ maka ọcha-ndịna etiti	none
+👮🏽‍♂	jide ọtanjele ahụ ndịna etiti	none
+👮🏾‍♂	jide ọtanjele ahụ maka òji-ndịna etiti	none
+👮🏿‍♂	jide ọtanjele ahụ maka òji	none
 👮🏻‍♀	nwanyị onye uweojii ọtanjele ahụ maka ọcha	none
 👮🏼‍♀	nwanyị onye uweojii ọtanjele ahụ maka ọcha-ndịna etiti	none
 👮🏽‍♀	nwanyị onye uweojii ọtanjele ahụ ndịna etiti	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	nwanyị na-aga ije ọtanjele ahụ maka òji-ndịna etiti	none
 🚶🏿‍♀	nwanyị na-aga ije ọtanjele ahụ maka òji	none
 🚶‍➡	onye na-aga ije na-eche ihu aka nri	none
-🚶🏻‍➡	onye na-aga ije na-eche ihu aka nri	none
-🚶🏼‍➡	onye na-aga ije na-eche ihu aka nri	none
-🚶🏽‍➡	onye na-aga ije na-eche ihu aka nri	none
-🚶🏾‍➡	onye na-aga ije na-eche ihu aka nri	none
-🚶🏿‍➡	onye na-aga ije na-eche ihu aka nri	none
+🚶🏻‍➡	onye na-aga ije ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🚶🏼‍➡	onye na-aga ije ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🚶🏽‍➡	onye na-aga ije ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🚶🏾‍➡	onye na-aga ije ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🚶🏿‍➡	onye na-aga ije ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🚶‍♀‍➡	nwanyị na-aga ije na-eche ihu aka nri	none
-🚶🏻‍♀‍➡	nwanyị na-aga ije na-eche ihu aka nri	none
-🚶🏼‍♀‍➡	nwanyị na-aga ije na-eche ihu aka nri	none
-🚶🏽‍♀‍➡	nwanyị na-aga ije na-eche ihu aka nri	none
-🚶🏾‍♀‍➡	nwanyị na-aga ije na-eche ihu aka nri	none
-🚶🏿‍♀‍➡	nwanyị na-aga ije na-eche ihu aka nri	none
+🚶🏻‍♀‍➡	nwanyị na-aga ije ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🚶🏼‍♀‍➡	nwanyị na-aga ije ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🚶🏽‍♀‍➡	nwanyị na-aga ije ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🚶🏾‍♀‍➡	nwanyị na-aga ije ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🚶🏿‍♀‍➡	nwanyị na-aga ije ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🚶‍♂‍➡	nwoke na-aga ije na-eche ihu aka nri	none
-🚶🏻‍♂‍➡	nwoke na-aga ije na-eche ihu aka nri	none
-🚶🏼‍♂‍➡	nwoke na-aga ije na-eche ihu aka nri	none
-🚶🏽‍♂‍➡	nwoke na-aga ije na-eche ihu aka nri	none
-🚶🏾‍♂‍➡	nwoke na-aga ije na-eche ihu aka nri	none
-🚶🏿‍♂‍➡	nwoke na-aga ije na-eche ihu aka nri	none
+🚶🏻‍♂‍➡	nwoke na-aga ije ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🚶🏼‍♂‍➡	nwoke na-aga ije ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🚶🏽‍♂‍➡	nwoke na-aga ije ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🚶🏾‍♂‍➡	nwoke na-aga ije ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🚶🏿‍♂‍➡	nwoke na-aga ije ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🧍🏻	onye na-e guzo ọtanjele ahụ maka ọcha	none
 🧍🏼	onye na-e guzo ọtanjele ahụ maka ọcha-ndịna etiti	none
 🧍🏽	onye na-e guzo ọtanjele ahụ ndịna etiti	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	nwanyị gbu ikpere n’ala ọtanjele ahụ maka òji-ndịna etiti	none
 🧎🏿‍♀	nwanyị gbu ikpere n’ala ọtanjele ahụ maka òji	none
 🧎‍➡	onye gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏻‍➡	onye gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏼‍➡	onye gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏽‍➡	onye gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏾‍➡	onye gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏿‍➡	onye gbu ikpere n’ala na-eche ihu aka nri	none
+🧎🏻‍➡	onye gbu ikpere n’ala ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🧎🏼‍➡	onye gbu ikpere n’ala ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🧎🏽‍➡	onye gbu ikpere n’ala ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🧎🏾‍➡	onye gbu ikpere n’ala ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🧎🏿‍➡	onye gbu ikpere n’ala ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🧎‍♀‍➡	nwanyị gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏻‍♀‍➡	nwanyị gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏼‍♀‍➡	nwanyị gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏽‍♀‍➡	nwanyị gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏾‍♀‍➡	nwanyị gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏿‍♀‍➡	nwanyị gbu ikpere n’ala na-eche ihu aka nri	none
+🧎🏻‍♀‍➡	nwanyị gbu ikpere n’ala ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🧎🏼‍♀‍➡	nwanyị gbu ikpere n’ala ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🧎🏽‍♀‍➡	nwanyị gbu ikpere n’ala ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🧎🏾‍♀‍➡	nwanyị gbu ikpere n’ala ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🧎🏿‍♀‍➡	nwanyị gbu ikpere n’ala ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🧎‍♂‍➡	nwoke gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏻‍♂‍➡	nwoke gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏼‍♂‍➡	nwoke gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏽‍♂‍➡	nwoke gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏾‍♂‍➡	nwoke gbu ikpere n’ala na-eche ihu aka nri	none
-🧎🏿‍♂‍➡	nwoke gbu ikpere n’ala na-eche ihu aka nri	none
+🧎🏻‍♂‍➡	nwoke gbu ikpere n’ala ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🧎🏼‍♂‍➡	nwoke gbu ikpere n’ala ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🧎🏽‍♂‍➡	nwoke gbu ikpere n’ala ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🧎🏾‍♂‍➡	nwoke gbu ikpere n’ala ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🧎🏿‍♂‍➡	nwoke gbu ikpere n’ala ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🧑🏻‍🦯	onye ji mkpara ọcha ọtanjele ahụ maka ọcha	none
 🧑🏼‍🦯	onye ji mkpara ọcha ọtanjele ahụ maka ọcha-ndịna etiti	none
 🧑🏽‍🦯	onye ji mkpara ọcha ọtanjele ahụ ndịna etiti	none
 🧑🏾‍🦯	onye ji mkpara ọcha ọtanjele ahụ maka òji-ndịna etiti	none
 🧑🏿‍🦯	onye ji mkpara ọcha ọtanjele ahụ maka òji	none
 🧑‍🦯‍➡	onye ji mkpara ọcha na-eche ihu aka nri	none
-🧑🏻‍🦯‍➡	onye ji mkpara ọcha na-eche ihu aka nri	none
-🧑🏼‍🦯‍➡	onye ji mkpara ọcha na-eche ihu aka nri	none
-🧑🏽‍🦯‍➡	onye ji mkpara ọcha na-eche ihu aka nri	none
-🧑🏾‍🦯‍➡	onye ji mkpara ọcha na-eche ihu aka nri	none
-🧑🏿‍🦯‍➡	onye ji mkpara ọcha na-eche ihu aka nri	none
+🧑🏻‍🦯‍➡	onye ji mkpara ọcha ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🧑🏼‍🦯‍➡	onye ji mkpara ọcha ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🧑🏽‍🦯‍➡	onye ji mkpara ọcha ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🧑🏾‍🦯‍➡	onye ji mkpara ọcha ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🧑🏿‍🦯‍➡	onye ji mkpara ọcha ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 👨🏻‍🦯	nwoke ji mkpara ọcha ọtanjele ahụ maka ọcha	none
 👨🏼‍🦯	nwoke ji mkpara ọcha ọtanjele ahụ maka ọcha-ndịna etiti	none
 👨🏽‍🦯	nwoke ji mkpara ọcha ọtanjele ahụ ndịna etiti	none
 👨🏾‍🦯	nwoke ji mkpara ọcha ọtanjele ahụ maka òji-ndịna etiti	none
 👨🏿‍🦯	nwoke ji mkpara ọcha ọtanjele ahụ maka òji	none
 👨‍🦯‍➡	nwoke ji mkpara ọcha na-eche ihu aka nri	none
-👨🏻‍🦯‍➡	nwoke ji mkpara ọcha na-eche ihu aka nri	none
-👨🏼‍🦯‍➡	nwoke ji mkpara ọcha na-eche ihu aka nri	none
-👨🏽‍🦯‍➡	nwoke ji mkpara ọcha na-eche ihu aka nri	none
-👨🏾‍🦯‍➡	nwoke ji mkpara ọcha na-eche ihu aka nri	none
-👨🏿‍🦯‍➡	nwoke ji mkpara ọcha na-eche ihu aka nri	none
+👨🏻‍🦯‍➡	nwoke ji mkpara ọcha ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+👨🏼‍🦯‍➡	nwoke ji mkpara ọcha ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+👨🏽‍🦯‍➡	nwoke ji mkpara ọcha ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+👨🏾‍🦯‍➡	nwoke ji mkpara ọcha ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+👨🏿‍🦯‍➡	nwoke ji mkpara ọcha ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 👩🏻‍🦯	nwanyị ji mkpara ọcha ọtanjele ahụ maka ọcha	none
 👩🏼‍🦯	nwanyị ji mkpara ọcha ọtanjele ahụ maka ọcha-ndịna etiti	none
 👩🏽‍🦯	nwanyị ji mkpara ọcha ọtanjele ahụ ndịna etiti	none
 👩🏾‍🦯	nwanyị ji mkpara ọcha ọtanjele ahụ maka òji-ndịna etiti	none
 👩🏿‍🦯	nwanyị ji mkpara ọcha ọtanjele ahụ maka òji	none
 👩‍🦯‍➡	nwanyị ji mkpara ọcha na-eche ihu aka nri	none
-👩🏻‍🦯‍➡	nwanyị ji mkpara ọcha na-eche ihu aka nri	none
-👩🏼‍🦯‍➡	nwanyị ji mkpara ọcha na-eche ihu aka nri	none
-👩🏽‍🦯‍➡	nwanyị ji mkpara ọcha na-eche ihu aka nri	none
-👩🏾‍🦯‍➡	nwanyị ji mkpara ọcha na-eche ihu aka nri	none
-👩🏿‍🦯‍➡	nwanyị ji mkpara ọcha na-eche ihu aka nri	none
+👩🏻‍🦯‍➡	nwanyị ji mkpara ọcha ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+👩🏼‍🦯‍➡	nwanyị ji mkpara ọcha ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+👩🏽‍🦯‍➡	nwanyị ji mkpara ọcha ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+👩🏾‍🦯‍➡	nwanyị ji mkpara ọcha ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+👩🏿‍🦯‍➡	nwanyị ji mkpara ọcha ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🧑🏻‍🦼	onye nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha	none
 🧑🏼‍🦼	onye nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha-ndịna etiti	none
 🧑🏽‍🦼	onye nọ n’oche nkwagharị nwere moto ọtanjele ahụ ndịna etiti	none
 🧑🏾‍🦼	onye nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji-ndịna etiti	none
 🧑🏿‍🦼	onye nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji	none
 🧑‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-🧑🏻‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-🧑🏼‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-🧑🏽‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-🧑🏾‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-🧑🏿‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
+🧑🏻‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🧑🏼‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🧑🏽‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🧑🏾‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🧑🏿‍🦼‍➡	onye nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 👨🏻‍🦼	nwoke nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha	none
 👨🏼‍🦼	nwoke nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha-ndịna etiti	none
 👨🏽‍🦼	nwoke nọ n’oche nkwagharị nwere moto ọtanjele ahụ ndịna etiti	none
 👨🏾‍🦼	nwoke nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji-ndịna etiti	none
 👨🏿‍🦼	nwoke nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji	none
 👨‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-👨🏻‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-👨🏼‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-👨🏽‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-👨🏾‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-👨🏿‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
+👨🏻‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+👨🏼‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+👨🏽‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+👨🏾‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+👨🏿‍🦼‍➡	nwoke nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 👩🏻‍🦼	nwanyị nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha	none
 👩🏼‍🦼	nwanyị nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha-ndịna etiti	none
 👩🏽‍🦼	nwanyị nọ n’oche nkwagharị nwere moto ọtanjele ahụ ndịna etiti	none
 👩🏾‍🦼	nwanyị nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji-ndịna etiti	none
 👩🏿‍🦼	nwanyị nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji	none
 👩‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-👩🏻‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-👩🏼‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-👩🏽‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-👩🏾‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
-👩🏿‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto na-eche ihu aka nri	none
+👩🏻‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+👩🏼‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+👩🏽‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+👩🏾‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+👩🏿‍🦼‍➡	nwanyị nọ n’oche nkwagharị nwere moto ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🧑🏻‍🦽	onye nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha	none
 🧑🏼‍🦽	onye nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha-ndịna etiti	none
 🧑🏽‍🦽	onye nọ n’oche nkwagharị nke aka ọtanjele ahụ ndịna etiti	none
 🧑🏾‍🦽	onye nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji-ndịna etiti	none
 🧑🏿‍🦽	onye nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji	none
 🧑‍🦽‍➡	onye nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-🧑🏻‍🦽‍➡	onye nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-🧑🏼‍🦽‍➡	onye nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-🧑🏽‍🦽‍➡	onye nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-🧑🏾‍🦽‍➡	onye nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-🧑🏿‍🦽‍➡	onye nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
+🧑🏻‍🦽‍➡	onye nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🧑🏼‍🦽‍➡	onye nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🧑🏽‍🦽‍➡	onye nọ n’oche nkwagharị nke aka ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🧑🏾‍🦽‍➡	onye nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🧑🏿‍🦽‍➡	onye nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 👨🏻‍🦽	nwoke nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha	none
 👨🏼‍🦽	nwoke nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha-ndịna etiti	none
 👨🏽‍🦽	nwoke nọ n’oche nkwagharị nke aka ọtanjele ahụ ndịna etiti	none
 👨🏾‍🦽	nwoke nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji-ndịna etiti	none
 👨🏿‍🦽	nwoke nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji	none
 👨‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-👨🏻‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-👨🏼‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-👨🏽‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-👨🏾‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-👨🏿‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
+👨🏻‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+👨🏼‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+👨🏽‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+👨🏾‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+👨🏿‍🦽‍➡	nwoke nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 👩🏻‍🦽	nwanyị nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha	none
 👩🏼‍🦽	nwanyị nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha-ndịna etiti	none
 👩🏽‍🦽	nwanyị nọ n’oche nkwagharị nke aka ọtanjele ahụ ndịna etiti	none
 👩🏾‍🦽	nwanyị nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji-ndịna etiti	none
 👩🏿‍🦽	nwanyị nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji	none
 👩‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-👩🏻‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-👩🏼‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-👩🏽‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-👩🏾‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
-👩🏿‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka na-eche ihu aka nri	none
+👩🏻‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+👩🏼‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+👩🏽‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+👩🏾‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+👩🏿‍🦽‍➡	nwanyị nọ n’oche nkwagharị nke aka ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🏃🏻	onye na-agba ọsọ ọtanjele ahụ maka ọcha	none
 🏃🏼	onye na-agba ọsọ ọtanjele ahụ maka ọcha-ndịna etiti	none
 🏃🏽	onye na-agba ọsọ ọtanjele ahụ ndịna etiti	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	nwanyị na-agba ọsọ ọtanjele ahụ maka òji-ndịna etiti	none
 🏃🏿‍♀	nwanyị na-agba ọsọ ọtanjele ahụ maka òji	none
 🏃‍➡	onye na-agba ọsọ na-eche ihu aka nri	none
-🏃🏻‍➡	onye na-agba ọsọ na-eche ihu aka nri	none
-🏃🏼‍➡	onye na-agba ọsọ na-eche ihu aka nri	none
-🏃🏽‍➡	onye na-agba ọsọ na-eche ihu aka nri	none
-🏃🏾‍➡	onye na-agba ọsọ na-eche ihu aka nri	none
-🏃🏿‍➡	onye na-agba ọsọ na-eche ihu aka nri	none
+🏃🏻‍➡	onye na-agba ọsọ ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🏃🏼‍➡	onye na-agba ọsọ ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🏃🏽‍➡	onye na-agba ọsọ ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🏃🏾‍➡	onye na-agba ọsọ ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🏃🏿‍➡	onye na-agba ọsọ ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🏃‍♀‍➡	nwanyị na-agba ọsọ na-eche ihu aka nri	none
-🏃🏻‍♀‍➡	nwanyị na-agba ọsọ na-eche ihu aka nri	none
-🏃🏼‍♀‍➡	nwanyị na-agba ọsọ na-eche ihu aka nri	none
-🏃🏽‍♀‍➡	nwanyị na-agba ọsọ na-eche ihu aka nri	none
-🏃🏾‍♀‍➡	nwanyị na-agba ọsọ na-eche ihu aka nri	none
-🏃🏿‍♀‍➡	nwanyị na-agba ọsọ na-eche ihu aka nri	none
+🏃🏻‍♀‍➡	nwanyị na-agba ọsọ ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🏃🏼‍♀‍➡	nwanyị na-agba ọsọ ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🏃🏽‍♀‍➡	nwanyị na-agba ọsọ ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🏃🏾‍♀‍➡	nwanyị na-agba ọsọ ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🏃🏿‍♀‍➡	nwanyị na-agba ọsọ ọtanjele ahụ maka òji, na-eche ihu aka nri	none
 🏃‍♂‍➡	nwoke na-agba ọsọ na-eche ihu aka nri	none
-🏃🏻‍♂‍➡	nwoke na-agba ọsọ na-eche ihu aka nri	none
-🏃🏼‍♂‍➡	nwoke na-agba ọsọ na-eche ihu aka nri	none
-🏃🏽‍♂‍➡	nwoke na-agba ọsọ na-eche ihu aka nri	none
-🏃🏾‍♂‍➡	nwoke na-agba ọsọ na-eche ihu aka nri	none
-🏃🏿‍♂‍➡	nwoke na-agba ọsọ na-eche ihu aka nri	none
+🏃🏻‍♂‍➡	nwoke na-agba ọsọ ọtanjele ahụ maka ọcha, na-eche ihu aka nri	none
+🏃🏼‍♂‍➡	nwoke na-agba ọsọ ọtanjele ahụ maka ọcha-ndịna etiti, na-eche ihu aka nri	none
+🏃🏽‍♂‍➡	nwoke na-agba ọsọ ọtanjele ahụ ndịna etiti, na-eche ihu aka nri	none
+🏃🏾‍♂‍➡	nwoke na-agba ọsọ ọtanjele ahụ maka òji-ndịna etiti, na-eche ihu aka nri	none
+🏃🏿‍♂‍➡	nwoke na-agba ọsọ ọtanjele ahụ maka òji, na-eche ihu aka nri	none
+🧑🏻‍🩰	onye na-agba egwú ballet ọtanjele ahụ maka ọcha	none
+🧑🏼‍🩰	onye na-agba egwú ballet ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏽‍🩰	onye na-agba egwú ballet ọtanjele ahụ ndịna etiti	none
+🧑🏾‍🩰	onye na-agba egwú ballet ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏿‍🩰	onye na-agba egwú ballet ọtanjele ahụ maka òji	none
 💃🏻	nwanyị na-agba egwu ọtanjele ahụ maka ọcha	none
 💃🏼	nwanyị na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti	none
 💃🏽	nwanyị na-agba egwu ọtanjele ahụ ndịna etiti	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	nwoke yi akwà azụmaahịa na-efe n’elu ọtanjele ahụ ndịna etiti	none
 🕴🏾	nwoke yi akwà azụmaahịa na-efe n’elu ọtanjele ahụ maka òji-ndịna etiti	none
 🕴🏿	nwoke yi akwà azụmaahịa na-efe n’elu ọtanjele ahụ maka òji	none
+👯🏻	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka ọcha	none
+👯🏼	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka ọcha-ndịna etiti	none
+👯🏽	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ ndịna etiti	none
+👯🏾	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka òji-ndịna etiti	none
+👯🏿	ndị mmadụ ndị na-agba egwu nwere nti ogologo ọtanjele ahụ maka òji	none
+👯🏻‍♂	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha	none
+👯🏼‍♂	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti	none
+👯🏽‍♂	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ ndịna etiti	none
+👯🏾‍♂	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji-ndịna etiti	none
+👯🏿‍♂	ụmụnwoke nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji	none
+👯🏻‍♀	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha	none
+👯🏼‍♀	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka ọcha-ndịna etiti	none
+👯🏽‍♀	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ ndịna etiti	none
+👯🏾‍♀	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji-ndịna etiti	none
+👯🏿‍♀	ụmụnwanyi nwere nti ogologo na-agba egwu ọtanjele ahụ maka òji	none
 🧖🏻	onye nọ n’ụlọ okpomọọkụ mmiri ahụ ọtanjele ahụ maka ọcha	none
 🧖🏼	onye nọ n’ụlọ okpomọọkụ mmiri ahụ ọtanjele ahụ maka ọcha-ndịna etiti	none
 🧖🏽	onye nọ n’ụlọ okpomọọkụ mmiri ahụ ọtanjele ahụ ndịna etiti	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	nwanyị na-eme egwuregwu ntụgharị onwe ọtanjele ahụ ndịna etiti	none
 🤸🏾‍♀	nwanyị na-eme egwuregwu ntụgharị onwe ọtanjele ahụ maka òji-ndịna etiti	none
 🤸🏿‍♀	nwanyị na-eme egwuregwu ntụgharị onwe ọtanjele ahụ maka òji	none
+🤼🏻	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka ọcha	none
+🤼🏼	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti	none
+🤼🏽	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ ndịna etiti	none
+🤼🏾	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti	none
+🤼🏿	ndị mmadụ ndị na-agba m̀gba ọtanjele ahụ maka òji	none
+🤼🏻‍♂	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka ọcha	none
+🤼🏼‍♂	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti	none
+🤼🏽‍♂	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ ndịna etiti	none
+🤼🏾‍♂	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti	none
+🤼🏿‍♂	ụmụnwoke ndị na-agba m̀gba ọtanjele ahụ maka òji	none
+🤼🏻‍♀	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka ọcha	none
+🤼🏼‍♀	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka ọcha-ndịna etiti	none
+🤼🏽‍♀	ụmụnwanyị na-agba m̀gba ọtanjele ahụ ndịna etiti	none
+🤼🏾‍♀	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka òji-ndịna etiti	none
+🤼🏿‍♀	ụmụnwanyị na-agba m̀gba ọtanjele ahụ maka òji	none
 🤽🏻	onye na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka ọcha	none
 🤽🏼	onye na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka ọcha-ndịna etiti	none
 🤽🏽	onye na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ ndịna etiti	none
@@ -3559,11 +3729,11 @@ symbols:
 🤽🏽‍♂	nwoke na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ ndịna etiti	none
 🤽🏾‍♂	nwoke na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka òji-ndịna etiti	none
 🤽🏿‍♂	nwoke na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka òji	none
-🤽🏻‍♀	ụmụnwanyi ndị na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka ọcha	none
-🤽🏼‍♀	ụmụnwanyi ndị na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka ọcha-ndịna etiti	none
-🤽🏽‍♀	ụmụnwanyi ndị na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ ndịna etiti	none
-🤽🏾‍♀	ụmụnwanyi ndị na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka òji-ndịna etiti	none
-🤽🏿‍♀	ụmụnwanyi ndị na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka òji	none
+🤽🏻‍♀	nwanyi na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka ọcha	none
+🤽🏼‍♀	nwanyi na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka ọcha-ndịna etiti	none
+🤽🏽‍♀	nwanyi na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ ndịna etiti	none
+🤽🏾‍♀	nwanyi na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka òji-ndịna etiti	none
+🤽🏿‍♀	nwanyi na-egwu egwuregwu bọọlụ mmiri ọtanjele ahụ maka òji	none
 🤾🏻	onye na-egwu egwuregwu bọọlụ aka ọtanjele ahụ maka ọcha	none
 🤾🏼	onye na-egwu egwuregwu bọọlụ aka ọtanjele ahụ maka ọcha-ndịna etiti	none
 🤾🏽	onye na-egwu egwuregwu bọọlụ aka ọtanjele ahụ ndịna etiti	none
@@ -3620,146 +3790,146 @@ symbols:
 🛌🏾	onye nọ n’àkwà ọtanjele ahụ maka òji-ndịna etiti	none
 🛌🏿	onye nọ n’àkwà ọtanjele ahụ maka òji	none
 🧑🏻‍🤝‍🧑🏻	ndị ji aka ọtanjele ahụ maka ọcha	none
-🧑🏻‍🤝‍🧑🏼	ndị ji aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏻‍🤝‍🧑🏽	ndị ji aka ọtanjele ahụ maka ọcha na ọtanjele ahụ ndịna etiti	none
-🧑🏻‍🤝‍🧑🏾	ndị ji aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏻‍🤝‍🧑🏿	ndị ji aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka òji	none
-🧑🏼‍🤝‍🧑🏻	ndị ji aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka ọcha	none
+🧑🏻‍🤝‍🧑🏼	ndị ji aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏻‍🤝‍🧑🏽	ndị ji aka ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+🧑🏻‍🤝‍🧑🏾	ndị ji aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏻‍🤝‍🧑🏿	ndị ji aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+🧑🏼‍🤝‍🧑🏻	ndị ji aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
 🧑🏼‍🤝‍🧑🏼	ndị ji aka ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏼‍🤝‍🧑🏽	ndị ji aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ ndịna etiti	none
-🧑🏼‍🤝‍🧑🏾	ndị ji aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏼‍🤝‍🧑🏿	ndị ji aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka òji	none
-🧑🏽‍🤝‍🧑🏻	ndị ji aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka ọcha	none
-🧑🏽‍🤝‍🧑🏼	ndị ji aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏼‍🤝‍🧑🏽	ndị ji aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+🧑🏼‍🤝‍🧑🏾	ndị ji aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏼‍🤝‍🧑🏿	ndị ji aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏽‍🤝‍🧑🏻	ndị ji aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏽‍🤝‍🧑🏼	ndị ji aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
 🧑🏽‍🤝‍🧑🏽	ndị ji aka ọtanjele ahụ ndịna etiti	none
-🧑🏽‍🤝‍🧑🏾	ndị ji aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏽‍🤝‍🧑🏿	ndị ji aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka òji	none
-🧑🏾‍🤝‍🧑🏻	ndị ji aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka ọcha	none
-🧑🏾‍🤝‍🧑🏼	ndị ji aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏾‍🤝‍🧑🏽	ndị ji aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ ndịna etiti	none
+🧑🏽‍🤝‍🧑🏾	ndị ji aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏽‍🤝‍🧑🏿	ndị ji aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏾‍🤝‍🧑🏻	ndị ji aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+🧑🏾‍🤝‍🧑🏼	ndị ji aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏾‍🤝‍🧑🏽	ndị ji aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
 🧑🏾‍🤝‍🧑🏾	ndị ji aka ọtanjele ahụ maka òji-ndịna etiti	none
-🧑🏾‍🤝‍🧑🏿	ndị ji aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka òji	none
-🧑🏿‍🤝‍🧑🏻	ndị ji aka ọtanjele ahụ maka òji na ọtanjele ahụ maka ọcha	none
-🧑🏿‍🤝‍🧑🏼	ndị ji aka ọtanjele ahụ maka òji na ọtanjele ahụ maka ọcha-ndịna etiti	none
-🧑🏿‍🤝‍🧑🏽	ndị ji aka ọtanjele ahụ maka òji na ọtanjele ahụ ndịna etiti	none
-🧑🏿‍🤝‍🧑🏾	ndị ji aka ọtanjele ahụ maka òji na ọtanjele ahụ maka òji-ndịna etiti	none
+🧑🏾‍🤝‍🧑🏿	ndị ji aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+🧑🏿‍🤝‍🧑🏻	ndị ji aka ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+🧑🏿‍🤝‍🧑🏼	ndị ji aka ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+🧑🏿‍🤝‍🧑🏽	ndị ji aka ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+🧑🏿‍🤝‍🧑🏾	ndị ji aka ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 🧑🏿‍🤝‍🧑🏿	ndị ji aka ọtanjele ahụ maka òji	none
 👭🏻	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha	none
-👩🏻‍🤝‍👩🏼	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏻‍🤝‍👩🏽	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ ndịna etiti	none
-👩🏻‍🤝‍👩🏾	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏻‍🤝‍👩🏿	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka òji	none
-👩🏼‍🤝‍👩🏻	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka ọcha	none
+👩🏻‍🤝‍👩🏼	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏻‍🤝‍👩🏽	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👩🏻‍🤝‍👩🏾	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏻‍🤝‍👩🏿	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👩🏼‍🤝‍👩🏻	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
 👭🏼	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏼‍🤝‍👩🏽	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ ndịna etiti	none
-👩🏼‍🤝‍👩🏾	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏼‍🤝‍👩🏿	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka òji	none
-👩🏽‍🤝‍👩🏻	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka ọcha	none
-👩🏽‍🤝‍👩🏼	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏼‍🤝‍👩🏽	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏼‍🤝‍👩🏾	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏼‍🤝‍👩🏿	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏽‍🤝‍👩🏻	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏽‍🤝‍👩🏼	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
 👭🏽	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ ndịna etiti	none
-👩🏽‍🤝‍👩🏾	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏽‍🤝‍👩🏿	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka òji	none
-👩🏾‍🤝‍👩🏻	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka ọcha	none
-👩🏾‍🤝‍👩🏼	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏾‍🤝‍👩🏽	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ ndịna etiti	none
+👩🏽‍🤝‍👩🏾	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏽‍🤝‍👩🏿	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏾‍🤝‍👩🏻	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏾‍🤝‍👩🏼	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏾‍🤝‍👩🏽	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
 👭🏾	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏾‍🤝‍👩🏿	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka òji	none
-👩🏿‍🤝‍👩🏻	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ maka ọcha	none
-👩🏿‍🤝‍👩🏼	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏿‍🤝‍👩🏽	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ ndịna etiti	none
-👩🏿‍🤝‍👩🏾	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏾‍🤝‍👩🏿	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏿‍🤝‍👩🏻	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👩🏿‍🤝‍👩🏼	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏿‍🤝‍👩🏽	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👩🏿‍🤝‍👩🏾	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 👭🏿	ụmụ nwanyị abụọ jikọtara aka ọtanjele ahụ maka òji	none
 👫🏻	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha	none
-👩🏻‍🤝‍👨🏼	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏻‍🤝‍👨🏽	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ ndịna etiti	none
-👩🏻‍🤝‍👨🏾	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏻‍🤝‍👨🏿	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka òji	none
-👩🏼‍🤝‍👨🏻	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka ọcha	none
+👩🏻‍🤝‍👨🏼	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏻‍🤝‍👨🏽	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👩🏻‍🤝‍👨🏾	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏻‍🤝‍👨🏿	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👩🏼‍🤝‍👨🏻	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
 👫🏼	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏼‍🤝‍👨🏽	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ ndịna etiti	none
-👩🏼‍🤝‍👨🏾	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏼‍🤝‍👨🏿	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka òji	none
-👩🏽‍🤝‍👨🏻	nwoke na nwaanyị jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka ọcha	none
-👩🏽‍🤝‍👨🏼	nwoke na nwaanyị jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏼‍🤝‍👨🏽	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👩🏼‍🤝‍👨🏾	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏼‍🤝‍👨🏿	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏽‍🤝‍👨🏻	nwoke na nwaanyị jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏽‍🤝‍👨🏼	nwoke na nwaanyị jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
 👫🏽	nwoke na nwaanyị jikọtara aka ọtanjele ahụ ndịna etiti	none
-👩🏽‍🤝‍👨🏾	nwoke na nwaanyị jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏽‍🤝‍👨🏿	nwoke na nwaanyị jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka òji	none
-👩🏾‍🤝‍👨🏻	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka ọcha	none
-👩🏾‍🤝‍👨🏼	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏾‍🤝‍👨🏽	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ ndịna etiti	none
+👩🏽‍🤝‍👨🏾	nwoke na nwaanyị jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏽‍🤝‍👨🏿	nwoke na nwaanyị jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏾‍🤝‍👨🏻	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👩🏾‍🤝‍👨🏼	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏾‍🤝‍👨🏽	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
 👫🏾	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji-ndịna etiti	none
-👩🏾‍🤝‍👨🏿	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka òji	none
-👩🏿‍🤝‍👨🏻	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ maka ọcha	none
-👩🏿‍🤝‍👨🏼	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👩🏿‍🤝‍👨🏽	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ ndịna etiti	none
-👩🏿‍🤝‍👨🏾	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ maka òji-ndịna etiti	none
+👩🏾‍🤝‍👨🏿	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👩🏿‍🤝‍👨🏻	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👩🏿‍🤝‍👨🏼	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👩🏿‍🤝‍👨🏽	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👩🏿‍🤝‍👨🏾	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 👫🏿	nwoke na nwaanyị jikọtara aka ọtanjele ahụ maka òji	none
 👬🏻	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha	none
-👨🏻‍🤝‍👨🏼	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏻‍🤝‍👨🏽	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ ndịna etiti	none
-👨🏻‍🤝‍👨🏾	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏻‍🤝‍👨🏿	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha na ọtanjele ahụ maka òji	none
-👨🏼‍🤝‍👨🏻	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka ọcha	none
+👨🏻‍🤝‍👨🏼	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏻‍🤝‍👨🏽	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ ndịna etiti	none
+👨🏻‍🤝‍👨🏾	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏻‍🤝‍👨🏿	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha, ọtanjele ahụ maka òji	none
+👨🏼‍🤝‍👨🏻	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka ọcha	none
 👬🏼	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏼‍🤝‍👨🏽	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ ndịna etiti	none
-👨🏼‍🤝‍👨🏾	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏼‍🤝‍👨🏿	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti na ọtanjele ahụ maka òji	none
-👨🏽‍🤝‍👨🏻	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka ọcha	none
-👨🏽‍🤝‍👨🏼	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏼‍🤝‍👨🏽	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ ndịna etiti	none
+👨🏼‍🤝‍👨🏾	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏼‍🤝‍👨🏿	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka ọcha-ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏽‍🤝‍👨🏻	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏽‍🤝‍👨🏼	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
 👬🏽	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ ndịna etiti	none
-👨🏽‍🤝‍👨🏾	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏽‍🤝‍👨🏿	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ ndịna etiti na ọtanjele ahụ maka òji	none
-👨🏾‍🤝‍👨🏻	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka ọcha	none
-👨🏾‍🤝‍👨🏼	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏾‍🤝‍👨🏽	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ ndịna etiti	none
+👨🏽‍🤝‍👨🏾	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏽‍🤝‍👨🏿	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏾‍🤝‍👨🏻	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha	none
+👨🏾‍🤝‍👨🏼	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏾‍🤝‍👨🏽	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ ndịna etiti	none
 👬🏾	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti	none
-👨🏾‍🤝‍👨🏿	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti na ọtanjele ahụ maka òji	none
-👨🏿‍🤝‍👨🏻	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ maka ọcha	none
-👨🏿‍🤝‍👨🏼	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ maka ọcha-ndịna etiti	none
-👨🏿‍🤝‍👨🏽	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ ndịna etiti	none
-👨🏿‍🤝‍👨🏾	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji na ọtanjele ahụ maka òji-ndịna etiti	none
+👨🏾‍🤝‍👨🏿	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji-ndịna etiti, ọtanjele ahụ maka òji	none
+👨🏿‍🤝‍👨🏻	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha	none
+👨🏿‍🤝‍👨🏼	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ maka ọcha-ndịna etiti	none
+👨🏿‍🤝‍👨🏽	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ ndịna etiti	none
+👨🏿‍🤝‍👨🏾	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji, ọtanjele ahụ maka òji-ndịna etiti	none
 👬🏿	ụmụ nwoke abụọ jikọtara aka ọtanjele ahụ maka òji	none
 💏🏻	nsusò ọnụ ọtanjele ahụ maka ọcha	none
 💏🏼	nsusò ọnụ ọtanjele ahụ maka ọcha-ndịna etiti	none
 💏🏽	nsusò ọnụ ọtanjele ahụ ndịna etiti	none
 💏🏾	nsusò ọnụ ọtanjele ahụ maka òji-ndịna etiti	none
 💏🏿	nsusò ọnụ ọtanjele ahụ maka òji	none
-👩‍❤‍💋‍👨	nsusò ọnụ nwanyị na nwoke	none
-👨‍❤‍💋‍👨	nsusò ọnụ nwoke na nwoke	none
-👩‍❤‍💋‍👩	nsusò ọnụ nwanyị na nwanyị	none
+👩‍❤‍💋‍👨	nsusò ọnụ nwanyị, nwoke	none
+👨‍❤‍💋‍👨	nsusò ọnụ nwoke, nwoke	none
+👩‍❤‍💋‍👩	nsusò ọnụ nwanyị, nwanyị	none
 💑🏻	di na nwunye nwere obi ọtanjele ahụ maka ọcha	none
 💑🏼	di na nwunye nwere obi ọtanjele ahụ maka ọcha-ndịna etiti	none
 💑🏽	di na nwunye nwere obi ọtanjele ahụ ndịna etiti	none
 💑🏾	di na nwunye nwere obi ọtanjele ahụ maka òji-ndịna etiti	none
 💑🏿	di na nwunye nwere obi ọtanjele ahụ maka òji	none
-👩‍❤‍👨	di na nwunye nwere obi nwanyị na nwoke	none
-👨‍❤‍👨	di na nwunye nwere obi nwoke na nwoke	none
-👩‍❤‍👩	di na nwunye nwere obi nwanyị na nwanyị	none
-👨‍👩‍👦	ezinaụlọ nwoke, nwanyị, na nwa nwoke	none
-👨‍👩‍👧	ezinaụlọ nwoke, nwanyị, na nwata nwaanyị	none
-👨‍👩‍👧‍👦	ezinaụlọ nwoke, nwanyị, nwata nwaanyị, na nwa nwoke	none
-👨‍👩‍👦‍👦	ezinaụlọ nwoke, nwanyị, nwa nwoke, na nwa nwoke	none
-👨‍👩‍👧‍👧	ezinaụlọ nwoke, nwanyị, nwata nwaanyị, na nwata nwaanyị	none
-👨‍👨‍👦	ezinaụlọ nwoke, nwoke, na nwa nwoke	none
-👨‍👨‍👧	ezinaụlọ nwoke, nwoke, na nwata nwaanyị	none
-👨‍👨‍👧‍👦	ezinaụlọ nwoke, nwoke, nwata nwaanyị, na nwa nwoke	none
-👨‍👨‍👦‍👦	ezinaụlọ nwoke, nwoke, nwa nwoke, na nwa nwoke	none
-👨‍👨‍👧‍👧	ezinaụlọ nwoke, nwoke, nwata nwaanyị, na nwata nwaanyị	none
-👩‍👩‍👦	ezinaụlọ nwanyị, nwanyị, na nwa nwoke	none
-👩‍👩‍👧	ezinaụlọ nwanyị, nwanyị, na nwata nwaanyị	none
-👩‍👩‍👧‍👦	ezinaụlọ nwanyị, nwanyị, nwata nwaanyị, na nwa nwoke	none
-👩‍👩‍👦‍👦	ezinaụlọ nwanyị, nwanyị, nwa nwoke, na nwa nwoke	none
-👩‍👩‍👧‍👧	ezinaụlọ nwanyị, nwanyị, nwata nwaanyị, na nwata nwaanyị	none
-👨‍👦	ezinaụlọ nwoke na nwa nwoke	none
-👨‍👦‍👦	ezinaụlọ nwoke, nwa nwoke, na nwa nwoke	none
-👨‍👧	ezinaụlọ nwoke na nwata nwaanyị	none
-👨‍👧‍👦	ezinaụlọ nwoke, nwata nwaanyị, na nwa nwoke	none
-👨‍👧‍👧	ezinaụlọ nwoke, nwata nwaanyị, na nwata nwaanyị	none
-👩‍👦	ezinaụlọ nwanyị na nwa nwoke	none
-👩‍👦‍👦	ezinaụlọ nwanyị, nwa nwoke, na nwa nwoke	none
-👩‍👧	ezinaụlọ nwanyị na nwata nwaanyị	none
-👩‍👧‍👦	ezinaụlọ nwanyị, nwata nwaanyị, na nwa nwoke	none
-👩‍👧‍👧	ezinaụlọ nwanyị, nwata nwaanyị, na nwata nwaanyị	none
+👩‍❤‍👨	di na nwunye nwere obi nwanyị, nwoke	none
+👨‍❤‍👨	di na nwunye nwere obi nwoke, nwoke	none
+👩‍❤‍👩	di na nwunye nwere obi nwanyị, nwanyị	none
+👨‍👩‍👦	ezinaụlọ nwoke, nwanyị, nwa nwoke	none
+👨‍👩‍👧	ezinaụlọ nwoke, nwanyị, nwata nwaanyị	none
+👨‍👩‍👧‍👦	ezinaụlọ nwoke, nwanyị, nwata nwaanyị, nwa nwoke	none
+👨‍👩‍👦‍👦	ezinaụlọ nwoke, nwanyị, nwa nwoke, nwa nwoke	none
+👨‍👩‍👧‍👧	ezinaụlọ nwoke, nwanyị, nwata nwaanyị, nwata nwaanyị	none
+👨‍👨‍👦	ezinaụlọ nwoke, nwoke, nwa nwoke	none
+👨‍👨‍👧	ezinaụlọ nwoke, nwoke, nwata nwaanyị	none
+👨‍👨‍👧‍👦	ezinaụlọ nwoke, nwoke, nwata nwaanyị, nwa nwoke	none
+👨‍👨‍👦‍👦	ezinaụlọ nwoke, nwoke, nwa nwoke, nwa nwoke	none
+👨‍👨‍👧‍👧	ezinaụlọ nwoke, nwoke, nwata nwaanyị, nwata nwaanyị	none
+👩‍👩‍👦	ezinaụlọ nwanyị, nwanyị, nwa nwoke	none
+👩‍👩‍👧	ezinaụlọ nwanyị, nwanyị, nwata nwaanyị	none
+👩‍👩‍👧‍👦	ezinaụlọ nwanyị, nwanyị, nwata nwaanyị, nwa nwoke	none
+👩‍👩‍👦‍👦	ezinaụlọ nwanyị, nwanyị, nwa nwoke, nwa nwoke	none
+👩‍👩‍👧‍👧	ezinaụlọ nwanyị, nwanyị, nwata nwaanyị, nwata nwaanyị	none
+👨‍👦	ezinaụlọ nwoke, nwa nwoke	none
+👨‍👦‍👦	ezinaụlọ nwoke, nwa nwoke, nwa nwoke	none
+👨‍👧	ezinaụlọ nwoke, nwata nwaanyị	none
+👨‍👧‍👦	ezinaụlọ nwoke, nwata nwaanyị, nwa nwoke	none
+👨‍👧‍👧	ezinaụlọ nwoke, nwata nwaanyị, nwata nwaanyị	none
+👩‍👦	ezinaụlọ nwanyị, nwa nwoke	none
+👩‍👦‍👦	ezinaụlọ nwanyị, nwa nwoke, nwa nwoke	none
+👩‍👧	ezinaụlọ nwanyị, nwata nwaanyị	none
+👩‍👧‍👦	ezinaụlọ nwanyị, nwata nwaanyị, nwa nwoke	none
+👩‍👧‍👧	ezinaụlọ nwanyị, nwata nwaanyị, nwata nwaanyị	none
 ₡	Ego Colón obodo Costa Rica	none
 ₦	Naịra	none
 ₪	Ego Shekel ọhụrụ obodo Israel	none

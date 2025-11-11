@@ -9,7 +9,6 @@ symbols:
 ⇩	weisser Pfeil nach unten	none
 ⇪	weisser Pfeil nach oben von Strich weglaufend	none
 ≯	nicht grösser als	none
-≈	fast gleich wie	none
 ≥	grösser als oder gleich	none
 ≧	grösser als über gleich	none
 ≫	viel grösser als	none
@@ -17,7 +16,7 @@ symbols:
 ⋙	sehr viel grösser als	none
 □	weisses Quadrat	none
 ▢	weisses Quadrat mit abgerundeten Ecken	none
-▣	weisses Quadrat mit kleinem schwarzem Quadrat	none
+▣	schwarzes Quadrat in weissem Quadrat	none
 ▭	weisses Rechteck	none
 △	weisses nach oben weisendes Dreieck	none
 ▵	weisses nach oben weisendes kleines Dreieck	none
@@ -39,119 +38,70 @@ symbols:
 ◳	weisses Quadrat mit Viertel oben rechts	none
 ◷	weisser Kreis mit Viertel oben rechts	none
 ◿	weisses Dreieck unten rechts	none
-♪	Achtelsnote	none
 ⪚	gleich über grösser als	none
 😃	grinsendes Gesicht mit grossen Augen	none
-😅	Lachender Smiley mit kaltem Schweiss	none
-🫡	grüssendes Gesicht	none
-🤐	Smiley mit Reissverschlussmund	none
-😶‍🌫	Kopf in den Wolken	none
-😮‍💨	ausatmendes Gesicht	none
-😵‍💫	Gesicht mit Spiralaugen	none
-🥸	Gesicht mit Maske	none
-😳	Erröteter Smiley mit grossen Augen	none
-😰	Smiley mit offenem Mund und kaltem Schweiss	none
-😓	Smiley mit kaltem Schweiss	none
-👽	Ausserirdisches Wesen	none
-❤‍🔥	brennendes Herz	none
-❤‍🩹	Herz mit Pflaster	none
+😅	grinsendes Gesicht mit Schweisstropfen	none
+🤐	Gesicht mit Reissverschlussmund	none
+😳	errötetes Gesicht mit grossen Augen	none
+😰	besorgtes Gesicht mit Schweisstropfen	none
+😓	bedrücktes Gesicht mit Schweiss	none
+👽	Ausserirdischer	none
 🤍	weisses Herz	none
 💥	Zusammenstoss	none
 💦	Schweisstropfen	none
-🖖	Vulkanischer Gruss	none
-🫷	nach links drückende Hand	none
-🫸	nach rechts drückende Hand	none
+🖖	vulkanischer Gruss	none
 🤘	Teufelsgruss	none
 🦶	Fuss	none
-🫦	Auf Lippe beissen	none
-🧟‍♂	Zombiemann	none
+🫦	auf Lippe beissen	none
 🚶	Fussgänger(in)	none
 🚶‍♂	Fussgänger	none
 🚶‍♀	Fussgängerin	none
 👣	Fussabdrücke	none
 🦳	weisses Haar	none
 💐	Blumenstrauss	none
-🌶	Chili	none
-🫑	Peperoni	none
-🫚	Ingwerwurzel	none
-🫛	Erbse	none
-🍗	Pouletschenkel	none
-🍠	Geröstete Süsskartoffel	none
+🍠	geröstete Süsskartoffel	none
 ☕	Heissgetränk	none
-🫖	Teekrug	none
 🫗	Flüssigkeit ausgiessen	none
-♨	Heisse Quellen	none
+♨	heisse Quellen	none
 🚊	Strassenbahn	none
-🚋	Tramwagen	none
+🚋	Strassenbahnwagen	none
 ⭐	weisser mittelgrosser Stern	none
 🌌	Milchstrasse	none
 🌥	Sonne hinter grosser Wolke	none
 ⚽	Fussball	none
-🪭	Fächer	none
-🎒	Schulsack	none
-🩴	Flipflops	none
-🪮	Afro Pick	none
-⛑	Helm mit weissem Kreuz	none
-🪇	Maraca	none
 📆	Abreisskalender	none
 📌	Reisszwecke	none
-📍	runde Reisszwecke	none
-⛓‍💥	kaputte Kette	none
-🩻	Röntgen	none
-🛗	Lift	none
-🫧	Seifenblasen	none
-🪪	ID	none
-🚸	Kinder-queren-die-Strasse-Schild	none
-🚷	Fussgänger-verboten-Schild	none
-☢	radioaktiv	none
-🪯	Khanda-Emblem	none
-🛜	drahtlos	none
-➕	Plus	none
-➖	Minus	none
+🚸	Kinder überqueren die Strasse	none
+🚷	Fussgänger verboten	none
 ❔	weisses Fragezeichen	none
 ❕	weisses Ausrufezeichen	none
-✅	Weisses Häkchen	none
+✅	weisses Häkchen	none
 🔠	Eingabesymbol lateinische Grossbuchstaben	none
-🅰	Grossbuchstabe A in Quadrat	none
+🅰	Grossbuchstabe A in rotem Quadrat	none
 🆎	Grossbuchstaben AB in rotem Quadrat	none
-🅱	Grossbuchstabe B in Quadrat	none
+🅱	Grossbuchstabe B in rotem Quadrat	none
 🆑	Grossbuchstaben CL in rotem Quadrat	none
 🆔	Grossbuchstaben ID in lila Quadrat	none
 🆖	Grossbuchstaben NG in blauem Quadrat	none
-🅾	Grossbuchstabe O in Quadrat	none
+🅾	Grossbuchstabe O in rotem Quadrat	none
 🆗	Grossbuchstaben OK in blauem Quadrat	none
-🅿	Grossbuchstabe P in Quadrat	none
-🆚	Grossbuchstaben VS in orangefarbenem Quadrat	none
-🔴	Grosser roter Kreis	none
-🔵	Grosser blauer Kreis	none
-⚫	Grosser schwarzer Kreis	none
-⚪	Grosser weisser Kreis	none
-⬛	Grosses schwarzes Quadrat	none
-⬜	Grosses weisses Quadrat	none
-◼	Mittelgrosses schwarzes Quadrat	none
-◻	Mittelgrosses weisses Quadrat	none
-◽	Mittelkleines weisses Quadrat	none
-▫	Kleines weisses Quadrat	none
-🔶	Grosse orangefarbene Raute	none
-🔷	Grosse blaue Raute	none
-🔳	Weisse quadratische Schaltfläche	none
-🏳	Wehende weisse Fahne	none
-🏳‍⚧	Transgenderflagge	none
-🖖🏻	Vulkanischer Gruss helle Hautfarbe	none
-🖖🏼	Vulkanischer Gruss mittelhelle Hautfarbe	none
-🖖🏽	Vulkanischer Gruss mittlere Hautfarbe	none
-🖖🏾	Vulkanischer Gruss mitteldunkle Hautfarbe	none
-🖖🏿	Vulkanischer Gruss dunkle Hautfarbe	none
-🫷🏻	nach links drückende Hand helle Hautfarbe	none
-🫷🏼	nach links drückende Hand mittelhelle Hautfarbe	none
-🫷🏽	nach links drückende Hand mittlere Hautfarbe	none
-🫷🏾	nach links drückende Hand mitteldunkle Hautfarbe	none
-🫷🏿	nach links drückende Hand dunkle Hautfarbe	none
-🫸🏻	nach rechts drückende Hand helle Hautfarbe	none
-🫸🏼	nach rechts drückende Hand mittelhelle Hautfarbe	none
-🫸🏽	nach rechts drückende Hand mittlere Hautfarbe	none
-🫸🏾	nach rechts drückende Hand mitteldunkle Hautfarbe	none
-🫸🏿	nach rechts drückende Hand dunkle Hautfarbe	none
+🅿	Grossbuchstabe P in blauem Quadrat	none
+⚪	weisser Punkt	none
+⬛	grosses schwarzes Quadrat	none
+⬜	grosses weisses Quadrat	none
+◼	mittelgrosses schwarzes Quadrat	none
+◻	mittelgrosses weisses Quadrat	none
+◽	mittelkleines weisses Quadrat	none
+▫	kleines weisses Quadrat	none
+🔶	grosse orangefarbene Raute	none
+🔷	grosse blaue Raute	none
+🔳	weisse quadratische Schaltfläche	none
+🏳	weisse Flagge	none
+🖖🏻	vulkanischer Gruss helle Hautfarbe	none
+🖖🏼	vulkanischer Gruss mittelhelle Hautfarbe	none
+🖖🏽	vulkanischer Gruss mittlere Hautfarbe	none
+🖖🏾	vulkanischer Gruss mitteldunkle Hautfarbe	none
+🖖🏿	vulkanischer Gruss dunkle Hautfarbe	none
 🤘🏻	Teufelsgruss helle Hautfarbe	none
 🤘🏼	Teufelsgruss mittelhelle Hautfarbe	none
 🤘🏽	Teufelsgruss mittlere Hautfarbe	none
@@ -196,26 +146,20 @@ symbols:
 🚶🏾‍♀	Fussgängerin mitteldunkle Hautfarbe	none
 🚶🏿‍♀	Fussgängerin dunkle Hautfarbe	none
 🚶‍➡	Fussgänger(in) nach rechts	none
-🚶🏻‍➡	Fussgänger(in) nach rechts	none
-🚶🏼‍➡	Fussgänger(in) nach rechts	none
-🚶🏽‍➡	Fussgänger(in) nach rechts	none
-🚶🏾‍➡	Fussgänger(in) nach rechts	none
-🚶🏿‍➡	Fussgänger(in) nach rechts	none
+🚶🏻‍➡	Fussgänger(in) helle Hautfarbe, nach rechts	none
+🚶🏼‍➡	Fussgänger(in) mittelhelle Hautfarbe, nach rechts	none
+🚶🏽‍➡	Fussgänger(in) mittlere Hautfarbe, nach rechts	none
+🚶🏾‍➡	Fussgänger(in) mitteldunkle Hautfarbe, nach rechts	none
+🚶🏿‍➡	Fussgänger(in) dunkle Hautfarbe, nach rechts	none
 🚶‍♀‍➡	Fussgängerin nach rechts	none
-🚶🏻‍♀‍➡	Fussgängerin nach rechts	none
-🚶🏼‍♀‍➡	Fussgängerin nach rechts	none
-🚶🏽‍♀‍➡	Fussgängerin nach rechts	none
-🚶🏾‍♀‍➡	Fussgängerin nach rechts	none
-🚶🏿‍♀‍➡	Fussgängerin nach rechts	none
+🚶🏻‍♀‍➡	Fussgängerin helle Hautfarbe, nach rechts	none
+🚶🏼‍♀‍➡	Fussgängerin mittelhelle Hautfarbe, nach rechts	none
+🚶🏽‍♀‍➡	Fussgängerin mittlere Hautfarbe, nach rechts	none
+🚶🏾‍♀‍➡	Fussgängerin mitteldunkle Hautfarbe, nach rechts	none
+🚶🏿‍♀‍➡	Fussgängerin dunkle Hautfarbe, nach rechts	none
 🚶‍♂‍➡	Fussgänger nach rechts	none
-🚶🏻‍♂‍➡	Fussgänger nach rechts	none
-🚶🏼‍♂‍➡	Fussgänger nach rechts	none
-🚶🏽‍♂‍➡	Fussgänger nach rechts	none
-🚶🏾‍♂‍➡	Fussgänger nach rechts	none
-🚶🏿‍♂‍➡	Fussgänger nach rechts	none
-🇧🇳	Flagge Brunei	none
-🇧🇼	Flagge Botswana	none
-🇨🇻	Flagge Kapverden	none
-🇸🇧	Flagge Salomon-Inseln	none
-🇹🇱	Flagge Osttimor	none
-🇿🇼	Flagge Zimbabwe	none
+🚶🏻‍♂‍➡	Fussgänger helle Hautfarbe, nach rechts	none
+🚶🏼‍♂‍➡	Fussgänger mittelhelle Hautfarbe, nach rechts	none
+🚶🏽‍♂‍➡	Fussgänger mittlere Hautfarbe, nach rechts	none
+🚶🏾‍♂‍➡	Fussgänger mitteldunkle Hautfarbe, nach rechts	none
+🚶🏿‍♂‍➡	Fussgänger dunkle Hautfarbe, nach rechts	none

@@ -287,7 +287,7 @@ symbols:
 😚	suletud silmadega suudlev nägu	none
 😙	naeratavate silmadega suudlev nägu	none
 🥲	naeratav pisaraga nägu	none
-😋	maitsvat toitu nautija nägu	none
+😋	maitsvat toitu nautiv nägu	none
 😛	suust väljas keelega nägu	none
 😜	suust väljas keelega ja silma pilgutav nägu	none
 🤪	pöörase ilmega nägu	none
@@ -321,6 +321,7 @@ symbols:
 😪	unine nägu	none
 🤤	ilastav nägu	none
 😴	magav nägu	none
+🫩	nägu kottidega silmade all	none
 😷	kirurgimaskiga kaetud nägu	none
 🤒	kraadiklaasiga nägu	none
 🤕	kinniseotud peaga nägu	none
@@ -348,6 +349,7 @@ symbols:
 😯	vaigistatud nägu	none
 😲	hämmastunud nägu	none
 😳	punastav nägu	none
+🫪	moondunud nägu	none
 🥺	anuv nägu	none
 🥹	pisaraid tagasi hoidev nägu	none
 😦	avatud suuga mossitav nägu	none
@@ -421,6 +423,7 @@ symbols:
 💋	suudluse jälg	none
 💯	sada punkti	none
 💢	viha sümbol	none
+🫯	kakluspilv	none
 💥	piraki	none
 💫	peadpööritav	none
 💦	higipiisad	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	meeszombi	none
 🧟‍♀	naiszombi	none
 🧌	troll	none
+🫈	karvane olend	none
 💆	näomassaaž	none
 💆‍♂	näomassaaži saav mees	none
 💆‍♀	näomassaaži saav naine	none
@@ -680,6 +684,7 @@ symbols:
 🏃	jooksja	none
 🏃‍♂	jooksev mees	none
 🏃‍♀	jooksev naine	none
+🧑‍🩰	balletitantsija	none
 💃	tantsiv naine	none
 🕺	tantsiv mees	none
 🕴	hõljuv ülikonnaga mees	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	perekond täiskasvanu, laps	none
 🧑‍🧒‍🧒	perekond täiskasvanu, laps, laps	none
 👣	jalajäljed	none
+🫆	sõrmejälg	none
 🦰	punased juuksed	none
 🦱	lokkis juuksed	none
 🦳	heledad juuksed	none
@@ -860,6 +866,7 @@ symbols:
 🐳	vett pritsiv vaal	none
 🐋	vaal	none
 🐬	delfiin	none
+🫍	mõõkvaal	none
 🦭	hüljes	none
 🐟	kala	none
 🐠	troopiline kala	none
@@ -869,6 +876,11 @@ symbols:
 🐚	spiraalne teokarp	none
 🪸	korall	none
 🪼	meduus	none
+🦀	krabi	none
+🦞	homaar	none
+🦐	krevett	none
+🦑	kalmaar	none
+🦪	auster	none
 🐌	tigu	none
 🦋	liblikas	none
 🐛	röövik	none
@@ -913,6 +925,7 @@ symbols:
 🪹	tühi pesa	none
 🪺	munadega pesa	none
 🍄	seen	none
+🪾	raagus puu	none
 🍇	viinamarjad	none
 🍈	melon	none
 🍉	arbuus	none
@@ -951,6 +964,7 @@ symbols:
 🫚	ingver	none
 🫛	hernekaun	none
 🍄‍🟫	šampinjon	none
+🫜	juurvili	none
 🍞	leib	none
 🥐	sarvesai	none
 🥖	baguette	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	pelmeen	none
 🥠	õnneküpsis	none
 🥡	kaasamüügikarp	none
-🦀	krabi	none
-🦞	homaar	none
-🦐	krevett	none
-🦑	kalmaar	none
-🦪	auster	none
 🍦	pehme jäätis	none
 🍧	mahlajää	none
 🍨	jäätis	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	kompass	none
 🏔	lumine mägi	none
 ⛰	mägi	none
+🛘	maalihe	none
 🌋	vulkaan	none
 🗻	Fuji mägi	none
 🏕	telkimine	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	kõrvaklapid	none
 📻	raadio	none
 🎷	saksofon	none
+🎺	trompet	none
+🪊	tromboon	none
 🪗	akordion	none
 🎸	kitarr	none
 🎹	klahvpill	none
-🎺	trompet	none
 🎻	viiul	none
 🪕	bandžo	none
 🥁	trumm	none
 🪘	aafrika trumm	none
 🪇	marakas	none
 🪈	flööt	none
+🪉	harf	none
 📱	mobiiltelefon	none
 📲	noolega mobiiltelefon	none
 ☎	telefon	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	järjehoidjad	none
 🔖	järjehoidja	none
 🏷	silt	none
-💰	rahapaun	none
 🪙	münt	none
+💰	rahapaun	none
+🪎	aardelaegas	none
 💴	jeeni rahatäht	none
 💵	dollari rahatäht	none
 💶	euro rahatäht	none
@@ -1565,6 +1578,7 @@ symbols:
 🧰	tööriistakast	none
 🧲	magnet	none
 🪜	redel	none
+🪏	labidas	none
 ⚗	destilleerimisnõu	none
 🧪	katseklaas	none
 🧫	Petri tass	none
@@ -1745,6 +1759,7 @@ symbols:
 ✴	kaheksa tipuga täht	none
 ❇	sädelus	none
 ™	kaubamärk	none
+🫟	plärakas	none
 🔠	ladina suurtähed	none
 🔡	ladina väiketähed	none
 🔢	numbrid	none
@@ -2159,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	paarike südamega täiskasvanu, täiskasvanu, tume nahatoon, keskmiselt hele nahatoon	none
 🧑🏿‍❤‍🧑🏽	paarike südamega täiskasvanu, täiskasvanu, tume nahatoon, keskmine nahatoon	none
 🧑🏿‍❤‍🧑🏾	paarike südamega täiskasvanu, täiskasvanu, tume nahatoon, keskmiselt tume nahatoon	none
+🧑🏻‍🫯‍🧑🏼	maadlejad hele nahatoon, keskmiselt hele nahatoon	none
+🧑🏻‍🫯‍🧑🏽	maadlejad hele nahatoon, keskmine nahatoon	none
+🧑🏻‍🫯‍🧑🏾	maadlejad hele nahatoon, keskmiselt tume nahatoon	none
+🧑🏻‍🫯‍🧑🏿	maadlejad hele nahatoon, tume nahatoon	none
+🧑🏼‍🫯‍🧑🏻	maadlejad keskmiselt hele nahatoon, hele nahatoon	none
+🧑🏼‍🫯‍🧑🏽	maadlejad keskmiselt hele nahatoon, keskmine nahatoon	none
+🧑🏼‍🫯‍🧑🏾	maadlejad keskmiselt hele nahatoon, keskmiselt tume nahatoon	none
+🧑🏼‍🫯‍🧑🏿	maadlejad keskmiselt hele nahatoon, tume nahatoon	none
+🧑🏽‍🫯‍🧑🏻	maadlejad keskmine nahatoon, hele nahatoon	none
+🧑🏽‍🫯‍🧑🏼	maadlejad keskmine nahatoon, keskmiselt hele nahatoon	none
+🧑🏽‍🫯‍🧑🏾	maadlejad keskmine nahatoon, keskmiselt tume nahatoon	none
+🧑🏽‍🫯‍🧑🏿	maadlejad keskmine nahatoon, tume nahatoon	none
+🧑🏾‍🫯‍🧑🏻	maadlejad keskmiselt tume nahatoon, hele nahatoon	none
+🧑🏾‍🫯‍🧑🏼	maadlejad keskmiselt tume nahatoon, keskmiselt hele nahatoon	none
+🧑🏾‍🫯‍🧑🏽	maadlejad keskmiselt tume nahatoon, keskmine nahatoon	none
+🧑🏾‍🫯‍🧑🏿	maadlejad keskmiselt tume nahatoon, tume nahatoon	none
+🧑🏿‍🫯‍🧑🏻	maadlejad tume nahatoon, hele nahatoon	none
+🧑🏿‍🫯‍🧑🏼	maadlejad tume nahatoon, keskmiselt hele nahatoon	none
+🧑🏿‍🫯‍🧑🏽	maadlejad tume nahatoon, keskmine nahatoon	none
+🧑🏿‍🫯‍🧑🏾	maadlejad tume nahatoon, keskmiselt tume nahatoon	none
 🧑‍🦰	täiskasvanu punased juuksed	none
 🧑🏻‍🦰	täiskasvanu hele nahatoon, punased juuksed	none
 🧑🏼‍🦰	täiskasvanu keskmiselt hele nahatoon, punased juuksed	none
@@ -2183,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	täiskasvanu keskmine nahatoon, kiilaspea	none
 🧑🏾‍🦲	täiskasvanu keskmiselt tume nahatoon, kiilaspea	none
 🧑🏿‍🦲	täiskasvanu tume nahatoon, kiilaspea	none
+🧑🏻‍🐰‍🧑🏼	pidutsevad jänesekõrvadega inimesed hele nahatoon, keskmiselt hele nahatoon	none
+🧑🏻‍🐰‍🧑🏽	pidutsevad jänesekõrvadega inimesed hele nahatoon, keskmine nahatoon	none
+🧑🏻‍🐰‍🧑🏾	pidutsevad jänesekõrvadega inimesed hele nahatoon, keskmiselt tume nahatoon	none
+🧑🏻‍🐰‍🧑🏿	pidutsevad jänesekõrvadega inimesed hele nahatoon, tume nahatoon	none
+🧑🏼‍🐰‍🧑🏻	pidutsevad jänesekõrvadega inimesed keskmiselt hele nahatoon, hele nahatoon	none
+🧑🏼‍🐰‍🧑🏽	pidutsevad jänesekõrvadega inimesed keskmiselt hele nahatoon, keskmine nahatoon	none
+🧑🏼‍🐰‍🧑🏾	pidutsevad jänesekõrvadega inimesed keskmiselt hele nahatoon, keskmiselt tume nahatoon	none
+🧑🏼‍🐰‍🧑🏿	pidutsevad jänesekõrvadega inimesed keskmiselt hele nahatoon, tume nahatoon	none
+🧑🏽‍🐰‍🧑🏻	pidutsevad jänesekõrvadega inimesed keskmine nahatoon, hele nahatoon	none
+🧑🏽‍🐰‍🧑🏼	pidutsevad jänesekõrvadega inimesed keskmine nahatoon, keskmiselt hele nahatoon	none
+🧑🏽‍🐰‍🧑🏾	pidutsevad jänesekõrvadega inimesed keskmine nahatoon, keskmiselt tume nahatoon	none
+🧑🏽‍🐰‍🧑🏿	pidutsevad jänesekõrvadega inimesed keskmine nahatoon, tume nahatoon	none
+🧑🏾‍🐰‍🧑🏻	pidutsevad jänesekõrvadega inimesed keskmiselt tume nahatoon, hele nahatoon	none
+🧑🏾‍🐰‍🧑🏼	pidutsevad jänesekõrvadega inimesed keskmiselt tume nahatoon, keskmiselt hele nahatoon	none
+🧑🏾‍🐰‍🧑🏽	pidutsevad jänesekõrvadega inimesed keskmiselt tume nahatoon, keskmine nahatoon	none
+🧑🏾‍🐰‍🧑🏿	pidutsevad jänesekõrvadega inimesed keskmiselt tume nahatoon, tume nahatoon	none
+🧑🏿‍🐰‍🧑🏻	pidutsevad jänesekõrvadega inimesed tume nahatoon, hele nahatoon	none
+🧑🏿‍🐰‍🧑🏼	pidutsevad jänesekõrvadega inimesed tume nahatoon, keskmiselt hele nahatoon	none
+🧑🏿‍🐰‍🧑🏽	pidutsevad jänesekõrvadega inimesed tume nahatoon, keskmine nahatoon	none
+🧑🏿‍🐰‍🧑🏾	pidutsevad jänesekõrvadega inimesed tume nahatoon, keskmiselt tume nahatoon	none
 👨🏻	mees hele nahatoon	none
 👨🏼	mees keskmiselt hele nahatoon	none
 👨🏽	mees keskmine nahatoon	none
@@ -2253,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	paarike südamega mees, mees, tume nahatoon, keskmine nahatoon	none
 👨🏿‍❤‍👨🏾	paarike südamega mees, mees, tume nahatoon, keskmiselt tume nahatoon	none
 👨🏿‍❤‍👨🏿	paarike südamega mees, mees, tume nahatoon	none
+👨🏻‍🫯‍👨🏼	maadlevad mehed hele nahatoon, keskmiselt hele nahatoon	none
+👨🏻‍🫯‍👨🏽	maadlevad mehed hele nahatoon, keskmine nahatoon	none
+👨🏻‍🫯‍👨🏾	maadlevad mehed hele nahatoon, keskmiselt tume nahatoon	none
+👨🏻‍🫯‍👨🏿	maadlevad mehed hele nahatoon, tume nahatoon	none
+👨🏼‍🫯‍👨🏻	maadlevad mehed keskmiselt hele nahatoon, hele nahatoon	none
+👨🏼‍🫯‍👨🏽	maadlevad mehed keskmiselt hele nahatoon, keskmine nahatoon	none
+👨🏼‍🫯‍👨🏾	maadlevad mehed keskmiselt hele nahatoon, keskmiselt tume nahatoon	none
+👨🏼‍🫯‍👨🏿	maadlevad mehed keskmiselt hele nahatoon, tume nahatoon	none
+👨🏽‍🫯‍👨🏻	maadlevad mehed keskmine nahatoon, hele nahatoon	none
+👨🏽‍🫯‍👨🏼	maadlevad mehed keskmine nahatoon, keskmiselt hele nahatoon	none
+👨🏽‍🫯‍👨🏾	maadlevad mehed keskmine nahatoon, keskmiselt tume nahatoon	none
+👨🏽‍🫯‍👨🏿	maadlevad mehed keskmine nahatoon, tume nahatoon	none
+👨🏾‍🫯‍👨🏻	maadlevad mehed keskmiselt tume nahatoon, hele nahatoon	none
+👨🏾‍🫯‍👨🏼	maadlevad mehed keskmiselt tume nahatoon, keskmiselt hele nahatoon	none
+👨🏾‍🫯‍👨🏽	maadlevad mehed keskmiselt tume nahatoon, keskmine nahatoon	none
+👨🏾‍🫯‍👨🏿	maadlevad mehed keskmiselt tume nahatoon, tume nahatoon	none
+👨🏿‍🫯‍👨🏻	maadlevad mehed tume nahatoon, hele nahatoon	none
+👨🏿‍🫯‍👨🏼	maadlevad mehed tume nahatoon, keskmiselt hele nahatoon	none
+👨🏿‍🫯‍👨🏽	maadlevad mehed tume nahatoon, keskmine nahatoon	none
+👨🏿‍🫯‍👨🏾	maadlevad mehed tume nahatoon, keskmiselt tume nahatoon	none
 👨‍🦰	mees punased juuksed	none
 👨🏻‍🦰	mees hele nahatoon, punased juuksed	none
 👨🏼‍🦰	mees keskmiselt hele nahatoon, punased juuksed	none
@@ -2277,6 +2352,26 @@ symbols:
 👨🏽‍🦲	mees keskmine nahatoon, kiilaspea	none
 👨🏾‍🦲	mees keskmiselt tume nahatoon, kiilaspea	none
 👨🏿‍🦲	mees tume nahatoon, kiilaspea	none
+👨🏻‍🐰‍👨🏼	pidutsevad jänesekõrvadega mehed hele nahatoon, keskmiselt hele nahatoon	none
+👨🏻‍🐰‍👨🏽	pidutsevad jänesekõrvadega mehed hele nahatoon, keskmine nahatoon	none
+👨🏻‍🐰‍👨🏾	pidutsevad jänesekõrvadega mehed hele nahatoon, keskmiselt tume nahatoon	none
+👨🏻‍🐰‍👨🏿	pidutsevad jänesekõrvadega mehed hele nahatoon, tume nahatoon	none
+👨🏼‍🐰‍👨🏻	pidutsevad jänesekõrvadega mehed keskmiselt hele nahatoon, hele nahatoon	none
+👨🏼‍🐰‍👨🏽	pidutsevad jänesekõrvadega mehed keskmiselt hele nahatoon, keskmine nahatoon	none
+👨🏼‍🐰‍👨🏾	pidutsevad jänesekõrvadega mehed keskmiselt hele nahatoon, keskmiselt tume nahatoon	none
+👨🏼‍🐰‍👨🏿	pidutsevad jänesekõrvadega mehed keskmiselt hele nahatoon, tume nahatoon	none
+👨🏽‍🐰‍👨🏻	pidutsevad jänesekõrvadega mehed keskmine nahatoon, hele nahatoon	none
+👨🏽‍🐰‍👨🏼	pidutsevad jänesekõrvadega mehed keskmine nahatoon, keskmiselt hele nahatoon	none
+👨🏽‍🐰‍👨🏾	pidutsevad jänesekõrvadega mehed keskmine nahatoon, keskmiselt tume nahatoon	none
+👨🏽‍🐰‍👨🏿	pidutsevad jänesekõrvadega mehed keskmine nahatoon, tume nahatoon	none
+👨🏾‍🐰‍👨🏻	pidutsevad jänesekõrvadega mehed keskmiselt tume nahatoon, hele nahatoon	none
+👨🏾‍🐰‍👨🏼	pidutsevad jänesekõrvadega mehed keskmiselt tume nahatoon, keskmiselt hele nahatoon	none
+👨🏾‍🐰‍👨🏽	pidutsevad jänesekõrvadega mehed keskmiselt tume nahatoon, keskmine nahatoon	none
+👨🏾‍🐰‍👨🏿	pidutsevad jänesekõrvadega mehed keskmiselt tume nahatoon, tume nahatoon	none
+👨🏿‍🐰‍👨🏻	pidutsevad jänesekõrvadega mehed tume nahatoon, hele nahatoon	none
+👨🏿‍🐰‍👨🏼	pidutsevad jänesekõrvadega mehed tume nahatoon, keskmiselt hele nahatoon	none
+👨🏿‍🐰‍👨🏽	pidutsevad jänesekõrvadega mehed tume nahatoon, keskmine nahatoon	none
+👨🏿‍🐰‍👨🏾	pidutsevad jänesekõrvadega mehed tume nahatoon, keskmiselt tume nahatoon	none
 👩🏻	naine hele nahatoon	none
 👩🏼	naine keskmiselt hele nahatoon	none
 👩🏽	naine keskmine nahatoon	none
@@ -2392,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	paarike südamega naine, naine, tume nahatoon, keskmine nahatoon	none
 👩🏿‍❤‍👩🏾	paarike südamega naine, naine, tume nahatoon, keskmiselt tume nahatoon	none
 👩🏿‍❤‍👩🏿	paarike südamega naine, naine, tume nahatoon	none
+👩🏻‍🫯‍👩🏼	maadlevad naised hele nahatoon, keskmiselt hele nahatoon	none
+👩🏻‍🫯‍👩🏽	maadlevad naised hele nahatoon, keskmine nahatoon	none
+👩🏻‍🫯‍👩🏾	maadlevad naised hele nahatoon, keskmiselt tume nahatoon	none
+👩🏻‍🫯‍👩🏿	maadlevad naised hele nahatoon, tume nahatoon	none
+👩🏼‍🫯‍👩🏻	maadlevad naised keskmiselt hele nahatoon, hele nahatoon	none
+👩🏼‍🫯‍👩🏽	maadlevad naised keskmiselt hele nahatoon, keskmine nahatoon	none
+👩🏼‍🫯‍👩🏾	maadlevad naised keskmiselt hele nahatoon, keskmiselt tume nahatoon	none
+👩🏼‍🫯‍👩🏿	maadlevad naised keskmiselt hele nahatoon, tume nahatoon	none
+👩🏽‍🫯‍👩🏻	maadlevad naised keskmine nahatoon, hele nahatoon	none
+👩🏽‍🫯‍👩🏼	maadlevad naised keskmine nahatoon, keskmiselt hele nahatoon	none
+👩🏽‍🫯‍👩🏾	maadlevad naised keskmine nahatoon, keskmiselt tume nahatoon	none
+👩🏽‍🫯‍👩🏿	maadlevad naised keskmine nahatoon, tume nahatoon	none
+👩🏾‍🫯‍👩🏻	maadlevad naised keskmiselt tume nahatoon, hele nahatoon	none
+👩🏾‍🫯‍👩🏼	maadlevad naised keskmiselt tume nahatoon, keskmiselt hele nahatoon	none
+👩🏾‍🫯‍👩🏽	maadlevad naised keskmiselt tume nahatoon, keskmine nahatoon	none
+👩🏾‍🫯‍👩🏿	maadlevad naised keskmiselt tume nahatoon, tume nahatoon	none
+👩🏿‍🫯‍👩🏻	maadlevad naised tume nahatoon, hele nahatoon	none
+👩🏿‍🫯‍👩🏼	maadlevad naised tume nahatoon, keskmiselt hele nahatoon	none
+👩🏿‍🫯‍👩🏽	maadlevad naised tume nahatoon, keskmine nahatoon	none
+👩🏿‍🫯‍👩🏾	maadlevad naised tume nahatoon, keskmiselt tume nahatoon	none
 👩‍🦰	naine punased juuksed	none
 👩🏻‍🦰	naine hele nahatoon, punased juuksed	none
 👩🏼‍🦰	naine keskmiselt hele nahatoon, punased juuksed	none
@@ -2416,6 +2531,26 @@ symbols:
 👩🏽‍🦲	naine keskmine nahatoon, kiilaspea	none
 👩🏾‍🦲	naine keskmiselt tume nahatoon, kiilaspea	none
 👩🏿‍🦲	naine tume nahatoon, kiilaspea	none
+👩🏻‍🐰‍👩🏼	pidutsevad jänesekõrvadega naised hele nahatoon, keskmiselt hele nahatoon	none
+👩🏻‍🐰‍👩🏽	pidutsevad jänesekõrvadega naised hele nahatoon, keskmine nahatoon	none
+👩🏻‍🐰‍👩🏾	pidutsevad jänesekõrvadega naised hele nahatoon, keskmiselt tume nahatoon	none
+👩🏻‍🐰‍👩🏿	pidutsevad jänesekõrvadega naised hele nahatoon, tume nahatoon	none
+👩🏼‍🐰‍👩🏻	pidutsevad jänesekõrvadega naised keskmiselt hele nahatoon, hele nahatoon	none
+👩🏼‍🐰‍👩🏽	pidutsevad jänesekõrvadega naised keskmiselt hele nahatoon, keskmine nahatoon	none
+👩🏼‍🐰‍👩🏾	pidutsevad jänesekõrvadega naised keskmiselt hele nahatoon, keskmiselt tume nahatoon	none
+👩🏼‍🐰‍👩🏿	pidutsevad jänesekõrvadega naised keskmiselt hele nahatoon, tume nahatoon	none
+👩🏽‍🐰‍👩🏻	pidutsevad jänesekõrvadega naised keskmine nahatoon, hele nahatoon	none
+👩🏽‍🐰‍👩🏼	pidutsevad jänesekõrvadega naised keskmine nahatoon, keskmiselt hele nahatoon	none
+👩🏽‍🐰‍👩🏾	pidutsevad jänesekõrvadega naised keskmine nahatoon, keskmiselt tume nahatoon	none
+👩🏽‍🐰‍👩🏿	pidutsevad jänesekõrvadega naised keskmine nahatoon, tume nahatoon	none
+👩🏾‍🐰‍👩🏻	pidutsevad jänesekõrvadega naised keskmiselt tume nahatoon, hele nahatoon	none
+👩🏾‍🐰‍👩🏼	pidutsevad jänesekõrvadega naised keskmiselt tume nahatoon, keskmiselt hele nahatoon	none
+👩🏾‍🐰‍👩🏽	pidutsevad jänesekõrvadega naised keskmiselt tume nahatoon, keskmine nahatoon	none
+👩🏾‍🐰‍👩🏿	pidutsevad jänesekõrvadega naised keskmiselt tume nahatoon, tume nahatoon	none
+👩🏿‍🐰‍👩🏻	pidutsevad jänesekõrvadega naised tume nahatoon, hele nahatoon	none
+👩🏿‍🐰‍👩🏼	pidutsevad jänesekõrvadega naised tume nahatoon, keskmiselt hele nahatoon	none
+👩🏿‍🐰‍👩🏽	pidutsevad jänesekõrvadega naised tume nahatoon, keskmine nahatoon	none
+👩🏿‍🐰‍👩🏾	pidutsevad jänesekõrvadega naised tume nahatoon, keskmiselt tume nahatoon	none
 🧓🏻	eakas hele nahatoon	none
 🧓🏼	eakas keskmiselt hele nahatoon	none
 🧓🏽	eakas keskmine nahatoon	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	kõndiv naine keskmiselt tume nahatoon	none
 🚶🏿‍♀	kõndiv naine tume nahatoon	none
 🚶‍➡	jalakäija suunaga paremale	none
-🚶🏻‍➡	jalakäija suunaga paremale	none
-🚶🏼‍➡	jalakäija suunaga paremale	none
-🚶🏽‍➡	jalakäija suunaga paremale	none
-🚶🏾‍➡	jalakäija suunaga paremale	none
-🚶🏿‍➡	jalakäija suunaga paremale	none
+🚶🏻‍➡	jalakäija hele nahatoon, suunaga paremale	none
+🚶🏼‍➡	jalakäija keskmiselt hele nahatoon, suunaga paremale	none
+🚶🏽‍➡	jalakäija keskmine nahatoon, suunaga paremale	none
+🚶🏾‍➡	jalakäija keskmiselt tume nahatoon, suunaga paremale	none
+🚶🏿‍➡	jalakäija tume nahatoon, suunaga paremale	none
 🚶‍♀‍➡	kõndiv naine suunaga paremale	none
-🚶🏻‍♀‍➡	kõndiv naine suunaga paremale	none
-🚶🏼‍♀‍➡	kõndiv naine suunaga paremale	none
-🚶🏽‍♀‍➡	kõndiv naine suunaga paremale	none
-🚶🏾‍♀‍➡	kõndiv naine suunaga paremale	none
-🚶🏿‍♀‍➡	kõndiv naine suunaga paremale	none
+🚶🏻‍♀‍➡	kõndiv naine hele nahatoon, suunaga paremale	none
+🚶🏼‍♀‍➡	kõndiv naine keskmiselt hele nahatoon, suunaga paremale	none
+🚶🏽‍♀‍➡	kõndiv naine keskmine nahatoon, suunaga paremale	none
+🚶🏾‍♀‍➡	kõndiv naine keskmiselt tume nahatoon, suunaga paremale	none
+🚶🏿‍♀‍➡	kõndiv naine tume nahatoon, suunaga paremale	none
 🚶‍♂‍➡	kõndiv mees suunaga paremale	none
-🚶🏻‍♂‍➡	kõndiv mees suunaga paremale	none
-🚶🏼‍♂‍➡	kõndiv mees suunaga paremale	none
-🚶🏽‍♂‍➡	kõndiv mees suunaga paremale	none
-🚶🏾‍♂‍➡	kõndiv mees suunaga paremale	none
-🚶🏿‍♂‍➡	kõndiv mees suunaga paremale	none
+🚶🏻‍♂‍➡	kõndiv mees hele nahatoon, suunaga paremale	none
+🚶🏼‍♂‍➡	kõndiv mees keskmiselt hele nahatoon, suunaga paremale	none
+🚶🏽‍♂‍➡	kõndiv mees keskmine nahatoon, suunaga paremale	none
+🚶🏾‍♂‍➡	kõndiv mees keskmiselt tume nahatoon, suunaga paremale	none
+🚶🏿‍♂‍➡	kõndiv mees tume nahatoon, suunaga paremale	none
 🧍🏻	seisev inimene hele nahatoon	none
 🧍🏼	seisev inimene keskmiselt hele nahatoon	none
 🧍🏽	seisev inimene keskmine nahatoon	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	põlvitav naine keskmiselt tume nahatoon	none
 🧎🏿‍♀	põlvitav naine tume nahatoon	none
 🧎‍➡	põlvitav inimene suunaga paremale	none
-🧎🏻‍➡	põlvitav inimene suunaga paremale	none
-🧎🏼‍➡	põlvitav inimene suunaga paremale	none
-🧎🏽‍➡	põlvitav inimene suunaga paremale	none
-🧎🏾‍➡	põlvitav inimene suunaga paremale	none
-🧎🏿‍➡	põlvitav inimene suunaga paremale	none
+🧎🏻‍➡	põlvitav inimene hele nahatoon, suunaga paremale	none
+🧎🏼‍➡	põlvitav inimene keskmiselt hele nahatoon, suunaga paremale	none
+🧎🏽‍➡	põlvitav inimene keskmine nahatoon, suunaga paremale	none
+🧎🏾‍➡	põlvitav inimene keskmiselt tume nahatoon, suunaga paremale	none
+🧎🏿‍➡	põlvitav inimene tume nahatoon, suunaga paremale	none
 🧎‍♀‍➡	põlvitav naine suunaga paremale	none
-🧎🏻‍♀‍➡	põlvitav naine suunaga paremale	none
-🧎🏼‍♀‍➡	põlvitav naine suunaga paremale	none
-🧎🏽‍♀‍➡	põlvitav naine suunaga paremale	none
-🧎🏾‍♀‍➡	põlvitav naine suunaga paremale	none
-🧎🏿‍♀‍➡	põlvitav naine suunaga paremale	none
+🧎🏻‍♀‍➡	põlvitav naine hele nahatoon, suunaga paremale	none
+🧎🏼‍♀‍➡	põlvitav naine keskmiselt hele nahatoon, suunaga paremale	none
+🧎🏽‍♀‍➡	põlvitav naine keskmine nahatoon, suunaga paremale	none
+🧎🏾‍♀‍➡	põlvitav naine keskmiselt tume nahatoon, suunaga paremale	none
+🧎🏿‍♀‍➡	põlvitav naine tume nahatoon, suunaga paremale	none
 🧎‍♂‍➡	põlvitav mees suunaga paremale	none
-🧎🏻‍♂‍➡	põlvitav mees suunaga paremale	none
-🧎🏼‍♂‍➡	põlvitav mees suunaga paremale	none
-🧎🏽‍♂‍➡	põlvitav mees suunaga paremale	none
-🧎🏾‍♂‍➡	põlvitav mees suunaga paremale	none
-🧎🏿‍♂‍➡	põlvitav mees suunaga paremale	none
+🧎🏻‍♂‍➡	põlvitav mees hele nahatoon, suunaga paremale	none
+🧎🏼‍♂‍➡	põlvitav mees keskmiselt hele nahatoon, suunaga paremale	none
+🧎🏽‍♂‍➡	põlvitav mees keskmine nahatoon, suunaga paremale	none
+🧎🏾‍♂‍➡	põlvitav mees keskmiselt tume nahatoon, suunaga paremale	none
+🧎🏿‍♂‍➡	põlvitav mees tume nahatoon, suunaga paremale	none
 🧑🏻‍🦯	valge kepiga inimene hele nahatoon	none
 🧑🏼‍🦯	valge kepiga inimene keskmiselt hele nahatoon	none
 🧑🏽‍🦯	valge kepiga inimene keskmine nahatoon	none
 🧑🏾‍🦯	valge kepiga inimene keskmiselt tume nahatoon	none
 🧑🏿‍🦯	valge kepiga inimene tume nahatoon	none
 🧑‍🦯‍➡	valge kepiga inimene suunaga paremale	none
-🧑🏻‍🦯‍➡	valge kepiga inimene suunaga paremale	none
-🧑🏼‍🦯‍➡	valge kepiga inimene suunaga paremale	none
-🧑🏽‍🦯‍➡	valge kepiga inimene suunaga paremale	none
-🧑🏾‍🦯‍➡	valge kepiga inimene suunaga paremale	none
-🧑🏿‍🦯‍➡	valge kepiga inimene suunaga paremale	none
+🧑🏻‍🦯‍➡	valge kepiga inimene hele nahatoon, suunaga paremale	none
+🧑🏼‍🦯‍➡	valge kepiga inimene keskmiselt hele nahatoon, suunaga paremale	none
+🧑🏽‍🦯‍➡	valge kepiga inimene keskmine nahatoon, suunaga paremale	none
+🧑🏾‍🦯‍➡	valge kepiga inimene keskmiselt tume nahatoon, suunaga paremale	none
+🧑🏿‍🦯‍➡	valge kepiga inimene tume nahatoon, suunaga paremale	none
 👨🏻‍🦯	valge kepiga mees hele nahatoon	none
 👨🏼‍🦯	valge kepiga mees keskmiselt hele nahatoon	none
 👨🏽‍🦯	valge kepiga mees keskmine nahatoon	none
 👨🏾‍🦯	valge kepiga mees keskmiselt tume nahatoon	none
 👨🏿‍🦯	valge kepiga mees tume nahatoon	none
 👨‍🦯‍➡	valge kepiga mees suunaga paremale	none
-👨🏻‍🦯‍➡	valge kepiga mees suunaga paremale	none
-👨🏼‍🦯‍➡	valge kepiga mees suunaga paremale	none
-👨🏽‍🦯‍➡	valge kepiga mees suunaga paremale	none
-👨🏾‍🦯‍➡	valge kepiga mees suunaga paremale	none
-👨🏿‍🦯‍➡	valge kepiga mees suunaga paremale	none
+👨🏻‍🦯‍➡	valge kepiga mees hele nahatoon, suunaga paremale	none
+👨🏼‍🦯‍➡	valge kepiga mees keskmiselt hele nahatoon, suunaga paremale	none
+👨🏽‍🦯‍➡	valge kepiga mees keskmine nahatoon, suunaga paremale	none
+👨🏾‍🦯‍➡	valge kepiga mees keskmiselt tume nahatoon, suunaga paremale	none
+👨🏿‍🦯‍➡	valge kepiga mees tume nahatoon, suunaga paremale	none
 👩🏻‍🦯	valge kepiga naine hele nahatoon	none
 👩🏼‍🦯	valge kepiga naine keskmiselt hele nahatoon	none
 👩🏽‍🦯	valge kepiga naine keskmine nahatoon	none
 👩🏾‍🦯	valge kepiga naine keskmiselt tume nahatoon	none
 👩🏿‍🦯	valge kepiga naine tume nahatoon	none
 👩‍🦯‍➡	valge kepiga naine suunaga paremale	none
-👩🏻‍🦯‍➡	valge kepiga naine suunaga paremale	none
-👩🏼‍🦯‍➡	valge kepiga naine suunaga paremale	none
-👩🏽‍🦯‍➡	valge kepiga naine suunaga paremale	none
-👩🏾‍🦯‍➡	valge kepiga naine suunaga paremale	none
-👩🏿‍🦯‍➡	valge kepiga naine suunaga paremale	none
+👩🏻‍🦯‍➡	valge kepiga naine hele nahatoon, suunaga paremale	none
+👩🏼‍🦯‍➡	valge kepiga naine keskmiselt hele nahatoon, suunaga paremale	none
+👩🏽‍🦯‍➡	valge kepiga naine keskmine nahatoon, suunaga paremale	none
+👩🏾‍🦯‍➡	valge kepiga naine keskmiselt tume nahatoon, suunaga paremale	none
+👩🏿‍🦯‍➡	valge kepiga naine tume nahatoon, suunaga paremale	none
 🧑🏻‍🦼	elektrilises ratastoolis inimene hele nahatoon	none
 🧑🏼‍🦼	elektrilises ratastoolis inimene keskmiselt hele nahatoon	none
 🧑🏽‍🦼	elektrilises ratastoolis inimene keskmine nahatoon	none
 🧑🏾‍🦼	elektrilises ratastoolis inimene keskmiselt tume nahatoon	none
 🧑🏿‍🦼	elektrilises ratastoolis inimene tume nahatoon	none
 🧑‍🦼‍➡	elektrilises ratastoolis inimene suunaga paremale	none
-🧑🏻‍🦼‍➡	elektrilises ratastoolis inimene suunaga paremale	none
-🧑🏼‍🦼‍➡	elektrilises ratastoolis inimene suunaga paremale	none
-🧑🏽‍🦼‍➡	elektrilises ratastoolis inimene suunaga paremale	none
-🧑🏾‍🦼‍➡	elektrilises ratastoolis inimene suunaga paremale	none
-🧑🏿‍🦼‍➡	elektrilises ratastoolis inimene suunaga paremale	none
+🧑🏻‍🦼‍➡	elektrilises ratastoolis inimene hele nahatoon, suunaga paremale	none
+🧑🏼‍🦼‍➡	elektrilises ratastoolis inimene keskmiselt hele nahatoon, suunaga paremale	none
+🧑🏽‍🦼‍➡	elektrilises ratastoolis inimene keskmine nahatoon, suunaga paremale	none
+🧑🏾‍🦼‍➡	elektrilises ratastoolis inimene keskmiselt tume nahatoon, suunaga paremale	none
+🧑🏿‍🦼‍➡	elektrilises ratastoolis inimene tume nahatoon, suunaga paremale	none
 👨🏻‍🦼	elektriratastoolis olev mees hele nahatoon	none
 👨🏼‍🦼	elektriratastoolis olev mees keskmiselt hele nahatoon	none
 👨🏽‍🦼	elektriratastoolis olev mees keskmine nahatoon	none
 👨🏾‍🦼	elektriratastoolis olev mees keskmiselt tume nahatoon	none
 👨🏿‍🦼	elektriratastoolis olev mees tume nahatoon	none
 👨‍🦼‍➡	elektriratastoolis olev mees suunaga paremale	none
-👨🏻‍🦼‍➡	elektriratastoolis olev mees suunaga paremale	none
-👨🏼‍🦼‍➡	elektriratastoolis olev mees suunaga paremale	none
-👨🏽‍🦼‍➡	elektriratastoolis olev mees suunaga paremale	none
-👨🏾‍🦼‍➡	elektriratastoolis olev mees suunaga paremale	none
-👨🏿‍🦼‍➡	elektriratastoolis olev mees suunaga paremale	none
+👨🏻‍🦼‍➡	elektriratastoolis olev mees hele nahatoon, suunaga paremale	none
+👨🏼‍🦼‍➡	elektriratastoolis olev mees keskmiselt hele nahatoon, suunaga paremale	none
+👨🏽‍🦼‍➡	elektriratastoolis olev mees keskmine nahatoon, suunaga paremale	none
+👨🏾‍🦼‍➡	elektriratastoolis olev mees keskmiselt tume nahatoon, suunaga paremale	none
+👨🏿‍🦼‍➡	elektriratastoolis olev mees tume nahatoon, suunaga paremale	none
 👩🏻‍🦼	elektriratastoolis olev naine hele nahatoon	none
 👩🏼‍🦼	elektriratastoolis olev naine keskmiselt hele nahatoon	none
 👩🏽‍🦼	elektriratastoolis olev naine keskmine nahatoon	none
 👩🏾‍🦼	elektriratastoolis olev naine keskmiselt tume nahatoon	none
 👩🏿‍🦼	elektriratastoolis olev naine tume nahatoon	none
 👩‍🦼‍➡	elektriratastoolis olev naine suunaga paremale	none
-👩🏻‍🦼‍➡	elektriratastoolis olev naine suunaga paremale	none
-👩🏼‍🦼‍➡	elektriratastoolis olev naine suunaga paremale	none
-👩🏽‍🦼‍➡	elektriratastoolis olev naine suunaga paremale	none
-👩🏾‍🦼‍➡	elektriratastoolis olev naine suunaga paremale	none
-👩🏿‍🦼‍➡	elektriratastoolis olev naine suunaga paremale	none
+👩🏻‍🦼‍➡	elektriratastoolis olev naine hele nahatoon, suunaga paremale	none
+👩🏼‍🦼‍➡	elektriratastoolis olev naine keskmiselt hele nahatoon, suunaga paremale	none
+👩🏽‍🦼‍➡	elektriratastoolis olev naine keskmine nahatoon, suunaga paremale	none
+👩🏾‍🦼‍➡	elektriratastoolis olev naine keskmiselt tume nahatoon, suunaga paremale	none
+👩🏿‍🦼‍➡	elektriratastoolis olev naine tume nahatoon, suunaga paremale	none
 🧑🏻‍🦽	manuaalses ratastoolis inimene hele nahatoon	none
 🧑🏼‍🦽	manuaalses ratastoolis inimene keskmiselt hele nahatoon	none
 🧑🏽‍🦽	manuaalses ratastoolis inimene keskmine nahatoon	none
 🧑🏾‍🦽	manuaalses ratastoolis inimene keskmiselt tume nahatoon	none
 🧑🏿‍🦽	manuaalses ratastoolis inimene tume nahatoon	none
 🧑‍🦽‍➡	manuaalses ratastoolis inimene suunaga paremale	none
-🧑🏻‍🦽‍➡	manuaalses ratastoolis inimene suunaga paremale	none
-🧑🏼‍🦽‍➡	manuaalses ratastoolis inimene suunaga paremale	none
-🧑🏽‍🦽‍➡	manuaalses ratastoolis inimene suunaga paremale	none
-🧑🏾‍🦽‍➡	manuaalses ratastoolis inimene suunaga paremale	none
-🧑🏿‍🦽‍➡	manuaalses ratastoolis inimene suunaga paremale	none
+🧑🏻‍🦽‍➡	manuaalses ratastoolis inimene hele nahatoon, suunaga paremale	none
+🧑🏼‍🦽‍➡	manuaalses ratastoolis inimene keskmiselt hele nahatoon, suunaga paremale	none
+🧑🏽‍🦽‍➡	manuaalses ratastoolis inimene keskmine nahatoon, suunaga paremale	none
+🧑🏾‍🦽‍➡	manuaalses ratastoolis inimene keskmiselt tume nahatoon, suunaga paremale	none
+🧑🏿‍🦽‍➡	manuaalses ratastoolis inimene tume nahatoon, suunaga paremale	none
 👨🏻‍🦽	manuaalratastoolis olev mees hele nahatoon	none
 👨🏼‍🦽	manuaalratastoolis olev mees keskmiselt hele nahatoon	none
 👨🏽‍🦽	manuaalratastoolis olev mees keskmine nahatoon	none
 👨🏾‍🦽	manuaalratastoolis olev mees keskmiselt tume nahatoon	none
 👨🏿‍🦽	manuaalratastoolis olev mees tume nahatoon	none
 👨‍🦽‍➡	manuaalratastoolis olev mees suunaga paremale	none
-👨🏻‍🦽‍➡	manuaalratastoolis olev mees suunaga paremale	none
-👨🏼‍🦽‍➡	manuaalratastoolis olev mees suunaga paremale	none
-👨🏽‍🦽‍➡	manuaalratastoolis olev mees suunaga paremale	none
-👨🏾‍🦽‍➡	manuaalratastoolis olev mees suunaga paremale	none
-👨🏿‍🦽‍➡	manuaalratastoolis olev mees suunaga paremale	none
+👨🏻‍🦽‍➡	manuaalratastoolis olev mees hele nahatoon, suunaga paremale	none
+👨🏼‍🦽‍➡	manuaalratastoolis olev mees keskmiselt hele nahatoon, suunaga paremale	none
+👨🏽‍🦽‍➡	manuaalratastoolis olev mees keskmine nahatoon, suunaga paremale	none
+👨🏾‍🦽‍➡	manuaalratastoolis olev mees keskmiselt tume nahatoon, suunaga paremale	none
+👨🏿‍🦽‍➡	manuaalratastoolis olev mees tume nahatoon, suunaga paremale	none
 👩🏻‍🦽	manuaalratastoolis olev naine hele nahatoon	none
 👩🏼‍🦽	manuaalratastoolis olev naine keskmiselt hele nahatoon	none
 👩🏽‍🦽	manuaalratastoolis olev naine keskmine nahatoon	none
 👩🏾‍🦽	manuaalratastoolis olev naine keskmiselt tume nahatoon	none
 👩🏿‍🦽	manuaalratastoolis olev naine tume nahatoon	none
 👩‍🦽‍➡	manuaalratastoolis olev naine suunaga paremale	none
-👩🏻‍🦽‍➡	manuaalratastoolis olev naine suunaga paremale	none
-👩🏼‍🦽‍➡	manuaalratastoolis olev naine suunaga paremale	none
-👩🏽‍🦽‍➡	manuaalratastoolis olev naine suunaga paremale	none
-👩🏾‍🦽‍➡	manuaalratastoolis olev naine suunaga paremale	none
-👩🏿‍🦽‍➡	manuaalratastoolis olev naine suunaga paremale	none
+👩🏻‍🦽‍➡	manuaalratastoolis olev naine hele nahatoon, suunaga paremale	none
+👩🏼‍🦽‍➡	manuaalratastoolis olev naine keskmiselt hele nahatoon, suunaga paremale	none
+👩🏽‍🦽‍➡	manuaalratastoolis olev naine keskmine nahatoon, suunaga paremale	none
+👩🏾‍🦽‍➡	manuaalratastoolis olev naine keskmiselt tume nahatoon, suunaga paremale	none
+👩🏿‍🦽‍➡	manuaalratastoolis olev naine tume nahatoon, suunaga paremale	none
 🏃🏻	jooksja hele nahatoon	none
 🏃🏼	jooksja keskmiselt hele nahatoon	none
 🏃🏽	jooksja keskmine nahatoon	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	jooksev naine keskmiselt tume nahatoon	none
 🏃🏿‍♀	jooksev naine tume nahatoon	none
 🏃‍➡	jooksja suunaga paremale	none
-🏃🏻‍➡	jooksja suunaga paremale	none
-🏃🏼‍➡	jooksja suunaga paremale	none
-🏃🏽‍➡	jooksja suunaga paremale	none
-🏃🏾‍➡	jooksja suunaga paremale	none
-🏃🏿‍➡	jooksja suunaga paremale	none
+🏃🏻‍➡	jooksja hele nahatoon, suunaga paremale	none
+🏃🏼‍➡	jooksja keskmiselt hele nahatoon, suunaga paremale	none
+🏃🏽‍➡	jooksja keskmine nahatoon, suunaga paremale	none
+🏃🏾‍➡	jooksja keskmiselt tume nahatoon, suunaga paremale	none
+🏃🏿‍➡	jooksja tume nahatoon, suunaga paremale	none
 🏃‍♀‍➡	jooksev naine suunaga paremale	none
-🏃🏻‍♀‍➡	jooksev naine suunaga paremale	none
-🏃🏼‍♀‍➡	jooksev naine suunaga paremale	none
-🏃🏽‍♀‍➡	jooksev naine suunaga paremale	none
-🏃🏾‍♀‍➡	jooksev naine suunaga paremale	none
-🏃🏿‍♀‍➡	jooksev naine suunaga paremale	none
+🏃🏻‍♀‍➡	jooksev naine hele nahatoon, suunaga paremale	none
+🏃🏼‍♀‍➡	jooksev naine keskmiselt hele nahatoon, suunaga paremale	none
+🏃🏽‍♀‍➡	jooksev naine keskmine nahatoon, suunaga paremale	none
+🏃🏾‍♀‍➡	jooksev naine keskmiselt tume nahatoon, suunaga paremale	none
+🏃🏿‍♀‍➡	jooksev naine tume nahatoon, suunaga paremale	none
 🏃‍♂‍➡	jooksev mees suunaga paremale	none
-🏃🏻‍♂‍➡	jooksev mees suunaga paremale	none
-🏃🏼‍♂‍➡	jooksev mees suunaga paremale	none
-🏃🏽‍♂‍➡	jooksev mees suunaga paremale	none
-🏃🏾‍♂‍➡	jooksev mees suunaga paremale	none
-🏃🏿‍♂‍➡	jooksev mees suunaga paremale	none
+🏃🏻‍♂‍➡	jooksev mees hele nahatoon, suunaga paremale	none
+🏃🏼‍♂‍➡	jooksev mees keskmiselt hele nahatoon, suunaga paremale	none
+🏃🏽‍♂‍➡	jooksev mees keskmine nahatoon, suunaga paremale	none
+🏃🏾‍♂‍➡	jooksev mees keskmiselt tume nahatoon, suunaga paremale	none
+🏃🏿‍♂‍➡	jooksev mees tume nahatoon, suunaga paremale	none
+🧑🏻‍🩰	balletitantsija hele nahatoon	none
+🧑🏼‍🩰	balletitantsija keskmiselt hele nahatoon	none
+🧑🏽‍🩰	balletitantsija keskmine nahatoon	none
+🧑🏾‍🩰	balletitantsija keskmiselt tume nahatoon	none
+🧑🏿‍🩰	balletitantsija tume nahatoon	none
 💃🏻	tantsiv naine hele nahatoon	none
 💃🏼	tantsiv naine keskmiselt hele nahatoon	none
 💃🏽	tantsiv naine keskmine nahatoon	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	hõljuv ülikonnaga mees keskmine nahatoon	none
 🕴🏾	hõljuv ülikonnaga mees keskmiselt tume nahatoon	none
 🕴🏿	hõljuv ülikonnaga mees tume nahatoon	none
+👯🏻	pidutsevad jänesekõrvadega inimesed hele nahatoon	none
+👯🏼	pidutsevad jänesekõrvadega inimesed keskmiselt hele nahatoon	none
+👯🏽	pidutsevad jänesekõrvadega inimesed keskmine nahatoon	none
+👯🏾	pidutsevad jänesekõrvadega inimesed keskmiselt tume nahatoon	none
+👯🏿	pidutsevad jänesekõrvadega inimesed tume nahatoon	none
+👯🏻‍♂	pidutsevad jänesekõrvadega mehed hele nahatoon	none
+👯🏼‍♂	pidutsevad jänesekõrvadega mehed keskmiselt hele nahatoon	none
+👯🏽‍♂	pidutsevad jänesekõrvadega mehed keskmine nahatoon	none
+👯🏾‍♂	pidutsevad jänesekõrvadega mehed keskmiselt tume nahatoon	none
+👯🏿‍♂	pidutsevad jänesekõrvadega mehed tume nahatoon	none
+👯🏻‍♀	pidutsevad jänesekõrvadega naised hele nahatoon	none
+👯🏼‍♀	pidutsevad jänesekõrvadega naised keskmiselt hele nahatoon	none
+👯🏽‍♀	pidutsevad jänesekõrvadega naised keskmine nahatoon	none
+👯🏾‍♀	pidutsevad jänesekõrvadega naised keskmiselt tume nahatoon	none
+👯🏿‍♀	pidutsevad jänesekõrvadega naised tume nahatoon	none
 🧖🏻	inimene leiliruumis hele nahatoon	none
 🧖🏼	inimene leiliruumis keskmiselt hele nahatoon	none
 🧖🏽	inimene leiliruumis keskmine nahatoon	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	hundiratast viskav naine keskmine nahatoon	none
 🤸🏾‍♀	hundiratast viskav naine keskmiselt tume nahatoon	none
 🤸🏿‍♀	hundiratast viskav naine tume nahatoon	none
+🤼🏻	maadlejad hele nahatoon	none
+🤼🏼	maadlejad keskmiselt hele nahatoon	none
+🤼🏽	maadlejad keskmine nahatoon	none
+🤼🏾	maadlejad keskmiselt tume nahatoon	none
+🤼🏿	maadlejad tume nahatoon	none
+🤼🏻‍♂	maadlevad mehed hele nahatoon	none
+🤼🏼‍♂	maadlevad mehed keskmiselt hele nahatoon	none
+🤼🏽‍♂	maadlevad mehed keskmine nahatoon	none
+🤼🏾‍♂	maadlevad mehed keskmiselt tume nahatoon	none
+🤼🏿‍♂	maadlevad mehed tume nahatoon	none
+🤼🏻‍♀	maadlevad naised hele nahatoon	none
+🤼🏼‍♀	maadlevad naised keskmiselt hele nahatoon	none
+🤼🏽‍♀	maadlevad naised keskmine nahatoon	none
+🤼🏾‍♀	maadlevad naised keskmiselt tume nahatoon	none
+🤼🏿‍♀	maadlevad naised tume nahatoon	none
 🤽🏻	veepalli mängiv inimene hele nahatoon	none
 🤽🏼	veepalli mängiv inimene keskmiselt hele nahatoon	none
 🤽🏽	veepalli mängiv inimene keskmine nahatoon	none
@@ -3812,6 +3982,7 @@ symbols:
 🇨🇳	lipp Hiina	none
 🇨🇴	lipp Colombia	none
 🇨🇵	lipp Clippertoni saar	none
+🇨🇶	lipp Sark	none
 🇨🇷	lipp Costa Rica	none
 🇨🇺	lipp Kuuba	none
 🇨🇻	lipp Roheneemesaared	none
