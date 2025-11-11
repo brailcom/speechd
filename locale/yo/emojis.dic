@@ -41,12 +41,15 @@ symbols:
 ↶	atọ́ka tó yípo lókè lòdì sí ọwọ́ aago dé àárín-méjì	none
 ↷	atọ́ka tó yípo lókè bí ọwọ́ aago dé àárín-méjì	none
 ↸	atọ́ka ọlọ́pàá gígùn lórí tó kọjú sí ìwọ̀ oòrùn àríwá	none
+↹	ọ̀pá oní ìkọ́ apá-òsì lórí apá-ọ̀tún	none
 ↺	atọ́ka yíyípo lòdì sí ọwọ́ aago tó ṣísílẹ̀ lókè	none
 ↻	atọ́ka yíyípo bí ọwọ́ aago tó ṣísílẹ̀ lókè	none
 ↼	ọ̀kọ̀ ẹlẹ́gùn-ún òsì tó kọjú sókè	none
 ↽	ọ̀kọ̀ ẹlẹ́gùn-ún ní òsì tó kọjú sísàlẹ̀	none
 ↾	ọ̀kọ̀ ẹlẹ́gùn-ún òkè tó kọjú sí ọ̀tún	none
 ↿	ọ̀kọ̀ ẹlẹ́gùn-ún òkè tó kọjú sí òsì	none
+⇀	ìkọ́ apá-ọ̀tún tó kọrí sókè	none
+⇁	ìkọ́ apá-ọ̀tún tó darí wà lẹ̀	none
 ⇂	ọ̀kọ̀ ẹlẹ́gùn-ún ìsàlẹ̀ tó kọjú sí ọ̀tún	none
 ⇃	ọ̀kọ̀ ẹlẹ́gùn-ún ìsàlẹ̀ tó kọjú sí òsì	none
 ⇄	atọ́ka tó kọjú sí ọ̀tún lórí atọ́ka tó kọjú sí òsì	none
@@ -107,6 +110,7 @@ symbols:
 ⁻	iwe nla iyokuro	none
 ∓	ìyọkúrò-tàbí-àròpọ̀	none
 ∕	síláàṣì ìpín	none
+∗	amojú ẹ̀rọ àmì ìràwọ̀	none
 ∘	amúṣẹ́ṣe òrùka	none
 ∙	amúṣẹ́ṣe ọta	none
 √	sikuwe rutu	none
@@ -317,6 +321,7 @@ symbols:
 😪	Oju Iloorun	none
 🤤	oju adatọ	none
 😴	Oju Ti O N Sun	none
+🫩	ojú pẹ̀lú ìsàlẹ̀ ojú tó wú	none
 😷	Oju Pẹlu Iboju Iṣoogun	none
 🤒	oju pẹlu oṣuwọn igbona	none
 🤕	Oju Pẹlu Ori ti a de Lọja	none
@@ -333,7 +338,7 @@ symbols:
 🥳	ojú patí	none
 🥸	ojú ìsápamọ́	none
 😎	Oju Ti O N Rẹrin Pẹlu Digi Oju	none
-🤓	Oju Ọmọwe Ti Ko Jafafa	none
+🤓	Oju Ọmọwe Ti O Jafafa	none
 🧐	Ojú tó súnkì	none
 😕	Oju Iporuru	none
 🫤	ojú pẹ̀lú ẹnu ẹ̀gbẹ́	none
@@ -344,6 +349,7 @@ symbols:
 😯	Oju Idakẹjẹ	none
 😲	ojú ìyalẹnu	none
 😳	Oju Idunnu	none
+🫪	ojú tó ti dìdàkudà	none
 🥺	ojú tónbẹ̀bẹ̀	none
 🥹	ojú tón mu ẹkún dúró	none
 😦	Oju Ti o Faro Pẹlu Ẹnu lila silẹ	none
@@ -361,12 +367,12 @@ symbols:
 😩	Oju Ti o Rẹ̀	none
 😫	Oju Rirẹ	none
 🥱	ojú tón yán	none
-😤	Oju Pẹlu Ikun Nimu	none
+😤	Oju Pẹlu Ooru Nimu	none
 😡	Oju Iyaahan	none
 😠	Oju Ibinu	none
 🤬	Àmì ojú tó rékọjá ẹnu	none
-😈	Oju Ẹrin Pẹlu Awọn Iho	none
-👿	Oju Ibinu Pẹlu Iho	none
+😈	Oju Ẹrin Pẹlu Awọn Iwo	none
+👿	Oju Ibinu Pẹlu Awọn Iwo	none
 💀	Ipakọ	none
 ☠	ìpàkọ́ àti àwọn egun àgbélébù	none
 💩	Okiti Igbẹ	none
@@ -382,7 +388,7 @@ symbols:
 😹	Oju Ologbo Pẹlu Ẹkun Ayọ	none
 😻	Oju Arẹrin Ologbo Pẹlu Oju-ọkan	none
 😼	Oju Ologbo Pẹlu Ẹrin Afiniṣẹsin	none
-😽	Oju Ologbo Afẹnukonu Pẹlu Awọn Oju Didi	none
+😽	Oju Ologbo Afẹnukonu	none
 🙀	Oju Ologbo Ti o Rẹ	none
 😿	Oju Ẹkun Ologbo	none
 😾	Oju Ete Ologbo	none
@@ -397,14 +403,14 @@ symbols:
 💓	Ọkan Ti O N Mi	none
 💞	Ọkan Ti O N Yi	none
 💕	Awọn Ọkan Meji	none
-💟	Ọkan Ti A Ṣe Lọṣọ	none
+💟	Ọṣọ Ọkan	none
 ❣	àmì ìyanú ọkàn tó wúwo	none
 💔	Ibanujẹ Ọkan	none
 ❤‍🔥	iná ń jóni lọ́kàn	none
 ❤‍🩹	ọkàn tó ń ṣàtúnṣe ara rẹ̀	none
 ❤	ọkàn pupa	none
 🩷	ọkàn pinki	none
-🧡	ọlakàn ọsàn	none
+🧡	ọlọkàn omi ọsàn	none
 💛	Ọkan Awọ Ofeefe	none
 💚	Ọkan Awọ Ewe	none
 💙	Ọkan Bulu	none
@@ -417,6 +423,7 @@ symbols:
 💋	Aami Ifẹnuko	none
 💯	koko ọgọrun	none
 💢	Àmì Ibinu	none
+🫯	ìjà inu ìkùukùu	none
 💥	Ikọlu	none
 💫	Itoogbe	none
 💦	Ilaagun Ti N kan	none
@@ -457,7 +464,7 @@ symbols:
 🫵	títọ́ka sí olùwòran	none
 👍	Atanpako Loke	none
 👎	Atanpako Nisalẹ	none
-✊	Naṣẹ Soke	none
+✊	Ẹṣẹ Ti a Na Soke	none
 👊	Ẹṣẹ Ti o Nbọ	none
 🤛	Ẹsẹ ti O Kọju sosi	none
 🤜	Ẹsẹ ti O Kọju sọtun	none
@@ -578,7 +585,7 @@ symbols:
 👨‍✈	ọkùnrin awa ọkọ́ bàlú	none
 👩‍✈	obìrin awa ọkọ́ bàlú	none
 🧑‍🚀	arìnrìn-àjò lọ sí ayé mìíràn	none
-👨‍🚀	ọkùnrin olùwádìí inú òṣùpá ọkùnrin	none
+👨‍🚀	ọkùnrin olùwádìí inú òṣùpá	none
 👩‍🚀	obìrinolùwádìí inú òṣùpá	none
 🧑‍🚒	panápaná	none
 👨‍🚒	ọkùnrin panapanọ́	none
@@ -649,9 +656,10 @@ symbols:
 🧟‍♂	Ẹbọra ọkùnrin	none
 🧟‍♀	Ẹbọra obìnrin	none
 🧌	iwin nlá	none
-💆	ẹni N gba Iṣẹ	none
-💆‍♂	ọkùnrin tí ń gba ìfiránṣẹ́	none
-💆‍♀	obìnrin tí ń gba ìfiránṣẹ́	none
+🫈	ẹ̀dá onírun	none
+💆	ẹni N gba Ifọwọwọnilara	none
+💆‍♂	ọkùnrin tí ń gba ifọwọwọnilara	none
+💆‍♀	obìnrin tí ń gba ifọwọwọnilara	none
 💇	Ẹni N Gẹrun	none
 💇‍♂	ọkùnrin tí ń gẹrun	none
 💇‍♀	obìnrin tí ń gẹrun	none
@@ -676,12 +684,13 @@ symbols:
 🏃	Ẹni N Sare	none
 🏃‍♂	ọkùnrin tí ń sáré	none
 🏃‍♀	obìrin tí ń sáré	none
+🧑‍🩰	oníjó alájòóyípo	none
 💃	Obinrin Ti Njo	none
 🕺	Ọkunrin Ti Njo	none
 🕴	ọkùnrin nínu kóòtú òwò	none
-👯	awọn eniyan eleti ehoro n sariya	none
-👯‍♂	àwọn ọkùnrin elétí ehoro n ṣàríyá	none
-👯‍♀	awọn obìnrin eleti ehoro n sariya	none
+👯	awọn eniyan eleti ehoro	none
+👯‍♂	àwọn ọkùnrin elétí ehoro	none
+👯‍♀	awọn obìnrin eleti ehoro	none
 🧖	Ènìyàn nínú Ìyàrá tó n gbóná	none
 🧖‍♂	Ọkùnrin nínú Ìyàrá tó n gbóná	none
 🧖‍♀	Obìnrin nínú Ìyàrá tó n gbóná	none
@@ -690,7 +699,7 @@ symbols:
 🧗‍♀	Obìnrin tó n gòkè	none
 🤺	Ẹni N Ja Pẹlu Ida	none
 🏇	Ereje Ẹlẹsin	none
-⛷	ẹni síkì	none
+⛷	ẹni n síkì	none
 🏂	Iṣere Ori Yiyin	none
 🏌	ẹni gọ́ọ̀fù	none
 🏌‍♂	ọkùnrin tí ń gọ́ọ̀fù	none
@@ -699,8 +708,8 @@ symbols:
 🏄‍♂	ọkùnrin tí ń wá íńtánẹ́tì	none
 🏄‍♀	obìnrín tí ń wá íńtánẹ́tì	none
 🚣	Ẹni N wa Ọkọ	none
-🚣‍♂	ọkùnrin tí ń wakọ̀ ojú omo kékeré	none
-🚣‍♀	obìnrin tí ń wakọ̀ ojú omo kékeré	none
+🚣‍♂	ọkùnrin tí ń wakọ̀ ojú omi kékeré	none
+🚣‍♀	obìnrin tí ń wakọ̀ ojú omi kékeré	none
 🏊	Ẹni tí ń wẹdò	none
 🏊‍♂	ọkùnrin tí ń wẹdò	none
 🏊‍♀	obìnrin tí ń wẹdò	none
@@ -720,8 +729,8 @@ symbols:
 🤸‍♂	ọkùnrin tí ń yí kẹ̀kẹ́ alágbọ̀n	none
 🤸‍♀	obìnrin tí ń yí kẹ̀kẹ́ alágbọ̀n	none
 🤼	Awọn Onigidigbo	none
-🤼‍♂	àwọn ọkùnrin gídígbò	none
-🤼‍♀	àwọn obìnrn tí ń jà	none
+🤼‍♂	àwọn ọkùnrin ti n ja ijakadi	none
+🤼‍♀	àwọn obìnrn tí ń jà ijakadi	none
 🤽	Ẹni N ṣere Olomi	none
 🤽‍♂	ọkùnrin n ṣere olomi	none
 🤽‍♀	obìnrin n ṣere olomi	none
@@ -752,6 +761,7 @@ symbols:
 🧑‍🧒	ìdílé àgbàlagbà, ọmọdé	none
 🧑‍🧒‍🧒	ìdílé àgbàlagbà, ọmọdé, ọmọdé	none
 👣	Ipa ẹsẹ	none
+🫆	ìtẹ̀ka	none
 🦰	irun pupa	none
 🦱	irun rírọ̀	none
 🦳	irun funfun	none
@@ -765,13 +775,13 @@ symbols:
 🦮	ajá ìtóni	none
 🐕‍🦺	ajá iṣẹ́ àwọn abirùn	none
 🐩	Ajá kékeré	none
-🐺	Oju Ikooko	none
-🦊	Oju Kọlọkọlọ	none
+🐺	Ikooko	none
+🦊	Kọlọkọlọ	none
 🦝	rakumi	none
 🐱	Ojú olóńgbò	none
 🐈	Olóńgbò	none
 🐈‍⬛	ológbò dúdú	none
-🦁	Oju Kiniun	none
+🦁	Kiniun	none
 🐯	Oju Ẹkùn	none
 🐅	Ẹkùn	none
 🐆	Àmọ̀tẹ́kùn	none
@@ -844,7 +854,7 @@ symbols:
 🐦‍⬛	ẹyẹ dúdú	none
 🪿	tòlotòló	none
 🐦‍🔥	ẹyẹ ìtàn àìlèkú	none
-🐸	Oju Ọpọlọ	none
+🐸	ọ̀pọ̀lọ́	none
 🐊	Ọni	none
 🐢	Adaba	none
 🦎	Aláǹgba	none
@@ -856,6 +866,7 @@ symbols:
 🐳	Ẹja Nla Atutọ	none
 🐋	Ẹja Nla	none
 🐬	Dọfini	none
+🫍	òbéjé	none
 🦭	alákàsà	none
 🐟	Ẹja	none
 🐠	Ẹja oorùn	none
@@ -865,6 +876,11 @@ symbols:
 🐚	Onikaraun Pinpin	none
 🪸	kórà	none
 🪼	ẹ̀ja jẹ́lì	none
+🦀	Alákàn	none
+🦞	akàn	none
+🦐	Ede	none
+🦑	Sikidi	none
+🦪	alákàn ńlá	none
 🐌	Ìgbín	none
 🦋	Labalaba	none
 🐛	Ìyanjú Àṣìṣe	none
@@ -909,6 +925,7 @@ symbols:
 🪹	ibi ìyéeyin òfìfo	none
 🪺	ibi ìyéeyin pẹ̀lú ẹyin	none
 🍄	Olu	none
+🪾	igi tí kò léwẹ́	none
 🍇	Girapu	none
 🍈	Ẹ̀gúsí	none
 🍉	Eso Bara	none
@@ -947,6 +964,7 @@ symbols:
 🫚	jínjà	none
 🫛	eap	none
 🍄‍🟫	olú aláwọ̀ pupa rẹ́súrẹ́sú	none
+🫜	ohun ọ̀gbìn onígbòǹgbọ̀	none
 🍞	Búrẹ́dì	none
 🥐	Kurosanti	none
 🥖	Burẹdi Baguette	none
@@ -998,11 +1016,6 @@ symbols:
 🥟	ìgbẹ́	none
 🥠	kúkì fortune	none
 🥡	àpótí àgbéjáde	none
-🦀	Alákàn	none
-🦞	akàn	none
-🦐	Ede	none
-🦑	Sikidi	none
-🦪	alákàn ńlá	none
 🍦	Wara Didi Rirọ	none
 🍧	Yinyin Gige	none
 🍨	Wara Didi	none
@@ -1034,10 +1047,10 @@ symbols:
 🫗	nǹkan olómi dídà	none
 🥤	ife pẹ̀lú sírọ̀	none
 🧋	tíì bọ́bù	none
-🧃	ibi oúnjẹ́	none
+🧃	àpótí ohun mímu	none
 🧉	ẹgbẹ́	none
-🧊	dídì	none
-🥢	ìlàrí	none
+🧊	omi dídì	none
+🥢	igi ìjẹun	none
 🍽	fọ́ọ̀kì àti ọ̀bẹ pẹ̀lú àwo	none
 🍴	Fọki Ati Ọbẹ	none
 🥄	Ṣíbí	none
@@ -1053,6 +1066,7 @@ symbols:
 🧭	atọ́nà	none
 🏔	òkè yìnyín	none
 ⛰	òkè	none
+🛘	ìyẹ̀gẹ̀rẹ̀ ilẹ̀	none
 🌋	Ifẹ-ilẹ	none
 🗻	Oke Fuji	none
 🏕	pípàgọ́	none
@@ -1340,20 +1354,20 @@ symbols:
 🃏	Joka	none
 🀄	Dragoni Pupa Mahjong	none
 🎴	Káàdì ìṣeré Olódòdó	none
-🎭	Ere Awokọṣe	none
+🎭	Eré oríìtàgé	none
 🖼	àwọrán inú férémù	none
 🎨	Pẹpẹ Oṣere	none
 🧵	òwú	none
 🪡	òwú ìránṣọ	none
 🧶	asọ	none
 🪢	ìsopọ̀	none
-👓	Digi	none
+👓	Dígí	none
 🕶	gíláásì òrùn	none
 🥽	gọ́gú	none
-🥼	aso laabi	none
-🦺	aso abo	none
+🥼	aṣọ ilé ìṣàyẹ̀wò	none
+🦺	aṣọ àbò	none
 👔	Okùnọrùn	none
-👕	Ṣẹẹti	none
+👕	Ṣẹ́ẹ̀tì	none
 👖	Jinsi	none
 🧣	síkáfù	none
 🧤	ìbọ̀wọ́	none
@@ -1413,16 +1427,18 @@ symbols:
 🎧	ẹ̀rọ àdágbórinsétí	none
 📻	rédíò	none
 🎷	ipè	none
+🎺	kakaaki	none
+🪊	kàkàkí	none
 🪗	akodíà	none
 🎸	jìtá	none
 🎹	duuru orin	none
-🎺	kakaaki	none
 🎻	faolini	none
 🪕	bánjò	none
 🥁	Ìlù	none
 🪘	ilu gigun	none
 🪇	marakasi	none
 🪈	fèrè	none
+🪉	háàpù	none
 📱	fóònù alágbèéká	none
 📲	fóònù alágbèéká pẹ̀lú ofà	none
 ☎	tẹlifóònù	none
@@ -1459,8 +1475,8 @@ symbols:
 🔦	iná fílásì	none
 🏮	atupa iwe pupa	none
 🪔	àtùpà díya	none
-📔	àfikọ̀wé pẹlu ẹyin ọlọṣọ	none
-📕	iwe ti pade	none
+📔	àfikọ̀wé pẹ̀lú ẹ̀yìn ọlọ́ọ̀ṣó	none
+📕	ìwé tó padé	none
 📖	iwe ṣi silẹ	none
 📗	iwe alawọ ewe	none
 📘	iwe alawọ bulu	none
@@ -1476,8 +1492,9 @@ symbols:
 📑	àmì ìwé àwọn táàbù	none
 🔖	àmì ìwé	none
 🏷	àkọ́lé	none
-💰	apo owo	none
 🪙	koínì	none
+💰	apo owo	none
+🪎	àpótí ìṣura	none
 💴	owo yen	none
 💵	owo dọla	none
 💶	owo uro	none
@@ -1561,6 +1578,7 @@ symbols:
 🧰	nńkan èlo	none
 🧲	lílẹ̀ mọ́	none
 🪜	àkàbà	none
+🪏	ṣọ́bìrì	none
 ⚗	àlẹ́mbìk	none
 🧪	tubu ayewo	none
 🧫	ounje	none
@@ -1741,6 +1759,7 @@ symbols:
 ✴	àmì àkíyèsí onígun-mé̩jọ	none
 ❇	dán	none
 ™	àmì ìdánimọ̀ iléeṣẹ́	none
+🫟	fọ́nká	none
 🔠	ṣafikun latini ọ̀rọ̀ gbólóhùn ńlá	none
 🔡	ṣafikun latini ọ̀rọ̀ gbólóhùn kékeré	none
 🔢	ṣafikun awọn nọnba	none
@@ -1850,26 +1869,26 @@ symbols:
 🫱🏽	ọwọ́ ọ̀tún amọ́láwọ̀ díẹ̀	none
 🫱🏾	ọwọ́ ọ̀tún adúláwọ̀ díẹ̀	none
 🫱🏿	ọwọ́ ọ̀tún adúláwọ̀	none
-🫱🏻‍🫲🏼	Ìbọwọ́ amọ́lára, amọ́lára díẹ̀	none
-🫱🏻‍🫲🏽	Ìbọwọ́ amọ́lára, amọ́láwọ̀ díẹ̀	none
-🫱🏻‍🫲🏾	Ìbọwọ́ amọ́lára, adúláwọ̀ díẹ̀	none
-🫱🏻‍🫲🏿	Ìbọwọ́ amọ́lára, adúláwọ̀	none
-🫱🏼‍🫲🏻	Ìbọwọ́ amọ́lára díẹ̀, amọ́lára	none
-🫱🏼‍🫲🏽	Ìbọwọ́ amọ́lára díẹ̀, amọ́láwọ̀ díẹ̀	none
-🫱🏼‍🫲🏾	Ìbọwọ́ amọ́lára díẹ̀, adúláwọ̀ díẹ̀	none
-🫱🏼‍🫲🏿	Ìbọwọ́ amọ́lára díẹ̀, adúláwọ̀	none
-🫱🏽‍🫲🏻	Ìbọwọ́ amọ́láwọ̀ díẹ̀, amọ́lára	none
-🫱🏽‍🫲🏼	Ìbọwọ́ amọ́láwọ̀ díẹ̀, amọ́lára díẹ̀	none
-🫱🏽‍🫲🏾	Ìbọwọ́ amọ́láwọ̀ díẹ̀, adúláwọ̀ díẹ̀	none
-🫱🏽‍🫲🏿	Ìbọwọ́ amọ́láwọ̀ díẹ̀, adúláwọ̀	none
-🫱🏾‍🫲🏻	Ìbọwọ́ adúláwọ̀ díẹ̀, amọ́lára	none
-🫱🏾‍🫲🏼	Ìbọwọ́ adúláwọ̀ díẹ̀, amọ́lára díẹ̀	none
-🫱🏾‍🫲🏽	Ìbọwọ́ adúláwọ̀ díẹ̀, amọ́láwọ̀ díẹ̀	none
-🫱🏾‍🫲🏿	Ìbọwọ́ adúláwọ̀ díẹ̀, adúláwọ̀	none
-🫱🏿‍🫲🏻	Ìbọwọ́ adúláwọ̀, amọ́lára	none
-🫱🏿‍🫲🏼	Ìbọwọ́ adúláwọ̀, amọ́lára díẹ̀	none
-🫱🏿‍🫲🏽	Ìbọwọ́ adúláwọ̀, amọ́láwọ̀ díẹ̀	none
-🫱🏿‍🫲🏾	Ìbọwọ́ adúláwọ̀, adúláwọ̀ díẹ̀	none
+🫱🏻‍🫲🏼	Ìbọwọ́ amọ́lára àtiamọ́lára díẹ̀	none
+🫱🏻‍🫲🏽	Ìbọwọ́ amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+🫱🏻‍🫲🏾	Ìbọwọ́ amọ́lára àtiadúláwọ̀ díẹ̀	none
+🫱🏻‍🫲🏿	Ìbọwọ́ amọ́lára àtiadúláwọ̀	none
+🫱🏼‍🫲🏻	Ìbọwọ́ amọ́lára díẹ̀ àtiamọ́lára	none
+🫱🏼‍🫲🏽	Ìbọwọ́ amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+🫱🏼‍🫲🏾	Ìbọwọ́ amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+🫱🏼‍🫲🏿	Ìbọwọ́ amọ́lára díẹ̀ àtiadúláwọ̀	none
+🫱🏽‍🫲🏻	Ìbọwọ́ amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+🫱🏽‍🫲🏼	Ìbọwọ́ amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+🫱🏽‍🫲🏾	Ìbọwọ́ amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+🫱🏽‍🫲🏿	Ìbọwọ́ amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+🫱🏾‍🫲🏻	Ìbọwọ́ adúláwọ̀ díẹ̀ àtiamọ́lára	none
+🫱🏾‍🫲🏼	Ìbọwọ́ adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+🫱🏾‍🫲🏽	Ìbọwọ́ adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+🫱🏾‍🫲🏿	Ìbọwọ́ adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+🫱🏿‍🫲🏻	Ìbọwọ́ adúláwọ̀ àtiamọ́lára	none
+🫱🏿‍🫲🏼	Ìbọwọ́ adúláwọ̀ àtiamọ́lára díẹ̀	none
+🫱🏿‍🫲🏽	Ìbọwọ́ adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+🫱🏿‍🫲🏾	Ìbọwọ́ adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 🫲🏻	ọwọ́ òsì amọ́lára	none
 🫲🏼	ọwọ́ òsì amọ́lára díẹ̀	none
 🫲🏽	ọwọ́ òsì amọ́láwọ̀ díẹ̀	none
@@ -1985,11 +2004,11 @@ symbols:
 👎🏽	Atanpako Nisalẹ amọ́láwọ̀ díẹ̀	none
 👎🏾	Atanpako Nisalẹ adúláwọ̀ díẹ̀	none
 👎🏿	Atanpako Nisalẹ adúláwọ̀	none
-✊🏻	Naṣẹ Soke amọ́lára	none
-✊🏼	Naṣẹ Soke amọ́lára díẹ̀	none
-✊🏽	Naṣẹ Soke amọ́láwọ̀ díẹ̀	none
-✊🏾	Naṣẹ Soke adúláwọ̀ díẹ̀	none
-✊🏿	Naṣẹ Soke adúláwọ̀	none
+✊🏻	Ẹṣẹ Ti a Na Soke amọ́lára	none
+✊🏼	Ẹṣẹ Ti a Na Soke amọ́lára díẹ̀	none
+✊🏽	Ẹṣẹ Ti a Na Soke amọ́láwọ̀ díẹ̀	none
+✊🏾	Ẹṣẹ Ti a Na Soke adúláwọ̀ díẹ̀	none
+✊🏿	Ẹṣẹ Ti a Na Soke adúláwọ̀	none
 👊🏻	Ẹṣẹ Ti o Nbọ amọ́lára	none
 👊🏼	Ẹṣẹ Ti o Nbọ amọ́lára díẹ̀	none
 👊🏽	Ẹṣẹ Ti o Nbọ amọ́láwọ̀ díẹ̀	none
@@ -2155,30 +2174,70 @@ symbols:
 🧑🏿‍❤‍🧑🏼	Lọkọlaya Pẹlu ọkan àgbà, àgbà, adúláwọ̀, amọ́lára díẹ̀	none
 🧑🏿‍❤‍🧑🏽	Lọkọlaya Pẹlu ọkan àgbà, àgbà, adúláwọ̀, amọ́láwọ̀ díẹ̀	none
 🧑🏿‍❤‍🧑🏾	Lọkọlaya Pẹlu ọkan àgbà, àgbà, adúláwọ̀, adúláwọ̀ díẹ̀	none
+🧑🏻‍🫯‍🧑🏼	Awọn Onigidigbo amọ́lára àtiamọ́lára díẹ̀	none
+🧑🏻‍🫯‍🧑🏽	Awọn Onigidigbo amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+🧑🏻‍🫯‍🧑🏾	Awọn Onigidigbo amọ́lára àtiadúláwọ̀ díẹ̀	none
+🧑🏻‍🫯‍🧑🏿	Awọn Onigidigbo amọ́lára àtiadúláwọ̀	none
+🧑🏼‍🫯‍🧑🏻	Awọn Onigidigbo amọ́lára díẹ̀ àtiamọ́lára	none
+🧑🏼‍🫯‍🧑🏽	Awọn Onigidigbo amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+🧑🏼‍🫯‍🧑🏾	Awọn Onigidigbo amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+🧑🏼‍🫯‍🧑🏿	Awọn Onigidigbo amọ́lára díẹ̀ àtiadúláwọ̀	none
+🧑🏽‍🫯‍🧑🏻	Awọn Onigidigbo amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+🧑🏽‍🫯‍🧑🏼	Awọn Onigidigbo amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+🧑🏽‍🫯‍🧑🏾	Awọn Onigidigbo amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+🧑🏽‍🫯‍🧑🏿	Awọn Onigidigbo amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+🧑🏾‍🫯‍🧑🏻	Awọn Onigidigbo adúláwọ̀ díẹ̀ àtiamọ́lára	none
+🧑🏾‍🫯‍🧑🏼	Awọn Onigidigbo adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+🧑🏾‍🫯‍🧑🏽	Awọn Onigidigbo adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+🧑🏾‍🫯‍🧑🏿	Awọn Onigidigbo adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+🧑🏿‍🫯‍🧑🏻	Awọn Onigidigbo adúláwọ̀ àtiamọ́lára	none
+🧑🏿‍🫯‍🧑🏼	Awọn Onigidigbo adúláwọ̀ àtiamọ́lára díẹ̀	none
+🧑🏿‍🫯‍🧑🏽	Awọn Onigidigbo adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+🧑🏿‍🫯‍🧑🏾	Awọn Onigidigbo adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 🧑‍🦰	àgbà irun pupa	none
-🧑🏻‍🦰	àgbà amọ́lára, irun pupa	none
-🧑🏼‍🦰	àgbà amọ́lára díẹ̀, irun pupa	none
-🧑🏽‍🦰	àgbà amọ́láwọ̀ díẹ̀, irun pupa	none
-🧑🏾‍🦰	àgbà adúláwọ̀ díẹ̀, irun pupa	none
-🧑🏿‍🦰	àgbà adúláwọ̀, irun pupa	none
+🧑🏻‍🦰	àgbà amọ́lára àtiirun pupa	none
+🧑🏼‍🦰	àgbà amọ́lára díẹ̀ àtiirun pupa	none
+🧑🏽‍🦰	àgbà amọ́láwọ̀ díẹ̀ àtiirun pupa	none
+🧑🏾‍🦰	àgbà adúláwọ̀ díẹ̀ àtiirun pupa	none
+🧑🏿‍🦰	àgbà adúláwọ̀ àtiirun pupa	none
 🧑‍🦱	àgbà irun rírọ̀	none
-🧑🏻‍🦱	àgbà amọ́lára, irun rírọ̀	none
-🧑🏼‍🦱	àgbà amọ́lára díẹ̀, irun rírọ̀	none
-🧑🏽‍🦱	àgbà amọ́láwọ̀ díẹ̀, irun rírọ̀	none
-🧑🏾‍🦱	àgbà adúláwọ̀ díẹ̀, irun rírọ̀	none
-🧑🏿‍🦱	àgbà adúláwọ̀, irun rírọ̀	none
+🧑🏻‍🦱	àgbà amọ́lára àtiirun rírọ̀	none
+🧑🏼‍🦱	àgbà amọ́lára díẹ̀ àtiirun rírọ̀	none
+🧑🏽‍🦱	àgbà amọ́láwọ̀ díẹ̀ àtiirun rírọ̀	none
+🧑🏾‍🦱	àgbà adúláwọ̀ díẹ̀ àtiirun rírọ̀	none
+🧑🏿‍🦱	àgbà adúláwọ̀ àtiirun rírọ̀	none
 🧑‍🦳	àgbà irun funfun	none
-🧑🏻‍🦳	àgbà amọ́lára, irun funfun	none
-🧑🏼‍🦳	àgbà amọ́lára díẹ̀, irun funfun	none
-🧑🏽‍🦳	àgbà amọ́láwọ̀ díẹ̀, irun funfun	none
-🧑🏾‍🦳	àgbà adúláwọ̀ díẹ̀, irun funfun	none
-🧑🏿‍🦳	àgbà adúláwọ̀, irun funfun	none
+🧑🏻‍🦳	àgbà amọ́lára àtiirun funfun	none
+🧑🏼‍🦳	àgbà amọ́lára díẹ̀ àtiirun funfun	none
+🧑🏽‍🦳	àgbà amọ́láwọ̀ díẹ̀ àtiirun funfun	none
+🧑🏾‍🦳	àgbà adúláwọ̀ díẹ̀ àtiirun funfun	none
+🧑🏿‍🦳	àgbà adúláwọ̀ àtiirun funfun	none
 🧑‍🦲	àgbà orí pípá	none
-🧑🏻‍🦲	àgbà amọ́lára, orí pípá	none
-🧑🏼‍🦲	àgbà amọ́lára díẹ̀, orí pípá	none
-🧑🏽‍🦲	àgbà amọ́láwọ̀ díẹ̀, orí pípá	none
-🧑🏾‍🦲	àgbà adúláwọ̀ díẹ̀, orí pípá	none
-🧑🏿‍🦲	àgbà adúláwọ̀, orí pípá	none
+🧑🏻‍🦲	àgbà amọ́lára àtiorí pípá	none
+🧑🏼‍🦲	àgbà amọ́lára díẹ̀ àtiorí pípá	none
+🧑🏽‍🦲	àgbà amọ́láwọ̀ díẹ̀ àtiorí pípá	none
+🧑🏾‍🦲	àgbà adúláwọ̀ díẹ̀ àtiorí pípá	none
+🧑🏿‍🦲	àgbà adúláwọ̀ àtiorí pípá	none
+🧑🏻‍🐰‍🧑🏼	awọn eniyan eleti ehoro amọ́lára àtiamọ́lára díẹ̀	none
+🧑🏻‍🐰‍🧑🏽	awọn eniyan eleti ehoro amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+🧑🏻‍🐰‍🧑🏾	awọn eniyan eleti ehoro amọ́lára àtiadúláwọ̀ díẹ̀	none
+🧑🏻‍🐰‍🧑🏿	awọn eniyan eleti ehoro amọ́lára àtiadúláwọ̀	none
+🧑🏼‍🐰‍🧑🏻	awọn eniyan eleti ehoro amọ́lára díẹ̀ àtiamọ́lára	none
+🧑🏼‍🐰‍🧑🏽	awọn eniyan eleti ehoro amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+🧑🏼‍🐰‍🧑🏾	awọn eniyan eleti ehoro amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+🧑🏼‍🐰‍🧑🏿	awọn eniyan eleti ehoro amọ́lára díẹ̀ àtiadúláwọ̀	none
+🧑🏽‍🐰‍🧑🏻	awọn eniyan eleti ehoro amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+🧑🏽‍🐰‍🧑🏼	awọn eniyan eleti ehoro amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+🧑🏽‍🐰‍🧑🏾	awọn eniyan eleti ehoro amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+🧑🏽‍🐰‍🧑🏿	awọn eniyan eleti ehoro amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+🧑🏾‍🐰‍🧑🏻	awọn eniyan eleti ehoro adúláwọ̀ díẹ̀ àtiamọ́lára	none
+🧑🏾‍🐰‍🧑🏼	awọn eniyan eleti ehoro adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+🧑🏾‍🐰‍🧑🏽	awọn eniyan eleti ehoro adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+🧑🏾‍🐰‍🧑🏿	awọn eniyan eleti ehoro adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+🧑🏿‍🐰‍🧑🏻	awọn eniyan eleti ehoro adúláwọ̀ àtiamọ́lára	none
+🧑🏿‍🐰‍🧑🏼	awọn eniyan eleti ehoro adúláwọ̀ àtiamọ́lára díẹ̀	none
+🧑🏿‍🐰‍🧑🏽	awọn eniyan eleti ehoro adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+🧑🏿‍🐰‍🧑🏾	awọn eniyan eleti ehoro adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 👨🏻	Ọkùnrin amọ́lára	none
 👨🏼	Ọkùnrin amọ́lára díẹ̀	none
 👨🏽	Ọkùnrin amọ́láwọ̀ díẹ̀	none
@@ -2189,11 +2248,11 @@ symbols:
 🧔🏽	apárí amọ́láwọ̀ díẹ̀	none
 🧔🏾	apárí adúláwọ̀ díẹ̀	none
 🧔🏿	apárí adúláwọ̀	none
-🧔🏻‍♂	ọkùnrin amọ́lára, irùgbọ̀n	none
-🧔🏼‍♂	ọkùnrin amọ́lára díẹ̀, irùgbọ̀n	none
-🧔🏽‍♂	ọkùnrin amọ́láwọ̀ díẹ̀, irùgbọ̀n	none
-🧔🏾‍♂	ọkùnrin adúláwọ̀ díẹ̀, irùgbọ̀n	none
-🧔🏿‍♂	ọkùnrin adúláwọ̀, irùgbọ̀n	none
+🧔🏻‍♂	ọkùnrin amọ́lára àtiirùgbọ̀n	none
+🧔🏼‍♂	ọkùnrin amọ́lára díẹ̀ àtiirùgbọ̀n	none
+🧔🏽‍♂	ọkùnrin amọ́láwọ̀ díẹ̀ àtiirùgbọ̀n	none
+🧔🏾‍♂	ọkùnrin adúláwọ̀ díẹ̀ àtiirùgbọ̀n	none
+🧔🏿‍♂	ọkùnrin adúláwọ̀ àtiirùgbọ̀n	none
 👱🏻‍♂	ọkùnrin onírun funfun amọ́lára	none
 👱🏼‍♂	ọkùnrin onírun funfun amọ́lára díẹ̀	none
 👱🏽‍♂	ọkùnrin onírun funfun amọ́láwọ̀ díẹ̀	none
@@ -2249,40 +2308,80 @@ symbols:
 👨🏿‍❤‍👨🏽	Lọkọlaya Pẹlu ọkan Ọkùnrin, Ọkùnrin, adúláwọ̀, amọ́láwọ̀ díẹ̀	none
 👨🏿‍❤‍👨🏾	Lọkọlaya Pẹlu ọkan Ọkùnrin, Ọkùnrin, adúláwọ̀, adúláwọ̀ díẹ̀	none
 👨🏿‍❤‍👨🏿	Lọkọlaya Pẹlu ọkan Ọkùnrin, Ọkùnrin, adúláwọ̀	none
+👨🏻‍🫯‍👨🏼	àwọn ọkùnrin ti n ja ijakadi amọ́lára àtiamọ́lára díẹ̀	none
+👨🏻‍🫯‍👨🏽	àwọn ọkùnrin ti n ja ijakadi amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+👨🏻‍🫯‍👨🏾	àwọn ọkùnrin ti n ja ijakadi amọ́lára àtiadúláwọ̀ díẹ̀	none
+👨🏻‍🫯‍👨🏿	àwọn ọkùnrin ti n ja ijakadi amọ́lára àtiadúláwọ̀	none
+👨🏼‍🫯‍👨🏻	àwọn ọkùnrin ti n ja ijakadi amọ́lára díẹ̀ àtiamọ́lára	none
+👨🏼‍🫯‍👨🏽	àwọn ọkùnrin ti n ja ijakadi amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👨🏼‍🫯‍👨🏾	àwọn ọkùnrin ti n ja ijakadi amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👨🏼‍🫯‍👨🏿	àwọn ọkùnrin ti n ja ijakadi amọ́lára díẹ̀ àtiadúláwọ̀	none
+👨🏽‍🫯‍👨🏻	àwọn ọkùnrin ti n ja ijakadi amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+👨🏽‍🫯‍👨🏼	àwọn ọkùnrin ti n ja ijakadi amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👨🏽‍🫯‍👨🏾	àwọn ọkùnrin ti n ja ijakadi amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👨🏽‍🫯‍👨🏿	àwọn ọkùnrin ti n ja ijakadi amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+👨🏾‍🫯‍👨🏻	àwọn ọkùnrin ti n ja ijakadi adúláwọ̀ díẹ̀ àtiamọ́lára	none
+👨🏾‍🫯‍👨🏼	àwọn ọkùnrin ti n ja ijakadi adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👨🏾‍🫯‍👨🏽	àwọn ọkùnrin ti n ja ijakadi adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👨🏾‍🫯‍👨🏿	àwọn ọkùnrin ti n ja ijakadi adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+👨🏿‍🫯‍👨🏻	àwọn ọkùnrin ti n ja ijakadi adúláwọ̀ àtiamọ́lára	none
+👨🏿‍🫯‍👨🏼	àwọn ọkùnrin ti n ja ijakadi adúláwọ̀ àtiamọ́lára díẹ̀	none
+👨🏿‍🫯‍👨🏽	àwọn ọkùnrin ti n ja ijakadi adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+👨🏿‍🫯‍👨🏾	àwọn ọkùnrin ti n ja ijakadi adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 👨‍🦰	Ọkùnrin irun pupa	none
-👨🏻‍🦰	Ọkùnrin amọ́lára, irun pupa	none
-👨🏼‍🦰	Ọkùnrin amọ́lára díẹ̀, irun pupa	none
-👨🏽‍🦰	Ọkùnrin amọ́láwọ̀ díẹ̀, irun pupa	none
-👨🏾‍🦰	Ọkùnrin adúláwọ̀ díẹ̀, irun pupa	none
-👨🏿‍🦰	Ọkùnrin adúláwọ̀, irun pupa	none
+👨🏻‍🦰	Ọkùnrin amọ́lára àtiirun pupa	none
+👨🏼‍🦰	Ọkùnrin amọ́lára díẹ̀ àtiirun pupa	none
+👨🏽‍🦰	Ọkùnrin amọ́láwọ̀ díẹ̀ àtiirun pupa	none
+👨🏾‍🦰	Ọkùnrin adúláwọ̀ díẹ̀ àtiirun pupa	none
+👨🏿‍🦰	Ọkùnrin adúláwọ̀ àtiirun pupa	none
 👨‍🦱	Ọkùnrin irun rírọ̀	none
-👨🏻‍🦱	Ọkùnrin amọ́lára, irun rírọ̀	none
-👨🏼‍🦱	Ọkùnrin amọ́lára díẹ̀, irun rírọ̀	none
-👨🏽‍🦱	Ọkùnrin amọ́láwọ̀ díẹ̀, irun rírọ̀	none
-👨🏾‍🦱	Ọkùnrin adúláwọ̀ díẹ̀, irun rírọ̀	none
-👨🏿‍🦱	Ọkùnrin adúláwọ̀, irun rírọ̀	none
+👨🏻‍🦱	Ọkùnrin amọ́lára àtiirun rírọ̀	none
+👨🏼‍🦱	Ọkùnrin amọ́lára díẹ̀ àtiirun rírọ̀	none
+👨🏽‍🦱	Ọkùnrin amọ́láwọ̀ díẹ̀ àtiirun rírọ̀	none
+👨🏾‍🦱	Ọkùnrin adúláwọ̀ díẹ̀ àtiirun rírọ̀	none
+👨🏿‍🦱	Ọkùnrin adúláwọ̀ àtiirun rírọ̀	none
 👨‍🦳	Ọkùnrin irun funfun	none
-👨🏻‍🦳	Ọkùnrin amọ́lára, irun funfun	none
-👨🏼‍🦳	Ọkùnrin amọ́lára díẹ̀, irun funfun	none
-👨🏽‍🦳	Ọkùnrin amọ́láwọ̀ díẹ̀, irun funfun	none
-👨🏾‍🦳	Ọkùnrin adúláwọ̀ díẹ̀, irun funfun	none
-👨🏿‍🦳	Ọkùnrin adúláwọ̀, irun funfun	none
+👨🏻‍🦳	Ọkùnrin amọ́lára àtiirun funfun	none
+👨🏼‍🦳	Ọkùnrin amọ́lára díẹ̀ àtiirun funfun	none
+👨🏽‍🦳	Ọkùnrin amọ́láwọ̀ díẹ̀ àtiirun funfun	none
+👨🏾‍🦳	Ọkùnrin adúláwọ̀ díẹ̀ àtiirun funfun	none
+👨🏿‍🦳	Ọkùnrin adúláwọ̀ àtiirun funfun	none
 👨‍🦲	Ọkùnrin orí pípá	none
-👨🏻‍🦲	Ọkùnrin amọ́lára, orí pípá	none
-👨🏼‍🦲	Ọkùnrin amọ́lára díẹ̀, orí pípá	none
-👨🏽‍🦲	Ọkùnrin amọ́láwọ̀ díẹ̀, orí pípá	none
-👨🏾‍🦲	Ọkùnrin adúláwọ̀ díẹ̀, orí pípá	none
-👨🏿‍🦲	Ọkùnrin adúláwọ̀, orí pípá	none
+👨🏻‍🦲	Ọkùnrin amọ́lára àtiorí pípá	none
+👨🏼‍🦲	Ọkùnrin amọ́lára díẹ̀ àtiorí pípá	none
+👨🏽‍🦲	Ọkùnrin amọ́láwọ̀ díẹ̀ àtiorí pípá	none
+👨🏾‍🦲	Ọkùnrin adúláwọ̀ díẹ̀ àtiorí pípá	none
+👨🏿‍🦲	Ọkùnrin adúláwọ̀ àtiorí pípá	none
+👨🏻‍🐰‍👨🏼	àwọn ọkùnrin elétí ehoro amọ́lára àtiamọ́lára díẹ̀	none
+👨🏻‍🐰‍👨🏽	àwọn ọkùnrin elétí ehoro amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+👨🏻‍🐰‍👨🏾	àwọn ọkùnrin elétí ehoro amọ́lára àtiadúláwọ̀ díẹ̀	none
+👨🏻‍🐰‍👨🏿	àwọn ọkùnrin elétí ehoro amọ́lára àtiadúláwọ̀	none
+👨🏼‍🐰‍👨🏻	àwọn ọkùnrin elétí ehoro amọ́lára díẹ̀ àtiamọ́lára	none
+👨🏼‍🐰‍👨🏽	àwọn ọkùnrin elétí ehoro amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👨🏼‍🐰‍👨🏾	àwọn ọkùnrin elétí ehoro amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👨🏼‍🐰‍👨🏿	àwọn ọkùnrin elétí ehoro amọ́lára díẹ̀ àtiadúláwọ̀	none
+👨🏽‍🐰‍👨🏻	àwọn ọkùnrin elétí ehoro amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+👨🏽‍🐰‍👨🏼	àwọn ọkùnrin elétí ehoro amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👨🏽‍🐰‍👨🏾	àwọn ọkùnrin elétí ehoro amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👨🏽‍🐰‍👨🏿	àwọn ọkùnrin elétí ehoro amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+👨🏾‍🐰‍👨🏻	àwọn ọkùnrin elétí ehoro adúláwọ̀ díẹ̀ àtiamọ́lára	none
+👨🏾‍🐰‍👨🏼	àwọn ọkùnrin elétí ehoro adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👨🏾‍🐰‍👨🏽	àwọn ọkùnrin elétí ehoro adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👨🏾‍🐰‍👨🏿	àwọn ọkùnrin elétí ehoro adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+👨🏿‍🐰‍👨🏻	àwọn ọkùnrin elétí ehoro adúláwọ̀ àtiamọ́lára	none
+👨🏿‍🐰‍👨🏼	àwọn ọkùnrin elétí ehoro adúláwọ̀ àtiamọ́lára díẹ̀	none
+👨🏿‍🐰‍👨🏽	àwọn ọkùnrin elétí ehoro adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+👨🏿‍🐰‍👨🏾	àwọn ọkùnrin elétí ehoro adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 👩🏻	Obìnrin amọ́lára	none
 👩🏼	Obìnrin amọ́lára díẹ̀	none
 👩🏽	Obìnrin amọ́láwọ̀ díẹ̀	none
 👩🏾	Obìnrin adúláwọ̀ díẹ̀	none
 👩🏿	Obìnrin adúláwọ̀	none
-🧔🏻‍♀	obìnrin amọ́lára, irùgbọ̀n	none
-🧔🏼‍♀	obìnrin amọ́lára díẹ̀, irùgbọ̀n	none
-🧔🏽‍♀	obìnrin amọ́láwọ̀ díẹ̀, irùgbọ̀n	none
-🧔🏾‍♀	obìnrin adúláwọ̀ díẹ̀, irùgbọ̀n	none
-🧔🏿‍♀	obìnrin adúláwọ̀, irùgbọ̀n	none
+🧔🏻‍♀	obìnrin amọ́lára àtiirùgbọ̀n	none
+🧔🏼‍♀	obìnrin amọ́lára díẹ̀ àtiirùgbọ̀n	none
+🧔🏽‍♀	obìnrin amọ́láwọ̀ díẹ̀ àtiirùgbọ̀n	none
+🧔🏾‍♀	obìnrin adúláwọ̀ díẹ̀ àtiirùgbọ̀n	none
+🧔🏿‍♀	obìnrin adúláwọ̀ àtiirùgbọ̀n	none
 👱🏻‍♀	obìnrin onírun funfun amọ́lára	none
 👱🏼‍♀	obìnrin onírun funfun amọ́lára díẹ̀	none
 👱🏽‍♀	obìnrin onírun funfun amọ́láwọ̀ díẹ̀	none
@@ -2388,30 +2487,70 @@ symbols:
 👩🏿‍❤‍👩🏽	Lọkọlaya Pẹlu ọkan Obìnrin, Obìnrin, adúláwọ̀, amọ́láwọ̀ díẹ̀	none
 👩🏿‍❤‍👩🏾	Lọkọlaya Pẹlu ọkan Obìnrin, Obìnrin, adúláwọ̀, adúláwọ̀ díẹ̀	none
 👩🏿‍❤‍👩🏿	Lọkọlaya Pẹlu ọkan Obìnrin, Obìnrin, adúláwọ̀	none
+👩🏻‍🫯‍👩🏼	àwọn obìnrn tí ń jà ijakadi amọ́lára àtiamọ́lára díẹ̀	none
+👩🏻‍🫯‍👩🏽	àwọn obìnrn tí ń jà ijakadi amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+👩🏻‍🫯‍👩🏾	àwọn obìnrn tí ń jà ijakadi amọ́lára àtiadúláwọ̀ díẹ̀	none
+👩🏻‍🫯‍👩🏿	àwọn obìnrn tí ń jà ijakadi amọ́lára àtiadúláwọ̀	none
+👩🏼‍🫯‍👩🏻	àwọn obìnrn tí ń jà ijakadi amọ́lára díẹ̀ àtiamọ́lára	none
+👩🏼‍🫯‍👩🏽	àwọn obìnrn tí ń jà ijakadi amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👩🏼‍🫯‍👩🏾	àwọn obìnrn tí ń jà ijakadi amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👩🏼‍🫯‍👩🏿	àwọn obìnrn tí ń jà ijakadi amọ́lára díẹ̀ àtiadúláwọ̀	none
+👩🏽‍🫯‍👩🏻	àwọn obìnrn tí ń jà ijakadi amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+👩🏽‍🫯‍👩🏼	àwọn obìnrn tí ń jà ijakadi amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👩🏽‍🫯‍👩🏾	àwọn obìnrn tí ń jà ijakadi amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👩🏽‍🫯‍👩🏿	àwọn obìnrn tí ń jà ijakadi amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+👩🏾‍🫯‍👩🏻	àwọn obìnrn tí ń jà ijakadi adúláwọ̀ díẹ̀ àtiamọ́lára	none
+👩🏾‍🫯‍👩🏼	àwọn obìnrn tí ń jà ijakadi adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👩🏾‍🫯‍👩🏽	àwọn obìnrn tí ń jà ijakadi adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👩🏾‍🫯‍👩🏿	àwọn obìnrn tí ń jà ijakadi adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+👩🏿‍🫯‍👩🏻	àwọn obìnrn tí ń jà ijakadi adúláwọ̀ àtiamọ́lára	none
+👩🏿‍🫯‍👩🏼	àwọn obìnrn tí ń jà ijakadi adúláwọ̀ àtiamọ́lára díẹ̀	none
+👩🏿‍🫯‍👩🏽	àwọn obìnrn tí ń jà ijakadi adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+👩🏿‍🫯‍👩🏾	àwọn obìnrn tí ń jà ijakadi adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 👩‍🦰	Obìnrin irun pupa	none
-👩🏻‍🦰	Obìnrin amọ́lára, irun pupa	none
-👩🏼‍🦰	Obìnrin amọ́lára díẹ̀, irun pupa	none
-👩🏽‍🦰	Obìnrin amọ́láwọ̀ díẹ̀, irun pupa	none
-👩🏾‍🦰	Obìnrin adúláwọ̀ díẹ̀, irun pupa	none
-👩🏿‍🦰	Obìnrin adúláwọ̀, irun pupa	none
+👩🏻‍🦰	Obìnrin amọ́lára àtiirun pupa	none
+👩🏼‍🦰	Obìnrin amọ́lára díẹ̀ àtiirun pupa	none
+👩🏽‍🦰	Obìnrin amọ́láwọ̀ díẹ̀ àtiirun pupa	none
+👩🏾‍🦰	Obìnrin adúláwọ̀ díẹ̀ àtiirun pupa	none
+👩🏿‍🦰	Obìnrin adúláwọ̀ àtiirun pupa	none
 👩‍🦱	Obìnrin irun rírọ̀	none
-👩🏻‍🦱	Obìnrin amọ́lára, irun rírọ̀	none
-👩🏼‍🦱	Obìnrin amọ́lára díẹ̀, irun rírọ̀	none
-👩🏽‍🦱	Obìnrin amọ́láwọ̀ díẹ̀, irun rírọ̀	none
-👩🏾‍🦱	Obìnrin adúláwọ̀ díẹ̀, irun rírọ̀	none
-👩🏿‍🦱	Obìnrin adúláwọ̀, irun rírọ̀	none
+👩🏻‍🦱	Obìnrin amọ́lára àtiirun rírọ̀	none
+👩🏼‍🦱	Obìnrin amọ́lára díẹ̀ àtiirun rírọ̀	none
+👩🏽‍🦱	Obìnrin amọ́láwọ̀ díẹ̀ àtiirun rírọ̀	none
+👩🏾‍🦱	Obìnrin adúláwọ̀ díẹ̀ àtiirun rírọ̀	none
+👩🏿‍🦱	Obìnrin adúláwọ̀ àtiirun rírọ̀	none
 👩‍🦳	Obìnrin irun funfun	none
-👩🏻‍🦳	Obìnrin amọ́lára, irun funfun	none
-👩🏼‍🦳	Obìnrin amọ́lára díẹ̀, irun funfun	none
-👩🏽‍🦳	Obìnrin amọ́láwọ̀ díẹ̀, irun funfun	none
-👩🏾‍🦳	Obìnrin adúláwọ̀ díẹ̀, irun funfun	none
-👩🏿‍🦳	Obìnrin adúláwọ̀, irun funfun	none
+👩🏻‍🦳	Obìnrin amọ́lára àtiirun funfun	none
+👩🏼‍🦳	Obìnrin amọ́lára díẹ̀ àtiirun funfun	none
+👩🏽‍🦳	Obìnrin amọ́láwọ̀ díẹ̀ àtiirun funfun	none
+👩🏾‍🦳	Obìnrin adúláwọ̀ díẹ̀ àtiirun funfun	none
+👩🏿‍🦳	Obìnrin adúláwọ̀ àtiirun funfun	none
 👩‍🦲	Obìnrin orí pípá	none
-👩🏻‍🦲	Obìnrin amọ́lára, orí pípá	none
-👩🏼‍🦲	Obìnrin amọ́lára díẹ̀, orí pípá	none
-👩🏽‍🦲	Obìnrin amọ́láwọ̀ díẹ̀, orí pípá	none
-👩🏾‍🦲	Obìnrin adúláwọ̀ díẹ̀, orí pípá	none
-👩🏿‍🦲	Obìnrin adúláwọ̀, orí pípá	none
+👩🏻‍🦲	Obìnrin amọ́lára àtiorí pípá	none
+👩🏼‍🦲	Obìnrin amọ́lára díẹ̀ àtiorí pípá	none
+👩🏽‍🦲	Obìnrin amọ́láwọ̀ díẹ̀ àtiorí pípá	none
+👩🏾‍🦲	Obìnrin adúláwọ̀ díẹ̀ àtiorí pípá	none
+👩🏿‍🦲	Obìnrin adúláwọ̀ àtiorí pípá	none
+👩🏻‍🐰‍👩🏼	awọn obìnrin eleti ehoro amọ́lára àtiamọ́lára díẹ̀	none
+👩🏻‍🐰‍👩🏽	awọn obìnrin eleti ehoro amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+👩🏻‍🐰‍👩🏾	awọn obìnrin eleti ehoro amọ́lára àtiadúláwọ̀ díẹ̀	none
+👩🏻‍🐰‍👩🏿	awọn obìnrin eleti ehoro amọ́lára àtiadúláwọ̀	none
+👩🏼‍🐰‍👩🏻	awọn obìnrin eleti ehoro amọ́lára díẹ̀ àtiamọ́lára	none
+👩🏼‍🐰‍👩🏽	awọn obìnrin eleti ehoro amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👩🏼‍🐰‍👩🏾	awọn obìnrin eleti ehoro amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👩🏼‍🐰‍👩🏿	awọn obìnrin eleti ehoro amọ́lára díẹ̀ àtiadúláwọ̀	none
+👩🏽‍🐰‍👩🏻	awọn obìnrin eleti ehoro amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+👩🏽‍🐰‍👩🏼	awọn obìnrin eleti ehoro amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👩🏽‍🐰‍👩🏾	awọn obìnrin eleti ehoro amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👩🏽‍🐰‍👩🏿	awọn obìnrin eleti ehoro amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+👩🏾‍🐰‍👩🏻	awọn obìnrin eleti ehoro adúláwọ̀ díẹ̀ àtiamọ́lára	none
+👩🏾‍🐰‍👩🏼	awọn obìnrin eleti ehoro adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👩🏾‍🐰‍👩🏽	awọn obìnrin eleti ehoro adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👩🏾‍🐰‍👩🏿	awọn obìnrin eleti ehoro adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+👩🏿‍🐰‍👩🏻	awọn obìnrin eleti ehoro adúláwọ̀ àtiamọ́lára	none
+👩🏿‍🐰‍👩🏼	awọn obìnrin eleti ehoro adúláwọ̀ àtiamọ́lára díẹ̀	none
+👩🏿‍🐰‍👩🏽	awọn obìnrin eleti ehoro adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+👩🏿‍🐰‍👩🏾	awọn obìnrin eleti ehoro adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 🧓🏻	àgbàlagbà amọ́lára	none
 🧓🏼	àgbàlagbà amọ́lára díẹ̀	none
 🧓🏽	àgbàlagbà amọ́láwọ̀ díẹ̀	none
@@ -2792,11 +2931,11 @@ symbols:
 🧑🏽‍🚀	arìnrìn-àjò lọ sí ayé mìíràn amọ́láwọ̀ díẹ̀	none
 🧑🏾‍🚀	arìnrìn-àjò lọ sí ayé mìíràn adúláwọ̀ díẹ̀	none
 🧑🏿‍🚀	arìnrìn-àjò lọ sí ayé mìíràn adúláwọ̀	none
-👨🏻‍🚀	ọkùnrin olùwádìí inú òṣùpá ọkùnrin amọ́lára	none
-👨🏼‍🚀	ọkùnrin olùwádìí inú òṣùpá ọkùnrin amọ́lára díẹ̀	none
-👨🏽‍🚀	ọkùnrin olùwádìí inú òṣùpá ọkùnrin amọ́láwọ̀ díẹ̀	none
-👨🏾‍🚀	ọkùnrin olùwádìí inú òṣùpá ọkùnrin adúláwọ̀ díẹ̀	none
-👨🏿‍🚀	ọkùnrin olùwádìí inú òṣùpá ọkùnrin adúláwọ̀	none
+👨🏻‍🚀	ọkùnrin olùwádìí inú òṣùpá amọ́lára	none
+👨🏼‍🚀	ọkùnrin olùwádìí inú òṣùpá amọ́lára díẹ̀	none
+👨🏽‍🚀	ọkùnrin olùwádìí inú òṣùpá amọ́láwọ̀ díẹ̀	none
+👨🏾‍🚀	ọkùnrin olùwádìí inú òṣùpá adúláwọ̀ díẹ̀	none
+👨🏿‍🚀	ọkùnrin olùwádìí inú òṣùpá adúláwọ̀	none
 👩🏻‍🚀	obìrinolùwádìí inú òṣùpá amọ́lára	none
 👩🏼‍🚀	obìrinolùwádìí inú òṣùpá amọ́lára díẹ̀	none
 👩🏽‍🚀	obìrinolùwádìí inú òṣùpá amọ́láwọ̀ díẹ̀	none
@@ -3112,21 +3251,21 @@ symbols:
 🧝🏽‍♀	egbére obìnrin amọ́láwọ̀ díẹ̀	none
 🧝🏾‍♀	egbére obìnrin adúláwọ̀ díẹ̀	none
 🧝🏿‍♀	egbére obìnrin adúláwọ̀	none
-💆🏻	ẹni N gba Iṣẹ amọ́lára	none
-💆🏼	ẹni N gba Iṣẹ amọ́lára díẹ̀	none
-💆🏽	ẹni N gba Iṣẹ amọ́láwọ̀ díẹ̀	none
-💆🏾	ẹni N gba Iṣẹ adúláwọ̀ díẹ̀	none
-💆🏿	ẹni N gba Iṣẹ adúláwọ̀	none
-💆🏻‍♂	ọkùnrin tí ń gba ìfiránṣẹ́ amọ́lára	none
-💆🏼‍♂	ọkùnrin tí ń gba ìfiránṣẹ́ amọ́lára díẹ̀	none
-💆🏽‍♂	ọkùnrin tí ń gba ìfiránṣẹ́ amọ́láwọ̀ díẹ̀	none
-💆🏾‍♂	ọkùnrin tí ń gba ìfiránṣẹ́ adúláwọ̀ díẹ̀	none
-💆🏿‍♂	ọkùnrin tí ń gba ìfiránṣẹ́ adúláwọ̀	none
-💆🏻‍♀	obìnrin tí ń gba ìfiránṣẹ́ amọ́lára	none
-💆🏼‍♀	obìnrin tí ń gba ìfiránṣẹ́ amọ́lára díẹ̀	none
-💆🏽‍♀	obìnrin tí ń gba ìfiránṣẹ́ amọ́láwọ̀ díẹ̀	none
-💆🏾‍♀	obìnrin tí ń gba ìfiránṣẹ́ adúláwọ̀ díẹ̀	none
-💆🏿‍♀	obìnrin tí ń gba ìfiránṣẹ́ adúláwọ̀	none
+💆🏻	ẹni N gba Ifọwọwọnilara amọ́lára	none
+💆🏼	ẹni N gba Ifọwọwọnilara amọ́lára díẹ̀	none
+💆🏽	ẹni N gba Ifọwọwọnilara amọ́láwọ̀ díẹ̀	none
+💆🏾	ẹni N gba Ifọwọwọnilara adúláwọ̀ díẹ̀	none
+💆🏿	ẹni N gba Ifọwọwọnilara adúláwọ̀	none
+💆🏻‍♂	ọkùnrin tí ń gba ifọwọwọnilara amọ́lára	none
+💆🏼‍♂	ọkùnrin tí ń gba ifọwọwọnilara amọ́lára díẹ̀	none
+💆🏽‍♂	ọkùnrin tí ń gba ifọwọwọnilara amọ́láwọ̀ díẹ̀	none
+💆🏾‍♂	ọkùnrin tí ń gba ifọwọwọnilara adúláwọ̀ díẹ̀	none
+💆🏿‍♂	ọkùnrin tí ń gba ifọwọwọnilara adúláwọ̀	none
+💆🏻‍♀	obìnrin tí ń gba ifọwọwọnilara amọ́lára	none
+💆🏼‍♀	obìnrin tí ń gba ifọwọwọnilara amọ́lára díẹ̀	none
+💆🏽‍♀	obìnrin tí ń gba ifọwọwọnilara amọ́láwọ̀ díẹ̀	none
+💆🏾‍♀	obìnrin tí ń gba ifọwọwọnilara adúláwọ̀ díẹ̀	none
+💆🏿‍♀	obìnrin tí ń gba ifọwọwọnilara adúláwọ̀	none
 💇🏻	Ẹni N Gẹrun amọ́lára	none
 💇🏼	Ẹni N Gẹrun amọ́lára díẹ̀	none
 💇🏽	Ẹni N Gẹrun amọ́láwọ̀ díẹ̀	none
@@ -3158,23 +3297,23 @@ symbols:
 🚶🏾‍♀	obìnrin tí ń rìn adúláwọ̀ díẹ̀	none
 🚶🏿‍♀	obìnrin tí ń rìn adúláwọ̀	none
 🚶‍➡	Ẹni N Rin ìdojúkọ ọ̀tún	none
-🚶🏻‍➡	Ẹni N Rin ìdojúkọ ọ̀tún	none
-🚶🏼‍➡	Ẹni N Rin ìdojúkọ ọ̀tún	none
-🚶🏽‍➡	Ẹni N Rin ìdojúkọ ọ̀tún	none
-🚶🏾‍➡	Ẹni N Rin ìdojúkọ ọ̀tún	none
-🚶🏿‍➡	Ẹni N Rin ìdojúkọ ọ̀tún	none
+🚶🏻‍➡	Ẹni N Rin amọ́lára àtiìdojúkọ ọ̀tún	none
+🚶🏼‍➡	Ẹni N Rin amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🚶🏽‍➡	Ẹni N Rin amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🚶🏾‍➡	Ẹni N Rin adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🚶🏿‍➡	Ẹni N Rin adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🚶‍♀‍➡	obìnrin tí ń rìn ìdojúkọ ọ̀tún	none
-🚶🏻‍♀‍➡	obìnrin tí ń rìn ìdojúkọ ọ̀tún	none
-🚶🏼‍♀‍➡	obìnrin tí ń rìn ìdojúkọ ọ̀tún	none
-🚶🏽‍♀‍➡	obìnrin tí ń rìn ìdojúkọ ọ̀tún	none
-🚶🏾‍♀‍➡	obìnrin tí ń rìn ìdojúkọ ọ̀tún	none
-🚶🏿‍♀‍➡	obìnrin tí ń rìn ìdojúkọ ọ̀tún	none
+🚶🏻‍♀‍➡	obìnrin tí ń rìn amọ́lára àtiìdojúkọ ọ̀tún	none
+🚶🏼‍♀‍➡	obìnrin tí ń rìn amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🚶🏽‍♀‍➡	obìnrin tí ń rìn amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🚶🏾‍♀‍➡	obìnrin tí ń rìn adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🚶🏿‍♀‍➡	obìnrin tí ń rìn adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🚶‍♂‍➡	ọkùnrin tí ń rìn ìdojúkọ ọ̀tún	none
-🚶🏻‍♂‍➡	ọkùnrin tí ń rìn ìdojúkọ ọ̀tún	none
-🚶🏼‍♂‍➡	ọkùnrin tí ń rìn ìdojúkọ ọ̀tún	none
-🚶🏽‍♂‍➡	ọkùnrin tí ń rìn ìdojúkọ ọ̀tún	none
-🚶🏾‍♂‍➡	ọkùnrin tí ń rìn ìdojúkọ ọ̀tún	none
-🚶🏿‍♂‍➡	ọkùnrin tí ń rìn ìdojúkọ ọ̀tún	none
+🚶🏻‍♂‍➡	ọkùnrin tí ń rìn amọ́lára àtiìdojúkọ ọ̀tún	none
+🚶🏼‍♂‍➡	ọkùnrin tí ń rìn amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🚶🏽‍♂‍➡	ọkùnrin tí ń rìn amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🚶🏾‍♂‍➡	ọkùnrin tí ń rìn adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🚶🏿‍♂‍➡	ọkùnrin tí ń rìn adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🧍🏻	ènìyàn dídúró amọ́lára	none
 🧍🏼	ènìyàn dídúró amọ́lára díẹ̀	none
 🧍🏽	ènìyàn dídúró amọ́láwọ̀ díẹ̀	none
@@ -3206,122 +3345,122 @@ symbols:
 🧎🏾‍♀	obìnrin tó kúnlẹ̀ adúláwọ̀ díẹ̀	none
 🧎🏿‍♀	obìnrin tó kúnlẹ̀ adúláwọ̀	none
 🧎‍➡	ènìyàn kíkúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏻‍➡	ènìyàn kíkúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏼‍➡	ènìyàn kíkúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏽‍➡	ènìyàn kíkúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏾‍➡	ènìyàn kíkúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏿‍➡	ènìyàn kíkúnlẹ̀ ìdojúkọ ọ̀tún	none
+🧎🏻‍➡	ènìyàn kíkúnlẹ̀ amọ́lára àtiìdojúkọ ọ̀tún	none
+🧎🏼‍➡	ènìyàn kíkúnlẹ̀ amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧎🏽‍➡	ènìyàn kíkúnlẹ̀ amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧎🏾‍➡	ènìyàn kíkúnlẹ̀ adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧎🏿‍➡	ènìyàn kíkúnlẹ̀ adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🧎‍♀‍➡	obìnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏻‍♀‍➡	obìnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏼‍♀‍➡	obìnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏽‍♀‍➡	obìnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏾‍♀‍➡	obìnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏿‍♀‍➡	obìnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
+🧎🏻‍♀‍➡	obìnrin tó kúnlẹ̀ amọ́lára àtiìdojúkọ ọ̀tún	none
+🧎🏼‍♀‍➡	obìnrin tó kúnlẹ̀ amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧎🏽‍♀‍➡	obìnrin tó kúnlẹ̀ amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧎🏾‍♀‍➡	obìnrin tó kúnlẹ̀ adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧎🏿‍♀‍➡	obìnrin tó kúnlẹ̀ adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🧎‍♂‍➡	ọkùnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏻‍♂‍➡	ọkùnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏼‍♂‍➡	ọkùnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏽‍♂‍➡	ọkùnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏾‍♂‍➡	ọkùnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
-🧎🏿‍♂‍➡	ọkùnrin tó kúnlẹ̀ ìdojúkọ ọ̀tún	none
+🧎🏻‍♂‍➡	ọkùnrin tó kúnlẹ̀ amọ́lára àtiìdojúkọ ọ̀tún	none
+🧎🏼‍♂‍➡	ọkùnrin tó kúnlẹ̀ amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧎🏽‍♂‍➡	ọkùnrin tó kúnlẹ̀ amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧎🏾‍♂‍➡	ọkùnrin tó kúnlẹ̀ adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧎🏿‍♂‍➡	ọkùnrin tó kúnlẹ̀ adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🧑🏻‍🦯	ènìyàn pẹ̀lú ọ̀pá funfun amọ́lára	none
 🧑🏼‍🦯	ènìyàn pẹ̀lú ọ̀pá funfun amọ́lára díẹ̀	none
 🧑🏽‍🦯	ènìyàn pẹ̀lú ọ̀pá funfun amọ́láwọ̀ díẹ̀	none
 🧑🏾‍🦯	ènìyàn pẹ̀lú ọ̀pá funfun adúláwọ̀ díẹ̀	none
 🧑🏿‍🦯	ènìyàn pẹ̀lú ọ̀pá funfun adúláwọ̀	none
 🧑‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-🧑🏻‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-🧑🏼‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-🧑🏽‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-🧑🏾‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-🧑🏿‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
+🧑🏻‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun amọ́lára àtiìdojúkọ ọ̀tún	none
+🧑🏼‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧑🏽‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧑🏾‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧑🏿‍🦯‍➡	ènìyàn pẹ̀lú ọ̀pá funfun adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 👨🏻‍🦯	ọkùnrin pẹ̀lú ọ̀pá funfun amọ́lára	none
 👨🏼‍🦯	ọkùnrin pẹ̀lú ọ̀pá funfun amọ́lára díẹ̀	none
 👨🏽‍🦯	ọkùnrin pẹ̀lú ọ̀pá funfun amọ́láwọ̀ díẹ̀	none
 👨🏾‍🦯	ọkùnrin pẹ̀lú ọ̀pá funfun adúláwọ̀ díẹ̀	none
 👨🏿‍🦯	ọkùnrin pẹ̀lú ọ̀pá funfun adúláwọ̀	none
 👨‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-👨🏻‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-👨🏼‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-👨🏽‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-👨🏾‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-👨🏿‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
+👨🏻‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun amọ́lára àtiìdojúkọ ọ̀tún	none
+👨🏼‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+👨🏽‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👨🏾‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👨🏿‍🦯‍➡	ọkùnrin pẹ̀lú ọ̀pá funfun adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 👩🏻‍🦯	obìnrin pẹ̀lú ọ̀pá funfun amọ́lára	none
 👩🏼‍🦯	obìnrin pẹ̀lú ọ̀pá funfun amọ́lára díẹ̀	none
 👩🏽‍🦯	obìnrin pẹ̀lú ọ̀pá funfun amọ́láwọ̀ díẹ̀	none
 👩🏾‍🦯	obìnrin pẹ̀lú ọ̀pá funfun adúláwọ̀ díẹ̀	none
 👩🏿‍🦯	obìnrin pẹ̀lú ọ̀pá funfun adúláwọ̀	none
 👩‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-👩🏻‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-👩🏼‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-👩🏽‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-👩🏾‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
-👩🏿‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun ìdojúkọ ọ̀tún	none
+👩🏻‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun amọ́lára àtiìdojúkọ ọ̀tún	none
+👩🏼‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+👩🏽‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👩🏾‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👩🏿‍🦯‍➡	obìnrin pẹ̀lú ọ̀pá funfun adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🧑🏻‍🦼	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára	none
 🧑🏼‍🦼	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára díẹ̀	none
 🧑🏽‍🦼	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́láwọ̀ díẹ̀	none
 🧑🏾‍🦼	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀ díẹ̀	none
 🧑🏿‍🦼	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀	none
 🧑‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-🧑🏻‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-🧑🏼‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-🧑🏽‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-🧑🏾‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-🧑🏿‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
+🧑🏻‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára àtiìdojúkọ ọ̀tún	none
+🧑🏼‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧑🏽‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧑🏾‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧑🏿‍🦼‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 👨🏻‍🦼	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára	none
 👨🏼‍🦼	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára díẹ̀	none
 👨🏽‍🦼	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́láwọ̀ díẹ̀	none
 👨🏾‍🦼	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀ díẹ̀	none
 👨🏿‍🦼	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀	none
 👨‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-👨🏻‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-👨🏼‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-👨🏽‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-👨🏾‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-👨🏿‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
+👨🏻‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára àtiìdojúkọ ọ̀tún	none
+👨🏼‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+👨🏽‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👨🏾‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👨🏿‍🦼‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 👩🏻‍🦼	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára	none
 👩🏼‍🦼	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára díẹ̀	none
 👩🏽‍🦼	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́láwọ̀ díẹ̀	none
 👩🏾‍🦼	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀ díẹ̀	none
 👩🏿‍🦼	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀	none
 👩‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-👩🏻‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-👩🏼‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-👩🏽‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-👩🏾‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
-👩🏿‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò ìdojúkọ ọ̀tún	none
+👩🏻‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára àtiìdojúkọ ọ̀tún	none
+👩🏼‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+👩🏽‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👩🏾‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👩🏿‍🦼‍➡	obìnrin nínú kẹ̀kẹ́-abirùn ẹlẹ́rọ-mọ́tò adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🧑🏻‍🦽	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára	none
 🧑🏼‍🦽	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára díẹ̀	none
 🧑🏽‍🦽	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́láwọ̀ díẹ̀	none
 🧑🏾‍🦽	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀ díẹ̀	none
 🧑🏿‍🦽	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀	none
 🧑‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-🧑🏻‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-🧑🏼‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-🧑🏽‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-🧑🏾‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-🧑🏿‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
+🧑🏻‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára àtiìdojúkọ ọ̀tún	none
+🧑🏼‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧑🏽‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧑🏾‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🧑🏿‍🦽‍➡	ènìyàn nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 👨🏻‍🦽	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára	none
 👨🏼‍🦽	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára díẹ̀	none
 👨🏽‍🦽	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́láwọ̀ díẹ̀	none
 👨🏾‍🦽	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀ díẹ̀	none
 👨🏿‍🦽	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀	none
 👨‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-👨🏻‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-👨🏼‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-👨🏽‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-👨🏾‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-👨🏿‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
+👨🏻‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára àtiìdojúkọ ọ̀tún	none
+👨🏼‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+👨🏽‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👨🏾‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👨🏿‍🦽‍➡	ọkùnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 👩🏻‍🦽	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára	none
 👩🏼‍🦽	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára díẹ̀	none
 👩🏽‍🦽	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́láwọ̀ díẹ̀	none
 👩🏾‍🦽	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀ díẹ̀	none
 👩🏿‍🦽	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀	none
 👩‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-👩🏻‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-👩🏼‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-👩🏽‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-👩🏾‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
-👩🏿‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí ìdojúkọ ọ̀tún	none
+👩🏻‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára àtiìdojúkọ ọ̀tún	none
+👩🏼‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+👩🏽‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👩🏾‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+👩🏿‍🦽‍➡	obìnrin nínú kẹ̀kẹ́-abirùn aláfọwọ́yí adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🏃🏻	Ẹni N Sare amọ́lára	none
 🏃🏼	Ẹni N Sare amọ́lára díẹ̀	none
 🏃🏽	Ẹni N Sare amọ́láwọ̀ díẹ̀	none
@@ -3338,23 +3477,28 @@ symbols:
 🏃🏾‍♀	obìrin tí ń sáré adúláwọ̀ díẹ̀	none
 🏃🏿‍♀	obìrin tí ń sáré adúláwọ̀	none
 🏃‍➡	Ẹni N Sare ìdojúkọ ọ̀tún	none
-🏃🏻‍➡	Ẹni N Sare ìdojúkọ ọ̀tún	none
-🏃🏼‍➡	Ẹni N Sare ìdojúkọ ọ̀tún	none
-🏃🏽‍➡	Ẹni N Sare ìdojúkọ ọ̀tún	none
-🏃🏾‍➡	Ẹni N Sare ìdojúkọ ọ̀tún	none
-🏃🏿‍➡	Ẹni N Sare ìdojúkọ ọ̀tún	none
+🏃🏻‍➡	Ẹni N Sare amọ́lára àtiìdojúkọ ọ̀tún	none
+🏃🏼‍➡	Ẹni N Sare amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🏃🏽‍➡	Ẹni N Sare amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🏃🏾‍➡	Ẹni N Sare adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🏃🏿‍➡	Ẹni N Sare adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🏃‍♀‍➡	obìrin tí ń sáré ìdojúkọ ọ̀tún	none
-🏃🏻‍♀‍➡	obìrin tí ń sáré ìdojúkọ ọ̀tún	none
-🏃🏼‍♀‍➡	obìrin tí ń sáré ìdojúkọ ọ̀tún	none
-🏃🏽‍♀‍➡	obìrin tí ń sáré ìdojúkọ ọ̀tún	none
-🏃🏾‍♀‍➡	obìrin tí ń sáré ìdojúkọ ọ̀tún	none
-🏃🏿‍♀‍➡	obìrin tí ń sáré ìdojúkọ ọ̀tún	none
+🏃🏻‍♀‍➡	obìrin tí ń sáré amọ́lára àtiìdojúkọ ọ̀tún	none
+🏃🏼‍♀‍➡	obìrin tí ń sáré amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🏃🏽‍♀‍➡	obìrin tí ń sáré amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🏃🏾‍♀‍➡	obìrin tí ń sáré adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🏃🏿‍♀‍➡	obìrin tí ń sáré adúláwọ̀ àtiìdojúkọ ọ̀tún	none
 🏃‍♂‍➡	ọkùnrin tí ń sáré ìdojúkọ ọ̀tún	none
-🏃🏻‍♂‍➡	ọkùnrin tí ń sáré ìdojúkọ ọ̀tún	none
-🏃🏼‍♂‍➡	ọkùnrin tí ń sáré ìdojúkọ ọ̀tún	none
-🏃🏽‍♂‍➡	ọkùnrin tí ń sáré ìdojúkọ ọ̀tún	none
-🏃🏾‍♂‍➡	ọkùnrin tí ń sáré ìdojúkọ ọ̀tún	none
-🏃🏿‍♂‍➡	ọkùnrin tí ń sáré ìdojúkọ ọ̀tún	none
+🏃🏻‍♂‍➡	ọkùnrin tí ń sáré amọ́lára àtiìdojúkọ ọ̀tún	none
+🏃🏼‍♂‍➡	ọkùnrin tí ń sáré amọ́lára díẹ̀ àtiìdojúkọ ọ̀tún	none
+🏃🏽‍♂‍➡	ọkùnrin tí ń sáré amọ́láwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🏃🏾‍♂‍➡	ọkùnrin tí ń sáré adúláwọ̀ díẹ̀ àtiìdojúkọ ọ̀tún	none
+🏃🏿‍♂‍➡	ọkùnrin tí ń sáré adúláwọ̀ àtiìdojúkọ ọ̀tún	none
+🧑🏻‍🩰	oníjó alájòóyípo amọ́lára	none
+🧑🏼‍🩰	oníjó alájòóyípo amọ́lára díẹ̀	none
+🧑🏽‍🩰	oníjó alájòóyípo amọ́láwọ̀ díẹ̀	none
+🧑🏾‍🩰	oníjó alájòóyípo adúláwọ̀ díẹ̀	none
+🧑🏿‍🩰	oníjó alájòóyípo adúláwọ̀	none
 💃🏻	Obinrin Ti Njo amọ́lára	none
 💃🏼	Obinrin Ti Njo amọ́lára díẹ̀	none
 💃🏽	Obinrin Ti Njo amọ́láwọ̀ díẹ̀	none
@@ -3370,6 +3514,21 @@ symbols:
 🕴🏽	ọkùnrin nínu kóòtú òwò amọ́láwọ̀ díẹ̀	none
 🕴🏾	ọkùnrin nínu kóòtú òwò adúláwọ̀ díẹ̀	none
 🕴🏿	ọkùnrin nínu kóòtú òwò adúláwọ̀	none
+👯🏻	awọn eniyan eleti ehoro amọ́lára	none
+👯🏼	awọn eniyan eleti ehoro amọ́lára díẹ̀	none
+👯🏽	awọn eniyan eleti ehoro amọ́láwọ̀ díẹ̀	none
+👯🏾	awọn eniyan eleti ehoro adúláwọ̀ díẹ̀	none
+👯🏿	awọn eniyan eleti ehoro adúláwọ̀	none
+👯🏻‍♂	àwọn ọkùnrin elétí ehoro amọ́lára	none
+👯🏼‍♂	àwọn ọkùnrin elétí ehoro amọ́lára díẹ̀	none
+👯🏽‍♂	àwọn ọkùnrin elétí ehoro amọ́láwọ̀ díẹ̀	none
+👯🏾‍♂	àwọn ọkùnrin elétí ehoro adúláwọ̀ díẹ̀	none
+👯🏿‍♂	àwọn ọkùnrin elétí ehoro adúláwọ̀	none
+👯🏻‍♀	awọn obìnrin eleti ehoro amọ́lára	none
+👯🏼‍♀	awọn obìnrin eleti ehoro amọ́lára díẹ̀	none
+👯🏽‍♀	awọn obìnrin eleti ehoro amọ́láwọ̀ díẹ̀	none
+👯🏾‍♀	awọn obìnrin eleti ehoro adúláwọ̀ díẹ̀	none
+👯🏿‍♀	awọn obìnrin eleti ehoro adúláwọ̀	none
 🧖🏻	Ènìyàn nínú Ìyàrá tó n gbóná amọ́lára	none
 🧖🏼	Ènìyàn nínú Ìyàrá tó n gbóná amọ́lára díẹ̀	none
 🧖🏽	Ènìyàn nínú Ìyàrá tó n gbóná amọ́láwọ̀ díẹ̀	none
@@ -3445,16 +3604,16 @@ symbols:
 🚣🏽	Ẹni N wa Ọkọ amọ́láwọ̀ díẹ̀	none
 🚣🏾	Ẹni N wa Ọkọ adúláwọ̀ díẹ̀	none
 🚣🏿	Ẹni N wa Ọkọ adúláwọ̀	none
-🚣🏻‍♂	ọkùnrin tí ń wakọ̀ ojú omo kékeré amọ́lára	none
-🚣🏼‍♂	ọkùnrin tí ń wakọ̀ ojú omo kékeré amọ́lára díẹ̀	none
-🚣🏽‍♂	ọkùnrin tí ń wakọ̀ ojú omo kékeré amọ́láwọ̀ díẹ̀	none
-🚣🏾‍♂	ọkùnrin tí ń wakọ̀ ojú omo kékeré adúláwọ̀ díẹ̀	none
-🚣🏿‍♂	ọkùnrin tí ń wakọ̀ ojú omo kékeré adúláwọ̀	none
-🚣🏻‍♀	obìnrin tí ń wakọ̀ ojú omo kékeré amọ́lára	none
-🚣🏼‍♀	obìnrin tí ń wakọ̀ ojú omo kékeré amọ́lára díẹ̀	none
-🚣🏽‍♀	obìnrin tí ń wakọ̀ ojú omo kékeré amọ́láwọ̀ díẹ̀	none
-🚣🏾‍♀	obìnrin tí ń wakọ̀ ojú omo kékeré adúláwọ̀ díẹ̀	none
-🚣🏿‍♀	obìnrin tí ń wakọ̀ ojú omo kékeré adúláwọ̀	none
+🚣🏻‍♂	ọkùnrin tí ń wakọ̀ ojú omi kékeré amọ́lára	none
+🚣🏼‍♂	ọkùnrin tí ń wakọ̀ ojú omi kékeré amọ́lára díẹ̀	none
+🚣🏽‍♂	ọkùnrin tí ń wakọ̀ ojú omi kékeré amọ́láwọ̀ díẹ̀	none
+🚣🏾‍♂	ọkùnrin tí ń wakọ̀ ojú omi kékeré adúláwọ̀ díẹ̀	none
+🚣🏿‍♂	ọkùnrin tí ń wakọ̀ ojú omi kékeré adúláwọ̀	none
+🚣🏻‍♀	obìnrin tí ń wakọ̀ ojú omi kékeré amọ́lára	none
+🚣🏼‍♀	obìnrin tí ń wakọ̀ ojú omi kékeré amọ́lára díẹ̀	none
+🚣🏽‍♀	obìnrin tí ń wakọ̀ ojú omi kékeré amọ́láwọ̀ díẹ̀	none
+🚣🏾‍♀	obìnrin tí ń wakọ̀ ojú omi kékeré adúláwọ̀ díẹ̀	none
+🚣🏿‍♀	obìnrin tí ń wakọ̀ ojú omi kékeré adúláwọ̀	none
 🏊🏻	Ẹni tí ń wẹdò amọ́lára	none
 🏊🏼	Ẹni tí ń wẹdò amọ́lára díẹ̀	none
 🏊🏽	Ẹni tí ń wẹdò amọ́láwọ̀ díẹ̀	none
@@ -3545,6 +3704,21 @@ symbols:
 🤸🏽‍♀	obìnrin tí ń yí kẹ̀kẹ́ alágbọ̀n amọ́láwọ̀ díẹ̀	none
 🤸🏾‍♀	obìnrin tí ń yí kẹ̀kẹ́ alágbọ̀n adúláwọ̀ díẹ̀	none
 🤸🏿‍♀	obìnrin tí ń yí kẹ̀kẹ́ alágbọ̀n adúláwọ̀	none
+🤼🏻	Awọn Onigidigbo amọ́lára	none
+🤼🏼	Awọn Onigidigbo amọ́lára díẹ̀	none
+🤼🏽	Awọn Onigidigbo amọ́láwọ̀ díẹ̀	none
+🤼🏾	Awọn Onigidigbo adúláwọ̀ díẹ̀	none
+🤼🏿	Awọn Onigidigbo adúláwọ̀	none
+🤼🏻‍♂	àwọn ọkùnrin ti n ja ijakadi amọ́lára	none
+🤼🏼‍♂	àwọn ọkùnrin ti n ja ijakadi amọ́lára díẹ̀	none
+🤼🏽‍♂	àwọn ọkùnrin ti n ja ijakadi amọ́láwọ̀ díẹ̀	none
+🤼🏾‍♂	àwọn ọkùnrin ti n ja ijakadi adúláwọ̀ díẹ̀	none
+🤼🏿‍♂	àwọn ọkùnrin ti n ja ijakadi adúláwọ̀	none
+🤼🏻‍♀	àwọn obìnrn tí ń jà ijakadi amọ́lára	none
+🤼🏼‍♀	àwọn obìnrn tí ń jà ijakadi amọ́lára díẹ̀	none
+🤼🏽‍♀	àwọn obìnrn tí ń jà ijakadi amọ́láwọ̀ díẹ̀	none
+🤼🏾‍♀	àwọn obìnrn tí ń jà ijakadi adúláwọ̀ díẹ̀	none
+🤼🏿‍♀	àwọn obìnrn tí ń jà ijakadi adúláwọ̀	none
 🤽🏻	Ẹni N ṣere Olomi amọ́lára	none
 🤽🏼	Ẹni N ṣere Olomi amọ́lára díẹ̀	none
 🤽🏽	Ẹni N ṣere Olomi amọ́láwọ̀ díẹ̀	none
@@ -3616,121 +3790,121 @@ symbols:
 🛌🏾	Ẹniyan Nibusun adúláwọ̀ díẹ̀	none
 🛌🏿	Ẹniyan Nibusun adúláwọ̀	none
 🧑🏻‍🤝‍🧑🏻	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára	none
-🧑🏻‍🤝‍🧑🏼	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára, amọ́lára díẹ̀	none
-🧑🏻‍🤝‍🧑🏽	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára, amọ́láwọ̀ díẹ̀	none
-🧑🏻‍🤝‍🧑🏾	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára, adúláwọ̀ díẹ̀	none
-🧑🏻‍🤝‍🧑🏿	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára, adúláwọ̀	none
-🧑🏼‍🤝‍🧑🏻	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára díẹ̀, amọ́lára	none
+🧑🏻‍🤝‍🧑🏼	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára àtiamọ́lára díẹ̀	none
+🧑🏻‍🤝‍🧑🏽	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+🧑🏻‍🤝‍🧑🏾	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára àtiadúláwọ̀ díẹ̀	none
+🧑🏻‍🤝‍🧑🏿	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára àtiadúláwọ̀	none
+🧑🏼‍🤝‍🧑🏻	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára díẹ̀ àtiamọ́lára	none
 🧑🏼‍🤝‍🧑🏼	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára díẹ̀	none
-🧑🏼‍🤝‍🧑🏽	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára díẹ̀, amọ́láwọ̀ díẹ̀	none
-🧑🏼‍🤝‍🧑🏾	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára díẹ̀, adúláwọ̀ díẹ̀	none
-🧑🏼‍🤝‍🧑🏿	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára díẹ̀, adúláwọ̀	none
-🧑🏽‍🤝‍🧑🏻	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́láwọ̀ díẹ̀, amọ́lára	none
-🧑🏽‍🤝‍🧑🏼	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́láwọ̀ díẹ̀, amọ́lára díẹ̀	none
+🧑🏼‍🤝‍🧑🏽	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+🧑🏼‍🤝‍🧑🏾	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+🧑🏼‍🤝‍🧑🏿	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́lára díẹ̀ àtiadúláwọ̀	none
+🧑🏽‍🤝‍🧑🏻	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+🧑🏽‍🤝‍🧑🏼	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
 🧑🏽‍🤝‍🧑🏽	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́láwọ̀ díẹ̀	none
-🧑🏽‍🤝‍🧑🏾	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́láwọ̀ díẹ̀, adúláwọ̀ díẹ̀	none
-🧑🏽‍🤝‍🧑🏿	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́láwọ̀ díẹ̀, adúláwọ̀	none
-🧑🏾‍🤝‍🧑🏻	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ díẹ̀, amọ́lára	none
-🧑🏾‍🤝‍🧑🏼	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ díẹ̀, amọ́lára díẹ̀	none
-🧑🏾‍🤝‍🧑🏽	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ díẹ̀, amọ́láwọ̀ díẹ̀	none
+🧑🏽‍🤝‍🧑🏾	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+🧑🏽‍🤝‍🧑🏿	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+🧑🏾‍🤝‍🧑🏻	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ díẹ̀ àtiamọ́lára	none
+🧑🏾‍🤝‍🧑🏼	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+🧑🏾‍🤝‍🧑🏽	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
 🧑🏾‍🤝‍🧑🏾	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ díẹ̀	none
-🧑🏾‍🤝‍🧑🏿	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ díẹ̀, adúláwọ̀	none
-🧑🏿‍🤝‍🧑🏻	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀, amọ́lára	none
-🧑🏿‍🤝‍🧑🏼	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀, amọ́lára díẹ̀	none
-🧑🏿‍🤝‍🧑🏽	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀, amọ́láwọ̀ díẹ̀	none
-🧑🏿‍🤝‍🧑🏾	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀, adúláwọ̀ díẹ̀	none
+🧑🏾‍🤝‍🧑🏿	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+🧑🏿‍🤝‍🧑🏻	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ àtiamọ́lára	none
+🧑🏿‍🤝‍🧑🏼	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ àtiamọ́lára díẹ̀	none
+🧑🏿‍🤝‍🧑🏽	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+🧑🏿‍🤝‍🧑🏾	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 🧑🏿‍🤝‍🧑🏿	àwọn ènìyàn tó di ara wọn lọ́wọ́ mú adúláwọ̀	none
 👭🏻	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára	none
-👩🏻‍🤝‍👩🏼	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára, amọ́lára díẹ̀	none
-👩🏻‍🤝‍👩🏽	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára, amọ́láwọ̀ díẹ̀	none
-👩🏻‍🤝‍👩🏾	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára, adúláwọ̀ díẹ̀	none
-👩🏻‍🤝‍👩🏿	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára, adúláwọ̀	none
-👩🏼‍🤝‍👩🏻	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, amọ́lára	none
+👩🏻‍🤝‍👩🏼	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára àtiamọ́lára díẹ̀	none
+👩🏻‍🤝‍👩🏽	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+👩🏻‍🤝‍👩🏾	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára àtiadúláwọ̀ díẹ̀	none
+👩🏻‍🤝‍👩🏿	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára àtiadúláwọ̀	none
+👩🏼‍🤝‍👩🏻	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiamọ́lára	none
 👭🏼	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀	none
-👩🏼‍🤝‍👩🏽	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, amọ́láwọ̀ díẹ̀	none
-👩🏼‍🤝‍👩🏾	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, adúláwọ̀ díẹ̀	none
-👩🏼‍🤝‍👩🏿	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, adúláwọ̀	none
-👩🏽‍🤝‍👩🏻	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, amọ́lára	none
-👩🏽‍🤝‍👩🏼	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, amọ́lára díẹ̀	none
+👩🏼‍🤝‍👩🏽	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👩🏼‍🤝‍👩🏾	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👩🏼‍🤝‍👩🏿	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiadúláwọ̀	none
+👩🏽‍🤝‍👩🏻	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+👩🏽‍🤝‍👩🏼	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
 👭🏽	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀	none
-👩🏽‍🤝‍👩🏾	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, adúláwọ̀ díẹ̀	none
-👩🏽‍🤝‍👩🏿	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, adúláwọ̀	none
-👩🏾‍🤝‍👩🏻	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, amọ́lára	none
-👩🏾‍🤝‍👩🏼	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, amọ́lára díẹ̀	none
-👩🏾‍🤝‍👩🏽	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, amọ́láwọ̀ díẹ̀	none
+👩🏽‍🤝‍👩🏾	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👩🏽‍🤝‍👩🏿	Obinrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+👩🏾‍🤝‍👩🏻	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiamọ́lára	none
+👩🏾‍🤝‍👩🏼	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👩🏾‍🤝‍👩🏽	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
 👭🏾	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀	none
-👩🏾‍🤝‍👩🏿	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, adúláwọ̀	none
-👩🏿‍🤝‍👩🏻	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀, amọ́lára	none
-👩🏿‍🤝‍👩🏼	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀, amọ́lára díẹ̀	none
-👩🏿‍🤝‍👩🏽	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀, amọ́láwọ̀ díẹ̀	none
-👩🏿‍🤝‍👩🏾	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀, adúláwọ̀ díẹ̀	none
+👩🏾‍🤝‍👩🏿	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+👩🏿‍🤝‍👩🏻	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiamọ́lára	none
+👩🏿‍🤝‍👩🏼	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiamọ́lára díẹ̀	none
+👩🏿‍🤝‍👩🏽	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+👩🏿‍🤝‍👩🏾	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 👭🏿	Obinrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀	none
 👫🏻	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára	none
-👩🏻‍🤝‍👨🏼	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára, amọ́lára díẹ̀	none
-👩🏻‍🤝‍👨🏽	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára, amọ́láwọ̀ díẹ̀	none
-👩🏻‍🤝‍👨🏾	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára, adúláwọ̀ díẹ̀	none
-👩🏻‍🤝‍👨🏿	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára, adúláwọ̀	none
-👩🏼‍🤝‍👨🏻	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, amọ́lára	none
+👩🏻‍🤝‍👨🏼	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára àtiamọ́lára díẹ̀	none
+👩🏻‍🤝‍👨🏽	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+👩🏻‍🤝‍👨🏾	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára àtiadúláwọ̀ díẹ̀	none
+👩🏻‍🤝‍👨🏿	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára àtiadúláwọ̀	none
+👩🏼‍🤝‍👨🏻	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiamọ́lára	none
 👫🏼	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀	none
-👩🏼‍🤝‍👨🏽	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, amọ́láwọ̀ díẹ̀	none
-👩🏼‍🤝‍👨🏾	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, adúláwọ̀ díẹ̀	none
-👩🏼‍🤝‍👨🏿	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, adúláwọ̀	none
-👩🏽‍🤝‍👨🏻	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, amọ́lára	none
-👩🏽‍🤝‍👨🏼	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, amọ́lára díẹ̀	none
+👩🏼‍🤝‍👨🏽	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👩🏼‍🤝‍👨🏾	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👩🏼‍🤝‍👨🏿	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiadúláwọ̀	none
+👩🏽‍🤝‍👨🏻	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+👩🏽‍🤝‍👨🏼	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
 👫🏽	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀	none
-👩🏽‍🤝‍👨🏾	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, adúláwọ̀ díẹ̀	none
-👩🏽‍🤝‍👨🏿	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, adúláwọ̀	none
-👩🏾‍🤝‍👨🏻	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, amọ́lára	none
-👩🏾‍🤝‍👨🏼	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, amọ́lára díẹ̀	none
-👩🏾‍🤝‍👨🏽	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, amọ́láwọ̀ díẹ̀	none
+👩🏽‍🤝‍👨🏾	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👩🏽‍🤝‍👨🏿	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+👩🏾‍🤝‍👨🏻	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiamọ́lára	none
+👩🏾‍🤝‍👨🏼	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👩🏾‍🤝‍👨🏽	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
 👫🏾	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀	none
-👩🏾‍🤝‍👨🏿	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, adúláwọ̀	none
-👩🏿‍🤝‍👨🏻	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀, amọ́lára	none
-👩🏿‍🤝‍👨🏼	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀, amọ́lára díẹ̀	none
-👩🏿‍🤝‍👨🏽	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀, amọ́láwọ̀ díẹ̀	none
-👩🏿‍🤝‍👨🏾	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀, adúláwọ̀ díẹ̀	none
+👩🏾‍🤝‍👨🏿	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+👩🏿‍🤝‍👨🏻	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiamọ́lára	none
+👩🏿‍🤝‍👨🏼	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiamọ́lára díẹ̀	none
+👩🏿‍🤝‍👨🏽	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+👩🏿‍🤝‍👨🏾	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 👫🏿	Ọkunrin Ati Obirin Ti O Dọwọ Ara Wọn Mu adúláwọ̀	none
 👬🏻	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára	none
-👨🏻‍🤝‍👨🏼	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára, amọ́lára díẹ̀	none
-👨🏻‍🤝‍👨🏽	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára, amọ́láwọ̀ díẹ̀	none
-👨🏻‍🤝‍👨🏾	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára, adúláwọ̀ díẹ̀	none
-👨🏻‍🤝‍👨🏿	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára, adúláwọ̀	none
-👨🏼‍🤝‍👨🏻	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, amọ́lára	none
+👨🏻‍🤝‍👨🏼	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára àtiamọ́lára díẹ̀	none
+👨🏻‍🤝‍👨🏽	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára àtiamọ́láwọ̀ díẹ̀	none
+👨🏻‍🤝‍👨🏾	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára àtiadúláwọ̀ díẹ̀	none
+👨🏻‍🤝‍👨🏿	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára àtiadúláwọ̀	none
+👨🏼‍🤝‍👨🏻	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiamọ́lára	none
 👬🏼	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀	none
-👨🏼‍🤝‍👨🏽	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, amọ́láwọ̀ díẹ̀	none
-👨🏼‍🤝‍👨🏾	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, adúláwọ̀ díẹ̀	none
-👨🏼‍🤝‍👨🏿	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀, adúláwọ̀	none
-👨🏽‍🤝‍👨🏻	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, amọ́lára	none
-👨🏽‍🤝‍👨🏼	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, amọ́lára díẹ̀	none
+👨🏼‍🤝‍👨🏽	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
+👨🏼‍🤝‍👨🏾	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👨🏼‍🤝‍👨🏿	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́lára díẹ̀ àtiadúláwọ̀	none
+👨🏽‍🤝‍👨🏻	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiamọ́lára	none
+👨🏽‍🤝‍👨🏼	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
 👬🏽	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀	none
-👨🏽‍🤝‍👨🏾	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, adúláwọ̀ díẹ̀	none
-👨🏽‍🤝‍👨🏿	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀, adúláwọ̀	none
-👨🏾‍🤝‍👨🏻	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, amọ́lára	none
-👨🏾‍🤝‍👨🏼	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, amọ́lára díẹ̀	none
-👨🏾‍🤝‍👨🏽	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, amọ́láwọ̀ díẹ̀	none
+👨🏽‍🤝‍👨🏾	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiadúláwọ̀ díẹ̀	none
+👨🏽‍🤝‍👨🏿	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu amọ́láwọ̀ díẹ̀ àtiadúláwọ̀	none
+👨🏾‍🤝‍👨🏻	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiamọ́lára	none
+👨🏾‍🤝‍👨🏼	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiamọ́lára díẹ̀	none
+👨🏾‍🤝‍👨🏽	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiamọ́láwọ̀ díẹ̀	none
 👬🏾	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀	none
-👨🏾‍🤝‍👨🏿	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀, adúláwọ̀	none
-👨🏿‍🤝‍👨🏻	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀, amọ́lára	none
-👨🏿‍🤝‍👨🏼	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀, amọ́lára díẹ̀	none
-👨🏿‍🤝‍👨🏽	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀, amọ́láwọ̀ díẹ̀	none
-👨🏿‍🤝‍👨🏾	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀, adúláwọ̀ díẹ̀	none
+👨🏾‍🤝‍👨🏿	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ díẹ̀ àtiadúláwọ̀	none
+👨🏿‍🤝‍👨🏻	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiamọ́lára	none
+👨🏿‍🤝‍👨🏼	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiamọ́lára díẹ̀	none
+👨🏿‍🤝‍👨🏽	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiamọ́láwọ̀ díẹ̀	none
+👨🏿‍🤝‍👨🏾	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀ àtiadúláwọ̀ díẹ̀	none
 👬🏿	Ọkunrin Meji Ti O Dọwọ Ara Wọn Mu adúláwọ̀	none
 💏🏻	Ifẹnuko amọ́lára	none
 💏🏼	Ifẹnuko amọ́lára díẹ̀	none
 💏🏽	Ifẹnuko amọ́láwọ̀ díẹ̀	none
 💏🏾	Ifẹnuko adúláwọ̀ díẹ̀	none
 💏🏿	Ifẹnuko adúláwọ̀	none
-👩‍❤‍💋‍👨	Ifẹnuko Obìnrin, Ọkùnrin	none
-👨‍❤‍💋‍👨	Ifẹnuko Ọkùnrin, Ọkùnrin	none
-👩‍❤‍💋‍👩	Ifẹnuko Obìnrin, Obìnrin	none
+👩‍❤‍💋‍👨	Ifẹnuko Obìnrin àtiỌkùnrin	none
+👨‍❤‍💋‍👨	Ifẹnuko Ọkùnrin àtiỌkùnrin	none
+👩‍❤‍💋‍👩	Ifẹnuko Obìnrin àtiObìnrin	none
 💑🏻	Lọkọlaya Pẹlu ọkan amọ́lára	none
 💑🏼	Lọkọlaya Pẹlu ọkan amọ́lára díẹ̀	none
 💑🏽	Lọkọlaya Pẹlu ọkan amọ́láwọ̀ díẹ̀	none
 💑🏾	Lọkọlaya Pẹlu ọkan adúláwọ̀ díẹ̀	none
 💑🏿	Lọkọlaya Pẹlu ọkan adúláwọ̀	none
-👩‍❤‍👨	Lọkọlaya Pẹlu ọkan Obìnrin, Ọkùnrin	none
-👨‍❤‍👨	Lọkọlaya Pẹlu ọkan Ọkùnrin, Ọkùnrin	none
-👩‍❤‍👩	Lọkọlaya Pẹlu ọkan Obìnrin, Obìnrin	none
+👩‍❤‍👨	Lọkọlaya Pẹlu ọkan Obìnrin àtiỌkùnrin	none
+👨‍❤‍👨	Lọkọlaya Pẹlu ọkan Ọkùnrin àtiỌkùnrin	none
+👩‍❤‍👩	Lọkọlaya Pẹlu ọkan Obìnrin àtiObìnrin	none
 👨‍👩‍👦	Ẹbí Ọkùnrin, Obìnrin, ọmọkùnrin	none
 👨‍👩‍👧	Ẹbí Ọkùnrin, Obìnrin, ọmọbìrin	none
 👨‍👩‍👧‍👦	Ẹbí Ọkùnrin, Obìnrin, ọmọbìrin, ọmọkùnrin	none
@@ -3746,14 +3920,14 @@ symbols:
 👩‍👩‍👧‍👦	Ẹbí Obìnrin, Obìnrin, ọmọbìrin, ọmọkùnrin	none
 👩‍👩‍👦‍👦	Ẹbí Obìnrin, Obìnrin, ọmọkùnrin, ọmọkùnrin	none
 👩‍👩‍👧‍👧	Ẹbí Obìnrin, Obìnrin, ọmọbìrin, ọmọbìrin	none
-👨‍👦	Ẹbí Ọkùnrin, ọmọkùnrin	none
+👨‍👦	Ẹbí Ọkùnrin àtiọmọkùnrin	none
 👨‍👦‍👦	Ẹbí Ọkùnrin, ọmọkùnrin, ọmọkùnrin	none
-👨‍👧	Ẹbí Ọkùnrin, ọmọbìrin	none
+👨‍👧	Ẹbí Ọkùnrin àtiọmọbìrin	none
 👨‍👧‍👦	Ẹbí Ọkùnrin, ọmọbìrin, ọmọkùnrin	none
 👨‍👧‍👧	Ẹbí Ọkùnrin, ọmọbìrin, ọmọbìrin	none
-👩‍👦	Ẹbí Obìnrin, ọmọkùnrin	none
+👩‍👦	Ẹbí Obìnrin àtiọmọkùnrin	none
 👩‍👦‍👦	Ẹbí Obìnrin, ọmọkùnrin, ọmọkùnrin	none
-👩‍👧	Ẹbí Obìnrin, ọmọbìrin	none
+👩‍👧	Ẹbí Obìnrin àtiọmọbìrin	none
 👩‍👧‍👦	Ẹbí Obìnrin, ọmọbìrin, ọmọkùnrin	none
 👩‍👧‍👧	Ẹbí Obìnrin, ọmọbìrin, ọmọbìrin	none
 🔟	Keyacap 10	none
@@ -3770,9 +3944,9 @@ symbols:
 🇦🇷	filaagi Agentínà	none
 🇦🇸	filaagi Sámóánì ti Orílẹ́ède Àméríkà	none
 🇦🇹	filaagi Asítíríà	none
-🇦🇺	filaagi Ástràlìá	none
+🇦🇺	filaagi Austrálíà	none
 🇦🇼	filaagi Árúbà	none
-🇦🇽	filaagi Àwọn Erékùsù ti Åland	none
+🇦🇽	filaagi Àwọn Erékùsù ti Aland	none
 🇦🇿	filaagi Asẹ́bájánì	none
 🇧🇦	filaagi Bọ̀síníà àti Ẹtisẹgófínà	none
 🇧🇧	filaagi Bábádósì	none
@@ -3800,7 +3974,7 @@ symbols:
 🇨🇩	filaagi Kóńgò – Kinshasa	none
 🇨🇫	filaagi Àrin gùngun Áfíríkà	none
 🇨🇬	filaagi Kóńgò – Brazaville	none
-🇨🇭	filaagi switiṣilandi	none
+🇨🇭	filaagi Súwísìlanìdì	none
 🇨🇮	filaagi Kóútè forà	none
 🇨🇰	filaagi Etíokun Kùúkù	none
 🇨🇱	filaagi Ṣílè	none
@@ -3808,6 +3982,7 @@ symbols:
 🇨🇳	filaagi Ṣáínà	none
 🇨🇴	filaagi Kòlómíbìa	none
 🇨🇵	filaagi Erékùsù Clipperston	none
+🇨🇶	filaagi Sáàkì	none
 🇨🇷	filaagi Kuusita Ríkà	none
 🇨🇺	filaagi Kúbà	none
 🇨🇻	filaagi Etíokun Kápé féndè	none
@@ -3828,11 +4003,11 @@ symbols:
 🇪🇬	filaagi Égípítì	none
 🇪🇭	filaagi Ìwọ̀òòrùn Sàhárà	none
 🇪🇷	filaagi Eritira	none
-🇪🇸	filaagi Sipani	none
+🇪🇸	filaagi Sípéìnì	none
 🇪🇹	filaagi Etopia	none
 🇪🇺	filaagi Àpapọ̀ Yúróòpù	none
 🇫🇮	filaagi Filandi	none
-🇫🇯	filaagi Fiji	none
+🇫🇯	filaagi Fíjì	none
 🇫🇰	filaagi Etikun Fakalandi	none
 🇫🇲	filaagi Makoronesia	none
 🇫🇴	filaagi Àwọn Erékùsù ti Faroe	none
@@ -3850,9 +4025,9 @@ symbols:
 🇬🇳	filaagi Gene	none
 🇬🇵	filaagi Gadelope	none
 🇬🇶	filaagi Ekutoria Gini	none
-🇬🇷	filaagi Geriisi	none
+🇬🇷	filaagi Gíríìsì	none
 🇬🇸	filaagi Gúúsù Georgia àti Gúúsù Àwọn Erékùsù Sandwich	none
-🇬🇹	filaagi Guatemala	none
+🇬🇹	filaagi Guatemálà	none
 🇬🇺	filaagi Guamu	none
 🇬🇼	filaagi Gene-Busau	none
 🇬🇾	filaagi Guyana	none
@@ -3863,17 +4038,17 @@ symbols:
 🇭🇹	filaagi Haati	none
 🇭🇺	filaagi Hungari	none
 🇮🇨	filaagi Ẹrékùsù Kánárì	none
-🇮🇩	filaagi Indonesia	none
+🇮🇩	filaagi Indonéṣíà	none
 🇮🇪	filaagi Ailandi	none
 🇮🇱	filaagi Iserẹli	none
-🇮🇲	filaagi Isle of Man	none
-🇮🇳	filaagi India	none
+🇮🇲	filaagi Erékùṣù ilẹ̀ Man	none
+🇮🇳	filaagi Íńdíà	none
 🇮🇴	filaagi Etíkun Índíánì ti Ìlú Bírítísì	none
 🇮🇶	filaagi Iraki	none
 🇮🇷	filaagi Irani	none
 🇮🇸	filaagi Aṣilandi	none
 🇮🇹	filaagi Itáli	none
-🇯🇪	filaagi Jersey	none
+🇯🇪	filaagi Jẹsì	none
 🇯🇲	filaagi Jamaika	none
 🇯🇴	filaagi Jọdani	none
 🇯🇵	filaagi Japani	none
@@ -3902,7 +4077,7 @@ symbols:
 🇲🇦	filaagi Moroko	none
 🇲🇨	filaagi Monako	none
 🇲🇩	filaagi Modofia	none
-🇲🇪	filaagi Montenegro	none
+🇲🇪	filaagi Montenégrò	none
 🇲🇫	filaagi Ìlú Màtìnì	none
 🇲🇬	filaagi Madasika	none
 🇲🇭	filaagi Etikun Máṣali	none
@@ -3925,7 +4100,7 @@ symbols:
 🇳🇦	filaagi Namibia	none
 🇳🇨	filaagi Kaledonia Titun	none
 🇳🇪	filaagi Nàìjá	none
-🇳🇫	filaagi Etikun Nọ́úfókì	none
+🇳🇫	filaagi Erékùsù Nọ́úfókì	none
 🇳🇬	filaagi Nàìjíríà	none
 🇳🇮	filaagi Nikaragua	none
 🇳🇱	filaagi Nedalandi	none
@@ -3935,8 +4110,8 @@ symbols:
 🇳🇺	filaagi Niue	none
 🇳🇿	filaagi Ṣilandi Titun	none
 🇴🇲	filaagi Ọọma	none
-🇵🇦	filaagi Panama	none
-🇵🇪	filaagi Peru	none
+🇵🇦	filaagi Paramá	none
+🇵🇪	filaagi Pèérù	none
 🇵🇫	filaagi Firenṣi Polinesia	none
 🇵🇬	filaagi Paapu ti Giini	none
 🇵🇭	filaagi Filipini	none
@@ -3968,7 +4143,7 @@ symbols:
 🇸🇱	filaagi Siria looni	none
 🇸🇲	filaagi Sani Marino	none
 🇸🇳	filaagi Sẹnẹga	none
-🇸🇴	filaagi Somalia	none
+🇸🇴	filaagi Sòmálíà	none
 🇸🇷	filaagi Surinami	none
 🇸🇸	filaagi Gúúsù Sudan	none
 🇸🇹	filaagi Sao tomi ati piriiṣipi	none
@@ -3984,8 +4159,8 @@ symbols:
 🇹🇭	filaagi Tailandi	none
 🇹🇯	filaagi Takisitani	none
 🇹🇰	filaagi Tokelau	none
-🇹🇱	filaagi ÌlàOòrùn Tímọ̀	none
-🇹🇲	filaagi Tọọkimenisita	none
+🇹🇱	filaagi Tímọ̀ Lẹsiti	none
+🇹🇲	filaagi Tọ́kìmẹ́nísítànì	none
 🇹🇳	filaagi Tuniṣia	none
 🇹🇴	filaagi Tonga	none
 🇹🇷	filaagi Tọọki	none
@@ -3998,7 +4173,7 @@ symbols:
 🇺🇲	filaagi Àwọn Erékùsù Kékèké Agbègbè US	none
 🇺🇳	filaagi Ìṣọ̀kan àgbáyé	none
 🇺🇸	filaagi Amẹrikà	none
-🇺🇾	filaagi Nruguayi	none
+🇺🇾	filaagi Úrúgúwè	none
 🇺🇿	filaagi Nṣibẹkisitani	none
 🇻🇦	filaagi Ìlú Vatican	none
 🇻🇨	filaagi Fisẹnnti ati Genadina	none

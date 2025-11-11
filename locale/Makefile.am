@@ -22,20 +22,24 @@ nobase_localedata_DATA = \
 	base/symbols.dic \
 	\
 	af/emojis.dic \
+	ak/emojis.dic \
 	am/emojis.dic \
 	ar/emojis.dic \
 	ar_SA/emojis.dic \
 	as/emojis.dic \
 	ast/emojis.dic \
 	az/emojis.dic \
+	ba/emojis.dic \
 	be/emojis.dic \
 	bew/emojis.dic \
 	bg/emojis.dic \
 	bgn/emojis.dic \
+	blo/emojis.dic \
 	bn/emojis.dic \
 	br/emojis.dic \
 	bs/emojis.dic \
 	ca/emojis.dic \
+	ca_ES_VALENCIA/emojis.dic \
 	ccp/emojis.dic \
 	ceb/emojis.dic \
 	chr/emojis.dic \
@@ -68,6 +72,7 @@ nobase_localedata_DATA = \
 	fo/emojis.dic \
 	fr/emojis.dic \
 	fr_CA/emojis.dic \
+	frr/emojis.dic \
 	ga/emojis.dic \
 	gd/emojis.dic \
 	gl/emojis.dic \
@@ -91,6 +96,7 @@ nobase_localedata_DATA = \
 	ka/emojis.dic \
 	kab/emojis.dic \
 	kk/emojis.dic \
+	kk_Arab/emojis.dic \
 	kl/emojis.dic \
 	km/emojis.dic \
 	kn/emojis.dic \
@@ -119,9 +125,11 @@ nobase_localedata_DATA = \
 	no/emojis.dic \
 	nso/emojis.dic \
 	oc/emojis.dic \
+	om/emojis.dic \
 	or/emojis.dic \
 	pa/emojis.dic \
 	pa_Arab/emojis.dic \
+	pap/emojis.dic \
 	pcm/emojis.dic \
 	pl/emojis.dic \
 	ps/emojis.dic \
@@ -138,6 +146,7 @@ nobase_localedata_DATA = \
 	sat/emojis.dic \
 	sc/emojis.dic \
 	sd/emojis.dic \
+	shn/emojis.dic \
 	si/emojis.dic \
 	sk/emojis.dic \
 	sl/emojis.dic \
@@ -148,6 +157,7 @@ nobase_localedata_DATA = \
 	sv/emojis.dic \
 	sw/emojis.dic \
 	sw_KE/emojis.dic \
+	syr/emojis.dic \
 	ta/emojis.dic \
 	te/emojis.dic \
 	tg/emojis.dic \
@@ -157,10 +167,12 @@ nobase_localedata_DATA = \
 	tn/emojis.dic \
 	to/emojis.dic \
 	tr/emojis.dic \
+	tt/emojis.dic \
 	ug/emojis.dic \
 	uk/emojis.dic \
 	ur/emojis.dic \
 	uz/emojis.dic \
+	vec/emojis.dic \
 	vi/emojis.dic \
 	wo/emojis.dic \
 	xh/emojis.dic \
@@ -334,14 +346,18 @@ nobase_localedata_DATA = \
 	sr/orca-math.dic \
 	sv/orca-math.dic \
 	tr/orca-math.dic \
+	ug/orca-math.dic \
 	uk/orca-math.dic \
 	uz/orca-math.dic \
 	zh_CN/orca-math.dic \
 	\
+	am/symbols.dic \
 	an/symbols.dic \
 	ar/symbols.dic \
+	be/symbols.dic \
 	bg/symbols.dic \
 	bn/symbols.dic \
+	bs/symbols.dic \
 	ca/symbols.dic \
 	ckb/symbols.dic \
 	cs/symbols.dic \

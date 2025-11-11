@@ -293,7 +293,7 @@ symbols:
 🤪	fuska mai masifar so	none
 😝	fuska da harshe waje da rufaffun idanu	none
 🤑	fuska mai bakin-kuɗi	none
-🤗	fuska mai runguma	none
+🤗	fuska mai murmushi tare da runguma	none
 🤭	fuska tare da hannu bisa baki	none
 🫢	fuska da buɗe idanu da miƙa baki	none
 🫣	fuska tare da leƙo ido ɗaya	none
@@ -321,6 +321,7 @@ symbols:
 😪	fuska mai jin barci	none
 🤤	fuska mai nuna ɓacin rai	none
 😴	fuska mai yin barci	none
+🫩	fuska mai kumburi a ƙasan ido	none
 😷	fuska mai abin rufen fuska na kula da lafiya	none
 🤒	fuska mai tsinken awon zafin jiki	none
 🤕	fuska mai bandejin-kai	none
@@ -348,6 +349,7 @@ symbols:
 😯	fuska mai nitsuwa	none
 😲	fuska mai burgewa	none
 😳	fuska mai murna	none
+🫪	juyayyen fuska	none
 🥺	fuska mai roƙo	none
 🥹	fuska ido ya ciko	none
 😦	fuska mai gama gira tare da baki a buɗe	none
@@ -421,6 +423,7 @@ symbols:
 💋	alamar sumba	none
 💯	makunan ɗari	none
 💢	alamar fushi	none
+🫯	gajimaren faɗa	none
 💥	karo	none
 💫	jiri	none
 💦	ɗige-ɗigen gumi	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	gaya mai rai namiji	none
 🧟‍♀	gaya mai rai na mace	none
 🧌	mutum na zane	none
+🫈	halitta mai gashi	none
 💆	mutum mai samun tausa	none
 💆‍♂	namiji mai samun tausa	none
 💆‍♀	mace mai samun tausa	none
@@ -667,13 +671,18 @@ symbols:
 🧍‍♀	mace mai tsayuwa	none
 🧎	mutum a durƙushe	none
 🧑‍🦯	mutum mai farin bulala	none
+👨‍🦯	mutum da farar sanda	none
+👩‍🦯	mace da farar sanda	none
 🧑‍🦼	mutum cikin kujeran gurgu	none
+👨‍🦼	mutum a keken guragu na lantarki	none
+👩‍🦼	mace a kan keken guragu mai inji	none
 🧑‍🦽	mutum cikin motan gurgu wanda ke bukatan tuki da hannu	none
 👨‍🦽	na miji a cikin motan gurgu da ke bukatan tuki	none
 👩‍🦽	na mace a cikin motan gurgu da ke bukatan tuki	none
 🏃	mutum mai yin gudu	none
 🏃‍♂	namiji mai yin gudu	none
 🏃‍♀	mace mai yin gudu	none
+🧑‍🩰	mai rawar ballet	none
 💃	mace mai yin rawa	none
 🕺	mutum mai yin rawa	none
 🕴	mutum a cikin kwat na kasuwanci mai jewa	none
@@ -750,6 +759,7 @@ symbols:
 🧑‍🧒	iyali manya, yara	none
 🧑‍🧒‍🧒	iyali manya, yara, yara	none
 👣	sawaye	none
+🫆	zanen ɗan yatsa	none
 🦰	jan gashi	none
 🦱	gashi mai laushi	none
 🦳	farin gashi	none
@@ -854,6 +864,7 @@ symbols:
 🐳	dabbar whale mai fitowar da ruwa	none
 🐋	dabbar whale	none
 🐬	kifin dolphin	none
+🫍	kifin orca	none
 🦭	ayu	none
 🐟	kifi	none
 🐠	kifi na wuri mai zafi	none
@@ -863,6 +874,11 @@ symbols:
 🐚	lanƙwasasshen ƙumba	none
 🪸	ciyawa	none
 🪼	jelisih	none
+🦀	ƙaguwa	none
+🦞	ƙaguwar lobster	none
+🦐	jatanlande	none
+🦑	jatan lande na turawa	none
+🦪	oyesta	none
 🐌	dodon koɗi	none
 🦋	malam-buɗe-mana-littafi	none
 🐛	ƙwaro	none
@@ -907,6 +923,7 @@ symbols:
 🪹	sheƙar da ba komai	none
 🪺	sheƙa mai ƙwai	none
 🍄	inuwar-kwaɗi	none
+🪾	bishiya maras ganye	none
 🍇	inabi	none
 🍈	malo	none
 🍉	kankana	none
@@ -945,6 +962,7 @@ symbols:
 🫚	saiwar citta	none
 🫛	koren wake na fis	none
 🍄‍🟫	naman kazan launin ruwan kasa	none
+🫜	kayan lambu masu saiwa	none
 🍞	burodi	none
 🥐	burodin croissant	none
 🥖	burodin baguette	none
@@ -996,11 +1014,6 @@ symbols:
 🥟	ƙaramar kwaɓaɓɓiyar fulawa	none
 🥠	biskit na dukiya	none
 🥡	akwatin abinci na fita waje	none
-🦀	ƙaguwa	none
-🦞	ƙaguwar lobster	none
-🦐	jatanlande	none
-🦑	jatan lande na turawa	none
-🦪	oyesta	none
 🍦	ƙanƙara Mai taushi	none
 🍧	rugurgujen ƙanƙara	none
 🍨	ƙanƙara	none
@@ -1051,6 +1064,7 @@ symbols:
 🧭	kamfas	none
 🏔	tsauni mai saman ƙanƙara	none
 ⛰	tsauni	none
+🛘	zamewar ƙasa	none
 🌋	dutse mai aman wuta	none
 🗻	tsaunin fuji	none
 🏕	zaman ruga	none
@@ -1411,16 +1425,18 @@ symbols:
 🎧	mazirorin kunne	none
 📻	rediyo	none
 🎷	mabushi	none
+🎺	kakaki	none
+🪊	algaita	none
 🪗	akodiyon	none
 🎸	jita	none
 🎹	kibod na kiɗa	none
-🎺	kakaki	none
 🎻	goge	none
 🪕	gurmin banjo	none
 🥁	ganga	none
 🪘	doguwar ganga	none
 🪇	kacau-kacau	none
 🪈	sarewa	none
+🪉	abin kiɗa na harp	none
 📱	wayar hannu	none
 📲	wayar hannu tare da kibiya	none
 ☎	tarho	none
@@ -1474,8 +1490,9 @@ symbols:
 📑	maɓallan ma’ajiyar rubutu	none
 🔖	ma’ajiyar rubutu	none
 🏷	alamar liƙawa	none
-💰	jakar kuɗi	none
 🪙	tsabar kuɗi	none
+💰	jakar kuɗi	none
+🪎	akwatin dukiya	none
 💴	takardar kuɗi na yen	none
 💵	takardar kuɗi na dala	none
 💶	takardar kuɗi na euro	none
@@ -1559,6 +1576,7 @@ symbols:
 🧰	akwatin kayan aiki	none
 🧲	maganaɗisu	none
 🪜	tsani	none
+🪏	shebur	none
 ⚗	tukunyar alembic	none
 🧪	bututun gwaji	none
 🧫	tasar petri	none
@@ -1739,6 +1757,7 @@ symbols:
 ✴	tauraro mai tsini takwas	none
 ❇	ƙyalƙyali	none
 ™	tambarin kamfani	none
+🫟	fantsama	none
 🔠	alamar shigarwar manyan baƙaƙe na latin	none
 🔡	alamar shigarwa ƙananan baƙaƙe na latin	none
 🔢	shigarwar lambobi	none
@@ -2153,6 +2172,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	miji da mata tare da zuciya babba, babba, launin fata mai duhu, launin fata mai madaidaicin haske	none
 🧑🏿‍❤‍🧑🏽	miji da mata tare da zuciya babba, babba, launin fata mai duhu, madaidaicin launin fata	none
 🧑🏿‍❤‍🧑🏾	miji da mata tare da zuciya babba, babba, launin fata mai duhu, launin fata mai madaidaicin duhu	none
+🧑🏻‍🫯‍🧑🏼	mutane masu kokawa launin fata mai haske, launin fata mai madaidaicin haske	none
+🧑🏻‍🫯‍🧑🏽	mutane masu kokawa launin fata mai haske, madaidaicin launin fata	none
+🧑🏻‍🫯‍🧑🏾	mutane masu kokawa launin fata mai haske, launin fata mai madaidaicin duhu	none
+🧑🏻‍🫯‍🧑🏿	mutane masu kokawa launin fata mai haske, launin fata mai duhu	none
+🧑🏼‍🫯‍🧑🏻	mutane masu kokawa launin fata mai madaidaicin haske, launin fata mai haske	none
+🧑🏼‍🫯‍🧑🏽	mutane masu kokawa launin fata mai madaidaicin haske, madaidaicin launin fata	none
+🧑🏼‍🫯‍🧑🏾	mutane masu kokawa launin fata mai madaidaicin haske, launin fata mai madaidaicin duhu	none
+🧑🏼‍🫯‍🧑🏿	mutane masu kokawa launin fata mai madaidaicin haske, launin fata mai duhu	none
+🧑🏽‍🫯‍🧑🏻	mutane masu kokawa madaidaicin launin fata, launin fata mai haske	none
+🧑🏽‍🫯‍🧑🏼	mutane masu kokawa madaidaicin launin fata, launin fata mai madaidaicin haske	none
+🧑🏽‍🫯‍🧑🏾	mutane masu kokawa madaidaicin launin fata, launin fata mai madaidaicin duhu	none
+🧑🏽‍🫯‍🧑🏿	mutane masu kokawa madaidaicin launin fata, launin fata mai duhu	none
+🧑🏾‍🫯‍🧑🏻	mutane masu kokawa launin fata mai madaidaicin duhu, launin fata mai haske	none
+🧑🏾‍🫯‍🧑🏼	mutane masu kokawa launin fata mai madaidaicin duhu, launin fata mai madaidaicin haske	none
+🧑🏾‍🫯‍🧑🏽	mutane masu kokawa launin fata mai madaidaicin duhu, madaidaicin launin fata	none
+🧑🏾‍🫯‍🧑🏿	mutane masu kokawa launin fata mai madaidaicin duhu, launin fata mai duhu	none
+🧑🏿‍🫯‍🧑🏻	mutane masu kokawa launin fata mai duhu, launin fata mai haske	none
+🧑🏿‍🫯‍🧑🏼	mutane masu kokawa launin fata mai duhu, launin fata mai madaidaicin haske	none
+🧑🏿‍🫯‍🧑🏽	mutane masu kokawa launin fata mai duhu, madaidaicin launin fata	none
+🧑🏿‍🫯‍🧑🏾	mutane masu kokawa launin fata mai duhu, launin fata mai madaidaicin duhu	none
 🧑‍🦰	babba jan gashi	none
 🧑🏻‍🦰	babba launin fata mai haske, jan gashi	none
 🧑🏼‍🦰	babba launin fata mai madaidaicin haske, jan gashi	none
@@ -2177,6 +2216,26 @@ symbols:
 🧑🏽‍🦲	babba madaidaicin launin fata, sanƙo	none
 🧑🏾‍🦲	babba launin fata mai madaidaicin duhu, sanƙo	none
 🧑🏿‍🦲	babba launin fata mai duhu, sanƙo	none
+🧑🏻‍🐰‍🧑🏼	mutane masu kunnuwan zomo yin biki launin fata mai haske, launin fata mai madaidaicin haske	none
+🧑🏻‍🐰‍🧑🏽	mutane masu kunnuwan zomo yin biki launin fata mai haske, madaidaicin launin fata	none
+🧑🏻‍🐰‍🧑🏾	mutane masu kunnuwan zomo yin biki launin fata mai haske, launin fata mai madaidaicin duhu	none
+🧑🏻‍🐰‍🧑🏿	mutane masu kunnuwan zomo yin biki launin fata mai haske, launin fata mai duhu	none
+🧑🏼‍🐰‍🧑🏻	mutane masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, launin fata mai haske	none
+🧑🏼‍🐰‍🧑🏽	mutane masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, madaidaicin launin fata	none
+🧑🏼‍🐰‍🧑🏾	mutane masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, launin fata mai madaidaicin duhu	none
+🧑🏼‍🐰‍🧑🏿	mutane masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, launin fata mai duhu	none
+🧑🏽‍🐰‍🧑🏻	mutane masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai haske	none
+🧑🏽‍🐰‍🧑🏼	mutane masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai madaidaicin haske	none
+🧑🏽‍🐰‍🧑🏾	mutane masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai madaidaicin duhu	none
+🧑🏽‍🐰‍🧑🏿	mutane masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai duhu	none
+🧑🏾‍🐰‍🧑🏻	mutane masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, launin fata mai haske	none
+🧑🏾‍🐰‍🧑🏼	mutane masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, launin fata mai madaidaicin haske	none
+🧑🏾‍🐰‍🧑🏽	mutane masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, madaidaicin launin fata	none
+🧑🏾‍🐰‍🧑🏿	mutane masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, launin fata mai duhu	none
+🧑🏿‍🐰‍🧑🏻	mutane masu kunnuwan zomo yin biki launin fata mai duhu, launin fata mai haske	none
+🧑🏿‍🐰‍🧑🏼	mutane masu kunnuwan zomo yin biki launin fata mai duhu, launin fata mai madaidaicin haske	none
+🧑🏿‍🐰‍🧑🏽	mutane masu kunnuwan zomo yin biki launin fata mai duhu, madaidaicin launin fata	none
+🧑🏿‍🐰‍🧑🏾	mutane masu kunnuwan zomo yin biki launin fata mai duhu, launin fata mai madaidaicin duhu	none
 👨🏻	namiji launin fata mai haske	none
 👨🏼	namiji launin fata mai madaidaicin haske	none
 👨🏽	namiji madaidaicin launin fata	none
@@ -2247,6 +2306,26 @@ symbols:
 👨🏿‍❤‍👨🏽	miji da mata tare da zuciya namiji, namiji, launin fata mai duhu, madaidaicin launin fata	none
 👨🏿‍❤‍👨🏾	miji da mata tare da zuciya namiji, namiji, launin fata mai duhu, launin fata mai madaidaicin duhu	none
 👨🏿‍❤‍👨🏿	miji da mata tare da zuciya namiji, namiji, launin fata mai duhu	none
+👨🏻‍🫯‍👨🏼	maza masu kokawa launin fata mai haske, launin fata mai madaidaicin haske	none
+👨🏻‍🫯‍👨🏽	maza masu kokawa launin fata mai haske, madaidaicin launin fata	none
+👨🏻‍🫯‍👨🏾	maza masu kokawa launin fata mai haske, launin fata mai madaidaicin duhu	none
+👨🏻‍🫯‍👨🏿	maza masu kokawa launin fata mai haske, launin fata mai duhu	none
+👨🏼‍🫯‍👨🏻	maza masu kokawa launin fata mai madaidaicin haske, launin fata mai haske	none
+👨🏼‍🫯‍👨🏽	maza masu kokawa launin fata mai madaidaicin haske, madaidaicin launin fata	none
+👨🏼‍🫯‍👨🏾	maza masu kokawa launin fata mai madaidaicin haske, launin fata mai madaidaicin duhu	none
+👨🏼‍🫯‍👨🏿	maza masu kokawa launin fata mai madaidaicin haske, launin fata mai duhu	none
+👨🏽‍🫯‍👨🏻	maza masu kokawa madaidaicin launin fata, launin fata mai haske	none
+👨🏽‍🫯‍👨🏼	maza masu kokawa madaidaicin launin fata, launin fata mai madaidaicin haske	none
+👨🏽‍🫯‍👨🏾	maza masu kokawa madaidaicin launin fata, launin fata mai madaidaicin duhu	none
+👨🏽‍🫯‍👨🏿	maza masu kokawa madaidaicin launin fata, launin fata mai duhu	none
+👨🏾‍🫯‍👨🏻	maza masu kokawa launin fata mai madaidaicin duhu, launin fata mai haske	none
+👨🏾‍🫯‍👨🏼	maza masu kokawa launin fata mai madaidaicin duhu, launin fata mai madaidaicin haske	none
+👨🏾‍🫯‍👨🏽	maza masu kokawa launin fata mai madaidaicin duhu, madaidaicin launin fata	none
+👨🏾‍🫯‍👨🏿	maza masu kokawa launin fata mai madaidaicin duhu, launin fata mai duhu	none
+👨🏿‍🫯‍👨🏻	maza masu kokawa launin fata mai duhu, launin fata mai haske	none
+👨🏿‍🫯‍👨🏼	maza masu kokawa launin fata mai duhu, launin fata mai madaidaicin haske	none
+👨🏿‍🫯‍👨🏽	maza masu kokawa launin fata mai duhu, madaidaicin launin fata	none
+👨🏿‍🫯‍👨🏾	maza masu kokawa launin fata mai duhu, launin fata mai madaidaicin duhu	none
 👨‍🦰	namiji jan gashi	none
 👨🏻‍🦰	namiji launin fata mai haske, jan gashi	none
 👨🏼‍🦰	namiji launin fata mai madaidaicin haske, jan gashi	none
@@ -2271,6 +2350,26 @@ symbols:
 👨🏽‍🦲	namiji madaidaicin launin fata, sanƙo	none
 👨🏾‍🦲	namiji launin fata mai madaidaicin duhu, sanƙo	none
 👨🏿‍🦲	namiji launin fata mai duhu, sanƙo	none
+👨🏻‍🐰‍👨🏼	maza masu kunnuwan zomo yin biki launin fata mai haske, launin fata mai madaidaicin haske	none
+👨🏻‍🐰‍👨🏽	maza masu kunnuwan zomo yin biki launin fata mai haske, madaidaicin launin fata	none
+👨🏻‍🐰‍👨🏾	maza masu kunnuwan zomo yin biki launin fata mai haske, launin fata mai madaidaicin duhu	none
+👨🏻‍🐰‍👨🏿	maza masu kunnuwan zomo yin biki launin fata mai haske, launin fata mai duhu	none
+👨🏼‍🐰‍👨🏻	maza masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, launin fata mai haske	none
+👨🏼‍🐰‍👨🏽	maza masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, madaidaicin launin fata	none
+👨🏼‍🐰‍👨🏾	maza masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, launin fata mai madaidaicin duhu	none
+👨🏼‍🐰‍👨🏿	maza masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, launin fata mai duhu	none
+👨🏽‍🐰‍👨🏻	maza masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai haske	none
+👨🏽‍🐰‍👨🏼	maza masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai madaidaicin haske	none
+👨🏽‍🐰‍👨🏾	maza masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai madaidaicin duhu	none
+👨🏽‍🐰‍👨🏿	maza masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai duhu	none
+👨🏾‍🐰‍👨🏻	maza masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, launin fata mai haske	none
+👨🏾‍🐰‍👨🏼	maza masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, launin fata mai madaidaicin haske	none
+👨🏾‍🐰‍👨🏽	maza masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, madaidaicin launin fata	none
+👨🏾‍🐰‍👨🏿	maza masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, launin fata mai duhu	none
+👨🏿‍🐰‍👨🏻	maza masu kunnuwan zomo yin biki launin fata mai duhu, launin fata mai haske	none
+👨🏿‍🐰‍👨🏼	maza masu kunnuwan zomo yin biki launin fata mai duhu, launin fata mai madaidaicin haske	none
+👨🏿‍🐰‍👨🏽	maza masu kunnuwan zomo yin biki launin fata mai duhu, madaidaicin launin fata	none
+👨🏿‍🐰‍👨🏾	maza masu kunnuwan zomo yin biki launin fata mai duhu, launin fata mai madaidaicin duhu	none
 👩🏻	mace launin fata mai haske	none
 👩🏼	mace launin fata mai madaidaicin haske	none
 👩🏽	mace madaidaicin launin fata	none
@@ -2386,6 +2485,26 @@ symbols:
 👩🏿‍❤‍👩🏽	miji da mata tare da zuciya mace, mace, launin fata mai duhu, madaidaicin launin fata	none
 👩🏿‍❤‍👩🏾	miji da mata tare da zuciya mace, mace, launin fata mai duhu, launin fata mai madaidaicin duhu	none
 👩🏿‍❤‍👩🏿	miji da mata tare da zuciya mace, mace, launin fata mai duhu	none
+👩🏻‍🫯‍👩🏼	mata masu kokawa launin fata mai haske, launin fata mai madaidaicin haske	none
+👩🏻‍🫯‍👩🏽	mata masu kokawa launin fata mai haske, madaidaicin launin fata	none
+👩🏻‍🫯‍👩🏾	mata masu kokawa launin fata mai haske, launin fata mai madaidaicin duhu	none
+👩🏻‍🫯‍👩🏿	mata masu kokawa launin fata mai haske, launin fata mai duhu	none
+👩🏼‍🫯‍👩🏻	mata masu kokawa launin fata mai madaidaicin haske, launin fata mai haske	none
+👩🏼‍🫯‍👩🏽	mata masu kokawa launin fata mai madaidaicin haske, madaidaicin launin fata	none
+👩🏼‍🫯‍👩🏾	mata masu kokawa launin fata mai madaidaicin haske, launin fata mai madaidaicin duhu	none
+👩🏼‍🫯‍👩🏿	mata masu kokawa launin fata mai madaidaicin haske, launin fata mai duhu	none
+👩🏽‍🫯‍👩🏻	mata masu kokawa madaidaicin launin fata, launin fata mai haske	none
+👩🏽‍🫯‍👩🏼	mata masu kokawa madaidaicin launin fata, launin fata mai madaidaicin haske	none
+👩🏽‍🫯‍👩🏾	mata masu kokawa madaidaicin launin fata, launin fata mai madaidaicin duhu	none
+👩🏽‍🫯‍👩🏿	mata masu kokawa madaidaicin launin fata, launin fata mai duhu	none
+👩🏾‍🫯‍👩🏻	mata masu kokawa launin fata mai madaidaicin duhu, launin fata mai haske	none
+👩🏾‍🫯‍👩🏼	mata masu kokawa launin fata mai madaidaicin duhu, launin fata mai madaidaicin haske	none
+👩🏾‍🫯‍👩🏽	mata masu kokawa launin fata mai madaidaicin duhu, madaidaicin launin fata	none
+👩🏾‍🫯‍👩🏿	mata masu kokawa launin fata mai madaidaicin duhu, launin fata mai duhu	none
+👩🏿‍🫯‍👩🏻	mata masu kokawa launin fata mai duhu, launin fata mai haske	none
+👩🏿‍🫯‍👩🏼	mata masu kokawa launin fata mai duhu, launin fata mai madaidaicin haske	none
+👩🏿‍🫯‍👩🏽	mata masu kokawa launin fata mai duhu, madaidaicin launin fata	none
+👩🏿‍🫯‍👩🏾	mata masu kokawa launin fata mai duhu, launin fata mai madaidaicin duhu	none
 👩‍🦰	mace jan gashi	none
 👩🏻‍🦰	mace launin fata mai haske, jan gashi	none
 👩🏼‍🦰	mace launin fata mai madaidaicin haske, jan gashi	none
@@ -2410,6 +2529,26 @@ symbols:
 👩🏽‍🦲	mace madaidaicin launin fata, sanƙo	none
 👩🏾‍🦲	mace launin fata mai madaidaicin duhu, sanƙo	none
 👩🏿‍🦲	mace launin fata mai duhu, sanƙo	none
+👩🏻‍🐰‍👩🏼	mata masu kunnuwan zomo yin biki launin fata mai haske, launin fata mai madaidaicin haske	none
+👩🏻‍🐰‍👩🏽	mata masu kunnuwan zomo yin biki launin fata mai haske, madaidaicin launin fata	none
+👩🏻‍🐰‍👩🏾	mata masu kunnuwan zomo yin biki launin fata mai haske, launin fata mai madaidaicin duhu	none
+👩🏻‍🐰‍👩🏿	mata masu kunnuwan zomo yin biki launin fata mai haske, launin fata mai duhu	none
+👩🏼‍🐰‍👩🏻	mata masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, launin fata mai haske	none
+👩🏼‍🐰‍👩🏽	mata masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, madaidaicin launin fata	none
+👩🏼‍🐰‍👩🏾	mata masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, launin fata mai madaidaicin duhu	none
+👩🏼‍🐰‍👩🏿	mata masu kunnuwan zomo yin biki launin fata mai madaidaicin haske, launin fata mai duhu	none
+👩🏽‍🐰‍👩🏻	mata masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai haske	none
+👩🏽‍🐰‍👩🏼	mata masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai madaidaicin haske	none
+👩🏽‍🐰‍👩🏾	mata masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai madaidaicin duhu	none
+👩🏽‍🐰‍👩🏿	mata masu kunnuwan zomo yin biki madaidaicin launin fata, launin fata mai duhu	none
+👩🏾‍🐰‍👩🏻	mata masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, launin fata mai haske	none
+👩🏾‍🐰‍👩🏼	mata masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, launin fata mai madaidaicin haske	none
+👩🏾‍🐰‍👩🏽	mata masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, madaidaicin launin fata	none
+👩🏾‍🐰‍👩🏿	mata masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu, launin fata mai duhu	none
+👩🏿‍🐰‍👩🏻	mata masu kunnuwan zomo yin biki launin fata mai duhu, launin fata mai haske	none
+👩🏿‍🐰‍👩🏼	mata masu kunnuwan zomo yin biki launin fata mai duhu, launin fata mai madaidaicin haske	none
+👩🏿‍🐰‍👩🏽	mata masu kunnuwan zomo yin biki launin fata mai duhu, madaidaicin launin fata	none
+👩🏿‍🐰‍👩🏾	mata masu kunnuwan zomo yin biki launin fata mai duhu, launin fata mai madaidaicin duhu	none
 🧓🏻	babba mafi tsufa launin fata mai haske	none
 🧓🏼	babba mafi tsufa launin fata mai madaidaicin haske	none
 🧓🏽	babba mafi tsufa madaidaicin launin fata	none
@@ -3180,11 +3319,31 @@ symbols:
 🧑🏽‍🦯	mutum mai farin bulala madaidaicin launin fata	none
 🧑🏾‍🦯	mutum mai farin bulala launin fata mai madaidaicin duhu	none
 🧑🏿‍🦯	mutum mai farin bulala launin fata mai duhu	none
+👨🏻‍🦯	mutum da farar sanda launin fata mai haske	none
+👨🏼‍🦯	mutum da farar sanda launin fata mai madaidaicin haske	none
+👨🏽‍🦯	mutum da farar sanda madaidaicin launin fata	none
+👨🏾‍🦯	mutum da farar sanda launin fata mai madaidaicin duhu	none
+👨🏿‍🦯	mutum da farar sanda launin fata mai duhu	none
+👩🏻‍🦯	mace da farar sanda launin fata mai haske	none
+👩🏼‍🦯	mace da farar sanda launin fata mai madaidaicin haske	none
+👩🏽‍🦯	mace da farar sanda madaidaicin launin fata	none
+👩🏾‍🦯	mace da farar sanda launin fata mai madaidaicin duhu	none
+👩🏿‍🦯	mace da farar sanda launin fata mai duhu	none
 🧑🏻‍🦼	mutum cikin kujeran gurgu launin fata mai haske	none
 🧑🏼‍🦼	mutum cikin kujeran gurgu launin fata mai madaidaicin haske	none
 🧑🏽‍🦼	mutum cikin kujeran gurgu madaidaicin launin fata	none
 🧑🏾‍🦼	mutum cikin kujeran gurgu launin fata mai madaidaicin duhu	none
 🧑🏿‍🦼	mutum cikin kujeran gurgu launin fata mai duhu	none
+👨🏻‍🦼	mutum a keken guragu na lantarki launin fata mai haske	none
+👨🏼‍🦼	mutum a keken guragu na lantarki launin fata mai madaidaicin haske	none
+👨🏽‍🦼	mutum a keken guragu na lantarki madaidaicin launin fata	none
+👨🏾‍🦼	mutum a keken guragu na lantarki launin fata mai madaidaicin duhu	none
+👨🏿‍🦼	mutum a keken guragu na lantarki launin fata mai duhu	none
+👩🏻‍🦼	mace a kan keken guragu mai inji launin fata mai haske	none
+👩🏼‍🦼	mace a kan keken guragu mai inji launin fata mai madaidaicin haske	none
+👩🏽‍🦼	mace a kan keken guragu mai inji madaidaicin launin fata	none
+👩🏾‍🦼	mace a kan keken guragu mai inji launin fata mai madaidaicin duhu	none
+👩🏿‍🦼	mace a kan keken guragu mai inji launin fata mai duhu	none
 🧑🏻‍🦽	mutum cikin motan gurgu wanda ke bukatan tuki da hannu launin fata mai haske	none
 🧑🏼‍🦽	mutum cikin motan gurgu wanda ke bukatan tuki da hannu launin fata mai madaidaicin haske	none
 🧑🏽‍🦽	mutum cikin motan gurgu wanda ke bukatan tuki da hannu madaidaicin launin fata	none
@@ -3215,6 +3374,11 @@ symbols:
 🏃🏽‍♀	mace mai yin gudu madaidaicin launin fata	none
 🏃🏾‍♀	mace mai yin gudu launin fata mai madaidaicin duhu	none
 🏃🏿‍♀	mace mai yin gudu launin fata mai duhu	none
+🧑🏻‍🩰	mai rawar ballet launin fata mai haske	none
+🧑🏼‍🩰	mai rawar ballet launin fata mai madaidaicin haske	none
+🧑🏽‍🩰	mai rawar ballet madaidaicin launin fata	none
+🧑🏾‍🩰	mai rawar ballet launin fata mai madaidaicin duhu	none
+🧑🏿‍🩰	mai rawar ballet launin fata mai duhu	none
 💃🏻	mace mai yin rawa launin fata mai haske	none
 💃🏼	mace mai yin rawa launin fata mai madaidaicin haske	none
 💃🏽	mace mai yin rawa madaidaicin launin fata	none
@@ -3230,6 +3394,21 @@ symbols:
 🕴🏽	mutum a cikin kwat na kasuwanci mai jewa madaidaicin launin fata	none
 🕴🏾	mutum a cikin kwat na kasuwanci mai jewa launin fata mai madaidaicin duhu	none
 🕴🏿	mutum a cikin kwat na kasuwanci mai jewa launin fata mai duhu	none
+👯🏻	mutane masu kunnuwan zomo yin biki launin fata mai haske	none
+👯🏼	mutane masu kunnuwan zomo yin biki launin fata mai madaidaicin haske	none
+👯🏽	mutane masu kunnuwan zomo yin biki madaidaicin launin fata	none
+👯🏾	mutane masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu	none
+👯🏿	mutane masu kunnuwan zomo yin biki launin fata mai duhu	none
+👯🏻‍♂	maza masu kunnuwan zomo yin biki launin fata mai haske	none
+👯🏼‍♂	maza masu kunnuwan zomo yin biki launin fata mai madaidaicin haske	none
+👯🏽‍♂	maza masu kunnuwan zomo yin biki madaidaicin launin fata	none
+👯🏾‍♂	maza masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu	none
+👯🏿‍♂	maza masu kunnuwan zomo yin biki launin fata mai duhu	none
+👯🏻‍♀	mata masu kunnuwan zomo yin biki launin fata mai haske	none
+👯🏼‍♀	mata masu kunnuwan zomo yin biki launin fata mai madaidaicin haske	none
+👯🏽‍♀	mata masu kunnuwan zomo yin biki madaidaicin launin fata	none
+👯🏾‍♀	mata masu kunnuwan zomo yin biki launin fata mai madaidaicin duhu	none
+👯🏿‍♀	mata masu kunnuwan zomo yin biki launin fata mai duhu	none
 🧖🏻	mutum a cikin ɗakin surace launin fata mai haske	none
 🧖🏼	mutum a cikin ɗakin surace launin fata mai madaidaicin haske	none
 🧖🏽	mutum a cikin ɗakin surace madaidaicin launin fata	none
@@ -3405,6 +3584,21 @@ symbols:
 🤸🏽‍♀	mace tuƙan amalanke madaidaicin launin fata	none
 🤸🏾‍♀	mace tuƙan amalanke launin fata mai madaidaicin duhu	none
 🤸🏿‍♀	mace tuƙan amalanke launin fata mai duhu	none
+🤼🏻	mutane masu kokawa launin fata mai haske	none
+🤼🏼	mutane masu kokawa launin fata mai madaidaicin haske	none
+🤼🏽	mutane masu kokawa madaidaicin launin fata	none
+🤼🏾	mutane masu kokawa launin fata mai madaidaicin duhu	none
+🤼🏿	mutane masu kokawa launin fata mai duhu	none
+🤼🏻‍♂	maza masu kokawa launin fata mai haske	none
+🤼🏼‍♂	maza masu kokawa launin fata mai madaidaicin haske	none
+🤼🏽‍♂	maza masu kokawa madaidaicin launin fata	none
+🤼🏾‍♂	maza masu kokawa launin fata mai madaidaicin duhu	none
+🤼🏿‍♂	maza masu kokawa launin fata mai duhu	none
+🤼🏻‍♀	mata masu kokawa launin fata mai haske	none
+🤼🏼‍♀	mata masu kokawa launin fata mai madaidaicin haske	none
+🤼🏽‍♀	mata masu kokawa madaidaicin launin fata	none
+🤼🏾‍♀	mata masu kokawa launin fata mai madaidaicin duhu	none
+🤼🏿‍♀	mata masu kokawa launin fata mai duhu	none
 🤽🏻	mutum mai bugan wasan holo na ruwa launin fata mai haske	none
 🤽🏼	mutum mai bugan wasan holo na ruwa launin fata mai madaidaicin haske	none
 🤽🏽	mutum mai bugan wasan holo na ruwa madaidaicin launin fata	none
@@ -3627,7 +3821,7 @@ symbols:
 🇦🇲	tuta Armeniya	none
 🇦🇴	tuta Angola	none
 🇦🇶	tuta Antatika	none
-🇦🇷	tuta Arjantiniya	none
+🇦🇷	tuta Ajentina	none
 🇦🇸	tuta Samowa Ta Amurka	none
 🇦🇹	tuta Ostiriya	none
 🇦🇺	tuta Ostareliya	none
@@ -3636,11 +3830,11 @@ symbols:
 🇦🇿	tuta Azarbaijan	none
 🇧🇦	tuta Bosniya da Harzagobina	none
 🇧🇧	tuta Barbadas	none
-🇧🇩	tuta Bangiladas	none
+🇧🇩	tuta Bangladesh	none
 🇧🇪	tuta Belgiyom	none
 🇧🇫	tuta Burkina Faso	none
 🇧🇬	tuta Bulgariya	none
-🇧🇭	tuta Baharan	none
+🇧🇭	tuta Baharen	none
 🇧🇮	tuta Burundi	none
 🇧🇯	tuta Binin	none
 🇧🇱	tuta San Barthélemy	none
@@ -3662,19 +3856,20 @@ symbols:
 🇨🇬	tuta Kongo	none
 🇨🇭	tuta Suwizalan	none
 🇨🇮	tuta Aibari Kwas	none
-🇨🇰	tuta Tsibiran Kuku	none
-🇨🇱	tuta Cayile	none
+🇨🇰	tuta Tsibiran Cook	none
+🇨🇱	tuta Chile	none
 🇨🇲	tuta Kamaru	none
 🇨🇳	tuta Sin	none
 🇨🇴	tuta Kolambiya	none
 🇨🇵	tuta Tsibirin Clipperton	none
+🇨🇶	tuta Sark	none
 🇨🇷	tuta Kwasta Rika	none
 🇨🇺	tuta Kyuba	none
-🇨🇻	tuta Tsibiran Kap Barde	none
+🇨🇻	tuta Tsibiran Cape Verde	none
 🇨🇼	tuta Ƙasar Curaçao	none
 🇨🇽	tuta Tsibirin Kirsmati	none
-🇨🇾	tuta Sifurus	none
-🇨🇿	tuta Jamhuriyar Cak	none
+🇨🇾	tuta Saifurus	none
+🇨🇿	tuta Czechia	none
 🇩🇪	tuta Jamus	none
 🇩🇬	tuta Tsibirn Diego Garcia	none
 🇩🇯	tuta Jibuti	none
@@ -3700,7 +3895,7 @@ symbols:
 🇬🇦	tuta Gabon	none
 🇬🇧	tuta Biritaniya	none
 🇬🇩	tuta Girnada	none
-🇬🇪	tuta Jiwarjiya	none
+🇬🇪	tuta Jojiya	none
 🇬🇫	tuta Gini Ta Faransa	none
 🇬🇬	tuta Yankin Guernsey	none
 🇬🇭	tuta Gana	none
@@ -3709,11 +3904,11 @@ symbols:
 🇬🇲	tuta Gambiya	none
 🇬🇳	tuta Gini	none
 🇬🇵	tuta Gwadaluf	none
-🇬🇶	tuta Gini Ta Ikwaita	none
+🇬🇶	tuta Ikwatoriyal Gini	none
 🇬🇷	tuta Girka	none
 🇬🇸	tuta Kudancin Geogia da Kudancin Tsibirin Sandiwic	none
 🇬🇹	tuta Gwatamala	none
-🇬🇺	tuta Gwam	none
+🇬🇺	tuta Guam	none
 🇬🇼	tuta Gini Bisau	none
 🇬🇾	tuta Guyana	none
 🇭🇰	tuta Babban Yankin Mulkin Hong Kong na Ƙasar Sin	none
@@ -3726,7 +3921,7 @@ symbols:
 🇮🇩	tuta Indunusiya	none
 🇮🇪	tuta Ayalan	none
 🇮🇱	tuta Israʼila	none
-🇮🇲	tuta Isle na Mutum	none
+🇮🇲	tuta Isle of Man	none
 🇮🇳	tuta Indiya	none
 🇮🇴	tuta Yankin Birtaniya Na Tekun Indiya	none
 🇮🇶	tuta Iraƙi	none
@@ -3745,10 +3940,10 @@ symbols:
 🇰🇳	tuta San Kiti Da Nebis	none
 🇰🇵	tuta Koriya Ta Arewa	none
 🇰🇷	tuta Koriya Ta Kudu	none
-🇰🇼	tuta Kwiyat	none
+🇰🇼	tuta Kuwet	none
 🇰🇾	tuta Tsibiran Kaiman	none
 🇰🇿	tuta Kazakistan	none
-🇱🇦	tuta Lawas	none
+🇱🇦	tuta Lawos	none
 🇱🇧	tuta Labanan	none
 🇱🇨	tuta San Lusiya	none
 🇱🇮	tuta Licansitan	none
@@ -3762,7 +3957,7 @@ symbols:
 🇲🇦	tuta Maroko	none
 🇲🇨	tuta Monako	none
 🇲🇩	tuta Maldoba	none
-🇲🇪	tuta Mantanegara	none
+🇲🇪	tuta Manteneguro	none
 🇲🇫	tuta San Martin	none
 🇲🇬	tuta Madagaskar	none
 🇲🇭	tuta Tsibiran Marshal	none
@@ -3780,7 +3975,7 @@ symbols:
 🇲🇻	tuta Maldibi	none
 🇲🇼	tuta Malawi	none
 🇲🇽	tuta Mesiko	none
-🇲🇾	tuta Malaisiya	none
+🇲🇾	tuta Malesiya	none
 🇲🇿	tuta Mozambik	none
 🇳🇦	tuta Namibiya	none
 🇳🇨	tuta Kaledoniya Sabuwa	none
@@ -3792,7 +3987,7 @@ symbols:
 🇳🇴	tuta Norwe	none
 🇳🇵	tuta Nefal	none
 🇳🇷	tuta Nauru	none
-🇳🇺	tuta Niyu	none
+🇳🇺	tuta Niue	none
 🇳🇿	tuta Nuzilan	none
 🇴🇲	tuta Oman	none
 🇵🇦	tuta Panama	none
@@ -3803,7 +3998,7 @@ symbols:
 🇵🇰	tuta Pakistan	none
 🇵🇱	tuta Polan	none
 🇵🇲	tuta San Piyar da Mikelan	none
-🇵🇳	tuta Pitakarin	none
+🇵🇳	tuta Tsibiran Pitcairn	none
 🇵🇷	tuta Porto Riko	none
 🇵🇸	tuta Yankunan Palasɗinu	none
 🇵🇹	tuta Portugal	none
@@ -3844,7 +4039,7 @@ symbols:
 🇹🇭	tuta Tailan	none
 🇹🇯	tuta Tajikistan	none
 🇹🇰	tuta Takelau	none
-🇹🇱	tuta Timor Ta Gabas	none
+🇹🇱	tuta Timor-Leste	none
 🇹🇲	tuta Turkumenistan	none
 🇹🇳	tuta Tunisiya	none
 🇹🇴	tuta Tonga	none
@@ -3860,7 +4055,7 @@ symbols:
 🇺🇸	tuta Amurka	none
 🇺🇾	tuta Yurigwai	none
 🇺🇿	tuta Uzubekistan	none
-🇻🇦	tuta Batikan	none
+🇻🇦	tuta Birnin Batikan	none
 🇻🇨	tuta San Binsan Da Girnadin	none
 🇻🇪	tuta Benezuwela	none
 🇻🇬	tuta Tsibirin Birjin Na Birtaniya	none
@@ -3870,22 +4065,23 @@ symbols:
 🇼🇫	tuta Walis Da Futuna	none
 🇼🇸	tuta Samoa	none
 🇽🇰	tuta Kasar Kosovo	none
-🇾🇪	tuta Yamal	none
+🇾🇪	tuta Yamen	none
 🇾🇹	tuta Mayoti	none
 🇿🇦	tuta Afirka Ta Kudu	none
 🇿🇲	tuta Zambiya	none
 🇿🇼	tuta Zimbabuwe	none
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	tuta Ingila	none
+🏴󠁧󠁢󠁷󠁬󠁳󠁿	tuta Wales	none
 ₡	Colón na ƙasar Costa Rica	none
 ₦	Nairar Najeriya	none
-₪	Sabbin Kuɗin Israʼila	none
-₫	Kuɗin Vietnam	none
-₭	Kuɗin Laos	none
+₪	Sabon shekel na Israʼila	none
+₫	Dong na ƙasar Vietnam	none
+₭	Kip na ƙasar Laos	none
 ₮	Tugrik na Mongolia	none
 ₲	Guarani na ƙasar Paraguay	none
-₴	Kudin Ukrainian	none
+₴	Hryvnia na Ukrain	none
 ₵	Sidi na Ghana	none
 ₸	Tenge na ƙasar Kazkhstan	none
-₺	Kuɗin Turkiyya	none
-₼	Kuɗin Azerbaijani	none
-₾	Kuɗin Georgia	none
+₺	Lira na Turkiyya	none
+₼	Manat na Azebaijan	none
+₾	Lari na Georgia	none

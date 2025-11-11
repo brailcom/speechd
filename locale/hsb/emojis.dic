@@ -321,6 +321,7 @@ symbols:
 😪	sparne wobličo	none
 🤤	wobličo, kotremuž sliny zběža	none
 😴	wobličo, kotrež spi	none
+🫩	wobličo ze sylzowymaj měškomaj pod wočomaj	none
 😷	wobličo z nahubnikom	none
 🤒	wobličo ze zymicowym termometrom	none
 🤕	wobličo z wobwjazom wokoło hłowy	none
@@ -348,6 +349,7 @@ symbols:
 😯	překwapjene wobličo	none
 😲	zadźiwane wobličo	none
 😳	wobličo, kiž je so začerwjeniło a ma wulkej woči	none
+🫪	sćehnjene wobličo	none
 🥺	prošace wobličo	none
 🥹	wobličo, kiž dźerži sylzy wróćo	none
 😦	wobličo, kotremuž so zecnje	none
@@ -421,6 +423,7 @@ symbols:
 💋	wotćišć hubki	none
 💯	sto dypkow	none
 💢	symbol hněwanja	none
+🫯	mróčel wojowanja	none
 💥	zražka	none
 💫	wjerćenje we hłowje	none
 💦	kapki pota	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	muski zombie	none
 🧟‍♀	žónski zombie	none
 🧌	kubołt	none
+🫈	kosmata potwora	none
 💆	wosoba, kiž dóstanje masažu hłowy	none
 💆‍♂	muž, kiž dóstanje masažu hłowy	none
 💆‍♀	žona, kiž dóstanje masažu hłowy	none
@@ -680,6 +684,7 @@ symbols:
 🏃	běhaca wosoba	none
 🏃‍♂	běhacy muž	none
 🏃‍♀	běhaca žona	none
+🧑‍🩰	baletowa rejowarka	none
 💃	rejowaca žona	none
 🕺	rejowacy muž	none
 🕴	muž we wobleku, kiž so znošuje	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	swójba dorosćeny a dźěćo	none
 🧑‍🧒‍🧒	swójba dorosćeny a dźěsći	none
 👣	stopje	none
+🫆	wotćišć porsta	none
 🦰	čerwjene włosy	none
 🦱	kudźerjate włosy	none
 🦳	šědźiwe włosy	none
@@ -860,6 +866,7 @@ symbols:
 🐳	wjelryba, kiž wodu pryska	none
 🐋	wjelryba	none
 🐬	delfin	none
+🫍	orka	none
 🦭	ćuleń	none
 🐟	ryba	none
 🐠	tropiska ryba	none
@@ -869,6 +876,11 @@ symbols:
 🐚	šlinkowa chěžka	none
 🪸	korala	none
 🪼	kwala	none
+🦀	rak	none
+🦞	humer	none
+🦐	garnela	none
+🦑	čornica	none
+🦪	wustrica	none
 🐌	šlink	none
 🦋	mjetelčka	none
 🐛	husańca	none
@@ -913,6 +925,7 @@ symbols:
 🪹	prózdne hnězdo	none
 🪺	hnězdo z jejkomaj	none
 🍄	muchorizna	none
+🪾	štom bjez lisća	none
 🍇	winowa kić	none
 🍈	mjedowa melona	none
 🍉	melona	none
@@ -951,6 +964,7 @@ symbols:
 🫚	ingwer	none
 🫛	truk hrocha	none
 🍄‍🟫	bruny hrib	none
+🫜	korjenjowa zelenina	none
 🍞	chlěb	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	piroga	none
 🥠	keks z wěšćenjom	none
 🥡	tyzka za jědź	none
-🦀	rak	none
-🦞	humer	none
-🦐	garnela	none
-🦑	čornica	none
-🦪	wustrica	none
 🍦	mjechki lód	none
 🍧	truhany lód	none
 🍨	kulki loda	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	kompas	none
 🏔	hora ze zasněženym wjerchom	none
 ⛰	hora	none
+🛘	zesunjenje zemje	none
 🌋	wulkan	none
 🗻	hora Fuji	none
 🏕	stanowanje	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	słuchatka	none
 📻	radijo	none
 🎷	saksofon	none
+🎺	trompeta	none
+🪊	pozawna	none
 🪗	akordeon	none
 🎸	gitara	none
 🎹	klawiatura	none
-🎺	trompeta	none
 🎻	husle	none
 🪕	banjo	none
 🥁	bubon	none
 🪘	afriski bubon	none
 🪇	maracasy	none
 🪈	pišćałka	none
+🪉	harfa	none
 📱	mobilny telefon	none
 📲	mobilny telefon z kłokom	none
 ☎	telefon	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	strony z čitanskimi znamjenjemi	none
 🔖	čitanske znamjo	none
 🏷	etiket	none
-💰	měšk pjenjez	none
 🪙	pjenjez	none
+💰	měšk pjenjez	none
+🪎	křinja z pokładom	none
 💴	yenowka	none
 💵	dolarowka	none
 💶	eurowka	none
@@ -1565,6 +1578,7 @@ symbols:
 🧰	gratowy kašćik	none
 🧲	magnet	none
 🪜	rěbl	none
+🪏	łopač	none
 ⚗	destilaciski nastroj	none
 🧪	reagencowa škleńca	none
 🧫	Petrijowa škleńca	none
@@ -1745,6 +1759,7 @@ symbols:
 ✴	wosomkónčkata hwězda	none
 ❇	zybolenje	none
 ™	markowe znamjo	none
+🫟	plusk	none
 🔠	zapodaj łaćonske wulke pismiki	none
 🔡	zapodaj łaćonske małe pismiki	none
 🔢	zapodaj ličby	none
@@ -2159,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	porik z wutrobičku dorosćeny, dorosćeny, ćmowa barba kože a srěnjoswětła barba kože	none
 🧑🏿‍❤‍🧑🏽	porik z wutrobičku dorosćeny, dorosćeny, ćmowa barba kože a srěnja barba kože	none
 🧑🏿‍❤‍🧑🏾	porik z wutrobičku dorosćeny, dorosćeny, ćmowa barba kože a srěnjoćmowa barba kože	none
+🧑🏻‍🫯‍🧑🏼	wosobje, kiž wjerhatej swětła barba kože, srěnjoswětła barba kože	none
+🧑🏻‍🫯‍🧑🏽	wosobje, kiž wjerhatej swětła barba kože, srěnja barba kože	none
+🧑🏻‍🫯‍🧑🏾	wosobje, kiž wjerhatej swětła barba kože, srěnjoćmowa barba kože	none
+🧑🏻‍🫯‍🧑🏿	wosobje, kiž wjerhatej swětła barba kože, ćmowa barba kože	none
+🧑🏼‍🫯‍🧑🏻	wosobje, kiž wjerhatej srěnjoswětła barba kože, swětła barba kože	none
+🧑🏼‍🫯‍🧑🏽	wosobje, kiž wjerhatej srěnjoswětła barba kože, srěnja barba kože	none
+🧑🏼‍🫯‍🧑🏾	wosobje, kiž wjerhatej srěnjoswětła barba kože, srěnjoćmowa barba kože	none
+🧑🏼‍🫯‍🧑🏿	wosobje, kiž wjerhatej srěnjoswětła barba kože, ćmowa barba kože	none
+🧑🏽‍🫯‍🧑🏻	wosobje, kiž wjerhatej srěnja barba kože, swětła barba kože	none
+🧑🏽‍🫯‍🧑🏼	wosobje, kiž wjerhatej srěnja barba kože, srěnjoswětła barba kože	none
+🧑🏽‍🫯‍🧑🏾	wosobje, kiž wjerhatej srěnja barba kože, srěnjoćmowa barba kože	none
+🧑🏽‍🫯‍🧑🏿	wosobje, kiž wjerhatej srěnja barba kože, ćmowa barba kože	none
+🧑🏾‍🫯‍🧑🏻	wosobje, kiž wjerhatej srěnjoćmowa barba kože, swětła barba kože	none
+🧑🏾‍🫯‍🧑🏼	wosobje, kiž wjerhatej srěnjoćmowa barba kože, srěnjoswětła barba kože	none
+🧑🏾‍🫯‍🧑🏽	wosobje, kiž wjerhatej srěnjoćmowa barba kože, srěnja barba kože	none
+🧑🏾‍🫯‍🧑🏿	wosobje, kiž wjerhatej srěnjoćmowa barba kože, ćmowa barba kože	none
+🧑🏿‍🫯‍🧑🏻	wosobje, kiž wjerhatej ćmowa barba kože, swětła barba kože	none
+🧑🏿‍🫯‍🧑🏼	wosobje, kiž wjerhatej ćmowa barba kože, srěnjoswětła barba kože	none
+🧑🏿‍🫯‍🧑🏽	wosobje, kiž wjerhatej ćmowa barba kože, srěnja barba kože	none
+🧑🏿‍🫯‍🧑🏾	wosobje, kiž wjerhatej ćmowa barba kože, srěnjoćmowa barba kože	none
 🧑‍🦰	dorosćeny čerwjene włosy	none
 🧑🏻‍🦰	dorosćeny swětła barba kože, čerwjene włosy	none
 🧑🏼‍🦰	dorosćeny srěnjoswětła barba kože, čerwjene włosy	none
@@ -2183,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	dorosćeny srěnja barba kože, plěch	none
 🧑🏾‍🦲	dorosćeny srěnjoćmowa barba kože, plěch	none
 🧑🏿‍🦲	dorosćeny ćmowa barba kože, plěch	none
+🧑🏻‍🐰‍🧑🏼	wosobje ze zaječimaj wušomaj swětła barba kože, srěnjoswětła barba kože	none
+🧑🏻‍🐰‍🧑🏽	wosobje ze zaječimaj wušomaj swětła barba kože, srěnja barba kože	none
+🧑🏻‍🐰‍🧑🏾	wosobje ze zaječimaj wušomaj swětła barba kože, srěnjoćmowa barba kože	none
+🧑🏻‍🐰‍🧑🏿	wosobje ze zaječimaj wušomaj swětła barba kože, ćmowa barba kože	none
+🧑🏼‍🐰‍🧑🏻	wosobje ze zaječimaj wušomaj srěnjoswětła barba kože, swětła barba kože	none
+🧑🏼‍🐰‍🧑🏽	wosobje ze zaječimaj wušomaj srěnjoswětła barba kože, srěnja barba kože	none
+🧑🏼‍🐰‍🧑🏾	wosobje ze zaječimaj wušomaj srěnjoswětła barba kože, srěnjoćmowa barba kože	none
+🧑🏼‍🐰‍🧑🏿	wosobje ze zaječimaj wušomaj srěnjoswětła barba kože, ćmowa barba kože	none
+🧑🏽‍🐰‍🧑🏻	wosobje ze zaječimaj wušomaj srěnja barba kože, swětła barba kože	none
+🧑🏽‍🐰‍🧑🏼	wosobje ze zaječimaj wušomaj srěnja barba kože, srěnjoswětła barba kože	none
+🧑🏽‍🐰‍🧑🏾	wosobje ze zaječimaj wušomaj srěnja barba kože, srěnjoćmowa barba kože	none
+🧑🏽‍🐰‍🧑🏿	wosobje ze zaječimaj wušomaj srěnja barba kože, ćmowa barba kože	none
+🧑🏾‍🐰‍🧑🏻	wosobje ze zaječimaj wušomaj srěnjoćmowa barba kože, swětła barba kože	none
+🧑🏾‍🐰‍🧑🏼	wosobje ze zaječimaj wušomaj srěnjoćmowa barba kože, srěnjoswětła barba kože	none
+🧑🏾‍🐰‍🧑🏽	wosobje ze zaječimaj wušomaj srěnjoćmowa barba kože, srěnja barba kože	none
+🧑🏾‍🐰‍🧑🏿	wosobje ze zaječimaj wušomaj srěnjoćmowa barba kože, ćmowa barba kože	none
+🧑🏿‍🐰‍🧑🏻	wosobje ze zaječimaj wušomaj ćmowa barba kože, swětła barba kože	none
+🧑🏿‍🐰‍🧑🏼	wosobje ze zaječimaj wušomaj ćmowa barba kože, srěnjoswětła barba kože	none
+🧑🏿‍🐰‍🧑🏽	wosobje ze zaječimaj wušomaj ćmowa barba kože, srěnja barba kože	none
+🧑🏿‍🐰‍🧑🏾	wosobje ze zaječimaj wušomaj ćmowa barba kože, srěnjoćmowa barba kože	none
 👨🏻	muž swětła barba kože	none
 👨🏼	muž srěnjoswětła barba kože	none
 👨🏽	muž srěnja barba kože	none
@@ -2253,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	porik z wutrobičku muž, muž, ćmowa barba kože a srěnja barba kože	none
 👨🏿‍❤‍👨🏾	porik z wutrobičku muž, muž, ćmowa barba kože a srěnjoćmowa barba kože	none
 👨🏿‍❤‍👨🏿	porik z wutrobičku muž, muž a ćmowa barba kože	none
+👨🏻‍🫯‍👨🏼	wjerharjej swětła barba kože, srěnjoswětła barba kože	none
+👨🏻‍🫯‍👨🏽	wjerharjej swětła barba kože, srěnja barba kože	none
+👨🏻‍🫯‍👨🏾	wjerharjej swětła barba kože, srěnjoćmowa barba kože	none
+👨🏻‍🫯‍👨🏿	wjerharjej swětła barba kože, ćmowa barba kože	none
+👨🏼‍🫯‍👨🏻	wjerharjej srěnjoswětła barba kože, swětła barba kože	none
+👨🏼‍🫯‍👨🏽	wjerharjej srěnjoswětła barba kože, srěnja barba kože	none
+👨🏼‍🫯‍👨🏾	wjerharjej srěnjoswětła barba kože, srěnjoćmowa barba kože	none
+👨🏼‍🫯‍👨🏿	wjerharjej srěnjoswětła barba kože, ćmowa barba kože	none
+👨🏽‍🫯‍👨🏻	wjerharjej srěnja barba kože, swětła barba kože	none
+👨🏽‍🫯‍👨🏼	wjerharjej srěnja barba kože, srěnjoswětła barba kože	none
+👨🏽‍🫯‍👨🏾	wjerharjej srěnja barba kože, srěnjoćmowa barba kože	none
+👨🏽‍🫯‍👨🏿	wjerharjej srěnja barba kože, ćmowa barba kože	none
+👨🏾‍🫯‍👨🏻	wjerharjej srěnjoćmowa barba kože, swětła barba kože	none
+👨🏾‍🫯‍👨🏼	wjerharjej srěnjoćmowa barba kože, srěnjoswětła barba kože	none
+👨🏾‍🫯‍👨🏽	wjerharjej srěnjoćmowa barba kože, srěnja barba kože	none
+👨🏾‍🫯‍👨🏿	wjerharjej srěnjoćmowa barba kože, ćmowa barba kože	none
+👨🏿‍🫯‍👨🏻	wjerharjej ćmowa barba kože, swětła barba kože	none
+👨🏿‍🫯‍👨🏼	wjerharjej ćmowa barba kože, srěnjoswětła barba kože	none
+👨🏿‍🫯‍👨🏽	wjerharjej ćmowa barba kože, srěnja barba kože	none
+👨🏿‍🫯‍👨🏾	wjerharjej ćmowa barba kože, srěnjoćmowa barba kože	none
 👨‍🦰	muž čerwjene włosy	none
 👨🏻‍🦰	muž swětła barba kože, čerwjene włosy	none
 👨🏼‍🦰	muž srěnjoswětła barba kože, čerwjene włosy	none
@@ -2277,6 +2352,26 @@ symbols:
 👨🏽‍🦲	muž srěnja barba kože, plěch	none
 👨🏾‍🦲	muž srěnjoćmowa barba kože, plěch	none
 👨🏿‍🦲	muž ćmowa barba kože, plěch	none
+👨🏻‍🐰‍👨🏼	mužej ze zaječimaj wušomaj swětła barba kože, srěnjoswětła barba kože	none
+👨🏻‍🐰‍👨🏽	mužej ze zaječimaj wušomaj swětła barba kože, srěnja barba kože	none
+👨🏻‍🐰‍👨🏾	mužej ze zaječimaj wušomaj swětła barba kože, srěnjoćmowa barba kože	none
+👨🏻‍🐰‍👨🏿	mužej ze zaječimaj wušomaj swětła barba kože, ćmowa barba kože	none
+👨🏼‍🐰‍👨🏻	mužej ze zaječimaj wušomaj srěnjoswětła barba kože, swětła barba kože	none
+👨🏼‍🐰‍👨🏽	mužej ze zaječimaj wušomaj srěnjoswětła barba kože, srěnja barba kože	none
+👨🏼‍🐰‍👨🏾	mužej ze zaječimaj wušomaj srěnjoswětła barba kože, srěnjoćmowa barba kože	none
+👨🏼‍🐰‍👨🏿	mužej ze zaječimaj wušomaj srěnjoswětła barba kože, ćmowa barba kože	none
+👨🏽‍🐰‍👨🏻	mužej ze zaječimaj wušomaj srěnja barba kože, swětła barba kože	none
+👨🏽‍🐰‍👨🏼	mužej ze zaječimaj wušomaj srěnja barba kože, srěnjoswětła barba kože	none
+👨🏽‍🐰‍👨🏾	mužej ze zaječimaj wušomaj srěnja barba kože, srěnjoćmowa barba kože	none
+👨🏽‍🐰‍👨🏿	mužej ze zaječimaj wušomaj srěnja barba kože, ćmowa barba kože	none
+👨🏾‍🐰‍👨🏻	mužej ze zaječimaj wušomaj srěnjoćmowa barba kože, swětła barba kože	none
+👨🏾‍🐰‍👨🏼	mužej ze zaječimaj wušomaj srěnjoćmowa barba kože, srěnjoswětła barba kože	none
+👨🏾‍🐰‍👨🏽	mužej ze zaječimaj wušomaj srěnjoćmowa barba kože, srěnja barba kože	none
+👨🏾‍🐰‍👨🏿	mužej ze zaječimaj wušomaj srěnjoćmowa barba kože, ćmowa barba kože	none
+👨🏿‍🐰‍👨🏻	mužej ze zaječimaj wušomaj ćmowa barba kože, swětła barba kože	none
+👨🏿‍🐰‍👨🏼	mužej ze zaječimaj wušomaj ćmowa barba kože, srěnjoswětła barba kože	none
+👨🏿‍🐰‍👨🏽	mužej ze zaječimaj wušomaj ćmowa barba kože, srěnja barba kože	none
+👨🏿‍🐰‍👨🏾	mužej ze zaječimaj wušomaj ćmowa barba kože, srěnjoćmowa barba kože	none
 👩🏻	žona swětła barba kože	none
 👩🏼	žona srěnjoswětła barba kože	none
 👩🏽	žona srěnja barba kože	none
@@ -2392,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	porik z wutrobičku žona, žona, ćmowa barba kože a srěnja barba kože	none
 👩🏿‍❤‍👩🏾	porik z wutrobičku žona, žona, ćmowa barba kože a srěnjoćmowa barba kože	none
 👩🏿‍❤‍👩🏿	porik z wutrobičku žona, žona a ćmowa barba kože	none
+👩🏻‍🫯‍👩🏼	wjerharce swětła barba kože, srěnjoswětła barba kože	none
+👩🏻‍🫯‍👩🏽	wjerharce swětła barba kože, srěnja barba kože	none
+👩🏻‍🫯‍👩🏾	wjerharce swětła barba kože, srěnjoćmowa barba kože	none
+👩🏻‍🫯‍👩🏿	wjerharce swětła barba kože, ćmowa barba kože	none
+👩🏼‍🫯‍👩🏻	wjerharce srěnjoswětła barba kože, swětła barba kože	none
+👩🏼‍🫯‍👩🏽	wjerharce srěnjoswětła barba kože, srěnja barba kože	none
+👩🏼‍🫯‍👩🏾	wjerharce srěnjoswětła barba kože, srěnjoćmowa barba kože	none
+👩🏼‍🫯‍👩🏿	wjerharce srěnjoswětła barba kože, ćmowa barba kože	none
+👩🏽‍🫯‍👩🏻	wjerharce srěnja barba kože, swětła barba kože	none
+👩🏽‍🫯‍👩🏼	wjerharce srěnja barba kože, srěnjoswětła barba kože	none
+👩🏽‍🫯‍👩🏾	wjerharce srěnja barba kože, srěnjoćmowa barba kože	none
+👩🏽‍🫯‍👩🏿	wjerharce srěnja barba kože, ćmowa barba kože	none
+👩🏾‍🫯‍👩🏻	wjerharce srěnjoćmowa barba kože, swětła barba kože	none
+👩🏾‍🫯‍👩🏼	wjerharce srěnjoćmowa barba kože, srěnjoswětła barba kože	none
+👩🏾‍🫯‍👩🏽	wjerharce srěnjoćmowa barba kože, srěnja barba kože	none
+👩🏾‍🫯‍👩🏿	wjerharce srěnjoćmowa barba kože, ćmowa barba kože	none
+👩🏿‍🫯‍👩🏻	wjerharce ćmowa barba kože, swětła barba kože	none
+👩🏿‍🫯‍👩🏼	wjerharce ćmowa barba kože, srěnjoswětła barba kože	none
+👩🏿‍🫯‍👩🏽	wjerharce ćmowa barba kože, srěnja barba kože	none
+👩🏿‍🫯‍👩🏾	wjerharce ćmowa barba kože, srěnjoćmowa barba kože	none
 👩‍🦰	žona čerwjene włosy	none
 👩🏻‍🦰	žona swětła barba kože, čerwjene włosy	none
 👩🏼‍🦰	žona srěnjoswětła barba kože, čerwjene włosy	none
@@ -2416,6 +2531,26 @@ symbols:
 👩🏽‍🦲	žona srěnja barba kože, plěch	none
 👩🏾‍🦲	žona srěnjoćmowa barba kože, plěch	none
 👩🏿‍🦲	žona ćmowa barba kože, plěch	none
+👩🏻‍🐰‍👩🏼	žonje ze zaječimaj wušomaj swětła barba kože, srěnjoswětła barba kože	none
+👩🏻‍🐰‍👩🏽	žonje ze zaječimaj wušomaj swětła barba kože, srěnja barba kože	none
+👩🏻‍🐰‍👩🏾	žonje ze zaječimaj wušomaj swětła barba kože, srěnjoćmowa barba kože	none
+👩🏻‍🐰‍👩🏿	žonje ze zaječimaj wušomaj swětła barba kože, ćmowa barba kože	none
+👩🏼‍🐰‍👩🏻	žonje ze zaječimaj wušomaj srěnjoswětła barba kože, swětła barba kože	none
+👩🏼‍🐰‍👩🏽	žonje ze zaječimaj wušomaj srěnjoswětła barba kože, srěnja barba kože	none
+👩🏼‍🐰‍👩🏾	žonje ze zaječimaj wušomaj srěnjoswětła barba kože, srěnjoćmowa barba kože	none
+👩🏼‍🐰‍👩🏿	žonje ze zaječimaj wušomaj srěnjoswětła barba kože, ćmowa barba kože	none
+👩🏽‍🐰‍👩🏻	žonje ze zaječimaj wušomaj srěnja barba kože, swětła barba kože	none
+👩🏽‍🐰‍👩🏼	žonje ze zaječimaj wušomaj srěnja barba kože, srěnjoswětła barba kože	none
+👩🏽‍🐰‍👩🏾	žonje ze zaječimaj wušomaj srěnja barba kože, srěnjoćmowa barba kože	none
+👩🏽‍🐰‍👩🏿	žonje ze zaječimaj wušomaj srěnja barba kože, ćmowa barba kože	none
+👩🏾‍🐰‍👩🏻	žonje ze zaječimaj wušomaj srěnjoćmowa barba kože, swětła barba kože	none
+👩🏾‍🐰‍👩🏼	žonje ze zaječimaj wušomaj srěnjoćmowa barba kože, srěnjoswětła barba kože	none
+👩🏾‍🐰‍👩🏽	žonje ze zaječimaj wušomaj srěnjoćmowa barba kože, srěnja barba kože	none
+👩🏾‍🐰‍👩🏿	žonje ze zaječimaj wušomaj srěnjoćmowa barba kože, ćmowa barba kože	none
+👩🏿‍🐰‍👩🏻	žonje ze zaječimaj wušomaj ćmowa barba kože, swětła barba kože	none
+👩🏿‍🐰‍👩🏼	žonje ze zaječimaj wušomaj ćmowa barba kože, srěnjoswětła barba kože	none
+👩🏿‍🐰‍👩🏽	žonje ze zaječimaj wušomaj ćmowa barba kože, srěnja barba kože	none
+👩🏿‍🐰‍👩🏾	žonje ze zaječimaj wušomaj ćmowa barba kože, srěnjoćmowa barba kože	none
 🧓🏻	starša wosoba swětła barba kože	none
 🧓🏼	starša wosoba srěnjoswětła barba kože	none
 🧓🏽	starša wosoba srěnja barba kože	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	pěška srěnjoćmowa barba kože	none
 🚶🏿‍♀	pěška ćmowa barba kože	none
 🚶‍➡	wosoba, kiž je pěši po puću doprawa	none
-🚶🏻‍➡	wosoba, kiž je pěši po puću doprawa	none
-🚶🏼‍➡	wosoba, kiž je pěši po puću doprawa	none
-🚶🏽‍➡	wosoba, kiž je pěši po puću doprawa	none
-🚶🏾‍➡	wosoba, kiž je pěši po puću doprawa	none
-🚶🏿‍➡	wosoba, kiž je pěši po puću doprawa	none
+🚶🏻‍➡	wosoba, kiž je pěši po puću swětła barba kože, doprawa	none
+🚶🏼‍➡	wosoba, kiž je pěši po puću srěnjoswětła barba kože, doprawa	none
+🚶🏽‍➡	wosoba, kiž je pěši po puću srěnja barba kože, doprawa	none
+🚶🏾‍➡	wosoba, kiž je pěši po puću srěnjoćmowa barba kože, doprawa	none
+🚶🏿‍➡	wosoba, kiž je pěši po puću ćmowa barba kože, doprawa	none
 🚶‍♀‍➡	pěška doprawa	none
-🚶🏻‍♀‍➡	pěška doprawa	none
-🚶🏼‍♀‍➡	pěška doprawa	none
-🚶🏽‍♀‍➡	pěška doprawa	none
-🚶🏾‍♀‍➡	pěška doprawa	none
-🚶🏿‍♀‍➡	pěška doprawa	none
+🚶🏻‍♀‍➡	pěška swětła barba kože, doprawa	none
+🚶🏼‍♀‍➡	pěška srěnjoswětła barba kože, doprawa	none
+🚶🏽‍♀‍➡	pěška srěnja barba kože, doprawa	none
+🚶🏾‍♀‍➡	pěška srěnjoćmowa barba kože, doprawa	none
+🚶🏿‍♀‍➡	pěška ćmowa barba kože, doprawa	none
 🚶‍♂‍➡	pěšk doprawa	none
-🚶🏻‍♂‍➡	pěšk doprawa	none
-🚶🏼‍♂‍➡	pěšk doprawa	none
-🚶🏽‍♂‍➡	pěšk doprawa	none
-🚶🏾‍♂‍➡	pěšk doprawa	none
-🚶🏿‍♂‍➡	pěšk doprawa	none
+🚶🏻‍♂‍➡	pěšk swětła barba kože, doprawa	none
+🚶🏼‍♂‍➡	pěšk srěnjoswětła barba kože, doprawa	none
+🚶🏽‍♂‍➡	pěšk srěnja barba kože, doprawa	none
+🚶🏾‍♂‍➡	pěšk srěnjoćmowa barba kože, doprawa	none
+🚶🏿‍♂‍➡	pěšk ćmowa barba kože, doprawa	none
 🧍🏻	stejaca wosoba swětła barba kože	none
 🧍🏼	stejaca wosoba srěnjoswětła barba kože	none
 🧍🏽	stejaca wosoba srěnja barba kože	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	klečaca žona srěnjoćmowa barba kože	none
 🧎🏿‍♀	klečaca žona ćmowa barba kože	none
 🧎‍➡	klečaca wosoba doprawa	none
-🧎🏻‍➡	klečaca wosoba doprawa	none
-🧎🏼‍➡	klečaca wosoba doprawa	none
-🧎🏽‍➡	klečaca wosoba doprawa	none
-🧎🏾‍➡	klečaca wosoba doprawa	none
-🧎🏿‍➡	klečaca wosoba doprawa	none
+🧎🏻‍➡	klečaca wosoba swětła barba kože, doprawa	none
+🧎🏼‍➡	klečaca wosoba srěnjoswětła barba kože, doprawa	none
+🧎🏽‍➡	klečaca wosoba srěnja barba kože, doprawa	none
+🧎🏾‍➡	klečaca wosoba srěnjoćmowa barba kože, doprawa	none
+🧎🏿‍➡	klečaca wosoba ćmowa barba kože, doprawa	none
 🧎‍♀‍➡	klečaca žona doprawa	none
-🧎🏻‍♀‍➡	klečaca žona doprawa	none
-🧎🏼‍♀‍➡	klečaca žona doprawa	none
-🧎🏽‍♀‍➡	klečaca žona doprawa	none
-🧎🏾‍♀‍➡	klečaca žona doprawa	none
-🧎🏿‍♀‍➡	klečaca žona doprawa	none
+🧎🏻‍♀‍➡	klečaca žona swětła barba kože, doprawa	none
+🧎🏼‍♀‍➡	klečaca žona srěnjoswětła barba kože, doprawa	none
+🧎🏽‍♀‍➡	klečaca žona srěnja barba kože, doprawa	none
+🧎🏾‍♀‍➡	klečaca žona srěnjoćmowa barba kože, doprawa	none
+🧎🏿‍♀‍➡	klečaca žona ćmowa barba kože, doprawa	none
 🧎‍♂‍➡	klečacy muž doprawa	none
-🧎🏻‍♂‍➡	klečacy muž doprawa	none
-🧎🏼‍♂‍➡	klečacy muž doprawa	none
-🧎🏽‍♂‍➡	klečacy muž doprawa	none
-🧎🏾‍♂‍➡	klečacy muž doprawa	none
-🧎🏿‍♂‍➡	klečacy muž doprawa	none
+🧎🏻‍♂‍➡	klečacy muž swětła barba kože, doprawa	none
+🧎🏼‍♂‍➡	klečacy muž srěnjoswětła barba kože, doprawa	none
+🧎🏽‍♂‍➡	klečacy muž srěnja barba kože, doprawa	none
+🧎🏾‍♂‍➡	klečacy muž srěnjoćmowa barba kože, doprawa	none
+🧎🏿‍♂‍➡	klečacy muž ćmowa barba kože, doprawa	none
 🧑🏻‍🦯	wosoba z kijom za slepych swětła barba kože	none
 🧑🏼‍🦯	wosoba z kijom za slepych srěnjoswětła barba kože	none
 🧑🏽‍🦯	wosoba z kijom za slepych srěnja barba kože	none
 🧑🏾‍🦯	wosoba z kijom za slepych srěnjoćmowa barba kože	none
 🧑🏿‍🦯	wosoba z kijom za slepych ćmowa barba kože	none
 🧑‍🦯‍➡	wosoba z kijom za slepych doprawa	none
-🧑🏻‍🦯‍➡	wosoba z kijom za slepych doprawa	none
-🧑🏼‍🦯‍➡	wosoba z kijom za slepych doprawa	none
-🧑🏽‍🦯‍➡	wosoba z kijom za slepych doprawa	none
-🧑🏾‍🦯‍➡	wosoba z kijom za slepych doprawa	none
-🧑🏿‍🦯‍➡	wosoba z kijom za slepych doprawa	none
+🧑🏻‍🦯‍➡	wosoba z kijom za slepych swětła barba kože, doprawa	none
+🧑🏼‍🦯‍➡	wosoba z kijom za slepych srěnjoswětła barba kože, doprawa	none
+🧑🏽‍🦯‍➡	wosoba z kijom za slepych srěnja barba kože, doprawa	none
+🧑🏾‍🦯‍➡	wosoba z kijom za slepych srěnjoćmowa barba kože, doprawa	none
+🧑🏿‍🦯‍➡	wosoba z kijom za slepych ćmowa barba kože, doprawa	none
 👨🏻‍🦯	muž z kijom za slepych swětła barba kože	none
 👨🏼‍🦯	muž z kijom za slepych srěnjoswětła barba kože	none
 👨🏽‍🦯	muž z kijom za slepych srěnja barba kože	none
 👨🏾‍🦯	muž z kijom za slepych srěnjoćmowa barba kože	none
 👨🏿‍🦯	muž z kijom za slepych ćmowa barba kože	none
 👨‍🦯‍➡	muž z kijom za slepych doprawa	none
-👨🏻‍🦯‍➡	muž z kijom za slepych doprawa	none
-👨🏼‍🦯‍➡	muž z kijom za slepych doprawa	none
-👨🏽‍🦯‍➡	muž z kijom za slepych doprawa	none
-👨🏾‍🦯‍➡	muž z kijom za slepych doprawa	none
-👨🏿‍🦯‍➡	muž z kijom za slepych doprawa	none
+👨🏻‍🦯‍➡	muž z kijom za slepych swětła barba kože, doprawa	none
+👨🏼‍🦯‍➡	muž z kijom za slepych srěnjoswětła barba kože, doprawa	none
+👨🏽‍🦯‍➡	muž z kijom za slepych srěnja barba kože, doprawa	none
+👨🏾‍🦯‍➡	muž z kijom za slepych srěnjoćmowa barba kože, doprawa	none
+👨🏿‍🦯‍➡	muž z kijom za slepych ćmowa barba kože, doprawa	none
 👩🏻‍🦯	žona z kijom za slepych swětła barba kože	none
 👩🏼‍🦯	žona z kijom za slepych srěnjoswětła barba kože	none
 👩🏽‍🦯	žona z kijom za slepych srěnja barba kože	none
 👩🏾‍🦯	žona z kijom za slepych srěnjoćmowa barba kože	none
 👩🏿‍🦯	žona z kijom za slepych ćmowa barba kože	none
 👩‍🦯‍➡	žona z kijom za slepych doprawa	none
-👩🏻‍🦯‍➡	žona z kijom za slepych doprawa	none
-👩🏼‍🦯‍➡	žona z kijom za slepych doprawa	none
-👩🏽‍🦯‍➡	žona z kijom za slepych doprawa	none
-👩🏾‍🦯‍➡	žona z kijom za slepych doprawa	none
-👩🏿‍🦯‍➡	žona z kijom za slepych doprawa	none
+👩🏻‍🦯‍➡	žona z kijom za slepych swětła barba kože, doprawa	none
+👩🏼‍🦯‍➡	žona z kijom za slepych srěnjoswětła barba kože, doprawa	none
+👩🏽‍🦯‍➡	žona z kijom za slepych srěnja barba kože, doprawa	none
+👩🏾‍🦯‍➡	žona z kijom za slepych srěnjoćmowa barba kože, doprawa	none
+👩🏿‍🦯‍➡	žona z kijom za slepych ćmowa barba kože, doprawa	none
 🧑🏻‍🦼	wosoba w elektriskim jězbnym stole swětła barba kože	none
 🧑🏼‍🦼	wosoba w elektriskim jězbnym stole srěnjoswětła barba kože	none
 🧑🏽‍🦼	wosoba w elektriskim jězbnym stole srěnja barba kože	none
 🧑🏾‍🦼	wosoba w elektriskim jězbnym stole srěnjoćmowa barba kože	none
 🧑🏿‍🦼	wosoba w elektriskim jězbnym stole ćmowa barba kože	none
 🧑‍🦼‍➡	wosoba w elektriskim jězbnym stole doprawa	none
-🧑🏻‍🦼‍➡	wosoba w elektriskim jězbnym stole doprawa	none
-🧑🏼‍🦼‍➡	wosoba w elektriskim jězbnym stole doprawa	none
-🧑🏽‍🦼‍➡	wosoba w elektriskim jězbnym stole doprawa	none
-🧑🏾‍🦼‍➡	wosoba w elektriskim jězbnym stole doprawa	none
-🧑🏿‍🦼‍➡	wosoba w elektriskim jězbnym stole doprawa	none
+🧑🏻‍🦼‍➡	wosoba w elektriskim jězbnym stole swětła barba kože, doprawa	none
+🧑🏼‍🦼‍➡	wosoba w elektriskim jězbnym stole srěnjoswětła barba kože, doprawa	none
+🧑🏽‍🦼‍➡	wosoba w elektriskim jězbnym stole srěnja barba kože, doprawa	none
+🧑🏾‍🦼‍➡	wosoba w elektriskim jězbnym stole srěnjoćmowa barba kože, doprawa	none
+🧑🏿‍🦼‍➡	wosoba w elektriskim jězbnym stole ćmowa barba kože, doprawa	none
 👨🏻‍🦼	muž w elektriskim jězbnym stole swětła barba kože	none
 👨🏼‍🦼	muž w elektriskim jězbnym stole srěnjoswětła barba kože	none
 👨🏽‍🦼	muž w elektriskim jězbnym stole srěnja barba kože	none
 👨🏾‍🦼	muž w elektriskim jězbnym stole srěnjoćmowa barba kože	none
 👨🏿‍🦼	muž w elektriskim jězbnym stole ćmowa barba kože	none
 👨‍🦼‍➡	muž w elektriskim jězbnym stole doprawa	none
-👨🏻‍🦼‍➡	muž w elektriskim jězbnym stole doprawa	none
-👨🏼‍🦼‍➡	muž w elektriskim jězbnym stole doprawa	none
-👨🏽‍🦼‍➡	muž w elektriskim jězbnym stole doprawa	none
-👨🏾‍🦼‍➡	muž w elektriskim jězbnym stole doprawa	none
-👨🏿‍🦼‍➡	muž w elektriskim jězbnym stole doprawa	none
+👨🏻‍🦼‍➡	muž w elektriskim jězbnym stole swětła barba kože, doprawa	none
+👨🏼‍🦼‍➡	muž w elektriskim jězbnym stole srěnjoswětła barba kože, doprawa	none
+👨🏽‍🦼‍➡	muž w elektriskim jězbnym stole srěnja barba kože, doprawa	none
+👨🏾‍🦼‍➡	muž w elektriskim jězbnym stole srěnjoćmowa barba kože, doprawa	none
+👨🏿‍🦼‍➡	muž w elektriskim jězbnym stole ćmowa barba kože, doprawa	none
 👩🏻‍🦼	žona w elektriskim jězbnym stole swětła barba kože	none
 👩🏼‍🦼	žona w elektriskim jězbnym stole srěnjoswětła barba kože	none
 👩🏽‍🦼	žona w elektriskim jězbnym stole srěnja barba kože	none
 👩🏾‍🦼	žona w elektriskim jězbnym stole srěnjoćmowa barba kože	none
 👩🏿‍🦼	žona w elektriskim jězbnym stole ćmowa barba kože	none
 👩‍🦼‍➡	žona w elektriskim jězbnym stole doprawa	none
-👩🏻‍🦼‍➡	žona w elektriskim jězbnym stole doprawa	none
-👩🏼‍🦼‍➡	žona w elektriskim jězbnym stole doprawa	none
-👩🏽‍🦼‍➡	žona w elektriskim jězbnym stole doprawa	none
-👩🏾‍🦼‍➡	žona w elektriskim jězbnym stole doprawa	none
-👩🏿‍🦼‍➡	žona w elektriskim jězbnym stole doprawa	none
+👩🏻‍🦼‍➡	žona w elektriskim jězbnym stole swětła barba kože, doprawa	none
+👩🏼‍🦼‍➡	žona w elektriskim jězbnym stole srěnjoswětła barba kože, doprawa	none
+👩🏽‍🦼‍➡	žona w elektriskim jězbnym stole srěnja barba kože, doprawa	none
+👩🏾‍🦼‍➡	žona w elektriskim jězbnym stole srěnjoćmowa barba kože, doprawa	none
+👩🏿‍🦼‍➡	žona w elektriskim jězbnym stole ćmowa barba kože, doprawa	none
 🧑🏻‍🦽	wosoba w jězbnym stole swětła barba kože	none
 🧑🏼‍🦽	wosoba w jězbnym stole srěnjoswětła barba kože	none
 🧑🏽‍🦽	wosoba w jězbnym stole srěnja barba kože	none
 🧑🏾‍🦽	wosoba w jězbnym stole srěnjoćmowa barba kože	none
 🧑🏿‍🦽	wosoba w jězbnym stole ćmowa barba kože	none
 🧑‍🦽‍➡	wosoba w jězbnym stole doprawa	none
-🧑🏻‍🦽‍➡	wosoba w jězbnym stole doprawa	none
-🧑🏼‍🦽‍➡	wosoba w jězbnym stole doprawa	none
-🧑🏽‍🦽‍➡	wosoba w jězbnym stole doprawa	none
-🧑🏾‍🦽‍➡	wosoba w jězbnym stole doprawa	none
-🧑🏿‍🦽‍➡	wosoba w jězbnym stole doprawa	none
+🧑🏻‍🦽‍➡	wosoba w jězbnym stole swětła barba kože, doprawa	none
+🧑🏼‍🦽‍➡	wosoba w jězbnym stole srěnjoswětła barba kože, doprawa	none
+🧑🏽‍🦽‍➡	wosoba w jězbnym stole srěnja barba kože, doprawa	none
+🧑🏾‍🦽‍➡	wosoba w jězbnym stole srěnjoćmowa barba kože, doprawa	none
+🧑🏿‍🦽‍➡	wosoba w jězbnym stole ćmowa barba kože, doprawa	none
 👨🏻‍🦽	muž w jězbnym stole swětła barba kože	none
 👨🏼‍🦽	muž w jězbnym stole srěnjoswětła barba kože	none
 👨🏽‍🦽	muž w jězbnym stole srěnja barba kože	none
 👨🏾‍🦽	muž w jězbnym stole srěnjoćmowa barba kože	none
 👨🏿‍🦽	muž w jězbnym stole ćmowa barba kože	none
 👨‍🦽‍➡	muž w jězbnym stole doprawa	none
-👨🏻‍🦽‍➡	muž w jězbnym stole doprawa	none
-👨🏼‍🦽‍➡	muž w jězbnym stole doprawa	none
-👨🏽‍🦽‍➡	muž w jězbnym stole doprawa	none
-👨🏾‍🦽‍➡	muž w jězbnym stole doprawa	none
-👨🏿‍🦽‍➡	muž w jězbnym stole doprawa	none
+👨🏻‍🦽‍➡	muž w jězbnym stole swětła barba kože, doprawa	none
+👨🏼‍🦽‍➡	muž w jězbnym stole srěnjoswětła barba kože, doprawa	none
+👨🏽‍🦽‍➡	muž w jězbnym stole srěnja barba kože, doprawa	none
+👨🏾‍🦽‍➡	muž w jězbnym stole srěnjoćmowa barba kože, doprawa	none
+👨🏿‍🦽‍➡	muž w jězbnym stole ćmowa barba kože, doprawa	none
 👩🏻‍🦽	žona w jězbnym stole swětła barba kože	none
 👩🏼‍🦽	žona w jězbnym stole srěnjoswětła barba kože	none
 👩🏽‍🦽	žona w jězbnym stole srěnja barba kože	none
 👩🏾‍🦽	žona w jězbnym stole srěnjoćmowa barba kože	none
 👩🏿‍🦽	žona w jězbnym stole ćmowa barba kože	none
 👩‍🦽‍➡	žona w jězbnym stole doprawa	none
-👩🏻‍🦽‍➡	žona w jězbnym stole doprawa	none
-👩🏼‍🦽‍➡	žona w jězbnym stole doprawa	none
-👩🏽‍🦽‍➡	žona w jězbnym stole doprawa	none
-👩🏾‍🦽‍➡	žona w jězbnym stole doprawa	none
-👩🏿‍🦽‍➡	žona w jězbnym stole doprawa	none
+👩🏻‍🦽‍➡	žona w jězbnym stole swětła barba kože, doprawa	none
+👩🏼‍🦽‍➡	žona w jězbnym stole srěnjoswětła barba kože, doprawa	none
+👩🏽‍🦽‍➡	žona w jězbnym stole srěnja barba kože, doprawa	none
+👩🏾‍🦽‍➡	žona w jězbnym stole srěnjoćmowa barba kože, doprawa	none
+👩🏿‍🦽‍➡	žona w jězbnym stole ćmowa barba kože, doprawa	none
 🏃🏻	běhaca wosoba swětła barba kože	none
 🏃🏼	běhaca wosoba srěnjoswětła barba kože	none
 🏃🏽	běhaca wosoba srěnja barba kože	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	běhaca žona srěnjoćmowa barba kože	none
 🏃🏿‍♀	běhaca žona ćmowa barba kože	none
 🏃‍➡	běhaca wosoba doprawa	none
-🏃🏻‍➡	běhaca wosoba doprawa	none
-🏃🏼‍➡	běhaca wosoba doprawa	none
-🏃🏽‍➡	běhaca wosoba doprawa	none
-🏃🏾‍➡	běhaca wosoba doprawa	none
-🏃🏿‍➡	běhaca wosoba doprawa	none
+🏃🏻‍➡	běhaca wosoba swětła barba kože, doprawa	none
+🏃🏼‍➡	běhaca wosoba srěnjoswětła barba kože, doprawa	none
+🏃🏽‍➡	běhaca wosoba srěnja barba kože, doprawa	none
+🏃🏾‍➡	běhaca wosoba srěnjoćmowa barba kože, doprawa	none
+🏃🏿‍➡	běhaca wosoba ćmowa barba kože, doprawa	none
 🏃‍♀‍➡	běhaca žona doprawa	none
-🏃🏻‍♀‍➡	běhaca žona doprawa	none
-🏃🏼‍♀‍➡	běhaca žona doprawa	none
-🏃🏽‍♀‍➡	běhaca žona doprawa	none
-🏃🏾‍♀‍➡	běhaca žona doprawa	none
-🏃🏿‍♀‍➡	běhaca žona doprawa	none
+🏃🏻‍♀‍➡	běhaca žona swětła barba kože, doprawa	none
+🏃🏼‍♀‍➡	běhaca žona srěnjoswětła barba kože, doprawa	none
+🏃🏽‍♀‍➡	běhaca žona srěnja barba kože, doprawa	none
+🏃🏾‍♀‍➡	běhaca žona srěnjoćmowa barba kože, doprawa	none
+🏃🏿‍♀‍➡	běhaca žona ćmowa barba kože, doprawa	none
 🏃‍♂‍➡	běhacy muž doprawa	none
-🏃🏻‍♂‍➡	běhacy muž doprawa	none
-🏃🏼‍♂‍➡	běhacy muž doprawa	none
-🏃🏽‍♂‍➡	běhacy muž doprawa	none
-🏃🏾‍♂‍➡	běhacy muž doprawa	none
-🏃🏿‍♂‍➡	běhacy muž doprawa	none
+🏃🏻‍♂‍➡	běhacy muž swětła barba kože, doprawa	none
+🏃🏼‍♂‍➡	běhacy muž srěnjoswětła barba kože, doprawa	none
+🏃🏽‍♂‍➡	běhacy muž srěnja barba kože, doprawa	none
+🏃🏾‍♂‍➡	běhacy muž srěnjoćmowa barba kože, doprawa	none
+🏃🏿‍♂‍➡	běhacy muž ćmowa barba kože, doprawa	none
+🧑🏻‍🩰	baletowa rejowarka swětła barba kože	none
+🧑🏼‍🩰	baletowa rejowarka srěnjoswětła barba kože	none
+🧑🏽‍🩰	baletowa rejowarka srěnja barba kože	none
+🧑🏾‍🩰	baletowa rejowarka srěnjoćmowa barba kože	none
+🧑🏿‍🩰	baletowa rejowarka ćmowa barba kože	none
 💃🏻	rejowaca žona swětła barba kože	none
 💃🏼	rejowaca žona srěnjoswětła barba kože	none
 💃🏽	rejowaca žona srěnja barba kože	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	muž we wobleku, kiž so znošuje srěnja barba kože	none
 🕴🏾	muž we wobleku, kiž so znošuje srěnjoćmowa barba kože	none
 🕴🏿	muž we wobleku, kiž so znošuje ćmowa barba kože	none
+👯🏻	wosobje ze zaječimaj wušomaj swětła barba kože	none
+👯🏼	wosobje ze zaječimaj wušomaj srěnjoswětła barba kože	none
+👯🏽	wosobje ze zaječimaj wušomaj srěnja barba kože	none
+👯🏾	wosobje ze zaječimaj wušomaj srěnjoćmowa barba kože	none
+👯🏿	wosobje ze zaječimaj wušomaj ćmowa barba kože	none
+👯🏻‍♂	mužej ze zaječimaj wušomaj swětła barba kože	none
+👯🏼‍♂	mužej ze zaječimaj wušomaj srěnjoswětła barba kože	none
+👯🏽‍♂	mužej ze zaječimaj wušomaj srěnja barba kože	none
+👯🏾‍♂	mužej ze zaječimaj wušomaj srěnjoćmowa barba kože	none
+👯🏿‍♂	mužej ze zaječimaj wušomaj ćmowa barba kože	none
+👯🏻‍♀	žonje ze zaječimaj wušomaj swětła barba kože	none
+👯🏼‍♀	žonje ze zaječimaj wušomaj srěnjoswětła barba kože	none
+👯🏽‍♀	žonje ze zaječimaj wušomaj srěnja barba kože	none
+👯🏾‍♀	žonje ze zaječimaj wušomaj srěnjoćmowa barba kože	none
+👯🏿‍♀	žonje ze zaječimaj wušomaj ćmowa barba kože	none
 🧖🏻	wosoba w sawnje swětła barba kože	none
 🧖🏼	wosoba w sawnje srěnjoswětła barba kože	none
 🧖🏽	wosoba w sawnje srěnja barba kože	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	žona, kiž so nabok přemjetuje srěnja barba kože	none
 🤸🏾‍♀	žona, kiž so nabok přemjetuje srěnjoćmowa barba kože	none
 🤸🏿‍♀	žona, kiž so nabok přemjetuje ćmowa barba kože	none
+🤼🏻	wosobje, kiž wjerhatej swětła barba kože	none
+🤼🏼	wosobje, kiž wjerhatej srěnjoswětła barba kože	none
+🤼🏽	wosobje, kiž wjerhatej srěnja barba kože	none
+🤼🏾	wosobje, kiž wjerhatej srěnjoćmowa barba kože	none
+🤼🏿	wosobje, kiž wjerhatej ćmowa barba kože	none
+🤼🏻‍♂	wjerharjej swětła barba kože	none
+🤼🏼‍♂	wjerharjej srěnjoswětła barba kože	none
+🤼🏽‍♂	wjerharjej srěnja barba kože	none
+🤼🏾‍♂	wjerharjej srěnjoćmowa barba kože	none
+🤼🏿‍♂	wjerharjej ćmowa barba kože	none
+🤼🏻‍♀	wjerharce swětła barba kože	none
+🤼🏼‍♀	wjerharce srěnjoswětła barba kože	none
+🤼🏽‍♀	wjerharce srěnja barba kože	none
+🤼🏾‍♀	wjerharce srěnjoćmowa barba kože	none
+🤼🏿‍♀	wjerharce ćmowa barba kože	none
 🤽🏻	wosoba, kiž hraje wodobul swětła barba kože	none
 🤽🏼	wosoba, kiž hraje wodobul srěnjoswětła barba kože	none
 🤽🏽	wosoba, kiž hraje wodobul srěnja barba kože	none
@@ -3812,6 +3982,7 @@ symbols:
 🇨🇳	chorhojčka China	none
 🇨🇴	chorhojčka Kolumbiska	none
 🇨🇵	chorhojčka Clippertonowa kupa	none
+🇨🇶	chorhojčka Sark	none
 🇨🇷	chorhojčka Kosta Rika	none
 🇨🇺	chorhojčka Kuba	none
 🇨🇻	chorhojčka Kap Verde	none

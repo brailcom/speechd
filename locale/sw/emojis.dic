@@ -321,6 +321,7 @@ symbols:
 😪	uso unaosinzia	none
 🤤	kutema mate	none
 😴	uso unaoonyesha usingizi	none
+🫩	uso wenye macho yaliyovimba	none
 😷	uso uliovaa barakoa ya matibabu	none
 🤒	uso wenye kipimajoto mdomoni	none
 🤕	uso uliofungwa bandeji kichwani	none
@@ -348,6 +349,7 @@ symbols:
 😯	uso ulionyamaa	none
 😲	uso uliostaajabu	none
 😳	uso uliojawa msisimko	none
+🫪	uso ulioumbuka	none
 🥺	uso unaosihi	none
 🥹	uso unaolengwalengwa na machozi	none
 😦	uso ulionuna wenye mdomo uliofunguliwa	none
@@ -421,6 +423,7 @@ symbols:
 💋	alama ya busu	none
 💯	pointi mia moja	none
 💢	alama ya hasira	none
+🫯	wingu la vita	none
 💥	mgongano	none
 💫	kizunguzungu	none
 💦	matone ya jasho	none
@@ -680,6 +683,7 @@ symbols:
 🏃	mkimbiaji	none
 🏃‍♂	mwanamume anayekimbia	none
 🏃‍♀	mwanamke anayekimbia	none
+🧑‍🩰	mcheza bale	none
 💃	mwanamke anayecheza	none
 🕺	kusakata rumba	none
 🕴	mwanaume aliyevaa suti anayeelea hewani	none
@@ -756,6 +760,7 @@ symbols:
 🧑‍🧒	familia mtu mzima, mtoto	none
 🧑‍🧒‍🧒	familia mtu mzima, mtoto, mtoto	none
 👣	nyayo	none
+🫆	alama ya kidole	none
 🦰	nywele nyekundu	none
 🦱	nywele yenye mawimbi	none
 🦳	nywele nyeupe	none
@@ -869,6 +874,11 @@ symbols:
 🐚	kombe la mzunguko	none
 🪸	matumbawe	none
 🪼	kiwavi wa baharini	none
+🦀	kaa	none
+🦞	kambamti	none
+🦐	uduvi	none
+🦑	ngisi	none
+🦪	chaza	none
 🐌	konokono	none
 🦋	kipepeo	none
 🐛	mdudu	none
@@ -913,6 +923,7 @@ symbols:
 🪹	kiota tupu	none
 🪺	kiota chenye mayai	none
 🍄	uyoga	none
+🪾	mti bila majani	none
 🍇	zabibu	none
 🍈	tikiti	none
 🍉	tikitimaji	none
@@ -951,6 +962,7 @@ symbols:
 🫚	tangawizi	none
 🫛	ganda la njegere	none
 🍄‍🟫	uyoga kahawia	none
+🫜	mzizi mboga	none
 🍞	mkate	none
 🥐	mahamri	none
 🥖	mkate wa kifaransa	none
@@ -1002,11 +1014,6 @@ symbols:
 🥟	pudini ya kinyunya	none
 🥠	biskuti ya bahati	none
 🥡	kisanduku cha chakula	none
-🦀	kaa	none
-🦞	kambamti	none
-🦐	uduvi	none
-🦑	ngisi	none
-🦪	chaza	none
 🍦	aisikrimu laini	none
 🍧	barafu iliyochongwa	none
 🍨	aisikrimu	none
@@ -1057,6 +1064,7 @@ symbols:
 🧭	dira	none
 🏔	mlima wenye theluji	none
 ⛰	mlima	none
+🛘	maporomoko ya ardhi	none
 🌋	volkano	none
 🗻	mlima fuji	none
 🏕	kupiga kambi	none
@@ -1417,16 +1425,18 @@ symbols:
 🎧	spika za masikioni	none
 📻	redio	none
 🎷	saksafoni	none
+🎺	tarumbeta	none
+🪊	tromboni	none
 🪗	kodiani	none
 🎸	gita	none
 🎹	kinanda	none
-🎺	tarumbeta	none
 🎻	fidla	none
 🪕	gambusi	none
 🥁	ngoma	none
 🪘	ngoma refu	none
 🪇	maraka	none
 🪈	zumari	none
+🪉	kinubi	none
 📱	simu ya mkononi	none
 📲	simu ya mkononi yenye kishale	none
 ☎	simu	none
@@ -1480,8 +1490,9 @@ symbols:
 📑	vichupo vya alamisho	none
 🔖	alamisho	none
 🏷	lebo	none
-💰	mfuko wa pesa	none
 🪙	sarafu	none
+💰	mfuko wa pesa	none
+🪎	kasha	none
 💴	noti ya yeni	none
 💵	noti ya dola	none
 💶	noti ya yuro	none
@@ -1565,6 +1576,7 @@ symbols:
 🧰	kisanduku cha vifaa	none
 🧲	sumaku	none
 🪜	ngazi	none
+🪏	sepetu	none
 ⚗	alembiki	none
 🧪	neli ya majaribio	none
 🧫	chombo cha kupondea	none
@@ -1745,6 +1757,7 @@ symbols:
 ✴	nyota yenye ncha nane	none
 ❇	metameta	none
 ™	chapa ya biashara	none
+🫟	mtawanyiko	none
 🔠	weka herufi kubwa za kilatini	none
 🔡	weka hefuri ndogo za kilatini	none
 🔢	weka nambari	none
@@ -2159,6 +2172,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi na ngozi nyeupe kiasi	none
 🧑🏿‍❤‍🧑🏽	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi na ngozi ya kahawia	none
 🧑🏿‍❤‍🧑🏾	mume na mke na ishara ya moyo mtu mzima, mtu mzima, ngozi nyeusi na ngozi nyeusi kiasi	none
+🧑🏻‍🫯‍🧑🏼	wanandondi ngozi nyeupe na ngozi nyeupe kiasi	none
+🧑🏻‍🫯‍🧑🏽	wanandondi ngozi nyeupe na ngozi ya kahawia	none
+🧑🏻‍🫯‍🧑🏾	wanandondi ngozi nyeupe na ngozi nyeusi kiasi	none
+🧑🏻‍🫯‍🧑🏿	wanandondi ngozi nyeupe na ngozi nyeusi	none
+🧑🏼‍🫯‍🧑🏻	wanandondi ngozi nyeupe kiasi na ngozi nyeupe	none
+🧑🏼‍🫯‍🧑🏽	wanandondi ngozi nyeupe kiasi na ngozi ya kahawia	none
+🧑🏼‍🫯‍🧑🏾	wanandondi ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+🧑🏼‍🫯‍🧑🏿	wanandondi ngozi nyeupe kiasi na ngozi nyeusi	none
+🧑🏽‍🫯‍🧑🏻	wanandondi ngozi ya kahawia na ngozi nyeupe	none
+🧑🏽‍🫯‍🧑🏼	wanandondi ngozi ya kahawia na ngozi nyeupe kiasi	none
+🧑🏽‍🫯‍🧑🏾	wanandondi ngozi ya kahawia na ngozi nyeusi kiasi	none
+🧑🏽‍🫯‍🧑🏿	wanandondi ngozi ya kahawia na ngozi nyeusi	none
+🧑🏾‍🫯‍🧑🏻	wanandondi ngozi nyeusi kiasi na ngozi nyeupe	none
+🧑🏾‍🫯‍🧑🏼	wanandondi ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+🧑🏾‍🫯‍🧑🏽	wanandondi ngozi nyeusi kiasi na ngozi ya kahawia	none
+🧑🏾‍🫯‍🧑🏿	wanandondi ngozi nyeusi kiasi na ngozi nyeusi	none
+🧑🏿‍🫯‍🧑🏻	wanandondi ngozi nyeusi na ngozi nyeupe	none
+🧑🏿‍🫯‍🧑🏼	wanandondi ngozi nyeusi na ngozi nyeupe kiasi	none
+🧑🏿‍🫯‍🧑🏽	wanandondi ngozi nyeusi na ngozi ya kahawia	none
+🧑🏿‍🫯‍🧑🏾	wanandondi ngozi nyeusi na ngozi nyeusi kiasi	none
 🧑‍🦰	mtu mzima nywele nyekundu	none
 🧑🏻‍🦰	mtu mzima ngozi nyeupe na nywele nyekundu	none
 🧑🏼‍🦰	mtu mzima ngozi nyeupe kiasi na nywele nyekundu	none
@@ -2183,6 +2216,26 @@ symbols:
 🧑🏽‍🦲	mtu mzima ngozi ya kahawia na upara	none
 🧑🏾‍🦲	mtu mzima ngozi nyeusi kiasi na upara	none
 🧑🏿‍🦲	mtu mzima ngozi nyeusi na upara	none
+🧑🏻‍🐰‍🧑🏼	watu wanaosherehekea ngozi nyeupe na ngozi nyeupe kiasi	none
+🧑🏻‍🐰‍🧑🏽	watu wanaosherehekea ngozi nyeupe na ngozi ya kahawia	none
+🧑🏻‍🐰‍🧑🏾	watu wanaosherehekea ngozi nyeupe na ngozi nyeusi kiasi	none
+🧑🏻‍🐰‍🧑🏿	watu wanaosherehekea ngozi nyeupe na ngozi nyeusi	none
+🧑🏼‍🐰‍🧑🏻	watu wanaosherehekea ngozi nyeupe kiasi na ngozi nyeupe	none
+🧑🏼‍🐰‍🧑🏽	watu wanaosherehekea ngozi nyeupe kiasi na ngozi ya kahawia	none
+🧑🏼‍🐰‍🧑🏾	watu wanaosherehekea ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+🧑🏼‍🐰‍🧑🏿	watu wanaosherehekea ngozi nyeupe kiasi na ngozi nyeusi	none
+🧑🏽‍🐰‍🧑🏻	watu wanaosherehekea ngozi ya kahawia na ngozi nyeupe	none
+🧑🏽‍🐰‍🧑🏼	watu wanaosherehekea ngozi ya kahawia na ngozi nyeupe kiasi	none
+🧑🏽‍🐰‍🧑🏾	watu wanaosherehekea ngozi ya kahawia na ngozi nyeusi kiasi	none
+🧑🏽‍🐰‍🧑🏿	watu wanaosherehekea ngozi ya kahawia na ngozi nyeusi	none
+🧑🏾‍🐰‍🧑🏻	watu wanaosherehekea ngozi nyeusi kiasi na ngozi nyeupe	none
+🧑🏾‍🐰‍🧑🏼	watu wanaosherehekea ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+🧑🏾‍🐰‍🧑🏽	watu wanaosherehekea ngozi nyeusi kiasi na ngozi ya kahawia	none
+🧑🏾‍🐰‍🧑🏿	watu wanaosherehekea ngozi nyeusi kiasi na ngozi nyeusi	none
+🧑🏿‍🐰‍🧑🏻	watu wanaosherehekea ngozi nyeusi na ngozi nyeupe	none
+🧑🏿‍🐰‍🧑🏼	watu wanaosherehekea ngozi nyeusi na ngozi nyeupe kiasi	none
+🧑🏿‍🐰‍🧑🏽	watu wanaosherehekea ngozi nyeusi na ngozi ya kahawia	none
+🧑🏿‍🐰‍🧑🏾	watu wanaosherehekea ngozi nyeusi na ngozi nyeusi kiasi	none
 👨🏻	mwanamume ngozi nyeupe	none
 👨🏼	mwanamume ngozi nyeupe kiasi	none
 👨🏽	mwanamume ngozi ya kahawia	none
@@ -2253,6 +2306,26 @@ symbols:
 👨🏿‍❤‍👨🏽	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeusi na ngozi ya kahawia	none
 👨🏿‍❤‍👨🏾	mume na mke na ishara ya moyo mwanamume, mwanamume, ngozi nyeusi na ngozi nyeusi kiasi	none
 👨🏿‍❤‍👨🏿	mume na mke na ishara ya moyo mwanamume, mwanamume na ngozi nyeusi	none
+👨🏻‍🫯‍👨🏼	wanaume wanaomenyana miereka ngozi nyeupe na ngozi nyeupe kiasi	none
+👨🏻‍🫯‍👨🏽	wanaume wanaomenyana miereka ngozi nyeupe na ngozi ya kahawia	none
+👨🏻‍🫯‍👨🏾	wanaume wanaomenyana miereka ngozi nyeupe na ngozi nyeusi kiasi	none
+👨🏻‍🫯‍👨🏿	wanaume wanaomenyana miereka ngozi nyeupe na ngozi nyeusi	none
+👨🏼‍🫯‍👨🏻	wanaume wanaomenyana miereka ngozi nyeupe kiasi na ngozi nyeupe	none
+👨🏼‍🫯‍👨🏽	wanaume wanaomenyana miereka ngozi nyeupe kiasi na ngozi ya kahawia	none
+👨🏼‍🫯‍👨🏾	wanaume wanaomenyana miereka ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👨🏼‍🫯‍👨🏿	wanaume wanaomenyana miereka ngozi nyeupe kiasi na ngozi nyeusi	none
+👨🏽‍🫯‍👨🏻	wanaume wanaomenyana miereka ngozi ya kahawia na ngozi nyeupe	none
+👨🏽‍🫯‍👨🏼	wanaume wanaomenyana miereka ngozi ya kahawia na ngozi nyeupe kiasi	none
+👨🏽‍🫯‍👨🏾	wanaume wanaomenyana miereka ngozi ya kahawia na ngozi nyeusi kiasi	none
+👨🏽‍🫯‍👨🏿	wanaume wanaomenyana miereka ngozi ya kahawia na ngozi nyeusi	none
+👨🏾‍🫯‍👨🏻	wanaume wanaomenyana miereka ngozi nyeusi kiasi na ngozi nyeupe	none
+👨🏾‍🫯‍👨🏼	wanaume wanaomenyana miereka ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+👨🏾‍🫯‍👨🏽	wanaume wanaomenyana miereka ngozi nyeusi kiasi na ngozi ya kahawia	none
+👨🏾‍🫯‍👨🏿	wanaume wanaomenyana miereka ngozi nyeusi kiasi na ngozi nyeusi	none
+👨🏿‍🫯‍👨🏻	wanaume wanaomenyana miereka ngozi nyeusi na ngozi nyeupe	none
+👨🏿‍🫯‍👨🏼	wanaume wanaomenyana miereka ngozi nyeusi na ngozi nyeupe kiasi	none
+👨🏿‍🫯‍👨🏽	wanaume wanaomenyana miereka ngozi nyeusi na ngozi ya kahawia	none
+👨🏿‍🫯‍👨🏾	wanaume wanaomenyana miereka ngozi nyeusi na ngozi nyeusi kiasi	none
 👨‍🦰	mwanamume nywele nyekundu	none
 👨🏻‍🦰	mwanamume ngozi nyeupe na nywele nyekundu	none
 👨🏼‍🦰	mwanamume ngozi nyeupe kiasi na nywele nyekundu	none
@@ -2277,6 +2350,26 @@ symbols:
 👨🏽‍🦲	mwanamume ngozi ya kahawia na upara	none
 👨🏾‍🦲	mwanamume ngozi nyeusi kiasi na upara	none
 👨🏿‍🦲	mwanamume ngozi nyeusi na upara	none
+👨🏻‍🐰‍👨🏼	wanaume wanaosherehekea ngozi nyeupe na ngozi nyeupe kiasi	none
+👨🏻‍🐰‍👨🏽	wanaume wanaosherehekea ngozi nyeupe na ngozi ya kahawia	none
+👨🏻‍🐰‍👨🏾	wanaume wanaosherehekea ngozi nyeupe na ngozi nyeusi kiasi	none
+👨🏻‍🐰‍👨🏿	wanaume wanaosherehekea ngozi nyeupe na ngozi nyeusi	none
+👨🏼‍🐰‍👨🏻	wanaume wanaosherehekea ngozi nyeupe kiasi na ngozi nyeupe	none
+👨🏼‍🐰‍👨🏽	wanaume wanaosherehekea ngozi nyeupe kiasi na ngozi ya kahawia	none
+👨🏼‍🐰‍👨🏾	wanaume wanaosherehekea ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👨🏼‍🐰‍👨🏿	wanaume wanaosherehekea ngozi nyeupe kiasi na ngozi nyeusi	none
+👨🏽‍🐰‍👨🏻	wanaume wanaosherehekea ngozi ya kahawia na ngozi nyeupe	none
+👨🏽‍🐰‍👨🏼	wanaume wanaosherehekea ngozi ya kahawia na ngozi nyeupe kiasi	none
+👨🏽‍🐰‍👨🏾	wanaume wanaosherehekea ngozi ya kahawia na ngozi nyeusi kiasi	none
+👨🏽‍🐰‍👨🏿	wanaume wanaosherehekea ngozi ya kahawia na ngozi nyeusi	none
+👨🏾‍🐰‍👨🏻	wanaume wanaosherehekea ngozi nyeusi kiasi na ngozi nyeupe	none
+👨🏾‍🐰‍👨🏼	wanaume wanaosherehekea ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+👨🏾‍🐰‍👨🏽	wanaume wanaosherehekea ngozi nyeusi kiasi na ngozi ya kahawia	none
+👨🏾‍🐰‍👨🏿	wanaume wanaosherehekea ngozi nyeusi kiasi na ngozi nyeusi	none
+👨🏿‍🐰‍👨🏻	wanaume wanaosherehekea ngozi nyeusi na ngozi nyeupe	none
+👨🏿‍🐰‍👨🏼	wanaume wanaosherehekea ngozi nyeusi na ngozi nyeupe kiasi	none
+👨🏿‍🐰‍👨🏽	wanaume wanaosherehekea ngozi nyeusi na ngozi ya kahawia	none
+👨🏿‍🐰‍👨🏾	wanaume wanaosherehekea ngozi nyeusi na ngozi nyeusi kiasi	none
 👩🏻	mwanamke ngozi nyeupe	none
 👩🏼	mwanamke ngozi nyeupe kiasi	none
 👩🏽	mwanamke ngozi ya kahawia	none
@@ -2392,6 +2485,26 @@ symbols:
 👩🏿‍❤‍👩🏽	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeusi na ngozi ya kahawia	none
 👩🏿‍❤‍👩🏾	mume na mke na ishara ya moyo mwanamke, mwanamke, ngozi nyeusi na ngozi nyeusi kiasi	none
 👩🏿‍❤‍👩🏿	mume na mke na ishara ya moyo mwanamke, mwanamke na ngozi nyeusi	none
+👩🏻‍🫯‍👩🏼	wanawake wanaomenyana miereka ngozi nyeupe na ngozi nyeupe kiasi	none
+👩🏻‍🫯‍👩🏽	wanawake wanaomenyana miereka ngozi nyeupe na ngozi ya kahawia	none
+👩🏻‍🫯‍👩🏾	wanawake wanaomenyana miereka ngozi nyeupe na ngozi nyeusi kiasi	none
+👩🏻‍🫯‍👩🏿	wanawake wanaomenyana miereka ngozi nyeupe na ngozi nyeusi	none
+👩🏼‍🫯‍👩🏻	wanawake wanaomenyana miereka ngozi nyeupe kiasi na ngozi nyeupe	none
+👩🏼‍🫯‍👩🏽	wanawake wanaomenyana miereka ngozi nyeupe kiasi na ngozi ya kahawia	none
+👩🏼‍🫯‍👩🏾	wanawake wanaomenyana miereka ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👩🏼‍🫯‍👩🏿	wanawake wanaomenyana miereka ngozi nyeupe kiasi na ngozi nyeusi	none
+👩🏽‍🫯‍👩🏻	wanawake wanaomenyana miereka ngozi ya kahawia na ngozi nyeupe	none
+👩🏽‍🫯‍👩🏼	wanawake wanaomenyana miereka ngozi ya kahawia na ngozi nyeupe kiasi	none
+👩🏽‍🫯‍👩🏾	wanawake wanaomenyana miereka ngozi ya kahawia na ngozi nyeusi kiasi	none
+👩🏽‍🫯‍👩🏿	wanawake wanaomenyana miereka ngozi ya kahawia na ngozi nyeusi	none
+👩🏾‍🫯‍👩🏻	wanawake wanaomenyana miereka ngozi nyeusi kiasi na ngozi nyeupe	none
+👩🏾‍🫯‍👩🏼	wanawake wanaomenyana miereka ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+👩🏾‍🫯‍👩🏽	wanawake wanaomenyana miereka ngozi nyeusi kiasi na ngozi ya kahawia	none
+👩🏾‍🫯‍👩🏿	wanawake wanaomenyana miereka ngozi nyeusi kiasi na ngozi nyeusi	none
+👩🏿‍🫯‍👩🏻	wanawake wanaomenyana miereka ngozi nyeusi na ngozi nyeupe	none
+👩🏿‍🫯‍👩🏼	wanawake wanaomenyana miereka ngozi nyeusi na ngozi nyeupe kiasi	none
+👩🏿‍🫯‍👩🏽	wanawake wanaomenyana miereka ngozi nyeusi na ngozi ya kahawia	none
+👩🏿‍🫯‍👩🏾	wanawake wanaomenyana miereka ngozi nyeusi na ngozi nyeusi kiasi	none
 👩‍🦰	mwanamke nywele nyekundu	none
 👩🏻‍🦰	mwanamke ngozi nyeupe na nywele nyekundu	none
 👩🏼‍🦰	mwanamke ngozi nyeupe kiasi na nywele nyekundu	none
@@ -2416,6 +2529,26 @@ symbols:
 👩🏽‍🦲	mwanamke ngozi ya kahawia na upara	none
 👩🏾‍🦲	mwanamke ngozi nyeusi kiasi na upara	none
 👩🏿‍🦲	mwanamke ngozi nyeusi na upara	none
+👩🏻‍🐰‍👩🏼	wanawake wanaosherehekea ngozi nyeupe na ngozi nyeupe kiasi	none
+👩🏻‍🐰‍👩🏽	wanawake wanaosherehekea ngozi nyeupe na ngozi ya kahawia	none
+👩🏻‍🐰‍👩🏾	wanawake wanaosherehekea ngozi nyeupe na ngozi nyeusi kiasi	none
+👩🏻‍🐰‍👩🏿	wanawake wanaosherehekea ngozi nyeupe na ngozi nyeusi	none
+👩🏼‍🐰‍👩🏻	wanawake wanaosherehekea ngozi nyeupe kiasi na ngozi nyeupe	none
+👩🏼‍🐰‍👩🏽	wanawake wanaosherehekea ngozi nyeupe kiasi na ngozi ya kahawia	none
+👩🏼‍🐰‍👩🏾	wanawake wanaosherehekea ngozi nyeupe kiasi na ngozi nyeusi kiasi	none
+👩🏼‍🐰‍👩🏿	wanawake wanaosherehekea ngozi nyeupe kiasi na ngozi nyeusi	none
+👩🏽‍🐰‍👩🏻	wanawake wanaosherehekea ngozi ya kahawia na ngozi nyeupe	none
+👩🏽‍🐰‍👩🏼	wanawake wanaosherehekea ngozi ya kahawia na ngozi nyeupe kiasi	none
+👩🏽‍🐰‍👩🏾	wanawake wanaosherehekea ngozi ya kahawia na ngozi nyeusi kiasi	none
+👩🏽‍🐰‍👩🏿	wanawake wanaosherehekea ngozi ya kahawia na ngozi nyeusi	none
+👩🏾‍🐰‍👩🏻	wanawake wanaosherehekea ngozi nyeusi kiasi na ngozi nyeupe	none
+👩🏾‍🐰‍👩🏼	wanawake wanaosherehekea ngozi nyeusi kiasi na ngozi nyeupe kiasi	none
+👩🏾‍🐰‍👩🏽	wanawake wanaosherehekea ngozi nyeusi kiasi na ngozi ya kahawia	none
+👩🏾‍🐰‍👩🏿	wanawake wanaosherehekea ngozi nyeusi kiasi na ngozi nyeusi	none
+👩🏿‍🐰‍👩🏻	wanawake wanaosherehekea ngozi nyeusi na ngozi nyeupe	none
+👩🏿‍🐰‍👩🏼	wanawake wanaosherehekea ngozi nyeusi na ngozi nyeupe kiasi	none
+👩🏿‍🐰‍👩🏽	wanawake wanaosherehekea ngozi nyeusi na ngozi ya kahawia	none
+👩🏿‍🐰‍👩🏾	wanawake wanaosherehekea ngozi nyeusi na ngozi nyeusi kiasi	none
 🧓🏻	mzee ngozi nyeupe	none
 🧓🏼	mzee ngozi nyeupe kiasi	none
 🧓🏽	mzee ngozi ya kahawia	none
@@ -3162,23 +3295,23 @@ symbols:
 🚶🏾‍♀	mwanamke anayetembea ngozi nyeusi kiasi	none
 🚶🏿‍♀	mwanamke anayetembea ngozi nyeusi	none
 🚶‍➡	mtu anayetembea inayoangalia kulia	none
-🚶🏻‍➡	mtu anayetembea inayoangalia kulia	none
-🚶🏼‍➡	mtu anayetembea inayoangalia kulia	none
-🚶🏽‍➡	mtu anayetembea inayoangalia kulia	none
-🚶🏾‍➡	mtu anayetembea inayoangalia kulia	none
-🚶🏿‍➡	mtu anayetembea inayoangalia kulia	none
+🚶🏻‍➡	mtu anayetembea ngozi nyeupe na inayoangalia kulia	none
+🚶🏼‍➡	mtu anayetembea ngozi nyeupe kiasi na inayoangalia kulia	none
+🚶🏽‍➡	mtu anayetembea ngozi ya kahawia na inayoangalia kulia	none
+🚶🏾‍➡	mtu anayetembea ngozi nyeusi kiasi na inayoangalia kulia	none
+🚶🏿‍➡	mtu anayetembea ngozi nyeusi na inayoangalia kulia	none
 🚶‍♀‍➡	mwanamke anayetembea inayoangalia kulia	none
-🚶🏻‍♀‍➡	mwanamke anayetembea inayoangalia kulia	none
-🚶🏼‍♀‍➡	mwanamke anayetembea inayoangalia kulia	none
-🚶🏽‍♀‍➡	mwanamke anayetembea inayoangalia kulia	none
-🚶🏾‍♀‍➡	mwanamke anayetembea inayoangalia kulia	none
-🚶🏿‍♀‍➡	mwanamke anayetembea inayoangalia kulia	none
+🚶🏻‍♀‍➡	mwanamke anayetembea ngozi nyeupe na inayoangalia kulia	none
+🚶🏼‍♀‍➡	mwanamke anayetembea ngozi nyeupe kiasi na inayoangalia kulia	none
+🚶🏽‍♀‍➡	mwanamke anayetembea ngozi ya kahawia na inayoangalia kulia	none
+🚶🏾‍♀‍➡	mwanamke anayetembea ngozi nyeusi kiasi na inayoangalia kulia	none
+🚶🏿‍♀‍➡	mwanamke anayetembea ngozi nyeusi na inayoangalia kulia	none
 🚶‍♂‍➡	mwanamume anayetembea inayoangalia kulia	none
-🚶🏻‍♂‍➡	mwanamume anayetembea inayoangalia kulia	none
-🚶🏼‍♂‍➡	mwanamume anayetembea inayoangalia kulia	none
-🚶🏽‍♂‍➡	mwanamume anayetembea inayoangalia kulia	none
-🚶🏾‍♂‍➡	mwanamume anayetembea inayoangalia kulia	none
-🚶🏿‍♂‍➡	mwanamume anayetembea inayoangalia kulia	none
+🚶🏻‍♂‍➡	mwanamume anayetembea ngozi nyeupe na inayoangalia kulia	none
+🚶🏼‍♂‍➡	mwanamume anayetembea ngozi nyeupe kiasi na inayoangalia kulia	none
+🚶🏽‍♂‍➡	mwanamume anayetembea ngozi ya kahawia na inayoangalia kulia	none
+🚶🏾‍♂‍➡	mwanamume anayetembea ngozi nyeusi kiasi na inayoangalia kulia	none
+🚶🏿‍♂‍➡	mwanamume anayetembea ngozi nyeusi na inayoangalia kulia	none
 🧍🏻	mtu aliyesimama ngozi nyeupe	none
 🧍🏼	mtu aliyesimama ngozi nyeupe kiasi	none
 🧍🏽	mtu aliyesimama ngozi ya kahawia	none
@@ -3210,122 +3343,122 @@ symbols:
 🧎🏾‍♀	mwanamke aliyepiga magoti ngozi nyeusi kiasi	none
 🧎🏿‍♀	mwanamke aliyepiga magoti ngozi nyeusi	none
 🧎‍➡	mtu aliyepiga magoti inayoangalia kulia	none
-🧎🏻‍➡	mtu aliyepiga magoti inayoangalia kulia	none
-🧎🏼‍➡	mtu aliyepiga magoti inayoangalia kulia	none
-🧎🏽‍➡	mtu aliyepiga magoti inayoangalia kulia	none
-🧎🏾‍➡	mtu aliyepiga magoti inayoangalia kulia	none
-🧎🏿‍➡	mtu aliyepiga magoti inayoangalia kulia	none
+🧎🏻‍➡	mtu aliyepiga magoti ngozi nyeupe na inayoangalia kulia	none
+🧎🏼‍➡	mtu aliyepiga magoti ngozi nyeupe kiasi na inayoangalia kulia	none
+🧎🏽‍➡	mtu aliyepiga magoti ngozi ya kahawia na inayoangalia kulia	none
+🧎🏾‍➡	mtu aliyepiga magoti ngozi nyeusi kiasi na inayoangalia kulia	none
+🧎🏿‍➡	mtu aliyepiga magoti ngozi nyeusi na inayoangalia kulia	none
 🧎‍♀‍➡	mwanamke aliyepiga magoti inayoangalia kulia	none
-🧎🏻‍♀‍➡	mwanamke aliyepiga magoti inayoangalia kulia	none
-🧎🏼‍♀‍➡	mwanamke aliyepiga magoti inayoangalia kulia	none
-🧎🏽‍♀‍➡	mwanamke aliyepiga magoti inayoangalia kulia	none
-🧎🏾‍♀‍➡	mwanamke aliyepiga magoti inayoangalia kulia	none
-🧎🏿‍♀‍➡	mwanamke aliyepiga magoti inayoangalia kulia	none
+🧎🏻‍♀‍➡	mwanamke aliyepiga magoti ngozi nyeupe na inayoangalia kulia	none
+🧎🏼‍♀‍➡	mwanamke aliyepiga magoti ngozi nyeupe kiasi na inayoangalia kulia	none
+🧎🏽‍♀‍➡	mwanamke aliyepiga magoti ngozi ya kahawia na inayoangalia kulia	none
+🧎🏾‍♀‍➡	mwanamke aliyepiga magoti ngozi nyeusi kiasi na inayoangalia kulia	none
+🧎🏿‍♀‍➡	mwanamke aliyepiga magoti ngozi nyeusi na inayoangalia kulia	none
 🧎‍♂‍➡	mwanamume aliyepiga magoti inayoangalia kulia	none
-🧎🏻‍♂‍➡	mwanamume aliyepiga magoti inayoangalia kulia	none
-🧎🏼‍♂‍➡	mwanamume aliyepiga magoti inayoangalia kulia	none
-🧎🏽‍♂‍➡	mwanamume aliyepiga magoti inayoangalia kulia	none
-🧎🏾‍♂‍➡	mwanamume aliyepiga magoti inayoangalia kulia	none
-🧎🏿‍♂‍➡	mwanamume aliyepiga magoti inayoangalia kulia	none
+🧎🏻‍♂‍➡	mwanamume aliyepiga magoti ngozi nyeupe na inayoangalia kulia	none
+🧎🏼‍♂‍➡	mwanamume aliyepiga magoti ngozi nyeupe kiasi na inayoangalia kulia	none
+🧎🏽‍♂‍➡	mwanamume aliyepiga magoti ngozi ya kahawia na inayoangalia kulia	none
+🧎🏾‍♂‍➡	mwanamume aliyepiga magoti ngozi nyeusi kiasi na inayoangalia kulia	none
+🧎🏿‍♂‍➡	mwanamume aliyepiga magoti ngozi nyeusi na inayoangalia kulia	none
 🧑🏻‍🦯	mtu anayetembea kwa mkongojo ngozi nyeupe	none
 🧑🏼‍🦯	mtu anayetembea kwa mkongojo ngozi nyeupe kiasi	none
 🧑🏽‍🦯	mtu anayetembea kwa mkongojo ngozi ya kahawia	none
 🧑🏾‍🦯	mtu anayetembea kwa mkongojo ngozi nyeusi kiasi	none
 🧑🏿‍🦯	mtu anayetembea kwa mkongojo ngozi nyeusi	none
 🧑‍🦯‍➡	mtu anayetembea kwa mkongojo inayoangalia kulia	none
-🧑🏻‍🦯‍➡	mtu anayetembea kwa mkongojo inayoangalia kulia	none
-🧑🏼‍🦯‍➡	mtu anayetembea kwa mkongojo inayoangalia kulia	none
-🧑🏽‍🦯‍➡	mtu anayetembea kwa mkongojo inayoangalia kulia	none
-🧑🏾‍🦯‍➡	mtu anayetembea kwa mkongojo inayoangalia kulia	none
-🧑🏿‍🦯‍➡	mtu anayetembea kwa mkongojo inayoangalia kulia	none
+🧑🏻‍🦯‍➡	mtu anayetembea kwa mkongojo ngozi nyeupe na inayoangalia kulia	none
+🧑🏼‍🦯‍➡	mtu anayetembea kwa mkongojo ngozi nyeupe kiasi na inayoangalia kulia	none
+🧑🏽‍🦯‍➡	mtu anayetembea kwa mkongojo ngozi ya kahawia na inayoangalia kulia	none
+🧑🏾‍🦯‍➡	mtu anayetembea kwa mkongojo ngozi nyeusi kiasi na inayoangalia kulia	none
+🧑🏿‍🦯‍➡	mtu anayetembea kwa mkongojo ngozi nyeusi na inayoangalia kulia	none
 👨🏻‍🦯	mwanamume anayetembea kwa mkongojo ngozi nyeupe	none
 👨🏼‍🦯	mwanamume anayetembea kwa mkongojo ngozi nyeupe kiasi	none
 👨🏽‍🦯	mwanamume anayetembea kwa mkongojo ngozi ya kahawia	none
 👨🏾‍🦯	mwanamume anayetembea kwa mkongojo ngozi nyeusi kiasi	none
 👨🏿‍🦯	mwanamume anayetembea kwa mkongojo ngozi nyeusi	none
 👨‍🦯‍➡	mwanamume anayetembea kwa mkongojo inayoangalia kulia	none
-👨🏻‍🦯‍➡	mwanamume anayetembea kwa mkongojo inayoangalia kulia	none
-👨🏼‍🦯‍➡	mwanamume anayetembea kwa mkongojo inayoangalia kulia	none
-👨🏽‍🦯‍➡	mwanamume anayetembea kwa mkongojo inayoangalia kulia	none
-👨🏾‍🦯‍➡	mwanamume anayetembea kwa mkongojo inayoangalia kulia	none
-👨🏿‍🦯‍➡	mwanamume anayetembea kwa mkongojo inayoangalia kulia	none
+👨🏻‍🦯‍➡	mwanamume anayetembea kwa mkongojo ngozi nyeupe na inayoangalia kulia	none
+👨🏼‍🦯‍➡	mwanamume anayetembea kwa mkongojo ngozi nyeupe kiasi na inayoangalia kulia	none
+👨🏽‍🦯‍➡	mwanamume anayetembea kwa mkongojo ngozi ya kahawia na inayoangalia kulia	none
+👨🏾‍🦯‍➡	mwanamume anayetembea kwa mkongojo ngozi nyeusi kiasi na inayoangalia kulia	none
+👨🏿‍🦯‍➡	mwanamume anayetembea kwa mkongojo ngozi nyeusi na inayoangalia kulia	none
 👩🏻‍🦯	mwanamke anayetembea kwa mkongojo ngozi nyeupe	none
 👩🏼‍🦯	mwanamke anayetembea kwa mkongojo ngozi nyeupe kiasi	none
 👩🏽‍🦯	mwanamke anayetembea kwa mkongojo ngozi ya kahawia	none
 👩🏾‍🦯	mwanamke anayetembea kwa mkongojo ngozi nyeusi kiasi	none
 👩🏿‍🦯	mwanamke anayetembea kwa mkongojo ngozi nyeusi	none
 👩‍🦯‍➡	mwanamke anayetembea kwa mkongojo inayoangalia kulia	none
-👩🏻‍🦯‍➡	mwanamke anayetembea kwa mkongojo inayoangalia kulia	none
-👩🏼‍🦯‍➡	mwanamke anayetembea kwa mkongojo inayoangalia kulia	none
-👩🏽‍🦯‍➡	mwanamke anayetembea kwa mkongojo inayoangalia kulia	none
-👩🏾‍🦯‍➡	mwanamke anayetembea kwa mkongojo inayoangalia kulia	none
-👩🏿‍🦯‍➡	mwanamke anayetembea kwa mkongojo inayoangalia kulia	none
+👩🏻‍🦯‍➡	mwanamke anayetembea kwa mkongojo ngozi nyeupe na inayoangalia kulia	none
+👩🏼‍🦯‍➡	mwanamke anayetembea kwa mkongojo ngozi nyeupe kiasi na inayoangalia kulia	none
+👩🏽‍🦯‍➡	mwanamke anayetembea kwa mkongojo ngozi ya kahawia na inayoangalia kulia	none
+👩🏾‍🦯‍➡	mwanamke anayetembea kwa mkongojo ngozi nyeusi kiasi na inayoangalia kulia	none
+👩🏿‍🦯‍➡	mwanamke anayetembea kwa mkongojo ngozi nyeusi na inayoangalia kulia	none
 🧑🏻‍🦼	mtu aliyeketia kiti cha magurudumu ngozi nyeupe	none
 🧑🏼‍🦼	mtu aliyeketia kiti cha magurudumu ngozi nyeupe kiasi	none
 🧑🏽‍🦼	mtu aliyeketia kiti cha magurudumu ngozi ya kahawia	none
 🧑🏾‍🦼	mtu aliyeketia kiti cha magurudumu ngozi nyeusi kiasi	none
 🧑🏿‍🦼	mtu aliyeketia kiti cha magurudumu ngozi nyeusi	none
 🧑‍🦼‍➡	mtu aliyeketia kiti cha magurudumu inayoangalia kulia	none
-🧑🏻‍🦼‍➡	mtu aliyeketia kiti cha magurudumu inayoangalia kulia	none
-🧑🏼‍🦼‍➡	mtu aliyeketia kiti cha magurudumu inayoangalia kulia	none
-🧑🏽‍🦼‍➡	mtu aliyeketia kiti cha magurudumu inayoangalia kulia	none
-🧑🏾‍🦼‍➡	mtu aliyeketia kiti cha magurudumu inayoangalia kulia	none
-🧑🏿‍🦼‍➡	mtu aliyeketia kiti cha magurudumu inayoangalia kulia	none
+🧑🏻‍🦼‍➡	mtu aliyeketia kiti cha magurudumu ngozi nyeupe na inayoangalia kulia	none
+🧑🏼‍🦼‍➡	mtu aliyeketia kiti cha magurudumu ngozi nyeupe kiasi na inayoangalia kulia	none
+🧑🏽‍🦼‍➡	mtu aliyeketia kiti cha magurudumu ngozi ya kahawia na inayoangalia kulia	none
+🧑🏾‍🦼‍➡	mtu aliyeketia kiti cha magurudumu ngozi nyeusi kiasi na inayoangalia kulia	none
+🧑🏿‍🦼‍➡	mtu aliyeketia kiti cha magurudumu ngozi nyeusi na inayoangalia kulia	none
 👨🏻‍🦼	Mtu aliyeketi kwenye kiti cha magurudumu ngozi nyeupe	none
 👨🏼‍🦼	Mtu aliyeketi kwenye kiti cha magurudumu ngozi nyeupe kiasi	none
 👨🏽‍🦼	Mtu aliyeketi kwenye kiti cha magurudumu ngozi ya kahawia	none
 👨🏾‍🦼	Mtu aliyeketi kwenye kiti cha magurudumu ngozi nyeusi kiasi	none
 👨🏿‍🦼	Mtu aliyeketi kwenye kiti cha magurudumu ngozi nyeusi	none
 👨‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu inayoangalia kulia	none
-👨🏻‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu inayoangalia kulia	none
-👨🏼‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu inayoangalia kulia	none
-👨🏽‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu inayoangalia kulia	none
-👨🏾‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu inayoangalia kulia	none
-👨🏿‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu inayoangalia kulia	none
+👨🏻‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu ngozi nyeupe na inayoangalia kulia	none
+👨🏼‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu ngozi nyeupe kiasi na inayoangalia kulia	none
+👨🏽‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu ngozi ya kahawia na inayoangalia kulia	none
+👨🏾‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu ngozi nyeusi kiasi na inayoangalia kulia	none
+👨🏿‍🦼‍➡	Mtu aliyeketi kwenye kiti cha magurudumu ngozi nyeusi na inayoangalia kulia	none
 👩🏻‍🦼	mwanamke aliyeketia kiti cha magurudumu ngozi nyeupe	none
 👩🏼‍🦼	mwanamke aliyeketia kiti cha magurudumu ngozi nyeupe kiasi	none
 👩🏽‍🦼	mwanamke aliyeketia kiti cha magurudumu ngozi ya kahawia	none
 👩🏾‍🦼	mwanamke aliyeketia kiti cha magurudumu ngozi nyeusi kiasi	none
 👩🏿‍🦼	mwanamke aliyeketia kiti cha magurudumu ngozi nyeusi	none
 👩‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu inayoangalia kulia	none
-👩🏻‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu inayoangalia kulia	none
-👩🏼‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu inayoangalia kulia	none
-👩🏽‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu inayoangalia kulia	none
-👩🏾‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu inayoangalia kulia	none
-👩🏿‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu inayoangalia kulia	none
+👩🏻‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu ngozi nyeupe na inayoangalia kulia	none
+👩🏼‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu ngozi nyeupe kiasi na inayoangalia kulia	none
+👩🏽‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu ngozi ya kahawia na inayoangalia kulia	none
+👩🏾‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu ngozi nyeusi kiasi na inayoangalia kulia	none
+👩🏿‍🦼‍➡	mwanamke aliyeketia kiti cha magurudumu ngozi nyeusi na inayoangalia kulia	none
 🧑🏻‍🦽	mtu anayejiendesha kwa kiti cha magurudumu ngozi nyeupe	none
 🧑🏼‍🦽	mtu anayejiendesha kwa kiti cha magurudumu ngozi nyeupe kiasi	none
 🧑🏽‍🦽	mtu anayejiendesha kwa kiti cha magurudumu ngozi ya kahawia	none
 🧑🏾‍🦽	mtu anayejiendesha kwa kiti cha magurudumu ngozi nyeusi kiasi	none
 🧑🏿‍🦽	mtu anayejiendesha kwa kiti cha magurudumu ngozi nyeusi	none
 🧑‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-🧑🏻‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-🧑🏼‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-🧑🏽‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-🧑🏾‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-🧑🏿‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
+🧑🏻‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu ngozi nyeupe na inayoangalia kulia	none
+🧑🏼‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu ngozi nyeupe kiasi na inayoangalia kulia	none
+🧑🏽‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu ngozi ya kahawia na inayoangalia kulia	none
+🧑🏾‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu ngozi nyeusi kiasi na inayoangalia kulia	none
+🧑🏿‍🦽‍➡	mtu anayejiendesha kwa kiti cha magurudumu ngozi nyeusi na inayoangalia kulia	none
 👨🏻‍🦽	mwanamume anayejiendesha kwa kiti cha magurudumu ngozi nyeupe	none
 👨🏼‍🦽	mwanamume anayejiendesha kwa kiti cha magurudumu ngozi nyeupe kiasi	none
 👨🏽‍🦽	mwanamume anayejiendesha kwa kiti cha magurudumu ngozi ya kahawia	none
 👨🏾‍🦽	mwanamume anayejiendesha kwa kiti cha magurudumu ngozi nyeusi kiasi	none
 👨🏿‍🦽	mwanamume anayejiendesha kwa kiti cha magurudumu ngozi nyeusi	none
 👨‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-👨🏻‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-👨🏼‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-👨🏽‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-👨🏾‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-👨🏿‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
+👨🏻‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu ngozi nyeupe na inayoangalia kulia	none
+👨🏼‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu ngozi nyeupe kiasi na inayoangalia kulia	none
+👨🏽‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu ngozi ya kahawia na inayoangalia kulia	none
+👨🏾‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu ngozi nyeusi kiasi na inayoangalia kulia	none
+👨🏿‍🦽‍➡	mwanamume anayejiendesha kwa kiti cha magurudumu ngozi nyeusi na inayoangalia kulia	none
 👩🏻‍🦽	mwanamke anayejiendesha kwa kiti cha magurudumu ngozi nyeupe	none
 👩🏼‍🦽	mwanamke anayejiendesha kwa kiti cha magurudumu ngozi nyeupe kiasi	none
 👩🏽‍🦽	mwanamke anayejiendesha kwa kiti cha magurudumu ngozi ya kahawia	none
 👩🏾‍🦽	mwanamke anayejiendesha kwa kiti cha magurudumu ngozi nyeusi kiasi	none
 👩🏿‍🦽	mwanamke anayejiendesha kwa kiti cha magurudumu ngozi nyeusi	none
 👩‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-👩🏻‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-👩🏼‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-👩🏽‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-👩🏾‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
-👩🏿‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu inayoangalia kulia	none
+👩🏻‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu ngozi nyeupe na inayoangalia kulia	none
+👩🏼‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu ngozi nyeupe kiasi na inayoangalia kulia	none
+👩🏽‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu ngozi ya kahawia na inayoangalia kulia	none
+👩🏾‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu ngozi nyeusi kiasi na inayoangalia kulia	none
+👩🏿‍🦽‍➡	mwanamke anayejiendesha kwa kiti cha magurudumu ngozi nyeusi na inayoangalia kulia	none
 🏃🏻	mkimbiaji ngozi nyeupe	none
 🏃🏼	mkimbiaji ngozi nyeupe kiasi	none
 🏃🏽	mkimbiaji ngozi ya kahawia	none
@@ -3342,23 +3475,28 @@ symbols:
 🏃🏾‍♀	mwanamke anayekimbia ngozi nyeusi kiasi	none
 🏃🏿‍♀	mwanamke anayekimbia ngozi nyeusi	none
 🏃‍➡	mkimbiaji inayoangalia kulia	none
-🏃🏻‍➡	mkimbiaji inayoangalia kulia	none
-🏃🏼‍➡	mkimbiaji inayoangalia kulia	none
-🏃🏽‍➡	mkimbiaji inayoangalia kulia	none
-🏃🏾‍➡	mkimbiaji inayoangalia kulia	none
-🏃🏿‍➡	mkimbiaji inayoangalia kulia	none
+🏃🏻‍➡	mkimbiaji ngozi nyeupe na inayoangalia kulia	none
+🏃🏼‍➡	mkimbiaji ngozi nyeupe kiasi na inayoangalia kulia	none
+🏃🏽‍➡	mkimbiaji ngozi ya kahawia na inayoangalia kulia	none
+🏃🏾‍➡	mkimbiaji ngozi nyeusi kiasi na inayoangalia kulia	none
+🏃🏿‍➡	mkimbiaji ngozi nyeusi na inayoangalia kulia	none
 🏃‍♀‍➡	mwanamke anayekimbia inayoangalia kulia	none
-🏃🏻‍♀‍➡	mwanamke anayekimbia inayoangalia kulia	none
-🏃🏼‍♀‍➡	mwanamke anayekimbia inayoangalia kulia	none
-🏃🏽‍♀‍➡	mwanamke anayekimbia inayoangalia kulia	none
-🏃🏾‍♀‍➡	mwanamke anayekimbia inayoangalia kulia	none
-🏃🏿‍♀‍➡	mwanamke anayekimbia inayoangalia kulia	none
+🏃🏻‍♀‍➡	mwanamke anayekimbia ngozi nyeupe na inayoangalia kulia	none
+🏃🏼‍♀‍➡	mwanamke anayekimbia ngozi nyeupe kiasi na inayoangalia kulia	none
+🏃🏽‍♀‍➡	mwanamke anayekimbia ngozi ya kahawia na inayoangalia kulia	none
+🏃🏾‍♀‍➡	mwanamke anayekimbia ngozi nyeusi kiasi na inayoangalia kulia	none
+🏃🏿‍♀‍➡	mwanamke anayekimbia ngozi nyeusi na inayoangalia kulia	none
 🏃‍♂‍➡	mwanamume anayekimbia inayoangalia kulia	none
-🏃🏻‍♂‍➡	mwanamume anayekimbia inayoangalia kulia	none
-🏃🏼‍♂‍➡	mwanamume anayekimbia inayoangalia kulia	none
-🏃🏽‍♂‍➡	mwanamume anayekimbia inayoangalia kulia	none
-🏃🏾‍♂‍➡	mwanamume anayekimbia inayoangalia kulia	none
-🏃🏿‍♂‍➡	mwanamume anayekimbia inayoangalia kulia	none
+🏃🏻‍♂‍➡	mwanamume anayekimbia ngozi nyeupe na inayoangalia kulia	none
+🏃🏼‍♂‍➡	mwanamume anayekimbia ngozi nyeupe kiasi na inayoangalia kulia	none
+🏃🏽‍♂‍➡	mwanamume anayekimbia ngozi ya kahawia na inayoangalia kulia	none
+🏃🏾‍♂‍➡	mwanamume anayekimbia ngozi nyeusi kiasi na inayoangalia kulia	none
+🏃🏿‍♂‍➡	mwanamume anayekimbia ngozi nyeusi na inayoangalia kulia	none
+🧑🏻‍🩰	mcheza bale ngozi nyeupe	none
+🧑🏼‍🩰	mcheza bale ngozi nyeupe kiasi	none
+🧑🏽‍🩰	mcheza bale ngozi ya kahawia	none
+🧑🏾‍🩰	mcheza bale ngozi nyeusi kiasi	none
+🧑🏿‍🩰	mcheza bale ngozi nyeusi	none
 💃🏻	mwanamke anayecheza ngozi nyeupe	none
 💃🏼	mwanamke anayecheza ngozi nyeupe kiasi	none
 💃🏽	mwanamke anayecheza ngozi ya kahawia	none
@@ -3374,6 +3512,21 @@ symbols:
 🕴🏽	mwanaume aliyevaa suti anayeelea hewani ngozi ya kahawia	none
 🕴🏾	mwanaume aliyevaa suti anayeelea hewani ngozi nyeusi kiasi	none
 🕴🏿	mwanaume aliyevaa suti anayeelea hewani ngozi nyeusi	none
+👯🏻	watu wanaosherehekea ngozi nyeupe	none
+👯🏼	watu wanaosherehekea ngozi nyeupe kiasi	none
+👯🏽	watu wanaosherehekea ngozi ya kahawia	none
+👯🏾	watu wanaosherehekea ngozi nyeusi kiasi	none
+👯🏿	watu wanaosherehekea ngozi nyeusi	none
+👯🏻‍♂	wanaume wanaosherehekea ngozi nyeupe	none
+👯🏼‍♂	wanaume wanaosherehekea ngozi nyeupe kiasi	none
+👯🏽‍♂	wanaume wanaosherehekea ngozi ya kahawia	none
+👯🏾‍♂	wanaume wanaosherehekea ngozi nyeusi kiasi	none
+👯🏿‍♂	wanaume wanaosherehekea ngozi nyeusi	none
+👯🏻‍♀	wanawake wanaosherehekea ngozi nyeupe	none
+👯🏼‍♀	wanawake wanaosherehekea ngozi nyeupe kiasi	none
+👯🏽‍♀	wanawake wanaosherehekea ngozi ya kahawia	none
+👯🏾‍♀	wanawake wanaosherehekea ngozi nyeusi kiasi	none
+👯🏿‍♀	wanawake wanaosherehekea ngozi nyeusi	none
 🧖🏻	mtu katika bafu la mvuke ngozi nyeupe	none
 🧖🏼	mtu katika bafu la mvuke ngozi nyeupe kiasi	none
 🧖🏽	mtu katika bafu la mvuke ngozi ya kahawia	none
@@ -3549,6 +3702,21 @@ symbols:
 🤸🏽‍♀	mwanamke anayefanya sarakasi ngozi ya kahawia	none
 🤸🏾‍♀	mwanamke anayefanya sarakasi ngozi nyeusi kiasi	none
 🤸🏿‍♀	mwanamke anayefanya sarakasi ngozi nyeusi	none
+🤼🏻	wanandondi ngozi nyeupe	none
+🤼🏼	wanandondi ngozi nyeupe kiasi	none
+🤼🏽	wanandondi ngozi ya kahawia	none
+🤼🏾	wanandondi ngozi nyeusi kiasi	none
+🤼🏿	wanandondi ngozi nyeusi	none
+🤼🏻‍♂	wanaume wanaomenyana miereka ngozi nyeupe	none
+🤼🏼‍♂	wanaume wanaomenyana miereka ngozi nyeupe kiasi	none
+🤼🏽‍♂	wanaume wanaomenyana miereka ngozi ya kahawia	none
+🤼🏾‍♂	wanaume wanaomenyana miereka ngozi nyeusi kiasi	none
+🤼🏿‍♂	wanaume wanaomenyana miereka ngozi nyeusi	none
+🤼🏻‍♀	wanawake wanaomenyana miereka ngozi nyeupe	none
+🤼🏼‍♀	wanawake wanaomenyana miereka ngozi nyeupe kiasi	none
+🤼🏽‍♀	wanawake wanaomenyana miereka ngozi ya kahawia	none
+🤼🏾‍♀	wanawake wanaomenyana miereka ngozi nyeusi kiasi	none
+🤼🏿‍♀	wanawake wanaomenyana miereka ngozi nyeusi	none
 🤽🏻	michezo kwenye bwawa la kuogelea ngozi nyeupe	none
 🤽🏼	michezo kwenye bwawa la kuogelea ngozi nyeupe kiasi	none
 🤽🏽	michezo kwenye bwawa la kuogelea ngozi ya kahawia	none
@@ -3801,7 +3969,7 @@ symbols:
 🇧🇿	bendera Belize	none
 🇨🇦	bendera Kanada	none
 🇨🇨	bendera Visiwa vya Cocos (Keeling)	none
-🇨🇩	bendera Jamhuri ya Kidemokrasia ya Kongo	none
+🇨🇩	bendera Kongo - Kinshasa	none
 🇨🇫	bendera Jamhuri ya Afrika ya Kati	none
 🇨🇬	bendera Kongo - Brazzaville	none
 🇨🇭	bendera Uswisi	none
@@ -3812,6 +3980,7 @@ symbols:
 🇨🇳	bendera Uchina	none
 🇨🇴	bendera Kolombia	none
 🇨🇵	bendera Kisiwa cha Clipperton	none
+🇨🇶	bendera Sark	none
 🇨🇷	bendera Kostarika	none
 🇨🇺	bendera Kuba	none
 🇨🇻	bendera Cape Verde	none

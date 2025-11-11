@@ -321,6 +321,7 @@ symbols:
 😪	visage endormi	none
 🤤	visage qui bave	none
 😴	visage somnolent	none
+🫩	visage avec des valises sous les yeux	none
 😷	visage avec masque	none
 🤒	visage avec thermomètre	none
 🤕	visage avec bandage autour de la tête	none
@@ -348,6 +349,7 @@ symbols:
 😯	visage ébahi	none
 😲	visage stupéfait	none
 😳	visage qui rougit	none
+🫪	visage déformé	none
 🥺	visage implorant	none
 🥹	visage retenant ses larmes	none
 😦	visage mécontent avec bouche ouverte	none
@@ -421,6 +423,7 @@ symbols:
 💋	trace de rouge à lèvres	none
 💯	cent points	none
 💢	symbole de colère	none
+🫯	nuage de colère	none
 💥	explosion	none
 💫	étourdissement	none
 💦	gouttes de sueur	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	zombie homme	none
 🧟‍♀	zombie femme	none
 🧌	troll	none
+🫈	créature velue	none
 💆	personne qui se fait masser	none
 💆‍♂	homme qui se fait masser	none
 💆‍♀	femme qui se fait masser	none
@@ -680,6 +684,7 @@ symbols:
 🏃	personne qui court	none
 🏃‍♂	homme qui court	none
 🏃‍♀	femme qui court	none
+🧑‍🩰	danseuse de ballet	none
 💃	danseuse	none
 🕺	danseur	none
 🕴	homme d’affaires en lévitation	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	famille  adulte, enfant	none
 🧑‍🧒‍🧒	famille  adulte, enfant, enfant	none
 👣	traces de pas	none
+🫆	empreinte digitale	none
 🦰	cheveux roux	none
 🦱	cheveux bouclés	none
 🦳	cheveux blancs	none
@@ -860,6 +866,7 @@ symbols:
 🐳	baleine soufflant par son évent	none
 🐋	baleine	none
 🐬	dauphin	none
+🫍	orque	none
 🦭	phoque	none
 🐟	poisson	none
 🐠	poisson tropical	none
@@ -869,6 +876,11 @@ symbols:
 🐚	coquille en spirale	none
 🪸	corail	none
 🪼	méduse	none
+🦀	crabe	none
+🦞	homard	none
+🦐	crevette	none
+🦑	calamar	none
+🦪	huître	none
 🐌	escargot	none
 🦋	papillon	none
 🐛	chenille	none
@@ -913,6 +925,7 @@ symbols:
 🪹	nid vide	none
 🪺	nid avec œufs	none
 🍄	champignon	none
+🪾	arbre sans feuille	none
 🍇	raisin	none
 🍈	melon	none
 🍉	pastèque	none
@@ -951,6 +964,7 @@ symbols:
 🫚	racine de gingembre	none
 🫛	cosse de petits pois	none
 🍄‍🟫	champignon marron	none
+🫜	légume-racine	none
 🍞	pain	none
 🥐	croissant	none
 🥖	baguette	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	boulette de pâte	none
 🥠	biscuit chinois	none
 🥡	boîte à emporter	none
-🦀	crabe	none
-🦞	homard	none
-🦐	crevette	none
-🦑	calamar	none
-🦪	huître	none
 🍦	glace italienne	none
 🍧	granité	none
 🍨	glace	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	boussole	none
 🏔	montagne enneigée	none
 ⛰	montagne	none
+🛘	éboulement	none
 🌋	volcan	none
 🗻	mont Fuji	none
 🏕	camping	none
@@ -1417,16 +1427,17 @@ symbols:
 🎧	casque	none
 📻	radio	none
 🎷	saxophone	none
+🎺	trompette	none
 🪗	accordéon	none
 🎸	guitare	none
 🎹	piano	none
-🎺	trompette	none
 🎻	violon	none
 🪕	banjo	none
 🥁	batterie	none
 🪘	djembé	none
 🪇	maracas	none
 🪈	flûte	none
+🪉	harpe	none
 📱	téléphone portable	none
 📲	appel entrant	none
 ☎	téléphone	none
@@ -1480,8 +1491,9 @@ symbols:
 📑	signets	none
 🔖	marque-page	none
 🏷	étiquette	none
-💰	sac plein d’argent	none
 🪙	pièce	none
+💰	sac plein d’argent	none
+🪎	coffre au trésor	none
 💴	billet en yens	none
 💵	billet en dollars	none
 💶	billet en euros	none
@@ -1565,6 +1577,7 @@ symbols:
 🧰	boîte à outils	none
 🧲	aimant	none
 🪜	échelle	none
+🪏	pelle	none
 ⚗	alambic	none
 🧪	tube à essai	none
 🧫	boîte de pétri	none
@@ -1745,6 +1758,7 @@ symbols:
 ✴	étoile huit branches	none
 ❇	éclat	none
 ™	marque commerciale déposée	none
+🫟	éclaboussure	none
 🔠	majuscules	none
 🔡	minuscules	none
 🔢	saisie de chiffres	none
@@ -2159,6 +2173,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	couple avec cœur  adulte, adulte, peau foncée et peau moyennement claire	none
 🧑🏿‍❤‍🧑🏽	couple avec cœur  adulte, adulte, peau foncée et peau légèrement mate	none
 🧑🏿‍❤‍🧑🏾	couple avec cœur  adulte, adulte, peau foncée et peau mate	none
+🧑🏻‍🫯‍🧑🏼	personnes faisant de la lutte  peau claire et peau moyennement claire	none
+🧑🏻‍🫯‍🧑🏽	personnes faisant de la lutte  peau claire et peau légèrement mate	none
+🧑🏻‍🫯‍🧑🏾	personnes faisant de la lutte  peau claire et peau mate	none
+🧑🏻‍🫯‍🧑🏿	personnes faisant de la lutte  peau claire et peau foncée	none
+🧑🏼‍🫯‍🧑🏻	personnes faisant de la lutte  peau moyennement claire et peau claire	none
+🧑🏼‍🫯‍🧑🏽	personnes faisant de la lutte  peau moyennement claire et peau légèrement mate	none
+🧑🏼‍🫯‍🧑🏾	personnes faisant de la lutte  peau moyennement claire et peau mate	none
+🧑🏼‍🫯‍🧑🏿	personnes faisant de la lutte  peau moyennement claire et peau foncée	none
+🧑🏽‍🫯‍🧑🏻	personnes faisant de la lutte  peau légèrement mate et peau claire	none
+🧑🏽‍🫯‍🧑🏼	personnes faisant de la lutte  peau légèrement mate et peau moyennement claire	none
+🧑🏽‍🫯‍🧑🏾	personnes faisant de la lutte  peau légèrement mate et peau mate	none
+🧑🏽‍🫯‍🧑🏿	personnes faisant de la lutte  peau légèrement mate et peau foncée	none
+🧑🏾‍🫯‍🧑🏻	personnes faisant de la lutte  peau mate et peau claire	none
+🧑🏾‍🫯‍🧑🏼	personnes faisant de la lutte  peau mate et peau moyennement claire	none
+🧑🏾‍🫯‍🧑🏽	personnes faisant de la lutte  peau mate et peau légèrement mate	none
+🧑🏾‍🫯‍🧑🏿	personnes faisant de la lutte  peau mate et peau foncée	none
+🧑🏿‍🫯‍🧑🏻	personnes faisant de la lutte  peau foncée et peau claire	none
+🧑🏿‍🫯‍🧑🏼	personnes faisant de la lutte  peau foncée et peau moyennement claire	none
+🧑🏿‍🫯‍🧑🏽	personnes faisant de la lutte  peau foncée et peau légèrement mate	none
+🧑🏿‍🫯‍🧑🏾	personnes faisant de la lutte  peau foncée et peau mate	none
 🧑‍🦰	adulte  cheveux roux	none
 🧑🏻‍🦰	adulte  peau claire et cheveux roux	none
 🧑🏼‍🦰	adulte  peau moyennement claire et cheveux roux	none
@@ -2183,6 +2217,26 @@ symbols:
 🧑🏽‍🦲	adulte  peau légèrement mate et chauve	none
 🧑🏾‍🦲	adulte  peau mate et chauve	none
 🧑🏿‍🦲	adulte  peau foncée et chauve	none
+🧑🏻‍🐰‍🧑🏼	personnes avec des oreilles de lapin  peau claire et peau moyennement claire	none
+🧑🏻‍🐰‍🧑🏽	personnes avec des oreilles de lapin  peau claire et peau légèrement mate	none
+🧑🏻‍🐰‍🧑🏾	personnes avec des oreilles de lapin  peau claire et peau mate	none
+🧑🏻‍🐰‍🧑🏿	personnes avec des oreilles de lapin  peau claire et peau foncée	none
+🧑🏼‍🐰‍🧑🏻	personnes avec des oreilles de lapin  peau moyennement claire et peau claire	none
+🧑🏼‍🐰‍🧑🏽	personnes avec des oreilles de lapin  peau moyennement claire et peau légèrement mate	none
+🧑🏼‍🐰‍🧑🏾	personnes avec des oreilles de lapin  peau moyennement claire et peau mate	none
+🧑🏼‍🐰‍🧑🏿	personnes avec des oreilles de lapin  peau moyennement claire et peau foncée	none
+🧑🏽‍🐰‍🧑🏻	personnes avec des oreilles de lapin  peau légèrement mate et peau claire	none
+🧑🏽‍🐰‍🧑🏼	personnes avec des oreilles de lapin  peau légèrement mate et peau moyennement claire	none
+🧑🏽‍🐰‍🧑🏾	personnes avec des oreilles de lapin  peau légèrement mate et peau mate	none
+🧑🏽‍🐰‍🧑🏿	personnes avec des oreilles de lapin  peau légèrement mate et peau foncée	none
+🧑🏾‍🐰‍🧑🏻	personnes avec des oreilles de lapin  peau mate et peau claire	none
+🧑🏾‍🐰‍🧑🏼	personnes avec des oreilles de lapin  peau mate et peau moyennement claire	none
+🧑🏾‍🐰‍🧑🏽	personnes avec des oreilles de lapin  peau mate et peau légèrement mate	none
+🧑🏾‍🐰‍🧑🏿	personnes avec des oreilles de lapin  peau mate et peau foncée	none
+🧑🏿‍🐰‍🧑🏻	personnes avec des oreilles de lapin  peau foncée et peau claire	none
+🧑🏿‍🐰‍🧑🏼	personnes avec des oreilles de lapin  peau foncée et peau moyennement claire	none
+🧑🏿‍🐰‍🧑🏽	personnes avec des oreilles de lapin  peau foncée et peau légèrement mate	none
+🧑🏿‍🐰‍🧑🏾	personnes avec des oreilles de lapin  peau foncée et peau mate	none
 👨🏻	homme  peau claire	none
 👨🏼	homme  peau moyennement claire	none
 👨🏽	homme  peau légèrement mate	none
@@ -2253,6 +2307,26 @@ symbols:
 👨🏿‍❤‍👨🏽	couple avec cœur  homme, homme, peau foncée et peau légèrement mate	none
 👨🏿‍❤‍👨🏾	couple avec cœur  homme, homme, peau foncée et peau mate	none
 👨🏿‍❤‍👨🏿	couple avec cœur  homme, homme et peau foncée	none
+👨🏻‍🫯‍👨🏼	lutteurs  peau claire et peau moyennement claire	none
+👨🏻‍🫯‍👨🏽	lutteurs  peau claire et peau légèrement mate	none
+👨🏻‍🫯‍👨🏾	lutteurs  peau claire et peau mate	none
+👨🏻‍🫯‍👨🏿	lutteurs  peau claire et peau foncée	none
+👨🏼‍🫯‍👨🏻	lutteurs  peau moyennement claire et peau claire	none
+👨🏼‍🫯‍👨🏽	lutteurs  peau moyennement claire et peau légèrement mate	none
+👨🏼‍🫯‍👨🏾	lutteurs  peau moyennement claire et peau mate	none
+👨🏼‍🫯‍👨🏿	lutteurs  peau moyennement claire et peau foncée	none
+👨🏽‍🫯‍👨🏻	lutteurs  peau légèrement mate et peau claire	none
+👨🏽‍🫯‍👨🏼	lutteurs  peau légèrement mate et peau moyennement claire	none
+👨🏽‍🫯‍👨🏾	lutteurs  peau légèrement mate et peau mate	none
+👨🏽‍🫯‍👨🏿	lutteurs  peau légèrement mate et peau foncée	none
+👨🏾‍🫯‍👨🏻	lutteurs  peau mate et peau claire	none
+👨🏾‍🫯‍👨🏼	lutteurs  peau mate et peau moyennement claire	none
+👨🏾‍🫯‍👨🏽	lutteurs  peau mate et peau légèrement mate	none
+👨🏾‍🫯‍👨🏿	lutteurs  peau mate et peau foncée	none
+👨🏿‍🫯‍👨🏻	lutteurs  peau foncée et peau claire	none
+👨🏿‍🫯‍👨🏼	lutteurs  peau foncée et peau moyennement claire	none
+👨🏿‍🫯‍👨🏽	lutteurs  peau foncée et peau légèrement mate	none
+👨🏿‍🫯‍👨🏾	lutteurs  peau foncée et peau mate	none
 👨‍🦰	homme  cheveux roux	none
 👨🏻‍🦰	homme  peau claire et cheveux roux	none
 👨🏼‍🦰	homme  peau moyennement claire et cheveux roux	none
@@ -2277,6 +2351,26 @@ symbols:
 👨🏽‍🦲	homme  peau légèrement mate et chauve	none
 👨🏾‍🦲	homme  peau mate et chauve	none
 👨🏿‍🦲	homme  peau foncée et chauve	none
+👨🏻‍🐰‍👨🏼	hommes avec des oreilles de lapin  peau claire et peau moyennement claire	none
+👨🏻‍🐰‍👨🏽	hommes avec des oreilles de lapin  peau claire et peau légèrement mate	none
+👨🏻‍🐰‍👨🏾	hommes avec des oreilles de lapin  peau claire et peau mate	none
+👨🏻‍🐰‍👨🏿	hommes avec des oreilles de lapin  peau claire et peau foncée	none
+👨🏼‍🐰‍👨🏻	hommes avec des oreilles de lapin  peau moyennement claire et peau claire	none
+👨🏼‍🐰‍👨🏽	hommes avec des oreilles de lapin  peau moyennement claire et peau légèrement mate	none
+👨🏼‍🐰‍👨🏾	hommes avec des oreilles de lapin  peau moyennement claire et peau mate	none
+👨🏼‍🐰‍👨🏿	hommes avec des oreilles de lapin  peau moyennement claire et peau foncée	none
+👨🏽‍🐰‍👨🏻	hommes avec des oreilles de lapin  peau légèrement mate et peau claire	none
+👨🏽‍🐰‍👨🏼	hommes avec des oreilles de lapin  peau légèrement mate et peau moyennement claire	none
+👨🏽‍🐰‍👨🏾	hommes avec des oreilles de lapin  peau légèrement mate et peau mate	none
+👨🏽‍🐰‍👨🏿	hommes avec des oreilles de lapin  peau légèrement mate et peau foncée	none
+👨🏾‍🐰‍👨🏻	hommes avec des oreilles de lapin  peau mate et peau claire	none
+👨🏾‍🐰‍👨🏼	hommes avec des oreilles de lapin  peau mate et peau moyennement claire	none
+👨🏾‍🐰‍👨🏽	hommes avec des oreilles de lapin  peau mate et peau légèrement mate	none
+👨🏾‍🐰‍👨🏿	hommes avec des oreilles de lapin  peau mate et peau foncée	none
+👨🏿‍🐰‍👨🏻	hommes avec des oreilles de lapin  peau foncée et peau claire	none
+👨🏿‍🐰‍👨🏼	hommes avec des oreilles de lapin  peau foncée et peau moyennement claire	none
+👨🏿‍🐰‍👨🏽	hommes avec des oreilles de lapin  peau foncée et peau légèrement mate	none
+👨🏿‍🐰‍👨🏾	hommes avec des oreilles de lapin  peau foncée et peau mate	none
 👩🏻	femme  peau claire	none
 👩🏼	femme  peau moyennement claire	none
 👩🏽	femme  peau légèrement mate	none
@@ -2392,6 +2486,26 @@ symbols:
 👩🏿‍❤‍👩🏽	couple avec cœur  femme, femme, peau foncée et peau légèrement mate	none
 👩🏿‍❤‍👩🏾	couple avec cœur  femme, femme, peau foncée et peau mate	none
 👩🏿‍❤‍👩🏿	couple avec cœur  femme, femme et peau foncée	none
+👩🏻‍🫯‍👩🏼	lutteuses  peau claire et peau moyennement claire	none
+👩🏻‍🫯‍👩🏽	lutteuses  peau claire et peau légèrement mate	none
+👩🏻‍🫯‍👩🏾	lutteuses  peau claire et peau mate	none
+👩🏻‍🫯‍👩🏿	lutteuses  peau claire et peau foncée	none
+👩🏼‍🫯‍👩🏻	lutteuses  peau moyennement claire et peau claire	none
+👩🏼‍🫯‍👩🏽	lutteuses  peau moyennement claire et peau légèrement mate	none
+👩🏼‍🫯‍👩🏾	lutteuses  peau moyennement claire et peau mate	none
+👩🏼‍🫯‍👩🏿	lutteuses  peau moyennement claire et peau foncée	none
+👩🏽‍🫯‍👩🏻	lutteuses  peau légèrement mate et peau claire	none
+👩🏽‍🫯‍👩🏼	lutteuses  peau légèrement mate et peau moyennement claire	none
+👩🏽‍🫯‍👩🏾	lutteuses  peau légèrement mate et peau mate	none
+👩🏽‍🫯‍👩🏿	lutteuses  peau légèrement mate et peau foncée	none
+👩🏾‍🫯‍👩🏻	lutteuses  peau mate et peau claire	none
+👩🏾‍🫯‍👩🏼	lutteuses  peau mate et peau moyennement claire	none
+👩🏾‍🫯‍👩🏽	lutteuses  peau mate et peau légèrement mate	none
+👩🏾‍🫯‍👩🏿	lutteuses  peau mate et peau foncée	none
+👩🏿‍🫯‍👩🏻	lutteuses  peau foncée et peau claire	none
+👩🏿‍🫯‍👩🏼	lutteuses  peau foncée et peau moyennement claire	none
+👩🏿‍🫯‍👩🏽	lutteuses  peau foncée et peau légèrement mate	none
+👩🏿‍🫯‍👩🏾	lutteuses  peau foncée et peau mate	none
 👩‍🦰	femme  cheveux roux	none
 👩🏻‍🦰	femme  peau claire et cheveux roux	none
 👩🏼‍🦰	femme  peau moyennement claire et cheveux roux	none
@@ -2416,6 +2530,26 @@ symbols:
 👩🏽‍🦲	femme  peau légèrement mate et chauve	none
 👩🏾‍🦲	femme  peau mate et chauve	none
 👩🏿‍🦲	femme  peau foncée et chauve	none
+👩🏻‍🐰‍👩🏼	femmes avec des oreilles de lapin  peau claire et peau moyennement claire	none
+👩🏻‍🐰‍👩🏽	femmes avec des oreilles de lapin  peau claire et peau légèrement mate	none
+👩🏻‍🐰‍👩🏾	femmes avec des oreilles de lapin  peau claire et peau mate	none
+👩🏻‍🐰‍👩🏿	femmes avec des oreilles de lapin  peau claire et peau foncée	none
+👩🏼‍🐰‍👩🏻	femmes avec des oreilles de lapin  peau moyennement claire et peau claire	none
+👩🏼‍🐰‍👩🏽	femmes avec des oreilles de lapin  peau moyennement claire et peau légèrement mate	none
+👩🏼‍🐰‍👩🏾	femmes avec des oreilles de lapin  peau moyennement claire et peau mate	none
+👩🏼‍🐰‍👩🏿	femmes avec des oreilles de lapin  peau moyennement claire et peau foncée	none
+👩🏽‍🐰‍👩🏻	femmes avec des oreilles de lapin  peau légèrement mate et peau claire	none
+👩🏽‍🐰‍👩🏼	femmes avec des oreilles de lapin  peau légèrement mate et peau moyennement claire	none
+👩🏽‍🐰‍👩🏾	femmes avec des oreilles de lapin  peau légèrement mate et peau mate	none
+👩🏽‍🐰‍👩🏿	femmes avec des oreilles de lapin  peau légèrement mate et peau foncée	none
+👩🏾‍🐰‍👩🏻	femmes avec des oreilles de lapin  peau mate et peau claire	none
+👩🏾‍🐰‍👩🏼	femmes avec des oreilles de lapin  peau mate et peau moyennement claire	none
+👩🏾‍🐰‍👩🏽	femmes avec des oreilles de lapin  peau mate et peau légèrement mate	none
+👩🏾‍🐰‍👩🏿	femmes avec des oreilles de lapin  peau mate et peau foncée	none
+👩🏿‍🐰‍👩🏻	femmes avec des oreilles de lapin  peau foncée et peau claire	none
+👩🏿‍🐰‍👩🏼	femmes avec des oreilles de lapin  peau foncée et peau moyennement claire	none
+👩🏿‍🐰‍👩🏽	femmes avec des oreilles de lapin  peau foncée et peau légèrement mate	none
+👩🏿‍🐰‍👩🏾	femmes avec des oreilles de lapin  peau foncée et peau mate	none
 🧓🏻	personne âgée  peau claire	none
 🧓🏼	personne âgée  peau moyennement claire	none
 🧓🏽	personne âgée  peau légèrement mate	none
@@ -3161,24 +3295,24 @@ symbols:
 🚶🏽‍♀	femme qui marche  peau légèrement mate	none
 🚶🏾‍♀	femme qui marche  peau mate	none
 🚶🏿‍♀	femme qui marche  peau foncée	none
-🚶‍➡	personne qui marche vers la droite	none
-🚶🏻‍➡	personne qui marche vers la droite	none
-🚶🏼‍➡	personne qui marche vers la droite	none
-🚶🏽‍➡	personne qui marche vers la droite	none
-🚶🏾‍➡	personne qui marche vers la droite	none
-🚶🏿‍➡	personne qui marche vers la droite	none
-🚶‍♀‍➡	femme qui marche vers la droite	none
-🚶🏻‍♀‍➡	femme qui marche vers la droite	none
-🚶🏼‍♀‍➡	femme qui marche vers la droite	none
-🚶🏽‍♀‍➡	femme qui marche vers la droite	none
-🚶🏾‍♀‍➡	femme qui marche vers la droite	none
-🚶🏿‍♀‍➡	femme qui marche vers la droite	none
-🚶‍♂‍➡	homme qui marche vers la droite	none
-🚶🏻‍♂‍➡	homme qui marche vers la droite	none
-🚶🏼‍♂‍➡	homme qui marche vers la droite	none
-🚶🏽‍♂‍➡	homme qui marche vers la droite	none
-🚶🏾‍♂‍➡	homme qui marche vers la droite	none
-🚶🏿‍♂‍➡	homme qui marche vers la droite	none
+🚶‍➡	personne qui marche  vers la droite	none
+🚶🏻‍➡	personne qui marche  peau claire et vers la droite	none
+🚶🏼‍➡	personne qui marche  peau moyennement claire et vers la droite	none
+🚶🏽‍➡	personne qui marche  peau légèrement mate et vers la droite	none
+🚶🏾‍➡	personne qui marche  peau mate et vers la droite	none
+🚶🏿‍➡	personne qui marche  peau foncée et vers la droite	none
+🚶‍♀‍➡	femme qui marche  vers la droite	none
+🚶🏻‍♀‍➡	femme qui marche  peau claire et vers la droite	none
+🚶🏼‍♀‍➡	femme qui marche  peau moyennement claire et vers la droite	none
+🚶🏽‍♀‍➡	femme qui marche  peau légèrement mate et vers la droite	none
+🚶🏾‍♀‍➡	femme qui marche  peau mate et vers la droite	none
+🚶🏿‍♀‍➡	femme qui marche  peau foncée et vers la droite	none
+🚶‍♂‍➡	homme qui marche  vers la droite	none
+🚶🏻‍♂‍➡	homme qui marche  peau claire et vers la droite	none
+🚶🏼‍♂‍➡	homme qui marche  peau moyennement claire et vers la droite	none
+🚶🏽‍♂‍➡	homme qui marche  peau légèrement mate et vers la droite	none
+🚶🏾‍♂‍➡	homme qui marche  peau mate et vers la droite	none
+🚶🏿‍♂‍➡	homme qui marche  peau foncée et vers la droite	none
 🧍🏻	personne debout  peau claire	none
 🧍🏼	personne debout  peau moyennement claire	none
 🧍🏽	personne debout  peau légèrement mate	none
@@ -3209,123 +3343,123 @@ symbols:
 🧎🏽‍♀	femme à genoux  peau légèrement mate	none
 🧎🏾‍♀	femme à genoux  peau mate	none
 🧎🏿‍♀	femme à genoux  peau foncée	none
-🧎‍➡	personne à genoux vers la droite	none
-🧎🏻‍➡	personne à genoux vers la droite	none
-🧎🏼‍➡	personne à genoux vers la droite	none
-🧎🏽‍➡	personne à genoux vers la droite	none
-🧎🏾‍➡	personne à genoux vers la droite	none
-🧎🏿‍➡	personne à genoux vers la droite	none
-🧎‍♀‍➡	femme à genoux vers la droite	none
-🧎🏻‍♀‍➡	femme à genoux vers la droite	none
-🧎🏼‍♀‍➡	femme à genoux vers la droite	none
-🧎🏽‍♀‍➡	femme à genoux vers la droite	none
-🧎🏾‍♀‍➡	femme à genoux vers la droite	none
-🧎🏿‍♀‍➡	femme à genoux vers la droite	none
-🧎‍♂‍➡	homme à genoux vers la droite	none
-🧎🏻‍♂‍➡	homme à genoux vers la droite	none
-🧎🏼‍♂‍➡	homme à genoux vers la droite	none
-🧎🏽‍♂‍➡	homme à genoux vers la droite	none
-🧎🏾‍♂‍➡	homme à genoux vers la droite	none
-🧎🏿‍♂‍➡	homme à genoux vers la droite	none
+🧎‍➡	personne à genoux  vers la droite	none
+🧎🏻‍➡	personne à genoux  peau claire et vers la droite	none
+🧎🏼‍➡	personne à genoux  peau moyennement claire et vers la droite	none
+🧎🏽‍➡	personne à genoux  peau légèrement mate et vers la droite	none
+🧎🏾‍➡	personne à genoux  peau mate et vers la droite	none
+🧎🏿‍➡	personne à genoux  peau foncée et vers la droite	none
+🧎‍♀‍➡	femme à genoux  vers la droite	none
+🧎🏻‍♀‍➡	femme à genoux  peau claire et vers la droite	none
+🧎🏼‍♀‍➡	femme à genoux  peau moyennement claire et vers la droite	none
+🧎🏽‍♀‍➡	femme à genoux  peau légèrement mate et vers la droite	none
+🧎🏾‍♀‍➡	femme à genoux  peau mate et vers la droite	none
+🧎🏿‍♀‍➡	femme à genoux  peau foncée et vers la droite	none
+🧎‍♂‍➡	homme à genoux  vers la droite	none
+🧎🏻‍♂‍➡	homme à genoux  peau claire et vers la droite	none
+🧎🏼‍♂‍➡	homme à genoux  peau moyennement claire et vers la droite	none
+🧎🏽‍♂‍➡	homme à genoux  peau légèrement mate et vers la droite	none
+🧎🏾‍♂‍➡	homme à genoux  peau mate et vers la droite	none
+🧎🏿‍♂‍➡	homme à genoux  peau foncée et vers la droite	none
 🧑🏻‍🦯	personne avec une canne blanche  peau claire	none
 🧑🏼‍🦯	personne avec une canne blanche  peau moyennement claire	none
 🧑🏽‍🦯	personne avec une canne blanche  peau légèrement mate	none
 🧑🏾‍🦯	personne avec une canne blanche  peau mate	none
 🧑🏿‍🦯	personne avec une canne blanche  peau foncée	none
-🧑‍🦯‍➡	personne avec une canne blanche vers la droite	none
-🧑🏻‍🦯‍➡	personne avec une canne blanche vers la droite	none
-🧑🏼‍🦯‍➡	personne avec une canne blanche vers la droite	none
-🧑🏽‍🦯‍➡	personne avec une canne blanche vers la droite	none
-🧑🏾‍🦯‍➡	personne avec une canne blanche vers la droite	none
-🧑🏿‍🦯‍➡	personne avec une canne blanche vers la droite	none
+🧑‍🦯‍➡	personne avec une canne blanche  vers la droite	none
+🧑🏻‍🦯‍➡	personne avec une canne blanche  peau claire et vers la droite	none
+🧑🏼‍🦯‍➡	personne avec une canne blanche  peau moyennement claire et vers la droite	none
+🧑🏽‍🦯‍➡	personne avec une canne blanche  peau légèrement mate et vers la droite	none
+🧑🏾‍🦯‍➡	personne avec une canne blanche  peau mate et vers la droite	none
+🧑🏿‍🦯‍➡	personne avec une canne blanche  peau foncée et vers la droite	none
 👨🏻‍🦯	homme avec canne blanche  peau claire	none
 👨🏼‍🦯	homme avec canne blanche  peau moyennement claire	none
 👨🏽‍🦯	homme avec canne blanche  peau légèrement mate	none
 👨🏾‍🦯	homme avec canne blanche  peau mate	none
 👨🏿‍🦯	homme avec canne blanche  peau foncée	none
-👨‍🦯‍➡	homme avec canne blanche vers la droite	none
-👨🏻‍🦯‍➡	homme avec canne blanche vers la droite	none
-👨🏼‍🦯‍➡	homme avec canne blanche vers la droite	none
-👨🏽‍🦯‍➡	homme avec canne blanche vers la droite	none
-👨🏾‍🦯‍➡	homme avec canne blanche vers la droite	none
-👨🏿‍🦯‍➡	homme avec canne blanche vers la droite	none
+👨‍🦯‍➡	homme avec canne blanche  vers la droite	none
+👨🏻‍🦯‍➡	homme avec canne blanche  peau claire et vers la droite	none
+👨🏼‍🦯‍➡	homme avec canne blanche  peau moyennement claire et vers la droite	none
+👨🏽‍🦯‍➡	homme avec canne blanche  peau légèrement mate et vers la droite	none
+👨🏾‍🦯‍➡	homme avec canne blanche  peau mate et vers la droite	none
+👨🏿‍🦯‍➡	homme avec canne blanche  peau foncée et vers la droite	none
 👩🏻‍🦯	femme avec canne blanche  peau claire	none
 👩🏼‍🦯	femme avec canne blanche  peau moyennement claire	none
 👩🏽‍🦯	femme avec canne blanche  peau légèrement mate	none
 👩🏾‍🦯	femme avec canne blanche  peau mate	none
 👩🏿‍🦯	femme avec canne blanche  peau foncée	none
-👩‍🦯‍➡	femme avec canne blanche vers la droite	none
-👩🏻‍🦯‍➡	femme avec canne blanche vers la droite	none
-👩🏼‍🦯‍➡	femme avec canne blanche vers la droite	none
-👩🏽‍🦯‍➡	femme avec canne blanche vers la droite	none
-👩🏾‍🦯‍➡	femme avec canne blanche vers la droite	none
-👩🏿‍🦯‍➡	femme avec canne blanche vers la droite	none
+👩‍🦯‍➡	femme avec canne blanche  vers la droite	none
+👩🏻‍🦯‍➡	femme avec canne blanche  peau claire et vers la droite	none
+👩🏼‍🦯‍➡	femme avec canne blanche  peau moyennement claire et vers la droite	none
+👩🏽‍🦯‍➡	femme avec canne blanche  peau légèrement mate et vers la droite	none
+👩🏾‍🦯‍➡	femme avec canne blanche  peau mate et vers la droite	none
+👩🏿‍🦯‍➡	femme avec canne blanche  peau foncée et vers la droite	none
 🧑🏻‍🦼	personne en fauteuil motorisé  peau claire	none
 🧑🏼‍🦼	personne en fauteuil motorisé  peau moyennement claire	none
 🧑🏽‍🦼	personne en fauteuil motorisé  peau légèrement mate	none
 🧑🏾‍🦼	personne en fauteuil motorisé  peau mate	none
 🧑🏿‍🦼	personne en fauteuil motorisé  peau foncée	none
-🧑‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
-🧑🏻‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
-🧑🏼‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
-🧑🏽‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
-🧑🏾‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
-🧑🏿‍🦼‍➡	personne en fauteuil motorisé vers la droite	none
+🧑‍🦼‍➡	personne en fauteuil motorisé  vers la droite	none
+🧑🏻‍🦼‍➡	personne en fauteuil motorisé  peau claire et vers la droite	none
+🧑🏼‍🦼‍➡	personne en fauteuil motorisé  peau moyennement claire et vers la droite	none
+🧑🏽‍🦼‍➡	personne en fauteuil motorisé  peau légèrement mate et vers la droite	none
+🧑🏾‍🦼‍➡	personne en fauteuil motorisé  peau mate et vers la droite	none
+🧑🏿‍🦼‍➡	personne en fauteuil motorisé  peau foncée et vers la droite	none
 👨🏻‍🦼	homme en fauteuil motorisé  peau claire	none
 👨🏼‍🦼	homme en fauteuil motorisé  peau moyennement claire	none
 👨🏽‍🦼	homme en fauteuil motorisé  peau légèrement mate	none
 👨🏾‍🦼	homme en fauteuil motorisé  peau mate	none
 👨🏿‍🦼	homme en fauteuil motorisé  peau foncée	none
-👨‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
-👨🏻‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
-👨🏼‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
-👨🏽‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
-👨🏾‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
-👨🏿‍🦼‍➡	homme en fauteuil motorisé vers la droite	none
+👨‍🦼‍➡	homme en fauteuil motorisé  vers la droite	none
+👨🏻‍🦼‍➡	homme en fauteuil motorisé  peau claire et vers la droite	none
+👨🏼‍🦼‍➡	homme en fauteuil motorisé  peau moyennement claire et vers la droite	none
+👨🏽‍🦼‍➡	homme en fauteuil motorisé  peau légèrement mate et vers la droite	none
+👨🏾‍🦼‍➡	homme en fauteuil motorisé  peau mate et vers la droite	none
+👨🏿‍🦼‍➡	homme en fauteuil motorisé  peau foncée et vers la droite	none
 👩🏻‍🦼	femme en fauteuil motorisé  peau claire	none
 👩🏼‍🦼	femme en fauteuil motorisé  peau moyennement claire	none
 👩🏽‍🦼	femme en fauteuil motorisé  peau légèrement mate	none
 👩🏾‍🦼	femme en fauteuil motorisé  peau mate	none
 👩🏿‍🦼	femme en fauteuil motorisé  peau foncée	none
-👩‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
-👩🏻‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
-👩🏼‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
-👩🏽‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
-👩🏾‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
-👩🏿‍🦼‍➡	femme en fauteuil motorisé vers la droite	none
+👩‍🦼‍➡	femme en fauteuil motorisé  vers la droite	none
+👩🏻‍🦼‍➡	femme en fauteuil motorisé  peau claire et vers la droite	none
+👩🏼‍🦼‍➡	femme en fauteuil motorisé  peau moyennement claire et vers la droite	none
+👩🏽‍🦼‍➡	femme en fauteuil motorisé  peau légèrement mate et vers la droite	none
+👩🏾‍🦼‍➡	femme en fauteuil motorisé  peau mate et vers la droite	none
+👩🏿‍🦼‍➡	femme en fauteuil motorisé  peau foncée et vers la droite	none
 🧑🏻‍🦽	personne en fauteuil roulant manuel  peau claire	none
 🧑🏼‍🦽	personne en fauteuil roulant manuel  peau moyennement claire	none
 🧑🏽‍🦽	personne en fauteuil roulant manuel  peau légèrement mate	none
 🧑🏾‍🦽	personne en fauteuil roulant manuel  peau mate	none
 🧑🏿‍🦽	personne en fauteuil roulant manuel  peau foncée	none
-🧑‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
-🧑🏻‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
-🧑🏼‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
-🧑🏽‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
-🧑🏾‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
-🧑🏿‍🦽‍➡	personne en fauteuil roulant manuel vers la droite	none
+🧑‍🦽‍➡	personne en fauteuil roulant manuel  vers la droite	none
+🧑🏻‍🦽‍➡	personne en fauteuil roulant manuel  peau claire et vers la droite	none
+🧑🏼‍🦽‍➡	personne en fauteuil roulant manuel  peau moyennement claire et vers la droite	none
+🧑🏽‍🦽‍➡	personne en fauteuil roulant manuel  peau légèrement mate et vers la droite	none
+🧑🏾‍🦽‍➡	personne en fauteuil roulant manuel  peau mate et vers la droite	none
+🧑🏿‍🦽‍➡	personne en fauteuil roulant manuel  peau foncée et vers la droite	none
 👨🏻‍🦽	homme en fauteuil roulant manuel  peau claire	none
 👨🏼‍🦽	homme en fauteuil roulant manuel  peau moyennement claire	none
 👨🏽‍🦽	homme en fauteuil roulant manuel  peau légèrement mate	none
 👨🏾‍🦽	homme en fauteuil roulant manuel  peau mate	none
 👨🏿‍🦽	homme en fauteuil roulant manuel  peau foncée	none
-👨‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
-👨🏻‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
-👨🏼‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
-👨🏽‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
-👨🏾‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
-👨🏿‍🦽‍➡	homme en fauteuil roulant manuel vers la droite	none
+👨‍🦽‍➡	homme en fauteuil roulant manuel  vers la droite	none
+👨🏻‍🦽‍➡	homme en fauteuil roulant manuel  peau claire et vers la droite	none
+👨🏼‍🦽‍➡	homme en fauteuil roulant manuel  peau moyennement claire et vers la droite	none
+👨🏽‍🦽‍➡	homme en fauteuil roulant manuel  peau légèrement mate et vers la droite	none
+👨🏾‍🦽‍➡	homme en fauteuil roulant manuel  peau mate et vers la droite	none
+👨🏿‍🦽‍➡	homme en fauteuil roulant manuel  peau foncée et vers la droite	none
 👩🏻‍🦽	femme en fauteuil roulant manuel  peau claire	none
 👩🏼‍🦽	femme en fauteuil roulant manuel  peau moyennement claire	none
 👩🏽‍🦽	femme en fauteuil roulant manuel  peau légèrement mate	none
 👩🏾‍🦽	femme en fauteuil roulant manuel  peau mate	none
 👩🏿‍🦽	femme en fauteuil roulant manuel  peau foncée	none
-👩‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
-👩🏻‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
-👩🏼‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
-👩🏽‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
-👩🏾‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
-👩🏿‍🦽‍➡	femme en fauteuil roulant manuel vers la droite	none
+👩‍🦽‍➡	femme en fauteuil roulant manuel  vers la droite	none
+👩🏻‍🦽‍➡	femme en fauteuil roulant manuel  peau claire et vers la droite	none
+👩🏼‍🦽‍➡	femme en fauteuil roulant manuel  peau moyennement claire et vers la droite	none
+👩🏽‍🦽‍➡	femme en fauteuil roulant manuel  peau légèrement mate et vers la droite	none
+👩🏾‍🦽‍➡	femme en fauteuil roulant manuel  peau mate et vers la droite	none
+👩🏿‍🦽‍➡	femme en fauteuil roulant manuel  peau foncée et vers la droite	none
 🏃🏻	personne qui court  peau claire	none
 🏃🏼	personne qui court  peau moyennement claire	none
 🏃🏽	personne qui court  peau légèrement mate	none
@@ -3341,24 +3475,29 @@ symbols:
 🏃🏽‍♀	femme qui court  peau légèrement mate	none
 🏃🏾‍♀	femme qui court  peau mate	none
 🏃🏿‍♀	femme qui court  peau foncée	none
-🏃‍➡	personne qui court vers la droite	none
-🏃🏻‍➡	personne qui court vers la droite	none
-🏃🏼‍➡	personne qui court vers la droite	none
-🏃🏽‍➡	personne qui court vers la droite	none
-🏃🏾‍➡	personne qui court vers la droite	none
-🏃🏿‍➡	personne qui court vers la droite	none
-🏃‍♀‍➡	femme qui court vers la droite	none
-🏃🏻‍♀‍➡	femme qui court vers la droite	none
-🏃🏼‍♀‍➡	femme qui court vers la droite	none
-🏃🏽‍♀‍➡	femme qui court vers la droite	none
-🏃🏾‍♀‍➡	femme qui court vers la droite	none
-🏃🏿‍♀‍➡	femme qui court vers la droite	none
-🏃‍♂‍➡	homme qui court vers la droite	none
-🏃🏻‍♂‍➡	homme qui court vers la droite	none
-🏃🏼‍♂‍➡	homme qui court vers la droite	none
-🏃🏽‍♂‍➡	homme qui court vers la droite	none
-🏃🏾‍♂‍➡	homme qui court vers la droite	none
-🏃🏿‍♂‍➡	homme qui court vers la droite	none
+🏃‍➡	personne qui court  vers la droite	none
+🏃🏻‍➡	personne qui court  peau claire et vers la droite	none
+🏃🏼‍➡	personne qui court  peau moyennement claire et vers la droite	none
+🏃🏽‍➡	personne qui court  peau légèrement mate et vers la droite	none
+🏃🏾‍➡	personne qui court  peau mate et vers la droite	none
+🏃🏿‍➡	personne qui court  peau foncée et vers la droite	none
+🏃‍♀‍➡	femme qui court  vers la droite	none
+🏃🏻‍♀‍➡	femme qui court  peau claire et vers la droite	none
+🏃🏼‍♀‍➡	femme qui court  peau moyennement claire et vers la droite	none
+🏃🏽‍♀‍➡	femme qui court  peau légèrement mate et vers la droite	none
+🏃🏾‍♀‍➡	femme qui court  peau mate et vers la droite	none
+🏃🏿‍♀‍➡	femme qui court  peau foncée et vers la droite	none
+🏃‍♂‍➡	homme qui court  vers la droite	none
+🏃🏻‍♂‍➡	homme qui court  peau claire et vers la droite	none
+🏃🏼‍♂‍➡	homme qui court  peau moyennement claire et vers la droite	none
+🏃🏽‍♂‍➡	homme qui court  peau légèrement mate et vers la droite	none
+🏃🏾‍♂‍➡	homme qui court  peau mate et vers la droite	none
+🏃🏿‍♂‍➡	homme qui court  peau foncée et vers la droite	none
+🧑🏻‍🩰	danseuse de ballet  peau claire	none
+🧑🏼‍🩰	danseuse de ballet  peau moyennement claire	none
+🧑🏽‍🩰	danseuse de ballet  peau légèrement mate	none
+🧑🏾‍🩰	danseuse de ballet  peau mate	none
+🧑🏿‍🩰	danseuse de ballet  peau foncée	none
 💃🏻	danseuse  peau claire	none
 💃🏼	danseuse  peau moyennement claire	none
 💃🏽	danseuse  peau légèrement mate	none
@@ -3374,6 +3513,21 @@ symbols:
 🕴🏽	homme d’affaires en lévitation  peau légèrement mate	none
 🕴🏾	homme d’affaires en lévitation  peau mate	none
 🕴🏿	homme d’affaires en lévitation  peau foncée	none
+👯🏻	personnes avec des oreilles de lapin  peau claire	none
+👯🏼	personnes avec des oreilles de lapin  peau moyennement claire	none
+👯🏽	personnes avec des oreilles de lapin  peau légèrement mate	none
+👯🏾	personnes avec des oreilles de lapin  peau mate	none
+👯🏿	personnes avec des oreilles de lapin  peau foncée	none
+👯🏻‍♂	hommes avec des oreilles de lapin  peau claire	none
+👯🏼‍♂	hommes avec des oreilles de lapin  peau moyennement claire	none
+👯🏽‍♂	hommes avec des oreilles de lapin  peau légèrement mate	none
+👯🏾‍♂	hommes avec des oreilles de lapin  peau mate	none
+👯🏿‍♂	hommes avec des oreilles de lapin  peau foncée	none
+👯🏻‍♀	femmes avec des oreilles de lapin  peau claire	none
+👯🏼‍♀	femmes avec des oreilles de lapin  peau moyennement claire	none
+👯🏽‍♀	femmes avec des oreilles de lapin  peau légèrement mate	none
+👯🏾‍♀	femmes avec des oreilles de lapin  peau mate	none
+👯🏿‍♀	femmes avec des oreilles de lapin  peau foncée	none
 🧖🏻	personne au hammam  peau claire	none
 🧖🏼	personne au hammam  peau moyennement claire	none
 🧖🏽	personne au hammam  peau légèrement mate	none
@@ -3549,6 +3703,21 @@ symbols:
 🤸🏽‍♀	femme faisant la roue  peau légèrement mate	none
 🤸🏾‍♀	femme faisant la roue  peau mate	none
 🤸🏿‍♀	femme faisant la roue  peau foncée	none
+🤼🏻	personnes faisant de la lutte  peau claire	none
+🤼🏼	personnes faisant de la lutte  peau moyennement claire	none
+🤼🏽	personnes faisant de la lutte  peau légèrement mate	none
+🤼🏾	personnes faisant de la lutte  peau mate	none
+🤼🏿	personnes faisant de la lutte  peau foncée	none
+🤼🏻‍♂	lutteurs  peau claire	none
+🤼🏼‍♂	lutteurs  peau moyennement claire	none
+🤼🏽‍♂	lutteurs  peau légèrement mate	none
+🤼🏾‍♂	lutteurs  peau mate	none
+🤼🏿‍♂	lutteurs  peau foncée	none
+🤼🏻‍♀	lutteuses  peau claire	none
+🤼🏼‍♀	lutteuses  peau moyennement claire	none
+🤼🏽‍♀	lutteuses  peau légèrement mate	none
+🤼🏾‍♀	lutteuses  peau mate	none
+🤼🏿‍♀	lutteuses  peau foncée	none
 🤽🏻	personne jouant au water-polo  peau claire	none
 🤽🏼	personne jouant au water-polo  peau moyennement claire	none
 🤽🏽	personne jouant au water-polo  peau légèrement mate	none
@@ -3812,6 +3981,7 @@ symbols:
 🇨🇳	drapeau  Chine	none
 🇨🇴	drapeau  Colombie	none
 🇨🇵	drapeau  Île Clipperton	none
+🇨🇶	drapeau  Sercq	none
 🇨🇷	drapeau  Costa Rica	none
 🇨🇺	drapeau  Cuba	none
 🇨🇻	drapeau  Cap-Vert	none

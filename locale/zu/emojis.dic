@@ -19,7 +19,7 @@ symbols:
 ↝	umcibisholo wegagasi wangakwesokudla	none
 ↞	umcibisholo onamakhanda amabili wangakwesokudla	none
 ↟	umcibisholo onamakhanda amabili waphezulu	none
-↠	umcibisholo onamakhanda amabili wangakwesokunxele	none
+↠	umcibisholo onamakhanda amabili ngakwesokunxele	none
 ↡	umcibisholo onamakhanda amabili waphansi	none
 ↢	umsila womcibisholo wangakwesokunxele	none
 ↣	umsila womcibisholo wangakwesokudla	none
@@ -213,6 +213,7 @@ symbols:
 ▽	hollow down-pointing triangle	none
 ▾	filled down-pointing small triangle	none
 ▿	hollow down-pointing small triangle	none
+◁	hollow left-pointing triangle	none
 ◂	filled left-pointing small triangle	none
 ◃	hollow left-pointing small triangle	none
 ◄	filled left-pointing pointer	none
@@ -261,6 +262,8 @@ symbols:
 ⪍	okungaphansi-kungaphezu kokulingana okufanayo	none
 ⪚	double-line equal greater-than	none
 ⪺	succeeds above not almost equal	none
+♭	iscaba	none
+♯	sharp	none
 😀	ubuso obusinekile	none
 😃	ubuso obumoyizelayo obuvule umlomo	none
 😄	ubuso obumoyizelayo obuvule umlomo bunamehlo ajabule	none
@@ -318,6 +321,7 @@ symbols:
 😪	ubuso obuzelayo	none
 🤤	ukuhala	none
 😴	ubuso obulalayo	none
+🫩	Ubuso obunezigobhe	none
 😷	ubso obufake imaski yobuso kadokotela	none
 🤒	ubuso obunesihlolakushisa	none
 🤕	ubuso obufake ibhandishi	none
@@ -345,6 +349,7 @@ symbols:
 😯	ubuso obuthulisiwe	none
 😲	ubuso obuthukile	none
 😳	ubuso obumuncu	none
+🫪	ubuso obuhlanekezelwe	none
 🥺	pleading face	none
 🥹	face holding back tears	none
 😦	ubuso obubiphile obuvule umlomo	none
@@ -418,6 +423,7 @@ symbols:
 💋	uphawu lokuqabula	none
 💯	amaphuzu ayikhulu	none
 💢	uphawu lokudinwa	none
+🫯	fight cloud	none
 💥	ukushayisana	none
 💫	inzululwane	none
 💦	amaqabazi omjuluko	none
@@ -650,6 +656,7 @@ symbols:
 🧟‍♂	isipoki sowesilisa	none
 🧟‍♀	isilwane sowesifazane	none
 🧌	troll	none
+🫈	isidalwa esinoboya	none
 💆	umuntu othola imasaji	none
 💆‍♂	indoda ethola imasaji ebusweni	none
 💆‍♀	owesimame othola imasaji ebusweni	none
@@ -677,6 +684,7 @@ symbols:
 🏃	umunto ogijimayo	none
 🏃‍♂	indoda egijimayo	none
 🏃‍♀	owesimame ogijimayo	none
+🧑‍🩰	ballet dancer	none
 💃	owesimame odansayo	none
 🕺	ukudansa	none
 🕴	indoda egqoke isudu	none
@@ -753,6 +761,7 @@ symbols:
 🧑‍🧒	umndeni omdala, ingane	none
 🧑‍🧒‍🧒	family adult, child, child	none
 👣	izinsalela zezinyawo	none
+🫆	fingerprint	none
 🦰	izinwele ezibomvu	none
 🦱	curly hair	none
 🦳	izinwele ezimpunga	none
@@ -857,6 +866,7 @@ symbols:
 🐳	umkhomo ekhipha amanzi	none
 🐋	umkhomo	none
 🐬	ihlengethwa	none
+🫍	orca	none
 🦭	i-seal	none
 🐟	inhlanzi	none
 🐠	ufishi	none
@@ -866,6 +876,11 @@ symbols:
 🐚	igobolondo elizungezile	none
 🪸	i-coral	none
 🪼	i-jellyfish	none
+🦀	inkalankala	none
+🦞	lobster	none
+🦐	imfanzi	none
+🦑	ingwane	none
+🦪	i-oyster	none
 🐌	umnenke	none
 🦋	uvemvane	none
 🐛	isilokozane	none
@@ -910,6 +925,7 @@ symbols:
 🪹	isidleke esingenalutho	none
 🪺	nest with eggs	none
 🍄	ikhowe	none
+🪾	leafless tree	none
 🍇	amagilebhisi	none
 🍈	imeloni	none
 🍉	ikhabe	none
@@ -948,6 +964,7 @@ symbols:
 🫚	ingxabu yejinja	none
 🫛	i-pea pod	none
 🍄‍🟫	ikhowe elinsundu	none
+🫜	Iveji eliyingxabu	none
 🍞	ulofu	none
 🥐	ibhanisi	none
 🥖	isinkwa	none
@@ -999,11 +1016,6 @@ symbols:
 🥟	idombolo	none
 🥠	ikhekhe lenhlanhla	none
 🥡	ibhokisi lokuthatha ngaphandle	none
-🦀	inkalankala	none
-🦞	lobster	none
-🦐	imfanzi	none
-🦑	ingwane	none
-🦪	i-oyster	none
 🍦	u-ice cream othambile	none
 🍧	i-shaved ice	none
 🍨	u-ice cream	none
@@ -1054,6 +1066,7 @@ symbols:
 🧭	i-compass	none
 🏔	intaba embethe iqhwa	none
 ⛰	intaba	none
+🛘	ukudilika komhlaba	none
 🌋	intabamlilo	none
 🗻	intaba ifuji	none
 🏕	ukukhempa	none
@@ -1267,6 +1280,7 @@ symbols:
 🎄	isihlahla sikaKhisimusi	none
 🎆	amakhrikhethi	none
 🎇	okuqhumayo	none
+🧨	firecracker	none
 ✨	okukhazimulayo	none
 🎈	ibhaluni	none
 🎉	okuqhuma ephathini	none
@@ -1277,6 +1291,7 @@ symbols:
 🎏	i-carp streamer	none
 🎐	ichime yomoya	none
 🎑	umcimbi wenyanga	none
+🧧	red envelope	none
 🎀	iribhini	none
 🎁	isipho esigoqiwe	none
 🎗	iribhini yesikhumbuzo	none
@@ -1296,10 +1311,12 @@ symbols:
 🏈	i-american football	none
 🏉	ibhola lomboxo	none
 🎾	ithenisi	none
+🥏	flying disc	none
 🎳	ukubhowla	none
 🏏	umdlalo wekhilikithi	none
 🏑	ihokhi	none
 🏒	ihokhi yaseqhweni	none
+🥍	lacrosse	none
 🏓	ping pong	none
 🏸	ibadminton	none
 🥊	igilavu lokulwa	none
@@ -1333,13 +1350,16 @@ symbols:
 ♥	unhliziyo	none
 ♦	okumise okwedayimane	none
 ♣	umpukane	none
+♟	chess pawn	none
 🃏	ujokha	none
 🀄	umajongi oyidragoni ebomvu	none
 🎴	amakhadi okudlala ayimbali	none
 🎭	ezobuciko bemibukiso	none
 🖼	ifulemu enesithombe	none
 🎨	ibhodi lengcweti yokupenda	none
+🧵	thread	none
 🪡	inaliti yokuthunga	none
+🧶	yarn	none
 🪢	ifindo	none
 👓	izibuko	none
 🕶	izibuko zelanga	none
@@ -1407,16 +1427,18 @@ symbols:
 🎧	ama-headphone	none
 📻	umsakazo	none
 🎷	imfiliji	none
+🎺	icilongo	none
+🪊	trombone	none
 🪗	i-accordion	none
 🎸	isigingci	none
 🎹	ikhibhodi yomculo	none
-🎺	icilongo	none
 🎻	ivayolini	none
 🪕	i-banjo	none
 🥁	idilamu	none
 🪘	isigubhu eside	none
 🪇	maracas	none
 🪈	flute	none
+🪉	harp	none
 📱	iselula	none
 📲	iselula enomcibisholo	none
 ☎	ucingo	none
@@ -1470,8 +1492,9 @@ symbols:
 📑	ama-tabs okumaka ibhuku	none
 🔖	ibhuku lokumaka	none
 🏷	ilebula	none
-💰	isaka lemali	none
 🪙	imali	none
+💰	isaka lemali	none
+🪎	treasure chest	none
 💴	imali eyiyeni	none
 💵	imali eyidola	none
 💶	imali yase-euro	none
@@ -1555,6 +1578,7 @@ symbols:
 🧰	ibhokisi lamathuluzi	none
 🧲	umayibuthe	none
 🪜	ilada	none
+🪏	shovel	none
 ⚗	i-alambic	none
 🧪	ishubhu lokuhlola	none
 🧫	petri dish	none
@@ -1598,6 +1622,7 @@ symbols:
 ⚰	ibhokisi lomngcwabo	none
 🪦	ikhanda eliyinhloko	none
 ⚱	isitsha somngcwabo	none
+🧿	nazar amulet	none
 🪬	i-hamsa	none
 🗿	i-moai	none
 🪧	iphakadi	none
@@ -1734,6 +1759,7 @@ symbols:
 ✴	inkanyezi ecije kayisishayagalombili	none
 ❇	ukubhanyaza	none
 ™	uphawu lokuhweba	none
+🫟	splatter	none
 🔠	ukufaka uhlamvu olukhulu lwesilatini	none
 🔡	ukufaka uhlamvu oluncane lwesilatini	none
 🔢	izinombolo ezifakiwe	none
@@ -2148,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	izithandani ezinenhliziyo mdala, mdala, uhlobo-6, uhlobo-3	none
 🧑🏿‍❤‍🧑🏽	izithandani ezinenhliziyo mdala, mdala, uhlobo-6, uhlobo-4	none
 🧑🏿‍❤‍🧑🏾	izithandani ezinenhliziyo mdala, mdala, uhlobo-6, uhlobo-5	none
+🧑🏻‍🫯‍🧑🏼	abashayi-sibhakela uhlobo-1-2, uhlobo-3	none
+🧑🏻‍🫯‍🧑🏽	abashayi-sibhakela uhlobo-1-2, uhlobo-4	none
+🧑🏻‍🫯‍🧑🏾	abashayi-sibhakela uhlobo-1-2, uhlobo-5	none
+🧑🏻‍🫯‍🧑🏿	abashayi-sibhakela uhlobo-1-2, uhlobo-6	none
+🧑🏼‍🫯‍🧑🏻	abashayi-sibhakela uhlobo-3, uhlobo-1-2	none
+🧑🏼‍🫯‍🧑🏽	abashayi-sibhakela uhlobo-3, uhlobo-4	none
+🧑🏼‍🫯‍🧑🏾	abashayi-sibhakela uhlobo-3, uhlobo-5	none
+🧑🏼‍🫯‍🧑🏿	abashayi-sibhakela uhlobo-3, uhlobo-6	none
+🧑🏽‍🫯‍🧑🏻	abashayi-sibhakela uhlobo-4, uhlobo-1-2	none
+🧑🏽‍🫯‍🧑🏼	abashayi-sibhakela uhlobo-4, uhlobo-3	none
+🧑🏽‍🫯‍🧑🏾	abashayi-sibhakela uhlobo-4, uhlobo-5	none
+🧑🏽‍🫯‍🧑🏿	abashayi-sibhakela uhlobo-4, uhlobo-6	none
+🧑🏾‍🫯‍🧑🏻	abashayi-sibhakela uhlobo-5, uhlobo-1-2	none
+🧑🏾‍🫯‍🧑🏼	abashayi-sibhakela uhlobo-5, uhlobo-3	none
+🧑🏾‍🫯‍🧑🏽	abashayi-sibhakela uhlobo-5, uhlobo-4	none
+🧑🏾‍🫯‍🧑🏿	abashayi-sibhakela uhlobo-5, uhlobo-6	none
+🧑🏿‍🫯‍🧑🏻	abashayi-sibhakela uhlobo-6, uhlobo-1-2	none
+🧑🏿‍🫯‍🧑🏼	abashayi-sibhakela uhlobo-6, uhlobo-3	none
+🧑🏿‍🫯‍🧑🏽	abashayi-sibhakela uhlobo-6, uhlobo-4	none
+🧑🏿‍🫯‍🧑🏾	abashayi-sibhakela uhlobo-6, uhlobo-5	none
 🧑‍🦰	mdala izinwele ezibomvu	none
 🧑🏻‍🦰	mdala uhlobo-1-2, izinwele ezibomvu	none
 🧑🏼‍🦰	mdala uhlobo-3, izinwele ezibomvu	none
@@ -2172,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	mdala uhlobo-4, imbungculu	none
 🧑🏾‍🦲	mdala uhlobo-5, imbungculu	none
 🧑🏿‍🦲	mdala uhlobo-6, imbungculu	none
+🧑🏻‍🐰‍🧑🏼	abantu abasemcimbini uhlobo-1-2, uhlobo-3	none
+🧑🏻‍🐰‍🧑🏽	abantu abasemcimbini uhlobo-1-2, uhlobo-4	none
+🧑🏻‍🐰‍🧑🏾	abantu abasemcimbini uhlobo-1-2, uhlobo-5	none
+🧑🏻‍🐰‍🧑🏿	abantu abasemcimbini uhlobo-1-2, uhlobo-6	none
+🧑🏼‍🐰‍🧑🏻	abantu abasemcimbini uhlobo-3, uhlobo-1-2	none
+🧑🏼‍🐰‍🧑🏽	abantu abasemcimbini uhlobo-3, uhlobo-4	none
+🧑🏼‍🐰‍🧑🏾	abantu abasemcimbini uhlobo-3, uhlobo-5	none
+🧑🏼‍🐰‍🧑🏿	abantu abasemcimbini uhlobo-3, uhlobo-6	none
+🧑🏽‍🐰‍🧑🏻	abantu abasemcimbini uhlobo-4, uhlobo-1-2	none
+🧑🏽‍🐰‍🧑🏼	abantu abasemcimbini uhlobo-4, uhlobo-3	none
+🧑🏽‍🐰‍🧑🏾	abantu abasemcimbini uhlobo-4, uhlobo-5	none
+🧑🏽‍🐰‍🧑🏿	abantu abasemcimbini uhlobo-4, uhlobo-6	none
+🧑🏾‍🐰‍🧑🏻	abantu abasemcimbini uhlobo-5, uhlobo-1-2	none
+🧑🏾‍🐰‍🧑🏼	abantu abasemcimbini uhlobo-5, uhlobo-3	none
+🧑🏾‍🐰‍🧑🏽	abantu abasemcimbini uhlobo-5, uhlobo-4	none
+🧑🏾‍🐰‍🧑🏿	abantu abasemcimbini uhlobo-5, uhlobo-6	none
+🧑🏿‍🐰‍🧑🏻	abantu abasemcimbini uhlobo-6, uhlobo-1-2	none
+🧑🏿‍🐰‍🧑🏼	abantu abasemcimbini uhlobo-6, uhlobo-3	none
+🧑🏿‍🐰‍🧑🏽	abantu abasemcimbini uhlobo-6, uhlobo-4	none
+🧑🏿‍🐰‍🧑🏾	abantu abasemcimbini uhlobo-6, uhlobo-5	none
 👨🏻	indoda uhlobo-1-2	none
 👨🏼	indoda uhlobo-3	none
 👨🏽	indoda uhlobo-4	none
@@ -2242,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	izithandani ezinenhliziyo indoda, indoda, uhlobo-6, uhlobo-4	none
 👨🏿‍❤‍👨🏾	izithandani ezinenhliziyo indoda, indoda, uhlobo-6, uhlobo-5	none
 👨🏿‍❤‍👨🏿	izithandani ezinenhliziyo indoda, indoda, uhlobo-6	none
+👨🏻‍🫯‍👨🏼	abashayisibhakela besilisa uhlobo-1-2, uhlobo-3	none
+👨🏻‍🫯‍👨🏽	abashayisibhakela besilisa uhlobo-1-2, uhlobo-4	none
+👨🏻‍🫯‍👨🏾	abashayisibhakela besilisa uhlobo-1-2, uhlobo-5	none
+👨🏻‍🫯‍👨🏿	abashayisibhakela besilisa uhlobo-1-2, uhlobo-6	none
+👨🏼‍🫯‍👨🏻	abashayisibhakela besilisa uhlobo-3, uhlobo-1-2	none
+👨🏼‍🫯‍👨🏽	abashayisibhakela besilisa uhlobo-3, uhlobo-4	none
+👨🏼‍🫯‍👨🏾	abashayisibhakela besilisa uhlobo-3, uhlobo-5	none
+👨🏼‍🫯‍👨🏿	abashayisibhakela besilisa uhlobo-3, uhlobo-6	none
+👨🏽‍🫯‍👨🏻	abashayisibhakela besilisa uhlobo-4, uhlobo-1-2	none
+👨🏽‍🫯‍👨🏼	abashayisibhakela besilisa uhlobo-4, uhlobo-3	none
+👨🏽‍🫯‍👨🏾	abashayisibhakela besilisa uhlobo-4, uhlobo-5	none
+👨🏽‍🫯‍👨🏿	abashayisibhakela besilisa uhlobo-4, uhlobo-6	none
+👨🏾‍🫯‍👨🏻	abashayisibhakela besilisa uhlobo-5, uhlobo-1-2	none
+👨🏾‍🫯‍👨🏼	abashayisibhakela besilisa uhlobo-5, uhlobo-3	none
+👨🏾‍🫯‍👨🏽	abashayisibhakela besilisa uhlobo-5, uhlobo-4	none
+👨🏾‍🫯‍👨🏿	abashayisibhakela besilisa uhlobo-5, uhlobo-6	none
+👨🏿‍🫯‍👨🏻	abashayisibhakela besilisa uhlobo-6, uhlobo-1-2	none
+👨🏿‍🫯‍👨🏼	abashayisibhakela besilisa uhlobo-6, uhlobo-3	none
+👨🏿‍🫯‍👨🏽	abashayisibhakela besilisa uhlobo-6, uhlobo-4	none
+👨🏿‍🫯‍👨🏾	abashayisibhakela besilisa uhlobo-6, uhlobo-5	none
 👨‍🦰	indoda izinwele ezibomvu	none
 👨🏻‍🦰	indoda uhlobo-1-2, izinwele ezibomvu	none
 👨🏼‍🦰	indoda uhlobo-3, izinwele ezibomvu	none
@@ -2266,6 +2352,26 @@ symbols:
 👨🏽‍🦲	indoda uhlobo-4, imbungculu	none
 👨🏾‍🦲	indoda uhlobo-5, imbungculu	none
 👨🏿‍🦲	indoda uhlobo-6, imbungculu	none
+👨🏻‍🐰‍👨🏼	amadoda asemcimbini uhlobo-1-2, uhlobo-3	none
+👨🏻‍🐰‍👨🏽	amadoda asemcimbini uhlobo-1-2, uhlobo-4	none
+👨🏻‍🐰‍👨🏾	amadoda asemcimbini uhlobo-1-2, uhlobo-5	none
+👨🏻‍🐰‍👨🏿	amadoda asemcimbini uhlobo-1-2, uhlobo-6	none
+👨🏼‍🐰‍👨🏻	amadoda asemcimbini uhlobo-3, uhlobo-1-2	none
+👨🏼‍🐰‍👨🏽	amadoda asemcimbini uhlobo-3, uhlobo-4	none
+👨🏼‍🐰‍👨🏾	amadoda asemcimbini uhlobo-3, uhlobo-5	none
+👨🏼‍🐰‍👨🏿	amadoda asemcimbini uhlobo-3, uhlobo-6	none
+👨🏽‍🐰‍👨🏻	amadoda asemcimbini uhlobo-4, uhlobo-1-2	none
+👨🏽‍🐰‍👨🏼	amadoda asemcimbini uhlobo-4, uhlobo-3	none
+👨🏽‍🐰‍👨🏾	amadoda asemcimbini uhlobo-4, uhlobo-5	none
+👨🏽‍🐰‍👨🏿	amadoda asemcimbini uhlobo-4, uhlobo-6	none
+👨🏾‍🐰‍👨🏻	amadoda asemcimbini uhlobo-5, uhlobo-1-2	none
+👨🏾‍🐰‍👨🏼	amadoda asemcimbini uhlobo-5, uhlobo-3	none
+👨🏾‍🐰‍👨🏽	amadoda asemcimbini uhlobo-5, uhlobo-4	none
+👨🏾‍🐰‍👨🏿	amadoda asemcimbini uhlobo-5, uhlobo-6	none
+👨🏿‍🐰‍👨🏻	amadoda asemcimbini uhlobo-6, uhlobo-1-2	none
+👨🏿‍🐰‍👨🏼	amadoda asemcimbini uhlobo-6, uhlobo-3	none
+👨🏿‍🐰‍👨🏽	amadoda asemcimbini uhlobo-6, uhlobo-4	none
+👨🏿‍🐰‍👨🏾	amadoda asemcimbini uhlobo-6, uhlobo-5	none
 👩🏻	umama uhlobo-1-2	none
 👩🏼	umama uhlobo-3	none
 👩🏽	umama uhlobo-4	none
@@ -2381,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	izithandani ezinenhliziyo umama, umama, uhlobo-6, uhlobo-4	none
 👩🏿‍❤‍👩🏾	izithandani ezinenhliziyo umama, umama, uhlobo-6, uhlobo-5	none
 👩🏿‍❤‍👩🏿	izithandani ezinenhliziyo umama, umama, uhlobo-6	none
+👩🏻‍🫯‍👩🏼	abashayisibhakela besimame uhlobo-1-2, uhlobo-3	none
+👩🏻‍🫯‍👩🏽	abashayisibhakela besimame uhlobo-1-2, uhlobo-4	none
+👩🏻‍🫯‍👩🏾	abashayisibhakela besimame uhlobo-1-2, uhlobo-5	none
+👩🏻‍🫯‍👩🏿	abashayisibhakela besimame uhlobo-1-2, uhlobo-6	none
+👩🏼‍🫯‍👩🏻	abashayisibhakela besimame uhlobo-3, uhlobo-1-2	none
+👩🏼‍🫯‍👩🏽	abashayisibhakela besimame uhlobo-3, uhlobo-4	none
+👩🏼‍🫯‍👩🏾	abashayisibhakela besimame uhlobo-3, uhlobo-5	none
+👩🏼‍🫯‍👩🏿	abashayisibhakela besimame uhlobo-3, uhlobo-6	none
+👩🏽‍🫯‍👩🏻	abashayisibhakela besimame uhlobo-4, uhlobo-1-2	none
+👩🏽‍🫯‍👩🏼	abashayisibhakela besimame uhlobo-4, uhlobo-3	none
+👩🏽‍🫯‍👩🏾	abashayisibhakela besimame uhlobo-4, uhlobo-5	none
+👩🏽‍🫯‍👩🏿	abashayisibhakela besimame uhlobo-4, uhlobo-6	none
+👩🏾‍🫯‍👩🏻	abashayisibhakela besimame uhlobo-5, uhlobo-1-2	none
+👩🏾‍🫯‍👩🏼	abashayisibhakela besimame uhlobo-5, uhlobo-3	none
+👩🏾‍🫯‍👩🏽	abashayisibhakela besimame uhlobo-5, uhlobo-4	none
+👩🏾‍🫯‍👩🏿	abashayisibhakela besimame uhlobo-5, uhlobo-6	none
+👩🏿‍🫯‍👩🏻	abashayisibhakela besimame uhlobo-6, uhlobo-1-2	none
+👩🏿‍🫯‍👩🏼	abashayisibhakela besimame uhlobo-6, uhlobo-3	none
+👩🏿‍🫯‍👩🏽	abashayisibhakela besimame uhlobo-6, uhlobo-4	none
+👩🏿‍🫯‍👩🏾	abashayisibhakela besimame uhlobo-6, uhlobo-5	none
 👩‍🦰	umama izinwele ezibomvu	none
 👩🏻‍🦰	umama uhlobo-1-2, izinwele ezibomvu	none
 👩🏼‍🦰	umama uhlobo-3, izinwele ezibomvu	none
@@ -2405,6 +2531,26 @@ symbols:
 👩🏽‍🦲	umama uhlobo-4, imbungculu	none
 👩🏾‍🦲	umama uhlobo-5, imbungculu	none
 👩🏿‍🦲	umama uhlobo-6, imbungculu	none
+👩🏻‍🐰‍👩🏼	abasemame abasemcimbini uhlobo-1-2, uhlobo-3	none
+👩🏻‍🐰‍👩🏽	abasemame abasemcimbini uhlobo-1-2, uhlobo-4	none
+👩🏻‍🐰‍👩🏾	abasemame abasemcimbini uhlobo-1-2, uhlobo-5	none
+👩🏻‍🐰‍👩🏿	abasemame abasemcimbini uhlobo-1-2, uhlobo-6	none
+👩🏼‍🐰‍👩🏻	abasemame abasemcimbini uhlobo-3, uhlobo-1-2	none
+👩🏼‍🐰‍👩🏽	abasemame abasemcimbini uhlobo-3, uhlobo-4	none
+👩🏼‍🐰‍👩🏾	abasemame abasemcimbini uhlobo-3, uhlobo-5	none
+👩🏼‍🐰‍👩🏿	abasemame abasemcimbini uhlobo-3, uhlobo-6	none
+👩🏽‍🐰‍👩🏻	abasemame abasemcimbini uhlobo-4, uhlobo-1-2	none
+👩🏽‍🐰‍👩🏼	abasemame abasemcimbini uhlobo-4, uhlobo-3	none
+👩🏽‍🐰‍👩🏾	abasemame abasemcimbini uhlobo-4, uhlobo-5	none
+👩🏽‍🐰‍👩🏿	abasemame abasemcimbini uhlobo-4, uhlobo-6	none
+👩🏾‍🐰‍👩🏻	abasemame abasemcimbini uhlobo-5, uhlobo-1-2	none
+👩🏾‍🐰‍👩🏼	abasemame abasemcimbini uhlobo-5, uhlobo-3	none
+👩🏾‍🐰‍👩🏽	abasemame abasemcimbini uhlobo-5, uhlobo-4	none
+👩🏾‍🐰‍👩🏿	abasemame abasemcimbini uhlobo-5, uhlobo-6	none
+👩🏿‍🐰‍👩🏻	abasemame abasemcimbini uhlobo-6, uhlobo-1-2	none
+👩🏿‍🐰‍👩🏼	abasemame abasemcimbini uhlobo-6, uhlobo-3	none
+👩🏿‍🐰‍👩🏽	abasemame abasemcimbini uhlobo-6, uhlobo-4	none
+👩🏿‍🐰‍👩🏾	abasemame abasemcimbini uhlobo-6, uhlobo-5	none
 🧓🏻	omdala omdala uhlobo-1-2	none
 🧓🏼	omdala omdala uhlobo-3	none
 🧓🏽	omdala omdala uhlobo-4	none
@@ -3240,6 +3386,11 @@ symbols:
 🏃🏽‍♀	owesimame ogijimayo uhlobo-4	none
 🏃🏾‍♀	owesimame ogijimayo uhlobo-5	none
 🏃🏿‍♀	owesimame ogijimayo uhlobo-6	none
+🧑🏻‍🩰	ballet dancer uhlobo-1-2	none
+🧑🏼‍🩰	ballet dancer uhlobo-3	none
+🧑🏽‍🩰	ballet dancer uhlobo-4	none
+🧑🏾‍🩰	ballet dancer uhlobo-5	none
+🧑🏿‍🩰	ballet dancer uhlobo-6	none
 💃🏻	owesimame odansayo uhlobo-1-2	none
 💃🏼	owesimame odansayo uhlobo-3	none
 💃🏽	owesimame odansayo uhlobo-4	none
@@ -3255,6 +3406,21 @@ symbols:
 🕴🏽	indoda egqoke isudu uhlobo-4	none
 🕴🏾	indoda egqoke isudu uhlobo-5	none
 🕴🏿	indoda egqoke isudu uhlobo-6	none
+👯🏻	abantu abasemcimbini uhlobo-1-2	none
+👯🏼	abantu abasemcimbini uhlobo-3	none
+👯🏽	abantu abasemcimbini uhlobo-4	none
+👯🏾	abantu abasemcimbini uhlobo-5	none
+👯🏿	abantu abasemcimbini uhlobo-6	none
+👯🏻‍♂	amadoda asemcimbini uhlobo-1-2	none
+👯🏼‍♂	amadoda asemcimbini uhlobo-3	none
+👯🏽‍♂	amadoda asemcimbini uhlobo-4	none
+👯🏾‍♂	amadoda asemcimbini uhlobo-5	none
+👯🏿‍♂	amadoda asemcimbini uhlobo-6	none
+👯🏻‍♀	abasemame abasemcimbini uhlobo-1-2	none
+👯🏼‍♀	abasemame abasemcimbini uhlobo-3	none
+👯🏽‍♀	abasemame abasemcimbini uhlobo-4	none
+👯🏾‍♀	abasemame abasemcimbini uhlobo-5	none
+👯🏿‍♀	abasemame abasemcimbini uhlobo-6	none
 🧖🏻	umuntu egumbini elinestimu uhlobo-1-2	none
 🧖🏼	umuntu egumbini elinestimu uhlobo-3	none
 🧖🏽	umuntu egumbini elinestimu uhlobo-4	none
@@ -3430,6 +3596,21 @@ symbols:
 🤸🏽‍♀	owesimame enza isondo lekalishi uhlobo-4	none
 🤸🏾‍♀	owesimame enza isondo lekalishi uhlobo-5	none
 🤸🏿‍♀	owesimame enza isondo lekalishi uhlobo-6	none
+🤼🏻	abashayi-sibhakela uhlobo-1-2	none
+🤼🏼	abashayi-sibhakela uhlobo-3	none
+🤼🏽	abashayi-sibhakela uhlobo-4	none
+🤼🏾	abashayi-sibhakela uhlobo-5	none
+🤼🏿	abashayi-sibhakela uhlobo-6	none
+🤼🏻‍♂	abashayisibhakela besilisa uhlobo-1-2	none
+🤼🏼‍♂	abashayisibhakela besilisa uhlobo-3	none
+🤼🏽‍♂	abashayisibhakela besilisa uhlobo-4	none
+🤼🏾‍♂	abashayisibhakela besilisa uhlobo-5	none
+🤼🏿‍♂	abashayisibhakela besilisa uhlobo-6	none
+🤼🏻‍♀	abashayisibhakela besimame uhlobo-1-2	none
+🤼🏼‍♀	abashayisibhakela besimame uhlobo-3	none
+🤼🏽‍♀	abashayisibhakela besimame uhlobo-4	none
+🤼🏾‍♀	abashayisibhakela besimame uhlobo-5	none
+🤼🏿‍♀	abashayisibhakela besimame uhlobo-6	none
 🤽🏻	ukubhukuda uhlobo-1-2	none
 🤽🏼	ukubhukuda uhlobo-3	none
 🤽🏽	ukubhukuda uhlobo-4	none
@@ -3693,6 +3874,7 @@ symbols:
 🇨🇳	ifulegi i-China	none
 🇨🇴	ifulegi i-Colombia	none
 🇨🇵	ifulegi i-Clipperton Island	none
+🇨🇶	ifulegi i-Sark	none
 🇨🇷	ifulegi i-Costa Rica	none
 🇨🇺	ifulegi i-Cuba	none
 🇨🇻	ifulegi i-Cape Verde	none

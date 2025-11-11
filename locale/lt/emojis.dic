@@ -321,6 +321,7 @@ symbols:
 😪	mieguistas veidas	none
 🤤	besiseilėjantis veidas	none
 😴	miegantis veidas	none
+🫩	veidas su maišeliais po akimis	none
 😷	veidas su medicinine kauke	none
 🤒	veidas su termometru	none
 🤕	veidas su galvos tvarsčiu	none
@@ -348,6 +349,7 @@ symbols:
 😯	nuščiuvęs veidas	none
 😲	apstulbęs veidas	none
 😳	nuraudęs veidas	none
+🫪	ištįsęs veidas	none
 🥺	maldaujantis veidas	none
 🥹	ašaras tramdantis veidas	none
 😦	paniuręs išsižiojęs veidas	none
@@ -421,6 +423,7 @@ symbols:
 💋	bučinio žymė	none
 💯	šimtas taškų	none
 💢	pykčio simbolis	none
+🫯	kovos debesis	none
 💥	susidūrimas	none
 💫	apsvaigęs	none
 💦	prakaito lašeliai	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	zombis vyras	none
 🧟‍♀	zombė	none
 🧌	trolis	none
+🫈	plaukuotas padaras	none
 💆	veido masažas	none
 💆‍♂	masažuojama vyro galva	none
 💆‍♀	masažuojama moters galva	none
@@ -680,6 +684,7 @@ symbols:
 🏃	bėgikas	none
 🏃‍♂	bėgantis vyras	none
 🏃‍♀	bėganti moteris	none
+🧑‍🩰	baleto šokėjas	none
 💃	šokanti moteris	none
 🕺	šokantis vyras	none
 🕴	į orą kylantis vyras su kostiumu	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	šeima suaugusysis, vaikas	none
 🧑‍🧒‍🧒	šeima suaugusysis, vaikas, vaikas	none
 👣	pėdsakai	none
+🫆	piršto atspaudas	none
 🦰	raudoni plaukai	none
 🦱	garbanoti plaukai	none
 🦳	žili plaukai	none
@@ -860,6 +866,7 @@ symbols:
 🐳	purškiantis banginis	none
 🐋	banginis	none
 🐬	delfinas	none
+🫍	orka	none
 🦭	ruonis	none
 🐟	žuvis	none
 🐠	tropinė žuvis	none
@@ -869,6 +876,11 @@ symbols:
 🐚	susisukusi kriauklė	none
 🪸	koralas	none
 🪼	medūza	none
+🦀	krabas	none
+🦞	omaras	none
+🦐	krevetė	none
+🦑	kalmaras	none
+🦪	austrė	none
 🐌	sraigė	none
 🦋	drugelis	none
 🐛	vabalas	none
@@ -913,6 +925,7 @@ symbols:
 🪹	tuščias lizdas	none
 🪺	lizdas su kiaušiniais	none
 🍄	grybas	none
+🪾	medis be lapų	none
 🍇	vynuogės	none
 🍈	melionas	none
 🍉	arbūzas	none
@@ -951,6 +964,7 @@ symbols:
 🫚	imbiero šaknis	none
 🫛	žirnių ankštis	none
 🍄‍🟫	baravykas	none
+🫜	šakninė daržovė	none
 🍞	duona	none
 🥐	raguolis	none
 🥖	ilgas batonas	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	kukulis	none
 🥠	laimės sausainiukas	none
 🥡	dėžutė išsinešti	none
-🦀	krabas	none
-🦞	omaras	none
-🦐	krevetė	none
-🦑	kalmaras	none
-🦪	austrė	none
 🍦	minkšti ledai	none
 🍧	susmulkintas ledas	none
 🍨	ledai	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	kompasas	none
 🏔	kalnas su snieguota viršūne	none
 ⛰	kalnas	none
+🛘	nuošliauža	none
 🌋	ugnikalnis	none
 🗻	Fudžio kalnas	none
 🏕	stovyklavimas	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	ausinės	none
 📻	radijas	none
 🎷	saksofonas	none
+🎺	trimitas	none
+🪊	trombonas	none
 🪗	akordeonas	none
 🎸	gitara	none
 🎹	muzikos klaviatūra	none
-🎺	trimitas	none
 🎻	smuikas	none
 🪕	bandža	none
 🥁	būgnas	none
 🪘	ilgas būgnas	none
 🪇	marakasai	none
 🪈	fleita	none
+🪉	arfa	none
 📱	mobilusis telefonas	none
 📲	mobilusis telefonas su rodykle	none
 ☎	telefonas	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	žymių skirtukai	none
 🔖	žymė	none
 🏷	etiketė	none
-💰	pinigų maišas	none
 🪙	moneta	none
+💰	pinigų maišas	none
+🪎	lobių skrynia	none
 💴	jenos banknotas	none
 💵	dolerio banknotas	none
 💶	euro banknotas	none
@@ -1565,6 +1578,7 @@ symbols:
 🧰	įrankių rinkinys	none
 🧲	magnetas	none
 🪜	kopėčios	none
+🪏	kastuvas	none
 ⚗	distiliavimo indas	none
 🧪	mėgintuvėlis	none
 🧫	petri lėkštelė	none
@@ -1745,6 +1759,7 @@ symbols:
 ✴	aštuoniakampė žvaigždė	none
 ❇	kibirkštėlė	none
 ™	prekės ženklas	none
+🫟	tiškalas	none
 🔠	įvestis didžiosios lotyniškos raidės	none
 🔡	įvestis mažosios lotyniškos raidės	none
 🔢	įvesties skaičiai	none
@@ -2159,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	pora su širdele suaugusysis suaugusysis itin tamsios odos vidutinio gymio	none
 🧑🏿‍❤‍🧑🏽	pora su širdele suaugusysis suaugusysis itin tamsios odos rusvos odos	none
 🧑🏿‍❤‍🧑🏾	pora su širdele suaugusysis suaugusysis itin tamsios odos tamsios odos	none
+🧑🏻‍🫯‍🧑🏼	imtynininkai šviesios odos vidutinio gymio	none
+🧑🏻‍🫯‍🧑🏽	imtynininkai šviesios odos rusvos odos	none
+🧑🏻‍🫯‍🧑🏾	imtynininkai šviesios odos tamsios odos	none
+🧑🏻‍🫯‍🧑🏿	imtynininkai šviesios odos itin tamsios odos	none
+🧑🏼‍🫯‍🧑🏻	imtynininkai vidutinio gymio šviesios odos	none
+🧑🏼‍🫯‍🧑🏽	imtynininkai vidutinio gymio rusvos odos	none
+🧑🏼‍🫯‍🧑🏾	imtynininkai vidutinio gymio tamsios odos	none
+🧑🏼‍🫯‍🧑🏿	imtynininkai vidutinio gymio itin tamsios odos	none
+🧑🏽‍🫯‍🧑🏻	imtynininkai rusvos odos šviesios odos	none
+🧑🏽‍🫯‍🧑🏼	imtynininkai rusvos odos vidutinio gymio	none
+🧑🏽‍🫯‍🧑🏾	imtynininkai rusvos odos tamsios odos	none
+🧑🏽‍🫯‍🧑🏿	imtynininkai rusvos odos itin tamsios odos	none
+🧑🏾‍🫯‍🧑🏻	imtynininkai tamsios odos šviesios odos	none
+🧑🏾‍🫯‍🧑🏼	imtynininkai tamsios odos vidutinio gymio	none
+🧑🏾‍🫯‍🧑🏽	imtynininkai tamsios odos rusvos odos	none
+🧑🏾‍🫯‍🧑🏿	imtynininkai tamsios odos itin tamsios odos	none
+🧑🏿‍🫯‍🧑🏻	imtynininkai itin tamsios odos šviesios odos	none
+🧑🏿‍🫯‍🧑🏼	imtynininkai itin tamsios odos vidutinio gymio	none
+🧑🏿‍🫯‍🧑🏽	imtynininkai itin tamsios odos rusvos odos	none
+🧑🏿‍🫯‍🧑🏾	imtynininkai itin tamsios odos tamsios odos	none
 🧑‍🦰	suaugusysis raudoni plaukai	none
 🧑🏻‍🦰	suaugusysis šviesios odos raudoni plaukai	none
 🧑🏼‍🦰	suaugusysis vidutinio gymio raudoni plaukai	none
@@ -2183,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	suaugusysis rusvos odos plikas	none
 🧑🏾‍🦲	suaugusysis tamsios odos plikas	none
 🧑🏿‍🦲	suaugusysis itin tamsios odos plikas	none
+🧑🏻‍🐰‍🧑🏼	besilinksminančios moterys šviesios odos vidutinio gymio	none
+🧑🏻‍🐰‍🧑🏽	besilinksminančios moterys šviesios odos rusvos odos	none
+🧑🏻‍🐰‍🧑🏾	besilinksminančios moterys šviesios odos tamsios odos	none
+🧑🏻‍🐰‍🧑🏿	besilinksminančios moterys šviesios odos itin tamsios odos	none
+🧑🏼‍🐰‍🧑🏻	besilinksminančios moterys vidutinio gymio šviesios odos	none
+🧑🏼‍🐰‍🧑🏽	besilinksminančios moterys vidutinio gymio rusvos odos	none
+🧑🏼‍🐰‍🧑🏾	besilinksminančios moterys vidutinio gymio tamsios odos	none
+🧑🏼‍🐰‍🧑🏿	besilinksminančios moterys vidutinio gymio itin tamsios odos	none
+🧑🏽‍🐰‍🧑🏻	besilinksminančios moterys rusvos odos šviesios odos	none
+🧑🏽‍🐰‍🧑🏼	besilinksminančios moterys rusvos odos vidutinio gymio	none
+🧑🏽‍🐰‍🧑🏾	besilinksminančios moterys rusvos odos tamsios odos	none
+🧑🏽‍🐰‍🧑🏿	besilinksminančios moterys rusvos odos itin tamsios odos	none
+🧑🏾‍🐰‍🧑🏻	besilinksminančios moterys tamsios odos šviesios odos	none
+🧑🏾‍🐰‍🧑🏼	besilinksminančios moterys tamsios odos vidutinio gymio	none
+🧑🏾‍🐰‍🧑🏽	besilinksminančios moterys tamsios odos rusvos odos	none
+🧑🏾‍🐰‍🧑🏿	besilinksminančios moterys tamsios odos itin tamsios odos	none
+🧑🏿‍🐰‍🧑🏻	besilinksminančios moterys itin tamsios odos šviesios odos	none
+🧑🏿‍🐰‍🧑🏼	besilinksminančios moterys itin tamsios odos vidutinio gymio	none
+🧑🏿‍🐰‍🧑🏽	besilinksminančios moterys itin tamsios odos rusvos odos	none
+🧑🏿‍🐰‍🧑🏾	besilinksminančios moterys itin tamsios odos tamsios odos	none
 👨🏻	vyras šviesios odos	none
 👨🏼	vyras vidutinio gymio	none
 👨🏽	vyras rusvos odos	none
@@ -2253,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	pora su širdele vyras vyras itin tamsios odos rusvos odos	none
 👨🏿‍❤‍👨🏾	pora su širdele vyras vyras itin tamsios odos tamsios odos	none
 👨🏿‍❤‍👨🏿	pora su širdele vyras vyras itin tamsios odos	none
+👨🏻‍🫯‍👨🏼	vyrų imtynės šviesios odos vidutinio gymio	none
+👨🏻‍🫯‍👨🏽	vyrų imtynės šviesios odos rusvos odos	none
+👨🏻‍🫯‍👨🏾	vyrų imtynės šviesios odos tamsios odos	none
+👨🏻‍🫯‍👨🏿	vyrų imtynės šviesios odos itin tamsios odos	none
+👨🏼‍🫯‍👨🏻	vyrų imtynės vidutinio gymio šviesios odos	none
+👨🏼‍🫯‍👨🏽	vyrų imtynės vidutinio gymio rusvos odos	none
+👨🏼‍🫯‍👨🏾	vyrų imtynės vidutinio gymio tamsios odos	none
+👨🏼‍🫯‍👨🏿	vyrų imtynės vidutinio gymio itin tamsios odos	none
+👨🏽‍🫯‍👨🏻	vyrų imtynės rusvos odos šviesios odos	none
+👨🏽‍🫯‍👨🏼	vyrų imtynės rusvos odos vidutinio gymio	none
+👨🏽‍🫯‍👨🏾	vyrų imtynės rusvos odos tamsios odos	none
+👨🏽‍🫯‍👨🏿	vyrų imtynės rusvos odos itin tamsios odos	none
+👨🏾‍🫯‍👨🏻	vyrų imtynės tamsios odos šviesios odos	none
+👨🏾‍🫯‍👨🏼	vyrų imtynės tamsios odos vidutinio gymio	none
+👨🏾‍🫯‍👨🏽	vyrų imtynės tamsios odos rusvos odos	none
+👨🏾‍🫯‍👨🏿	vyrų imtynės tamsios odos itin tamsios odos	none
+👨🏿‍🫯‍👨🏻	vyrų imtynės itin tamsios odos šviesios odos	none
+👨🏿‍🫯‍👨🏼	vyrų imtynės itin tamsios odos vidutinio gymio	none
+👨🏿‍🫯‍👨🏽	vyrų imtynės itin tamsios odos rusvos odos	none
+👨🏿‍🫯‍👨🏾	vyrų imtynės itin tamsios odos tamsios odos	none
 👨‍🦰	vyras raudoni plaukai	none
 👨🏻‍🦰	vyras šviesios odos raudoni plaukai	none
 👨🏼‍🦰	vyras vidutinio gymio raudoni plaukai	none
@@ -2277,6 +2352,26 @@ symbols:
 👨🏽‍🦲	vyras rusvos odos plikas	none
 👨🏾‍🦲	vyras tamsios odos plikas	none
 👨🏿‍🦲	vyras itin tamsios odos plikas	none
+👨🏻‍🐰‍👨🏼	vakarėlyje dalyvaujantys vyrai šviesios odos vidutinio gymio	none
+👨🏻‍🐰‍👨🏽	vakarėlyje dalyvaujantys vyrai šviesios odos rusvos odos	none
+👨🏻‍🐰‍👨🏾	vakarėlyje dalyvaujantys vyrai šviesios odos tamsios odos	none
+👨🏻‍🐰‍👨🏿	vakarėlyje dalyvaujantys vyrai šviesios odos itin tamsios odos	none
+👨🏼‍🐰‍👨🏻	vakarėlyje dalyvaujantys vyrai vidutinio gymio šviesios odos	none
+👨🏼‍🐰‍👨🏽	vakarėlyje dalyvaujantys vyrai vidutinio gymio rusvos odos	none
+👨🏼‍🐰‍👨🏾	vakarėlyje dalyvaujantys vyrai vidutinio gymio tamsios odos	none
+👨🏼‍🐰‍👨🏿	vakarėlyje dalyvaujantys vyrai vidutinio gymio itin tamsios odos	none
+👨🏽‍🐰‍👨🏻	vakarėlyje dalyvaujantys vyrai rusvos odos šviesios odos	none
+👨🏽‍🐰‍👨🏼	vakarėlyje dalyvaujantys vyrai rusvos odos vidutinio gymio	none
+👨🏽‍🐰‍👨🏾	vakarėlyje dalyvaujantys vyrai rusvos odos tamsios odos	none
+👨🏽‍🐰‍👨🏿	vakarėlyje dalyvaujantys vyrai rusvos odos itin tamsios odos	none
+👨🏾‍🐰‍👨🏻	vakarėlyje dalyvaujantys vyrai tamsios odos šviesios odos	none
+👨🏾‍🐰‍👨🏼	vakarėlyje dalyvaujantys vyrai tamsios odos vidutinio gymio	none
+👨🏾‍🐰‍👨🏽	vakarėlyje dalyvaujantys vyrai tamsios odos rusvos odos	none
+👨🏾‍🐰‍👨🏿	vakarėlyje dalyvaujantys vyrai tamsios odos itin tamsios odos	none
+👨🏿‍🐰‍👨🏻	vakarėlyje dalyvaujantys vyrai itin tamsios odos šviesios odos	none
+👨🏿‍🐰‍👨🏼	vakarėlyje dalyvaujantys vyrai itin tamsios odos vidutinio gymio	none
+👨🏿‍🐰‍👨🏽	vakarėlyje dalyvaujantys vyrai itin tamsios odos rusvos odos	none
+👨🏿‍🐰‍👨🏾	vakarėlyje dalyvaujantys vyrai itin tamsios odos tamsios odos	none
 👩🏻	moteris šviesios odos	none
 👩🏼	moteris vidutinio gymio	none
 👩🏽	moteris rusvos odos	none
@@ -2392,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	pora su širdele moteris moteris itin tamsios odos rusvos odos	none
 👩🏿‍❤‍👩🏾	pora su širdele moteris moteris itin tamsios odos tamsios odos	none
 👩🏿‍❤‍👩🏿	pora su širdele moteris moteris itin tamsios odos	none
+👩🏻‍🫯‍👩🏼	moterų imtynės šviesios odos vidutinio gymio	none
+👩🏻‍🫯‍👩🏽	moterų imtynės šviesios odos rusvos odos	none
+👩🏻‍🫯‍👩🏾	moterų imtynės šviesios odos tamsios odos	none
+👩🏻‍🫯‍👩🏿	moterų imtynės šviesios odos itin tamsios odos	none
+👩🏼‍🫯‍👩🏻	moterų imtynės vidutinio gymio šviesios odos	none
+👩🏼‍🫯‍👩🏽	moterų imtynės vidutinio gymio rusvos odos	none
+👩🏼‍🫯‍👩🏾	moterų imtynės vidutinio gymio tamsios odos	none
+👩🏼‍🫯‍👩🏿	moterų imtynės vidutinio gymio itin tamsios odos	none
+👩🏽‍🫯‍👩🏻	moterų imtynės rusvos odos šviesios odos	none
+👩🏽‍🫯‍👩🏼	moterų imtynės rusvos odos vidutinio gymio	none
+👩🏽‍🫯‍👩🏾	moterų imtynės rusvos odos tamsios odos	none
+👩🏽‍🫯‍👩🏿	moterų imtynės rusvos odos itin tamsios odos	none
+👩🏾‍🫯‍👩🏻	moterų imtynės tamsios odos šviesios odos	none
+👩🏾‍🫯‍👩🏼	moterų imtynės tamsios odos vidutinio gymio	none
+👩🏾‍🫯‍👩🏽	moterų imtynės tamsios odos rusvos odos	none
+👩🏾‍🫯‍👩🏿	moterų imtynės tamsios odos itin tamsios odos	none
+👩🏿‍🫯‍👩🏻	moterų imtynės itin tamsios odos šviesios odos	none
+👩🏿‍🫯‍👩🏼	moterų imtynės itin tamsios odos vidutinio gymio	none
+👩🏿‍🫯‍👩🏽	moterų imtynės itin tamsios odos rusvos odos	none
+👩🏿‍🫯‍👩🏾	moterų imtynės itin tamsios odos tamsios odos	none
 👩‍🦰	moteris raudoni plaukai	none
 👩🏻‍🦰	moteris šviesios odos raudoni plaukai	none
 👩🏼‍🦰	moteris vidutinio gymio raudoni plaukai	none
@@ -2416,6 +2531,26 @@ symbols:
 👩🏽‍🦲	moteris rusvos odos plikas	none
 👩🏾‍🦲	moteris tamsios odos plikas	none
 👩🏿‍🦲	moteris itin tamsios odos plikas	none
+👩🏻‍🐰‍👩🏼	vakarėlyje dalyvaujančios moterys šviesios odos vidutinio gymio	none
+👩🏻‍🐰‍👩🏽	vakarėlyje dalyvaujančios moterys šviesios odos rusvos odos	none
+👩🏻‍🐰‍👩🏾	vakarėlyje dalyvaujančios moterys šviesios odos tamsios odos	none
+👩🏻‍🐰‍👩🏿	vakarėlyje dalyvaujančios moterys šviesios odos itin tamsios odos	none
+👩🏼‍🐰‍👩🏻	vakarėlyje dalyvaujančios moterys vidutinio gymio šviesios odos	none
+👩🏼‍🐰‍👩🏽	vakarėlyje dalyvaujančios moterys vidutinio gymio rusvos odos	none
+👩🏼‍🐰‍👩🏾	vakarėlyje dalyvaujančios moterys vidutinio gymio tamsios odos	none
+👩🏼‍🐰‍👩🏿	vakarėlyje dalyvaujančios moterys vidutinio gymio itin tamsios odos	none
+👩🏽‍🐰‍👩🏻	vakarėlyje dalyvaujančios moterys rusvos odos šviesios odos	none
+👩🏽‍🐰‍👩🏼	vakarėlyje dalyvaujančios moterys rusvos odos vidutinio gymio	none
+👩🏽‍🐰‍👩🏾	vakarėlyje dalyvaujančios moterys rusvos odos tamsios odos	none
+👩🏽‍🐰‍👩🏿	vakarėlyje dalyvaujančios moterys rusvos odos itin tamsios odos	none
+👩🏾‍🐰‍👩🏻	vakarėlyje dalyvaujančios moterys tamsios odos šviesios odos	none
+👩🏾‍🐰‍👩🏼	vakarėlyje dalyvaujančios moterys tamsios odos vidutinio gymio	none
+👩🏾‍🐰‍👩🏽	vakarėlyje dalyvaujančios moterys tamsios odos rusvos odos	none
+👩🏾‍🐰‍👩🏿	vakarėlyje dalyvaujančios moterys tamsios odos itin tamsios odos	none
+👩🏿‍🐰‍👩🏻	vakarėlyje dalyvaujančios moterys itin tamsios odos šviesios odos	none
+👩🏿‍🐰‍👩🏼	vakarėlyje dalyvaujančios moterys itin tamsios odos vidutinio gymio	none
+👩🏿‍🐰‍👩🏽	vakarėlyje dalyvaujančios moterys itin tamsios odos rusvos odos	none
+👩🏿‍🐰‍👩🏾	vakarėlyje dalyvaujančios moterys itin tamsios odos tamsios odos	none
 🧓🏻	kitas suaugusysis šviesios odos	none
 🧓🏼	kitas suaugusysis vidutinio gymio	none
 🧓🏽	kitas suaugusysis rusvos odos	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	einanti moteris tamsios odos	none
 🚶🏿‍♀	einanti moteris itin tamsios odos	none
 🚶‍➡	pėstysis atsisukęs į dešinę	none
-🚶🏻‍➡	pėstysis atsisukęs į dešinę	none
-🚶🏼‍➡	pėstysis atsisukęs į dešinę	none
-🚶🏽‍➡	pėstysis atsisukęs į dešinę	none
-🚶🏾‍➡	pėstysis atsisukęs į dešinę	none
-🚶🏿‍➡	pėstysis atsisukęs į dešinę	none
+🚶🏻‍➡	pėstysis šviesios odos atsisukęs į dešinę	none
+🚶🏼‍➡	pėstysis vidutinio gymio atsisukęs į dešinę	none
+🚶🏽‍➡	pėstysis rusvos odos atsisukęs į dešinę	none
+🚶🏾‍➡	pėstysis tamsios odos atsisukęs į dešinę	none
+🚶🏿‍➡	pėstysis itin tamsios odos atsisukęs į dešinę	none
 🚶‍♀‍➡	einanti moteris atsisukęs į dešinę	none
-🚶🏻‍♀‍➡	einanti moteris atsisukęs į dešinę	none
-🚶🏼‍♀‍➡	einanti moteris atsisukęs į dešinę	none
-🚶🏽‍♀‍➡	einanti moteris atsisukęs į dešinę	none
-🚶🏾‍♀‍➡	einanti moteris atsisukęs į dešinę	none
-🚶🏿‍♀‍➡	einanti moteris atsisukęs į dešinę	none
+🚶🏻‍♀‍➡	einanti moteris šviesios odos atsisukęs į dešinę	none
+🚶🏼‍♀‍➡	einanti moteris vidutinio gymio atsisukęs į dešinę	none
+🚶🏽‍♀‍➡	einanti moteris rusvos odos atsisukęs į dešinę	none
+🚶🏾‍♀‍➡	einanti moteris tamsios odos atsisukęs į dešinę	none
+🚶🏿‍♀‍➡	einanti moteris itin tamsios odos atsisukęs į dešinę	none
 🚶‍♂‍➡	einantis vyras atsisukęs į dešinę	none
-🚶🏻‍♂‍➡	einantis vyras atsisukęs į dešinę	none
-🚶🏼‍♂‍➡	einantis vyras atsisukęs į dešinę	none
-🚶🏽‍♂‍➡	einantis vyras atsisukęs į dešinę	none
-🚶🏾‍♂‍➡	einantis vyras atsisukęs į dešinę	none
-🚶🏿‍♂‍➡	einantis vyras atsisukęs į dešinę	none
+🚶🏻‍♂‍➡	einantis vyras šviesios odos atsisukęs į dešinę	none
+🚶🏼‍♂‍➡	einantis vyras vidutinio gymio atsisukęs į dešinę	none
+🚶🏽‍♂‍➡	einantis vyras rusvos odos atsisukęs į dešinę	none
+🚶🏾‍♂‍➡	einantis vyras tamsios odos atsisukęs į dešinę	none
+🚶🏿‍♂‍➡	einantis vyras itin tamsios odos atsisukęs į dešinę	none
 🧍🏻	stovintis žmogus šviesios odos	none
 🧍🏼	stovintis žmogus vidutinio gymio	none
 🧍🏽	stovintis žmogus rusvos odos	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	klūpanti moteris tamsios odos	none
 🧎🏿‍♀	klūpanti moteris itin tamsios odos	none
 🧎‍➡	klūpantis žmogus atsisukęs į dešinę	none
-🧎🏻‍➡	klūpantis žmogus atsisukęs į dešinę	none
-🧎🏼‍➡	klūpantis žmogus atsisukęs į dešinę	none
-🧎🏽‍➡	klūpantis žmogus atsisukęs į dešinę	none
-🧎🏾‍➡	klūpantis žmogus atsisukęs į dešinę	none
-🧎🏿‍➡	klūpantis žmogus atsisukęs į dešinę	none
+🧎🏻‍➡	klūpantis žmogus šviesios odos atsisukęs į dešinę	none
+🧎🏼‍➡	klūpantis žmogus vidutinio gymio atsisukęs į dešinę	none
+🧎🏽‍➡	klūpantis žmogus rusvos odos atsisukęs į dešinę	none
+🧎🏾‍➡	klūpantis žmogus tamsios odos atsisukęs į dešinę	none
+🧎🏿‍➡	klūpantis žmogus itin tamsios odos atsisukęs į dešinę	none
 🧎‍♀‍➡	klūpanti moteris atsisukęs į dešinę	none
-🧎🏻‍♀‍➡	klūpanti moteris atsisukęs į dešinę	none
-🧎🏼‍♀‍➡	klūpanti moteris atsisukęs į dešinę	none
-🧎🏽‍♀‍➡	klūpanti moteris atsisukęs į dešinę	none
-🧎🏾‍♀‍➡	klūpanti moteris atsisukęs į dešinę	none
-🧎🏿‍♀‍➡	klūpanti moteris atsisukęs į dešinę	none
+🧎🏻‍♀‍➡	klūpanti moteris šviesios odos atsisukęs į dešinę	none
+🧎🏼‍♀‍➡	klūpanti moteris vidutinio gymio atsisukęs į dešinę	none
+🧎🏽‍♀‍➡	klūpanti moteris rusvos odos atsisukęs į dešinę	none
+🧎🏾‍♀‍➡	klūpanti moteris tamsios odos atsisukęs į dešinę	none
+🧎🏿‍♀‍➡	klūpanti moteris itin tamsios odos atsisukęs į dešinę	none
 🧎‍♂‍➡	klūpantis vyras atsisukęs į dešinę	none
-🧎🏻‍♂‍➡	klūpantis vyras atsisukęs į dešinę	none
-🧎🏼‍♂‍➡	klūpantis vyras atsisukęs į dešinę	none
-🧎🏽‍♂‍➡	klūpantis vyras atsisukęs į dešinę	none
-🧎🏾‍♂‍➡	klūpantis vyras atsisukęs į dešinę	none
-🧎🏿‍♂‍➡	klūpantis vyras atsisukęs į dešinę	none
+🧎🏻‍♂‍➡	klūpantis vyras šviesios odos atsisukęs į dešinę	none
+🧎🏼‍♂‍➡	klūpantis vyras vidutinio gymio atsisukęs į dešinę	none
+🧎🏽‍♂‍➡	klūpantis vyras rusvos odos atsisukęs į dešinę	none
+🧎🏾‍♂‍➡	klūpantis vyras tamsios odos atsisukęs į dešinę	none
+🧎🏿‍♂‍➡	klūpantis vyras itin tamsios odos atsisukęs į dešinę	none
 🧑🏻‍🦯	žmogus neregio lazdele šviesios odos	none
 🧑🏼‍🦯	žmogus neregio lazdele vidutinio gymio	none
 🧑🏽‍🦯	žmogus neregio lazdele rusvos odos	none
 🧑🏾‍🦯	žmogus neregio lazdele tamsios odos	none
 🧑🏿‍🦯	žmogus neregio lazdele itin tamsios odos	none
 🧑‍🦯‍➡	žmogus neregio lazdele atsisukęs į dešinę	none
-🧑🏻‍🦯‍➡	žmogus neregio lazdele atsisukęs į dešinę	none
-🧑🏼‍🦯‍➡	žmogus neregio lazdele atsisukęs į dešinę	none
-🧑🏽‍🦯‍➡	žmogus neregio lazdele atsisukęs į dešinę	none
-🧑🏾‍🦯‍➡	žmogus neregio lazdele atsisukęs į dešinę	none
-🧑🏿‍🦯‍➡	žmogus neregio lazdele atsisukęs į dešinę	none
+🧑🏻‍🦯‍➡	žmogus neregio lazdele šviesios odos atsisukęs į dešinę	none
+🧑🏼‍🦯‍➡	žmogus neregio lazdele vidutinio gymio atsisukęs į dešinę	none
+🧑🏽‍🦯‍➡	žmogus neregio lazdele rusvos odos atsisukęs į dešinę	none
+🧑🏾‍🦯‍➡	žmogus neregio lazdele tamsios odos atsisukęs į dešinę	none
+🧑🏿‍🦯‍➡	žmogus neregio lazdele itin tamsios odos atsisukęs į dešinę	none
 👨🏻‍🦯	vyras su neregio lazdele šviesios odos	none
 👨🏼‍🦯	vyras su neregio lazdele vidutinio gymio	none
 👨🏽‍🦯	vyras su neregio lazdele rusvos odos	none
 👨🏾‍🦯	vyras su neregio lazdele tamsios odos	none
 👨🏿‍🦯	vyras su neregio lazdele itin tamsios odos	none
 👨‍🦯‍➡	vyras su neregio lazdele atsisukęs į dešinę	none
-👨🏻‍🦯‍➡	vyras su neregio lazdele atsisukęs į dešinę	none
-👨🏼‍🦯‍➡	vyras su neregio lazdele atsisukęs į dešinę	none
-👨🏽‍🦯‍➡	vyras su neregio lazdele atsisukęs į dešinę	none
-👨🏾‍🦯‍➡	vyras su neregio lazdele atsisukęs į dešinę	none
-👨🏿‍🦯‍➡	vyras su neregio lazdele atsisukęs į dešinę	none
+👨🏻‍🦯‍➡	vyras su neregio lazdele šviesios odos atsisukęs į dešinę	none
+👨🏼‍🦯‍➡	vyras su neregio lazdele vidutinio gymio atsisukęs į dešinę	none
+👨🏽‍🦯‍➡	vyras su neregio lazdele rusvos odos atsisukęs į dešinę	none
+👨🏾‍🦯‍➡	vyras su neregio lazdele tamsios odos atsisukęs į dešinę	none
+👨🏿‍🦯‍➡	vyras su neregio lazdele itin tamsios odos atsisukęs į dešinę	none
 👩🏻‍🦯	moteris su neregio lazdele šviesios odos	none
 👩🏼‍🦯	moteris su neregio lazdele vidutinio gymio	none
 👩🏽‍🦯	moteris su neregio lazdele rusvos odos	none
 👩🏾‍🦯	moteris su neregio lazdele tamsios odos	none
 👩🏿‍🦯	moteris su neregio lazdele itin tamsios odos	none
 👩‍🦯‍➡	moteris su neregio lazdele atsisukęs į dešinę	none
-👩🏻‍🦯‍➡	moteris su neregio lazdele atsisukęs į dešinę	none
-👩🏼‍🦯‍➡	moteris su neregio lazdele atsisukęs į dešinę	none
-👩🏽‍🦯‍➡	moteris su neregio lazdele atsisukęs į dešinę	none
-👩🏾‍🦯‍➡	moteris su neregio lazdele atsisukęs į dešinę	none
-👩🏿‍🦯‍➡	moteris su neregio lazdele atsisukęs į dešinę	none
+👩🏻‍🦯‍➡	moteris su neregio lazdele šviesios odos atsisukęs į dešinę	none
+👩🏼‍🦯‍➡	moteris su neregio lazdele vidutinio gymio atsisukęs į dešinę	none
+👩🏽‍🦯‍➡	moteris su neregio lazdele rusvos odos atsisukęs į dešinę	none
+👩🏾‍🦯‍➡	moteris su neregio lazdele tamsios odos atsisukęs į dešinę	none
+👩🏿‍🦯‍➡	moteris su neregio lazdele itin tamsios odos atsisukęs į dešinę	none
 🧑🏻‍🦼	žmogus motorizuotame vežimėlyje šviesios odos	none
 🧑🏼‍🦼	žmogus motorizuotame vežimėlyje vidutinio gymio	none
 🧑🏽‍🦼	žmogus motorizuotame vežimėlyje rusvos odos	none
 🧑🏾‍🦼	žmogus motorizuotame vežimėlyje tamsios odos	none
 🧑🏿‍🦼	žmogus motorizuotame vežimėlyje itin tamsios odos	none
 🧑‍🦼‍➡	žmogus motorizuotame vežimėlyje atsisukęs į dešinę	none
-🧑🏻‍🦼‍➡	žmogus motorizuotame vežimėlyje atsisukęs į dešinę	none
-🧑🏼‍🦼‍➡	žmogus motorizuotame vežimėlyje atsisukęs į dešinę	none
-🧑🏽‍🦼‍➡	žmogus motorizuotame vežimėlyje atsisukęs į dešinę	none
-🧑🏾‍🦼‍➡	žmogus motorizuotame vežimėlyje atsisukęs į dešinę	none
-🧑🏿‍🦼‍➡	žmogus motorizuotame vežimėlyje atsisukęs į dešinę	none
+🧑🏻‍🦼‍➡	žmogus motorizuotame vežimėlyje šviesios odos atsisukęs į dešinę	none
+🧑🏼‍🦼‍➡	žmogus motorizuotame vežimėlyje vidutinio gymio atsisukęs į dešinę	none
+🧑🏽‍🦼‍➡	žmogus motorizuotame vežimėlyje rusvos odos atsisukęs į dešinę	none
+🧑🏾‍🦼‍➡	žmogus motorizuotame vežimėlyje tamsios odos atsisukęs į dešinę	none
+🧑🏿‍🦼‍➡	žmogus motorizuotame vežimėlyje itin tamsios odos atsisukęs į dešinę	none
 👨🏻‍🦼	vyras motorizuotame vežimėlyje šviesios odos	none
 👨🏼‍🦼	vyras motorizuotame vežimėlyje vidutinio gymio	none
 👨🏽‍🦼	vyras motorizuotame vežimėlyje rusvos odos	none
 👨🏾‍🦼	vyras motorizuotame vežimėlyje tamsios odos	none
 👨🏿‍🦼	vyras motorizuotame vežimėlyje itin tamsios odos	none
 👨‍🦼‍➡	vyras motorizuotame vežimėlyje atsisukęs į dešinę	none
-👨🏻‍🦼‍➡	vyras motorizuotame vežimėlyje atsisukęs į dešinę	none
-👨🏼‍🦼‍➡	vyras motorizuotame vežimėlyje atsisukęs į dešinę	none
-👨🏽‍🦼‍➡	vyras motorizuotame vežimėlyje atsisukęs į dešinę	none
-👨🏾‍🦼‍➡	vyras motorizuotame vežimėlyje atsisukęs į dešinę	none
-👨🏿‍🦼‍➡	vyras motorizuotame vežimėlyje atsisukęs į dešinę	none
+👨🏻‍🦼‍➡	vyras motorizuotame vežimėlyje šviesios odos atsisukęs į dešinę	none
+👨🏼‍🦼‍➡	vyras motorizuotame vežimėlyje vidutinio gymio atsisukęs į dešinę	none
+👨🏽‍🦼‍➡	vyras motorizuotame vežimėlyje rusvos odos atsisukęs į dešinę	none
+👨🏾‍🦼‍➡	vyras motorizuotame vežimėlyje tamsios odos atsisukęs į dešinę	none
+👨🏿‍🦼‍➡	vyras motorizuotame vežimėlyje itin tamsios odos atsisukęs į dešinę	none
 👩🏻‍🦼	moteris motorizuotame vežimėlyje šviesios odos	none
 👩🏼‍🦼	moteris motorizuotame vežimėlyje vidutinio gymio	none
 👩🏽‍🦼	moteris motorizuotame vežimėlyje rusvos odos	none
 👩🏾‍🦼	moteris motorizuotame vežimėlyje tamsios odos	none
 👩🏿‍🦼	moteris motorizuotame vežimėlyje itin tamsios odos	none
 👩‍🦼‍➡	moteris motorizuotame vežimėlyje atsisukęs į dešinę	none
-👩🏻‍🦼‍➡	moteris motorizuotame vežimėlyje atsisukęs į dešinę	none
-👩🏼‍🦼‍➡	moteris motorizuotame vežimėlyje atsisukęs į dešinę	none
-👩🏽‍🦼‍➡	moteris motorizuotame vežimėlyje atsisukęs į dešinę	none
-👩🏾‍🦼‍➡	moteris motorizuotame vežimėlyje atsisukęs į dešinę	none
-👩🏿‍🦼‍➡	moteris motorizuotame vežimėlyje atsisukęs į dešinę	none
+👩🏻‍🦼‍➡	moteris motorizuotame vežimėlyje šviesios odos atsisukęs į dešinę	none
+👩🏼‍🦼‍➡	moteris motorizuotame vežimėlyje vidutinio gymio atsisukęs į dešinę	none
+👩🏽‍🦼‍➡	moteris motorizuotame vežimėlyje rusvos odos atsisukęs į dešinę	none
+👩🏾‍🦼‍➡	moteris motorizuotame vežimėlyje tamsios odos atsisukęs į dešinę	none
+👩🏿‍🦼‍➡	moteris motorizuotame vežimėlyje itin tamsios odos atsisukęs į dešinę	none
 🧑🏻‍🦽	žmogus rankomis valdomame vežimėlyje šviesios odos	none
 🧑🏼‍🦽	žmogus rankomis valdomame vežimėlyje vidutinio gymio	none
 🧑🏽‍🦽	žmogus rankomis valdomame vežimėlyje rusvos odos	none
 🧑🏾‍🦽	žmogus rankomis valdomame vežimėlyje tamsios odos	none
 🧑🏿‍🦽	žmogus rankomis valdomame vežimėlyje itin tamsios odos	none
 🧑‍🦽‍➡	žmogus rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-🧑🏻‍🦽‍➡	žmogus rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-🧑🏼‍🦽‍➡	žmogus rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-🧑🏽‍🦽‍➡	žmogus rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-🧑🏾‍🦽‍➡	žmogus rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-🧑🏿‍🦽‍➡	žmogus rankomis valdomame vežimėlyje atsisukęs į dešinę	none
+🧑🏻‍🦽‍➡	žmogus rankomis valdomame vežimėlyje šviesios odos atsisukęs į dešinę	none
+🧑🏼‍🦽‍➡	žmogus rankomis valdomame vežimėlyje vidutinio gymio atsisukęs į dešinę	none
+🧑🏽‍🦽‍➡	žmogus rankomis valdomame vežimėlyje rusvos odos atsisukęs į dešinę	none
+🧑🏾‍🦽‍➡	žmogus rankomis valdomame vežimėlyje tamsios odos atsisukęs į dešinę	none
+🧑🏿‍🦽‍➡	žmogus rankomis valdomame vežimėlyje itin tamsios odos atsisukęs į dešinę	none
 👨🏻‍🦽	vyras rankomis valdomame vežimėlyje šviesios odos	none
 👨🏼‍🦽	vyras rankomis valdomame vežimėlyje vidutinio gymio	none
 👨🏽‍🦽	vyras rankomis valdomame vežimėlyje rusvos odos	none
 👨🏾‍🦽	vyras rankomis valdomame vežimėlyje tamsios odos	none
 👨🏿‍🦽	vyras rankomis valdomame vežimėlyje itin tamsios odos	none
 👨‍🦽‍➡	vyras rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-👨🏻‍🦽‍➡	vyras rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-👨🏼‍🦽‍➡	vyras rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-👨🏽‍🦽‍➡	vyras rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-👨🏾‍🦽‍➡	vyras rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-👨🏿‍🦽‍➡	vyras rankomis valdomame vežimėlyje atsisukęs į dešinę	none
+👨🏻‍🦽‍➡	vyras rankomis valdomame vežimėlyje šviesios odos atsisukęs į dešinę	none
+👨🏼‍🦽‍➡	vyras rankomis valdomame vežimėlyje vidutinio gymio atsisukęs į dešinę	none
+👨🏽‍🦽‍➡	vyras rankomis valdomame vežimėlyje rusvos odos atsisukęs į dešinę	none
+👨🏾‍🦽‍➡	vyras rankomis valdomame vežimėlyje tamsios odos atsisukęs į dešinę	none
+👨🏿‍🦽‍➡	vyras rankomis valdomame vežimėlyje itin tamsios odos atsisukęs į dešinę	none
 👩🏻‍🦽	moteris rankomis valdomame vežimėlyje šviesios odos	none
 👩🏼‍🦽	moteris rankomis valdomame vežimėlyje vidutinio gymio	none
 👩🏽‍🦽	moteris rankomis valdomame vežimėlyje rusvos odos	none
 👩🏾‍🦽	moteris rankomis valdomame vežimėlyje tamsios odos	none
 👩🏿‍🦽	moteris rankomis valdomame vežimėlyje itin tamsios odos	none
 👩‍🦽‍➡	moteris rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-👩🏻‍🦽‍➡	moteris rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-👩🏼‍🦽‍➡	moteris rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-👩🏽‍🦽‍➡	moteris rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-👩🏾‍🦽‍➡	moteris rankomis valdomame vežimėlyje atsisukęs į dešinę	none
-👩🏿‍🦽‍➡	moteris rankomis valdomame vežimėlyje atsisukęs į dešinę	none
+👩🏻‍🦽‍➡	moteris rankomis valdomame vežimėlyje šviesios odos atsisukęs į dešinę	none
+👩🏼‍🦽‍➡	moteris rankomis valdomame vežimėlyje vidutinio gymio atsisukęs į dešinę	none
+👩🏽‍🦽‍➡	moteris rankomis valdomame vežimėlyje rusvos odos atsisukęs į dešinę	none
+👩🏾‍🦽‍➡	moteris rankomis valdomame vežimėlyje tamsios odos atsisukęs į dešinę	none
+👩🏿‍🦽‍➡	moteris rankomis valdomame vežimėlyje itin tamsios odos atsisukęs į dešinę	none
 🏃🏻	bėgikas šviesios odos	none
 🏃🏼	bėgikas vidutinio gymio	none
 🏃🏽	bėgikas rusvos odos	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	bėganti moteris tamsios odos	none
 🏃🏿‍♀	bėganti moteris itin tamsios odos	none
 🏃‍➡	bėgikas atsisukęs į dešinę	none
-🏃🏻‍➡	bėgikas atsisukęs į dešinę	none
-🏃🏼‍➡	bėgikas atsisukęs į dešinę	none
-🏃🏽‍➡	bėgikas atsisukęs į dešinę	none
-🏃🏾‍➡	bėgikas atsisukęs į dešinę	none
-🏃🏿‍➡	bėgikas atsisukęs į dešinę	none
+🏃🏻‍➡	bėgikas šviesios odos atsisukęs į dešinę	none
+🏃🏼‍➡	bėgikas vidutinio gymio atsisukęs į dešinę	none
+🏃🏽‍➡	bėgikas rusvos odos atsisukęs į dešinę	none
+🏃🏾‍➡	bėgikas tamsios odos atsisukęs į dešinę	none
+🏃🏿‍➡	bėgikas itin tamsios odos atsisukęs į dešinę	none
 🏃‍♀‍➡	bėganti moteris atsisukęs į dešinę	none
-🏃🏻‍♀‍➡	bėganti moteris atsisukęs į dešinę	none
-🏃🏼‍♀‍➡	bėganti moteris atsisukęs į dešinę	none
-🏃🏽‍♀‍➡	bėganti moteris atsisukęs į dešinę	none
-🏃🏾‍♀‍➡	bėganti moteris atsisukęs į dešinę	none
-🏃🏿‍♀‍➡	bėganti moteris atsisukęs į dešinę	none
+🏃🏻‍♀‍➡	bėganti moteris šviesios odos atsisukęs į dešinę	none
+🏃🏼‍♀‍➡	bėganti moteris vidutinio gymio atsisukęs į dešinę	none
+🏃🏽‍♀‍➡	bėganti moteris rusvos odos atsisukęs į dešinę	none
+🏃🏾‍♀‍➡	bėganti moteris tamsios odos atsisukęs į dešinę	none
+🏃🏿‍♀‍➡	bėganti moteris itin tamsios odos atsisukęs į dešinę	none
 🏃‍♂‍➡	bėgantis vyras atsisukęs į dešinę	none
-🏃🏻‍♂‍➡	bėgantis vyras atsisukęs į dešinę	none
-🏃🏼‍♂‍➡	bėgantis vyras atsisukęs į dešinę	none
-🏃🏽‍♂‍➡	bėgantis vyras atsisukęs į dešinę	none
-🏃🏾‍♂‍➡	bėgantis vyras atsisukęs į dešinę	none
-🏃🏿‍♂‍➡	bėgantis vyras atsisukęs į dešinę	none
+🏃🏻‍♂‍➡	bėgantis vyras šviesios odos atsisukęs į dešinę	none
+🏃🏼‍♂‍➡	bėgantis vyras vidutinio gymio atsisukęs į dešinę	none
+🏃🏽‍♂‍➡	bėgantis vyras rusvos odos atsisukęs į dešinę	none
+🏃🏾‍♂‍➡	bėgantis vyras tamsios odos atsisukęs į dešinę	none
+🏃🏿‍♂‍➡	bėgantis vyras itin tamsios odos atsisukęs į dešinę	none
+🧑🏻‍🩰	baleto šokėjas šviesios odos	none
+🧑🏼‍🩰	baleto šokėjas vidutinio gymio	none
+🧑🏽‍🩰	baleto šokėjas rusvos odos	none
+🧑🏾‍🩰	baleto šokėjas tamsios odos	none
+🧑🏿‍🩰	baleto šokėjas itin tamsios odos	none
 💃🏻	šokanti moteris šviesios odos	none
 💃🏼	šokanti moteris vidutinio gymio	none
 💃🏽	šokanti moteris rusvos odos	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	į orą kylantis vyras su kostiumu rusvos odos	none
 🕴🏾	į orą kylantis vyras su kostiumu tamsios odos	none
 🕴🏿	į orą kylantis vyras su kostiumu itin tamsios odos	none
+👯🏻	besilinksminančios moterys šviesios odos	none
+👯🏼	besilinksminančios moterys vidutinio gymio	none
+👯🏽	besilinksminančios moterys rusvos odos	none
+👯🏾	besilinksminančios moterys tamsios odos	none
+👯🏿	besilinksminančios moterys itin tamsios odos	none
+👯🏻‍♂	vakarėlyje dalyvaujantys vyrai šviesios odos	none
+👯🏼‍♂	vakarėlyje dalyvaujantys vyrai vidutinio gymio	none
+👯🏽‍♂	vakarėlyje dalyvaujantys vyrai rusvos odos	none
+👯🏾‍♂	vakarėlyje dalyvaujantys vyrai tamsios odos	none
+👯🏿‍♂	vakarėlyje dalyvaujantys vyrai itin tamsios odos	none
+👯🏻‍♀	vakarėlyje dalyvaujančios moterys šviesios odos	none
+👯🏼‍♀	vakarėlyje dalyvaujančios moterys vidutinio gymio	none
+👯🏽‍♀	vakarėlyje dalyvaujančios moterys rusvos odos	none
+👯🏾‍♀	vakarėlyje dalyvaujančios moterys tamsios odos	none
+👯🏿‍♀	vakarėlyje dalyvaujančios moterys itin tamsios odos	none
 🧖🏻	asmuo garų kambaryje šviesios odos	none
 🧖🏼	asmuo garų kambaryje vidutinio gymio	none
 🧖🏽	asmuo garų kambaryje rusvos odos	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	moteris daro suktuką rusvos odos	none
 🤸🏾‍♀	moteris daro suktuką tamsios odos	none
 🤸🏿‍♀	moteris daro suktuką itin tamsios odos	none
+🤼🏻	imtynininkai šviesios odos	none
+🤼🏼	imtynininkai vidutinio gymio	none
+🤼🏽	imtynininkai rusvos odos	none
+🤼🏾	imtynininkai tamsios odos	none
+🤼🏿	imtynininkai itin tamsios odos	none
+🤼🏻‍♂	vyrų imtynės šviesios odos	none
+🤼🏼‍♂	vyrų imtynės vidutinio gymio	none
+🤼🏽‍♂	vyrų imtynės rusvos odos	none
+🤼🏾‍♂	vyrų imtynės tamsios odos	none
+🤼🏿‍♂	vyrų imtynės itin tamsios odos	none
+🤼🏻‍♀	moterų imtynės šviesios odos	none
+🤼🏼‍♀	moterų imtynės vidutinio gymio	none
+🤼🏽‍♀	moterų imtynės rusvos odos	none
+🤼🏾‍♀	moterų imtynės tamsios odos	none
+🤼🏿‍♀	moterų imtynės itin tamsios odos	none
 🤽🏻	vandensvydis šviesios odos	none
 🤽🏼	vandensvydis vidutinio gymio	none
 🤽🏽	vandensvydis rusvos odos	none
@@ -3812,6 +3982,7 @@ symbols:
 🇨🇳	vėliava Kinija	none
 🇨🇴	vėliava Kolumbija	none
 🇨🇵	vėliava Klipertono sala	none
+🇨🇶	vėliava Sarkas	none
 🇨🇷	vėliava Kosta Rika	none
 🇨🇺	vėliava Kuba	none
 🇨🇻	vėliava Žaliasis Kyšulys	none
@@ -3837,7 +4008,7 @@ symbols:
 🇪🇺	vėliava Europos Sąjunga	none
 🇫🇮	vėliava Suomija	none
 🇫🇯	vėliava Fidžis	none
-🇫🇰	vėliava Folklando Salos	none
+🇫🇰	vėliava Folklando salos	none
 🇫🇲	vėliava Mikronezija	none
 🇫🇴	vėliava Farerų Salos	none
 🇫🇷	vėliava Prancūzija	none
