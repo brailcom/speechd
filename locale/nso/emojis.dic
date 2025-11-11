@@ -467,6 +467,9 @@ symbols:
 🦈	šaka	none
 🐙	okthopase	none
 🐚	shele	none
+🦀	letlapakgerere	none
+🦐	šerimpo	none
+🦑	sekhwiti	none
 🐌	kgopa	none
 🦋	serurubele	none
 🐛	selomanyane	none
@@ -568,9 +571,6 @@ symbols:
 🥟	letompolo	none
 🥠	kuku ya mahlatse	none
 🥡	lepokisi la dijo	none
-🦀	letlapakgerere	none
-🦐	šerimpo	none
-🦑	sekhwiti	none
 🍦	ice cream e boleta	none
 🍧	aese ye bopilwego	none
 🍨	ice cream	none
@@ -922,9 +922,9 @@ symbols:
 🎧	ditsebjana	none
 📻	seyalemoya	none
 🎷	seksofoune	none
+🎺	porompeta	none
 🎸	katara	none
 🎹	khiipoto ya mmino	none
-🎺	porompeta	none
 🎻	bayolini	none
 🥁	moropa	none
 📱	selefouno	none
@@ -1507,6 +1507,46 @@ symbols:
 🧑🏿‍❤‍🧑🏼	balekane ka pelwana motho yo mogolo, motho yo mogolo, mmala wa letlalo wo moswana, mmala wa letlalo wa go taga wa magareng	none
 🧑🏿‍❤‍🧑🏽	balekane ka pelwana motho yo mogolo, motho yo mogolo, mmala wa letlalo wo moswana, mmala wa letlalo wa magareng	none
 🧑🏿‍❤‍🧑🏾	balekane ka pelwana motho yo mogolo, motho yo mogolo, mmala wa letlalo wo moswana, mmala wa letlalo wo moswana wa magareng	none
+🧑🏻‍🫯‍🧑🏼	motho o lwa reseling mmala wa letlalo wa go taga, mmala wa letlalo wa go taga wa magareng	none
+🧑🏻‍🫯‍🧑🏽	motho o lwa reseling mmala wa letlalo wa go taga, mmala wa letlalo wa magareng	none
+🧑🏻‍🫯‍🧑🏾	motho o lwa reseling mmala wa letlalo wa go taga, mmala wa letlalo wo moswana wa magareng	none
+🧑🏻‍🫯‍🧑🏿	motho o lwa reseling mmala wa letlalo wa go taga, mmala wa letlalo wo moswana	none
+🧑🏼‍🫯‍🧑🏻	motho o lwa reseling mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa go taga	none
+🧑🏼‍🫯‍🧑🏽	motho o lwa reseling mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa magareng	none
+🧑🏼‍🫯‍🧑🏾	motho o lwa reseling mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana wa magareng	none
+🧑🏼‍🫯‍🧑🏿	motho o lwa reseling mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana	none
+🧑🏽‍🫯‍🧑🏻	motho o lwa reseling mmala wa letlalo wa magareng, mmala wa letlalo wa go taga	none
+🧑🏽‍🫯‍🧑🏼	motho o lwa reseling mmala wa letlalo wa magareng, mmala wa letlalo wa go taga wa magareng	none
+🧑🏽‍🫯‍🧑🏾	motho o lwa reseling mmala wa letlalo wa magareng, mmala wa letlalo wo moswana wa magareng	none
+🧑🏽‍🫯‍🧑🏿	motho o lwa reseling mmala wa letlalo wa magareng, mmala wa letlalo wo moswana	none
+🧑🏾‍🫯‍🧑🏻	motho o lwa reseling mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga	none
+🧑🏾‍🫯‍🧑🏼	motho o lwa reseling mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga wa magareng	none
+🧑🏾‍🫯‍🧑🏽	motho o lwa reseling mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa magareng	none
+🧑🏾‍🫯‍🧑🏿	motho o lwa reseling mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wo moswana	none
+🧑🏿‍🫯‍🧑🏻	motho o lwa reseling mmala wa letlalo wo moswana, mmala wa letlalo wa go taga	none
+🧑🏿‍🫯‍🧑🏼	motho o lwa reseling mmala wa letlalo wo moswana, mmala wa letlalo wa go taga wa magareng	none
+🧑🏿‍🫯‍🧑🏽	motho o lwa reseling mmala wa letlalo wo moswana, mmala wa letlalo wa magareng	none
+🧑🏿‍🫯‍🧑🏾	motho o lwa reseling mmala wa letlalo wo moswana, mmala wa letlalo wo moswana wa magareng	none
+🧑🏻‍🐰‍🧑🏼	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa go taga, mmala wa letlalo wa go taga wa magareng	none
+🧑🏻‍🐰‍🧑🏽	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa go taga, mmala wa letlalo wa magareng	none
+🧑🏻‍🐰‍🧑🏾	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa go taga, mmala wa letlalo wo moswana wa magareng	none
+🧑🏻‍🐰‍🧑🏿	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa go taga, mmala wa letlalo wo moswana	none
+🧑🏼‍🐰‍🧑🏻	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa go taga	none
+🧑🏼‍🐰‍🧑🏽	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa magareng	none
+🧑🏼‍🐰‍🧑🏾	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana wa magareng	none
+🧑🏼‍🐰‍🧑🏿	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana	none
+🧑🏽‍🐰‍🧑🏻	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa magareng, mmala wa letlalo wa go taga	none
+🧑🏽‍🐰‍🧑🏼	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa magareng, mmala wa letlalo wa go taga wa magareng	none
+🧑🏽‍🐰‍🧑🏾	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa magareng, mmala wa letlalo wo moswana wa magareng	none
+🧑🏽‍🐰‍🧑🏿	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa magareng, mmala wa letlalo wo moswana	none
+🧑🏾‍🐰‍🧑🏻	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga	none
+🧑🏾‍🐰‍🧑🏼	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga wa magareng	none
+🧑🏾‍🐰‍🧑🏽	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa magareng	none
+🧑🏾‍🐰‍🧑🏿	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wo moswana	none
+🧑🏿‍🐰‍🧑🏻	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wo moswana, mmala wa letlalo wa go taga	none
+🧑🏿‍🐰‍🧑🏼	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wo moswana, mmala wa letlalo wa go taga wa magareng	none
+🧑🏿‍🐰‍🧑🏽	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wo moswana, mmala wa letlalo wa magareng	none
+🧑🏿‍🐰‍🧑🏾	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wo moswana, mmala wa letlalo wo moswana wa magareng	none
 👨🏻	monna mmala wa letlalo wa go taga	none
 👨🏼	monna mmala wa letlalo wa go taga wa magareng	none
 👨🏽	monna mmala wa letlalo wa magareng	none
@@ -1572,6 +1612,46 @@ symbols:
 👨🏿‍❤‍👨🏽	balekane ka pelwana monna, monna, mmala wa letlalo wo moswana, mmala wa letlalo wa magareng	none
 👨🏿‍❤‍👨🏾	balekane ka pelwana monna, monna, mmala wa letlalo wo moswana, mmala wa letlalo wo moswana wa magareng	none
 👨🏿‍❤‍👨🏿	balekane ka pelwana monna, monna, mmala wa letlalo wo moswana	none
+👨🏻‍🫯‍👨🏼	banna ba a resela mmala wa letlalo wa go taga, mmala wa letlalo wa go taga wa magareng	none
+👨🏻‍🫯‍👨🏽	banna ba a resela mmala wa letlalo wa go taga, mmala wa letlalo wa magareng	none
+👨🏻‍🫯‍👨🏾	banna ba a resela mmala wa letlalo wa go taga, mmala wa letlalo wo moswana wa magareng	none
+👨🏻‍🫯‍👨🏿	banna ba a resela mmala wa letlalo wa go taga, mmala wa letlalo wo moswana	none
+👨🏼‍🫯‍👨🏻	banna ba a resela mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa go taga	none
+👨🏼‍🫯‍👨🏽	banna ba a resela mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa magareng	none
+👨🏼‍🫯‍👨🏾	banna ba a resela mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana wa magareng	none
+👨🏼‍🫯‍👨🏿	banna ba a resela mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana	none
+👨🏽‍🫯‍👨🏻	banna ba a resela mmala wa letlalo wa magareng, mmala wa letlalo wa go taga	none
+👨🏽‍🫯‍👨🏼	banna ba a resela mmala wa letlalo wa magareng, mmala wa letlalo wa go taga wa magareng	none
+👨🏽‍🫯‍👨🏾	banna ba a resela mmala wa letlalo wa magareng, mmala wa letlalo wo moswana wa magareng	none
+👨🏽‍🫯‍👨🏿	banna ba a resela mmala wa letlalo wa magareng, mmala wa letlalo wo moswana	none
+👨🏾‍🫯‍👨🏻	banna ba a resela mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga	none
+👨🏾‍🫯‍👨🏼	banna ba a resela mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga wa magareng	none
+👨🏾‍🫯‍👨🏽	banna ba a resela mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa magareng	none
+👨🏾‍🫯‍👨🏿	banna ba a resela mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wo moswana	none
+👨🏿‍🫯‍👨🏻	banna ba a resela mmala wa letlalo wo moswana, mmala wa letlalo wa go taga	none
+👨🏿‍🫯‍👨🏼	banna ba a resela mmala wa letlalo wo moswana, mmala wa letlalo wa go taga wa magareng	none
+👨🏿‍🫯‍👨🏽	banna ba a resela mmala wa letlalo wo moswana, mmala wa letlalo wa magareng	none
+👨🏿‍🫯‍👨🏾	banna ba a resela mmala wa letlalo wo moswana, mmala wa letlalo wo moswana wa magareng	none
+👨🏻‍🐰‍👨🏼	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga, mmala wa letlalo wa go taga wa magareng	none
+👨🏻‍🐰‍👨🏽	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga, mmala wa letlalo wa magareng	none
+👨🏻‍🐰‍👨🏾	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga, mmala wa letlalo wo moswana wa magareng	none
+👨🏻‍🐰‍👨🏿	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga, mmala wa letlalo wo moswana	none
+👨🏼‍🐰‍👨🏻	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa go taga	none
+👨🏼‍🐰‍👨🏽	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa magareng	none
+👨🏼‍🐰‍👨🏾	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana wa magareng	none
+👨🏼‍🐰‍👨🏿	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana	none
+👨🏽‍🐰‍👨🏻	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa magareng, mmala wa letlalo wa go taga	none
+👨🏽‍🐰‍👨🏼	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa magareng, mmala wa letlalo wa go taga wa magareng	none
+👨🏽‍🐰‍👨🏾	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa magareng, mmala wa letlalo wo moswana wa magareng	none
+👨🏽‍🐰‍👨🏿	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa magareng, mmala wa letlalo wo moswana	none
+👨🏾‍🐰‍👨🏻	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga	none
+👨🏾‍🐰‍👨🏼	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga wa magareng	none
+👨🏾‍🐰‍👨🏽	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa magareng	none
+👨🏾‍🐰‍👨🏿	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wo moswana	none
+👨🏿‍🐰‍👨🏻	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana, mmala wa letlalo wa go taga	none
+👨🏿‍🐰‍👨🏼	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana, mmala wa letlalo wa go taga wa magareng	none
+👨🏿‍🐰‍👨🏽	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana, mmala wa letlalo wa magareng	none
+👨🏿‍🐰‍👨🏾	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana, mmala wa letlalo wo moswana wa magareng	none
 👩🏻	mosadi mmala wa letlalo wa go taga	none
 👩🏼	mosadi mmala wa letlalo wa go taga wa magareng	none
 👩🏽	mosadi mmala wa letlalo wa magareng	none
@@ -1682,6 +1762,46 @@ symbols:
 👩🏿‍❤‍👩🏽	balekane ka pelwana mosadi, mosadi, mmala wa letlalo wo moswana, mmala wa letlalo wa magareng	none
 👩🏿‍❤‍👩🏾	balekane ka pelwana mosadi, mosadi, mmala wa letlalo wo moswana, mmala wa letlalo wo moswana wa magareng	none
 👩🏿‍❤‍👩🏿	balekane ka pelwana mosadi, mosadi, mmala wa letlalo wo moswana	none
+👩🏻‍🫯‍👩🏼	mosadi o lwa reseling mmala wa letlalo wa go taga, mmala wa letlalo wa go taga wa magareng	none
+👩🏻‍🫯‍👩🏽	mosadi o lwa reseling mmala wa letlalo wa go taga, mmala wa letlalo wa magareng	none
+👩🏻‍🫯‍👩🏾	mosadi o lwa reseling mmala wa letlalo wa go taga, mmala wa letlalo wo moswana wa magareng	none
+👩🏻‍🫯‍👩🏿	mosadi o lwa reseling mmala wa letlalo wa go taga, mmala wa letlalo wo moswana	none
+👩🏼‍🫯‍👩🏻	mosadi o lwa reseling mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa go taga	none
+👩🏼‍🫯‍👩🏽	mosadi o lwa reseling mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa magareng	none
+👩🏼‍🫯‍👩🏾	mosadi o lwa reseling mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana wa magareng	none
+👩🏼‍🫯‍👩🏿	mosadi o lwa reseling mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana	none
+👩🏽‍🫯‍👩🏻	mosadi o lwa reseling mmala wa letlalo wa magareng, mmala wa letlalo wa go taga	none
+👩🏽‍🫯‍👩🏼	mosadi o lwa reseling mmala wa letlalo wa magareng, mmala wa letlalo wa go taga wa magareng	none
+👩🏽‍🫯‍👩🏾	mosadi o lwa reseling mmala wa letlalo wa magareng, mmala wa letlalo wo moswana wa magareng	none
+👩🏽‍🫯‍👩🏿	mosadi o lwa reseling mmala wa letlalo wa magareng, mmala wa letlalo wo moswana	none
+👩🏾‍🫯‍👩🏻	mosadi o lwa reseling mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga	none
+👩🏾‍🫯‍👩🏼	mosadi o lwa reseling mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga wa magareng	none
+👩🏾‍🫯‍👩🏽	mosadi o lwa reseling mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa magareng	none
+👩🏾‍🫯‍👩🏿	mosadi o lwa reseling mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wo moswana	none
+👩🏿‍🫯‍👩🏻	mosadi o lwa reseling mmala wa letlalo wo moswana, mmala wa letlalo wa go taga	none
+👩🏿‍🫯‍👩🏼	mosadi o lwa reseling mmala wa letlalo wo moswana, mmala wa letlalo wa go taga wa magareng	none
+👩🏿‍🫯‍👩🏽	mosadi o lwa reseling mmala wa letlalo wo moswana, mmala wa letlalo wa magareng	none
+👩🏿‍🫯‍👩🏾	mosadi o lwa reseling mmala wa letlalo wo moswana, mmala wa letlalo wo moswana wa magareng	none
+👩🏻‍🐰‍👩🏼	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga, mmala wa letlalo wa go taga wa magareng	none
+👩🏻‍🐰‍👩🏽	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga, mmala wa letlalo wa magareng	none
+👩🏻‍🐰‍👩🏾	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga, mmala wa letlalo wo moswana wa magareng	none
+👩🏻‍🐰‍👩🏿	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga, mmala wa letlalo wo moswana	none
+👩🏼‍🐰‍👩🏻	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa go taga	none
+👩🏼‍🐰‍👩🏽	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wa magareng	none
+👩🏼‍🐰‍👩🏾	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana wa magareng	none
+👩🏼‍🐰‍👩🏿	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga wa magareng, mmala wa letlalo wo moswana	none
+👩🏽‍🐰‍👩🏻	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa magareng, mmala wa letlalo wa go taga	none
+👩🏽‍🐰‍👩🏼	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa magareng, mmala wa letlalo wa go taga wa magareng	none
+👩🏽‍🐰‍👩🏾	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa magareng, mmala wa letlalo wo moswana wa magareng	none
+👩🏽‍🐰‍👩🏿	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa magareng, mmala wa letlalo wo moswana	none
+👩🏾‍🐰‍👩🏻	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga	none
+👩🏾‍🐰‍👩🏼	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa go taga wa magareng	none
+👩🏾‍🐰‍👩🏽	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wa magareng	none
+👩🏾‍🐰‍👩🏿	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana wa magareng, mmala wa letlalo wo moswana	none
+👩🏿‍🐰‍👩🏻	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana, mmala wa letlalo wa go taga	none
+👩🏿‍🐰‍👩🏼	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana, mmala wa letlalo wa go taga wa magareng	none
+👩🏿‍🐰‍👩🏽	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana, mmala wa letlalo wa magareng	none
+👩🏿‍🐰‍👩🏾	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana, mmala wa letlalo wo moswana wa magareng	none
 🧓🏻	mokgalabje yo mogolo mmala wa letlalo wa go taga	none
 🧓🏼	mokgalabje yo mogolo mmala wa letlalo wa go taga wa magareng	none
 🧓🏽	mokgalabje yo mogolo mmala wa letlalo wa magareng	none
@@ -2272,6 +2392,21 @@ symbols:
 🕴🏽	monna o apere sutu ya mošomo wa ema mmala wa letlalo wa magareng	none
 🕴🏾	monna o apere sutu ya mošomo wa ema mmala wa letlalo wo moswana wa magareng	none
 🕴🏿	monna o apere sutu ya mošomo wa ema mmala wa letlalo wo moswana	none
+👯🏻	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa go taga	none
+👯🏼	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa go taga wa magareng	none
+👯🏽	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wa magareng	none
+👯🏾	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wo moswana wa magareng	none
+👯🏿	batho ba ditsebe tša mmutla ba a bina mmala wa letlalo wo moswana	none
+👯🏻‍♂	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga	none
+👯🏼‍♂	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga wa magareng	none
+👯🏽‍♂	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wa magareng	none
+👯🏾‍♂	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana wa magareng	none
+👯🏿‍♂	monna wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana	none
+👯🏻‍♀	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga	none
+👯🏼‍♀	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa go taga wa magareng	none
+👯🏽‍♀	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wa magareng	none
+👯🏾‍♀	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana wa magareng	none
+👯🏿‍♀	mosadi wa ditsebe tša mmutla o moletlong mmala wa letlalo wo moswana	none
 🧖🏻	motho ka phaphošing ya moya wa go fiša mmala wa letlalo wa go taga	none
 🧖🏼	motho ka phaphošing ya moya wa go fiša mmala wa letlalo wa go taga wa magareng	none
 🧖🏽	motho ka phaphošing ya moya wa go fiša mmala wa letlalo wa magareng	none
@@ -2447,6 +2582,21 @@ symbols:
 🤸🏽‍♀	mosadi o a khethawila mmala wa letlalo wa magareng	none
 🤸🏾‍♀	mosadi o a khethawila mmala wa letlalo wo moswana wa magareng	none
 🤸🏿‍♀	mosadi o a khethawila mmala wa letlalo wo moswana	none
+🤼🏻	motho o lwa reseling mmala wa letlalo wa go taga	none
+🤼🏼	motho o lwa reseling mmala wa letlalo wa go taga wa magareng	none
+🤼🏽	motho o lwa reseling mmala wa letlalo wa magareng	none
+🤼🏾	motho o lwa reseling mmala wa letlalo wo moswana wa magareng	none
+🤼🏿	motho o lwa reseling mmala wa letlalo wo moswana	none
+🤼🏻‍♂	banna ba a resela mmala wa letlalo wa go taga	none
+🤼🏼‍♂	banna ba a resela mmala wa letlalo wa go taga wa magareng	none
+🤼🏽‍♂	banna ba a resela mmala wa letlalo wa magareng	none
+🤼🏾‍♂	banna ba a resela mmala wa letlalo wo moswana wa magareng	none
+🤼🏿‍♂	banna ba a resela mmala wa letlalo wo moswana	none
+🤼🏻‍♀	mosadi o lwa reseling mmala wa letlalo wa go taga	none
+🤼🏼‍♀	mosadi o lwa reseling mmala wa letlalo wa go taga wa magareng	none
+🤼🏽‍♀	mosadi o lwa reseling mmala wa letlalo wa magareng	none
+🤼🏾‍♀	mosadi o lwa reseling mmala wa letlalo wo moswana wa magareng	none
+🤼🏿‍♀	mosadi o lwa reseling mmala wa letlalo wo moswana	none
 🤽🏻	motho o bapala polo ya ka meetseng mmala wa letlalo wa go taga	none
 🤽🏼	motho o bapala polo ya ka meetseng mmala wa letlalo wa go taga wa magareng	none
 🤽🏽	motho o bapala polo ya ka meetseng mmala wa letlalo wa magareng	none

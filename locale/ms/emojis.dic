@@ -321,6 +321,7 @@ symbols:
 😪	muka mengantuk	none
 🤤	muka meliur	none
 😴	muka tidur	none
+🫩	muka dengan lingkaran gelap bawah mata	none
 😷	muka memakai topeng perubatan	none
 🤒	muka dengan termometer	none
 🤕	muka dengan kepala berbalut	none
@@ -348,6 +349,7 @@ symbols:
 😯	muka terkejut	none
 😲	muka terperanjat	none
 😳	muka malu	none
+🫪	muka herot	none
 🥺	muka merayu	none
 🥹	muka menahan air mata	none
 😦	muka berkerut dengan mulut ternganga	none
@@ -421,6 +423,7 @@ symbols:
 💋	tanda ciuman	none
 💯	seratus mata	none
 💢	simbol marah	none
+🫯	awan pergelutan	none
 💥	pelanggaran	none
 💫	pening	none
 💦	titis peluh	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	zombi lelaki	none
 🧟‍♀	zombi wanita	none
 🧌	raksasa	none
+🫈	makhluk berbulu	none
 💆	urut muka	none
 💆‍♂	lelaki diurut muka	none
 💆‍♀	perempuan diurut muka	none
@@ -680,6 +684,7 @@ symbols:
 🏃	pelari	none
 🏃‍♂	lelaki berlari	none
 🏃‍♀	perempuan berlari	none
+🧑‍🩰	penari balet	none
 💃	perempuan menari	none
 🕺	lelaki menari	none
 🕴	lelaki memakai sut urusan terapung-apung	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	keluarga dewasa, kanak-kanak	none
 🧑‍🧒‍🧒	keluarga dewasa, kanak-kanak, kanak-kanak	none
 👣	jejak kaki	none
+🫆	cap jari	none
 🦰	rambut merah	none
 🦱	rambut kerinting	none
 🦳	rambut putih	none
@@ -860,6 +866,7 @@ symbols:
 🐳	ikan paus memancutkan air	none
 🐋	ikan paus	none
 🐬	ikan lumba-lumba	none
+🫍	orca	none
 🦭	anjing laut	none
 🐟	ikan	none
 🐠	ikan tropika	none
@@ -869,6 +876,11 @@ symbols:
 🐚	kulit kerang berpilin	none
 🪸	karang	none
 🪼	ubur-ubur	none
+🦀	ketam	none
+🦞	udang karang	none
+🦐	udang	none
+🦑	sotong	none
+🦪	tiram	none
 🐌	siput	none
 🦋	rama-rama	none
 🐛	ulat	none
@@ -913,6 +925,7 @@ symbols:
 🪹	sarang kosong	none
 🪺	sarang dengan telur	none
 🍄	cendawan	none
+🪾	pokok tidak berdaun	none
 🍇	anggur	none
 🍈	tembikai susu	none
 🍉	tembikai	none
@@ -951,6 +964,7 @@ symbols:
 🫚	akar halia	none
 🫛	lenggai	none
 🍄‍🟫	cendawan perang	none
+🫜	sayur akar	none
 🍞	roti	none
 🥐	kroisan	none
 🥖	roti baguette	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	ladu	none
 🥠	biskut nasib	none
 🥡	kotak bungkus	none
-🦀	ketam	none
-🦞	udang karang	none
-🦐	udang	none
-🦑	sotong	none
-🦪	tiram	none
 🍦	ais krim lembut	none
 🍧	air batu campur	none
 🍨	ais krim	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	kompas	none
 🏔	gunung dengan puncak bersalji	none
 ⛰	gunung	none
+🛘	tanah runtuh	none
 🌋	gunung berapi	none
 🗻	gunung fuji	none
 🏕	berkhemah	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	fon kepala	none
 📻	radio	none
 🎷	saksofon	none
+🎺	trompet	none
+🪊	trombon	none
 🪗	akordion	none
 🎸	gitar	none
 🎹	keyboard muzik	none
-🎺	trompet	none
 🎻	biola	none
 🪕	banjo	none
 🥁	dram	none
 🪘	karatung	none
 🪇	marakas	none
 🪈	seruling	none
+🪉	hap	none
 📱	telefon bimbit	none
 📲	telefon bimbit dengan anak panah	none
 ☎	telefon	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	tab penanda halaman	none
 🔖	penanda buku	none
 🏷	label	none
-💰	karung duit	none
 🪙	syiling	none
+💰	karung duit	none
+🪎	peti harta karun	none
 💴	wang kertas yen	none
 💵	wang kertas dolar	none
 💶	wang kertas euro	none
@@ -1565,6 +1578,7 @@ symbols:
 🧰	kotak alat	none
 🧲	magnet	none
 🪜	tangga	none
+🪏	penyodok	none
 ⚗	alembic	none
 🧪	tabung uji	none
 🧫	piring petri	none
@@ -1745,6 +1759,7 @@ symbols:
 ✴	bintang berpenjuru lapan	none
 ❇	kilauan	none
 ™	tanda dagangan	none
+🫟	percik	none
 🔠	huruf besar latin input	none
 🔡	huruf kecil latin input	none
 🔢	nombor input	none
@@ -2159,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	pasangan dengan simbol hati dewasa, dewasa, ton kulit gelap dan ton kulit sederhana cerah	none
 🧑🏿‍❤‍🧑🏽	pasangan dengan simbol hati dewasa, dewasa, ton kulit gelap dan ton kulit sederhana	none
 🧑🏿‍❤‍🧑🏾	pasangan dengan simbol hati dewasa, dewasa, ton kulit gelap dan ton kulit sederhana gelap	none
+🧑🏻‍🫯‍🧑🏼	bergusti ton kulit cerah dan ton kulit sederhana cerah	none
+🧑🏻‍🫯‍🧑🏽	bergusti ton kulit cerah dan ton kulit sederhana	none
+🧑🏻‍🫯‍🧑🏾	bergusti ton kulit cerah dan ton kulit sederhana gelap	none
+🧑🏻‍🫯‍🧑🏿	bergusti ton kulit cerah dan ton kulit gelap	none
+🧑🏼‍🫯‍🧑🏻	bergusti ton kulit sederhana cerah dan ton kulit cerah	none
+🧑🏼‍🫯‍🧑🏽	bergusti ton kulit sederhana cerah dan ton kulit sederhana	none
+🧑🏼‍🫯‍🧑🏾	bergusti ton kulit sederhana cerah dan ton kulit sederhana gelap	none
+🧑🏼‍🫯‍🧑🏿	bergusti ton kulit sederhana cerah dan ton kulit gelap	none
+🧑🏽‍🫯‍🧑🏻	bergusti ton kulit sederhana dan ton kulit cerah	none
+🧑🏽‍🫯‍🧑🏼	bergusti ton kulit sederhana dan ton kulit sederhana cerah	none
+🧑🏽‍🫯‍🧑🏾	bergusti ton kulit sederhana dan ton kulit sederhana gelap	none
+🧑🏽‍🫯‍🧑🏿	bergusti ton kulit sederhana dan ton kulit gelap	none
+🧑🏾‍🫯‍🧑🏻	bergusti ton kulit sederhana gelap dan ton kulit cerah	none
+🧑🏾‍🫯‍🧑🏼	bergusti ton kulit sederhana gelap dan ton kulit sederhana cerah	none
+🧑🏾‍🫯‍🧑🏽	bergusti ton kulit sederhana gelap dan ton kulit sederhana	none
+🧑🏾‍🫯‍🧑🏿	bergusti ton kulit sederhana gelap dan ton kulit gelap	none
+🧑🏿‍🫯‍🧑🏻	bergusti ton kulit gelap dan ton kulit cerah	none
+🧑🏿‍🫯‍🧑🏼	bergusti ton kulit gelap dan ton kulit sederhana cerah	none
+🧑🏿‍🫯‍🧑🏽	bergusti ton kulit gelap dan ton kulit sederhana	none
+🧑🏿‍🫯‍🧑🏾	bergusti ton kulit gelap dan ton kulit sederhana gelap	none
 🧑‍🦰	dewasa rambut merah	none
 🧑🏻‍🦰	dewasa ton kulit cerah dan rambut merah	none
 🧑🏼‍🦰	dewasa ton kulit sederhana cerah dan rambut merah	none
@@ -2183,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	dewasa ton kulit sederhana dan botak	none
 🧑🏾‍🦲	dewasa ton kulit sederhana gelap dan botak	none
 🧑🏿‍🦲	dewasa ton kulit gelap dan botak	none
+🧑🏻‍🐰‍🧑🏼	orang dengan telinga arnab ton kulit cerah dan ton kulit sederhana cerah	none
+🧑🏻‍🐰‍🧑🏽	orang dengan telinga arnab ton kulit cerah dan ton kulit sederhana	none
+🧑🏻‍🐰‍🧑🏾	orang dengan telinga arnab ton kulit cerah dan ton kulit sederhana gelap	none
+🧑🏻‍🐰‍🧑🏿	orang dengan telinga arnab ton kulit cerah dan ton kulit gelap	none
+🧑🏼‍🐰‍🧑🏻	orang dengan telinga arnab ton kulit sederhana cerah dan ton kulit cerah	none
+🧑🏼‍🐰‍🧑🏽	orang dengan telinga arnab ton kulit sederhana cerah dan ton kulit sederhana	none
+🧑🏼‍🐰‍🧑🏾	orang dengan telinga arnab ton kulit sederhana cerah dan ton kulit sederhana gelap	none
+🧑🏼‍🐰‍🧑🏿	orang dengan telinga arnab ton kulit sederhana cerah dan ton kulit gelap	none
+🧑🏽‍🐰‍🧑🏻	orang dengan telinga arnab ton kulit sederhana dan ton kulit cerah	none
+🧑🏽‍🐰‍🧑🏼	orang dengan telinga arnab ton kulit sederhana dan ton kulit sederhana cerah	none
+🧑🏽‍🐰‍🧑🏾	orang dengan telinga arnab ton kulit sederhana dan ton kulit sederhana gelap	none
+🧑🏽‍🐰‍🧑🏿	orang dengan telinga arnab ton kulit sederhana dan ton kulit gelap	none
+🧑🏾‍🐰‍🧑🏻	orang dengan telinga arnab ton kulit sederhana gelap dan ton kulit cerah	none
+🧑🏾‍🐰‍🧑🏼	orang dengan telinga arnab ton kulit sederhana gelap dan ton kulit sederhana cerah	none
+🧑🏾‍🐰‍🧑🏽	orang dengan telinga arnab ton kulit sederhana gelap dan ton kulit sederhana	none
+🧑🏾‍🐰‍🧑🏿	orang dengan telinga arnab ton kulit sederhana gelap dan ton kulit gelap	none
+🧑🏿‍🐰‍🧑🏻	orang dengan telinga arnab ton kulit gelap dan ton kulit cerah	none
+🧑🏿‍🐰‍🧑🏼	orang dengan telinga arnab ton kulit gelap dan ton kulit sederhana cerah	none
+🧑🏿‍🐰‍🧑🏽	orang dengan telinga arnab ton kulit gelap dan ton kulit sederhana	none
+🧑🏿‍🐰‍🧑🏾	orang dengan telinga arnab ton kulit gelap dan ton kulit sederhana gelap	none
 👨🏻	lelaki ton kulit cerah	none
 👨🏼	lelaki ton kulit sederhana cerah	none
 👨🏽	lelaki ton kulit sederhana	none
@@ -2253,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	pasangan dengan simbol hati lelaki, lelaki, ton kulit gelap dan ton kulit sederhana	none
 👨🏿‍❤‍👨🏾	pasangan dengan simbol hati lelaki, lelaki, ton kulit gelap dan ton kulit sederhana gelap	none
 👨🏿‍❤‍👨🏿	pasangan dengan simbol hati lelaki, lelaki dan ton kulit gelap	none
+👨🏻‍🫯‍👨🏼	lelaki bergusti ton kulit cerah dan ton kulit sederhana cerah	none
+👨🏻‍🫯‍👨🏽	lelaki bergusti ton kulit cerah dan ton kulit sederhana	none
+👨🏻‍🫯‍👨🏾	lelaki bergusti ton kulit cerah dan ton kulit sederhana gelap	none
+👨🏻‍🫯‍👨🏿	lelaki bergusti ton kulit cerah dan ton kulit gelap	none
+👨🏼‍🫯‍👨🏻	lelaki bergusti ton kulit sederhana cerah dan ton kulit cerah	none
+👨🏼‍🫯‍👨🏽	lelaki bergusti ton kulit sederhana cerah dan ton kulit sederhana	none
+👨🏼‍🫯‍👨🏾	lelaki bergusti ton kulit sederhana cerah dan ton kulit sederhana gelap	none
+👨🏼‍🫯‍👨🏿	lelaki bergusti ton kulit sederhana cerah dan ton kulit gelap	none
+👨🏽‍🫯‍👨🏻	lelaki bergusti ton kulit sederhana dan ton kulit cerah	none
+👨🏽‍🫯‍👨🏼	lelaki bergusti ton kulit sederhana dan ton kulit sederhana cerah	none
+👨🏽‍🫯‍👨🏾	lelaki bergusti ton kulit sederhana dan ton kulit sederhana gelap	none
+👨🏽‍🫯‍👨🏿	lelaki bergusti ton kulit sederhana dan ton kulit gelap	none
+👨🏾‍🫯‍👨🏻	lelaki bergusti ton kulit sederhana gelap dan ton kulit cerah	none
+👨🏾‍🫯‍👨🏼	lelaki bergusti ton kulit sederhana gelap dan ton kulit sederhana cerah	none
+👨🏾‍🫯‍👨🏽	lelaki bergusti ton kulit sederhana gelap dan ton kulit sederhana	none
+👨🏾‍🫯‍👨🏿	lelaki bergusti ton kulit sederhana gelap dan ton kulit gelap	none
+👨🏿‍🫯‍👨🏻	lelaki bergusti ton kulit gelap dan ton kulit cerah	none
+👨🏿‍🫯‍👨🏼	lelaki bergusti ton kulit gelap dan ton kulit sederhana cerah	none
+👨🏿‍🫯‍👨🏽	lelaki bergusti ton kulit gelap dan ton kulit sederhana	none
+👨🏿‍🫯‍👨🏾	lelaki bergusti ton kulit gelap dan ton kulit sederhana gelap	none
 👨‍🦰	lelaki rambut merah	none
 👨🏻‍🦰	lelaki ton kulit cerah dan rambut merah	none
 👨🏼‍🦰	lelaki ton kulit sederhana cerah dan rambut merah	none
@@ -2277,6 +2352,26 @@ symbols:
 👨🏽‍🦲	lelaki ton kulit sederhana dan botak	none
 👨🏾‍🦲	lelaki ton kulit sederhana gelap dan botak	none
 👨🏿‍🦲	lelaki ton kulit gelap dan botak	none
+👨🏻‍🐰‍👨🏼	lelaki berpesta ton kulit cerah dan ton kulit sederhana cerah	none
+👨🏻‍🐰‍👨🏽	lelaki berpesta ton kulit cerah dan ton kulit sederhana	none
+👨🏻‍🐰‍👨🏾	lelaki berpesta ton kulit cerah dan ton kulit sederhana gelap	none
+👨🏻‍🐰‍👨🏿	lelaki berpesta ton kulit cerah dan ton kulit gelap	none
+👨🏼‍🐰‍👨🏻	lelaki berpesta ton kulit sederhana cerah dan ton kulit cerah	none
+👨🏼‍🐰‍👨🏽	lelaki berpesta ton kulit sederhana cerah dan ton kulit sederhana	none
+👨🏼‍🐰‍👨🏾	lelaki berpesta ton kulit sederhana cerah dan ton kulit sederhana gelap	none
+👨🏼‍🐰‍👨🏿	lelaki berpesta ton kulit sederhana cerah dan ton kulit gelap	none
+👨🏽‍🐰‍👨🏻	lelaki berpesta ton kulit sederhana dan ton kulit cerah	none
+👨🏽‍🐰‍👨🏼	lelaki berpesta ton kulit sederhana dan ton kulit sederhana cerah	none
+👨🏽‍🐰‍👨🏾	lelaki berpesta ton kulit sederhana dan ton kulit sederhana gelap	none
+👨🏽‍🐰‍👨🏿	lelaki berpesta ton kulit sederhana dan ton kulit gelap	none
+👨🏾‍🐰‍👨🏻	lelaki berpesta ton kulit sederhana gelap dan ton kulit cerah	none
+👨🏾‍🐰‍👨🏼	lelaki berpesta ton kulit sederhana gelap dan ton kulit sederhana cerah	none
+👨🏾‍🐰‍👨🏽	lelaki berpesta ton kulit sederhana gelap dan ton kulit sederhana	none
+👨🏾‍🐰‍👨🏿	lelaki berpesta ton kulit sederhana gelap dan ton kulit gelap	none
+👨🏿‍🐰‍👨🏻	lelaki berpesta ton kulit gelap dan ton kulit cerah	none
+👨🏿‍🐰‍👨🏼	lelaki berpesta ton kulit gelap dan ton kulit sederhana cerah	none
+👨🏿‍🐰‍👨🏽	lelaki berpesta ton kulit gelap dan ton kulit sederhana	none
+👨🏿‍🐰‍👨🏾	lelaki berpesta ton kulit gelap dan ton kulit sederhana gelap	none
 👩🏻	perempuan ton kulit cerah	none
 👩🏼	perempuan ton kulit sederhana cerah	none
 👩🏽	perempuan ton kulit sederhana	none
@@ -2392,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	pasangan dengan simbol hati perempuan, perempuan, ton kulit gelap dan ton kulit sederhana	none
 👩🏿‍❤‍👩🏾	pasangan dengan simbol hati perempuan, perempuan, ton kulit gelap dan ton kulit sederhana gelap	none
 👩🏿‍❤‍👩🏿	pasangan dengan simbol hati perempuan, perempuan dan ton kulit gelap	none
+👩🏻‍🫯‍👩🏼	wanita bergusti ton kulit cerah dan ton kulit sederhana cerah	none
+👩🏻‍🫯‍👩🏽	wanita bergusti ton kulit cerah dan ton kulit sederhana	none
+👩🏻‍🫯‍👩🏾	wanita bergusti ton kulit cerah dan ton kulit sederhana gelap	none
+👩🏻‍🫯‍👩🏿	wanita bergusti ton kulit cerah dan ton kulit gelap	none
+👩🏼‍🫯‍👩🏻	wanita bergusti ton kulit sederhana cerah dan ton kulit cerah	none
+👩🏼‍🫯‍👩🏽	wanita bergusti ton kulit sederhana cerah dan ton kulit sederhana	none
+👩🏼‍🫯‍👩🏾	wanita bergusti ton kulit sederhana cerah dan ton kulit sederhana gelap	none
+👩🏼‍🫯‍👩🏿	wanita bergusti ton kulit sederhana cerah dan ton kulit gelap	none
+👩🏽‍🫯‍👩🏻	wanita bergusti ton kulit sederhana dan ton kulit cerah	none
+👩🏽‍🫯‍👩🏼	wanita bergusti ton kulit sederhana dan ton kulit sederhana cerah	none
+👩🏽‍🫯‍👩🏾	wanita bergusti ton kulit sederhana dan ton kulit sederhana gelap	none
+👩🏽‍🫯‍👩🏿	wanita bergusti ton kulit sederhana dan ton kulit gelap	none
+👩🏾‍🫯‍👩🏻	wanita bergusti ton kulit sederhana gelap dan ton kulit cerah	none
+👩🏾‍🫯‍👩🏼	wanita bergusti ton kulit sederhana gelap dan ton kulit sederhana cerah	none
+👩🏾‍🫯‍👩🏽	wanita bergusti ton kulit sederhana gelap dan ton kulit sederhana	none
+👩🏾‍🫯‍👩🏿	wanita bergusti ton kulit sederhana gelap dan ton kulit gelap	none
+👩🏿‍🫯‍👩🏻	wanita bergusti ton kulit gelap dan ton kulit cerah	none
+👩🏿‍🫯‍👩🏼	wanita bergusti ton kulit gelap dan ton kulit sederhana cerah	none
+👩🏿‍🫯‍👩🏽	wanita bergusti ton kulit gelap dan ton kulit sederhana	none
+👩🏿‍🫯‍👩🏾	wanita bergusti ton kulit gelap dan ton kulit sederhana gelap	none
 👩‍🦰	perempuan rambut merah	none
 👩🏻‍🦰	perempuan ton kulit cerah dan rambut merah	none
 👩🏼‍🦰	perempuan ton kulit sederhana cerah dan rambut merah	none
@@ -2416,6 +2531,26 @@ symbols:
 👩🏽‍🦲	perempuan ton kulit sederhana dan botak	none
 👩🏾‍🦲	perempuan ton kulit sederhana gelap dan botak	none
 👩🏿‍🦲	perempuan ton kulit gelap dan botak	none
+👩🏻‍🐰‍👩🏼	perempuan berpesta ton kulit cerah dan ton kulit sederhana cerah	none
+👩🏻‍🐰‍👩🏽	perempuan berpesta ton kulit cerah dan ton kulit sederhana	none
+👩🏻‍🐰‍👩🏾	perempuan berpesta ton kulit cerah dan ton kulit sederhana gelap	none
+👩🏻‍🐰‍👩🏿	perempuan berpesta ton kulit cerah dan ton kulit gelap	none
+👩🏼‍🐰‍👩🏻	perempuan berpesta ton kulit sederhana cerah dan ton kulit cerah	none
+👩🏼‍🐰‍👩🏽	perempuan berpesta ton kulit sederhana cerah dan ton kulit sederhana	none
+👩🏼‍🐰‍👩🏾	perempuan berpesta ton kulit sederhana cerah dan ton kulit sederhana gelap	none
+👩🏼‍🐰‍👩🏿	perempuan berpesta ton kulit sederhana cerah dan ton kulit gelap	none
+👩🏽‍🐰‍👩🏻	perempuan berpesta ton kulit sederhana dan ton kulit cerah	none
+👩🏽‍🐰‍👩🏼	perempuan berpesta ton kulit sederhana dan ton kulit sederhana cerah	none
+👩🏽‍🐰‍👩🏾	perempuan berpesta ton kulit sederhana dan ton kulit sederhana gelap	none
+👩🏽‍🐰‍👩🏿	perempuan berpesta ton kulit sederhana dan ton kulit gelap	none
+👩🏾‍🐰‍👩🏻	perempuan berpesta ton kulit sederhana gelap dan ton kulit cerah	none
+👩🏾‍🐰‍👩🏼	perempuan berpesta ton kulit sederhana gelap dan ton kulit sederhana cerah	none
+👩🏾‍🐰‍👩🏽	perempuan berpesta ton kulit sederhana gelap dan ton kulit sederhana	none
+👩🏾‍🐰‍👩🏿	perempuan berpesta ton kulit sederhana gelap dan ton kulit gelap	none
+👩🏿‍🐰‍👩🏻	perempuan berpesta ton kulit gelap dan ton kulit cerah	none
+👩🏿‍🐰‍👩🏼	perempuan berpesta ton kulit gelap dan ton kulit sederhana cerah	none
+👩🏿‍🐰‍👩🏽	perempuan berpesta ton kulit gelap dan ton kulit sederhana	none
+👩🏿‍🐰‍👩🏾	perempuan berpesta ton kulit gelap dan ton kulit sederhana gelap	none
 🧓🏻	dewasa lebih tua ton kulit cerah	none
 🧓🏼	dewasa lebih tua ton kulit sederhana cerah	none
 🧓🏽	dewasa lebih tua ton kulit sederhana	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	perempuan berjalan ton kulit sederhana gelap	none
 🚶🏿‍♀	perempuan berjalan ton kulit gelap	none
 🚶‍➡	pejalan kaki menghadap kanan	none
-🚶🏻‍➡	pejalan kaki menghadap kanan	none
-🚶🏼‍➡	pejalan kaki menghadap kanan	none
-🚶🏽‍➡	pejalan kaki menghadap kanan	none
-🚶🏾‍➡	pejalan kaki menghadap kanan	none
-🚶🏿‍➡	pejalan kaki menghadap kanan	none
+🚶🏻‍➡	pejalan kaki ton kulit cerah dan menghadap kanan	none
+🚶🏼‍➡	pejalan kaki ton kulit sederhana cerah dan menghadap kanan	none
+🚶🏽‍➡	pejalan kaki ton kulit sederhana dan menghadap kanan	none
+🚶🏾‍➡	pejalan kaki ton kulit sederhana gelap dan menghadap kanan	none
+🚶🏿‍➡	pejalan kaki ton kulit gelap dan menghadap kanan	none
 🚶‍♀‍➡	perempuan berjalan menghadap kanan	none
-🚶🏻‍♀‍➡	perempuan berjalan menghadap kanan	none
-🚶🏼‍♀‍➡	perempuan berjalan menghadap kanan	none
-🚶🏽‍♀‍➡	perempuan berjalan menghadap kanan	none
-🚶🏾‍♀‍➡	perempuan berjalan menghadap kanan	none
-🚶🏿‍♀‍➡	perempuan berjalan menghadap kanan	none
+🚶🏻‍♀‍➡	perempuan berjalan ton kulit cerah dan menghadap kanan	none
+🚶🏼‍♀‍➡	perempuan berjalan ton kulit sederhana cerah dan menghadap kanan	none
+🚶🏽‍♀‍➡	perempuan berjalan ton kulit sederhana dan menghadap kanan	none
+🚶🏾‍♀‍➡	perempuan berjalan ton kulit sederhana gelap dan menghadap kanan	none
+🚶🏿‍♀‍➡	perempuan berjalan ton kulit gelap dan menghadap kanan	none
 🚶‍♂‍➡	lelaki berjalan menghadap kanan	none
-🚶🏻‍♂‍➡	lelaki berjalan menghadap kanan	none
-🚶🏼‍♂‍➡	lelaki berjalan menghadap kanan	none
-🚶🏽‍♂‍➡	lelaki berjalan menghadap kanan	none
-🚶🏾‍♂‍➡	lelaki berjalan menghadap kanan	none
-🚶🏿‍♂‍➡	lelaki berjalan menghadap kanan	none
+🚶🏻‍♂‍➡	lelaki berjalan ton kulit cerah dan menghadap kanan	none
+🚶🏼‍♂‍➡	lelaki berjalan ton kulit sederhana cerah dan menghadap kanan	none
+🚶🏽‍♂‍➡	lelaki berjalan ton kulit sederhana dan menghadap kanan	none
+🚶🏾‍♂‍➡	lelaki berjalan ton kulit sederhana gelap dan menghadap kanan	none
+🚶🏿‍♂‍➡	lelaki berjalan ton kulit gelap dan menghadap kanan	none
 🧍🏻	orang berdiri ton kulit cerah	none
 🧍🏼	orang berdiri ton kulit sederhana cerah	none
 🧍🏽	orang berdiri ton kulit sederhana	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	perempuan bersimpuh ton kulit sederhana gelap	none
 🧎🏿‍♀	perempuan bersimpuh ton kulit gelap	none
 🧎‍➡	orang bersimpuh menghadap kanan	none
-🧎🏻‍➡	orang bersimpuh menghadap kanan	none
-🧎🏼‍➡	orang bersimpuh menghadap kanan	none
-🧎🏽‍➡	orang bersimpuh menghadap kanan	none
-🧎🏾‍➡	orang bersimpuh menghadap kanan	none
-🧎🏿‍➡	orang bersimpuh menghadap kanan	none
+🧎🏻‍➡	orang bersimpuh ton kulit cerah dan menghadap kanan	none
+🧎🏼‍➡	orang bersimpuh ton kulit sederhana cerah dan menghadap kanan	none
+🧎🏽‍➡	orang bersimpuh ton kulit sederhana dan menghadap kanan	none
+🧎🏾‍➡	orang bersimpuh ton kulit sederhana gelap dan menghadap kanan	none
+🧎🏿‍➡	orang bersimpuh ton kulit gelap dan menghadap kanan	none
 🧎‍♀‍➡	perempuan bersimpuh menghadap kanan	none
-🧎🏻‍♀‍➡	perempuan bersimpuh menghadap kanan	none
-🧎🏼‍♀‍➡	perempuan bersimpuh menghadap kanan	none
-🧎🏽‍♀‍➡	perempuan bersimpuh menghadap kanan	none
-🧎🏾‍♀‍➡	perempuan bersimpuh menghadap kanan	none
-🧎🏿‍♀‍➡	perempuan bersimpuh menghadap kanan	none
+🧎🏻‍♀‍➡	perempuan bersimpuh ton kulit cerah dan menghadap kanan	none
+🧎🏼‍♀‍➡	perempuan bersimpuh ton kulit sederhana cerah dan menghadap kanan	none
+🧎🏽‍♀‍➡	perempuan bersimpuh ton kulit sederhana dan menghadap kanan	none
+🧎🏾‍♀‍➡	perempuan bersimpuh ton kulit sederhana gelap dan menghadap kanan	none
+🧎🏿‍♀‍➡	perempuan bersimpuh ton kulit gelap dan menghadap kanan	none
 🧎‍♂‍➡	lelaki bersimpuh menghadap kanan	none
-🧎🏻‍♂‍➡	lelaki bersimpuh menghadap kanan	none
-🧎🏼‍♂‍➡	lelaki bersimpuh menghadap kanan	none
-🧎🏽‍♂‍➡	lelaki bersimpuh menghadap kanan	none
-🧎🏾‍♂‍➡	lelaki bersimpuh menghadap kanan	none
-🧎🏿‍♂‍➡	lelaki bersimpuh menghadap kanan	none
+🧎🏻‍♂‍➡	lelaki bersimpuh ton kulit cerah dan menghadap kanan	none
+🧎🏼‍♂‍➡	lelaki bersimpuh ton kulit sederhana cerah dan menghadap kanan	none
+🧎🏽‍♂‍➡	lelaki bersimpuh ton kulit sederhana dan menghadap kanan	none
+🧎🏾‍♂‍➡	lelaki bersimpuh ton kulit sederhana gelap dan menghadap kanan	none
+🧎🏿‍♂‍➡	lelaki bersimpuh ton kulit gelap dan menghadap kanan	none
 🧑🏻‍🦯	orang dengan tongkat putih ton kulit cerah	none
 🧑🏼‍🦯	orang dengan tongkat putih ton kulit sederhana cerah	none
 🧑🏽‍🦯	orang dengan tongkat putih ton kulit sederhana	none
 🧑🏾‍🦯	orang dengan tongkat putih ton kulit sederhana gelap	none
 🧑🏿‍🦯	orang dengan tongkat putih ton kulit gelap	none
 🧑‍🦯‍➡	orang dengan tongkat putih menghadap kanan	none
-🧑🏻‍🦯‍➡	orang dengan tongkat putih menghadap kanan	none
-🧑🏼‍🦯‍➡	orang dengan tongkat putih menghadap kanan	none
-🧑🏽‍🦯‍➡	orang dengan tongkat putih menghadap kanan	none
-🧑🏾‍🦯‍➡	orang dengan tongkat putih menghadap kanan	none
-🧑🏿‍🦯‍➡	orang dengan tongkat putih menghadap kanan	none
+🧑🏻‍🦯‍➡	orang dengan tongkat putih ton kulit cerah dan menghadap kanan	none
+🧑🏼‍🦯‍➡	orang dengan tongkat putih ton kulit sederhana cerah dan menghadap kanan	none
+🧑🏽‍🦯‍➡	orang dengan tongkat putih ton kulit sederhana dan menghadap kanan	none
+🧑🏾‍🦯‍➡	orang dengan tongkat putih ton kulit sederhana gelap dan menghadap kanan	none
+🧑🏿‍🦯‍➡	orang dengan tongkat putih ton kulit gelap dan menghadap kanan	none
 👨🏻‍🦯	lelaki dengan tongkat putih ton kulit cerah	none
 👨🏼‍🦯	lelaki dengan tongkat putih ton kulit sederhana cerah	none
 👨🏽‍🦯	lelaki dengan tongkat putih ton kulit sederhana	none
 👨🏾‍🦯	lelaki dengan tongkat putih ton kulit sederhana gelap	none
 👨🏿‍🦯	lelaki dengan tongkat putih ton kulit gelap	none
 👨‍🦯‍➡	lelaki dengan tongkat putih menghadap kanan	none
-👨🏻‍🦯‍➡	lelaki dengan tongkat putih menghadap kanan	none
-👨🏼‍🦯‍➡	lelaki dengan tongkat putih menghadap kanan	none
-👨🏽‍🦯‍➡	lelaki dengan tongkat putih menghadap kanan	none
-👨🏾‍🦯‍➡	lelaki dengan tongkat putih menghadap kanan	none
-👨🏿‍🦯‍➡	lelaki dengan tongkat putih menghadap kanan	none
+👨🏻‍🦯‍➡	lelaki dengan tongkat putih ton kulit cerah dan menghadap kanan	none
+👨🏼‍🦯‍➡	lelaki dengan tongkat putih ton kulit sederhana cerah dan menghadap kanan	none
+👨🏽‍🦯‍➡	lelaki dengan tongkat putih ton kulit sederhana dan menghadap kanan	none
+👨🏾‍🦯‍➡	lelaki dengan tongkat putih ton kulit sederhana gelap dan menghadap kanan	none
+👨🏿‍🦯‍➡	lelaki dengan tongkat putih ton kulit gelap dan menghadap kanan	none
 👩🏻‍🦯	perempuan dengan tongkat putih ton kulit cerah	none
 👩🏼‍🦯	perempuan dengan tongkat putih ton kulit sederhana cerah	none
 👩🏽‍🦯	perempuan dengan tongkat putih ton kulit sederhana	none
 👩🏾‍🦯	perempuan dengan tongkat putih ton kulit sederhana gelap	none
 👩🏿‍🦯	perempuan dengan tongkat putih ton kulit gelap	none
 👩‍🦯‍➡	perempuan dengan tongkat putih menghadap kanan	none
-👩🏻‍🦯‍➡	perempuan dengan tongkat putih menghadap kanan	none
-👩🏼‍🦯‍➡	perempuan dengan tongkat putih menghadap kanan	none
-👩🏽‍🦯‍➡	perempuan dengan tongkat putih menghadap kanan	none
-👩🏾‍🦯‍➡	perempuan dengan tongkat putih menghadap kanan	none
-👩🏿‍🦯‍➡	perempuan dengan tongkat putih menghadap kanan	none
+👩🏻‍🦯‍➡	perempuan dengan tongkat putih ton kulit cerah dan menghadap kanan	none
+👩🏼‍🦯‍➡	perempuan dengan tongkat putih ton kulit sederhana cerah dan menghadap kanan	none
+👩🏽‍🦯‍➡	perempuan dengan tongkat putih ton kulit sederhana dan menghadap kanan	none
+👩🏾‍🦯‍➡	perempuan dengan tongkat putih ton kulit sederhana gelap dan menghadap kanan	none
+👩🏿‍🦯‍➡	perempuan dengan tongkat putih ton kulit gelap dan menghadap kanan	none
 🧑🏻‍🦼	orang dalam kerusi roda bermotor ton kulit cerah	none
 🧑🏼‍🦼	orang dalam kerusi roda bermotor ton kulit sederhana cerah	none
 🧑🏽‍🦼	orang dalam kerusi roda bermotor ton kulit sederhana	none
 🧑🏾‍🦼	orang dalam kerusi roda bermotor ton kulit sederhana gelap	none
 🧑🏿‍🦼	orang dalam kerusi roda bermotor ton kulit gelap	none
 🧑‍🦼‍➡	orang dalam kerusi roda bermotor menghadap kanan	none
-🧑🏻‍🦼‍➡	orang dalam kerusi roda bermotor menghadap kanan	none
-🧑🏼‍🦼‍➡	orang dalam kerusi roda bermotor menghadap kanan	none
-🧑🏽‍🦼‍➡	orang dalam kerusi roda bermotor menghadap kanan	none
-🧑🏾‍🦼‍➡	orang dalam kerusi roda bermotor menghadap kanan	none
-🧑🏿‍🦼‍➡	orang dalam kerusi roda bermotor menghadap kanan	none
+🧑🏻‍🦼‍➡	orang dalam kerusi roda bermotor ton kulit cerah dan menghadap kanan	none
+🧑🏼‍🦼‍➡	orang dalam kerusi roda bermotor ton kulit sederhana cerah dan menghadap kanan	none
+🧑🏽‍🦼‍➡	orang dalam kerusi roda bermotor ton kulit sederhana dan menghadap kanan	none
+🧑🏾‍🦼‍➡	orang dalam kerusi roda bermotor ton kulit sederhana gelap dan menghadap kanan	none
+🧑🏿‍🦼‍➡	orang dalam kerusi roda bermotor ton kulit gelap dan menghadap kanan	none
 👨🏻‍🦼	lelaki dalam kerusi roda bermotor ton kulit cerah	none
 👨🏼‍🦼	lelaki dalam kerusi roda bermotor ton kulit sederhana cerah	none
 👨🏽‍🦼	lelaki dalam kerusi roda bermotor ton kulit sederhana	none
 👨🏾‍🦼	lelaki dalam kerusi roda bermotor ton kulit sederhana gelap	none
 👨🏿‍🦼	lelaki dalam kerusi roda bermotor ton kulit gelap	none
 👨‍🦼‍➡	lelaki dalam kerusi roda bermotor menghadap kanan	none
-👨🏻‍🦼‍➡	lelaki dalam kerusi roda bermotor menghadap kanan	none
-👨🏼‍🦼‍➡	lelaki dalam kerusi roda bermotor menghadap kanan	none
-👨🏽‍🦼‍➡	lelaki dalam kerusi roda bermotor menghadap kanan	none
-👨🏾‍🦼‍➡	lelaki dalam kerusi roda bermotor menghadap kanan	none
-👨🏿‍🦼‍➡	lelaki dalam kerusi roda bermotor menghadap kanan	none
+👨🏻‍🦼‍➡	lelaki dalam kerusi roda bermotor ton kulit cerah dan menghadap kanan	none
+👨🏼‍🦼‍➡	lelaki dalam kerusi roda bermotor ton kulit sederhana cerah dan menghadap kanan	none
+👨🏽‍🦼‍➡	lelaki dalam kerusi roda bermotor ton kulit sederhana dan menghadap kanan	none
+👨🏾‍🦼‍➡	lelaki dalam kerusi roda bermotor ton kulit sederhana gelap dan menghadap kanan	none
+👨🏿‍🦼‍➡	lelaki dalam kerusi roda bermotor ton kulit gelap dan menghadap kanan	none
 👩🏻‍🦼	perempuan dalam kerusi roda bermotor ton kulit cerah	none
 👩🏼‍🦼	perempuan dalam kerusi roda bermotor ton kulit sederhana cerah	none
 👩🏽‍🦼	perempuan dalam kerusi roda bermotor ton kulit sederhana	none
 👩🏾‍🦼	perempuan dalam kerusi roda bermotor ton kulit sederhana gelap	none
 👩🏿‍🦼	perempuan dalam kerusi roda bermotor ton kulit gelap	none
 👩‍🦼‍➡	perempuan dalam kerusi roda bermotor menghadap kanan	none
-👩🏻‍🦼‍➡	perempuan dalam kerusi roda bermotor menghadap kanan	none
-👩🏼‍🦼‍➡	perempuan dalam kerusi roda bermotor menghadap kanan	none
-👩🏽‍🦼‍➡	perempuan dalam kerusi roda bermotor menghadap kanan	none
-👩🏾‍🦼‍➡	perempuan dalam kerusi roda bermotor menghadap kanan	none
-👩🏿‍🦼‍➡	perempuan dalam kerusi roda bermotor menghadap kanan	none
+👩🏻‍🦼‍➡	perempuan dalam kerusi roda bermotor ton kulit cerah dan menghadap kanan	none
+👩🏼‍🦼‍➡	perempuan dalam kerusi roda bermotor ton kulit sederhana cerah dan menghadap kanan	none
+👩🏽‍🦼‍➡	perempuan dalam kerusi roda bermotor ton kulit sederhana dan menghadap kanan	none
+👩🏾‍🦼‍➡	perempuan dalam kerusi roda bermotor ton kulit sederhana gelap dan menghadap kanan	none
+👩🏿‍🦼‍➡	perempuan dalam kerusi roda bermotor ton kulit gelap dan menghadap kanan	none
 🧑🏻‍🦽	orang dalam kerusi roda manual ton kulit cerah	none
 🧑🏼‍🦽	orang dalam kerusi roda manual ton kulit sederhana cerah	none
 🧑🏽‍🦽	orang dalam kerusi roda manual ton kulit sederhana	none
 🧑🏾‍🦽	orang dalam kerusi roda manual ton kulit sederhana gelap	none
 🧑🏿‍🦽	orang dalam kerusi roda manual ton kulit gelap	none
 🧑‍🦽‍➡	orang dalam kerusi roda manual menghadap kanan	none
-🧑🏻‍🦽‍➡	orang dalam kerusi roda manual menghadap kanan	none
-🧑🏼‍🦽‍➡	orang dalam kerusi roda manual menghadap kanan	none
-🧑🏽‍🦽‍➡	orang dalam kerusi roda manual menghadap kanan	none
-🧑🏾‍🦽‍➡	orang dalam kerusi roda manual menghadap kanan	none
-🧑🏿‍🦽‍➡	orang dalam kerusi roda manual menghadap kanan	none
+🧑🏻‍🦽‍➡	orang dalam kerusi roda manual ton kulit cerah dan menghadap kanan	none
+🧑🏼‍🦽‍➡	orang dalam kerusi roda manual ton kulit sederhana cerah dan menghadap kanan	none
+🧑🏽‍🦽‍➡	orang dalam kerusi roda manual ton kulit sederhana dan menghadap kanan	none
+🧑🏾‍🦽‍➡	orang dalam kerusi roda manual ton kulit sederhana gelap dan menghadap kanan	none
+🧑🏿‍🦽‍➡	orang dalam kerusi roda manual ton kulit gelap dan menghadap kanan	none
 👨🏻‍🦽	lelaki dalam kerusi roda manual ton kulit cerah	none
 👨🏼‍🦽	lelaki dalam kerusi roda manual ton kulit sederhana cerah	none
 👨🏽‍🦽	lelaki dalam kerusi roda manual ton kulit sederhana	none
 👨🏾‍🦽	lelaki dalam kerusi roda manual ton kulit sederhana gelap	none
 👨🏿‍🦽	lelaki dalam kerusi roda manual ton kulit gelap	none
 👨‍🦽‍➡	lelaki dalam kerusi roda manual menghadap kanan	none
-👨🏻‍🦽‍➡	lelaki dalam kerusi roda manual menghadap kanan	none
-👨🏼‍🦽‍➡	lelaki dalam kerusi roda manual menghadap kanan	none
-👨🏽‍🦽‍➡	lelaki dalam kerusi roda manual menghadap kanan	none
-👨🏾‍🦽‍➡	lelaki dalam kerusi roda manual menghadap kanan	none
-👨🏿‍🦽‍➡	lelaki dalam kerusi roda manual menghadap kanan	none
+👨🏻‍🦽‍➡	lelaki dalam kerusi roda manual ton kulit cerah dan menghadap kanan	none
+👨🏼‍🦽‍➡	lelaki dalam kerusi roda manual ton kulit sederhana cerah dan menghadap kanan	none
+👨🏽‍🦽‍➡	lelaki dalam kerusi roda manual ton kulit sederhana dan menghadap kanan	none
+👨🏾‍🦽‍➡	lelaki dalam kerusi roda manual ton kulit sederhana gelap dan menghadap kanan	none
+👨🏿‍🦽‍➡	lelaki dalam kerusi roda manual ton kulit gelap dan menghadap kanan	none
 👩🏻‍🦽	perempuan dalam kereta roda manual ton kulit cerah	none
 👩🏼‍🦽	perempuan dalam kereta roda manual ton kulit sederhana cerah	none
 👩🏽‍🦽	perempuan dalam kereta roda manual ton kulit sederhana	none
 👩🏾‍🦽	perempuan dalam kereta roda manual ton kulit sederhana gelap	none
 👩🏿‍🦽	perempuan dalam kereta roda manual ton kulit gelap	none
 👩‍🦽‍➡	perempuan dalam kereta roda manual menghadap kanan	none
-👩🏻‍🦽‍➡	perempuan dalam kereta roda manual menghadap kanan	none
-👩🏼‍🦽‍➡	perempuan dalam kereta roda manual menghadap kanan	none
-👩🏽‍🦽‍➡	perempuan dalam kereta roda manual menghadap kanan	none
-👩🏾‍🦽‍➡	perempuan dalam kereta roda manual menghadap kanan	none
-👩🏿‍🦽‍➡	perempuan dalam kereta roda manual menghadap kanan	none
+👩🏻‍🦽‍➡	perempuan dalam kereta roda manual ton kulit cerah dan menghadap kanan	none
+👩🏼‍🦽‍➡	perempuan dalam kereta roda manual ton kulit sederhana cerah dan menghadap kanan	none
+👩🏽‍🦽‍➡	perempuan dalam kereta roda manual ton kulit sederhana dan menghadap kanan	none
+👩🏾‍🦽‍➡	perempuan dalam kereta roda manual ton kulit sederhana gelap dan menghadap kanan	none
+👩🏿‍🦽‍➡	perempuan dalam kereta roda manual ton kulit gelap dan menghadap kanan	none
 🏃🏻	pelari ton kulit cerah	none
 🏃🏼	pelari ton kulit sederhana cerah	none
 🏃🏽	pelari ton kulit sederhana	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	perempuan berlari ton kulit sederhana gelap	none
 🏃🏿‍♀	perempuan berlari ton kulit gelap	none
 🏃‍➡	pelari menghadap kanan	none
-🏃🏻‍➡	pelari menghadap kanan	none
-🏃🏼‍➡	pelari menghadap kanan	none
-🏃🏽‍➡	pelari menghadap kanan	none
-🏃🏾‍➡	pelari menghadap kanan	none
-🏃🏿‍➡	pelari menghadap kanan	none
+🏃🏻‍➡	pelari ton kulit cerah dan menghadap kanan	none
+🏃🏼‍➡	pelari ton kulit sederhana cerah dan menghadap kanan	none
+🏃🏽‍➡	pelari ton kulit sederhana dan menghadap kanan	none
+🏃🏾‍➡	pelari ton kulit sederhana gelap dan menghadap kanan	none
+🏃🏿‍➡	pelari ton kulit gelap dan menghadap kanan	none
 🏃‍♀‍➡	perempuan berlari menghadap kanan	none
-🏃🏻‍♀‍➡	perempuan berlari menghadap kanan	none
-🏃🏼‍♀‍➡	perempuan berlari menghadap kanan	none
-🏃🏽‍♀‍➡	perempuan berlari menghadap kanan	none
-🏃🏾‍♀‍➡	perempuan berlari menghadap kanan	none
-🏃🏿‍♀‍➡	perempuan berlari menghadap kanan	none
+🏃🏻‍♀‍➡	perempuan berlari ton kulit cerah dan menghadap kanan	none
+🏃🏼‍♀‍➡	perempuan berlari ton kulit sederhana cerah dan menghadap kanan	none
+🏃🏽‍♀‍➡	perempuan berlari ton kulit sederhana dan menghadap kanan	none
+🏃🏾‍♀‍➡	perempuan berlari ton kulit sederhana gelap dan menghadap kanan	none
+🏃🏿‍♀‍➡	perempuan berlari ton kulit gelap dan menghadap kanan	none
 🏃‍♂‍➡	lelaki berlari menghadap kanan	none
-🏃🏻‍♂‍➡	lelaki berlari menghadap kanan	none
-🏃🏼‍♂‍➡	lelaki berlari menghadap kanan	none
-🏃🏽‍♂‍➡	lelaki berlari menghadap kanan	none
-🏃🏾‍♂‍➡	lelaki berlari menghadap kanan	none
-🏃🏿‍♂‍➡	lelaki berlari menghadap kanan	none
+🏃🏻‍♂‍➡	lelaki berlari ton kulit cerah dan menghadap kanan	none
+🏃🏼‍♂‍➡	lelaki berlari ton kulit sederhana cerah dan menghadap kanan	none
+🏃🏽‍♂‍➡	lelaki berlari ton kulit sederhana dan menghadap kanan	none
+🏃🏾‍♂‍➡	lelaki berlari ton kulit sederhana gelap dan menghadap kanan	none
+🏃🏿‍♂‍➡	lelaki berlari ton kulit gelap dan menghadap kanan	none
+🧑🏻‍🩰	penari balet ton kulit cerah	none
+🧑🏼‍🩰	penari balet ton kulit sederhana cerah	none
+🧑🏽‍🩰	penari balet ton kulit sederhana	none
+🧑🏾‍🩰	penari balet ton kulit sederhana gelap	none
+🧑🏿‍🩰	penari balet ton kulit gelap	none
 💃🏻	perempuan menari ton kulit cerah	none
 💃🏼	perempuan menari ton kulit sederhana cerah	none
 💃🏽	perempuan menari ton kulit sederhana	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	lelaki memakai sut urusan terapung-apung ton kulit sederhana	none
 🕴🏾	lelaki memakai sut urusan terapung-apung ton kulit sederhana gelap	none
 🕴🏿	lelaki memakai sut urusan terapung-apung ton kulit gelap	none
+👯🏻	orang dengan telinga arnab ton kulit cerah	none
+👯🏼	orang dengan telinga arnab ton kulit sederhana cerah	none
+👯🏽	orang dengan telinga arnab ton kulit sederhana	none
+👯🏾	orang dengan telinga arnab ton kulit sederhana gelap	none
+👯🏿	orang dengan telinga arnab ton kulit gelap	none
+👯🏻‍♂	lelaki berpesta ton kulit cerah	none
+👯🏼‍♂	lelaki berpesta ton kulit sederhana cerah	none
+👯🏽‍♂	lelaki berpesta ton kulit sederhana	none
+👯🏾‍♂	lelaki berpesta ton kulit sederhana gelap	none
+👯🏿‍♂	lelaki berpesta ton kulit gelap	none
+👯🏻‍♀	perempuan berpesta ton kulit cerah	none
+👯🏼‍♀	perempuan berpesta ton kulit sederhana cerah	none
+👯🏽‍♀	perempuan berpesta ton kulit sederhana	none
+👯🏾‍♀	perempuan berpesta ton kulit sederhana gelap	none
+👯🏿‍♀	perempuan berpesta ton kulit gelap	none
 🧖🏻	orang dalam bilik berwap ton kulit cerah	none
 🧖🏼	orang dalam bilik berwap ton kulit sederhana cerah	none
 🧖🏽	orang dalam bilik berwap ton kulit sederhana	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	wanita membuat putar roda ton kulit sederhana	none
 🤸🏾‍♀	wanita membuat putar roda ton kulit sederhana gelap	none
 🤸🏿‍♀	wanita membuat putar roda ton kulit gelap	none
+🤼🏻	bergusti ton kulit cerah	none
+🤼🏼	bergusti ton kulit sederhana cerah	none
+🤼🏽	bergusti ton kulit sederhana	none
+🤼🏾	bergusti ton kulit sederhana gelap	none
+🤼🏿	bergusti ton kulit gelap	none
+🤼🏻‍♂	lelaki bergusti ton kulit cerah	none
+🤼🏼‍♂	lelaki bergusti ton kulit sederhana cerah	none
+🤼🏽‍♂	lelaki bergusti ton kulit sederhana	none
+🤼🏾‍♂	lelaki bergusti ton kulit sederhana gelap	none
+🤼🏿‍♂	lelaki bergusti ton kulit gelap	none
+🤼🏻‍♀	wanita bergusti ton kulit cerah	none
+🤼🏼‍♀	wanita bergusti ton kulit sederhana cerah	none
+🤼🏽‍♀	wanita bergusti ton kulit sederhana	none
+🤼🏾‍♀	wanita bergusti ton kulit sederhana gelap	none
+🤼🏿‍♀	wanita bergusti ton kulit gelap	none
 🤽🏻	polo air ton kulit cerah	none
 🤽🏼	polo air ton kulit sederhana cerah	none
 🤽🏽	polo air ton kulit sederhana	none
@@ -3812,6 +3982,7 @@ symbols:
 🇨🇳	bendera China	none
 🇨🇴	bendera Colombia	none
 🇨🇵	bendera Pulau Clipperton	none
+🇨🇶	bendera Sark	none
 🇨🇷	bendera Costa Rica	none
 🇨🇺	bendera Cuba	none
 🇨🇻	bendera Cape Verde	none

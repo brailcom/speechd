@@ -321,6 +321,7 @@ symbols:
 😪	ukuly ýüz	none
 🤤	gyllygy akýan ýüz	none
 😴	uklap ýatan ýüz	none
+🫩	gözüniň aşagy halkaly ýüz	none
 😷	saglyk maskaly ýüz	none
 🤒	termometrli ýüz	none
 🤕	kellesi sargyly ýüz	none
@@ -348,6 +349,7 @@ symbols:
 😯	aňalyp galan ýüz	none
 😲	aňk-taňk bolan ýüz	none
 😳	gyzaran ýüz	none
+🫪	gyşyk ýüz	none
 🥺	ýalbarýan ýüz	none
 🥹	gözýaşyny saklap duran ýüz	none
 😦	açyk agyzly çytyk ýüz	none
@@ -421,6 +423,7 @@ symbols:
 💋	posa yzy	none
 💯	ýüz utuk	none
 💢	gaharyň nyşany	none
+🫯	uruş buludy	none
 💥	çakyşma	none
 💫	başy aýlanan	none
 💦	der damjalary	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	erkek zombi	none
 🧟‍♀	aýal zombi	none
 🧌	trol	none
+🫈	tüýlek jandar	none
 💆	massaž edilýän adam	none
 💆‍♂	massaž edilýän erkek	none
 💆‍♀	massaž edilýän zenan	none
@@ -680,6 +684,7 @@ symbols:
 🏃	ylgap barýan adam	none
 🏃‍♂	ylgap barýan erkek	none
 🏃‍♀	ylgap barýan zenan	none
+🧑‍🩰	balerina	none
 💃	tans edýän zenan	none
 🕺	tans edýän erkek	none
 🕴	kostýum-balakly ýokary galyp barýan kişi	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	maşgala uly, çaga	none
 🧑‍🧒‍🧒	maşgala uly, çaga, çaga	none
 👣	aýak yzlary	none
+🫆	barmak yzy	none
 🦰	gyzyl saç	none
 🦱	buýra saç	none
 🦳	ak saç	none
@@ -860,6 +866,7 @@ symbols:
 🐳	suw pürkýän kit	none
 🐋	kit	none
 🐬	delfin	none
+🫍	kosatka	none
 🦭	düwlen	none
 🐟	balyk	none
 🐠	tropiki balyk	none
@@ -869,6 +876,11 @@ symbols:
 🐚	spiral çaňňalak	none
 🪸	merjen	none
 🪼	meduza	none
+🦀	leňňeç	none
+🦞	omar	none
+🦐	krewetka	none
+🦑	kalmar	none
+🦪	ustrisa	none
 🐌	ulitka	none
 🦋	kebelek	none
 🐛	mör-möjek	none
@@ -913,6 +925,7 @@ symbols:
 🪹	boş höwürtge	none
 🪺	içi ýumurtgaly höwürtge	none
 🍄	kömelek	none
+🪾	ýapraksyz agaç	none
 🍇	üzüm	none
 🍈	gawun	none
 🍉	garpyz	none
@@ -951,6 +964,7 @@ symbols:
 🫚	zenjebil köki	none
 🫛	nohudyň kösügi	none
 🍄‍🟫	mele kömelek	none
+🫜	köki miweli	none
 🍞	çörek	none
 🥐	kruassan	none
 🥖	baget çörek	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	hytaý böregi	none
 🥠	bagt kökesi	none
 🥡	iýmit alyp gidilýän guty	none
-🦀	leňňeç	none
-🦞	omar	none
-🦐	krewetka	none
-🦑	kalmar	none
-🦪	ustrisa	none
 🍦	ýumşak buzgaýmak	none
 🍧	syrylan buz	none
 🍨	buzgaýmak	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	kompas	none
 🏔	üsti garly dag	none
 ⛰	dag	none
+🛘	ýer süýşgüni	none
 🌋	ýanardag	none
 🗻	Fuji dagy	none
 🏕	kemping	none
@@ -1322,8 +1332,8 @@ symbols:
 🥌	kýorling daşy	none
 🎯	dürs urgy	none
 🪀	ýo-ýo	none
-🪁	batberek	none
-🔫	sapança	none
+🪁	batbörek	none
+🔫	suw sapançasy	none
 🎱	8 bilýard topy	none
 🔮	hrustal şar	none
 🪄	jadyly taýajyk	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	nauşnik	none
 📻	radio	none
 🎷	saksofon	none
+🎺	surnaý	none
+🪊	trombon	none
 🪗	akkordeon	none
 🎸	gitara	none
 🎹	saz klawiaturasy	none
-🎺	surnaý	none
 🎻	skripka	none
 🪕	banjo	none
 🥁	deprek	none
 🪘	uzyn deprek	none
 🪇	marakas	none
 🪈	tüýdük	none
+🪉	arfa	none
 📱	mobil telefon	none
 📲	okly mobil telefon	none
 ☎	telefon trubkasy	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	bellikçe tablary	none
 🔖	bellikçe	none
 🏷	tagma	none
-💰	pully halta	none
 🪙	şaýlyk	none
+💰	pully halta	none
+🪎	hazyna sandygy	none
 💴	ýen banknot	none
 💵	dollar banknot	none
 💶	ýewro banknot	none
@@ -1565,6 +1578,7 @@ symbols:
 🧰	gural gutusy	none
 🧲	magnit	none
 🪜	merdiwan	none
+🪏	pilçe	none
 ⚗	suwuklyk gaby	none
 🧪	probirka	none
 🧫	petri çaşkasy	none
@@ -1745,6 +1759,7 @@ symbols:
 ✴	sekiz tikenli ýyldyzjyk	none
 ❇	uçgun	none
 ™	söwda belgisi	none
+🫟	syçratgy	none
 🔠	latyn baş harp girizme	none
 🔡	latyn setir harp girizme	none
 🔢	san girizme	none
@@ -2159,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	ýürekli jübüt şahs, şahs, goýy deri reňki, orta açyk deri reňki	none
 🧑🏿‍❤‍🧑🏽	ýürekli jübüt şahs, şahs, goýy deri reňki, orta deri reňki	none
 🧑🏿‍❤‍🧑🏾	ýürekli jübüt şahs, şahs, goýy deri reňki, orta goýy deri reňki	none
+🧑🏻‍🫯‍🧑🏼	göreş tutýan adamlar açyk deri reňki, orta açyk deri reňki	none
+🧑🏻‍🫯‍🧑🏽	göreş tutýan adamlar açyk deri reňki, orta deri reňki	none
+🧑🏻‍🫯‍🧑🏾	göreş tutýan adamlar açyk deri reňki, orta goýy deri reňki	none
+🧑🏻‍🫯‍🧑🏿	göreş tutýan adamlar açyk deri reňki, goýy deri reňki	none
+🧑🏼‍🫯‍🧑🏻	göreş tutýan adamlar orta açyk deri reňki, açyk deri reňki	none
+🧑🏼‍🫯‍🧑🏽	göreş tutýan adamlar orta açyk deri reňki, orta deri reňki	none
+🧑🏼‍🫯‍🧑🏾	göreş tutýan adamlar orta açyk deri reňki, orta goýy deri reňki	none
+🧑🏼‍🫯‍🧑🏿	göreş tutýan adamlar orta açyk deri reňki, goýy deri reňki	none
+🧑🏽‍🫯‍🧑🏻	göreş tutýan adamlar orta deri reňki, açyk deri reňki	none
+🧑🏽‍🫯‍🧑🏼	göreş tutýan adamlar orta deri reňki, orta açyk deri reňki	none
+🧑🏽‍🫯‍🧑🏾	göreş tutýan adamlar orta deri reňki, orta goýy deri reňki	none
+🧑🏽‍🫯‍🧑🏿	göreş tutýan adamlar orta deri reňki, goýy deri reňki	none
+🧑🏾‍🫯‍🧑🏻	göreş tutýan adamlar orta goýy deri reňki, açyk deri reňki	none
+🧑🏾‍🫯‍🧑🏼	göreş tutýan adamlar orta goýy deri reňki, orta açyk deri reňki	none
+🧑🏾‍🫯‍🧑🏽	göreş tutýan adamlar orta goýy deri reňki, orta deri reňki	none
+🧑🏾‍🫯‍🧑🏿	göreş tutýan adamlar orta goýy deri reňki, goýy deri reňki	none
+🧑🏿‍🫯‍🧑🏻	göreş tutýan adamlar goýy deri reňki, açyk deri reňki	none
+🧑🏿‍🫯‍🧑🏼	göreş tutýan adamlar goýy deri reňki, orta açyk deri reňki	none
+🧑🏿‍🫯‍🧑🏽	göreş tutýan adamlar goýy deri reňki, orta deri reňki	none
+🧑🏿‍🫯‍🧑🏾	göreş tutýan adamlar goýy deri reňki, orta goýy deri reňki	none
 🧑‍🦰	şahs gyzyl saç	none
 🧑🏻‍🦰	şahs açyk deri reňki, gyzyl saç	none
 🧑🏼‍🦰	şahs orta açyk deri reňki, gyzyl saç	none
@@ -2183,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	şahs orta deri reňki, kel	none
 🧑🏾‍🦲	şahs orta goýy deri reňki, kel	none
 🧑🏿‍🦲	şahs goýy deri reňki, kel	none
+🧑🏻‍🐰‍🧑🏼	towşan gulakly adamlar açyk deri reňki, orta açyk deri reňki	none
+🧑🏻‍🐰‍🧑🏽	towşan gulakly adamlar açyk deri reňki, orta deri reňki	none
+🧑🏻‍🐰‍🧑🏾	towşan gulakly adamlar açyk deri reňki, orta goýy deri reňki	none
+🧑🏻‍🐰‍🧑🏿	towşan gulakly adamlar açyk deri reňki, goýy deri reňki	none
+🧑🏼‍🐰‍🧑🏻	towşan gulakly adamlar orta açyk deri reňki, açyk deri reňki	none
+🧑🏼‍🐰‍🧑🏽	towşan gulakly adamlar orta açyk deri reňki, orta deri reňki	none
+🧑🏼‍🐰‍🧑🏾	towşan gulakly adamlar orta açyk deri reňki, orta goýy deri reňki	none
+🧑🏼‍🐰‍🧑🏿	towşan gulakly adamlar orta açyk deri reňki, goýy deri reňki	none
+🧑🏽‍🐰‍🧑🏻	towşan gulakly adamlar orta deri reňki, açyk deri reňki	none
+🧑🏽‍🐰‍🧑🏼	towşan gulakly adamlar orta deri reňki, orta açyk deri reňki	none
+🧑🏽‍🐰‍🧑🏾	towşan gulakly adamlar orta deri reňki, orta goýy deri reňki	none
+🧑🏽‍🐰‍🧑🏿	towşan gulakly adamlar orta deri reňki, goýy deri reňki	none
+🧑🏾‍🐰‍🧑🏻	towşan gulakly adamlar orta goýy deri reňki, açyk deri reňki	none
+🧑🏾‍🐰‍🧑🏼	towşan gulakly adamlar orta goýy deri reňki, orta açyk deri reňki	none
+🧑🏾‍🐰‍🧑🏽	towşan gulakly adamlar orta goýy deri reňki, orta deri reňki	none
+🧑🏾‍🐰‍🧑🏿	towşan gulakly adamlar orta goýy deri reňki, goýy deri reňki	none
+🧑🏿‍🐰‍🧑🏻	towşan gulakly adamlar goýy deri reňki, açyk deri reňki	none
+🧑🏿‍🐰‍🧑🏼	towşan gulakly adamlar goýy deri reňki, orta açyk deri reňki	none
+🧑🏿‍🐰‍🧑🏽	towşan gulakly adamlar goýy deri reňki, orta deri reňki	none
+🧑🏿‍🐰‍🧑🏾	towşan gulakly adamlar goýy deri reňki, orta goýy deri reňki	none
 👨🏻	erkek açyk deri reňki	none
 👨🏼	erkek orta açyk deri reňki	none
 👨🏽	erkek orta deri reňki	none
@@ -2253,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	ýürekli jübüt erkek, erkek, goýy deri reňki, orta deri reňki	none
 👨🏿‍❤‍👨🏾	ýürekli jübüt erkek, erkek, goýy deri reňki, orta goýy deri reňki	none
 👨🏿‍❤‍👨🏿	ýürekli jübüt erkek, erkek, goýy deri reňki	none
+👨🏻‍🫯‍👨🏼	göreş tutýan erkekler açyk deri reňki, orta açyk deri reňki	none
+👨🏻‍🫯‍👨🏽	göreş tutýan erkekler açyk deri reňki, orta deri reňki	none
+👨🏻‍🫯‍👨🏾	göreş tutýan erkekler açyk deri reňki, orta goýy deri reňki	none
+👨🏻‍🫯‍👨🏿	göreş tutýan erkekler açyk deri reňki, goýy deri reňki	none
+👨🏼‍🫯‍👨🏻	göreş tutýan erkekler orta açyk deri reňki, açyk deri reňki	none
+👨🏼‍🫯‍👨🏽	göreş tutýan erkekler orta açyk deri reňki, orta deri reňki	none
+👨🏼‍🫯‍👨🏾	göreş tutýan erkekler orta açyk deri reňki, orta goýy deri reňki	none
+👨🏼‍🫯‍👨🏿	göreş tutýan erkekler orta açyk deri reňki, goýy deri reňki	none
+👨🏽‍🫯‍👨🏻	göreş tutýan erkekler orta deri reňki, açyk deri reňki	none
+👨🏽‍🫯‍👨🏼	göreş tutýan erkekler orta deri reňki, orta açyk deri reňki	none
+👨🏽‍🫯‍👨🏾	göreş tutýan erkekler orta deri reňki, orta goýy deri reňki	none
+👨🏽‍🫯‍👨🏿	göreş tutýan erkekler orta deri reňki, goýy deri reňki	none
+👨🏾‍🫯‍👨🏻	göreş tutýan erkekler orta goýy deri reňki, açyk deri reňki	none
+👨🏾‍🫯‍👨🏼	göreş tutýan erkekler orta goýy deri reňki, orta açyk deri reňki	none
+👨🏾‍🫯‍👨🏽	göreş tutýan erkekler orta goýy deri reňki, orta deri reňki	none
+👨🏾‍🫯‍👨🏿	göreş tutýan erkekler orta goýy deri reňki, goýy deri reňki	none
+👨🏿‍🫯‍👨🏻	göreş tutýan erkekler goýy deri reňki, açyk deri reňki	none
+👨🏿‍🫯‍👨🏼	göreş tutýan erkekler goýy deri reňki, orta açyk deri reňki	none
+👨🏿‍🫯‍👨🏽	göreş tutýan erkekler goýy deri reňki, orta deri reňki	none
+👨🏿‍🫯‍👨🏾	göreş tutýan erkekler goýy deri reňki, orta goýy deri reňki	none
 👨‍🦰	erkek gyzyl saç	none
 👨🏻‍🦰	erkek açyk deri reňki, gyzyl saç	none
 👨🏼‍🦰	erkek orta açyk deri reňki, gyzyl saç	none
@@ -2277,6 +2352,26 @@ symbols:
 👨🏽‍🦲	erkek orta deri reňki, kel	none
 👨🏾‍🦲	erkek orta goýy deri reňki, kel	none
 👨🏿‍🦲	erkek goýy deri reňki, kel	none
+👨🏻‍🐰‍👨🏼	towşan gulakly erkekler açyk deri reňki, orta açyk deri reňki	none
+👨🏻‍🐰‍👨🏽	towşan gulakly erkekler açyk deri reňki, orta deri reňki	none
+👨🏻‍🐰‍👨🏾	towşan gulakly erkekler açyk deri reňki, orta goýy deri reňki	none
+👨🏻‍🐰‍👨🏿	towşan gulakly erkekler açyk deri reňki, goýy deri reňki	none
+👨🏼‍🐰‍👨🏻	towşan gulakly erkekler orta açyk deri reňki, açyk deri reňki	none
+👨🏼‍🐰‍👨🏽	towşan gulakly erkekler orta açyk deri reňki, orta deri reňki	none
+👨🏼‍🐰‍👨🏾	towşan gulakly erkekler orta açyk deri reňki, orta goýy deri reňki	none
+👨🏼‍🐰‍👨🏿	towşan gulakly erkekler orta açyk deri reňki, goýy deri reňki	none
+👨🏽‍🐰‍👨🏻	towşan gulakly erkekler orta deri reňki, açyk deri reňki	none
+👨🏽‍🐰‍👨🏼	towşan gulakly erkekler orta deri reňki, orta açyk deri reňki	none
+👨🏽‍🐰‍👨🏾	towşan gulakly erkekler orta deri reňki, orta goýy deri reňki	none
+👨🏽‍🐰‍👨🏿	towşan gulakly erkekler orta deri reňki, goýy deri reňki	none
+👨🏾‍🐰‍👨🏻	towşan gulakly erkekler orta goýy deri reňki, açyk deri reňki	none
+👨🏾‍🐰‍👨🏼	towşan gulakly erkekler orta goýy deri reňki, orta açyk deri reňki	none
+👨🏾‍🐰‍👨🏽	towşan gulakly erkekler orta goýy deri reňki, orta deri reňki	none
+👨🏾‍🐰‍👨🏿	towşan gulakly erkekler orta goýy deri reňki, goýy deri reňki	none
+👨🏿‍🐰‍👨🏻	towşan gulakly erkekler goýy deri reňki, açyk deri reňki	none
+👨🏿‍🐰‍👨🏼	towşan gulakly erkekler goýy deri reňki, orta açyk deri reňki	none
+👨🏿‍🐰‍👨🏽	towşan gulakly erkekler goýy deri reňki, orta deri reňki	none
+👨🏿‍🐰‍👨🏾	towşan gulakly erkekler goýy deri reňki, orta goýy deri reňki	none
 👩🏻	zenan açyk deri reňki	none
 👩🏼	zenan orta açyk deri reňki	none
 👩🏽	zenan orta deri reňki	none
@@ -2392,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	ýürekli jübüt zenan, zenan, goýy deri reňki, orta deri reňki	none
 👩🏿‍❤‍👩🏾	ýürekli jübüt zenan, zenan, goýy deri reňki, orta goýy deri reňki	none
 👩🏿‍❤‍👩🏿	ýürekli jübüt zenan, zenan, goýy deri reňki	none
+👩🏻‍🫯‍👩🏼	göreş tutýan zenanlar açyk deri reňki, orta açyk deri reňki	none
+👩🏻‍🫯‍👩🏽	göreş tutýan zenanlar açyk deri reňki, orta deri reňki	none
+👩🏻‍🫯‍👩🏾	göreş tutýan zenanlar açyk deri reňki, orta goýy deri reňki	none
+👩🏻‍🫯‍👩🏿	göreş tutýan zenanlar açyk deri reňki, goýy deri reňki	none
+👩🏼‍🫯‍👩🏻	göreş tutýan zenanlar orta açyk deri reňki, açyk deri reňki	none
+👩🏼‍🫯‍👩🏽	göreş tutýan zenanlar orta açyk deri reňki, orta deri reňki	none
+👩🏼‍🫯‍👩🏾	göreş tutýan zenanlar orta açyk deri reňki, orta goýy deri reňki	none
+👩🏼‍🫯‍👩🏿	göreş tutýan zenanlar orta açyk deri reňki, goýy deri reňki	none
+👩🏽‍🫯‍👩🏻	göreş tutýan zenanlar orta deri reňki, açyk deri reňki	none
+👩🏽‍🫯‍👩🏼	göreş tutýan zenanlar orta deri reňki, orta açyk deri reňki	none
+👩🏽‍🫯‍👩🏾	göreş tutýan zenanlar orta deri reňki, orta goýy deri reňki	none
+👩🏽‍🫯‍👩🏿	göreş tutýan zenanlar orta deri reňki, goýy deri reňki	none
+👩🏾‍🫯‍👩🏻	göreş tutýan zenanlar orta goýy deri reňki, açyk deri reňki	none
+👩🏾‍🫯‍👩🏼	göreş tutýan zenanlar orta goýy deri reňki, orta açyk deri reňki	none
+👩🏾‍🫯‍👩🏽	göreş tutýan zenanlar orta goýy deri reňki, orta deri reňki	none
+👩🏾‍🫯‍👩🏿	göreş tutýan zenanlar orta goýy deri reňki, goýy deri reňki	none
+👩🏿‍🫯‍👩🏻	göreş tutýan zenanlar goýy deri reňki, açyk deri reňki	none
+👩🏿‍🫯‍👩🏼	göreş tutýan zenanlar goýy deri reňki, orta açyk deri reňki	none
+👩🏿‍🫯‍👩🏽	göreş tutýan zenanlar goýy deri reňki, orta deri reňki	none
+👩🏿‍🫯‍👩🏾	göreş tutýan zenanlar goýy deri reňki, orta goýy deri reňki	none
 👩‍🦰	zenan gyzyl saç	none
 👩🏻‍🦰	zenan açyk deri reňki, gyzyl saç	none
 👩🏼‍🦰	zenan orta açyk deri reňki, gyzyl saç	none
@@ -2416,6 +2531,26 @@ symbols:
 👩🏽‍🦲	zenan orta deri reňki, kel	none
 👩🏾‍🦲	zenan orta goýy deri reňki, kel	none
 👩🏿‍🦲	zenan goýy deri reňki, kel	none
+👩🏻‍🐰‍👩🏼	towşan gulakly zenanlar açyk deri reňki, orta açyk deri reňki	none
+👩🏻‍🐰‍👩🏽	towşan gulakly zenanlar açyk deri reňki, orta deri reňki	none
+👩🏻‍🐰‍👩🏾	towşan gulakly zenanlar açyk deri reňki, orta goýy deri reňki	none
+👩🏻‍🐰‍👩🏿	towşan gulakly zenanlar açyk deri reňki, goýy deri reňki	none
+👩🏼‍🐰‍👩🏻	towşan gulakly zenanlar orta açyk deri reňki, açyk deri reňki	none
+👩🏼‍🐰‍👩🏽	towşan gulakly zenanlar orta açyk deri reňki, orta deri reňki	none
+👩🏼‍🐰‍👩🏾	towşan gulakly zenanlar orta açyk deri reňki, orta goýy deri reňki	none
+👩🏼‍🐰‍👩🏿	towşan gulakly zenanlar orta açyk deri reňki, goýy deri reňki	none
+👩🏽‍🐰‍👩🏻	towşan gulakly zenanlar orta deri reňki, açyk deri reňki	none
+👩🏽‍🐰‍👩🏼	towşan gulakly zenanlar orta deri reňki, orta açyk deri reňki	none
+👩🏽‍🐰‍👩🏾	towşan gulakly zenanlar orta deri reňki, orta goýy deri reňki	none
+👩🏽‍🐰‍👩🏿	towşan gulakly zenanlar orta deri reňki, goýy deri reňki	none
+👩🏾‍🐰‍👩🏻	towşan gulakly zenanlar orta goýy deri reňki, açyk deri reňki	none
+👩🏾‍🐰‍👩🏼	towşan gulakly zenanlar orta goýy deri reňki, orta açyk deri reňki	none
+👩🏾‍🐰‍👩🏽	towşan gulakly zenanlar orta goýy deri reňki, orta deri reňki	none
+👩🏾‍🐰‍👩🏿	towşan gulakly zenanlar orta goýy deri reňki, goýy deri reňki	none
+👩🏿‍🐰‍👩🏻	towşan gulakly zenanlar goýy deri reňki, açyk deri reňki	none
+👩🏿‍🐰‍👩🏼	towşan gulakly zenanlar goýy deri reňki, orta açyk deri reňki	none
+👩🏿‍🐰‍👩🏽	towşan gulakly zenanlar goýy deri reňki, orta deri reňki	none
+👩🏿‍🐰‍👩🏾	towşan gulakly zenanlar goýy deri reňki, orta goýy deri reňki	none
 🧓🏻	gartaşan kişi açyk deri reňki	none
 🧓🏼	gartaşan kişi orta açyk deri reňki	none
 🧓🏽	gartaşan kişi orta deri reňki	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	ýörap barýan zenan orta goýy deri reňki	none
 🚶🏿‍♀	ýörap barýan zenan goýy deri reňki	none
 🚶‍➡	ýöräp barýan adam ýüzi saga	none
-🚶🏻‍➡	ýöräp barýan adam ýüzi saga	none
-🚶🏼‍➡	ýöräp barýan adam ýüzi saga	none
-🚶🏽‍➡	ýöräp barýan adam ýüzi saga	none
-🚶🏾‍➡	ýöräp barýan adam ýüzi saga	none
-🚶🏿‍➡	ýöräp barýan adam ýüzi saga	none
+🚶🏻‍➡	ýöräp barýan adam açyk deri reňki, ýüzi saga	none
+🚶🏼‍➡	ýöräp barýan adam orta açyk deri reňki, ýüzi saga	none
+🚶🏽‍➡	ýöräp barýan adam orta deri reňki, ýüzi saga	none
+🚶🏾‍➡	ýöräp barýan adam orta goýy deri reňki, ýüzi saga	none
+🚶🏿‍➡	ýöräp barýan adam goýy deri reňki, ýüzi saga	none
 🚶‍♀‍➡	ýörap barýan zenan ýüzi saga	none
-🚶🏻‍♀‍➡	ýörap barýan zenan ýüzi saga	none
-🚶🏼‍♀‍➡	ýörap barýan zenan ýüzi saga	none
-🚶🏽‍♀‍➡	ýörap barýan zenan ýüzi saga	none
-🚶🏾‍♀‍➡	ýörap barýan zenan ýüzi saga	none
-🚶🏿‍♀‍➡	ýörap barýan zenan ýüzi saga	none
+🚶🏻‍♀‍➡	ýörap barýan zenan açyk deri reňki, ýüzi saga	none
+🚶🏼‍♀‍➡	ýörap barýan zenan orta açyk deri reňki, ýüzi saga	none
+🚶🏽‍♀‍➡	ýörap barýan zenan orta deri reňki, ýüzi saga	none
+🚶🏾‍♀‍➡	ýörap barýan zenan orta goýy deri reňki, ýüzi saga	none
+🚶🏿‍♀‍➡	ýörap barýan zenan goýy deri reňki, ýüzi saga	none
 🚶‍♂‍➡	ýöräp barýan erkek ýüzi saga	none
-🚶🏻‍♂‍➡	ýöräp barýan erkek ýüzi saga	none
-🚶🏼‍♂‍➡	ýöräp barýan erkek ýüzi saga	none
-🚶🏽‍♂‍➡	ýöräp barýan erkek ýüzi saga	none
-🚶🏾‍♂‍➡	ýöräp barýan erkek ýüzi saga	none
-🚶🏿‍♂‍➡	ýöräp barýan erkek ýüzi saga	none
+🚶🏻‍♂‍➡	ýöräp barýan erkek açyk deri reňki, ýüzi saga	none
+🚶🏼‍♂‍➡	ýöräp barýan erkek orta açyk deri reňki, ýüzi saga	none
+🚶🏽‍♂‍➡	ýöräp barýan erkek orta deri reňki, ýüzi saga	none
+🚶🏾‍♂‍➡	ýöräp barýan erkek orta goýy deri reňki, ýüzi saga	none
+🚶🏿‍♂‍➡	ýöräp barýan erkek goýy deri reňki, ýüzi saga	none
 🧍🏻	dik duran adam açyk deri reňki	none
 🧍🏼	dik duran adam orta açyk deri reňki	none
 🧍🏽	dik duran adam orta deri reňki	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	dyza çöken zenan orta goýy deri reňki	none
 🧎🏿‍♀	dyza çöken zenan goýy deri reňki	none
 🧎‍➡	dyza çöken adam ýüzi saga	none
-🧎🏻‍➡	dyza çöken adam ýüzi saga	none
-🧎🏼‍➡	dyza çöken adam ýüzi saga	none
-🧎🏽‍➡	dyza çöken adam ýüzi saga	none
-🧎🏾‍➡	dyza çöken adam ýüzi saga	none
-🧎🏿‍➡	dyza çöken adam ýüzi saga	none
+🧎🏻‍➡	dyza çöken adam açyk deri reňki, ýüzi saga	none
+🧎🏼‍➡	dyza çöken adam orta açyk deri reňki, ýüzi saga	none
+🧎🏽‍➡	dyza çöken adam orta deri reňki, ýüzi saga	none
+🧎🏾‍➡	dyza çöken adam orta goýy deri reňki, ýüzi saga	none
+🧎🏿‍➡	dyza çöken adam goýy deri reňki, ýüzi saga	none
 🧎‍♀‍➡	dyza çöken zenan ýüzi saga	none
-🧎🏻‍♀‍➡	dyza çöken zenan ýüzi saga	none
-🧎🏼‍♀‍➡	dyza çöken zenan ýüzi saga	none
-🧎🏽‍♀‍➡	dyza çöken zenan ýüzi saga	none
-🧎🏾‍♀‍➡	dyza çöken zenan ýüzi saga	none
-🧎🏿‍♀‍➡	dyza çöken zenan ýüzi saga	none
+🧎🏻‍♀‍➡	dyza çöken zenan açyk deri reňki, ýüzi saga	none
+🧎🏼‍♀‍➡	dyza çöken zenan orta açyk deri reňki, ýüzi saga	none
+🧎🏽‍♀‍➡	dyza çöken zenan orta deri reňki, ýüzi saga	none
+🧎🏾‍♀‍➡	dyza çöken zenan orta goýy deri reňki, ýüzi saga	none
+🧎🏿‍♀‍➡	dyza çöken zenan goýy deri reňki, ýüzi saga	none
 🧎‍♂‍➡	dyza çöken erkek ýüzi saga	none
-🧎🏻‍♂‍➡	dyza çöken erkek ýüzi saga	none
-🧎🏼‍♂‍➡	dyza çöken erkek ýüzi saga	none
-🧎🏽‍♂‍➡	dyza çöken erkek ýüzi saga	none
-🧎🏾‍♂‍➡	dyza çöken erkek ýüzi saga	none
-🧎🏿‍♂‍➡	dyza çöken erkek ýüzi saga	none
+🧎🏻‍♂‍➡	dyza çöken erkek açyk deri reňki, ýüzi saga	none
+🧎🏼‍♂‍➡	dyza çöken erkek orta açyk deri reňki, ýüzi saga	none
+🧎🏽‍♂‍➡	dyza çöken erkek orta deri reňki, ýüzi saga	none
+🧎🏾‍♂‍➡	dyza çöken erkek orta goýy deri reňki, ýüzi saga	none
+🧎🏿‍♂‍➡	dyza çöken erkek goýy deri reňki, ýüzi saga	none
 🧑🏻‍🦯	kör hasaly adam açyk deri reňki	none
 🧑🏼‍🦯	kör hasaly adam orta açyk deri reňki	none
 🧑🏽‍🦯	kör hasaly adam orta deri reňki	none
 🧑🏾‍🦯	kör hasaly adam orta goýy deri reňki	none
 🧑🏿‍🦯	kör hasaly adam goýy deri reňki	none
 🧑‍🦯‍➡	kör hasaly adam ýüzi saga	none
-🧑🏻‍🦯‍➡	kör hasaly adam ýüzi saga	none
-🧑🏼‍🦯‍➡	kör hasaly adam ýüzi saga	none
-🧑🏽‍🦯‍➡	kör hasaly adam ýüzi saga	none
-🧑🏾‍🦯‍➡	kör hasaly adam ýüzi saga	none
-🧑🏿‍🦯‍➡	kör hasaly adam ýüzi saga	none
+🧑🏻‍🦯‍➡	kör hasaly adam açyk deri reňki, ýüzi saga	none
+🧑🏼‍🦯‍➡	kör hasaly adam orta açyk deri reňki, ýüzi saga	none
+🧑🏽‍🦯‍➡	kör hasaly adam orta deri reňki, ýüzi saga	none
+🧑🏾‍🦯‍➡	kör hasaly adam orta goýy deri reňki, ýüzi saga	none
+🧑🏿‍🦯‍➡	kör hasaly adam goýy deri reňki, ýüzi saga	none
 👨🏻‍🦯	kör hasaly erkek açyk deri reňki	none
 👨🏼‍🦯	kör hasaly erkek orta açyk deri reňki	none
 👨🏽‍🦯	kör hasaly erkek orta deri reňki	none
 👨🏾‍🦯	kör hasaly erkek orta goýy deri reňki	none
 👨🏿‍🦯	kör hasaly erkek goýy deri reňki	none
 👨‍🦯‍➡	kör hasaly erkek ýüzi saga	none
-👨🏻‍🦯‍➡	kör hasaly erkek ýüzi saga	none
-👨🏼‍🦯‍➡	kör hasaly erkek ýüzi saga	none
-👨🏽‍🦯‍➡	kör hasaly erkek ýüzi saga	none
-👨🏾‍🦯‍➡	kör hasaly erkek ýüzi saga	none
-👨🏿‍🦯‍➡	kör hasaly erkek ýüzi saga	none
+👨🏻‍🦯‍➡	kör hasaly erkek açyk deri reňki, ýüzi saga	none
+👨🏼‍🦯‍➡	kör hasaly erkek orta açyk deri reňki, ýüzi saga	none
+👨🏽‍🦯‍➡	kör hasaly erkek orta deri reňki, ýüzi saga	none
+👨🏾‍🦯‍➡	kör hasaly erkek orta goýy deri reňki, ýüzi saga	none
+👨🏿‍🦯‍➡	kör hasaly erkek goýy deri reňki, ýüzi saga	none
 👩🏻‍🦯	kör hasaly zenan açyk deri reňki	none
 👩🏼‍🦯	kör hasaly zenan orta açyk deri reňki	none
 👩🏽‍🦯	kör hasaly zenan orta deri reňki	none
 👩🏾‍🦯	kör hasaly zenan orta goýy deri reňki	none
 👩🏿‍🦯	kör hasaly zenan goýy deri reňki	none
 👩‍🦯‍➡	kör hasaly zenan ýüzi saga	none
-👩🏻‍🦯‍➡	kör hasaly zenan ýüzi saga	none
-👩🏼‍🦯‍➡	kör hasaly zenan ýüzi saga	none
-👩🏽‍🦯‍➡	kör hasaly zenan ýüzi saga	none
-👩🏾‍🦯‍➡	kör hasaly zenan ýüzi saga	none
-👩🏿‍🦯‍➡	kör hasaly zenan ýüzi saga	none
+👩🏻‍🦯‍➡	kör hasaly zenan açyk deri reňki, ýüzi saga	none
+👩🏼‍🦯‍➡	kör hasaly zenan orta açyk deri reňki, ýüzi saga	none
+👩🏽‍🦯‍➡	kör hasaly zenan orta deri reňki, ýüzi saga	none
+👩🏾‍🦯‍➡	kör hasaly zenan orta goýy deri reňki, ýüzi saga	none
+👩🏿‍🦯‍➡	kör hasaly zenan goýy deri reňki, ýüzi saga	none
 🧑🏻‍🦼	motorly arabajykdaky adam açyk deri reňki	none
 🧑🏼‍🦼	motorly arabajykdaky adam orta açyk deri reňki	none
 🧑🏽‍🦼	motorly arabajykdaky adam orta deri reňki	none
 🧑🏾‍🦼	motorly arabajykdaky adam orta goýy deri reňki	none
 🧑🏿‍🦼	motorly arabajykdaky adam goýy deri reňki	none
 🧑‍🦼‍➡	motorly arabajykdaky adam ýüzi saga	none
-🧑🏻‍🦼‍➡	motorly arabajykdaky adam ýüzi saga	none
-🧑🏼‍🦼‍➡	motorly arabajykdaky adam ýüzi saga	none
-🧑🏽‍🦼‍➡	motorly arabajykdaky adam ýüzi saga	none
-🧑🏾‍🦼‍➡	motorly arabajykdaky adam ýüzi saga	none
-🧑🏿‍🦼‍➡	motorly arabajykdaky adam ýüzi saga	none
+🧑🏻‍🦼‍➡	motorly arabajykdaky adam açyk deri reňki, ýüzi saga	none
+🧑🏼‍🦼‍➡	motorly arabajykdaky adam orta açyk deri reňki, ýüzi saga	none
+🧑🏽‍🦼‍➡	motorly arabajykdaky adam orta deri reňki, ýüzi saga	none
+🧑🏾‍🦼‍➡	motorly arabajykdaky adam orta goýy deri reňki, ýüzi saga	none
+🧑🏿‍🦼‍➡	motorly arabajykdaky adam goýy deri reňki, ýüzi saga	none
 👨🏻‍🦼	motorly maýyp arabasynda erkek açyk deri reňki	none
 👨🏼‍🦼	motorly maýyp arabasynda erkek orta açyk deri reňki	none
 👨🏽‍🦼	motorly maýyp arabasynda erkek orta deri reňki	none
 👨🏾‍🦼	motorly maýyp arabasynda erkek orta goýy deri reňki	none
 👨🏿‍🦼	motorly maýyp arabasynda erkek goýy deri reňki	none
 👨‍🦼‍➡	motorly maýyp arabasynda erkek ýüzi saga	none
-👨🏻‍🦼‍➡	motorly maýyp arabasynda erkek ýüzi saga	none
-👨🏼‍🦼‍➡	motorly maýyp arabasynda erkek ýüzi saga	none
-👨🏽‍🦼‍➡	motorly maýyp arabasynda erkek ýüzi saga	none
-👨🏾‍🦼‍➡	motorly maýyp arabasynda erkek ýüzi saga	none
-👨🏿‍🦼‍➡	motorly maýyp arabasynda erkek ýüzi saga	none
+👨🏻‍🦼‍➡	motorly maýyp arabasynda erkek açyk deri reňki, ýüzi saga	none
+👨🏼‍🦼‍➡	motorly maýyp arabasynda erkek orta açyk deri reňki, ýüzi saga	none
+👨🏽‍🦼‍➡	motorly maýyp arabasynda erkek orta deri reňki, ýüzi saga	none
+👨🏾‍🦼‍➡	motorly maýyp arabasynda erkek orta goýy deri reňki, ýüzi saga	none
+👨🏿‍🦼‍➡	motorly maýyp arabasynda erkek goýy deri reňki, ýüzi saga	none
 👩🏻‍🦼	motorly maýyp arabasynda zenan açyk deri reňki	none
 👩🏼‍🦼	motorly maýyp arabasynda zenan orta açyk deri reňki	none
 👩🏽‍🦼	motorly maýyp arabasynda zenan orta deri reňki	none
 👩🏾‍🦼	motorly maýyp arabasynda zenan orta goýy deri reňki	none
 👩🏿‍🦼	motorly maýyp arabasynda zenan goýy deri reňki	none
 👩‍🦼‍➡	motorly maýyp arabasynda zenan ýüzi saga	none
-👩🏻‍🦼‍➡	motorly maýyp arabasynda zenan ýüzi saga	none
-👩🏼‍🦼‍➡	motorly maýyp arabasynda zenan ýüzi saga	none
-👩🏽‍🦼‍➡	motorly maýyp arabasynda zenan ýüzi saga	none
-👩🏾‍🦼‍➡	motorly maýyp arabasynda zenan ýüzi saga	none
-👩🏿‍🦼‍➡	motorly maýyp arabasynda zenan ýüzi saga	none
+👩🏻‍🦼‍➡	motorly maýyp arabasynda zenan açyk deri reňki, ýüzi saga	none
+👩🏼‍🦼‍➡	motorly maýyp arabasynda zenan orta açyk deri reňki, ýüzi saga	none
+👩🏽‍🦼‍➡	motorly maýyp arabasynda zenan orta deri reňki, ýüzi saga	none
+👩🏾‍🦼‍➡	motorly maýyp arabasynda zenan orta goýy deri reňki, ýüzi saga	none
+👩🏿‍🦼‍➡	motorly maýyp arabasynda zenan goýy deri reňki, ýüzi saga	none
 🧑🏻‍🦽	el bilen işleýän tigirçekli oturgyçdaky adam açyk deri reňki	none
 🧑🏼‍🦽	el bilen işleýän tigirçekli oturgyçdaky adam orta açyk deri reňki	none
 🧑🏽‍🦽	el bilen işleýän tigirçekli oturgyçdaky adam orta deri reňki	none
 🧑🏾‍🦽	el bilen işleýän tigirçekli oturgyçdaky adam orta goýy deri reňki	none
 🧑🏿‍🦽	el bilen işleýän tigirçekli oturgyçdaky adam goýy deri reňki	none
 🧑‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam ýüzi saga	none
-🧑🏻‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam ýüzi saga	none
-🧑🏼‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam ýüzi saga	none
-🧑🏽‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam ýüzi saga	none
-🧑🏾‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam ýüzi saga	none
-🧑🏿‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam ýüzi saga	none
+🧑🏻‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam açyk deri reňki, ýüzi saga	none
+🧑🏼‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam orta açyk deri reňki, ýüzi saga	none
+🧑🏽‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam orta deri reňki, ýüzi saga	none
+🧑🏾‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam orta goýy deri reňki, ýüzi saga	none
+🧑🏿‍🦽‍➡	el bilen işleýän tigirçekli oturgyçdaky adam goýy deri reňki, ýüzi saga	none
 👨🏻‍🦽	el maýyp arabasynda erkek açyk deri reňki	none
 👨🏼‍🦽	el maýyp arabasynda erkek orta açyk deri reňki	none
 👨🏽‍🦽	el maýyp arabasynda erkek orta deri reňki	none
 👨🏾‍🦽	el maýyp arabasynda erkek orta goýy deri reňki	none
 👨🏿‍🦽	el maýyp arabasynda erkek goýy deri reňki	none
 👨‍🦽‍➡	el maýyp arabasynda erkek ýüzi saga	none
-👨🏻‍🦽‍➡	el maýyp arabasynda erkek ýüzi saga	none
-👨🏼‍🦽‍➡	el maýyp arabasynda erkek ýüzi saga	none
-👨🏽‍🦽‍➡	el maýyp arabasynda erkek ýüzi saga	none
-👨🏾‍🦽‍➡	el maýyp arabasynda erkek ýüzi saga	none
-👨🏿‍🦽‍➡	el maýyp arabasynda erkek ýüzi saga	none
+👨🏻‍🦽‍➡	el maýyp arabasynda erkek açyk deri reňki, ýüzi saga	none
+👨🏼‍🦽‍➡	el maýyp arabasynda erkek orta açyk deri reňki, ýüzi saga	none
+👨🏽‍🦽‍➡	el maýyp arabasynda erkek orta deri reňki, ýüzi saga	none
+👨🏾‍🦽‍➡	el maýyp arabasynda erkek orta goýy deri reňki, ýüzi saga	none
+👨🏿‍🦽‍➡	el maýyp arabasynda erkek goýy deri reňki, ýüzi saga	none
 👩🏻‍🦽	el maýyp arabasynda zenan açyk deri reňki	none
 👩🏼‍🦽	el maýyp arabasynda zenan orta açyk deri reňki	none
 👩🏽‍🦽	el maýyp arabasynda zenan orta deri reňki	none
 👩🏾‍🦽	el maýyp arabasynda zenan orta goýy deri reňki	none
 👩🏿‍🦽	el maýyp arabasynda zenan goýy deri reňki	none
 👩‍🦽‍➡	el maýyp arabasynda zenan ýüzi saga	none
-👩🏻‍🦽‍➡	el maýyp arabasynda zenan ýüzi saga	none
-👩🏼‍🦽‍➡	el maýyp arabasynda zenan ýüzi saga	none
-👩🏽‍🦽‍➡	el maýyp arabasynda zenan ýüzi saga	none
-👩🏾‍🦽‍➡	el maýyp arabasynda zenan ýüzi saga	none
-👩🏿‍🦽‍➡	el maýyp arabasynda zenan ýüzi saga	none
+👩🏻‍🦽‍➡	el maýyp arabasynda zenan açyk deri reňki, ýüzi saga	none
+👩🏼‍🦽‍➡	el maýyp arabasynda zenan orta açyk deri reňki, ýüzi saga	none
+👩🏽‍🦽‍➡	el maýyp arabasynda zenan orta deri reňki, ýüzi saga	none
+👩🏾‍🦽‍➡	el maýyp arabasynda zenan orta goýy deri reňki, ýüzi saga	none
+👩🏿‍🦽‍➡	el maýyp arabasynda zenan goýy deri reňki, ýüzi saga	none
 🏃🏻	ylgap barýan adam açyk deri reňki	none
 🏃🏼	ylgap barýan adam orta açyk deri reňki	none
 🏃🏽	ylgap barýan adam orta deri reňki	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	ylgap barýan zenan orta goýy deri reňki	none
 🏃🏿‍♀	ylgap barýan zenan goýy deri reňki	none
 🏃‍➡	ylgap barýan adam ýüzi saga	none
-🏃🏻‍➡	ylgap barýan adam ýüzi saga	none
-🏃🏼‍➡	ylgap barýan adam ýüzi saga	none
-🏃🏽‍➡	ylgap barýan adam ýüzi saga	none
-🏃🏾‍➡	ylgap barýan adam ýüzi saga	none
-🏃🏿‍➡	ylgap barýan adam ýüzi saga	none
+🏃🏻‍➡	ylgap barýan adam açyk deri reňki, ýüzi saga	none
+🏃🏼‍➡	ylgap barýan adam orta açyk deri reňki, ýüzi saga	none
+🏃🏽‍➡	ylgap barýan adam orta deri reňki, ýüzi saga	none
+🏃🏾‍➡	ylgap barýan adam orta goýy deri reňki, ýüzi saga	none
+🏃🏿‍➡	ylgap barýan adam goýy deri reňki, ýüzi saga	none
 🏃‍♀‍➡	ylgap barýan zenan ýüzi saga	none
-🏃🏻‍♀‍➡	ylgap barýan zenan ýüzi saga	none
-🏃🏼‍♀‍➡	ylgap barýan zenan ýüzi saga	none
-🏃🏽‍♀‍➡	ylgap barýan zenan ýüzi saga	none
-🏃🏾‍♀‍➡	ylgap barýan zenan ýüzi saga	none
-🏃🏿‍♀‍➡	ylgap barýan zenan ýüzi saga	none
+🏃🏻‍♀‍➡	ylgap barýan zenan açyk deri reňki, ýüzi saga	none
+🏃🏼‍♀‍➡	ylgap barýan zenan orta açyk deri reňki, ýüzi saga	none
+🏃🏽‍♀‍➡	ylgap barýan zenan orta deri reňki, ýüzi saga	none
+🏃🏾‍♀‍➡	ylgap barýan zenan orta goýy deri reňki, ýüzi saga	none
+🏃🏿‍♀‍➡	ylgap barýan zenan goýy deri reňki, ýüzi saga	none
 🏃‍♂‍➡	ylgap barýan erkek ýüzi saga	none
-🏃🏻‍♂‍➡	ylgap barýan erkek ýüzi saga	none
-🏃🏼‍♂‍➡	ylgap barýan erkek ýüzi saga	none
-🏃🏽‍♂‍➡	ylgap barýan erkek ýüzi saga	none
-🏃🏾‍♂‍➡	ylgap barýan erkek ýüzi saga	none
-🏃🏿‍♂‍➡	ylgap barýan erkek ýüzi saga	none
+🏃🏻‍♂‍➡	ylgap barýan erkek açyk deri reňki, ýüzi saga	none
+🏃🏼‍♂‍➡	ylgap barýan erkek orta açyk deri reňki, ýüzi saga	none
+🏃🏽‍♂‍➡	ylgap barýan erkek orta deri reňki, ýüzi saga	none
+🏃🏾‍♂‍➡	ylgap barýan erkek orta goýy deri reňki, ýüzi saga	none
+🏃🏿‍♂‍➡	ylgap barýan erkek goýy deri reňki, ýüzi saga	none
+🧑🏻‍🩰	balerina açyk deri reňki	none
+🧑🏼‍🩰	balerina orta açyk deri reňki	none
+🧑🏽‍🩰	balerina orta deri reňki	none
+🧑🏾‍🩰	balerina orta goýy deri reňki	none
+🧑🏿‍🩰	balerina goýy deri reňki	none
 💃🏻	tans edýän zenan açyk deri reňki	none
 💃🏼	tans edýän zenan orta açyk deri reňki	none
 💃🏽	tans edýän zenan orta deri reňki	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	kostýum-balakly ýokary galyp barýan kişi orta deri reňki	none
 🕴🏾	kostýum-balakly ýokary galyp barýan kişi orta goýy deri reňki	none
 🕴🏿	kostýum-balakly ýokary galyp barýan kişi goýy deri reňki	none
+👯🏻	towşan gulakly adamlar açyk deri reňki	none
+👯🏼	towşan gulakly adamlar orta açyk deri reňki	none
+👯🏽	towşan gulakly adamlar orta deri reňki	none
+👯🏾	towşan gulakly adamlar orta goýy deri reňki	none
+👯🏿	towşan gulakly adamlar goýy deri reňki	none
+👯🏻‍♂	towşan gulakly erkekler açyk deri reňki	none
+👯🏼‍♂	towşan gulakly erkekler orta açyk deri reňki	none
+👯🏽‍♂	towşan gulakly erkekler orta deri reňki	none
+👯🏾‍♂	towşan gulakly erkekler orta goýy deri reňki	none
+👯🏿‍♂	towşan gulakly erkekler goýy deri reňki	none
+👯🏻‍♀	towşan gulakly zenanlar açyk deri reňki	none
+👯🏼‍♀	towşan gulakly zenanlar orta açyk deri reňki	none
+👯🏽‍♀	towşan gulakly zenanlar orta deri reňki	none
+👯🏾‍♀	towşan gulakly zenanlar orta goýy deri reňki	none
+👯🏿‍♀	towşan gulakly zenanlar goýy deri reňki	none
 🧖🏻	bug otagyndaky adam açyk deri reňki	none
 🧖🏼	bug otagyndaky adam orta açyk deri reňki	none
 🧖🏽	bug otagyndaky adam orta deri reňki	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	ýanyn aşyr atýan zenan orta deri reňki	none
 🤸🏾‍♀	ýanyn aşyr atýan zenan orta goýy deri reňki	none
 🤸🏿‍♀	ýanyn aşyr atýan zenan goýy deri reňki	none
+🤼🏻	göreş tutýan adamlar açyk deri reňki	none
+🤼🏼	göreş tutýan adamlar orta açyk deri reňki	none
+🤼🏽	göreş tutýan adamlar orta deri reňki	none
+🤼🏾	göreş tutýan adamlar orta goýy deri reňki	none
+🤼🏿	göreş tutýan adamlar goýy deri reňki	none
+🤼🏻‍♂	göreş tutýan erkekler açyk deri reňki	none
+🤼🏼‍♂	göreş tutýan erkekler orta açyk deri reňki	none
+🤼🏽‍♂	göreş tutýan erkekler orta deri reňki	none
+🤼🏾‍♂	göreş tutýan erkekler orta goýy deri reňki	none
+🤼🏿‍♂	göreş tutýan erkekler goýy deri reňki	none
+🤼🏻‍♀	göreş tutýan zenanlar açyk deri reňki	none
+🤼🏼‍♀	göreş tutýan zenanlar orta açyk deri reňki	none
+🤼🏽‍♀	göreş tutýan zenanlar orta deri reňki	none
+🤼🏾‍♀	göreş tutýan zenanlar orta goýy deri reňki	none
+🤼🏿‍♀	göreş tutýan zenanlar goýy deri reňki	none
 🤽🏻	suw polo oýnaýan adam açyk deri reňki	none
 🤽🏼	suw polo oýnaýan adam orta açyk deri reňki	none
 🤽🏽	suw polo oýnaýan adam orta deri reňki	none
@@ -3812,6 +3982,7 @@ symbols:
 🇨🇳	baýdak Hytaý	none
 🇨🇴	baýdak Kolumbiýa	none
 🇨🇵	baýdak Klipperton adasy	none
+🇨🇶	baýdak Sark	none
 🇨🇷	baýdak Kosta-Rika	none
 🇨🇺	baýdak Kuba	none
 🇨🇻	baýdak Kabo-Werde	none

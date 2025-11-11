@@ -140,48 +140,28 @@ symbols:
 ⪍	menor que sobre aproximadamente igual	none
 ⪚	igual sobre mayor que	none
 ⪺	sucede sobre no casi iguales	none
-😀	cara sonriendo	none
-😃	cara sonriendo con ojos grandes	none
-😄	cara sonriendo con ojos sonrientes	none
-😁	cara radiante con ojos sonrientes	none
-😆	cara sonriendo con los ojos cerrados	none
-😅	cara sonriendo con sudor frío	none
 😂	cara llorando de felicidad	none
-🙂	cara sonriendo ligeramente	none
-😉	cara guiñando el ojo	none
-😊	cara feliz con ojos sonrientes	none
-😋	cara saboreando comida	none
 😝	cara con ojos cerrados y sacando la lengua	none
 🙄	cara con ojos en blanco	none
 🙂‍↔	cabeza moviéndose horizontalmente	none
 🙂‍↕	cabeza moviéndose verticalmente	none
 😷	cara con mascarilla médica	none
-🤕	cara con la cabeza vendada	none
-🤧	cara estornudando	none
 🥵	cara de calor	none
 🥶	cara de frío	none
 🥴	cara de mareo	none
-😵	cara mareada	none
 😟	cara preocupada	none
 🥺	cara de súplica	none
 😦	cara con el ceño fruncido y la boca abierta	none
 😧	cara angustiada	none
 😨	cara asustada	none
-😢	cara llorando	none
-😱	cara gritando de miedo	none
 😞	cara decepcionada	none
-😩	cara agotada	none
-😤	cara resoplando	none
 😡	cara de enojo	none
-😠	cara enfadada	none
 😈	cara malvada sonriendo con cuernos	none
 👿	cara malvada enfadada con cuernos	none
 💀	calavera	none
 ☠	calavera y huesos cruzados	none
 💩	caca con ojos	none
 👹	demonio japonés oni	none
-👽	alienígena	none
-👾	monstruo alienígena	none
 🤖	cara de robot	none
 😺	cara de gato sonriendo	none
 😹	cara de gato llorando de risa	none
@@ -193,17 +173,12 @@ symbols:
 🙈	mono con los ojos tapados	none
 🙉	mono con los oídos tapados	none
 🙊	mono con la boca tapada	none
-💝	corazón con lazo	none
-💗	corazón creciente	none
-💓	corazón latiendo	none
 💞	corazones giratorios	none
-💟	adorno de corazón	none
 🩵	corazón azul claro	none
 🤎	corazón café	none
 💢	símbolo de enfado	none
 💫	símbolo de mareo	none
 👁‍🗨	ojo en un globo de texto	none
-🤚	dorso de la mano	none
 👌	señal de aprobación con la mano	none
 🤌	dedos unidos	none
 ✌	mano con señal de victoria	none
@@ -225,9 +200,6 @@ symbols:
 🧒	joven	none
 🧑	persona	none
 🧓	persona mayor	none
-🙍‍♀	mujer frunciendo el ceño	none
-🙅	persona haciendo el gesto de "no"	none
-🙆	persona haciendo el gesto de "de acuerdo"	none
 🧑‍🏫	maestro	none
 🧑‍⚖	juez	none
 🧑‍🌾	granjero	none
@@ -251,8 +223,6 @@ symbols:
 🧖	persona en sauna	none
 🧖‍♂	hombre en sauna	none
 🧖‍♀	mujer en sauna	none
-🏌	persona jugando al golf	none
-🏄	persona haciendo surf	none
 🚣‍♂	hombre remando	none
 🚣‍♀	mujer remando	none
 ⛹	persona botando un balón	none
@@ -267,7 +237,7 @@ symbols:
 🦨	zorrillo	none
 🐦‍⬛	ave negra	none
 🐚	caracol marino	none
-🪷	loto	none
+🦪	ostión	none
 🪴	planta en una maceta	none
 🍌	plátano	none
 🌶	chile picante	none
@@ -275,16 +245,13 @@ symbols:
 🥬	verdura de hoja	none
 🥜	cacahuate	none
 🍄‍🟫	hongo marrón	none
+🫜	vegetal de raíz	none
 🫓	pan plano	none
 🧇	waffle	none
 🌭	perro caliente	none
 🥣	tazón con cuchara	none
 🥟	empanada	none
-🦞	langosta	none
-🦪	ostión	none
 🍦	helado en barquillo	none
-🎂	pastel de cumpleaños	none
-🍰	rebanada de pastel	none
 🧁	pastelito	none
 🥧	pay	none
 🫗	líquido derramándose	none
@@ -301,7 +268,6 @@ symbols:
 🚙	vehículo utilitario deportivo	none
 🚛	trailer	none
 🏎	auto de carreras	none
-🛵	motoneta	none
 🛴	patín del diablo	none
 🛹	patineta	none
 🛼	patín	none
@@ -318,7 +284,6 @@ symbols:
 🧸	oso de peluche	none
 🪆	muñecas rusas	none
 ♟	peón (ajedrez)	none
-🕶	lentes de sol	none
 🥽	goggles	none
 👖	pantalones de mezclilla	none
 🩳	shorts	none
@@ -336,7 +301,6 @@ symbols:
 🔊	bocina a volumen alto	none
 📢	altavoz	none
 🎼	partitura	none
-🎧	audífonos	none
 📲	flecha apuntado a teléfono celular	none
 ☎	teléfono fijo	none
 📟	bíper	none
@@ -344,10 +308,8 @@ symbols:
 🎥	cámara de video	none
 📺	televisión	none
 📼	videocasete	none
-💡	foco	none
 📃	página doblada	none
 ✒	pluma de lapicera	none
-🗑	papelera	none
 🗜	abrazadera	none
 🧫	placa de Petri	none
 🧬	ADN	none
@@ -383,15 +345,9 @@ symbols:
 ™	marca registrada	none
 🟤	círculo café	none
 🟫	cuadrado café	none
-🔹	diamante azul pequeño	none
 💠	diamante en flor	none
 🚩	banderín triangular	none
 ₥	mil	none
-🤚🏻	dorso de la mano tono de piel claro	none
-🤚🏼	dorso de la mano tono de piel claro medio	none
-🤚🏽	dorso de la mano tono de piel medio	none
-🤚🏾	dorso de la mano tono de piel oscuro medio	none
-🤚🏿	dorso de la mano tono de piel oscuro	none
 👌🏻	señal de aprobación con la mano tono de piel claro	none
 👌🏼	señal de aprobación con la mano tono de piel claro medio	none
 👌🏽	señal de aprobación con la mano tono de piel medio	none
@@ -701,21 +657,6 @@ symbols:
 🧓🏽	persona mayor tono de piel medio	none
 🧓🏾	persona mayor tono de piel oscuro medio	none
 🧓🏿	persona mayor tono de piel oscuro	none
-🙍🏻‍♀	mujer frunciendo el ceño tono de piel claro	none
-🙍🏼‍♀	mujer frunciendo el ceño tono de piel claro medio	none
-🙍🏽‍♀	mujer frunciendo el ceño tono de piel medio	none
-🙍🏾‍♀	mujer frunciendo el ceño tono de piel oscuro medio	none
-🙍🏿‍♀	mujer frunciendo el ceño tono de piel oscuro	none
-🙅🏻	persona haciendo el gesto de "no" tono de piel claro	none
-🙅🏼	persona haciendo el gesto de "no" tono de piel claro medio	none
-🙅🏽	persona haciendo el gesto de "no" tono de piel medio	none
-🙅🏾	persona haciendo el gesto de "no" tono de piel oscuro medio	none
-🙅🏿	persona haciendo el gesto de "no" tono de piel oscuro	none
-🙆🏻	persona haciendo el gesto de "de acuerdo" tono de piel claro	none
-🙆🏼	persona haciendo el gesto de "de acuerdo" tono de piel claro medio	none
-🙆🏽	persona haciendo el gesto de "de acuerdo" tono de piel medio	none
-🙆🏾	persona haciendo el gesto de "de acuerdo" tono de piel oscuro medio	none
-🙆🏿	persona haciendo el gesto de "de acuerdo" tono de piel oscuro	none
 🧑🏻‍🏫	maestro tono de piel claro	none
 🧑🏼‍🏫	maestro tono de piel claro medio	none
 🧑🏽‍🏫	maestro tono de piel medio	none
@@ -802,11 +743,11 @@ symbols:
 🧑🏾‍🦯	Persona con bastón blanco tono de piel oscuro medio	none
 🧑🏿‍🦯	Persona con bastón blanco tono de piel oscuro	none
 🧑‍🦯‍➡	Persona con bastón blanco hacia la derecha	none
-🧑🏻‍🦯‍➡	Persona con bastón blanco hacia la derecha	none
-🧑🏼‍🦯‍➡	Persona con bastón blanco hacia la derecha	none
-🧑🏽‍🦯‍➡	Persona con bastón blanco hacia la derecha	none
-🧑🏾‍🦯‍➡	Persona con bastón blanco hacia la derecha	none
-🧑🏿‍🦯‍➡	Persona con bastón blanco hacia la derecha	none
+🧑🏻‍🦯‍➡	Persona con bastón blanco tono de piel claro y hacia la derecha	none
+🧑🏼‍🦯‍➡	Persona con bastón blanco tono de piel claro medio y hacia la derecha	none
+🧑🏽‍🦯‍➡	Persona con bastón blanco tono de piel medio y hacia la derecha	none
+🧑🏾‍🦯‍➡	Persona con bastón blanco tono de piel oscuro medio y hacia la derecha	none
+🧑🏿‍🦯‍➡	Persona con bastón blanco tono de piel oscuro y hacia la derecha	none
 💃🏻	bailarina tono de piel claro	none
 💃🏼	bailarina tono de piel claro medio	none
 💃🏽	bailarina tono de piel medio	none
@@ -832,16 +773,6 @@ symbols:
 🧖🏽‍♀	mujer en sauna tono de piel medio	none
 🧖🏾‍♀	mujer en sauna tono de piel oscuro medio	none
 🧖🏿‍♀	mujer en sauna tono de piel oscuro	none
-🏌🏻	persona jugando al golf tono de piel claro	none
-🏌🏼	persona jugando al golf tono de piel claro medio	none
-🏌🏽	persona jugando al golf tono de piel medio	none
-🏌🏾	persona jugando al golf tono de piel oscuro medio	none
-🏌🏿	persona jugando al golf tono de piel oscuro	none
-🏄🏻	persona haciendo surf tono de piel claro	none
-🏄🏼	persona haciendo surf tono de piel claro medio	none
-🏄🏽	persona haciendo surf tono de piel medio	none
-🏄🏾	persona haciendo surf tono de piel oscuro medio	none
-🏄🏿	persona haciendo surf tono de piel oscuro	none
 🚣🏻‍♂	hombre remando tono de piel claro	none
 🚣🏼‍♂	hombre remando tono de piel claro medio	none
 🚣🏽‍♂	hombre remando tono de piel medio	none
@@ -899,10 +830,8 @@ symbols:
 👨‍❤‍👨	hombre y mujer enamorados hombre y hombre	none
 👩‍❤‍👩	hombre y mujer enamorados mujer y mujer	none
 🔟	tecla 10	none
-🇧🇦	bandera Bosnia y Herzegovina	none
-🇨🇮	bandera Côte d’Ivoire	none
-🇬🇬	bandera Guernsey	none
-🇸🇿	bandera Eswatini	none
-🇺🇲	bandera Islas menores alejadas de EE. UU.	none
-₫	dong vietnamita	none
-₭	kip laosiano	none
+🇧🇦	Bandera Bosnia y Herzegovina	none
+🇨🇮	Bandera Côte d’Ivoire	none
+🇬🇬	Bandera Guernsey	none
+🇸🇿	Bandera Eswatini	none
+🇺🇲	Bandera Islas menores alejadas de EE. UU.	none

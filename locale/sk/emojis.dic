@@ -321,6 +321,7 @@ symbols:
 😪	ospalá tvár	none
 🤤	slintajúca tvár	none
 😴	spiaca tvár	none
+🫩	tvár s kruhmi pod očami	none
 😷	tvár s rúškom	none
 🤒	tvár s teplomerom	none
 🤕	tvár s obväzom	none
@@ -348,6 +349,7 @@ symbols:
 😯	umlčaná tvár	none
 😲	udivená tvár	none
 😳	zapýrená tvár	none
+🫪	zdeformovaná tvár	none
 🥺	prosebná tvár	none
 🥹	tvár zadržujúca slzy	none
 😦	zamračená tvár s otvorenými ústami	none
@@ -421,6 +423,7 @@ symbols:
 💋	odtlačok pier	none
 💯	sto bodov	none
 💢	symbol hnevu	none
+🫯	oblak bitky	none
 💥	zrážka	none
 💫	mám závrat	none
 💦	kvapky potu	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	mužská zombia	none
 🧟‍♀	ženská zombia	none
 🧌	obor	none
+🫈	chlpaté stvorenie	none
 💆	masáž tváre	none
 💆‍♂	muž dostáva masáž tváre	none
 💆‍♀	žena dostáva masáž tváre	none
@@ -680,6 +684,7 @@ symbols:
 🏃	bežiaci človek	none
 🏃‍♂	bežec	none
 🏃‍♀	bežkyňa	none
+🧑‍🩰	baletka	none
 💃	tanečníčka	none
 🕺	tanečník	none
 🕴	levitujúci muž v saku	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	rodina dospelý, dieťa	none
 🧑‍🧒‍🧒	rodina dospelý, dieťa, dieťa	none
 👣	stopy	none
+🫆	odtlačok prsta	none
 🦰	ryšavé vlasy	none
 🦱	kučeravé vlasy	none
 🦳	sivé vlasy	none
@@ -860,6 +866,7 @@ symbols:
 🐳	veľryba s gejzírom	none
 🐋	veľryba	none
 🐬	delfín	none
+🫍	kosatka	none
 🦭	uškatec	none
 🐟	ryba	none
 🐠	tropická ryba	none
@@ -869,6 +876,11 @@ symbols:
 🐚	špirálovitá mušľa	none
 🪸	koral	none
 🪼	medúza	none
+🦀	krab	none
+🦞	homár	none
+🦐	kreveta	none
+🦑	kalmár	none
+🦪	ustrica	none
 🐌	slimák	none
 🦋	motýľ	none
 🐛	húsenica	none
@@ -913,6 +925,7 @@ symbols:
 🪹	prázdne hniezdo	none
 🪺	hniezdo s vajcami	none
 🍄	huba	none
+🪾	strom bez listov	none
 🍇	hrozno	none
 🍈	cukrový melón	none
 🍉	melón	none
@@ -951,6 +964,7 @@ symbols:
 🫚	koreň ďumbiera	none
 🫛	hrachový struk	none
 🍄‍🟫	hnedý hríb	none
+🫜	koreňová zelenina	none
 🍞	chlieb	none
 🥐	croissant	none
 🥖	bageta	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	knedlička	none
 🥠	sušienka s predpoveďou	none
 🥡	rýchle občerstvenie	none
-🦀	krab	none
-🦞	homár	none
-🦐	kreveta	none
-🦑	kalmár	none
-🦪	ustrica	none
 🍦	točená zmrzlina	none
 🍧	mrazená dreň	none
 🍨	zmrzlina	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	kompas	none
 🏔	zasnežený vrch	none
 ⛰	vrch	none
+🛘	zosuv pôdy	none
 🌋	sopka	none
 🗻	Fudžisan	none
 🏕	stanovanie	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	slúchadlá	none
 📻	rádio	none
 🎷	saxofón	none
+🎺	trúbka	none
+🪊	trombón	none
 🪗	akordeón	none
 🎸	gitara	none
 🎹	klávesy	none
-🎺	trúbka	none
 🎻	husle	none
 🪕	bendžo	none
 🥁	bubon	none
 🪘	kongo	none
 🪇	rumbagule	none
 🪈	píšťalka	none
+🪉	harfa	none
 📱	mobil	none
 📲	mobil so šípkou	none
 ☎	telefón	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	záložky	none
 🔖	záložka	none
 🏷	štítok	none
-💰	mešec peňazí	none
 🪙	minca	none
+💰	mešec peňazí	none
+🪎	truhlica s pokladom	none
 💴	jenová bankovka	none
 💵	dolárová bankovka	none
 💶	eurová bankovka	none
@@ -1565,10 +1578,11 @@ symbols:
 🧰	kufrík na náradie	none
 🧲	magnet	none
 🪜	rebrík	none
+🪏	lopata	none
 ⚗	krivuľa	none
 🧪	skúmavka	none
 🧫	Petriho miska	none
-🧬	skrutkovica	none
+🧬	dna	none
 🔬	mikroskop	none
 🔭	ďalekohľad	none
 📡	satelitná anténa	none
@@ -1592,7 +1606,7 @@ symbols:
 🛁	vaňa	none
 🪤	pasca na myši	none
 🪒	britva	none
-🧴	vodička	none
+🧴	fľaštička krému	none
 🧷	spínací špendlík	none
 🧹	metla	none
 🧺	kôš	none
@@ -1636,7 +1650,7 @@ symbols:
 🚱	nepitná voda	none
 🚷	zákaz chodcov	none
 📵	zákaz mobilov	none
-🔞	zákaz vstupu osobám mladším ako osemnásť rokov	none
+🔞	zákaz vstupu do osemnásť rokov	none
 ☢	rádioaktivita	none
 ☣	biologické riziko	none
 ⬆	šípka nahor	none
@@ -1655,7 +1669,7 @@ symbols:
 ⤴	šípka doprava zakrivená nahor	none
 ⤵	šípka doprava zakrivená nadol	none
 🔃	zvislé šípky v smere hodinových ručičiek	none
-🔄	tlačidlo so šípkami proti smeru hodinových ručičiek	none
+🔄	šípky proti smeru hodinových ručičiek	none
 🔙	šípka BACK	none
 🔚	šípka END	none
 🔛	šípka ON!	none
@@ -1745,6 +1759,7 @@ symbols:
 ✴	osemcípa hviezda	none
 ❇	iskra	none
 ™	obchodná známka	none
+🫟	machuľa	none
 🔠	zadávanie veľkých písmen latinky	none
 🔡	zadávanie malých písmen latinky	none
 🔢	zadávanie čísel	none
@@ -2159,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	pár so srdcom dospelý, dospelý, tmavý tón pleti, stredne svetlý tón pleti	none
 🧑🏿‍❤‍🧑🏽	pár so srdcom dospelý, dospelý, tmavý tón pleti, stredný tón pleti	none
 🧑🏿‍❤‍🧑🏾	pár so srdcom dospelý, dospelý, tmavý tón pleti, stredne tmavý tón pleti	none
+🧑🏻‍🫯‍🧑🏼	zápasiaci ľudia svetlý tón pleti, stredne svetlý tón pleti	none
+🧑🏻‍🫯‍🧑🏽	zápasiaci ľudia svetlý tón pleti, stredný tón pleti	none
+🧑🏻‍🫯‍🧑🏾	zápasiaci ľudia svetlý tón pleti, stredne tmavý tón pleti	none
+🧑🏻‍🫯‍🧑🏿	zápasiaci ľudia svetlý tón pleti, tmavý tón pleti	none
+🧑🏼‍🫯‍🧑🏻	zápasiaci ľudia stredne svetlý tón pleti, svetlý tón pleti	none
+🧑🏼‍🫯‍🧑🏽	zápasiaci ľudia stredne svetlý tón pleti, stredný tón pleti	none
+🧑🏼‍🫯‍🧑🏾	zápasiaci ľudia stredne svetlý tón pleti, stredne tmavý tón pleti	none
+🧑🏼‍🫯‍🧑🏿	zápasiaci ľudia stredne svetlý tón pleti, tmavý tón pleti	none
+🧑🏽‍🫯‍🧑🏻	zápasiaci ľudia stredný tón pleti, svetlý tón pleti	none
+🧑🏽‍🫯‍🧑🏼	zápasiaci ľudia stredný tón pleti, stredne svetlý tón pleti	none
+🧑🏽‍🫯‍🧑🏾	zápasiaci ľudia stredný tón pleti, stredne tmavý tón pleti	none
+🧑🏽‍🫯‍🧑🏿	zápasiaci ľudia stredný tón pleti, tmavý tón pleti	none
+🧑🏾‍🫯‍🧑🏻	zápasiaci ľudia stredne tmavý tón pleti, svetlý tón pleti	none
+🧑🏾‍🫯‍🧑🏼	zápasiaci ľudia stredne tmavý tón pleti, stredne svetlý tón pleti	none
+🧑🏾‍🫯‍🧑🏽	zápasiaci ľudia stredne tmavý tón pleti, stredný tón pleti	none
+🧑🏾‍🫯‍🧑🏿	zápasiaci ľudia stredne tmavý tón pleti, tmavý tón pleti	none
+🧑🏿‍🫯‍🧑🏻	zápasiaci ľudia tmavý tón pleti, svetlý tón pleti	none
+🧑🏿‍🫯‍🧑🏼	zápasiaci ľudia tmavý tón pleti, stredne svetlý tón pleti	none
+🧑🏿‍🫯‍🧑🏽	zápasiaci ľudia tmavý tón pleti, stredný tón pleti	none
+🧑🏿‍🫯‍🧑🏾	zápasiaci ľudia tmavý tón pleti, stredne tmavý tón pleti	none
 🧑‍🦰	dospelý ryšavé vlasy	none
 🧑🏻‍🦰	dospelý svetlý tón pleti, ryšavé vlasy	none
 🧑🏼‍🦰	dospelý stredne svetlý tón pleti, ryšavé vlasy	none
@@ -2183,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	dospelý stredný tón pleti, holá hlava	none
 🧑🏾‍🦲	dospelý stredne tmavý tón pleti, holá hlava	none
 🧑🏿‍🦲	dospelý tmavý tón pleti, holá hlava	none
+🧑🏻‍🐰‍🧑🏼	ľudia so zajačími ušami svetlý tón pleti, stredne svetlý tón pleti	none
+🧑🏻‍🐰‍🧑🏽	ľudia so zajačími ušami svetlý tón pleti, stredný tón pleti	none
+🧑🏻‍🐰‍🧑🏾	ľudia so zajačími ušami svetlý tón pleti, stredne tmavý tón pleti	none
+🧑🏻‍🐰‍🧑🏿	ľudia so zajačími ušami svetlý tón pleti, tmavý tón pleti	none
+🧑🏼‍🐰‍🧑🏻	ľudia so zajačími ušami stredne svetlý tón pleti, svetlý tón pleti	none
+🧑🏼‍🐰‍🧑🏽	ľudia so zajačími ušami stredne svetlý tón pleti, stredný tón pleti	none
+🧑🏼‍🐰‍🧑🏾	ľudia so zajačími ušami stredne svetlý tón pleti, stredne tmavý tón pleti	none
+🧑🏼‍🐰‍🧑🏿	ľudia so zajačími ušami stredne svetlý tón pleti, tmavý tón pleti	none
+🧑🏽‍🐰‍🧑🏻	ľudia so zajačími ušami stredný tón pleti, svetlý tón pleti	none
+🧑🏽‍🐰‍🧑🏼	ľudia so zajačími ušami stredný tón pleti, stredne svetlý tón pleti	none
+🧑🏽‍🐰‍🧑🏾	ľudia so zajačími ušami stredný tón pleti, stredne tmavý tón pleti	none
+🧑🏽‍🐰‍🧑🏿	ľudia so zajačími ušami stredný tón pleti, tmavý tón pleti	none
+🧑🏾‍🐰‍🧑🏻	ľudia so zajačími ušami stredne tmavý tón pleti, svetlý tón pleti	none
+🧑🏾‍🐰‍🧑🏼	ľudia so zajačími ušami stredne tmavý tón pleti, stredne svetlý tón pleti	none
+🧑🏾‍🐰‍🧑🏽	ľudia so zajačími ušami stredne tmavý tón pleti, stredný tón pleti	none
+🧑🏾‍🐰‍🧑🏿	ľudia so zajačími ušami stredne tmavý tón pleti, tmavý tón pleti	none
+🧑🏿‍🐰‍🧑🏻	ľudia so zajačími ušami tmavý tón pleti, svetlý tón pleti	none
+🧑🏿‍🐰‍🧑🏼	ľudia so zajačími ušami tmavý tón pleti, stredne svetlý tón pleti	none
+🧑🏿‍🐰‍🧑🏽	ľudia so zajačími ušami tmavý tón pleti, stredný tón pleti	none
+🧑🏿‍🐰‍🧑🏾	ľudia so zajačími ušami tmavý tón pleti, stredne tmavý tón pleti	none
 👨🏻	muž svetlý tón pleti	none
 👨🏼	muž stredne svetlý tón pleti	none
 👨🏽	muž stredný tón pleti	none
@@ -2253,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	pár so srdcom muž, muž, tmavý tón pleti, stredný tón pleti	none
 👨🏿‍❤‍👨🏾	pár so srdcom muž, muž, tmavý tón pleti, stredne tmavý tón pleti	none
 👨🏿‍❤‍👨🏿	pár so srdcom muž, muž, tmavý tón pleti	none
+👨🏻‍🫯‍👨🏼	zápasníci svetlý tón pleti, stredne svetlý tón pleti	none
+👨🏻‍🫯‍👨🏽	zápasníci svetlý tón pleti, stredný tón pleti	none
+👨🏻‍🫯‍👨🏾	zápasníci svetlý tón pleti, stredne tmavý tón pleti	none
+👨🏻‍🫯‍👨🏿	zápasníci svetlý tón pleti, tmavý tón pleti	none
+👨🏼‍🫯‍👨🏻	zápasníci stredne svetlý tón pleti, svetlý tón pleti	none
+👨🏼‍🫯‍👨🏽	zápasníci stredne svetlý tón pleti, stredný tón pleti	none
+👨🏼‍🫯‍👨🏾	zápasníci stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👨🏼‍🫯‍👨🏿	zápasníci stredne svetlý tón pleti, tmavý tón pleti	none
+👨🏽‍🫯‍👨🏻	zápasníci stredný tón pleti, svetlý tón pleti	none
+👨🏽‍🫯‍👨🏼	zápasníci stredný tón pleti, stredne svetlý tón pleti	none
+👨🏽‍🫯‍👨🏾	zápasníci stredný tón pleti, stredne tmavý tón pleti	none
+👨🏽‍🫯‍👨🏿	zápasníci stredný tón pleti, tmavý tón pleti	none
+👨🏾‍🫯‍👨🏻	zápasníci stredne tmavý tón pleti, svetlý tón pleti	none
+👨🏾‍🫯‍👨🏼	zápasníci stredne tmavý tón pleti, stredne svetlý tón pleti	none
+👨🏾‍🫯‍👨🏽	zápasníci stredne tmavý tón pleti, stredný tón pleti	none
+👨🏾‍🫯‍👨🏿	zápasníci stredne tmavý tón pleti, tmavý tón pleti	none
+👨🏿‍🫯‍👨🏻	zápasníci tmavý tón pleti, svetlý tón pleti	none
+👨🏿‍🫯‍👨🏼	zápasníci tmavý tón pleti, stredne svetlý tón pleti	none
+👨🏿‍🫯‍👨🏽	zápasníci tmavý tón pleti, stredný tón pleti	none
+👨🏿‍🫯‍👨🏾	zápasníci tmavý tón pleti, stredne tmavý tón pleti	none
 👨‍🦰	muž ryšavé vlasy	none
 👨🏻‍🦰	muž svetlý tón pleti, ryšavé vlasy	none
 👨🏼‍🦰	muž stredne svetlý tón pleti, ryšavé vlasy	none
@@ -2277,6 +2352,26 @@ symbols:
 👨🏽‍🦲	muž stredný tón pleti, holá hlava	none
 👨🏾‍🦲	muž stredne tmavý tón pleti, holá hlava	none
 👨🏿‍🦲	muž tmavý tón pleti, holá hlava	none
+👨🏻‍🐰‍👨🏼	muži so zajačími ušami svetlý tón pleti, stredne svetlý tón pleti	none
+👨🏻‍🐰‍👨🏽	muži so zajačími ušami svetlý tón pleti, stredný tón pleti	none
+👨🏻‍🐰‍👨🏾	muži so zajačími ušami svetlý tón pleti, stredne tmavý tón pleti	none
+👨🏻‍🐰‍👨🏿	muži so zajačími ušami svetlý tón pleti, tmavý tón pleti	none
+👨🏼‍🐰‍👨🏻	muži so zajačími ušami stredne svetlý tón pleti, svetlý tón pleti	none
+👨🏼‍🐰‍👨🏽	muži so zajačími ušami stredne svetlý tón pleti, stredný tón pleti	none
+👨🏼‍🐰‍👨🏾	muži so zajačími ušami stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👨🏼‍🐰‍👨🏿	muži so zajačími ušami stredne svetlý tón pleti, tmavý tón pleti	none
+👨🏽‍🐰‍👨🏻	muži so zajačími ušami stredný tón pleti, svetlý tón pleti	none
+👨🏽‍🐰‍👨🏼	muži so zajačími ušami stredný tón pleti, stredne svetlý tón pleti	none
+👨🏽‍🐰‍👨🏾	muži so zajačími ušami stredný tón pleti, stredne tmavý tón pleti	none
+👨🏽‍🐰‍👨🏿	muži so zajačími ušami stredný tón pleti, tmavý tón pleti	none
+👨🏾‍🐰‍👨🏻	muži so zajačími ušami stredne tmavý tón pleti, svetlý tón pleti	none
+👨🏾‍🐰‍👨🏼	muži so zajačími ušami stredne tmavý tón pleti, stredne svetlý tón pleti	none
+👨🏾‍🐰‍👨🏽	muži so zajačími ušami stredne tmavý tón pleti, stredný tón pleti	none
+👨🏾‍🐰‍👨🏿	muži so zajačími ušami stredne tmavý tón pleti, tmavý tón pleti	none
+👨🏿‍🐰‍👨🏻	muži so zajačími ušami tmavý tón pleti, svetlý tón pleti	none
+👨🏿‍🐰‍👨🏼	muži so zajačími ušami tmavý tón pleti, stredne svetlý tón pleti	none
+👨🏿‍🐰‍👨🏽	muži so zajačími ušami tmavý tón pleti, stredný tón pleti	none
+👨🏿‍🐰‍👨🏾	muži so zajačími ušami tmavý tón pleti, stredne tmavý tón pleti	none
 👩🏻	žena svetlý tón pleti	none
 👩🏼	žena stredne svetlý tón pleti	none
 👩🏽	žena stredný tón pleti	none
@@ -2392,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	pár so srdcom žena, žena, tmavý tón pleti, stredný tón pleti	none
 👩🏿‍❤‍👩🏾	pár so srdcom žena, žena, tmavý tón pleti, stredne tmavý tón pleti	none
 👩🏿‍❤‍👩🏿	pár so srdcom žena, žena, tmavý tón pleti	none
+👩🏻‍🫯‍👩🏼	zápasníčky svetlý tón pleti, stredne svetlý tón pleti	none
+👩🏻‍🫯‍👩🏽	zápasníčky svetlý tón pleti, stredný tón pleti	none
+👩🏻‍🫯‍👩🏾	zápasníčky svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏻‍🫯‍👩🏿	zápasníčky svetlý tón pleti, tmavý tón pleti	none
+👩🏼‍🫯‍👩🏻	zápasníčky stredne svetlý tón pleti, svetlý tón pleti	none
+👩🏼‍🫯‍👩🏽	zápasníčky stredne svetlý tón pleti, stredný tón pleti	none
+👩🏼‍🫯‍👩🏾	zápasníčky stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏼‍🫯‍👩🏿	zápasníčky stredne svetlý tón pleti, tmavý tón pleti	none
+👩🏽‍🫯‍👩🏻	zápasníčky stredný tón pleti, svetlý tón pleti	none
+👩🏽‍🫯‍👩🏼	zápasníčky stredný tón pleti, stredne svetlý tón pleti	none
+👩🏽‍🫯‍👩🏾	zápasníčky stredný tón pleti, stredne tmavý tón pleti	none
+👩🏽‍🫯‍👩🏿	zápasníčky stredný tón pleti, tmavý tón pleti	none
+👩🏾‍🫯‍👩🏻	zápasníčky stredne tmavý tón pleti, svetlý tón pleti	none
+👩🏾‍🫯‍👩🏼	zápasníčky stredne tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏾‍🫯‍👩🏽	zápasníčky stredne tmavý tón pleti, stredný tón pleti	none
+👩🏾‍🫯‍👩🏿	zápasníčky stredne tmavý tón pleti, tmavý tón pleti	none
+👩🏿‍🫯‍👩🏻	zápasníčky tmavý tón pleti, svetlý tón pleti	none
+👩🏿‍🫯‍👩🏼	zápasníčky tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏿‍🫯‍👩🏽	zápasníčky tmavý tón pleti, stredný tón pleti	none
+👩🏿‍🫯‍👩🏾	zápasníčky tmavý tón pleti, stredne tmavý tón pleti	none
 👩‍🦰	žena ryšavé vlasy	none
 👩🏻‍🦰	žena svetlý tón pleti, ryšavé vlasy	none
 👩🏼‍🦰	žena stredne svetlý tón pleti, ryšavé vlasy	none
@@ -2416,6 +2531,26 @@ symbols:
 👩🏽‍🦲	žena stredný tón pleti, holá hlava	none
 👩🏾‍🦲	žena stredne tmavý tón pleti, holá hlava	none
 👩🏿‍🦲	žena tmavý tón pleti, holá hlava	none
+👩🏻‍🐰‍👩🏼	ženy so zajačími ušami svetlý tón pleti, stredne svetlý tón pleti	none
+👩🏻‍🐰‍👩🏽	ženy so zajačími ušami svetlý tón pleti, stredný tón pleti	none
+👩🏻‍🐰‍👩🏾	ženy so zajačími ušami svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏻‍🐰‍👩🏿	ženy so zajačími ušami svetlý tón pleti, tmavý tón pleti	none
+👩🏼‍🐰‍👩🏻	ženy so zajačími ušami stredne svetlý tón pleti, svetlý tón pleti	none
+👩🏼‍🐰‍👩🏽	ženy so zajačími ušami stredne svetlý tón pleti, stredný tón pleti	none
+👩🏼‍🐰‍👩🏾	ženy so zajačími ušami stredne svetlý tón pleti, stredne tmavý tón pleti	none
+👩🏼‍🐰‍👩🏿	ženy so zajačími ušami stredne svetlý tón pleti, tmavý tón pleti	none
+👩🏽‍🐰‍👩🏻	ženy so zajačími ušami stredný tón pleti, svetlý tón pleti	none
+👩🏽‍🐰‍👩🏼	ženy so zajačími ušami stredný tón pleti, stredne svetlý tón pleti	none
+👩🏽‍🐰‍👩🏾	ženy so zajačími ušami stredný tón pleti, stredne tmavý tón pleti	none
+👩🏽‍🐰‍👩🏿	ženy so zajačími ušami stredný tón pleti, tmavý tón pleti	none
+👩🏾‍🐰‍👩🏻	ženy so zajačími ušami stredne tmavý tón pleti, svetlý tón pleti	none
+👩🏾‍🐰‍👩🏼	ženy so zajačími ušami stredne tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏾‍🐰‍👩🏽	ženy so zajačími ušami stredne tmavý tón pleti, stredný tón pleti	none
+👩🏾‍🐰‍👩🏿	ženy so zajačími ušami stredne tmavý tón pleti, tmavý tón pleti	none
+👩🏿‍🐰‍👩🏻	ženy so zajačími ušami tmavý tón pleti, svetlý tón pleti	none
+👩🏿‍🐰‍👩🏼	ženy so zajačími ušami tmavý tón pleti, stredne svetlý tón pleti	none
+👩🏿‍🐰‍👩🏽	ženy so zajačími ušami tmavý tón pleti, stredný tón pleti	none
+👩🏿‍🐰‍👩🏾	ženy so zajačími ušami tmavý tón pleti, stredne tmavý tón pleti	none
 🧓🏻	starší človek svetlý tón pleti	none
 🧓🏼	starší človek stredne svetlý tón pleti	none
 🧓🏽	starší človek stredný tón pleti	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	chodkyňa stredne tmavý tón pleti	none
 🚶🏿‍♀	chodkyňa tmavý tón pleti	none
 🚶‍➡	chodiaci človek smerom doprava	none
-🚶🏻‍➡	chodiaci človek smerom doprava	none
-🚶🏼‍➡	chodiaci človek smerom doprava	none
-🚶🏽‍➡	chodiaci človek smerom doprava	none
-🚶🏾‍➡	chodiaci človek smerom doprava	none
-🚶🏿‍➡	chodiaci človek smerom doprava	none
+🚶🏻‍➡	chodiaci človek svetlý tón pleti, smerom doprava	none
+🚶🏼‍➡	chodiaci človek stredne svetlý tón pleti, smerom doprava	none
+🚶🏽‍➡	chodiaci človek stredný tón pleti, smerom doprava	none
+🚶🏾‍➡	chodiaci človek stredne tmavý tón pleti, smerom doprava	none
+🚶🏿‍➡	chodiaci človek tmavý tón pleti, smerom doprava	none
 🚶‍♀‍➡	chodkyňa smerom doprava	none
-🚶🏻‍♀‍➡	chodkyňa smerom doprava	none
-🚶🏼‍♀‍➡	chodkyňa smerom doprava	none
-🚶🏽‍♀‍➡	chodkyňa smerom doprava	none
-🚶🏾‍♀‍➡	chodkyňa smerom doprava	none
-🚶🏿‍♀‍➡	chodkyňa smerom doprava	none
+🚶🏻‍♀‍➡	chodkyňa svetlý tón pleti, smerom doprava	none
+🚶🏼‍♀‍➡	chodkyňa stredne svetlý tón pleti, smerom doprava	none
+🚶🏽‍♀‍➡	chodkyňa stredný tón pleti, smerom doprava	none
+🚶🏾‍♀‍➡	chodkyňa stredne tmavý tón pleti, smerom doprava	none
+🚶🏿‍♀‍➡	chodkyňa tmavý tón pleti, smerom doprava	none
 🚶‍♂‍➡	chodec smerom doprava	none
-🚶🏻‍♂‍➡	chodec smerom doprava	none
-🚶🏼‍♂‍➡	chodec smerom doprava	none
-🚶🏽‍♂‍➡	chodec smerom doprava	none
-🚶🏾‍♂‍➡	chodec smerom doprava	none
-🚶🏿‍♂‍➡	chodec smerom doprava	none
+🚶🏻‍♂‍➡	chodec svetlý tón pleti, smerom doprava	none
+🚶🏼‍♂‍➡	chodec stredne svetlý tón pleti, smerom doprava	none
+🚶🏽‍♂‍➡	chodec stredný tón pleti, smerom doprava	none
+🚶🏾‍♂‍➡	chodec stredne tmavý tón pleti, smerom doprava	none
+🚶🏿‍♂‍➡	chodec tmavý tón pleti, smerom doprava	none
 🧍🏻	stojaci človek svetlý tón pleti	none
 🧍🏼	stojaci človek stredne svetlý tón pleti	none
 🧍🏽	stojaci človek stredný tón pleti	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	kľačiaca žena stredne tmavý tón pleti	none
 🧎🏿‍♀	kľačiaca žena tmavý tón pleti	none
 🧎‍➡	kľačiaci človek smerom doprava	none
-🧎🏻‍➡	kľačiaci človek smerom doprava	none
-🧎🏼‍➡	kľačiaci človek smerom doprava	none
-🧎🏽‍➡	kľačiaci človek smerom doprava	none
-🧎🏾‍➡	kľačiaci človek smerom doprava	none
-🧎🏿‍➡	kľačiaci človek smerom doprava	none
+🧎🏻‍➡	kľačiaci človek svetlý tón pleti, smerom doprava	none
+🧎🏼‍➡	kľačiaci človek stredne svetlý tón pleti, smerom doprava	none
+🧎🏽‍➡	kľačiaci človek stredný tón pleti, smerom doprava	none
+🧎🏾‍➡	kľačiaci človek stredne tmavý tón pleti, smerom doprava	none
+🧎🏿‍➡	kľačiaci človek tmavý tón pleti, smerom doprava	none
 🧎‍♀‍➡	kľačiaca žena smerom doprava	none
-🧎🏻‍♀‍➡	kľačiaca žena smerom doprava	none
-🧎🏼‍♀‍➡	kľačiaca žena smerom doprava	none
-🧎🏽‍♀‍➡	kľačiaca žena smerom doprava	none
-🧎🏾‍♀‍➡	kľačiaca žena smerom doprava	none
-🧎🏿‍♀‍➡	kľačiaca žena smerom doprava	none
+🧎🏻‍♀‍➡	kľačiaca žena svetlý tón pleti, smerom doprava	none
+🧎🏼‍♀‍➡	kľačiaca žena stredne svetlý tón pleti, smerom doprava	none
+🧎🏽‍♀‍➡	kľačiaca žena stredný tón pleti, smerom doprava	none
+🧎🏾‍♀‍➡	kľačiaca žena stredne tmavý tón pleti, smerom doprava	none
+🧎🏿‍♀‍➡	kľačiaca žena tmavý tón pleti, smerom doprava	none
 🧎‍♂‍➡	kľačiaci muž smerom doprava	none
-🧎🏻‍♂‍➡	kľačiaci muž smerom doprava	none
-🧎🏼‍♂‍➡	kľačiaci muž smerom doprava	none
-🧎🏽‍♂‍➡	kľačiaci muž smerom doprava	none
-🧎🏾‍♂‍➡	kľačiaci muž smerom doprava	none
-🧎🏿‍♂‍➡	kľačiaci muž smerom doprava	none
+🧎🏻‍♂‍➡	kľačiaci muž svetlý tón pleti, smerom doprava	none
+🧎🏼‍♂‍➡	kľačiaci muž stredne svetlý tón pleti, smerom doprava	none
+🧎🏽‍♂‍➡	kľačiaci muž stredný tón pleti, smerom doprava	none
+🧎🏾‍♂‍➡	kľačiaci muž stredne tmavý tón pleti, smerom doprava	none
+🧎🏿‍♂‍➡	kľačiaci muž tmavý tón pleti, smerom doprava	none
 🧑🏻‍🦯	človek s bielou palicou svetlý tón pleti	none
 🧑🏼‍🦯	človek s bielou palicou stredne svetlý tón pleti	none
 🧑🏽‍🦯	človek s bielou palicou stredný tón pleti	none
 🧑🏾‍🦯	človek s bielou palicou stredne tmavý tón pleti	none
 🧑🏿‍🦯	človek s bielou palicou tmavý tón pleti	none
 🧑‍🦯‍➡	človek s bielou palicou smerom doprava	none
-🧑🏻‍🦯‍➡	človek s bielou palicou smerom doprava	none
-🧑🏼‍🦯‍➡	človek s bielou palicou smerom doprava	none
-🧑🏽‍🦯‍➡	človek s bielou palicou smerom doprava	none
-🧑🏾‍🦯‍➡	človek s bielou palicou smerom doprava	none
-🧑🏿‍🦯‍➡	človek s bielou palicou smerom doprava	none
+🧑🏻‍🦯‍➡	človek s bielou palicou svetlý tón pleti, smerom doprava	none
+🧑🏼‍🦯‍➡	človek s bielou palicou stredne svetlý tón pleti, smerom doprava	none
+🧑🏽‍🦯‍➡	človek s bielou palicou stredný tón pleti, smerom doprava	none
+🧑🏾‍🦯‍➡	človek s bielou palicou stredne tmavý tón pleti, smerom doprava	none
+🧑🏿‍🦯‍➡	človek s bielou palicou tmavý tón pleti, smerom doprava	none
 👨🏻‍🦯	muž s bielou palicou svetlý tón pleti	none
 👨🏼‍🦯	muž s bielou palicou stredne svetlý tón pleti	none
 👨🏽‍🦯	muž s bielou palicou stredný tón pleti	none
 👨🏾‍🦯	muž s bielou palicou stredne tmavý tón pleti	none
 👨🏿‍🦯	muž s bielou palicou tmavý tón pleti	none
 👨‍🦯‍➡	muž s bielou palicou smerom doprava	none
-👨🏻‍🦯‍➡	muž s bielou palicou smerom doprava	none
-👨🏼‍🦯‍➡	muž s bielou palicou smerom doprava	none
-👨🏽‍🦯‍➡	muž s bielou palicou smerom doprava	none
-👨🏾‍🦯‍➡	muž s bielou palicou smerom doprava	none
-👨🏿‍🦯‍➡	muž s bielou palicou smerom doprava	none
+👨🏻‍🦯‍➡	muž s bielou palicou svetlý tón pleti, smerom doprava	none
+👨🏼‍🦯‍➡	muž s bielou palicou stredne svetlý tón pleti, smerom doprava	none
+👨🏽‍🦯‍➡	muž s bielou palicou stredný tón pleti, smerom doprava	none
+👨🏾‍🦯‍➡	muž s bielou palicou stredne tmavý tón pleti, smerom doprava	none
+👨🏿‍🦯‍➡	muž s bielou palicou tmavý tón pleti, smerom doprava	none
 👩🏻‍🦯	žena so slepeckou palicou svetlý tón pleti	none
 👩🏼‍🦯	žena so slepeckou palicou stredne svetlý tón pleti	none
 👩🏽‍🦯	žena so slepeckou palicou stredný tón pleti	none
 👩🏾‍🦯	žena so slepeckou palicou stredne tmavý tón pleti	none
 👩🏿‍🦯	žena so slepeckou palicou tmavý tón pleti	none
 👩‍🦯‍➡	žena so slepeckou palicou smerom doprava	none
-👩🏻‍🦯‍➡	žena so slepeckou palicou smerom doprava	none
-👩🏼‍🦯‍➡	žena so slepeckou palicou smerom doprava	none
-👩🏽‍🦯‍➡	žena so slepeckou palicou smerom doprava	none
-👩🏾‍🦯‍➡	žena so slepeckou palicou smerom doprava	none
-👩🏿‍🦯‍➡	žena so slepeckou palicou smerom doprava	none
+👩🏻‍🦯‍➡	žena so slepeckou palicou svetlý tón pleti, smerom doprava	none
+👩🏼‍🦯‍➡	žena so slepeckou palicou stredne svetlý tón pleti, smerom doprava	none
+👩🏽‍🦯‍➡	žena so slepeckou palicou stredný tón pleti, smerom doprava	none
+👩🏾‍🦯‍➡	žena so slepeckou palicou stredne tmavý tón pleti, smerom doprava	none
+👩🏿‍🦯‍➡	žena so slepeckou palicou tmavý tón pleti, smerom doprava	none
 🧑🏻‍🦼	človek na elektrickom invalidnom vozíku svetlý tón pleti	none
 🧑🏼‍🦼	človek na elektrickom invalidnom vozíku stredne svetlý tón pleti	none
 🧑🏽‍🦼	človek na elektrickom invalidnom vozíku stredný tón pleti	none
 🧑🏾‍🦼	človek na elektrickom invalidnom vozíku stredne tmavý tón pleti	none
 🧑🏿‍🦼	človek na elektrickom invalidnom vozíku tmavý tón pleti	none
 🧑‍🦼‍➡	človek na elektrickom invalidnom vozíku smerom doprava	none
-🧑🏻‍🦼‍➡	človek na elektrickom invalidnom vozíku smerom doprava	none
-🧑🏼‍🦼‍➡	človek na elektrickom invalidnom vozíku smerom doprava	none
-🧑🏽‍🦼‍➡	človek na elektrickom invalidnom vozíku smerom doprava	none
-🧑🏾‍🦼‍➡	človek na elektrickom invalidnom vozíku smerom doprava	none
-🧑🏿‍🦼‍➡	človek na elektrickom invalidnom vozíku smerom doprava	none
+🧑🏻‍🦼‍➡	človek na elektrickom invalidnom vozíku svetlý tón pleti, smerom doprava	none
+🧑🏼‍🦼‍➡	človek na elektrickom invalidnom vozíku stredne svetlý tón pleti, smerom doprava	none
+🧑🏽‍🦼‍➡	človek na elektrickom invalidnom vozíku stredný tón pleti, smerom doprava	none
+🧑🏾‍🦼‍➡	človek na elektrickom invalidnom vozíku stredne tmavý tón pleti, smerom doprava	none
+🧑🏿‍🦼‍➡	človek na elektrickom invalidnom vozíku tmavý tón pleti, smerom doprava	none
 👨🏻‍🦼	muž na elektrickom invalidnom vozíku svetlý tón pleti	none
 👨🏼‍🦼	muž na elektrickom invalidnom vozíku stredne svetlý tón pleti	none
 👨🏽‍🦼	muž na elektrickom invalidnom vozíku stredný tón pleti	none
 👨🏾‍🦼	muž na elektrickom invalidnom vozíku stredne tmavý tón pleti	none
 👨🏿‍🦼	muž na elektrickom invalidnom vozíku tmavý tón pleti	none
 👨‍🦼‍➡	muž na elektrickom invalidnom vozíku smerom doprava	none
-👨🏻‍🦼‍➡	muž na elektrickom invalidnom vozíku smerom doprava	none
-👨🏼‍🦼‍➡	muž na elektrickom invalidnom vozíku smerom doprava	none
-👨🏽‍🦼‍➡	muž na elektrickom invalidnom vozíku smerom doprava	none
-👨🏾‍🦼‍➡	muž na elektrickom invalidnom vozíku smerom doprava	none
-👨🏿‍🦼‍➡	muž na elektrickom invalidnom vozíku smerom doprava	none
+👨🏻‍🦼‍➡	muž na elektrickom invalidnom vozíku svetlý tón pleti, smerom doprava	none
+👨🏼‍🦼‍➡	muž na elektrickom invalidnom vozíku stredne svetlý tón pleti, smerom doprava	none
+👨🏽‍🦼‍➡	muž na elektrickom invalidnom vozíku stredný tón pleti, smerom doprava	none
+👨🏾‍🦼‍➡	muž na elektrickom invalidnom vozíku stredne tmavý tón pleti, smerom doprava	none
+👨🏿‍🦼‍➡	muž na elektrickom invalidnom vozíku tmavý tón pleti, smerom doprava	none
 👩🏻‍🦼	žena na elektrickom invalidnom vozíku svetlý tón pleti	none
 👩🏼‍🦼	žena na elektrickom invalidnom vozíku stredne svetlý tón pleti	none
 👩🏽‍🦼	žena na elektrickom invalidnom vozíku stredný tón pleti	none
 👩🏾‍🦼	žena na elektrickom invalidnom vozíku stredne tmavý tón pleti	none
 👩🏿‍🦼	žena na elektrickom invalidnom vozíku tmavý tón pleti	none
 👩‍🦼‍➡	žena na elektrickom invalidnom vozíku smerom doprava	none
-👩🏻‍🦼‍➡	žena na elektrickom invalidnom vozíku smerom doprava	none
-👩🏼‍🦼‍➡	žena na elektrickom invalidnom vozíku smerom doprava	none
-👩🏽‍🦼‍➡	žena na elektrickom invalidnom vozíku smerom doprava	none
-👩🏾‍🦼‍➡	žena na elektrickom invalidnom vozíku smerom doprava	none
-👩🏿‍🦼‍➡	žena na elektrickom invalidnom vozíku smerom doprava	none
+👩🏻‍🦼‍➡	žena na elektrickom invalidnom vozíku svetlý tón pleti, smerom doprava	none
+👩🏼‍🦼‍➡	žena na elektrickom invalidnom vozíku stredne svetlý tón pleti, smerom doprava	none
+👩🏽‍🦼‍➡	žena na elektrickom invalidnom vozíku stredný tón pleti, smerom doprava	none
+👩🏾‍🦼‍➡	žena na elektrickom invalidnom vozíku stredne tmavý tón pleti, smerom doprava	none
+👩🏿‍🦼‍➡	žena na elektrickom invalidnom vozíku tmavý tón pleti, smerom doprava	none
 🧑🏻‍🦽	človek na mechanickom invalidnom vozíku svetlý tón pleti	none
 🧑🏼‍🦽	človek na mechanickom invalidnom vozíku stredne svetlý tón pleti	none
 🧑🏽‍🦽	človek na mechanickom invalidnom vozíku stredný tón pleti	none
 🧑🏾‍🦽	človek na mechanickom invalidnom vozíku stredne tmavý tón pleti	none
 🧑🏿‍🦽	človek na mechanickom invalidnom vozíku tmavý tón pleti	none
 🧑‍🦽‍➡	človek na mechanickom invalidnom vozíku smerom doprava	none
-🧑🏻‍🦽‍➡	človek na mechanickom invalidnom vozíku smerom doprava	none
-🧑🏼‍🦽‍➡	človek na mechanickom invalidnom vozíku smerom doprava	none
-🧑🏽‍🦽‍➡	človek na mechanickom invalidnom vozíku smerom doprava	none
-🧑🏾‍🦽‍➡	človek na mechanickom invalidnom vozíku smerom doprava	none
-🧑🏿‍🦽‍➡	človek na mechanickom invalidnom vozíku smerom doprava	none
+🧑🏻‍🦽‍➡	človek na mechanickom invalidnom vozíku svetlý tón pleti, smerom doprava	none
+🧑🏼‍🦽‍➡	človek na mechanickom invalidnom vozíku stredne svetlý tón pleti, smerom doprava	none
+🧑🏽‍🦽‍➡	človek na mechanickom invalidnom vozíku stredný tón pleti, smerom doprava	none
+🧑🏾‍🦽‍➡	človek na mechanickom invalidnom vozíku stredne tmavý tón pleti, smerom doprava	none
+🧑🏿‍🦽‍➡	človek na mechanickom invalidnom vozíku tmavý tón pleti, smerom doprava	none
 👨🏻‍🦽	muž na mechanickom invalidnom vozíku svetlý tón pleti	none
 👨🏼‍🦽	muž na mechanickom invalidnom vozíku stredne svetlý tón pleti	none
 👨🏽‍🦽	muž na mechanickom invalidnom vozíku stredný tón pleti	none
 👨🏾‍🦽	muž na mechanickom invalidnom vozíku stredne tmavý tón pleti	none
 👨🏿‍🦽	muž na mechanickom invalidnom vozíku tmavý tón pleti	none
 👨‍🦽‍➡	muž na mechanickom invalidnom vozíku smerom doprava	none
-👨🏻‍🦽‍➡	muž na mechanickom invalidnom vozíku smerom doprava	none
-👨🏼‍🦽‍➡	muž na mechanickom invalidnom vozíku smerom doprava	none
-👨🏽‍🦽‍➡	muž na mechanickom invalidnom vozíku smerom doprava	none
-👨🏾‍🦽‍➡	muž na mechanickom invalidnom vozíku smerom doprava	none
-👨🏿‍🦽‍➡	muž na mechanickom invalidnom vozíku smerom doprava	none
+👨🏻‍🦽‍➡	muž na mechanickom invalidnom vozíku svetlý tón pleti, smerom doprava	none
+👨🏼‍🦽‍➡	muž na mechanickom invalidnom vozíku stredne svetlý tón pleti, smerom doprava	none
+👨🏽‍🦽‍➡	muž na mechanickom invalidnom vozíku stredný tón pleti, smerom doprava	none
+👨🏾‍🦽‍➡	muž na mechanickom invalidnom vozíku stredne tmavý tón pleti, smerom doprava	none
+👨🏿‍🦽‍➡	muž na mechanickom invalidnom vozíku tmavý tón pleti, smerom doprava	none
 👩🏻‍🦽	žena na mechanickom invalidnom vozíku svetlý tón pleti	none
 👩🏼‍🦽	žena na mechanickom invalidnom vozíku stredne svetlý tón pleti	none
 👩🏽‍🦽	žena na mechanickom invalidnom vozíku stredný tón pleti	none
 👩🏾‍🦽	žena na mechanickom invalidnom vozíku stredne tmavý tón pleti	none
 👩🏿‍🦽	žena na mechanickom invalidnom vozíku tmavý tón pleti	none
 👩‍🦽‍➡	žena na mechanickom invalidnom vozíku smerom doprava	none
-👩🏻‍🦽‍➡	žena na mechanickom invalidnom vozíku smerom doprava	none
-👩🏼‍🦽‍➡	žena na mechanickom invalidnom vozíku smerom doprava	none
-👩🏽‍🦽‍➡	žena na mechanickom invalidnom vozíku smerom doprava	none
-👩🏾‍🦽‍➡	žena na mechanickom invalidnom vozíku smerom doprava	none
-👩🏿‍🦽‍➡	žena na mechanickom invalidnom vozíku smerom doprava	none
+👩🏻‍🦽‍➡	žena na mechanickom invalidnom vozíku svetlý tón pleti, smerom doprava	none
+👩🏼‍🦽‍➡	žena na mechanickom invalidnom vozíku stredne svetlý tón pleti, smerom doprava	none
+👩🏽‍🦽‍➡	žena na mechanickom invalidnom vozíku stredný tón pleti, smerom doprava	none
+👩🏾‍🦽‍➡	žena na mechanickom invalidnom vozíku stredne tmavý tón pleti, smerom doprava	none
+👩🏿‍🦽‍➡	žena na mechanickom invalidnom vozíku tmavý tón pleti, smerom doprava	none
 🏃🏻	bežiaci človek svetlý tón pleti	none
 🏃🏼	bežiaci človek stredne svetlý tón pleti	none
 🏃🏽	bežiaci človek stredný tón pleti	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	bežkyňa stredne tmavý tón pleti	none
 🏃🏿‍♀	bežkyňa tmavý tón pleti	none
 🏃‍➡	bežiaci človek smerom doprava	none
-🏃🏻‍➡	bežiaci človek smerom doprava	none
-🏃🏼‍➡	bežiaci človek smerom doprava	none
-🏃🏽‍➡	bežiaci človek smerom doprava	none
-🏃🏾‍➡	bežiaci človek smerom doprava	none
-🏃🏿‍➡	bežiaci človek smerom doprava	none
+🏃🏻‍➡	bežiaci človek svetlý tón pleti, smerom doprava	none
+🏃🏼‍➡	bežiaci človek stredne svetlý tón pleti, smerom doprava	none
+🏃🏽‍➡	bežiaci človek stredný tón pleti, smerom doprava	none
+🏃🏾‍➡	bežiaci človek stredne tmavý tón pleti, smerom doprava	none
+🏃🏿‍➡	bežiaci človek tmavý tón pleti, smerom doprava	none
 🏃‍♀‍➡	bežkyňa smerom doprava	none
-🏃🏻‍♀‍➡	bežkyňa smerom doprava	none
-🏃🏼‍♀‍➡	bežkyňa smerom doprava	none
-🏃🏽‍♀‍➡	bežkyňa smerom doprava	none
-🏃🏾‍♀‍➡	bežkyňa smerom doprava	none
-🏃🏿‍♀‍➡	bežkyňa smerom doprava	none
+🏃🏻‍♀‍➡	bežkyňa svetlý tón pleti, smerom doprava	none
+🏃🏼‍♀‍➡	bežkyňa stredne svetlý tón pleti, smerom doprava	none
+🏃🏽‍♀‍➡	bežkyňa stredný tón pleti, smerom doprava	none
+🏃🏾‍♀‍➡	bežkyňa stredne tmavý tón pleti, smerom doprava	none
+🏃🏿‍♀‍➡	bežkyňa tmavý tón pleti, smerom doprava	none
 🏃‍♂‍➡	bežec smerom doprava	none
-🏃🏻‍♂‍➡	bežec smerom doprava	none
-🏃🏼‍♂‍➡	bežec smerom doprava	none
-🏃🏽‍♂‍➡	bežec smerom doprava	none
-🏃🏾‍♂‍➡	bežec smerom doprava	none
-🏃🏿‍♂‍➡	bežec smerom doprava	none
+🏃🏻‍♂‍➡	bežec svetlý tón pleti, smerom doprava	none
+🏃🏼‍♂‍➡	bežec stredne svetlý tón pleti, smerom doprava	none
+🏃🏽‍♂‍➡	bežec stredný tón pleti, smerom doprava	none
+🏃🏾‍♂‍➡	bežec stredne tmavý tón pleti, smerom doprava	none
+🏃🏿‍♂‍➡	bežec tmavý tón pleti, smerom doprava	none
+🧑🏻‍🩰	baletka svetlý tón pleti	none
+🧑🏼‍🩰	baletka stredne svetlý tón pleti	none
+🧑🏽‍🩰	baletka stredný tón pleti	none
+🧑🏾‍🩰	baletka stredne tmavý tón pleti	none
+🧑🏿‍🩰	baletka tmavý tón pleti	none
 💃🏻	tanečníčka svetlý tón pleti	none
 💃🏼	tanečníčka stredne svetlý tón pleti	none
 💃🏽	tanečníčka stredný tón pleti	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	levitujúci muž v saku stredný tón pleti	none
 🕴🏾	levitujúci muž v saku stredne tmavý tón pleti	none
 🕴🏿	levitujúci muž v saku tmavý tón pleti	none
+👯🏻	ľudia so zajačími ušami svetlý tón pleti	none
+👯🏼	ľudia so zajačími ušami stredne svetlý tón pleti	none
+👯🏽	ľudia so zajačími ušami stredný tón pleti	none
+👯🏾	ľudia so zajačími ušami stredne tmavý tón pleti	none
+👯🏿	ľudia so zajačími ušami tmavý tón pleti	none
+👯🏻‍♂	muži so zajačími ušami svetlý tón pleti	none
+👯🏼‍♂	muži so zajačími ušami stredne svetlý tón pleti	none
+👯🏽‍♂	muži so zajačími ušami stredný tón pleti	none
+👯🏾‍♂	muži so zajačími ušami stredne tmavý tón pleti	none
+👯🏿‍♂	muži so zajačími ušami tmavý tón pleti	none
+👯🏻‍♀	ženy so zajačími ušami svetlý tón pleti	none
+👯🏼‍♀	ženy so zajačími ušami stredne svetlý tón pleti	none
+👯🏽‍♀	ženy so zajačími ušami stredný tón pleti	none
+👯🏾‍♀	ženy so zajačími ušami stredne tmavý tón pleti	none
+👯🏿‍♀	ženy so zajačími ušami tmavý tón pleti	none
 🧖🏻	človek v pare svetlý tón pleti	none
 🧖🏼	človek v pare stredne svetlý tón pleti	none
 🧖🏽	človek v pare stredný tón pleti	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	žena robí hviezdu stredný tón pleti	none
 🤸🏾‍♀	žena robí hviezdu stredne tmavý tón pleti	none
 🤸🏿‍♀	žena robí hviezdu tmavý tón pleti	none
+🤼🏻	zápasiaci ľudia svetlý tón pleti	none
+🤼🏼	zápasiaci ľudia stredne svetlý tón pleti	none
+🤼🏽	zápasiaci ľudia stredný tón pleti	none
+🤼🏾	zápasiaci ľudia stredne tmavý tón pleti	none
+🤼🏿	zápasiaci ľudia tmavý tón pleti	none
+🤼🏻‍♂	zápasníci svetlý tón pleti	none
+🤼🏼‍♂	zápasníci stredne svetlý tón pleti	none
+🤼🏽‍♂	zápasníci stredný tón pleti	none
+🤼🏾‍♂	zápasníci stredne tmavý tón pleti	none
+🤼🏿‍♂	zápasníci tmavý tón pleti	none
+🤼🏻‍♀	zápasníčky svetlý tón pleti	none
+🤼🏼‍♀	zápasníčky stredne svetlý tón pleti	none
+🤼🏽‍♀	zápasníčky stredný tón pleti	none
+🤼🏾‍♀	zápasníčky stredne tmavý tón pleti	none
+🤼🏿‍♀	zápasníčky tmavý tón pleti	none
 🤽🏻	vodné pólo svetlý tón pleti	none
 🤽🏼	vodné pólo stredne svetlý tón pleti	none
 🤽🏽	vodné pólo stredný tón pleti	none
@@ -3812,6 +3982,7 @@ symbols:
 🇨🇳	zástava Čína	none
 🇨🇴	zástava Kolumbia	none
 🇨🇵	zástava Clipperton	none
+🇨🇶	zástava Sark	none
 🇨🇷	zástava Kostarika	none
 🇨🇺	zástava Kuba	none
 🇨🇻	zástava Kapverdy	none
