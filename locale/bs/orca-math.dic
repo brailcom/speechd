@@ -7,73 +7,36 @@
 # This file is distributed under the same license as the orca package.
 
 symbols:
-∡	mjereni ugao	none
-∢	sferni ugao	none
-∤	nije djeljivo	none
-∦	nije paralelno	none
-∨	logičko ILI	none
-∭	trostruki integral	none
-∯	povtšinski integral	none
-∰	zapreminski integral	none
-∱	integral u pravcu kazaljke	none
-∲	konturni integral u pravcu kazaljke	none
-∳	konturni integral obrnuto od pravca kazaljke	none
 ∸	tačka minus	none
-∹	preko	none
-∺	geometijska proporcija	none
 ∻	homotetija	none
-∿	sinusoida	none
-≀	vjenačni proizvod	none
 ≁	nije tilda	none
 ≂	minus tilda	none
-≄	nije asimptotski jednako	none
-≆	približno ali ne sasvim jednako	none
 ≇	ni približno ni sasvim jednako	none
 ≉	nije skoro jednako	none
 ≊	skoro jednako ili jednako	none
 ≋	trostruka tilda	none
-≍	ekvivalentno s	none
-≎	geometrijski ekvivalentno s	none
-≏	razlika između	none
-≐	približno granici	none
-≑	geometrijski jednako	none
 ≓	slika od ili približno jednako	none
-≔	dvotačka jednako	none
-≕	jednako dvotačka	none
 ≗	prsten jednako	none
 ≘	odgovara sa	none
-≙	procjenjuje	none
-≚	jednakougaono s	none
 ≛	zvjezdica jednako	none
 ≜	delta jednako	none
 ≝	jednako po definiciji	none
 ≞	mjereno s 	none
-≟	upitno jednako	none
-≢	nije identično	none
 ≨	manje od ali ne jednako	none
 ≩	veće od ali ne jednako	none
-≭	nije ekvivalentno	none
 ≰	niti manje niti jednako	none
 ≱	niti veće niti jednako	none
 ≲	manje ili ekvivalentno	none
 ≴	ni manje ni ekvivalentno	none
 ≵	ni veće ni ekvivalentno	none
-≶	manje ili veće	none
-≷	veće ili manje	none
 ≸	ni manje ni veće	none
 ≹	ni veće ni manje	none
 ≼	Prethodi ili jednako	none
 ≽	prati ili jednako	none
 ≾	prethodi ili ekvivalentno	none
 ≿	prati ili ekvivalentno	none
-⊀	ne prethodi	none
-⊄	nije podskup	none
-⊅	nije nadskup	none
-⊈	ni podskup ni jednako	none
-⊉	ni nadskup ni jednako	none
 ⊊	podskup od sa ne jednako	none
 ⊋	nadskup od sa ne jednako	none
-⊍	množenje multisetova	none
 ⊎	unija multisetova	none
 ⊏	kvadratna slika od	none
 ⊐	kvadratni original od	none
@@ -157,12 +120,4 @@ symbols:
 ⋿	pripadnost z notacijskoj vreći	none
 ⨁	zaokruženi plus	none
 ⨂	zaokruženi puta	none
-∁	komplement	none
-∄	tu ne postoji	none
-∊	mali element od	none
-∌	ne sadrži član	none
-∍	mali sadrži kao član	none
 ∔	tačka plus	none
-∖	skupovni minus	none
-∛	kubni korijen	none
-∜	četvrti korijen	none

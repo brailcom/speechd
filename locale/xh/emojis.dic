@@ -467,6 +467,9 @@ symbols:
 🦈	ukrebe	none
 🐙	ingwane	none
 🐚	iqokobhe elijikelezayo	none
+🦀	unonkala	none
+🦐	inqonci	none
+🦑	i-squid	none
 🐌	inkumba	none
 🦋	ibhabhathane	none
 🐛	incukuthu	none
@@ -568,9 +571,6 @@ symbols:
 🥟	imbulanga yentlama	none
 🥠	iqebengwane lethamsanqa	none
 🥡	ibhokisi ye-takeout	none
-🦀	unonkala	none
-🦐	inqonci	none
-🦑	i-squid	none
 🍦	iayiskrim ethambileyo	none
 🍧	umkhenkce osikiweyo	none
 🍨	iayiskrim	none
@@ -922,9 +922,9 @@ symbols:
 🎧	i-headphone	none
 📻	irediyo	none
 🎷	i-saxophone	none
+🎺	ixolongo	none
 🎸	ikatala	none
 🎹	ikhibhodi yomculo	none
-🎺	ixolongo	none
 🎻	i-violin	none
 🥁	igubu	none
 📱	iselfowuni	none
@@ -1508,6 +1508,46 @@ symbols:
 🧑🏿‍❤‍🧑🏼	isibini esinentliziyo umntu omdala, umntu omdala, ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo phakathi	none
 🧑🏿‍❤‍🧑🏽	isibini esinentliziyo umntu omdala, umntu omdala, ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi	none
 🧑🏿‍❤‍🧑🏾	isibini esinentliziyo umntu omdala, umntu omdala, ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi mnyama	none
+🧑🏻‍🫯‍🧑🏼	abantu abangqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba esikhanyayo phakathi	none
+🧑🏻‍🫯‍🧑🏽	abantu abangqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi	none
+🧑🏻‍🫯‍🧑🏾	abantu abangqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi mnyama	none
+🧑🏻‍🫯‍🧑🏿	abantu abangqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba emnyama	none
+🧑🏼‍🫯‍🧑🏻	abantu abangqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esikhanyayo	none
+🧑🏼‍🫯‍🧑🏽	abantu abangqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi	none
+🧑🏼‍🫯‍🧑🏾	abantu abangqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi mnyama	none
+🧑🏼‍🫯‍🧑🏿	abantu abangqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba emnyama	none
+🧑🏽‍🫯‍🧑🏻	abantu abangqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo	none
+🧑🏽‍🫯‍🧑🏼	abantu abangqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo phakathi	none
+🧑🏽‍🫯‍🧑🏾	abantu abangqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba esiphakathi mnyama	none
+🧑🏽‍🫯‍🧑🏿	abantu abangqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba emnyama	none
+🧑🏾‍🫯‍🧑🏻	abantu abangqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo	none
+🧑🏾‍🫯‍🧑🏼	abantu abangqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo phakathi	none
+🧑🏾‍🫯‍🧑🏽	abantu abangqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esiphakathi	none
+🧑🏾‍🫯‍🧑🏿	abantu abangqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba emnyama	none
+🧑🏿‍🫯‍🧑🏻	abantu abangqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo	none
+🧑🏿‍🫯‍🧑🏼	abantu abangqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo phakathi	none
+🧑🏿‍🫯‍🧑🏽	abantu abangqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi	none
+🧑🏿‍🫯‍🧑🏾	abantu abangqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi mnyama	none
+🧑🏻‍🐰‍🧑🏼	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba esikhanyayo phakathi	none
+🧑🏻‍🐰‍🧑🏽	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi	none
+🧑🏻‍🐰‍🧑🏾	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi mnyama	none
+🧑🏻‍🐰‍🧑🏿	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba emnyama	none
+🧑🏼‍🐰‍🧑🏻	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esikhanyayo	none
+🧑🏼‍🐰‍🧑🏽	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi	none
+🧑🏼‍🐰‍🧑🏾	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi mnyama	none
+🧑🏼‍🐰‍🧑🏿	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba emnyama	none
+🧑🏽‍🐰‍🧑🏻	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo	none
+🧑🏽‍🐰‍🧑🏼	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo phakathi	none
+🧑🏽‍🐰‍🧑🏾	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba esiphakathi mnyama	none
+🧑🏽‍🐰‍🧑🏿	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba emnyama	none
+🧑🏾‍🐰‍🧑🏻	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo	none
+🧑🏾‍🐰‍🧑🏼	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo phakathi	none
+🧑🏾‍🐰‍🧑🏽	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esiphakathi	none
+🧑🏾‍🐰‍🧑🏿	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba emnyama	none
+🧑🏿‍🐰‍🧑🏻	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo	none
+🧑🏿‍🐰‍🧑🏼	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo phakathi	none
+🧑🏿‍🐰‍🧑🏽	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi	none
+🧑🏿‍🐰‍🧑🏾	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi mnyama	none
 👨🏻	indoda ithoni yesikhumba esikhanyayo	none
 👨🏼	indoda ithoni yesikhumba esikhanyayo phakathi	none
 👨🏽	indoda ithoni yesikhumba esiphakathi	none
@@ -1573,6 +1613,46 @@ symbols:
 👨🏿‍❤‍👨🏽	isibini esinentliziyo indoda, indoda, ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi	none
 👨🏿‍❤‍👨🏾	isibini esinentliziyo indoda, indoda, ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi mnyama	none
 👨🏿‍❤‍👨🏿	isibini esinentliziyo indoda, indoda, ithoni yesikhumba emnyama	none
+👨🏻‍🫯‍👨🏼	amadoda angqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba esikhanyayo phakathi	none
+👨🏻‍🫯‍👨🏽	amadoda angqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi	none
+👨🏻‍🫯‍👨🏾	amadoda angqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi mnyama	none
+👨🏻‍🫯‍👨🏿	amadoda angqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba emnyama	none
+👨🏼‍🫯‍👨🏻	amadoda angqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esikhanyayo	none
+👨🏼‍🫯‍👨🏽	amadoda angqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi	none
+👨🏼‍🫯‍👨🏾	amadoda angqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi mnyama	none
+👨🏼‍🫯‍👨🏿	amadoda angqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba emnyama	none
+👨🏽‍🫯‍👨🏻	amadoda angqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo	none
+👨🏽‍🫯‍👨🏼	amadoda angqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo phakathi	none
+👨🏽‍🫯‍👨🏾	amadoda angqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba esiphakathi mnyama	none
+👨🏽‍🫯‍👨🏿	amadoda angqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba emnyama	none
+👨🏾‍🫯‍👨🏻	amadoda angqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo	none
+👨🏾‍🫯‍👨🏼	amadoda angqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo phakathi	none
+👨🏾‍🫯‍👨🏽	amadoda angqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esiphakathi	none
+👨🏾‍🫯‍👨🏿	amadoda angqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba emnyama	none
+👨🏿‍🫯‍👨🏻	amadoda angqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo	none
+👨🏿‍🫯‍👨🏼	amadoda angqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo phakathi	none
+👨🏿‍🫯‍👨🏽	amadoda angqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi	none
+👨🏿‍🫯‍👨🏾	amadoda angqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi mnyama	none
+👨🏻‍🐰‍👨🏼	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba esikhanyayo phakathi	none
+👨🏻‍🐰‍👨🏽	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi	none
+👨🏻‍🐰‍👨🏾	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi mnyama	none
+👨🏻‍🐰‍👨🏿	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba emnyama	none
+👨🏼‍🐰‍👨🏻	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esikhanyayo	none
+👨🏼‍🐰‍👨🏽	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi	none
+👨🏼‍🐰‍👨🏾	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi mnyama	none
+👨🏼‍🐰‍👨🏿	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba emnyama	none
+👨🏽‍🐰‍👨🏻	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo	none
+👨🏽‍🐰‍👨🏼	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo phakathi	none
+👨🏽‍🐰‍👨🏾	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba esiphakathi mnyama	none
+👨🏽‍🐰‍👨🏿	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba emnyama	none
+👨🏾‍🐰‍👨🏻	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo	none
+👨🏾‍🐰‍👨🏼	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo phakathi	none
+👨🏾‍🐰‍👨🏽	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esiphakathi	none
+👨🏾‍🐰‍👨🏿	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba emnyama	none
+👨🏿‍🐰‍👨🏻	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo	none
+👨🏿‍🐰‍👨🏼	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo phakathi	none
+👨🏿‍🐰‍👨🏽	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi	none
+👨🏿‍🐰‍👨🏾	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi mnyama	none
 👩🏻	ibhinqa ithoni yesikhumba esikhanyayo	none
 👩🏼	ibhinqa ithoni yesikhumba esikhanyayo phakathi	none
 👩🏽	ibhinqa ithoni yesikhumba esiphakathi	none
@@ -1683,6 +1763,46 @@ symbols:
 👩🏿‍❤‍👩🏽	isibini esinentliziyo ibhinqa, ibhinqa, ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi	none
 👩🏿‍❤‍👩🏾	isibini esinentliziyo ibhinqa, ibhinqa, ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi mnyama	none
 👩🏿‍❤‍👩🏿	isibini esinentliziyo ibhinqa, ibhinqa, ithoni yesikhumba emnyama	none
+👩🏻‍🫯‍👩🏼	amabhinqa angqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba esikhanyayo phakathi	none
+👩🏻‍🫯‍👩🏽	amabhinqa angqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi	none
+👩🏻‍🫯‍👩🏾	amabhinqa angqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi mnyama	none
+👩🏻‍🫯‍👩🏿	amabhinqa angqulanayo ithoni yesikhumba esikhanyayo, ithoni yesikhumba emnyama	none
+👩🏼‍🫯‍👩🏻	amabhinqa angqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esikhanyayo	none
+👩🏼‍🫯‍👩🏽	amabhinqa angqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi	none
+👩🏼‍🫯‍👩🏾	amabhinqa angqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi mnyama	none
+👩🏼‍🫯‍👩🏿	amabhinqa angqulanayo ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba emnyama	none
+👩🏽‍🫯‍👩🏻	amabhinqa angqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo	none
+👩🏽‍🫯‍👩🏼	amabhinqa angqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo phakathi	none
+👩🏽‍🫯‍👩🏾	amabhinqa angqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba esiphakathi mnyama	none
+👩🏽‍🫯‍👩🏿	amabhinqa angqulanayo ithoni yesikhumba esiphakathi, ithoni yesikhumba emnyama	none
+👩🏾‍🫯‍👩🏻	amabhinqa angqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo	none
+👩🏾‍🫯‍👩🏼	amabhinqa angqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo phakathi	none
+👩🏾‍🫯‍👩🏽	amabhinqa angqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esiphakathi	none
+👩🏾‍🫯‍👩🏿	amabhinqa angqulanayo ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba emnyama	none
+👩🏿‍🫯‍👩🏻	amabhinqa angqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo	none
+👩🏿‍🫯‍👩🏼	amabhinqa angqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo phakathi	none
+👩🏿‍🫯‍👩🏽	amabhinqa angqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi	none
+👩🏿‍🫯‍👩🏾	amabhinqa angqulanayo ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi mnyama	none
+👩🏻‍🐰‍👩🏼	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba esikhanyayo phakathi	none
+👩🏻‍🐰‍👩🏽	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi	none
+👩🏻‍🐰‍👩🏾	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba esiphakathi mnyama	none
+👩🏻‍🐰‍👩🏿	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esikhanyayo, ithoni yesikhumba emnyama	none
+👩🏼‍🐰‍👩🏻	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esikhanyayo	none
+👩🏼‍🐰‍👩🏽	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi	none
+👩🏼‍🐰‍👩🏾	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba esiphakathi mnyama	none
+👩🏼‍🐰‍👩🏿	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esikhanyayo phakathi, ithoni yesikhumba emnyama	none
+👩🏽‍🐰‍👩🏻	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo	none
+👩🏽‍🐰‍👩🏼	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba esikhanyayo phakathi	none
+👩🏽‍🐰‍👩🏾	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba esiphakathi mnyama	none
+👩🏽‍🐰‍👩🏿	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esiphakathi, ithoni yesikhumba emnyama	none
+👩🏾‍🐰‍👩🏻	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo	none
+👩🏾‍🐰‍👩🏼	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esikhanyayo phakathi	none
+👩🏾‍🐰‍👩🏽	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba esiphakathi	none
+👩🏾‍🐰‍👩🏿	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esiphakathi mnyama, ithoni yesikhumba emnyama	none
+👩🏿‍🐰‍👩🏻	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo	none
+👩🏿‍🐰‍👩🏼	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esikhanyayo phakathi	none
+👩🏿‍🐰‍👩🏽	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi	none
+👩🏿‍🐰‍👩🏾	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba emnyama, ithoni yesikhumba esiphakathi mnyama	none
 🧓🏻	umntu omdala ngakumbi ithoni yesikhumba esikhanyayo	none
 🧓🏼	umntu omdala ngakumbi ithoni yesikhumba esikhanyayo phakathi	none
 🧓🏽	umntu omdala ngakumbi ithoni yesikhumba esiphakathi	none
@@ -2273,6 +2393,21 @@ symbols:
 🕴🏽	indoda enxibe isuti yeshishini endandayo ithoni yesikhumba esiphakathi	none
 🕴🏾	indoda enxibe isuti yeshishini endandayo ithoni yesikhumba esiphakathi mnyama	none
 🕴🏿	indoda enxibe isuti yeshishini endandayo ithoni yesikhumba emnyama	none
+👯🏻	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esikhanyayo	none
+👯🏼	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esikhanyayo phakathi	none
+👯🏽	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esiphakathi	none
+👯🏾	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba esiphakathi mnyama	none
+👯🏿	abantu abaneendlebe zomvundla abakwitheko ithoni yesikhumba emnyama	none
+👯🏻‍♂	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esikhanyayo	none
+👯🏼‍♂	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esikhanyayo phakathi	none
+👯🏽‍♂	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esiphakathi	none
+👯🏾‍♂	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba esiphakathi mnyama	none
+👯🏿‍♂	amadoda aneneendlebe zomvundla akwitheko ithoni yesikhumba emnyama	none
+👯🏻‍♀	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esikhanyayo	none
+👯🏼‍♀	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esikhanyayo phakathi	none
+👯🏽‍♀	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esiphakathi	none
+👯🏾‍♀	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba esiphakathi mnyama	none
+👯🏿‍♀	ibhinqa elineendlebe zomvundla elikwitheko ithoni yesikhumba emnyama	none
 🧖🏻	umntu okwigumbi lomphunga ithoni yesikhumba esikhanyayo	none
 🧖🏼	umntu okwigumbi lomphunga ithoni yesikhumba esikhanyayo phakathi	none
 🧖🏽	umntu okwigumbi lomphunga ithoni yesikhumba esiphakathi	none
@@ -2448,6 +2583,21 @@ symbols:
 🤸🏽‍♀	ibhinqa elenza uqilikibhode ngecala ithoni yesikhumba esiphakathi	none
 🤸🏾‍♀	ibhinqa elenza uqilikibhode ngecala ithoni yesikhumba esiphakathi mnyama	none
 🤸🏿‍♀	ibhinqa elenza uqilikibhode ngecala ithoni yesikhumba emnyama	none
+🤼🏻	abantu abangqulanayo ithoni yesikhumba esikhanyayo	none
+🤼🏼	abantu abangqulanayo ithoni yesikhumba esikhanyayo phakathi	none
+🤼🏽	abantu abangqulanayo ithoni yesikhumba esiphakathi	none
+🤼🏾	abantu abangqulanayo ithoni yesikhumba esiphakathi mnyama	none
+🤼🏿	abantu abangqulanayo ithoni yesikhumba emnyama	none
+🤼🏻‍♂	amadoda angqulanayo ithoni yesikhumba esikhanyayo	none
+🤼🏼‍♂	amadoda angqulanayo ithoni yesikhumba esikhanyayo phakathi	none
+🤼🏽‍♂	amadoda angqulanayo ithoni yesikhumba esiphakathi	none
+🤼🏾‍♂	amadoda angqulanayo ithoni yesikhumba esiphakathi mnyama	none
+🤼🏿‍♂	amadoda angqulanayo ithoni yesikhumba emnyama	none
+🤼🏻‍♀	amabhinqa angqulanayo ithoni yesikhumba esikhanyayo	none
+🤼🏼‍♀	amabhinqa angqulanayo ithoni yesikhumba esikhanyayo phakathi	none
+🤼🏽‍♀	amabhinqa angqulanayo ithoni yesikhumba esiphakathi	none
+🤼🏾‍♀	amabhinqa angqulanayo ithoni yesikhumba esiphakathi mnyama	none
+🤼🏿‍♀	amabhinqa angqulanayo ithoni yesikhumba emnyama	none
 🤽🏻	umntu odlala i-polo yasemanzini ithoni yesikhumba esikhanyayo	none
 🤽🏼	umntu odlala i-polo yasemanzini ithoni yesikhumba esikhanyayo phakathi	none
 🤽🏽	umntu odlala i-polo yasemanzini ithoni yesikhumba esiphakathi	none
@@ -2635,14 +2785,14 @@ symbols:
 👩‍👧‍👦	usapho ibhinqa, intombazana, inkwenkwe	none
 👩‍👧‍👧	usapho ibhinqa, intombazana, intombazana	none
 ₡	Costa Rican Colón	none
-₦	I-Naira yaseNigeria	none
+₦	INaira yaseNigeria	none
 ₪	I-New Shekel yase-Israel	none
 ₫	I-Dong yaseVietnam	none
 ₭	I-Kip yaseLaos	none
 ₮	I-Tugrik yaseMongolia	none
 ₲	I-Guarani yaseParaguay	none
 ₴	I-Hryvnia yase-Ukraine	none
-₵	I-Cedi yaseGhana	none
+₵	ICedi yaseGhana	none
 ₸	I-Tenge yaseKhazakhstan	none
 ₺	I-Lira yaseTurkey	none
 ₼	I-Manat yase-Azerbeijan	none

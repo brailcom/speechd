@@ -321,6 +321,7 @@ symbols:
 😪	rosto sonolento	none
 🤤	rosto babando	none
 😴	rosto dormindo	none
+🫩	rosto com olheiras	none
 😷	rosto com máscara médica	none
 🤒	rosto com termômetro	none
 🤕	rosto com atadura na cabeça	none
@@ -348,6 +349,7 @@ symbols:
 😯	rosto surpreso	none
 😲	rosto espantado	none
 😳	rosto ruborizado	none
+🫪	rosto distorcido	none
 🥺	rosto implorando	none
 🥹	rosto segurando as lágrimas	none
 😦	rosto franzido com boca aberta	none
@@ -421,6 +423,7 @@ symbols:
 💋	marca de beijo	none
 💯	cem pontos	none
 💢	símbolo de raiva	none
+🫯	nuvem de briga	none
 💥	colisão	none
 💫	zonzo	none
 💦	pingos de suor	none
@@ -452,11 +455,11 @@ symbols:
 🤟	gesto de "te amo"	none
 🤘	saudação do rock	none
 🤙	sinal "me liga"	none
-👈	dorso da mão com dedo indicador apontando para a esquerda	none
-👉	dorso da mão com dedo indicador apontando para a direita	none
-👆	dorso da mão com dedo indicador apontando para cima	none
+👈	dorso da mão com indicador apontando para a esquerda	none
+👉	dorso da mão com indicador apontando para a direita	none
+👆	dorso da mão com indicador apontando para cima	none
 🖕	dedo do meio	none
-👇	dorso da mão com dedo indicador apontando para baixo	none
+👇	dorso da mão com indicador apontando para baixo	none
 ☝	indicador apontando para cima	none
 🫵	indicador apontando para o visualizador	none
 👍	polegar para cima	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	homem zumbi	none
 🧟‍♀	mulher zumbi	none
 🧌	troll	none
+🫈	criatura peluda	none
 💆	pessoa recebendo massagem facial	none
 💆‍♂	homem recebendo massagem facial	none
 💆‍♀	mulher recebendo massagem facial	none
@@ -680,6 +684,7 @@ symbols:
 🏃	pessoa correndo	none
 🏃‍♂	homem correndo	none
 🏃‍♀	mulher correndo	none
+🧑‍🩰	bailarina	none
 💃	mulher dançando	none
 🕺	homem dançando	none
 🕴	homem de terno levitando	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	família adulto, criança	none
 🧑‍🧒‍🧒	família adulto, criança, criança	none
 👣	pegadas	none
+🫆	impressão digital	none
 🦰	cabelo vermelho	none
 🦱	cabelo cacheado	none
 🦳	cabelo branco	none
@@ -860,6 +866,7 @@ symbols:
 🐳	baleia esguichando água	none
 🐋	baleia	none
 🐬	golfinho	none
+🫍	orca	none
 🦭	foca	none
 🐟	peixe	none
 🐠	peixe tropical	none
@@ -869,6 +876,11 @@ symbols:
 🐚	caramujo	none
 🪸	coral	none
 🪼	água-viva	none
+🦀	caranguejo	none
+🦞	lagosta	none
+🦐	camarão	none
+🦑	lula	none
+🦪	ostra	none
 🐌	caracol	none
 🦋	borboleta	none
 🐛	inseto	none
@@ -913,6 +925,7 @@ symbols:
 🪹	ninho vazio	none
 🪺	ninho com ovos	none
 🍄	cogumelo	none
+🪾	árvore seca	none
 🍇	uvas	none
 🍈	melão	none
 🍉	melancia	none
@@ -951,12 +964,13 @@ symbols:
 🫚	gengibre	none
 🫛	vagem	none
 🍄‍🟫	cogumelo marrom	none
+🫜	tubérculo	none
 🍞	pão	none
 🥐	croissant	none
 🥖	baguete	none
 🫓	pão sírio	none
 🥨	pretzel	none
-🥯	rosca	none
+🥯	bagel	none
 🥞	panquecas	none
 🧇	waffle	none
 🧀	queijo	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	bolinho asiático	none
 🥠	biscoito da sorte	none
 🥡	caixa para viagem	none
-🦀	caranguejo	none
-🦞	lagosta	none
-🦐	camarão	none
-🦑	lula	none
-🦪	ostra	none
 🍦	sorvete italiano	none
 🍧	raspadinha de gelo	none
 🍨	sorvete	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	bússola	none
 🏔	montanha com neve	none
 ⛰	montanha	none
+🛘	deslizamento	none
 🌋	vulcão	none
 🗻	Monte Fuji	none
 🏕	acampamento	none
@@ -1181,7 +1191,7 @@ symbols:
 💺	assento	none
 🚁	helicóptero	none
 🚟	estrada de ferro suspensa	none
-🚠	cabo suspenso usado em teleféricos nas montanhas	none
+🚠	teleférico de montanha	none
 🚡	teleférico	none
 🛰	satélite	none
 🚀	foguete	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	fones de ouvido	none
 📻	rádio	none
 🎷	saxofone	none
+🎺	trompete	none
+🪊	trombone	none
 🪗	acordeão	none
 🎸	guitarra	none
 🎹	teclado musical	none
-🎺	trompete	none
 🎻	violino	none
 🪕	banjo	none
 🥁	tambor	none
 🪘	tambor comprido	none
 🪇	maracás	none
 🪈	flauta	none
+🪉	harpa	none
 📱	telefone celular	none
 📲	telefone celular com seta	none
 ☎	telefone no gancho	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	marcadores de página	none
 🔖	marcador de página	none
 🏷	etiqueta	none
-💰	saco de dinheiro	none
 🪙	moeda	none
+💰	saco de dinheiro	none
+🪎	baú de tesouro	none
 💴	nota de iene	none
 💵	nota de dólar	none
 💶	nota de euro	none
@@ -1565,6 +1578,7 @@ symbols:
 🧰	caixa de ferramentas	none
 🧲	ímã	none
 🪜	escada	none
+🪏	pá	none
 ⚗	alambique	none
 🧪	tubo de ensaio	none
 🧫	placa de Petri	none
@@ -1745,6 +1759,7 @@ symbols:
 ✴	estrela de oito pontas	none
 ❇	faísca	none
 ™	símbolo de marca registrada	none
+🫟	respingo	none
 🔠	letras latinas maiúsculas	none
 🔡	letras latinas minúsculas	none
 🔢	números	none
@@ -1944,31 +1959,31 @@ symbols:
 🤙🏽	sinal "me liga" pele morena	none
 🤙🏾	sinal "me liga" pele morena escura	none
 🤙🏿	sinal "me liga" pele escura	none
-👈🏻	dorso da mão com dedo indicador apontando para a esquerda pele clara	none
-👈🏼	dorso da mão com dedo indicador apontando para a esquerda pele morena clara	none
-👈🏽	dorso da mão com dedo indicador apontando para a esquerda pele morena	none
-👈🏾	dorso da mão com dedo indicador apontando para a esquerda pele morena escura	none
-👈🏿	dorso da mão com dedo indicador apontando para a esquerda pele escura	none
-👉🏻	dorso da mão com dedo indicador apontando para a direita pele clara	none
-👉🏼	dorso da mão com dedo indicador apontando para a direita pele morena clara	none
-👉🏽	dorso da mão com dedo indicador apontando para a direita pele morena	none
-👉🏾	dorso da mão com dedo indicador apontando para a direita pele morena escura	none
-👉🏿	dorso da mão com dedo indicador apontando para a direita pele escura	none
-👆🏻	dorso da mão com dedo indicador apontando para cima pele clara	none
-👆🏼	dorso da mão com dedo indicador apontando para cima pele morena clara	none
-👆🏽	dorso da mão com dedo indicador apontando para cima pele morena	none
-👆🏾	dorso da mão com dedo indicador apontando para cima pele morena escura	none
-👆🏿	dorso da mão com dedo indicador apontando para cima pele escura	none
+👈🏻	dorso da mão com indicador apontando para a esquerda pele clara	none
+👈🏼	dorso da mão com indicador apontando para a esquerda pele morena clara	none
+👈🏽	dorso da mão com indicador apontando para a esquerda pele morena	none
+👈🏾	dorso da mão com indicador apontando para a esquerda pele morena escura	none
+👈🏿	dorso da mão com indicador apontando para a esquerda pele escura	none
+👉🏻	dorso da mão com indicador apontando para a direita pele clara	none
+👉🏼	dorso da mão com indicador apontando para a direita pele morena clara	none
+👉🏽	dorso da mão com indicador apontando para a direita pele morena	none
+👉🏾	dorso da mão com indicador apontando para a direita pele morena escura	none
+👉🏿	dorso da mão com indicador apontando para a direita pele escura	none
+👆🏻	dorso da mão com indicador apontando para cima pele clara	none
+👆🏼	dorso da mão com indicador apontando para cima pele morena clara	none
+👆🏽	dorso da mão com indicador apontando para cima pele morena	none
+👆🏾	dorso da mão com indicador apontando para cima pele morena escura	none
+👆🏿	dorso da mão com indicador apontando para cima pele escura	none
 🖕🏻	dedo do meio pele clara	none
 🖕🏼	dedo do meio pele morena clara	none
 🖕🏽	dedo do meio pele morena	none
 🖕🏾	dedo do meio pele morena escura	none
 🖕🏿	dedo do meio pele escura	none
-👇🏻	dorso da mão com dedo indicador apontando para baixo pele clara	none
-👇🏼	dorso da mão com dedo indicador apontando para baixo pele morena clara	none
-👇🏽	dorso da mão com dedo indicador apontando para baixo pele morena	none
-👇🏾	dorso da mão com dedo indicador apontando para baixo pele morena escura	none
-👇🏿	dorso da mão com dedo indicador apontando para baixo pele escura	none
+👇🏻	dorso da mão com indicador apontando para baixo pele clara	none
+👇🏼	dorso da mão com indicador apontando para baixo pele morena clara	none
+👇🏽	dorso da mão com indicador apontando para baixo pele morena	none
+👇🏾	dorso da mão com indicador apontando para baixo pele morena escura	none
+👇🏿	dorso da mão com indicador apontando para baixo pele escura	none
 ☝🏻	indicador apontando para cima pele clara	none
 ☝🏼	indicador apontando para cima pele morena clara	none
 ☝🏽	indicador apontando para cima pele morena	none
@@ -2159,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	casal apaixonado pessoa, pessoa, pele escura e pele morena clara	none
 🧑🏿‍❤‍🧑🏽	casal apaixonado pessoa, pessoa, pele escura e pele morena	none
 🧑🏿‍❤‍🧑🏾	casal apaixonado pessoa, pessoa, pele escura e pele morena escura	none
+🧑🏻‍🫯‍🧑🏼	pessoas lutando pele clara e pele morena clara	none
+🧑🏻‍🫯‍🧑🏽	pessoas lutando pele clara e pele morena	none
+🧑🏻‍🫯‍🧑🏾	pessoas lutando pele clara e pele morena escura	none
+🧑🏻‍🫯‍🧑🏿	pessoas lutando pele clara e pele escura	none
+🧑🏼‍🫯‍🧑🏻	pessoas lutando pele morena clara e pele clara	none
+🧑🏼‍🫯‍🧑🏽	pessoas lutando pele morena clara e pele morena	none
+🧑🏼‍🫯‍🧑🏾	pessoas lutando pele morena clara e pele morena escura	none
+🧑🏼‍🫯‍🧑🏿	pessoas lutando pele morena clara e pele escura	none
+🧑🏽‍🫯‍🧑🏻	pessoas lutando pele morena e pele clara	none
+🧑🏽‍🫯‍🧑🏼	pessoas lutando pele morena e pele morena clara	none
+🧑🏽‍🫯‍🧑🏾	pessoas lutando pele morena e pele morena escura	none
+🧑🏽‍🫯‍🧑🏿	pessoas lutando pele morena e pele escura	none
+🧑🏾‍🫯‍🧑🏻	pessoas lutando pele morena escura e pele clara	none
+🧑🏾‍🫯‍🧑🏼	pessoas lutando pele morena escura e pele morena clara	none
+🧑🏾‍🫯‍🧑🏽	pessoas lutando pele morena escura e pele morena	none
+🧑🏾‍🫯‍🧑🏿	pessoas lutando pele morena escura e pele escura	none
+🧑🏿‍🫯‍🧑🏻	pessoas lutando pele escura e pele clara	none
+🧑🏿‍🫯‍🧑🏼	pessoas lutando pele escura e pele morena clara	none
+🧑🏿‍🫯‍🧑🏽	pessoas lutando pele escura e pele morena	none
+🧑🏿‍🫯‍🧑🏾	pessoas lutando pele escura e pele morena escura	none
 🧑‍🦰	pessoa cabelo vermelho	none
 🧑🏻‍🦰	pessoa pele clara e cabelo vermelho	none
 🧑🏼‍🦰	pessoa pele morena clara e cabelo vermelho	none
@@ -2183,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	pessoa pele morena e careca	none
 🧑🏾‍🦲	pessoa pele morena escura e careca	none
 🧑🏿‍🦲	pessoa pele escura e careca	none
+🧑🏻‍🐰‍🧑🏼	pessoas com orelhas de coelho pele clara e pele morena clara	none
+🧑🏻‍🐰‍🧑🏽	pessoas com orelhas de coelho pele clara e pele morena	none
+🧑🏻‍🐰‍🧑🏾	pessoas com orelhas de coelho pele clara e pele morena escura	none
+🧑🏻‍🐰‍🧑🏿	pessoas com orelhas de coelho pele clara e pele escura	none
+🧑🏼‍🐰‍🧑🏻	pessoas com orelhas de coelho pele morena clara e pele clara	none
+🧑🏼‍🐰‍🧑🏽	pessoas com orelhas de coelho pele morena clara e pele morena	none
+🧑🏼‍🐰‍🧑🏾	pessoas com orelhas de coelho pele morena clara e pele morena escura	none
+🧑🏼‍🐰‍🧑🏿	pessoas com orelhas de coelho pele morena clara e pele escura	none
+🧑🏽‍🐰‍🧑🏻	pessoas com orelhas de coelho pele morena e pele clara	none
+🧑🏽‍🐰‍🧑🏼	pessoas com orelhas de coelho pele morena e pele morena clara	none
+🧑🏽‍🐰‍🧑🏾	pessoas com orelhas de coelho pele morena e pele morena escura	none
+🧑🏽‍🐰‍🧑🏿	pessoas com orelhas de coelho pele morena e pele escura	none
+🧑🏾‍🐰‍🧑🏻	pessoas com orelhas de coelho pele morena escura e pele clara	none
+🧑🏾‍🐰‍🧑🏼	pessoas com orelhas de coelho pele morena escura e pele morena clara	none
+🧑🏾‍🐰‍🧑🏽	pessoas com orelhas de coelho pele morena escura e pele morena	none
+🧑🏾‍🐰‍🧑🏿	pessoas com orelhas de coelho pele morena escura e pele escura	none
+🧑🏿‍🐰‍🧑🏻	pessoas com orelhas de coelho pele escura e pele clara	none
+🧑🏿‍🐰‍🧑🏼	pessoas com orelhas de coelho pele escura e pele morena clara	none
+🧑🏿‍🐰‍🧑🏽	pessoas com orelhas de coelho pele escura e pele morena	none
+🧑🏿‍🐰‍🧑🏾	pessoas com orelhas de coelho pele escura e pele morena escura	none
 👨🏻	homem pele clara	none
 👨🏼	homem pele morena clara	none
 👨🏽	homem pele morena	none
@@ -2253,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	casal apaixonado homem, homem, pele escura e pele morena	none
 👨🏿‍❤‍👨🏾	casal apaixonado homem, homem, pele escura e pele morena escura	none
 👨🏿‍❤‍👨🏿	casal apaixonado homem, homem e pele escura	none
+👨🏻‍🫯‍👨🏼	homens lutando pele clara e pele morena clara	none
+👨🏻‍🫯‍👨🏽	homens lutando pele clara e pele morena	none
+👨🏻‍🫯‍👨🏾	homens lutando pele clara e pele morena escura	none
+👨🏻‍🫯‍👨🏿	homens lutando pele clara e pele escura	none
+👨🏼‍🫯‍👨🏻	homens lutando pele morena clara e pele clara	none
+👨🏼‍🫯‍👨🏽	homens lutando pele morena clara e pele morena	none
+👨🏼‍🫯‍👨🏾	homens lutando pele morena clara e pele morena escura	none
+👨🏼‍🫯‍👨🏿	homens lutando pele morena clara e pele escura	none
+👨🏽‍🫯‍👨🏻	homens lutando pele morena e pele clara	none
+👨🏽‍🫯‍👨🏼	homens lutando pele morena e pele morena clara	none
+👨🏽‍🫯‍👨🏾	homens lutando pele morena e pele morena escura	none
+👨🏽‍🫯‍👨🏿	homens lutando pele morena e pele escura	none
+👨🏾‍🫯‍👨🏻	homens lutando pele morena escura e pele clara	none
+👨🏾‍🫯‍👨🏼	homens lutando pele morena escura e pele morena clara	none
+👨🏾‍🫯‍👨🏽	homens lutando pele morena escura e pele morena	none
+👨🏾‍🫯‍👨🏿	homens lutando pele morena escura e pele escura	none
+👨🏿‍🫯‍👨🏻	homens lutando pele escura e pele clara	none
+👨🏿‍🫯‍👨🏼	homens lutando pele escura e pele morena clara	none
+👨🏿‍🫯‍👨🏽	homens lutando pele escura e pele morena	none
+👨🏿‍🫯‍👨🏾	homens lutando pele escura e pele morena escura	none
 👨‍🦰	homem cabelo vermelho	none
 👨🏻‍🦰	homem pele clara e cabelo vermelho	none
 👨🏼‍🦰	homem pele morena clara e cabelo vermelho	none
@@ -2277,6 +2352,26 @@ symbols:
 👨🏽‍🦲	homem pele morena e careca	none
 👨🏾‍🦲	homem pele morena escura e careca	none
 👨🏿‍🦲	homem pele escura e careca	none
+👨🏻‍🐰‍👨🏼	homens com orelhas de coelho pele clara e pele morena clara	none
+👨🏻‍🐰‍👨🏽	homens com orelhas de coelho pele clara e pele morena	none
+👨🏻‍🐰‍👨🏾	homens com orelhas de coelho pele clara e pele morena escura	none
+👨🏻‍🐰‍👨🏿	homens com orelhas de coelho pele clara e pele escura	none
+👨🏼‍🐰‍👨🏻	homens com orelhas de coelho pele morena clara e pele clara	none
+👨🏼‍🐰‍👨🏽	homens com orelhas de coelho pele morena clara e pele morena	none
+👨🏼‍🐰‍👨🏾	homens com orelhas de coelho pele morena clara e pele morena escura	none
+👨🏼‍🐰‍👨🏿	homens com orelhas de coelho pele morena clara e pele escura	none
+👨🏽‍🐰‍👨🏻	homens com orelhas de coelho pele morena e pele clara	none
+👨🏽‍🐰‍👨🏼	homens com orelhas de coelho pele morena e pele morena clara	none
+👨🏽‍🐰‍👨🏾	homens com orelhas de coelho pele morena e pele morena escura	none
+👨🏽‍🐰‍👨🏿	homens com orelhas de coelho pele morena e pele escura	none
+👨🏾‍🐰‍👨🏻	homens com orelhas de coelho pele morena escura e pele clara	none
+👨🏾‍🐰‍👨🏼	homens com orelhas de coelho pele morena escura e pele morena clara	none
+👨🏾‍🐰‍👨🏽	homens com orelhas de coelho pele morena escura e pele morena	none
+👨🏾‍🐰‍👨🏿	homens com orelhas de coelho pele morena escura e pele escura	none
+👨🏿‍🐰‍👨🏻	homens com orelhas de coelho pele escura e pele clara	none
+👨🏿‍🐰‍👨🏼	homens com orelhas de coelho pele escura e pele morena clara	none
+👨🏿‍🐰‍👨🏽	homens com orelhas de coelho pele escura e pele morena	none
+👨🏿‍🐰‍👨🏾	homens com orelhas de coelho pele escura e pele morena escura	none
 👩🏻	mulher pele clara	none
 👩🏼	mulher pele morena clara	none
 👩🏽	mulher pele morena	none
@@ -2392,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	casal apaixonado mulher, mulher, pele escura e pele morena	none
 👩🏿‍❤‍👩🏾	casal apaixonado mulher, mulher, pele escura e pele morena escura	none
 👩🏿‍❤‍👩🏿	casal apaixonado mulher, mulher e pele escura	none
+👩🏻‍🫯‍👩🏼	mulheres lutando pele clara e pele morena clara	none
+👩🏻‍🫯‍👩🏽	mulheres lutando pele clara e pele morena	none
+👩🏻‍🫯‍👩🏾	mulheres lutando pele clara e pele morena escura	none
+👩🏻‍🫯‍👩🏿	mulheres lutando pele clara e pele escura	none
+👩🏼‍🫯‍👩🏻	mulheres lutando pele morena clara e pele clara	none
+👩🏼‍🫯‍👩🏽	mulheres lutando pele morena clara e pele morena	none
+👩🏼‍🫯‍👩🏾	mulheres lutando pele morena clara e pele morena escura	none
+👩🏼‍🫯‍👩🏿	mulheres lutando pele morena clara e pele escura	none
+👩🏽‍🫯‍👩🏻	mulheres lutando pele morena e pele clara	none
+👩🏽‍🫯‍👩🏼	mulheres lutando pele morena e pele morena clara	none
+👩🏽‍🫯‍👩🏾	mulheres lutando pele morena e pele morena escura	none
+👩🏽‍🫯‍👩🏿	mulheres lutando pele morena e pele escura	none
+👩🏾‍🫯‍👩🏻	mulheres lutando pele morena escura e pele clara	none
+👩🏾‍🫯‍👩🏼	mulheres lutando pele morena escura e pele morena clara	none
+👩🏾‍🫯‍👩🏽	mulheres lutando pele morena escura e pele morena	none
+👩🏾‍🫯‍👩🏿	mulheres lutando pele morena escura e pele escura	none
+👩🏿‍🫯‍👩🏻	mulheres lutando pele escura e pele clara	none
+👩🏿‍🫯‍👩🏼	mulheres lutando pele escura e pele morena clara	none
+👩🏿‍🫯‍👩🏽	mulheres lutando pele escura e pele morena	none
+👩🏿‍🫯‍👩🏾	mulheres lutando pele escura e pele morena escura	none
 👩‍🦰	mulher cabelo vermelho	none
 👩🏻‍🦰	mulher pele clara e cabelo vermelho	none
 👩🏼‍🦰	mulher pele morena clara e cabelo vermelho	none
@@ -2416,6 +2531,26 @@ symbols:
 👩🏽‍🦲	mulher pele morena e careca	none
 👩🏾‍🦲	mulher pele morena escura e careca	none
 👩🏿‍🦲	mulher pele escura e careca	none
+👩🏻‍🐰‍👩🏼	mulheres com orelhas de coelho pele clara e pele morena clara	none
+👩🏻‍🐰‍👩🏽	mulheres com orelhas de coelho pele clara e pele morena	none
+👩🏻‍🐰‍👩🏾	mulheres com orelhas de coelho pele clara e pele morena escura	none
+👩🏻‍🐰‍👩🏿	mulheres com orelhas de coelho pele clara e pele escura	none
+👩🏼‍🐰‍👩🏻	mulheres com orelhas de coelho pele morena clara e pele clara	none
+👩🏼‍🐰‍👩🏽	mulheres com orelhas de coelho pele morena clara e pele morena	none
+👩🏼‍🐰‍👩🏾	mulheres com orelhas de coelho pele morena clara e pele morena escura	none
+👩🏼‍🐰‍👩🏿	mulheres com orelhas de coelho pele morena clara e pele escura	none
+👩🏽‍🐰‍👩🏻	mulheres com orelhas de coelho pele morena e pele clara	none
+👩🏽‍🐰‍👩🏼	mulheres com orelhas de coelho pele morena e pele morena clara	none
+👩🏽‍🐰‍👩🏾	mulheres com orelhas de coelho pele morena e pele morena escura	none
+👩🏽‍🐰‍👩🏿	mulheres com orelhas de coelho pele morena e pele escura	none
+👩🏾‍🐰‍👩🏻	mulheres com orelhas de coelho pele morena escura e pele clara	none
+👩🏾‍🐰‍👩🏼	mulheres com orelhas de coelho pele morena escura e pele morena clara	none
+👩🏾‍🐰‍👩🏽	mulheres com orelhas de coelho pele morena escura e pele morena	none
+👩🏾‍🐰‍👩🏿	mulheres com orelhas de coelho pele morena escura e pele escura	none
+👩🏿‍🐰‍👩🏻	mulheres com orelhas de coelho pele escura e pele clara	none
+👩🏿‍🐰‍👩🏼	mulheres com orelhas de coelho pele escura e pele morena clara	none
+👩🏿‍🐰‍👩🏽	mulheres com orelhas de coelho pele escura e pele morena	none
+👩🏿‍🐰‍👩🏾	mulheres com orelhas de coelho pele escura e pele morena escura	none
 🧓🏻	idoso pele clara	none
 🧓🏼	idoso pele morena clara	none
 🧓🏽	idoso pele morena	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	mulher andando pele morena escura	none
 🚶🏿‍♀	mulher andando pele escura	none
 🚶‍➡	pessoa andando de frente para a direita	none
-🚶🏻‍➡	pessoa andando de frente para a direita	none
-🚶🏼‍➡	pessoa andando de frente para a direita	none
-🚶🏽‍➡	pessoa andando de frente para a direita	none
-🚶🏾‍➡	pessoa andando de frente para a direita	none
-🚶🏿‍➡	pessoa andando de frente para a direita	none
+🚶🏻‍➡	pessoa andando pele clara e de frente para a direita	none
+🚶🏼‍➡	pessoa andando pele morena clara e de frente para a direita	none
+🚶🏽‍➡	pessoa andando pele morena e de frente para a direita	none
+🚶🏾‍➡	pessoa andando pele morena escura e de frente para a direita	none
+🚶🏿‍➡	pessoa andando pele escura e de frente para a direita	none
 🚶‍♀‍➡	mulher andando de frente para a direita	none
-🚶🏻‍♀‍➡	mulher andando de frente para a direita	none
-🚶🏼‍♀‍➡	mulher andando de frente para a direita	none
-🚶🏽‍♀‍➡	mulher andando de frente para a direita	none
-🚶🏾‍♀‍➡	mulher andando de frente para a direita	none
-🚶🏿‍♀‍➡	mulher andando de frente para a direita	none
+🚶🏻‍♀‍➡	mulher andando pele clara e de frente para a direita	none
+🚶🏼‍♀‍➡	mulher andando pele morena clara e de frente para a direita	none
+🚶🏽‍♀‍➡	mulher andando pele morena e de frente para a direita	none
+🚶🏾‍♀‍➡	mulher andando pele morena escura e de frente para a direita	none
+🚶🏿‍♀‍➡	mulher andando pele escura e de frente para a direita	none
 🚶‍♂‍➡	homem andando de frente para a direita	none
-🚶🏻‍♂‍➡	homem andando de frente para a direita	none
-🚶🏼‍♂‍➡	homem andando de frente para a direita	none
-🚶🏽‍♂‍➡	homem andando de frente para a direita	none
-🚶🏾‍♂‍➡	homem andando de frente para a direita	none
-🚶🏿‍♂‍➡	homem andando de frente para a direita	none
+🚶🏻‍♂‍➡	homem andando pele clara e de frente para a direita	none
+🚶🏼‍♂‍➡	homem andando pele morena clara e de frente para a direita	none
+🚶🏽‍♂‍➡	homem andando pele morena e de frente para a direita	none
+🚶🏾‍♂‍➡	homem andando pele morena escura e de frente para a direita	none
+🚶🏿‍♂‍➡	homem andando pele escura e de frente para a direita	none
 🧍🏻	pessoa em pé pele clara	none
 🧍🏼	pessoa em pé pele morena clara	none
 🧍🏽	pessoa em pé pele morena	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	mulher ajoelhando pele morena escura	none
 🧎🏿‍♀	mulher ajoelhando pele escura	none
 🧎‍➡	pessoa ajoelhando de frente para a direita	none
-🧎🏻‍➡	pessoa ajoelhando de frente para a direita	none
-🧎🏼‍➡	pessoa ajoelhando de frente para a direita	none
-🧎🏽‍➡	pessoa ajoelhando de frente para a direita	none
-🧎🏾‍➡	pessoa ajoelhando de frente para a direita	none
-🧎🏿‍➡	pessoa ajoelhando de frente para a direita	none
+🧎🏻‍➡	pessoa ajoelhando pele clara e de frente para a direita	none
+🧎🏼‍➡	pessoa ajoelhando pele morena clara e de frente para a direita	none
+🧎🏽‍➡	pessoa ajoelhando pele morena e de frente para a direita	none
+🧎🏾‍➡	pessoa ajoelhando pele morena escura e de frente para a direita	none
+🧎🏿‍➡	pessoa ajoelhando pele escura e de frente para a direita	none
 🧎‍♀‍➡	mulher ajoelhando de frente para a direita	none
-🧎🏻‍♀‍➡	mulher ajoelhando de frente para a direita	none
-🧎🏼‍♀‍➡	mulher ajoelhando de frente para a direita	none
-🧎🏽‍♀‍➡	mulher ajoelhando de frente para a direita	none
-🧎🏾‍♀‍➡	mulher ajoelhando de frente para a direita	none
-🧎🏿‍♀‍➡	mulher ajoelhando de frente para a direita	none
+🧎🏻‍♀‍➡	mulher ajoelhando pele clara e de frente para a direita	none
+🧎🏼‍♀‍➡	mulher ajoelhando pele morena clara e de frente para a direita	none
+🧎🏽‍♀‍➡	mulher ajoelhando pele morena e de frente para a direita	none
+🧎🏾‍♀‍➡	mulher ajoelhando pele morena escura e de frente para a direita	none
+🧎🏿‍♀‍➡	mulher ajoelhando pele escura e de frente para a direita	none
 🧎‍♂‍➡	homem ajoelhando de frente para a direita	none
-🧎🏻‍♂‍➡	homem ajoelhando de frente para a direita	none
-🧎🏼‍♂‍➡	homem ajoelhando de frente para a direita	none
-🧎🏽‍♂‍➡	homem ajoelhando de frente para a direita	none
-🧎🏾‍♂‍➡	homem ajoelhando de frente para a direita	none
-🧎🏿‍♂‍➡	homem ajoelhando de frente para a direita	none
+🧎🏻‍♂‍➡	homem ajoelhando pele clara e de frente para a direita	none
+🧎🏼‍♂‍➡	homem ajoelhando pele morena clara e de frente para a direita	none
+🧎🏽‍♂‍➡	homem ajoelhando pele morena e de frente para a direita	none
+🧎🏾‍♂‍➡	homem ajoelhando pele morena escura e de frente para a direita	none
+🧎🏿‍♂‍➡	homem ajoelhando pele escura e de frente para a direita	none
 🧑🏻‍🦯	pessoa com bengala para cego pele clara	none
 🧑🏼‍🦯	pessoa com bengala para cego pele morena clara	none
 🧑🏽‍🦯	pessoa com bengala para cego pele morena	none
 🧑🏾‍🦯	pessoa com bengala para cego pele morena escura	none
 🧑🏿‍🦯	pessoa com bengala para cego pele escura	none
 🧑‍🦯‍➡	pessoa com bengala para cego de frente para a direita	none
-🧑🏻‍🦯‍➡	pessoa com bengala para cego de frente para a direita	none
-🧑🏼‍🦯‍➡	pessoa com bengala para cego de frente para a direita	none
-🧑🏽‍🦯‍➡	pessoa com bengala para cego de frente para a direita	none
-🧑🏾‍🦯‍➡	pessoa com bengala para cego de frente para a direita	none
-🧑🏿‍🦯‍➡	pessoa com bengala para cego de frente para a direita	none
+🧑🏻‍🦯‍➡	pessoa com bengala para cego pele clara e de frente para a direita	none
+🧑🏼‍🦯‍➡	pessoa com bengala para cego pele morena clara e de frente para a direita	none
+🧑🏽‍🦯‍➡	pessoa com bengala para cego pele morena e de frente para a direita	none
+🧑🏾‍🦯‍➡	pessoa com bengala para cego pele morena escura e de frente para a direita	none
+🧑🏿‍🦯‍➡	pessoa com bengala para cego pele escura e de frente para a direita	none
 👨🏻‍🦯	homem com bengala para cego pele clara	none
 👨🏼‍🦯	homem com bengala para cego pele morena clara	none
 👨🏽‍🦯	homem com bengala para cego pele morena	none
 👨🏾‍🦯	homem com bengala para cego pele morena escura	none
 👨🏿‍🦯	homem com bengala para cego pele escura	none
 👨‍🦯‍➡	homem com bengala para cego de frente para a direita	none
-👨🏻‍🦯‍➡	homem com bengala para cego de frente para a direita	none
-👨🏼‍🦯‍➡	homem com bengala para cego de frente para a direita	none
-👨🏽‍🦯‍➡	homem com bengala para cego de frente para a direita	none
-👨🏾‍🦯‍➡	homem com bengala para cego de frente para a direita	none
-👨🏿‍🦯‍➡	homem com bengala para cego de frente para a direita	none
+👨🏻‍🦯‍➡	homem com bengala para cego pele clara e de frente para a direita	none
+👨🏼‍🦯‍➡	homem com bengala para cego pele morena clara e de frente para a direita	none
+👨🏽‍🦯‍➡	homem com bengala para cego pele morena e de frente para a direita	none
+👨🏾‍🦯‍➡	homem com bengala para cego pele morena escura e de frente para a direita	none
+👨🏿‍🦯‍➡	homem com bengala para cego pele escura e de frente para a direita	none
 👩🏻‍🦯	mulher com bengala para cego pele clara	none
 👩🏼‍🦯	mulher com bengala para cego pele morena clara	none
 👩🏽‍🦯	mulher com bengala para cego pele morena	none
 👩🏾‍🦯	mulher com bengala para cego pele morena escura	none
 👩🏿‍🦯	mulher com bengala para cego pele escura	none
 👩‍🦯‍➡	mulher com bengala para cego de frente para a direita	none
-👩🏻‍🦯‍➡	mulher com bengala para cego de frente para a direita	none
-👩🏼‍🦯‍➡	mulher com bengala para cego de frente para a direita	none
-👩🏽‍🦯‍➡	mulher com bengala para cego de frente para a direita	none
-👩🏾‍🦯‍➡	mulher com bengala para cego de frente para a direita	none
-👩🏿‍🦯‍➡	mulher com bengala para cego de frente para a direita	none
+👩🏻‍🦯‍➡	mulher com bengala para cego pele clara e de frente para a direita	none
+👩🏼‍🦯‍➡	mulher com bengala para cego pele morena clara e de frente para a direita	none
+👩🏽‍🦯‍➡	mulher com bengala para cego pele morena e de frente para a direita	none
+👩🏾‍🦯‍➡	mulher com bengala para cego pele morena escura e de frente para a direita	none
+👩🏿‍🦯‍➡	mulher com bengala para cego pele escura e de frente para a direita	none
 🧑🏻‍🦼	pessoa em cadeira de rodas motorizada pele clara	none
 🧑🏼‍🦼	pessoa em cadeira de rodas motorizada pele morena clara	none
 🧑🏽‍🦼	pessoa em cadeira de rodas motorizada pele morena	none
 🧑🏾‍🦼	pessoa em cadeira de rodas motorizada pele morena escura	none
 🧑🏿‍🦼	pessoa em cadeira de rodas motorizada pele escura	none
 🧑‍🦼‍➡	pessoa em cadeira de rodas motorizada de frente para a direita	none
-🧑🏻‍🦼‍➡	pessoa em cadeira de rodas motorizada de frente para a direita	none
-🧑🏼‍🦼‍➡	pessoa em cadeira de rodas motorizada de frente para a direita	none
-🧑🏽‍🦼‍➡	pessoa em cadeira de rodas motorizada de frente para a direita	none
-🧑🏾‍🦼‍➡	pessoa em cadeira de rodas motorizada de frente para a direita	none
-🧑🏿‍🦼‍➡	pessoa em cadeira de rodas motorizada de frente para a direita	none
+🧑🏻‍🦼‍➡	pessoa em cadeira de rodas motorizada pele clara e de frente para a direita	none
+🧑🏼‍🦼‍➡	pessoa em cadeira de rodas motorizada pele morena clara e de frente para a direita	none
+🧑🏽‍🦼‍➡	pessoa em cadeira de rodas motorizada pele morena e de frente para a direita	none
+🧑🏾‍🦼‍➡	pessoa em cadeira de rodas motorizada pele morena escura e de frente para a direita	none
+🧑🏿‍🦼‍➡	pessoa em cadeira de rodas motorizada pele escura e de frente para a direita	none
 👨🏻‍🦼	homem em cadeira de rodas motorizada pele clara	none
 👨🏼‍🦼	homem em cadeira de rodas motorizada pele morena clara	none
 👨🏽‍🦼	homem em cadeira de rodas motorizada pele morena	none
 👨🏾‍🦼	homem em cadeira de rodas motorizada pele morena escura	none
 👨🏿‍🦼	homem em cadeira de rodas motorizada pele escura	none
 👨‍🦼‍➡	homem em cadeira de rodas motorizada de frente para a direita	none
-👨🏻‍🦼‍➡	homem em cadeira de rodas motorizada de frente para a direita	none
-👨🏼‍🦼‍➡	homem em cadeira de rodas motorizada de frente para a direita	none
-👨🏽‍🦼‍➡	homem em cadeira de rodas motorizada de frente para a direita	none
-👨🏾‍🦼‍➡	homem em cadeira de rodas motorizada de frente para a direita	none
-👨🏿‍🦼‍➡	homem em cadeira de rodas motorizada de frente para a direita	none
+👨🏻‍🦼‍➡	homem em cadeira de rodas motorizada pele clara e de frente para a direita	none
+👨🏼‍🦼‍➡	homem em cadeira de rodas motorizada pele morena clara e de frente para a direita	none
+👨🏽‍🦼‍➡	homem em cadeira de rodas motorizada pele morena e de frente para a direita	none
+👨🏾‍🦼‍➡	homem em cadeira de rodas motorizada pele morena escura e de frente para a direita	none
+👨🏿‍🦼‍➡	homem em cadeira de rodas motorizada pele escura e de frente para a direita	none
 👩🏻‍🦼	mulher em cadeira de rodas motorizada pele clara	none
 👩🏼‍🦼	mulher em cadeira de rodas motorizada pele morena clara	none
 👩🏽‍🦼	mulher em cadeira de rodas motorizada pele morena	none
 👩🏾‍🦼	mulher em cadeira de rodas motorizada pele morena escura	none
 👩🏿‍🦼	mulher em cadeira de rodas motorizada pele escura	none
 👩‍🦼‍➡	mulher em cadeira de rodas motorizada de frente para a direita	none
-👩🏻‍🦼‍➡	mulher em cadeira de rodas motorizada de frente para a direita	none
-👩🏼‍🦼‍➡	mulher em cadeira de rodas motorizada de frente para a direita	none
-👩🏽‍🦼‍➡	mulher em cadeira de rodas motorizada de frente para a direita	none
-👩🏾‍🦼‍➡	mulher em cadeira de rodas motorizada de frente para a direita	none
-👩🏿‍🦼‍➡	mulher em cadeira de rodas motorizada de frente para a direita	none
+👩🏻‍🦼‍➡	mulher em cadeira de rodas motorizada pele clara e de frente para a direita	none
+👩🏼‍🦼‍➡	mulher em cadeira de rodas motorizada pele morena clara e de frente para a direita	none
+👩🏽‍🦼‍➡	mulher em cadeira de rodas motorizada pele morena e de frente para a direita	none
+👩🏾‍🦼‍➡	mulher em cadeira de rodas motorizada pele morena escura e de frente para a direita	none
+👩🏿‍🦼‍➡	mulher em cadeira de rodas motorizada pele escura e de frente para a direita	none
 🧑🏻‍🦽	pessoa em cadeira de rodas manual pele clara	none
 🧑🏼‍🦽	pessoa em cadeira de rodas manual pele morena clara	none
 🧑🏽‍🦽	pessoa em cadeira de rodas manual pele morena	none
 🧑🏾‍🦽	pessoa em cadeira de rodas manual pele morena escura	none
 🧑🏿‍🦽	pessoa em cadeira de rodas manual pele escura	none
 🧑‍🦽‍➡	pessoa em cadeira de rodas manual de frente para a direita	none
-🧑🏻‍🦽‍➡	pessoa em cadeira de rodas manual de frente para a direita	none
-🧑🏼‍🦽‍➡	pessoa em cadeira de rodas manual de frente para a direita	none
-🧑🏽‍🦽‍➡	pessoa em cadeira de rodas manual de frente para a direita	none
-🧑🏾‍🦽‍➡	pessoa em cadeira de rodas manual de frente para a direita	none
-🧑🏿‍🦽‍➡	pessoa em cadeira de rodas manual de frente para a direita	none
+🧑🏻‍🦽‍➡	pessoa em cadeira de rodas manual pele clara e de frente para a direita	none
+🧑🏼‍🦽‍➡	pessoa em cadeira de rodas manual pele morena clara e de frente para a direita	none
+🧑🏽‍🦽‍➡	pessoa em cadeira de rodas manual pele morena e de frente para a direita	none
+🧑🏾‍🦽‍➡	pessoa em cadeira de rodas manual pele morena escura e de frente para a direita	none
+🧑🏿‍🦽‍➡	pessoa em cadeira de rodas manual pele escura e de frente para a direita	none
 👨🏻‍🦽	homem em cadeira de rodas manual pele clara	none
 👨🏼‍🦽	homem em cadeira de rodas manual pele morena clara	none
 👨🏽‍🦽	homem em cadeira de rodas manual pele morena	none
 👨🏾‍🦽	homem em cadeira de rodas manual pele morena escura	none
 👨🏿‍🦽	homem em cadeira de rodas manual pele escura	none
 👨‍🦽‍➡	homem em cadeira de rodas manual de frente para a direita	none
-👨🏻‍🦽‍➡	homem em cadeira de rodas manual de frente para a direita	none
-👨🏼‍🦽‍➡	homem em cadeira de rodas manual de frente para a direita	none
-👨🏽‍🦽‍➡	homem em cadeira de rodas manual de frente para a direita	none
-👨🏾‍🦽‍➡	homem em cadeira de rodas manual de frente para a direita	none
-👨🏿‍🦽‍➡	homem em cadeira de rodas manual de frente para a direita	none
+👨🏻‍🦽‍➡	homem em cadeira de rodas manual pele clara e de frente para a direita	none
+👨🏼‍🦽‍➡	homem em cadeira de rodas manual pele morena clara e de frente para a direita	none
+👨🏽‍🦽‍➡	homem em cadeira de rodas manual pele morena e de frente para a direita	none
+👨🏾‍🦽‍➡	homem em cadeira de rodas manual pele morena escura e de frente para a direita	none
+👨🏿‍🦽‍➡	homem em cadeira de rodas manual pele escura e de frente para a direita	none
 👩🏻‍🦽	mulher em cadeira de rodas manual pele clara	none
 👩🏼‍🦽	mulher em cadeira de rodas manual pele morena clara	none
 👩🏽‍🦽	mulher em cadeira de rodas manual pele morena	none
 👩🏾‍🦽	mulher em cadeira de rodas manual pele morena escura	none
 👩🏿‍🦽	mulher em cadeira de rodas manual pele escura	none
 👩‍🦽‍➡	mulher em cadeira de rodas manual de frente para a direita	none
-👩🏻‍🦽‍➡	mulher em cadeira de rodas manual de frente para a direita	none
-👩🏼‍🦽‍➡	mulher em cadeira de rodas manual de frente para a direita	none
-👩🏽‍🦽‍➡	mulher em cadeira de rodas manual de frente para a direita	none
-👩🏾‍🦽‍➡	mulher em cadeira de rodas manual de frente para a direita	none
-👩🏿‍🦽‍➡	mulher em cadeira de rodas manual de frente para a direita	none
+👩🏻‍🦽‍➡	mulher em cadeira de rodas manual pele clara e de frente para a direita	none
+👩🏼‍🦽‍➡	mulher em cadeira de rodas manual pele morena clara e de frente para a direita	none
+👩🏽‍🦽‍➡	mulher em cadeira de rodas manual pele morena e de frente para a direita	none
+👩🏾‍🦽‍➡	mulher em cadeira de rodas manual pele morena escura e de frente para a direita	none
+👩🏿‍🦽‍➡	mulher em cadeira de rodas manual pele escura e de frente para a direita	none
 🏃🏻	pessoa correndo pele clara	none
 🏃🏼	pessoa correndo pele morena clara	none
 🏃🏽	pessoa correndo pele morena	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	mulher correndo pele morena escura	none
 🏃🏿‍♀	mulher correndo pele escura	none
 🏃‍➡	pessoa correndo de frente para a direita	none
-🏃🏻‍➡	pessoa correndo de frente para a direita	none
-🏃🏼‍➡	pessoa correndo de frente para a direita	none
-🏃🏽‍➡	pessoa correndo de frente para a direita	none
-🏃🏾‍➡	pessoa correndo de frente para a direita	none
-🏃🏿‍➡	pessoa correndo de frente para a direita	none
+🏃🏻‍➡	pessoa correndo pele clara e de frente para a direita	none
+🏃🏼‍➡	pessoa correndo pele morena clara e de frente para a direita	none
+🏃🏽‍➡	pessoa correndo pele morena e de frente para a direita	none
+🏃🏾‍➡	pessoa correndo pele morena escura e de frente para a direita	none
+🏃🏿‍➡	pessoa correndo pele escura e de frente para a direita	none
 🏃‍♀‍➡	mulher correndo de frente para a direita	none
-🏃🏻‍♀‍➡	mulher correndo de frente para a direita	none
-🏃🏼‍♀‍➡	mulher correndo de frente para a direita	none
-🏃🏽‍♀‍➡	mulher correndo de frente para a direita	none
-🏃🏾‍♀‍➡	mulher correndo de frente para a direita	none
-🏃🏿‍♀‍➡	mulher correndo de frente para a direita	none
+🏃🏻‍♀‍➡	mulher correndo pele clara e de frente para a direita	none
+🏃🏼‍♀‍➡	mulher correndo pele morena clara e de frente para a direita	none
+🏃🏽‍♀‍➡	mulher correndo pele morena e de frente para a direita	none
+🏃🏾‍♀‍➡	mulher correndo pele morena escura e de frente para a direita	none
+🏃🏿‍♀‍➡	mulher correndo pele escura e de frente para a direita	none
 🏃‍♂‍➡	homem correndo de frente para a direita	none
-🏃🏻‍♂‍➡	homem correndo de frente para a direita	none
-🏃🏼‍♂‍➡	homem correndo de frente para a direita	none
-🏃🏽‍♂‍➡	homem correndo de frente para a direita	none
-🏃🏾‍♂‍➡	homem correndo de frente para a direita	none
-🏃🏿‍♂‍➡	homem correndo de frente para a direita	none
+🏃🏻‍♂‍➡	homem correndo pele clara e de frente para a direita	none
+🏃🏼‍♂‍➡	homem correndo pele morena clara e de frente para a direita	none
+🏃🏽‍♂‍➡	homem correndo pele morena e de frente para a direita	none
+🏃🏾‍♂‍➡	homem correndo pele morena escura e de frente para a direita	none
+🏃🏿‍♂‍➡	homem correndo pele escura e de frente para a direita	none
+🧑🏻‍🩰	bailarina pele clara	none
+🧑🏼‍🩰	bailarina pele morena clara	none
+🧑🏽‍🩰	bailarina pele morena	none
+🧑🏾‍🩰	bailarina pele morena escura	none
+🧑🏿‍🩰	bailarina pele escura	none
 💃🏻	mulher dançando pele clara	none
 💃🏼	mulher dançando pele morena clara	none
 💃🏽	mulher dançando pele morena	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	homem de terno levitando pele morena	none
 🕴🏾	homem de terno levitando pele morena escura	none
 🕴🏿	homem de terno levitando pele escura	none
+👯🏻	pessoas com orelhas de coelho pele clara	none
+👯🏼	pessoas com orelhas de coelho pele morena clara	none
+👯🏽	pessoas com orelhas de coelho pele morena	none
+👯🏾	pessoas com orelhas de coelho pele morena escura	none
+👯🏿	pessoas com orelhas de coelho pele escura	none
+👯🏻‍♂	homens com orelhas de coelho pele clara	none
+👯🏼‍♂	homens com orelhas de coelho pele morena clara	none
+👯🏽‍♂	homens com orelhas de coelho pele morena	none
+👯🏾‍♂	homens com orelhas de coelho pele morena escura	none
+👯🏿‍♂	homens com orelhas de coelho pele escura	none
+👯🏻‍♀	mulheres com orelhas de coelho pele clara	none
+👯🏼‍♀	mulheres com orelhas de coelho pele morena clara	none
+👯🏽‍♀	mulheres com orelhas de coelho pele morena	none
+👯🏾‍♀	mulheres com orelhas de coelho pele morena escura	none
+👯🏿‍♀	mulheres com orelhas de coelho pele escura	none
 🧖🏻	pessoa na sauna pele clara	none
 🧖🏼	pessoa na sauna pele morena clara	none
 🧖🏽	pessoa na sauna pele morena	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	mulher fazendo estrela pele morena	none
 🤸🏾‍♀	mulher fazendo estrela pele morena escura	none
 🤸🏿‍♀	mulher fazendo estrela pele escura	none
+🤼🏻	pessoas lutando pele clara	none
+🤼🏼	pessoas lutando pele morena clara	none
+🤼🏽	pessoas lutando pele morena	none
+🤼🏾	pessoas lutando pele morena escura	none
+🤼🏿	pessoas lutando pele escura	none
+🤼🏻‍♂	homens lutando pele clara	none
+🤼🏼‍♂	homens lutando pele morena clara	none
+🤼🏽‍♂	homens lutando pele morena	none
+🤼🏾‍♂	homens lutando pele morena escura	none
+🤼🏿‍♂	homens lutando pele escura	none
+🤼🏻‍♀	mulheres lutando pele clara	none
+🤼🏼‍♀	mulheres lutando pele morena clara	none
+🤼🏽‍♀	mulheres lutando pele morena	none
+🤼🏾‍♀	mulheres lutando pele morena escura	none
+🤼🏿‍♀	mulheres lutando pele escura	none
 🤽🏻	pessoa jogando polo aquático pele clara	none
 🤽🏼	pessoa jogando polo aquático pele morena clara	none
 🤽🏽	pessoa jogando polo aquático pele morena	none
@@ -3812,6 +3982,7 @@ symbols:
 🇨🇳	bandeira China	none
 🇨🇴	bandeira Colômbia	none
 🇨🇵	bandeira Ilha de Clipperton	none
+🇨🇶	bandeira Sark	none
 🇨🇷	bandeira Costa Rica	none
 🇨🇺	bandeira Cuba	none
 🇨🇻	bandeira Cabo Verde	none

@@ -467,6 +467,9 @@ symbols:
 🦈	Hai	none
 🐙	Tëntefësch	none
 🐚	Spiralmuschel	none
+🦀	Kriibs	none
+🦐	Crevette	none
+🦑	Calamar	none
 🐌	Schleek	none
 🦋	Päiperlek	none
 🐛	Kiewerlek	none
@@ -568,9 +571,6 @@ symbols:
 🥟	Ravioli	none
 🥠	Gléckskichelchen	none
 🥡	Takeout-Këscht	none
-🦀	Kriibs	none
-🦐	Crevette	none
-🦑	Calamar	none
 🍦	Softice	none
 🍧	Waasserglace	none
 🍨	Glace	none
@@ -922,9 +922,9 @@ symbols:
 🎧	Kopfhörer	none
 📻	Radio	none
 🎷	Saxofon	none
+🎺	Trompett	none
 🎸	Gittar	none
 🎹	Keyboard	none
-🎺	Trompett	none
 🎻	Gei	none
 🥁	Trommel	none
 📱	Handy	none
@@ -1508,6 +1508,46 @@ symbols:
 🧑🏿‍❤‍🧑🏼	verléift Koppel Erwuessenen, Erwuessenen, däischter Hautfaarf, mëttelhell Hautfaarf	none
 🧑🏿‍❤‍🧑🏽	verléift Koppel Erwuessenen, Erwuessenen, däischter Hautfaarf, mëttel Hautfaarf	none
 🧑🏿‍❤‍🧑🏾	verléift Koppel Erwuessenen, Erwuessenen, däischter Hautfaarf, mëtteldäischter Hautfaarf	none
+🧑🏻‍🫯‍🧑🏼	Wrestling hell Hautfaarf, mëttelhell Hautfaarf	none
+🧑🏻‍🫯‍🧑🏽	Wrestling hell Hautfaarf, mëttel Hautfaarf	none
+🧑🏻‍🫯‍🧑🏾	Wrestling hell Hautfaarf, mëtteldäischter Hautfaarf	none
+🧑🏻‍🫯‍🧑🏿	Wrestling hell Hautfaarf, däischter Hautfaarf	none
+🧑🏼‍🫯‍🧑🏻	Wrestling mëttelhell Hautfaarf, hell Hautfaarf	none
+🧑🏼‍🫯‍🧑🏽	Wrestling mëttelhell Hautfaarf, mëttel Hautfaarf	none
+🧑🏼‍🫯‍🧑🏾	Wrestling mëttelhell Hautfaarf, mëtteldäischter Hautfaarf	none
+🧑🏼‍🫯‍🧑🏿	Wrestling mëttelhell Hautfaarf, däischter Hautfaarf	none
+🧑🏽‍🫯‍🧑🏻	Wrestling mëttel Hautfaarf, hell Hautfaarf	none
+🧑🏽‍🫯‍🧑🏼	Wrestling mëttel Hautfaarf, mëttelhell Hautfaarf	none
+🧑🏽‍🫯‍🧑🏾	Wrestling mëttel Hautfaarf, mëtteldäischter Hautfaarf	none
+🧑🏽‍🫯‍🧑🏿	Wrestling mëttel Hautfaarf, däischter Hautfaarf	none
+🧑🏾‍🫯‍🧑🏻	Wrestling mëtteldäischter Hautfaarf, hell Hautfaarf	none
+🧑🏾‍🫯‍🧑🏼	Wrestling mëtteldäischter Hautfaarf, mëttelhell Hautfaarf	none
+🧑🏾‍🫯‍🧑🏽	Wrestling mëtteldäischter Hautfaarf, mëttel Hautfaarf	none
+🧑🏾‍🫯‍🧑🏿	Wrestling mëtteldäischter Hautfaarf, däischter Hautfaarf	none
+🧑🏿‍🫯‍🧑🏻	Wrestling däischter Hautfaarf, hell Hautfaarf	none
+🧑🏿‍🫯‍🧑🏼	Wrestling däischter Hautfaarf, mëttelhell Hautfaarf	none
+🧑🏿‍🫯‍🧑🏽	Wrestling däischter Hautfaarf, mëttel Hautfaarf	none
+🧑🏿‍🫯‍🧑🏾	Wrestling däischter Hautfaarf, mëtteldäischter Hautfaarf	none
+🧑🏻‍🐰‍🧑🏼	Persoun mat Huesoueren hell Hautfaarf, mëttelhell Hautfaarf	none
+🧑🏻‍🐰‍🧑🏽	Persoun mat Huesoueren hell Hautfaarf, mëttel Hautfaarf	none
+🧑🏻‍🐰‍🧑🏾	Persoun mat Huesoueren hell Hautfaarf, mëtteldäischter Hautfaarf	none
+🧑🏻‍🐰‍🧑🏿	Persoun mat Huesoueren hell Hautfaarf, däischter Hautfaarf	none
+🧑🏼‍🐰‍🧑🏻	Persoun mat Huesoueren mëttelhell Hautfaarf, hell Hautfaarf	none
+🧑🏼‍🐰‍🧑🏽	Persoun mat Huesoueren mëttelhell Hautfaarf, mëttel Hautfaarf	none
+🧑🏼‍🐰‍🧑🏾	Persoun mat Huesoueren mëttelhell Hautfaarf, mëtteldäischter Hautfaarf	none
+🧑🏼‍🐰‍🧑🏿	Persoun mat Huesoueren mëttelhell Hautfaarf, däischter Hautfaarf	none
+🧑🏽‍🐰‍🧑🏻	Persoun mat Huesoueren mëttel Hautfaarf, hell Hautfaarf	none
+🧑🏽‍🐰‍🧑🏼	Persoun mat Huesoueren mëttel Hautfaarf, mëttelhell Hautfaarf	none
+🧑🏽‍🐰‍🧑🏾	Persoun mat Huesoueren mëttel Hautfaarf, mëtteldäischter Hautfaarf	none
+🧑🏽‍🐰‍🧑🏿	Persoun mat Huesoueren mëttel Hautfaarf, däischter Hautfaarf	none
+🧑🏾‍🐰‍🧑🏻	Persoun mat Huesoueren mëtteldäischter Hautfaarf, hell Hautfaarf	none
+🧑🏾‍🐰‍🧑🏼	Persoun mat Huesoueren mëtteldäischter Hautfaarf, mëttelhell Hautfaarf	none
+🧑🏾‍🐰‍🧑🏽	Persoun mat Huesoueren mëtteldäischter Hautfaarf, mëttel Hautfaarf	none
+🧑🏾‍🐰‍🧑🏿	Persoun mat Huesoueren mëtteldäischter Hautfaarf, däischter Hautfaarf	none
+🧑🏿‍🐰‍🧑🏻	Persoun mat Huesoueren däischter Hautfaarf, hell Hautfaarf	none
+🧑🏿‍🐰‍🧑🏼	Persoun mat Huesoueren däischter Hautfaarf, mëttelhell Hautfaarf	none
+🧑🏿‍🐰‍🧑🏽	Persoun mat Huesoueren däischter Hautfaarf, mëttel Hautfaarf	none
+🧑🏿‍🐰‍🧑🏾	Persoun mat Huesoueren däischter Hautfaarf, mëtteldäischter Hautfaarf	none
 👨🏻	Mann hell Hautfaarf	none
 👨🏼	Mann mëttelhell Hautfaarf	none
 👨🏽	Mann mëttel Hautfaarf	none
@@ -1573,6 +1613,46 @@ symbols:
 👨🏿‍❤‍👨🏽	verléift Koppel Mann, Mann, däischter Hautfaarf, mëttel Hautfaarf	none
 👨🏿‍❤‍👨🏾	verléift Koppel Mann, Mann, däischter Hautfaarf, mëtteldäischter Hautfaarf	none
 👨🏿‍❤‍👨🏿	verléift Koppel Mann, Mann, däischter Hautfaarf	none
+👨🏻‍🫯‍👨🏼	Wrestler hell Hautfaarf, mëttelhell Hautfaarf	none
+👨🏻‍🫯‍👨🏽	Wrestler hell Hautfaarf, mëttel Hautfaarf	none
+👨🏻‍🫯‍👨🏾	Wrestler hell Hautfaarf, mëtteldäischter Hautfaarf	none
+👨🏻‍🫯‍👨🏿	Wrestler hell Hautfaarf, däischter Hautfaarf	none
+👨🏼‍🫯‍👨🏻	Wrestler mëttelhell Hautfaarf, hell Hautfaarf	none
+👨🏼‍🫯‍👨🏽	Wrestler mëttelhell Hautfaarf, mëttel Hautfaarf	none
+👨🏼‍🫯‍👨🏾	Wrestler mëttelhell Hautfaarf, mëtteldäischter Hautfaarf	none
+👨🏼‍🫯‍👨🏿	Wrestler mëttelhell Hautfaarf, däischter Hautfaarf	none
+👨🏽‍🫯‍👨🏻	Wrestler mëttel Hautfaarf, hell Hautfaarf	none
+👨🏽‍🫯‍👨🏼	Wrestler mëttel Hautfaarf, mëttelhell Hautfaarf	none
+👨🏽‍🫯‍👨🏾	Wrestler mëttel Hautfaarf, mëtteldäischter Hautfaarf	none
+👨🏽‍🫯‍👨🏿	Wrestler mëttel Hautfaarf, däischter Hautfaarf	none
+👨🏾‍🫯‍👨🏻	Wrestler mëtteldäischter Hautfaarf, hell Hautfaarf	none
+👨🏾‍🫯‍👨🏼	Wrestler mëtteldäischter Hautfaarf, mëttelhell Hautfaarf	none
+👨🏾‍🫯‍👨🏽	Wrestler mëtteldäischter Hautfaarf, mëttel Hautfaarf	none
+👨🏾‍🫯‍👨🏿	Wrestler mëtteldäischter Hautfaarf, däischter Hautfaarf	none
+👨🏿‍🫯‍👨🏻	Wrestler däischter Hautfaarf, hell Hautfaarf	none
+👨🏿‍🫯‍👨🏼	Wrestler däischter Hautfaarf, mëttelhell Hautfaarf	none
+👨🏿‍🫯‍👨🏽	Wrestler däischter Hautfaarf, mëttel Hautfaarf	none
+👨🏿‍🫯‍👨🏾	Wrestler däischter Hautfaarf, mëtteldäischter Hautfaarf	none
+👨🏻‍🐰‍👨🏼	Männer mat Huesoueren hell Hautfaarf, mëttelhell Hautfaarf	none
+👨🏻‍🐰‍👨🏽	Männer mat Huesoueren hell Hautfaarf, mëttel Hautfaarf	none
+👨🏻‍🐰‍👨🏾	Männer mat Huesoueren hell Hautfaarf, mëtteldäischter Hautfaarf	none
+👨🏻‍🐰‍👨🏿	Männer mat Huesoueren hell Hautfaarf, däischter Hautfaarf	none
+👨🏼‍🐰‍👨🏻	Männer mat Huesoueren mëttelhell Hautfaarf, hell Hautfaarf	none
+👨🏼‍🐰‍👨🏽	Männer mat Huesoueren mëttelhell Hautfaarf, mëttel Hautfaarf	none
+👨🏼‍🐰‍👨🏾	Männer mat Huesoueren mëttelhell Hautfaarf, mëtteldäischter Hautfaarf	none
+👨🏼‍🐰‍👨🏿	Männer mat Huesoueren mëttelhell Hautfaarf, däischter Hautfaarf	none
+👨🏽‍🐰‍👨🏻	Männer mat Huesoueren mëttel Hautfaarf, hell Hautfaarf	none
+👨🏽‍🐰‍👨🏼	Männer mat Huesoueren mëttel Hautfaarf, mëttelhell Hautfaarf	none
+👨🏽‍🐰‍👨🏾	Männer mat Huesoueren mëttel Hautfaarf, mëtteldäischter Hautfaarf	none
+👨🏽‍🐰‍👨🏿	Männer mat Huesoueren mëttel Hautfaarf, däischter Hautfaarf	none
+👨🏾‍🐰‍👨🏻	Männer mat Huesoueren mëtteldäischter Hautfaarf, hell Hautfaarf	none
+👨🏾‍🐰‍👨🏼	Männer mat Huesoueren mëtteldäischter Hautfaarf, mëttelhell Hautfaarf	none
+👨🏾‍🐰‍👨🏽	Männer mat Huesoueren mëtteldäischter Hautfaarf, mëttel Hautfaarf	none
+👨🏾‍🐰‍👨🏿	Männer mat Huesoueren mëtteldäischter Hautfaarf, däischter Hautfaarf	none
+👨🏿‍🐰‍👨🏻	Männer mat Huesoueren däischter Hautfaarf, hell Hautfaarf	none
+👨🏿‍🐰‍👨🏼	Männer mat Huesoueren däischter Hautfaarf, mëttelhell Hautfaarf	none
+👨🏿‍🐰‍👨🏽	Männer mat Huesoueren däischter Hautfaarf, mëttel Hautfaarf	none
+👨🏿‍🐰‍👨🏾	Männer mat Huesoueren däischter Hautfaarf, mëtteldäischter Hautfaarf	none
 👩🏻	Fra hell Hautfaarf	none
 👩🏼	Fra mëttelhell Hautfaarf	none
 👩🏽	Fra mëttel Hautfaarf	none
@@ -1683,6 +1763,46 @@ symbols:
 👩🏿‍❤‍👩🏽	verléift Koppel Fra, Fra, däischter Hautfaarf, mëttel Hautfaarf	none
 👩🏿‍❤‍👩🏾	verléift Koppel Fra, Fra, däischter Hautfaarf, mëtteldäischter Hautfaarf	none
 👩🏿‍❤‍👩🏿	verléift Koppel Fra, Fra, däischter Hautfaarf	none
+👩🏻‍🫯‍👩🏼	Wrestlerinnen hell Hautfaarf, mëttelhell Hautfaarf	none
+👩🏻‍🫯‍👩🏽	Wrestlerinnen hell Hautfaarf, mëttel Hautfaarf	none
+👩🏻‍🫯‍👩🏾	Wrestlerinnen hell Hautfaarf, mëtteldäischter Hautfaarf	none
+👩🏻‍🫯‍👩🏿	Wrestlerinnen hell Hautfaarf, däischter Hautfaarf	none
+👩🏼‍🫯‍👩🏻	Wrestlerinnen mëttelhell Hautfaarf, hell Hautfaarf	none
+👩🏼‍🫯‍👩🏽	Wrestlerinnen mëttelhell Hautfaarf, mëttel Hautfaarf	none
+👩🏼‍🫯‍👩🏾	Wrestlerinnen mëttelhell Hautfaarf, mëtteldäischter Hautfaarf	none
+👩🏼‍🫯‍👩🏿	Wrestlerinnen mëttelhell Hautfaarf, däischter Hautfaarf	none
+👩🏽‍🫯‍👩🏻	Wrestlerinnen mëttel Hautfaarf, hell Hautfaarf	none
+👩🏽‍🫯‍👩🏼	Wrestlerinnen mëttel Hautfaarf, mëttelhell Hautfaarf	none
+👩🏽‍🫯‍👩🏾	Wrestlerinnen mëttel Hautfaarf, mëtteldäischter Hautfaarf	none
+👩🏽‍🫯‍👩🏿	Wrestlerinnen mëttel Hautfaarf, däischter Hautfaarf	none
+👩🏾‍🫯‍👩🏻	Wrestlerinnen mëtteldäischter Hautfaarf, hell Hautfaarf	none
+👩🏾‍🫯‍👩🏼	Wrestlerinnen mëtteldäischter Hautfaarf, mëttelhell Hautfaarf	none
+👩🏾‍🫯‍👩🏽	Wrestlerinnen mëtteldäischter Hautfaarf, mëttel Hautfaarf	none
+👩🏾‍🫯‍👩🏿	Wrestlerinnen mëtteldäischter Hautfaarf, däischter Hautfaarf	none
+👩🏿‍🫯‍👩🏻	Wrestlerinnen däischter Hautfaarf, hell Hautfaarf	none
+👩🏿‍🫯‍👩🏼	Wrestlerinnen däischter Hautfaarf, mëttelhell Hautfaarf	none
+👩🏿‍🫯‍👩🏽	Wrestlerinnen däischter Hautfaarf, mëttel Hautfaarf	none
+👩🏿‍🫯‍👩🏾	Wrestlerinnen däischter Hautfaarf, mëtteldäischter Hautfaarf	none
+👩🏻‍🐰‍👩🏼	Frae mat Huesoueren hell Hautfaarf, mëttelhell Hautfaarf	none
+👩🏻‍🐰‍👩🏽	Frae mat Huesoueren hell Hautfaarf, mëttel Hautfaarf	none
+👩🏻‍🐰‍👩🏾	Frae mat Huesoueren hell Hautfaarf, mëtteldäischter Hautfaarf	none
+👩🏻‍🐰‍👩🏿	Frae mat Huesoueren hell Hautfaarf, däischter Hautfaarf	none
+👩🏼‍🐰‍👩🏻	Frae mat Huesoueren mëttelhell Hautfaarf, hell Hautfaarf	none
+👩🏼‍🐰‍👩🏽	Frae mat Huesoueren mëttelhell Hautfaarf, mëttel Hautfaarf	none
+👩🏼‍🐰‍👩🏾	Frae mat Huesoueren mëttelhell Hautfaarf, mëtteldäischter Hautfaarf	none
+👩🏼‍🐰‍👩🏿	Frae mat Huesoueren mëttelhell Hautfaarf, däischter Hautfaarf	none
+👩🏽‍🐰‍👩🏻	Frae mat Huesoueren mëttel Hautfaarf, hell Hautfaarf	none
+👩🏽‍🐰‍👩🏼	Frae mat Huesoueren mëttel Hautfaarf, mëttelhell Hautfaarf	none
+👩🏽‍🐰‍👩🏾	Frae mat Huesoueren mëttel Hautfaarf, mëtteldäischter Hautfaarf	none
+👩🏽‍🐰‍👩🏿	Frae mat Huesoueren mëttel Hautfaarf, däischter Hautfaarf	none
+👩🏾‍🐰‍👩🏻	Frae mat Huesoueren mëtteldäischter Hautfaarf, hell Hautfaarf	none
+👩🏾‍🐰‍👩🏼	Frae mat Huesoueren mëtteldäischter Hautfaarf, mëttelhell Hautfaarf	none
+👩🏾‍🐰‍👩🏽	Frae mat Huesoueren mëtteldäischter Hautfaarf, mëttel Hautfaarf	none
+👩🏾‍🐰‍👩🏿	Frae mat Huesoueren mëtteldäischter Hautfaarf, däischter Hautfaarf	none
+👩🏿‍🐰‍👩🏻	Frae mat Huesoueren däischter Hautfaarf, hell Hautfaarf	none
+👩🏿‍🐰‍👩🏼	Frae mat Huesoueren däischter Hautfaarf, mëttelhell Hautfaarf	none
+👩🏿‍🐰‍👩🏽	Frae mat Huesoueren däischter Hautfaarf, mëttel Hautfaarf	none
+👩🏿‍🐰‍👩🏾	Frae mat Huesoueren däischter Hautfaarf, mëtteldäischter Hautfaarf	none
 🧓🏻	eeleren Erwuessenen hell Hautfaarf	none
 🧓🏼	eeleren Erwuessenen mëttelhell Hautfaarf	none
 🧓🏽	eeleren Erwuessenen mëttel Hautfaarf	none
@@ -2273,6 +2393,21 @@ symbols:
 🕴🏽	levitéierende Man am Kostüm mëttel Hautfaarf	none
 🕴🏾	levitéierende Man am Kostüm mëtteldäischter Hautfaarf	none
 🕴🏿	levitéierende Man am Kostüm däischter Hautfaarf	none
+👯🏻	Persoun mat Huesoueren hell Hautfaarf	none
+👯🏼	Persoun mat Huesoueren mëttelhell Hautfaarf	none
+👯🏽	Persoun mat Huesoueren mëttel Hautfaarf	none
+👯🏾	Persoun mat Huesoueren mëtteldäischter Hautfaarf	none
+👯🏿	Persoun mat Huesoueren däischter Hautfaarf	none
+👯🏻‍♂	Männer mat Huesoueren hell Hautfaarf	none
+👯🏼‍♂	Männer mat Huesoueren mëttelhell Hautfaarf	none
+👯🏽‍♂	Männer mat Huesoueren mëttel Hautfaarf	none
+👯🏾‍♂	Männer mat Huesoueren mëtteldäischter Hautfaarf	none
+👯🏿‍♂	Männer mat Huesoueren däischter Hautfaarf	none
+👯🏻‍♀	Frae mat Huesoueren hell Hautfaarf	none
+👯🏼‍♀	Frae mat Huesoueren mëttelhell Hautfaarf	none
+👯🏽‍♀	Frae mat Huesoueren mëttel Hautfaarf	none
+👯🏾‍♀	Frae mat Huesoueren mëtteldäischter Hautfaarf	none
+👯🏿‍♀	Frae mat Huesoueren däischter Hautfaarf	none
 🧖🏻	Persoun am Dampbad hell Hautfaarf	none
 🧖🏼	Persoun am Dampbad mëttelhell Hautfaarf	none
 🧖🏽	Persoun am Dampbad mëttel Hautfaarf	none
@@ -2448,6 +2583,21 @@ symbols:
 🤸🏽‍♀	Fra, déi d’Rad schléit mëttel Hautfaarf	none
 🤸🏾‍♀	Fra, déi d’Rad schléit mëtteldäischter Hautfaarf	none
 🤸🏿‍♀	Fra, déi d’Rad schléit däischter Hautfaarf	none
+🤼🏻	Wrestling hell Hautfaarf	none
+🤼🏼	Wrestling mëttelhell Hautfaarf	none
+🤼🏽	Wrestling mëttel Hautfaarf	none
+🤼🏾	Wrestling mëtteldäischter Hautfaarf	none
+🤼🏿	Wrestling däischter Hautfaarf	none
+🤼🏻‍♂	Wrestler hell Hautfaarf	none
+🤼🏼‍♂	Wrestler mëttelhell Hautfaarf	none
+🤼🏽‍♂	Wrestler mëttel Hautfaarf	none
+🤼🏾‍♂	Wrestler mëtteldäischter Hautfaarf	none
+🤼🏿‍♂	Wrestler däischter Hautfaarf	none
+🤼🏻‍♀	Wrestlerinnen hell Hautfaarf	none
+🤼🏼‍♀	Wrestlerinnen mëttelhell Hautfaarf	none
+🤼🏽‍♀	Wrestlerinnen mëttel Hautfaarf	none
+🤼🏾‍♀	Wrestlerinnen mëtteldäischter Hautfaarf	none
+🤼🏿‍♀	Wrestlerinnen däischter Hautfaarf	none
 🤽🏻	Waasserballspiller(in) hell Hautfaarf	none
 🤽🏼	Waasserballspiller(in) mëttelhell Hautfaarf	none
 🤽🏽	Waasserballspiller(in) mëttel Hautfaarf	none

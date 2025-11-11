@@ -88,7 +88,7 @@ symbols:
 ⊃	superset	none
 ⊆	subset baraabar	none
 ⊇	superset baraabar	none
-⋭	normal subgroup equal ke taur par shaamil nahi karta	none
+⋭	normal subgroup equal ke taur par nahi	none
 ⊶	original	none
 ⋘	isse bahut kam	none
 ⋙	isse bahut zyaada	none
@@ -112,7 +112,7 @@ symbols:
 ◒	neeche se half filled circle	none
 ◓	oopar se half filled circle	none
 ◔	Circle kaa filled upper right quadrant	none
-◕	upper left quadrant ko chhodkar poora filled cirle	none
+◕	upper left quadrant chhodkar filled circle	none
 ◖	half filled left circle	none
 ◗	half filled right circle	none
 ◙	hollow circle wala filled square	none
@@ -125,7 +125,7 @@ symbols:
 ◤	filled upper left triangle	none
 ◥	filled upper right triangle	none
 ◳	hollow square upper right quadrant	none
-◷	hollow upper right quadrant wala hollow circle	none
+◷	upper right quadrant wala hollow circle	none
 ◿	lower right triangle	none
 ♪	eighth note	none
 ⨧	plus subscript two	none
@@ -161,6 +161,7 @@ symbols:
 😮‍💨	exhale karta face	none
 🙂‍↔	left right head shaking	none
 🙂‍↕	oopar-neeche sir hilaana	none
+🫩	baggy under eyes wala face	none
 😷	medical mask wala face	none
 🤒	thermometer wala face	none
 🤕	head-bandage wala face	none
@@ -398,6 +399,7 @@ symbols:
 🍃	hawa mein lahraati leaf	none
 🪹	Khaali nest	none
 🪺	eggs wala nest	none
+🪾	bina leaves kaa tree	none
 🍋‍🟩	neebu	none
 🍖	bone wala meat	none
 🍗	chicken leg	none
@@ -533,7 +535,6 @@ symbols:
 ↪	right side muda hua left arrow	none
 ⤴	oopar ki taraf muda hua right arrow	none
 ⤵	neeche ki taraf muda hua right arrow	none
-🔄	anticlockwise arrows button	none
 🛐	pooja karne ki jagah	none
 ✡	star of David	none
 ☸	dharma chakra	none
@@ -894,6 +895,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	heart symbol ke saath couple person, person, dark skin, medium-fair skin	none
 🧑🏿‍❤‍🧑🏽	heart symbol ke saath couple person, person, dark skin, medium skin	none
 🧑🏿‍❤‍🧑🏾	heart symbol ke saath couple person, person, dark skin, medium-dark skin	none
+🧑🏻‍🫯‍🧑🏼	wrestling karte log Fair skin, medium-fair skin	none
+🧑🏻‍🫯‍🧑🏽	wrestling karte log Fair skin, medium skin	none
+🧑🏻‍🫯‍🧑🏾	wrestling karte log Fair skin, medium-dark skin	none
+🧑🏻‍🫯‍🧑🏿	wrestling karte log Fair skin, dark skin	none
+🧑🏼‍🫯‍🧑🏻	wrestling karte log medium-fair skin, Fair skin	none
+🧑🏼‍🫯‍🧑🏽	wrestling karte log medium-fair skin, medium skin	none
+🧑🏼‍🫯‍🧑🏾	wrestling karte log medium-fair skin, medium-dark skin	none
+🧑🏼‍🫯‍🧑🏿	wrestling karte log medium-fair skin, dark skin	none
+🧑🏽‍🫯‍🧑🏻	wrestling karte log medium skin, Fair skin	none
+🧑🏽‍🫯‍🧑🏼	wrestling karte log medium skin, medium-fair skin	none
+🧑🏽‍🫯‍🧑🏾	wrestling karte log medium skin, medium-dark skin	none
+🧑🏽‍🫯‍🧑🏿	wrestling karte log medium skin, dark skin	none
+🧑🏾‍🫯‍🧑🏻	wrestling karte log medium-dark skin, Fair skin	none
+🧑🏾‍🫯‍🧑🏼	wrestling karte log medium-dark skin, medium-fair skin	none
+🧑🏾‍🫯‍🧑🏽	wrestling karte log medium-dark skin, medium skin	none
+🧑🏾‍🫯‍🧑🏿	wrestling karte log medium-dark skin, dark skin	none
+🧑🏿‍🫯‍🧑🏻	wrestling karte log dark skin, Fair skin	none
+🧑🏿‍🫯‍🧑🏼	wrestling karte log dark skin, medium-fair skin	none
+🧑🏿‍🫯‍🧑🏽	wrestling karte log dark skin, medium skin	none
+🧑🏿‍🫯‍🧑🏾	wrestling karte log dark skin, medium-dark skin	none
 🧑🏻‍🦰	person Fair skin, red hair	none
 🧑🏼‍🦰	person medium-fair skin, red hair	none
 🧑🏽‍🦰	person medium skin, red hair	none
@@ -914,6 +935,26 @@ symbols:
 🧑🏽‍🦲	person medium skin, bald	none
 🧑🏾‍🦲	person medium-dark skin, bald	none
 🧑🏿‍🦲	person dark skin, bald	none
+🧑🏻‍🐰‍🧑🏼	khargosh ke kaan wale log Fair skin, medium-fair skin	none
+🧑🏻‍🐰‍🧑🏽	khargosh ke kaan wale log Fair skin, medium skin	none
+🧑🏻‍🐰‍🧑🏾	khargosh ke kaan wale log Fair skin, medium-dark skin	none
+🧑🏻‍🐰‍🧑🏿	khargosh ke kaan wale log Fair skin, dark skin	none
+🧑🏼‍🐰‍🧑🏻	khargosh ke kaan wale log medium-fair skin, Fair skin	none
+🧑🏼‍🐰‍🧑🏽	khargosh ke kaan wale log medium-fair skin, medium skin	none
+🧑🏼‍🐰‍🧑🏾	khargosh ke kaan wale log medium-fair skin, medium-dark skin	none
+🧑🏼‍🐰‍🧑🏿	khargosh ke kaan wale log medium-fair skin, dark skin	none
+🧑🏽‍🐰‍🧑🏻	khargosh ke kaan wale log medium skin, Fair skin	none
+🧑🏽‍🐰‍🧑🏼	khargosh ke kaan wale log medium skin, medium-fair skin	none
+🧑🏽‍🐰‍🧑🏾	khargosh ke kaan wale log medium skin, medium-dark skin	none
+🧑🏽‍🐰‍🧑🏿	khargosh ke kaan wale log medium skin, dark skin	none
+🧑🏾‍🐰‍🧑🏻	khargosh ke kaan wale log medium-dark skin, Fair skin	none
+🧑🏾‍🐰‍🧑🏼	khargosh ke kaan wale log medium-dark skin, medium-fair skin	none
+🧑🏾‍🐰‍🧑🏽	khargosh ke kaan wale log medium-dark skin, medium skin	none
+🧑🏾‍🐰‍🧑🏿	khargosh ke kaan wale log medium-dark skin, dark skin	none
+🧑🏿‍🐰‍🧑🏻	khargosh ke kaan wale log dark skin, Fair skin	none
+🧑🏿‍🐰‍🧑🏼	khargosh ke kaan wale log dark skin, medium-fair skin	none
+🧑🏿‍🐰‍🧑🏽	khargosh ke kaan wale log dark skin, medium skin	none
+🧑🏿‍🐰‍🧑🏾	khargosh ke kaan wale log dark skin, medium-dark skin	none
 👨🏻	man Fair skin	none
 👨🏼	man medium-fair skin	none
 👨🏽	man medium skin	none
@@ -984,6 +1025,26 @@ symbols:
 👨🏿‍❤‍👨🏽	heart symbol ke saath couple man, man, dark skin, medium skin	none
 👨🏿‍❤‍👨🏾	heart symbol ke saath couple man, man, dark skin, medium-dark skin	none
 👨🏿‍❤‍👨🏿	heart symbol ke saath couple man, man, dark skin	none
+👨🏻‍🫯‍👨🏼	wrestling karte aadmi Fair skin, medium-fair skin	none
+👨🏻‍🫯‍👨🏽	wrestling karte aadmi Fair skin, medium skin	none
+👨🏻‍🫯‍👨🏾	wrestling karte aadmi Fair skin, medium-dark skin	none
+👨🏻‍🫯‍👨🏿	wrestling karte aadmi Fair skin, dark skin	none
+👨🏼‍🫯‍👨🏻	wrestling karte aadmi medium-fair skin, Fair skin	none
+👨🏼‍🫯‍👨🏽	wrestling karte aadmi medium-fair skin, medium skin	none
+👨🏼‍🫯‍👨🏾	wrestling karte aadmi medium-fair skin, medium-dark skin	none
+👨🏼‍🫯‍👨🏿	wrestling karte aadmi medium-fair skin, dark skin	none
+👨🏽‍🫯‍👨🏻	wrestling karte aadmi medium skin, Fair skin	none
+👨🏽‍🫯‍👨🏼	wrestling karte aadmi medium skin, medium-fair skin	none
+👨🏽‍🫯‍👨🏾	wrestling karte aadmi medium skin, medium-dark skin	none
+👨🏽‍🫯‍👨🏿	wrestling karte aadmi medium skin, dark skin	none
+👨🏾‍🫯‍👨🏻	wrestling karte aadmi medium-dark skin, Fair skin	none
+👨🏾‍🫯‍👨🏼	wrestling karte aadmi medium-dark skin, medium-fair skin	none
+👨🏾‍🫯‍👨🏽	wrestling karte aadmi medium-dark skin, medium skin	none
+👨🏾‍🫯‍👨🏿	wrestling karte aadmi medium-dark skin, dark skin	none
+👨🏿‍🫯‍👨🏻	wrestling karte aadmi dark skin, Fair skin	none
+👨🏿‍🫯‍👨🏼	wrestling karte aadmi dark skin, medium-fair skin	none
+👨🏿‍🫯‍👨🏽	wrestling karte aadmi dark skin, medium skin	none
+👨🏿‍🫯‍👨🏾	wrestling karte aadmi dark skin, medium-dark skin	none
 👨🏻‍🦰	man Fair skin, red hair	none
 👨🏼‍🦰	man medium-fair skin, red hair	none
 👨🏽‍🦰	man medium skin, red hair	none
@@ -1004,6 +1065,26 @@ symbols:
 👨🏽‍🦲	man medium skin, bald	none
 👨🏾‍🦲	man medium-dark skin, bald	none
 👨🏿‍🦲	man dark skin, bald	none
+👨🏻‍🐰‍👨🏼	khargosh ke kaan wale aadmi Fair skin, medium-fair skin	none
+👨🏻‍🐰‍👨🏽	khargosh ke kaan wale aadmi Fair skin, medium skin	none
+👨🏻‍🐰‍👨🏾	khargosh ke kaan wale aadmi Fair skin, medium-dark skin	none
+👨🏻‍🐰‍👨🏿	khargosh ke kaan wale aadmi Fair skin, dark skin	none
+👨🏼‍🐰‍👨🏻	khargosh ke kaan wale aadmi medium-fair skin, Fair skin	none
+👨🏼‍🐰‍👨🏽	khargosh ke kaan wale aadmi medium-fair skin, medium skin	none
+👨🏼‍🐰‍👨🏾	khargosh ke kaan wale aadmi medium-fair skin, medium-dark skin	none
+👨🏼‍🐰‍👨🏿	khargosh ke kaan wale aadmi medium-fair skin, dark skin	none
+👨🏽‍🐰‍👨🏻	khargosh ke kaan wale aadmi medium skin, Fair skin	none
+👨🏽‍🐰‍👨🏼	khargosh ke kaan wale aadmi medium skin, medium-fair skin	none
+👨🏽‍🐰‍👨🏾	khargosh ke kaan wale aadmi medium skin, medium-dark skin	none
+👨🏽‍🐰‍👨🏿	khargosh ke kaan wale aadmi medium skin, dark skin	none
+👨🏾‍🐰‍👨🏻	khargosh ke kaan wale aadmi medium-dark skin, Fair skin	none
+👨🏾‍🐰‍👨🏼	khargosh ke kaan wale aadmi medium-dark skin, medium-fair skin	none
+👨🏾‍🐰‍👨🏽	khargosh ke kaan wale aadmi medium-dark skin, medium skin	none
+👨🏾‍🐰‍👨🏿	khargosh ke kaan wale aadmi medium-dark skin, dark skin	none
+👨🏿‍🐰‍👨🏻	khargosh ke kaan wale aadmi dark skin, Fair skin	none
+👨🏿‍🐰‍👨🏼	khargosh ke kaan wale aadmi dark skin, medium-fair skin	none
+👨🏿‍🐰‍👨🏽	khargosh ke kaan wale aadmi dark skin, medium skin	none
+👨🏿‍🐰‍👨🏾	khargosh ke kaan wale aadmi dark skin, medium-dark skin	none
 👩🏻	woman Fair skin	none
 👩🏼	woman medium-fair skin	none
 👩🏽	woman medium skin	none
@@ -1119,6 +1200,26 @@ symbols:
 👩🏿‍❤‍👩🏽	heart symbol ke saath couple woman, woman, dark skin, medium skin	none
 👩🏿‍❤‍👩🏾	heart symbol ke saath couple woman, woman, dark skin, medium-dark skin	none
 👩🏿‍❤‍👩🏿	heart symbol ke saath couple woman, woman, dark skin	none
+👩🏻‍🫯‍👩🏼	wrestling karti mahilaayein Fair skin, medium-fair skin	none
+👩🏻‍🫯‍👩🏽	wrestling karti mahilaayein Fair skin, medium skin	none
+👩🏻‍🫯‍👩🏾	wrestling karti mahilaayein Fair skin, medium-dark skin	none
+👩🏻‍🫯‍👩🏿	wrestling karti mahilaayein Fair skin, dark skin	none
+👩🏼‍🫯‍👩🏻	wrestling karti mahilaayein medium-fair skin, Fair skin	none
+👩🏼‍🫯‍👩🏽	wrestling karti mahilaayein medium-fair skin, medium skin	none
+👩🏼‍🫯‍👩🏾	wrestling karti mahilaayein medium-fair skin, medium-dark skin	none
+👩🏼‍🫯‍👩🏿	wrestling karti mahilaayein medium-fair skin, dark skin	none
+👩🏽‍🫯‍👩🏻	wrestling karti mahilaayein medium skin, Fair skin	none
+👩🏽‍🫯‍👩🏼	wrestling karti mahilaayein medium skin, medium-fair skin	none
+👩🏽‍🫯‍👩🏾	wrestling karti mahilaayein medium skin, medium-dark skin	none
+👩🏽‍🫯‍👩🏿	wrestling karti mahilaayein medium skin, dark skin	none
+👩🏾‍🫯‍👩🏻	wrestling karti mahilaayein medium-dark skin, Fair skin	none
+👩🏾‍🫯‍👩🏼	wrestling karti mahilaayein medium-dark skin, medium-fair skin	none
+👩🏾‍🫯‍👩🏽	wrestling karti mahilaayein medium-dark skin, medium skin	none
+👩🏾‍🫯‍👩🏿	wrestling karti mahilaayein medium-dark skin, dark skin	none
+👩🏿‍🫯‍👩🏻	wrestling karti mahilaayein dark skin, Fair skin	none
+👩🏿‍🫯‍👩🏼	wrestling karti mahilaayein dark skin, medium-fair skin	none
+👩🏿‍🫯‍👩🏽	wrestling karti mahilaayein dark skin, medium skin	none
+👩🏿‍🫯‍👩🏾	wrestling karti mahilaayein dark skin, medium-dark skin	none
 👩🏻‍🦰	woman Fair skin, red hair	none
 👩🏼‍🦰	woman medium-fair skin, red hair	none
 👩🏽‍🦰	woman medium skin, red hair	none
@@ -1139,6 +1240,26 @@ symbols:
 👩🏽‍🦲	woman medium skin, bald	none
 👩🏾‍🦲	woman medium-dark skin, bald	none
 👩🏿‍🦲	woman dark skin, bald	none
+👩🏻‍🐰‍👩🏼	khargosh ke kaan wali mahilaayein Fair skin, medium-fair skin	none
+👩🏻‍🐰‍👩🏽	khargosh ke kaan wali mahilaayein Fair skin, medium skin	none
+👩🏻‍🐰‍👩🏾	khargosh ke kaan wali mahilaayein Fair skin, medium-dark skin	none
+👩🏻‍🐰‍👩🏿	khargosh ke kaan wali mahilaayein Fair skin, dark skin	none
+👩🏼‍🐰‍👩🏻	khargosh ke kaan wali mahilaayein medium-fair skin, Fair skin	none
+👩🏼‍🐰‍👩🏽	khargosh ke kaan wali mahilaayein medium-fair skin, medium skin	none
+👩🏼‍🐰‍👩🏾	khargosh ke kaan wali mahilaayein medium-fair skin, medium-dark skin	none
+👩🏼‍🐰‍👩🏿	khargosh ke kaan wali mahilaayein medium-fair skin, dark skin	none
+👩🏽‍🐰‍👩🏻	khargosh ke kaan wali mahilaayein medium skin, Fair skin	none
+👩🏽‍🐰‍👩🏼	khargosh ke kaan wali mahilaayein medium skin, medium-fair skin	none
+👩🏽‍🐰‍👩🏾	khargosh ke kaan wali mahilaayein medium skin, medium-dark skin	none
+👩🏽‍🐰‍👩🏿	khargosh ke kaan wali mahilaayein medium skin, dark skin	none
+👩🏾‍🐰‍👩🏻	khargosh ke kaan wali mahilaayein medium-dark skin, Fair skin	none
+👩🏾‍🐰‍👩🏼	khargosh ke kaan wali mahilaayein medium-dark skin, medium-fair skin	none
+👩🏾‍🐰‍👩🏽	khargosh ke kaan wali mahilaayein medium-dark skin, medium skin	none
+👩🏾‍🐰‍👩🏿	khargosh ke kaan wali mahilaayein medium-dark skin, dark skin	none
+👩🏿‍🐰‍👩🏻	khargosh ke kaan wali mahilaayein dark skin, Fair skin	none
+👩🏿‍🐰‍👩🏼	khargosh ke kaan wali mahilaayein dark skin, medium-fair skin	none
+👩🏿‍🐰‍👩🏽	khargosh ke kaan wali mahilaayein dark skin, medium skin	none
+👩🏿‍🐰‍👩🏾	khargosh ke kaan wali mahilaayein dark skin, medium-dark skin	none
 🧓🏻	older person Fair skin	none
 🧓🏼	older person medium-fair skin	none
 🧓🏽	older person medium skin	none
@@ -1724,16 +1845,16 @@ symbols:
 🎅🏽	Santa Claus medium skin	none
 🎅🏾	Santa Claus medium-dark skin	none
 🎅🏿	Santa Claus dark skin	none
-🤶🏻	Mrs. Claus Fair skin	none
-🤶🏼	Mrs. Claus medium-fair skin	none
-🤶🏽	Mrs. Claus medium skin	none
-🤶🏾	Mrs. Claus medium-dark skin	none
-🤶🏿	Mrs. Claus dark skin	none
-🧑🏻‍🎄	mx claus Fair skin	none
-🧑🏼‍🎄	mx claus medium-fair skin	none
-🧑🏽‍🎄	mx claus medium skin	none
-🧑🏾‍🎄	mx claus medium-dark skin	none
-🧑🏿‍🎄	mx claus dark skin	none
+🤶🏻	Mrs Claus Fair skin	none
+🤶🏼	Mrs Claus medium-fair skin	none
+🤶🏽	Mrs Claus medium skin	none
+🤶🏾	Mrs Claus medium-dark skin	none
+🤶🏿	Mrs Claus dark skin	none
+🧑🏻‍🎄	Mx Claus Fair skin	none
+🧑🏼‍🎄	Mx Claus medium-fair skin	none
+🧑🏽‍🎄	Mx Claus medium skin	none
+🧑🏾‍🎄	Mx Claus medium-dark skin	none
+🧑🏿‍🎄	Mx Claus dark skin	none
 🦸🏻	superhero Fair skin	none
 🦸🏼	superhero medium-fair skin	none
 🦸🏽	superhero medium skin	none
@@ -1885,23 +2006,23 @@ symbols:
 🚶🏾‍♀	walk karti mahila medium-dark skin	none
 🚶🏿‍♀	walk karti mahila dark skin	none
 🚶‍➡	walk karta vyakti facing right	none
-🚶🏻‍➡	walk karta vyakti facing right	none
-🚶🏼‍➡	walk karta vyakti facing right	none
-🚶🏽‍➡	walk karta vyakti facing right	none
-🚶🏾‍➡	walk karta vyakti facing right	none
-🚶🏿‍➡	walk karta vyakti facing right	none
+🚶🏻‍➡	walk karta vyakti Fair skin, facing right	none
+🚶🏼‍➡	walk karta vyakti medium-fair skin, facing right	none
+🚶🏽‍➡	walk karta vyakti medium skin, facing right	none
+🚶🏾‍➡	walk karta vyakti medium-dark skin, facing right	none
+🚶🏿‍➡	walk karta vyakti dark skin, facing right	none
 🚶‍♀‍➡	walk karti mahila facing right	none
-🚶🏻‍♀‍➡	walk karti mahila facing right	none
-🚶🏼‍♀‍➡	walk karti mahila facing right	none
-🚶🏽‍♀‍➡	walk karti mahila facing right	none
-🚶🏾‍♀‍➡	walk karti mahila facing right	none
-🚶🏿‍♀‍➡	walk karti mahila facing right	none
+🚶🏻‍♀‍➡	walk karti mahila Fair skin, facing right	none
+🚶🏼‍♀‍➡	walk karti mahila medium-fair skin, facing right	none
+🚶🏽‍♀‍➡	walk karti mahila medium skin, facing right	none
+🚶🏾‍♀‍➡	walk karti mahila medium-dark skin, facing right	none
+🚶🏿‍♀‍➡	walk karti mahila dark skin, facing right	none
 🚶‍♂‍➡	walk karta aadmi facing right	none
-🚶🏻‍♂‍➡	walk karta aadmi facing right	none
-🚶🏼‍♂‍➡	walk karta aadmi facing right	none
-🚶🏽‍♂‍➡	walk karta aadmi facing right	none
-🚶🏾‍♂‍➡	walk karta aadmi facing right	none
-🚶🏿‍♂‍➡	walk karta aadmi facing right	none
+🚶🏻‍♂‍➡	walk karta aadmi Fair skin, facing right	none
+🚶🏼‍♂‍➡	walk karta aadmi medium-fair skin, facing right	none
+🚶🏽‍♂‍➡	walk karta aadmi medium skin, facing right	none
+🚶🏾‍♂‍➡	walk karta aadmi medium-dark skin, facing right	none
+🚶🏿‍♂‍➡	walk karta aadmi dark skin, facing right	none
 🧍🏻	khada hua vyakti Fair skin	none
 🧍🏼	khada hua vyakti medium-fair skin	none
 🧍🏽	khada hua vyakti medium skin	none
@@ -1933,122 +2054,122 @@ symbols:
 🧎🏾‍♀	knees par baithi mahila medium-dark skin	none
 🧎🏿‍♀	knees par baithi mahila dark skin	none
 🧎‍➡	knees par baitha vyakti facing right	none
-🧎🏻‍➡	knees par baitha vyakti facing right	none
-🧎🏼‍➡	knees par baitha vyakti facing right	none
-🧎🏽‍➡	knees par baitha vyakti facing right	none
-🧎🏾‍➡	knees par baitha vyakti facing right	none
-🧎🏿‍➡	knees par baitha vyakti facing right	none
+🧎🏻‍➡	knees par baitha vyakti Fair skin, facing right	none
+🧎🏼‍➡	knees par baitha vyakti medium-fair skin, facing right	none
+🧎🏽‍➡	knees par baitha vyakti medium skin, facing right	none
+🧎🏾‍➡	knees par baitha vyakti medium-dark skin, facing right	none
+🧎🏿‍➡	knees par baitha vyakti dark skin, facing right	none
 🧎‍♀‍➡	knees par baithi mahila facing right	none
-🧎🏻‍♀‍➡	knees par baithi mahila facing right	none
-🧎🏼‍♀‍➡	knees par baithi mahila facing right	none
-🧎🏽‍♀‍➡	knees par baithi mahila facing right	none
-🧎🏾‍♀‍➡	knees par baithi mahila facing right	none
-🧎🏿‍♀‍➡	knees par baithi mahila facing right	none
+🧎🏻‍♀‍➡	knees par baithi mahila Fair skin, facing right	none
+🧎🏼‍♀‍➡	knees par baithi mahila medium-fair skin, facing right	none
+🧎🏽‍♀‍➡	knees par baithi mahila medium skin, facing right	none
+🧎🏾‍♀‍➡	knees par baithi mahila medium-dark skin, facing right	none
+🧎🏿‍♀‍➡	knees par baithi mahila dark skin, facing right	none
 🧎‍♂‍➡	knees par baitha aadmi facing right	none
-🧎🏻‍♂‍➡	knees par baitha aadmi facing right	none
-🧎🏼‍♂‍➡	knees par baitha aadmi facing right	none
-🧎🏽‍♂‍➡	knees par baitha aadmi facing right	none
-🧎🏾‍♂‍➡	knees par baitha aadmi facing right	none
-🧎🏿‍♂‍➡	knees par baitha aadmi facing right	none
+🧎🏻‍♂‍➡	knees par baitha aadmi Fair skin, facing right	none
+🧎🏼‍♂‍➡	knees par baitha aadmi medium-fair skin, facing right	none
+🧎🏽‍♂‍➡	knees par baitha aadmi medium skin, facing right	none
+🧎🏾‍♂‍➡	knees par baitha aadmi medium-dark skin, facing right	none
+🧎🏿‍♂‍➡	knees par baitha aadmi dark skin, facing right	none
 🧑🏻‍🦯	white cane pakda hua vyakti Fair skin	none
 🧑🏼‍🦯	white cane pakda hua vyakti medium-fair skin	none
 🧑🏽‍🦯	white cane pakda hua vyakti medium skin	none
 🧑🏾‍🦯	white cane pakda hua vyakti medium-dark skin	none
 🧑🏿‍🦯	white cane pakda hua vyakti dark skin	none
 🧑‍🦯‍➡	white cane pakda hua vyakti facing right	none
-🧑🏻‍🦯‍➡	white cane pakda hua vyakti facing right	none
-🧑🏼‍🦯‍➡	white cane pakda hua vyakti facing right	none
-🧑🏽‍🦯‍➡	white cane pakda hua vyakti facing right	none
-🧑🏾‍🦯‍➡	white cane pakda hua vyakti facing right	none
-🧑🏿‍🦯‍➡	white cane pakda hua vyakti facing right	none
+🧑🏻‍🦯‍➡	white cane pakda hua vyakti Fair skin, facing right	none
+🧑🏼‍🦯‍➡	white cane pakda hua vyakti medium-fair skin, facing right	none
+🧑🏽‍🦯‍➡	white cane pakda hua vyakti medium skin, facing right	none
+🧑🏾‍🦯‍➡	white cane pakda hua vyakti medium-dark skin, facing right	none
+🧑🏿‍🦯‍➡	white cane pakda hua vyakti dark skin, facing right	none
 👨🏻‍🦯	white cane pakda hua aadmi Fair skin	none
 👨🏼‍🦯	white cane pakda hua aadmi medium-fair skin	none
 👨🏽‍🦯	white cane pakda hua aadmi medium skin	none
 👨🏾‍🦯	white cane pakda hua aadmi medium-dark skin	none
 👨🏿‍🦯	white cane pakda hua aadmi dark skin	none
 👨‍🦯‍➡	white cane pakda hua aadmi facing right	none
-👨🏻‍🦯‍➡	white cane pakda hua aadmi facing right	none
-👨🏼‍🦯‍➡	white cane pakda hua aadmi facing right	none
-👨🏽‍🦯‍➡	white cane pakda hua aadmi facing right	none
-👨🏾‍🦯‍➡	white cane pakda hua aadmi facing right	none
-👨🏿‍🦯‍➡	white cane pakda hua aadmi facing right	none
+👨🏻‍🦯‍➡	white cane pakda hua aadmi Fair skin, facing right	none
+👨🏼‍🦯‍➡	white cane pakda hua aadmi medium-fair skin, facing right	none
+👨🏽‍🦯‍➡	white cane pakda hua aadmi medium skin, facing right	none
+👨🏾‍🦯‍➡	white cane pakda hua aadmi medium-dark skin, facing right	none
+👨🏿‍🦯‍➡	white cane pakda hua aadmi dark skin, facing right	none
 👩🏻‍🦯	white cane pakde hui mahila Fair skin	none
 👩🏼‍🦯	white cane pakde hui mahila medium-fair skin	none
 👩🏽‍🦯	white cane pakde hui mahila medium skin	none
 👩🏾‍🦯	white cane pakde hui mahila medium-dark skin	none
 👩🏿‍🦯	white cane pakde hui mahila dark skin	none
 👩‍🦯‍➡	white cane pakde hui mahila facing right	none
-👩🏻‍🦯‍➡	white cane pakde hui mahila facing right	none
-👩🏼‍🦯‍➡	white cane pakde hui mahila facing right	none
-👩🏽‍🦯‍➡	white cane pakde hui mahila facing right	none
-👩🏾‍🦯‍➡	white cane pakde hui mahila facing right	none
-👩🏿‍🦯‍➡	white cane pakde hui mahila facing right	none
+👩🏻‍🦯‍➡	white cane pakde hui mahila Fair skin, facing right	none
+👩🏼‍🦯‍➡	white cane pakde hui mahila medium-fair skin, facing right	none
+👩🏽‍🦯‍➡	white cane pakde hui mahila medium skin, facing right	none
+👩🏾‍🦯‍➡	white cane pakde hui mahila medium-dark skin, facing right	none
+👩🏿‍🦯‍➡	white cane pakde hui mahila dark skin, facing right	none
 🧑🏻‍🦼	motor wheelchair par baitha vyakti Fair skin	none
 🧑🏼‍🦼	motor wheelchair par baitha vyakti medium-fair skin	none
 🧑🏽‍🦼	motor wheelchair par baitha vyakti medium skin	none
 🧑🏾‍🦼	motor wheelchair par baitha vyakti medium-dark skin	none
 🧑🏿‍🦼	motor wheelchair par baitha vyakti dark skin	none
 🧑‍🦼‍➡	motor wheelchair par baitha vyakti facing right	none
-🧑🏻‍🦼‍➡	motor wheelchair par baitha vyakti facing right	none
-🧑🏼‍🦼‍➡	motor wheelchair par baitha vyakti facing right	none
-🧑🏽‍🦼‍➡	motor wheelchair par baitha vyakti facing right	none
-🧑🏾‍🦼‍➡	motor wheelchair par baitha vyakti facing right	none
-🧑🏿‍🦼‍➡	motor wheelchair par baitha vyakti facing right	none
+🧑🏻‍🦼‍➡	motor wheelchair par baitha vyakti Fair skin, facing right	none
+🧑🏼‍🦼‍➡	motor wheelchair par baitha vyakti medium-fair skin, facing right	none
+🧑🏽‍🦼‍➡	motor wheelchair par baitha vyakti medium skin, facing right	none
+🧑🏾‍🦼‍➡	motor wheelchair par baitha vyakti medium-dark skin, facing right	none
+🧑🏿‍🦼‍➡	motor wheelchair par baitha vyakti dark skin, facing right	none
 👨🏻‍🦼	motor wheelchair par baitha aadmi Fair skin	none
 👨🏼‍🦼	motor wheelchair par baitha aadmi medium-fair skin	none
 👨🏽‍🦼	motor wheelchair par baitha aadmi medium skin	none
 👨🏾‍🦼	motor wheelchair par baitha aadmi medium-dark skin	none
 👨🏿‍🦼	motor wheelchair par baitha aadmi dark skin	none
 👨‍🦼‍➡	motor wheelchair par baitha aadmi facing right	none
-👨🏻‍🦼‍➡	motor wheelchair par baitha aadmi facing right	none
-👨🏼‍🦼‍➡	motor wheelchair par baitha aadmi facing right	none
-👨🏽‍🦼‍➡	motor wheelchair par baitha aadmi facing right	none
-👨🏾‍🦼‍➡	motor wheelchair par baitha aadmi facing right	none
-👨🏿‍🦼‍➡	motor wheelchair par baitha aadmi facing right	none
+👨🏻‍🦼‍➡	motor wheelchair par baitha aadmi Fair skin, facing right	none
+👨🏼‍🦼‍➡	motor wheelchair par baitha aadmi medium-fair skin, facing right	none
+👨🏽‍🦼‍➡	motor wheelchair par baitha aadmi medium skin, facing right	none
+👨🏾‍🦼‍➡	motor wheelchair par baitha aadmi medium-dark skin, facing right	none
+👨🏿‍🦼‍➡	motor wheelchair par baitha aadmi dark skin, facing right	none
 👩🏻‍🦼	motor wheelchair par baithi aurat Fair skin	none
 👩🏼‍🦼	motor wheelchair par baithi aurat medium-fair skin	none
 👩🏽‍🦼	motor wheelchair par baithi aurat medium skin	none
 👩🏾‍🦼	motor wheelchair par baithi aurat medium-dark skin	none
 👩🏿‍🦼	motor wheelchair par baithi aurat dark skin	none
 👩‍🦼‍➡	motor wheelchair par baithi aurat facing right	none
-👩🏻‍🦼‍➡	motor wheelchair par baithi aurat facing right	none
-👩🏼‍🦼‍➡	motor wheelchair par baithi aurat facing right	none
-👩🏽‍🦼‍➡	motor wheelchair par baithi aurat facing right	none
-👩🏾‍🦼‍➡	motor wheelchair par baithi aurat facing right	none
-👩🏿‍🦼‍➡	motor wheelchair par baithi aurat facing right	none
+👩🏻‍🦼‍➡	motor wheelchair par baithi aurat Fair skin, facing right	none
+👩🏼‍🦼‍➡	motor wheelchair par baithi aurat medium-fair skin, facing right	none
+👩🏽‍🦼‍➡	motor wheelchair par baithi aurat medium skin, facing right	none
+👩🏾‍🦼‍➡	motor wheelchair par baithi aurat medium-dark skin, facing right	none
+👩🏿‍🦼‍➡	motor wheelchair par baithi aurat dark skin, facing right	none
 🧑🏻‍🦽	manual wheelchair par baitha vyakti Fair skin	none
 🧑🏼‍🦽	manual wheelchair par baitha vyakti medium-fair skin	none
 🧑🏽‍🦽	manual wheelchair par baitha vyakti medium skin	none
 🧑🏾‍🦽	manual wheelchair par baitha vyakti medium-dark skin	none
 🧑🏿‍🦽	manual wheelchair par baitha vyakti dark skin	none
 🧑‍🦽‍➡	manual wheelchair par baitha vyakti facing right	none
-🧑🏻‍🦽‍➡	manual wheelchair par baitha vyakti facing right	none
-🧑🏼‍🦽‍➡	manual wheelchair par baitha vyakti facing right	none
-🧑🏽‍🦽‍➡	manual wheelchair par baitha vyakti facing right	none
-🧑🏾‍🦽‍➡	manual wheelchair par baitha vyakti facing right	none
-🧑🏿‍🦽‍➡	manual wheelchair par baitha vyakti facing right	none
+🧑🏻‍🦽‍➡	manual wheelchair par baitha vyakti Fair skin, facing right	none
+🧑🏼‍🦽‍➡	manual wheelchair par baitha vyakti medium-fair skin, facing right	none
+🧑🏽‍🦽‍➡	manual wheelchair par baitha vyakti medium skin, facing right	none
+🧑🏾‍🦽‍➡	manual wheelchair par baitha vyakti medium-dark skin, facing right	none
+🧑🏿‍🦽‍➡	manual wheelchair par baitha vyakti dark skin, facing right	none
 👨🏻‍🦽	manual wheelchair par baitha aadmi Fair skin	none
 👨🏼‍🦽	manual wheelchair par baitha aadmi medium-fair skin	none
 👨🏽‍🦽	manual wheelchair par baitha aadmi medium skin	none
 👨🏾‍🦽	manual wheelchair par baitha aadmi medium-dark skin	none
 👨🏿‍🦽	manual wheelchair par baitha aadmi dark skin	none
 👨‍🦽‍➡	manual wheelchair par baitha aadmi facing right	none
-👨🏻‍🦽‍➡	manual wheelchair par baitha aadmi facing right	none
-👨🏼‍🦽‍➡	manual wheelchair par baitha aadmi facing right	none
-👨🏽‍🦽‍➡	manual wheelchair par baitha aadmi facing right	none
-👨🏾‍🦽‍➡	manual wheelchair par baitha aadmi facing right	none
-👨🏿‍🦽‍➡	manual wheelchair par baitha aadmi facing right	none
+👨🏻‍🦽‍➡	manual wheelchair par baitha aadmi Fair skin, facing right	none
+👨🏼‍🦽‍➡	manual wheelchair par baitha aadmi medium-fair skin, facing right	none
+👨🏽‍🦽‍➡	manual wheelchair par baitha aadmi medium skin, facing right	none
+👨🏾‍🦽‍➡	manual wheelchair par baitha aadmi medium-dark skin, facing right	none
+👨🏿‍🦽‍➡	manual wheelchair par baitha aadmi dark skin, facing right	none
 👩🏻‍🦽	manual wheelchair par baithi mahila Fair skin	none
 👩🏼‍🦽	manual wheelchair par baithi mahila medium-fair skin	none
 👩🏽‍🦽	manual wheelchair par baithi mahila medium skin	none
 👩🏾‍🦽	manual wheelchair par baithi mahila medium-dark skin	none
 👩🏿‍🦽	manual wheelchair par baithi mahila dark skin	none
 👩‍🦽‍➡	manual wheelchair par baithi mahila facing right	none
-👩🏻‍🦽‍➡	manual wheelchair par baithi mahila facing right	none
-👩🏼‍🦽‍➡	manual wheelchair par baithi mahila facing right	none
-👩🏽‍🦽‍➡	manual wheelchair par baithi mahila facing right	none
-👩🏾‍🦽‍➡	manual wheelchair par baithi mahila facing right	none
-👩🏿‍🦽‍➡	manual wheelchair par baithi mahila facing right	none
+👩🏻‍🦽‍➡	manual wheelchair par baithi mahila Fair skin, facing right	none
+👩🏼‍🦽‍➡	manual wheelchair par baithi mahila medium-fair skin, facing right	none
+👩🏽‍🦽‍➡	manual wheelchair par baithi mahila medium skin, facing right	none
+👩🏾‍🦽‍➡	manual wheelchair par baithi mahila medium-dark skin, facing right	none
+👩🏿‍🦽‍➡	manual wheelchair par baithi mahila dark skin, facing right	none
 🏃🏻	run karta vyakti Fair skin	none
 🏃🏼	run karta vyakti medium-fair skin	none
 🏃🏽	run karta vyakti medium skin	none
@@ -2065,23 +2186,28 @@ symbols:
 🏃🏾‍♀	run karti mahila medium-dark skin	none
 🏃🏿‍♀	run karti mahila dark skin	none
 🏃‍➡	run karta vyakti facing right	none
-🏃🏻‍➡	run karta vyakti facing right	none
-🏃🏼‍➡	run karta vyakti facing right	none
-🏃🏽‍➡	run karta vyakti facing right	none
-🏃🏾‍➡	run karta vyakti facing right	none
-🏃🏿‍➡	run karta vyakti facing right	none
+🏃🏻‍➡	run karta vyakti Fair skin, facing right	none
+🏃🏼‍➡	run karta vyakti medium-fair skin, facing right	none
+🏃🏽‍➡	run karta vyakti medium skin, facing right	none
+🏃🏾‍➡	run karta vyakti medium-dark skin, facing right	none
+🏃🏿‍➡	run karta vyakti dark skin, facing right	none
 🏃‍♀‍➡	run karti mahila facing right	none
-🏃🏻‍♀‍➡	run karti mahila facing right	none
-🏃🏼‍♀‍➡	run karti mahila facing right	none
-🏃🏽‍♀‍➡	run karti mahila facing right	none
-🏃🏾‍♀‍➡	run karti mahila facing right	none
-🏃🏿‍♀‍➡	run karti mahila facing right	none
+🏃🏻‍♀‍➡	run karti mahila Fair skin, facing right	none
+🏃🏼‍♀‍➡	run karti mahila medium-fair skin, facing right	none
+🏃🏽‍♀‍➡	run karti mahila medium skin, facing right	none
+🏃🏾‍♀‍➡	run karti mahila medium-dark skin, facing right	none
+🏃🏿‍♀‍➡	run karti mahila dark skin, facing right	none
 🏃‍♂‍➡	run karta aadmi facing right	none
-🏃🏻‍♂‍➡	run karta aadmi facing right	none
-🏃🏼‍♂‍➡	run karta aadmi facing right	none
-🏃🏽‍♂‍➡	run karta aadmi facing right	none
-🏃🏾‍♂‍➡	run karta aadmi facing right	none
-🏃🏿‍♂‍➡	run karta aadmi facing right	none
+🏃🏻‍♂‍➡	run karta aadmi Fair skin, facing right	none
+🏃🏼‍♂‍➡	run karta aadmi medium-fair skin, facing right	none
+🏃🏽‍♂‍➡	run karta aadmi medium skin, facing right	none
+🏃🏾‍♂‍➡	run karta aadmi medium-dark skin, facing right	none
+🏃🏿‍♂‍➡	run karta aadmi dark skin, facing right	none
+🧑🏻‍🩰	ballet dancer Fair skin	none
+🧑🏼‍🩰	ballet dancer medium-fair skin	none
+🧑🏽‍🩰	ballet dancer medium skin	none
+🧑🏾‍🩰	ballet dancer medium-dark skin	none
+🧑🏿‍🩰	ballet dancer dark skin	none
 💃🏻	dance karti mahila Fair skin	none
 💃🏼	dance karti mahila medium-fair skin	none
 💃🏽	dance karti mahila medium skin	none
@@ -2097,6 +2223,21 @@ symbols:
 🕴🏽	hawa mein udta suit wala vyakti medium skin	none
 🕴🏾	hawa mein udta suit wala vyakti medium-dark skin	none
 🕴🏿	hawa mein udta suit wala vyakti dark skin	none
+👯🏻	khargosh ke kaan wale log Fair skin	none
+👯🏼	khargosh ke kaan wale log medium-fair skin	none
+👯🏽	khargosh ke kaan wale log medium skin	none
+👯🏾	khargosh ke kaan wale log medium-dark skin	none
+👯🏿	khargosh ke kaan wale log dark skin	none
+👯🏻‍♂	khargosh ke kaan wale aadmi Fair skin	none
+👯🏼‍♂	khargosh ke kaan wale aadmi medium-fair skin	none
+👯🏽‍♂	khargosh ke kaan wale aadmi medium skin	none
+👯🏾‍♂	khargosh ke kaan wale aadmi medium-dark skin	none
+👯🏿‍♂	khargosh ke kaan wale aadmi dark skin	none
+👯🏻‍♀	khargosh ke kaan wali mahilaayein Fair skin	none
+👯🏼‍♀	khargosh ke kaan wali mahilaayein medium-fair skin	none
+👯🏽‍♀	khargosh ke kaan wali mahilaayein medium skin	none
+👯🏾‍♀	khargosh ke kaan wali mahilaayein medium-dark skin	none
+👯🏿‍♀	khargosh ke kaan wali mahilaayein dark skin	none
 🧖🏻	steamy room mein vyakti Fair skin	none
 🧖🏼	steamy room mein vyakti medium-fair skin	none
 🧖🏽	steamy room mein vyakti medium skin	none
@@ -2272,6 +2413,21 @@ symbols:
 🤸🏽‍♀	cartwheeling karti mahila medium skin	none
 🤸🏾‍♀	cartwheeling karti mahila medium-dark skin	none
 🤸🏿‍♀	cartwheeling karti mahila dark skin	none
+🤼🏻	wrestling karte log Fair skin	none
+🤼🏼	wrestling karte log medium-fair skin	none
+🤼🏽	wrestling karte log medium skin	none
+🤼🏾	wrestling karte log medium-dark skin	none
+🤼🏿	wrestling karte log dark skin	none
+🤼🏻‍♂	wrestling karte aadmi Fair skin	none
+🤼🏼‍♂	wrestling karte aadmi medium-fair skin	none
+🤼🏽‍♂	wrestling karte aadmi medium skin	none
+🤼🏾‍♂	wrestling karte aadmi medium-dark skin	none
+🤼🏿‍♂	wrestling karte aadmi dark skin	none
+🤼🏻‍♀	wrestling karti mahilaayein Fair skin	none
+🤼🏼‍♀	wrestling karti mahilaayein medium-fair skin	none
+🤼🏽‍♀	wrestling karti mahilaayein medium skin	none
+🤼🏾‍♀	wrestling karti mahilaayein medium-dark skin	none
+🤼🏿‍♀	wrestling karti mahilaayein dark skin	none
 🤽🏻	water polo khelta vyakti Fair skin	none
 🤽🏼	water polo khelta vyakti medium-fair skin	none
 🤽🏽	water polo khelta vyakti medium skin	none
@@ -2459,6 +2615,7 @@ symbols:
 🇧🇱	flag St. Barthelemy	none
 🇨🇮	flag Cote d’Ivoire	none
 🇨🇼	flag Curacao	none
+🇮🇳	flag Bharat	none
 🇰🇳	flag St. Kitts & Nevis	none
 🇱🇨	flag St. Lucia	none
 🇲🇫	flag St. Martin	none

@@ -321,6 +321,7 @@ symbols:
 😪	cara de sueño	none
 🤤	cara babeando	none
 😴	cara durmiendo	none
+🫩	cara con ojeras	none
 😷	cara con mascarilla médica	none
 🤒	cara con termómetro	none
 🤕	cara con la cabeza vendada	none
@@ -348,6 +349,7 @@ symbols:
 😯	cara estupefacta	none
 😲	cara asombrada	none
 😳	cara sonrojada	none
+🫪	cara deformada	none
 🥺	cara suplicante	none
 🥹	cara aguantándose las lágrimas	none
 😦	cara con el ceño fruncido y la boca abierta	none
@@ -421,6 +423,7 @@ symbols:
 💋	marca de beso	none
 💯	cien puntos	none
 💢	símbolo de enfado	none
+🫯	nube de pelea	none
 💥	colisión	none
 💫	símbolo de mareo	none
 💦	gotas de sudor	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	zombi hombre	none
 🧟‍♀	zombi mujer	none
 🧌	trol	none
+🫈	criatura peluda	none
 💆	persona recibiendo masaje	none
 💆‍♂	hombre recibiendo masaje	none
 💆‍♀	mujer recibiendo masaje	none
@@ -680,6 +684,7 @@ symbols:
 🏃	persona corriendo	none
 🏃‍♂	hombre corriendo	none
 🏃‍♀	mujer corriendo	none
+🧑‍🩰	bailarina de ballet	none
 💃	mujer bailando	none
 🕺	hombre bailando	none
 🕴	persona trajeada levitando	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	familia adulto, niño	none
 🧑‍🧒‍🧒	familia adulto, niño, niño	none
 👣	huellas de pies	none
+🫆	huella dactilar	none
 🦰	pelo pelirrojo	none
 🦱	pelo rizado	none
 🦳	pelo blanco	none
@@ -860,6 +866,7 @@ symbols:
 🐳	ballena soltando un chorro	none
 🐋	ballena	none
 🐬	delfín	none
+🫍	orca	none
 🦭	foca	none
 🐟	pez	none
 🐠	pez tropical	none
@@ -869,6 +876,11 @@ symbols:
 🐚	caracola	none
 🪸	coral	none
 🪼	medusa	none
+🦀	cangrejo	none
+🦞	bogavante	none
+🦐	gamba	none
+🦑	calamar	none
+🦪	ostra	none
 🐌	caracol	none
 🦋	mariposa	none
 🐛	bicho	none
@@ -913,6 +925,7 @@ symbols:
 🪹	nido vacío	none
 🪺	nido con huevos	none
 🍄	champiñón	none
+🪾	árbol sin hojas	none
 🍇	uvas	none
 🍈	melón	none
 🍉	sandía	none
@@ -951,6 +964,7 @@ symbols:
 🫚	raíz de jengibre	none
 🫛	vaina	none
 🍄‍🟫	champiñón marrón	none
+🫜	túberculo comestible	none
 🍞	pan de molde	none
 🥐	cruasán	none
 🥖	baguete	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	dumpling	none
 🥠	galleta de la fortuna	none
 🥡	caja para llevar	none
-🦀	cangrejo	none
-🦞	bogavante	none
-🦐	gamba	none
-🦑	calamar	none
-🦪	ostra	none
 🍦	cucurucho de helado	none
 🍧	granizado hawaiano	none
 🍨	helado	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	brújula	none
 🏔	montaña con nieve	none
 ⛰	montaña	none
+🛘	desprendimiento	none
 🌋	volcán	none
 🗻	monte Fuji	none
 🏕	camping	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	auricular	none
 📻	radio	none
 🎷	saxofón	none
+🎺	trompeta	none
+🪊	trombón	none
 🪗	acordeón	none
 🎸	guitarra	none
 🎹	teclado musical	none
-🎺	trompeta	none
 🎻	violín	none
 🪕	banjo	none
 🥁	tambor	none
 🪘	tamboril	none
 🪇	maracas	none
 🪈	flauta	none
+🪉	arpa	none
 📱	teléfono móvil	none
 📲	móvil con una flecha	none
 ☎	teléfono	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	marcadores	none
 🔖	marcapáginas	none
 🏷	etiqueta	none
-💰	bolsa de dinero	none
 🪙	moneda	none
+💰	bolsa de dinero	none
+🪎	cofre de tesoro	none
 💴	billete de yen	none
 💵	billete de dólar	none
 💶	billete de euro	none
@@ -1565,6 +1578,7 @@ symbols:
 🧰	caja de herramientas	none
 🧲	imán	none
 🪜	escalera	none
+🪏	pala	none
 ⚗	alambique	none
 🧪	tubo de ensayo	none
 🧫	placa de petri	none
@@ -1745,6 +1759,7 @@ symbols:
 ✴	estrella de ocho puntas	none
 ❇	chispa	none
 ™	símbolo de marca comercial	none
+🫟	salpicadura	none
 🔠	letras latinas mayúsculas	none
 🔡	letras latinas minúsculas	none
 🔢	números	none
@@ -2159,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	pareja enamorada persona adulta, persona adulta, tono de piel oscuro, tono de piel claro medio	none
 🧑🏿‍❤‍🧑🏽	pareja enamorada persona adulta, persona adulta, tono de piel oscuro, tono de piel medio	none
 🧑🏿‍❤‍🧑🏾	pareja enamorada persona adulta, persona adulta, tono de piel oscuro, tono de piel oscuro medio	none
+🧑🏻‍🫯‍🧑🏼	personas luchando tono de piel claro y tono de piel claro medio	none
+🧑🏻‍🫯‍🧑🏽	personas luchando tono de piel claro y tono de piel medio	none
+🧑🏻‍🫯‍🧑🏾	personas luchando tono de piel claro y tono de piel oscuro medio	none
+🧑🏻‍🫯‍🧑🏿	personas luchando tono de piel claro y tono de piel oscuro	none
+🧑🏼‍🫯‍🧑🏻	personas luchando tono de piel claro medio y tono de piel claro	none
+🧑🏼‍🫯‍🧑🏽	personas luchando tono de piel claro medio y tono de piel medio	none
+🧑🏼‍🫯‍🧑🏾	personas luchando tono de piel claro medio y tono de piel oscuro medio	none
+🧑🏼‍🫯‍🧑🏿	personas luchando tono de piel claro medio y tono de piel oscuro	none
+🧑🏽‍🫯‍🧑🏻	personas luchando tono de piel medio y tono de piel claro	none
+🧑🏽‍🫯‍🧑🏼	personas luchando tono de piel medio y tono de piel claro medio	none
+🧑🏽‍🫯‍🧑🏾	personas luchando tono de piel medio y tono de piel oscuro medio	none
+🧑🏽‍🫯‍🧑🏿	personas luchando tono de piel medio y tono de piel oscuro	none
+🧑🏾‍🫯‍🧑🏻	personas luchando tono de piel oscuro medio y tono de piel claro	none
+🧑🏾‍🫯‍🧑🏼	personas luchando tono de piel oscuro medio y tono de piel claro medio	none
+🧑🏾‍🫯‍🧑🏽	personas luchando tono de piel oscuro medio y tono de piel medio	none
+🧑🏾‍🫯‍🧑🏿	personas luchando tono de piel oscuro medio y tono de piel oscuro	none
+🧑🏿‍🫯‍🧑🏻	personas luchando tono de piel oscuro y tono de piel claro	none
+🧑🏿‍🫯‍🧑🏼	personas luchando tono de piel oscuro y tono de piel claro medio	none
+🧑🏿‍🫯‍🧑🏽	personas luchando tono de piel oscuro y tono de piel medio	none
+🧑🏿‍🫯‍🧑🏾	personas luchando tono de piel oscuro y tono de piel oscuro medio	none
 🧑‍🦰	persona adulta pelo pelirrojo	none
 🧑🏻‍🦰	persona adulta tono de piel claro y pelo pelirrojo	none
 🧑🏼‍🦰	persona adulta tono de piel claro medio y pelo pelirrojo	none
@@ -2183,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	persona adulta tono de piel medio y sin pelo	none
 🧑🏾‍🦲	persona adulta tono de piel oscuro medio y sin pelo	none
 🧑🏿‍🦲	persona adulta tono de piel oscuro y sin pelo	none
+🧑🏻‍🐰‍🧑🏼	personas con orejas de conejo tono de piel claro y tono de piel claro medio	none
+🧑🏻‍🐰‍🧑🏽	personas con orejas de conejo tono de piel claro y tono de piel medio	none
+🧑🏻‍🐰‍🧑🏾	personas con orejas de conejo tono de piel claro y tono de piel oscuro medio	none
+🧑🏻‍🐰‍🧑🏿	personas con orejas de conejo tono de piel claro y tono de piel oscuro	none
+🧑🏼‍🐰‍🧑🏻	personas con orejas de conejo tono de piel claro medio y tono de piel claro	none
+🧑🏼‍🐰‍🧑🏽	personas con orejas de conejo tono de piel claro medio y tono de piel medio	none
+🧑🏼‍🐰‍🧑🏾	personas con orejas de conejo tono de piel claro medio y tono de piel oscuro medio	none
+🧑🏼‍🐰‍🧑🏿	personas con orejas de conejo tono de piel claro medio y tono de piel oscuro	none
+🧑🏽‍🐰‍🧑🏻	personas con orejas de conejo tono de piel medio y tono de piel claro	none
+🧑🏽‍🐰‍🧑🏼	personas con orejas de conejo tono de piel medio y tono de piel claro medio	none
+🧑🏽‍🐰‍🧑🏾	personas con orejas de conejo tono de piel medio y tono de piel oscuro medio	none
+🧑🏽‍🐰‍🧑🏿	personas con orejas de conejo tono de piel medio y tono de piel oscuro	none
+🧑🏾‍🐰‍🧑🏻	personas con orejas de conejo tono de piel oscuro medio y tono de piel claro	none
+🧑🏾‍🐰‍🧑🏼	personas con orejas de conejo tono de piel oscuro medio y tono de piel claro medio	none
+🧑🏾‍🐰‍🧑🏽	personas con orejas de conejo tono de piel oscuro medio y tono de piel medio	none
+🧑🏾‍🐰‍🧑🏿	personas con orejas de conejo tono de piel oscuro medio y tono de piel oscuro	none
+🧑🏿‍🐰‍🧑🏻	personas con orejas de conejo tono de piel oscuro y tono de piel claro	none
+🧑🏿‍🐰‍🧑🏼	personas con orejas de conejo tono de piel oscuro y tono de piel claro medio	none
+🧑🏿‍🐰‍🧑🏽	personas con orejas de conejo tono de piel oscuro y tono de piel medio	none
+🧑🏿‍🐰‍🧑🏾	personas con orejas de conejo tono de piel oscuro y tono de piel oscuro medio	none
 👨🏻	hombre tono de piel claro	none
 👨🏼	hombre tono de piel claro medio	none
 👨🏽	hombre tono de piel medio	none
@@ -2253,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	pareja enamorada hombre, hombre, tono de piel oscuro, tono de piel medio	none
 👨🏿‍❤‍👨🏾	pareja enamorada hombre, hombre, tono de piel oscuro, tono de piel oscuro medio	none
 👨🏿‍❤‍👨🏿	pareja enamorada hombre, hombre, tono de piel oscuro	none
+👨🏻‍🫯‍👨🏼	hombres luchando tono de piel claro y tono de piel claro medio	none
+👨🏻‍🫯‍👨🏽	hombres luchando tono de piel claro y tono de piel medio	none
+👨🏻‍🫯‍👨🏾	hombres luchando tono de piel claro y tono de piel oscuro medio	none
+👨🏻‍🫯‍👨🏿	hombres luchando tono de piel claro y tono de piel oscuro	none
+👨🏼‍🫯‍👨🏻	hombres luchando tono de piel claro medio y tono de piel claro	none
+👨🏼‍🫯‍👨🏽	hombres luchando tono de piel claro medio y tono de piel medio	none
+👨🏼‍🫯‍👨🏾	hombres luchando tono de piel claro medio y tono de piel oscuro medio	none
+👨🏼‍🫯‍👨🏿	hombres luchando tono de piel claro medio y tono de piel oscuro	none
+👨🏽‍🫯‍👨🏻	hombres luchando tono de piel medio y tono de piel claro	none
+👨🏽‍🫯‍👨🏼	hombres luchando tono de piel medio y tono de piel claro medio	none
+👨🏽‍🫯‍👨🏾	hombres luchando tono de piel medio y tono de piel oscuro medio	none
+👨🏽‍🫯‍👨🏿	hombres luchando tono de piel medio y tono de piel oscuro	none
+👨🏾‍🫯‍👨🏻	hombres luchando tono de piel oscuro medio y tono de piel claro	none
+👨🏾‍🫯‍👨🏼	hombres luchando tono de piel oscuro medio y tono de piel claro medio	none
+👨🏾‍🫯‍👨🏽	hombres luchando tono de piel oscuro medio y tono de piel medio	none
+👨🏾‍🫯‍👨🏿	hombres luchando tono de piel oscuro medio y tono de piel oscuro	none
+👨🏿‍🫯‍👨🏻	hombres luchando tono de piel oscuro y tono de piel claro	none
+👨🏿‍🫯‍👨🏼	hombres luchando tono de piel oscuro y tono de piel claro medio	none
+👨🏿‍🫯‍👨🏽	hombres luchando tono de piel oscuro y tono de piel medio	none
+👨🏿‍🫯‍👨🏾	hombres luchando tono de piel oscuro y tono de piel oscuro medio	none
 👨‍🦰	hombre pelo pelirrojo	none
 👨🏻‍🦰	hombre tono de piel claro y pelo pelirrojo	none
 👨🏼‍🦰	hombre tono de piel claro medio y pelo pelirrojo	none
@@ -2277,6 +2352,26 @@ symbols:
 👨🏽‍🦲	hombre tono de piel medio y sin pelo	none
 👨🏾‍🦲	hombre tono de piel oscuro medio y sin pelo	none
 👨🏿‍🦲	hombre tono de piel oscuro y sin pelo	none
+👨🏻‍🐰‍👨🏼	hombres con orejas de conejo tono de piel claro y tono de piel claro medio	none
+👨🏻‍🐰‍👨🏽	hombres con orejas de conejo tono de piel claro y tono de piel medio	none
+👨🏻‍🐰‍👨🏾	hombres con orejas de conejo tono de piel claro y tono de piel oscuro medio	none
+👨🏻‍🐰‍👨🏿	hombres con orejas de conejo tono de piel claro y tono de piel oscuro	none
+👨🏼‍🐰‍👨🏻	hombres con orejas de conejo tono de piel claro medio y tono de piel claro	none
+👨🏼‍🐰‍👨🏽	hombres con orejas de conejo tono de piel claro medio y tono de piel medio	none
+👨🏼‍🐰‍👨🏾	hombres con orejas de conejo tono de piel claro medio y tono de piel oscuro medio	none
+👨🏼‍🐰‍👨🏿	hombres con orejas de conejo tono de piel claro medio y tono de piel oscuro	none
+👨🏽‍🐰‍👨🏻	hombres con orejas de conejo tono de piel medio y tono de piel claro	none
+👨🏽‍🐰‍👨🏼	hombres con orejas de conejo tono de piel medio y tono de piel claro medio	none
+👨🏽‍🐰‍👨🏾	hombres con orejas de conejo tono de piel medio y tono de piel oscuro medio	none
+👨🏽‍🐰‍👨🏿	hombres con orejas de conejo tono de piel medio y tono de piel oscuro	none
+👨🏾‍🐰‍👨🏻	hombres con orejas de conejo tono de piel oscuro medio y tono de piel claro	none
+👨🏾‍🐰‍👨🏼	hombres con orejas de conejo tono de piel oscuro medio y tono de piel claro medio	none
+👨🏾‍🐰‍👨🏽	hombres con orejas de conejo tono de piel oscuro medio y tono de piel medio	none
+👨🏾‍🐰‍👨🏿	hombres con orejas de conejo tono de piel oscuro medio y tono de piel oscuro	none
+👨🏿‍🐰‍👨🏻	hombres con orejas de conejo tono de piel oscuro y tono de piel claro	none
+👨🏿‍🐰‍👨🏼	hombres con orejas de conejo tono de piel oscuro y tono de piel claro medio	none
+👨🏿‍🐰‍👨🏽	hombres con orejas de conejo tono de piel oscuro y tono de piel medio	none
+👨🏿‍🐰‍👨🏾	hombres con orejas de conejo tono de piel oscuro y tono de piel oscuro medio	none
 👩🏻	mujer tono de piel claro	none
 👩🏼	mujer tono de piel claro medio	none
 👩🏽	mujer tono de piel medio	none
@@ -2392,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	pareja enamorada mujer, mujer, tono de piel oscuro, tono de piel medio	none
 👩🏿‍❤‍👩🏾	pareja enamorada mujer, mujer, tono de piel oscuro, tono de piel oscuro medio	none
 👩🏿‍❤‍👩🏿	pareja enamorada mujer, mujer, tono de piel oscuro	none
+👩🏻‍🫯‍👩🏼	mujeres luchando tono de piel claro y tono de piel claro medio	none
+👩🏻‍🫯‍👩🏽	mujeres luchando tono de piel claro y tono de piel medio	none
+👩🏻‍🫯‍👩🏾	mujeres luchando tono de piel claro y tono de piel oscuro medio	none
+👩🏻‍🫯‍👩🏿	mujeres luchando tono de piel claro y tono de piel oscuro	none
+👩🏼‍🫯‍👩🏻	mujeres luchando tono de piel claro medio y tono de piel claro	none
+👩🏼‍🫯‍👩🏽	mujeres luchando tono de piel claro medio y tono de piel medio	none
+👩🏼‍🫯‍👩🏾	mujeres luchando tono de piel claro medio y tono de piel oscuro medio	none
+👩🏼‍🫯‍👩🏿	mujeres luchando tono de piel claro medio y tono de piel oscuro	none
+👩🏽‍🫯‍👩🏻	mujeres luchando tono de piel medio y tono de piel claro	none
+👩🏽‍🫯‍👩🏼	mujeres luchando tono de piel medio y tono de piel claro medio	none
+👩🏽‍🫯‍👩🏾	mujeres luchando tono de piel medio y tono de piel oscuro medio	none
+👩🏽‍🫯‍👩🏿	mujeres luchando tono de piel medio y tono de piel oscuro	none
+👩🏾‍🫯‍👩🏻	mujeres luchando tono de piel oscuro medio y tono de piel claro	none
+👩🏾‍🫯‍👩🏼	mujeres luchando tono de piel oscuro medio y tono de piel claro medio	none
+👩🏾‍🫯‍👩🏽	mujeres luchando tono de piel oscuro medio y tono de piel medio	none
+👩🏾‍🫯‍👩🏿	mujeres luchando tono de piel oscuro medio y tono de piel oscuro	none
+👩🏿‍🫯‍👩🏻	mujeres luchando tono de piel oscuro y tono de piel claro	none
+👩🏿‍🫯‍👩🏼	mujeres luchando tono de piel oscuro y tono de piel claro medio	none
+👩🏿‍🫯‍👩🏽	mujeres luchando tono de piel oscuro y tono de piel medio	none
+👩🏿‍🫯‍👩🏾	mujeres luchando tono de piel oscuro y tono de piel oscuro medio	none
 👩‍🦰	mujer pelo pelirrojo	none
 👩🏻‍🦰	mujer tono de piel claro y pelo pelirrojo	none
 👩🏼‍🦰	mujer tono de piel claro medio y pelo pelirrojo	none
@@ -2416,6 +2531,26 @@ symbols:
 👩🏽‍🦲	mujer tono de piel medio y sin pelo	none
 👩🏾‍🦲	mujer tono de piel oscuro medio y sin pelo	none
 👩🏿‍🦲	mujer tono de piel oscuro y sin pelo	none
+👩🏻‍🐰‍👩🏼	mujeres con orejas de conejo tono de piel claro y tono de piel claro medio	none
+👩🏻‍🐰‍👩🏽	mujeres con orejas de conejo tono de piel claro y tono de piel medio	none
+👩🏻‍🐰‍👩🏾	mujeres con orejas de conejo tono de piel claro y tono de piel oscuro medio	none
+👩🏻‍🐰‍👩🏿	mujeres con orejas de conejo tono de piel claro y tono de piel oscuro	none
+👩🏼‍🐰‍👩🏻	mujeres con orejas de conejo tono de piel claro medio y tono de piel claro	none
+👩🏼‍🐰‍👩🏽	mujeres con orejas de conejo tono de piel claro medio y tono de piel medio	none
+👩🏼‍🐰‍👩🏾	mujeres con orejas de conejo tono de piel claro medio y tono de piel oscuro medio	none
+👩🏼‍🐰‍👩🏿	mujeres con orejas de conejo tono de piel claro medio y tono de piel oscuro	none
+👩🏽‍🐰‍👩🏻	mujeres con orejas de conejo tono de piel medio y tono de piel claro	none
+👩🏽‍🐰‍👩🏼	mujeres con orejas de conejo tono de piel medio y tono de piel claro medio	none
+👩🏽‍🐰‍👩🏾	mujeres con orejas de conejo tono de piel medio y tono de piel oscuro medio	none
+👩🏽‍🐰‍👩🏿	mujeres con orejas de conejo tono de piel medio y tono de piel oscuro	none
+👩🏾‍🐰‍👩🏻	mujeres con orejas de conejo tono de piel oscuro medio y tono de piel claro	none
+👩🏾‍🐰‍👩🏼	mujeres con orejas de conejo tono de piel oscuro medio y tono de piel claro medio	none
+👩🏾‍🐰‍👩🏽	mujeres con orejas de conejo tono de piel oscuro medio y tono de piel medio	none
+👩🏾‍🐰‍👩🏿	mujeres con orejas de conejo tono de piel oscuro medio y tono de piel oscuro	none
+👩🏿‍🐰‍👩🏻	mujeres con orejas de conejo tono de piel oscuro y tono de piel claro	none
+👩🏿‍🐰‍👩🏼	mujeres con orejas de conejo tono de piel oscuro y tono de piel claro medio	none
+👩🏿‍🐰‍👩🏽	mujeres con orejas de conejo tono de piel oscuro y tono de piel medio	none
+👩🏿‍🐰‍👩🏾	mujeres con orejas de conejo tono de piel oscuro y tono de piel oscuro medio	none
 🧓🏻	persona mayor tono de piel claro	none
 🧓🏼	persona mayor tono de piel claro medio	none
 🧓🏽	persona mayor tono de piel medio	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	mujer caminando tono de piel oscuro medio	none
 🚶🏿‍♀	mujer caminando tono de piel oscuro	none
 🚶‍➡	persona caminando hacia la derecha	none
-🚶🏻‍➡	persona caminando hacia la derecha	none
-🚶🏼‍➡	persona caminando hacia la derecha	none
-🚶🏽‍➡	persona caminando hacia la derecha	none
-🚶🏾‍➡	persona caminando hacia la derecha	none
-🚶🏿‍➡	persona caminando hacia la derecha	none
+🚶🏻‍➡	persona caminando tono de piel claro y hacia la derecha	none
+🚶🏼‍➡	persona caminando tono de piel claro medio y hacia la derecha	none
+🚶🏽‍➡	persona caminando tono de piel medio y hacia la derecha	none
+🚶🏾‍➡	persona caminando tono de piel oscuro medio y hacia la derecha	none
+🚶🏿‍➡	persona caminando tono de piel oscuro y hacia la derecha	none
 🚶‍♀‍➡	mujer caminando hacia la derecha	none
-🚶🏻‍♀‍➡	mujer caminando hacia la derecha	none
-🚶🏼‍♀‍➡	mujer caminando hacia la derecha	none
-🚶🏽‍♀‍➡	mujer caminando hacia la derecha	none
-🚶🏾‍♀‍➡	mujer caminando hacia la derecha	none
-🚶🏿‍♀‍➡	mujer caminando hacia la derecha	none
+🚶🏻‍♀‍➡	mujer caminando tono de piel claro y hacia la derecha	none
+🚶🏼‍♀‍➡	mujer caminando tono de piel claro medio y hacia la derecha	none
+🚶🏽‍♀‍➡	mujer caminando tono de piel medio y hacia la derecha	none
+🚶🏾‍♀‍➡	mujer caminando tono de piel oscuro medio y hacia la derecha	none
+🚶🏿‍♀‍➡	mujer caminando tono de piel oscuro y hacia la derecha	none
 🚶‍♂‍➡	hombre caminando hacia la derecha	none
-🚶🏻‍♂‍➡	hombre caminando hacia la derecha	none
-🚶🏼‍♂‍➡	hombre caminando hacia la derecha	none
-🚶🏽‍♂‍➡	hombre caminando hacia la derecha	none
-🚶🏾‍♂‍➡	hombre caminando hacia la derecha	none
-🚶🏿‍♂‍➡	hombre caminando hacia la derecha	none
+🚶🏻‍♂‍➡	hombre caminando tono de piel claro y hacia la derecha	none
+🚶🏼‍♂‍➡	hombre caminando tono de piel claro medio y hacia la derecha	none
+🚶🏽‍♂‍➡	hombre caminando tono de piel medio y hacia la derecha	none
+🚶🏾‍♂‍➡	hombre caminando tono de piel oscuro medio y hacia la derecha	none
+🚶🏿‍♂‍➡	hombre caminando tono de piel oscuro y hacia la derecha	none
 🧍🏻	persona de pie tono de piel claro	none
 🧍🏼	persona de pie tono de piel claro medio	none
 🧍🏽	persona de pie tono de piel medio	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	mujer de rodillas tono de piel oscuro medio	none
 🧎🏿‍♀	mujer de rodillas tono de piel oscuro	none
 🧎‍➡	persona de rodillas hacia la derecha	none
-🧎🏻‍➡	persona de rodillas hacia la derecha	none
-🧎🏼‍➡	persona de rodillas hacia la derecha	none
-🧎🏽‍➡	persona de rodillas hacia la derecha	none
-🧎🏾‍➡	persona de rodillas hacia la derecha	none
-🧎🏿‍➡	persona de rodillas hacia la derecha	none
+🧎🏻‍➡	persona de rodillas tono de piel claro y hacia la derecha	none
+🧎🏼‍➡	persona de rodillas tono de piel claro medio y hacia la derecha	none
+🧎🏽‍➡	persona de rodillas tono de piel medio y hacia la derecha	none
+🧎🏾‍➡	persona de rodillas tono de piel oscuro medio y hacia la derecha	none
+🧎🏿‍➡	persona de rodillas tono de piel oscuro y hacia la derecha	none
 🧎‍♀‍➡	mujer de rodillas hacia la derecha	none
-🧎🏻‍♀‍➡	mujer de rodillas hacia la derecha	none
-🧎🏼‍♀‍➡	mujer de rodillas hacia la derecha	none
-🧎🏽‍♀‍➡	mujer de rodillas hacia la derecha	none
-🧎🏾‍♀‍➡	mujer de rodillas hacia la derecha	none
-🧎🏿‍♀‍➡	mujer de rodillas hacia la derecha	none
+🧎🏻‍♀‍➡	mujer de rodillas tono de piel claro y hacia la derecha	none
+🧎🏼‍♀‍➡	mujer de rodillas tono de piel claro medio y hacia la derecha	none
+🧎🏽‍♀‍➡	mujer de rodillas tono de piel medio y hacia la derecha	none
+🧎🏾‍♀‍➡	mujer de rodillas tono de piel oscuro medio y hacia la derecha	none
+🧎🏿‍♀‍➡	mujer de rodillas tono de piel oscuro y hacia la derecha	none
 🧎‍♂‍➡	hombre de rodillas hacia la derecha	none
-🧎🏻‍♂‍➡	hombre de rodillas hacia la derecha	none
-🧎🏼‍♂‍➡	hombre de rodillas hacia la derecha	none
-🧎🏽‍♂‍➡	hombre de rodillas hacia la derecha	none
-🧎🏾‍♂‍➡	hombre de rodillas hacia la derecha	none
-🧎🏿‍♂‍➡	hombre de rodillas hacia la derecha	none
+🧎🏻‍♂‍➡	hombre de rodillas tono de piel claro y hacia la derecha	none
+🧎🏼‍♂‍➡	hombre de rodillas tono de piel claro medio y hacia la derecha	none
+🧎🏽‍♂‍➡	hombre de rodillas tono de piel medio y hacia la derecha	none
+🧎🏾‍♂‍➡	hombre de rodillas tono de piel oscuro medio y hacia la derecha	none
+🧎🏿‍♂‍➡	hombre de rodillas tono de piel oscuro y hacia la derecha	none
 🧑🏻‍🦯	persona con bastón tono de piel claro	none
 🧑🏼‍🦯	persona con bastón tono de piel claro medio	none
 🧑🏽‍🦯	persona con bastón tono de piel medio	none
 🧑🏾‍🦯	persona con bastón tono de piel oscuro medio	none
 🧑🏿‍🦯	persona con bastón tono de piel oscuro	none
 🧑‍🦯‍➡	persona con bastón hacia la derecha	none
-🧑🏻‍🦯‍➡	persona con bastón hacia la derecha	none
-🧑🏼‍🦯‍➡	persona con bastón hacia la derecha	none
-🧑🏽‍🦯‍➡	persona con bastón hacia la derecha	none
-🧑🏾‍🦯‍➡	persona con bastón hacia la derecha	none
-🧑🏿‍🦯‍➡	persona con bastón hacia la derecha	none
+🧑🏻‍🦯‍➡	persona con bastón tono de piel claro y hacia la derecha	none
+🧑🏼‍🦯‍➡	persona con bastón tono de piel claro medio y hacia la derecha	none
+🧑🏽‍🦯‍➡	persona con bastón tono de piel medio y hacia la derecha	none
+🧑🏾‍🦯‍➡	persona con bastón tono de piel oscuro medio y hacia la derecha	none
+🧑🏿‍🦯‍➡	persona con bastón tono de piel oscuro y hacia la derecha	none
 👨🏻‍🦯	hombre con bastón tono de piel claro	none
 👨🏼‍🦯	hombre con bastón tono de piel claro medio	none
 👨🏽‍🦯	hombre con bastón tono de piel medio	none
 👨🏾‍🦯	hombre con bastón tono de piel oscuro medio	none
 👨🏿‍🦯	hombre con bastón tono de piel oscuro	none
 👨‍🦯‍➡	hombre con bastón hacia la derecha	none
-👨🏻‍🦯‍➡	hombre con bastón hacia la derecha	none
-👨🏼‍🦯‍➡	hombre con bastón hacia la derecha	none
-👨🏽‍🦯‍➡	hombre con bastón hacia la derecha	none
-👨🏾‍🦯‍➡	hombre con bastón hacia la derecha	none
-👨🏿‍🦯‍➡	hombre con bastón hacia la derecha	none
+👨🏻‍🦯‍➡	hombre con bastón tono de piel claro y hacia la derecha	none
+👨🏼‍🦯‍➡	hombre con bastón tono de piel claro medio y hacia la derecha	none
+👨🏽‍🦯‍➡	hombre con bastón tono de piel medio y hacia la derecha	none
+👨🏾‍🦯‍➡	hombre con bastón tono de piel oscuro medio y hacia la derecha	none
+👨🏿‍🦯‍➡	hombre con bastón tono de piel oscuro y hacia la derecha	none
 👩🏻‍🦯	mujer con bastón tono de piel claro	none
 👩🏼‍🦯	mujer con bastón tono de piel claro medio	none
 👩🏽‍🦯	mujer con bastón tono de piel medio	none
 👩🏾‍🦯	mujer con bastón tono de piel oscuro medio	none
 👩🏿‍🦯	mujer con bastón tono de piel oscuro	none
 👩‍🦯‍➡	mujer con bastón hacia la derecha	none
-👩🏻‍🦯‍➡	mujer con bastón hacia la derecha	none
-👩🏼‍🦯‍➡	mujer con bastón hacia la derecha	none
-👩🏽‍🦯‍➡	mujer con bastón hacia la derecha	none
-👩🏾‍🦯‍➡	mujer con bastón hacia la derecha	none
-👩🏿‍🦯‍➡	mujer con bastón hacia la derecha	none
+👩🏻‍🦯‍➡	mujer con bastón tono de piel claro y hacia la derecha	none
+👩🏼‍🦯‍➡	mujer con bastón tono de piel claro medio y hacia la derecha	none
+👩🏽‍🦯‍➡	mujer con bastón tono de piel medio y hacia la derecha	none
+👩🏾‍🦯‍➡	mujer con bastón tono de piel oscuro medio y hacia la derecha	none
+👩🏿‍🦯‍➡	mujer con bastón tono de piel oscuro y hacia la derecha	none
 🧑🏻‍🦼	persona en silla de ruedas eléctrica tono de piel claro	none
 🧑🏼‍🦼	persona en silla de ruedas eléctrica tono de piel claro medio	none
 🧑🏽‍🦼	persona en silla de ruedas eléctrica tono de piel medio	none
 🧑🏾‍🦼	persona en silla de ruedas eléctrica tono de piel oscuro medio	none
 🧑🏿‍🦼	persona en silla de ruedas eléctrica tono de piel oscuro	none
 🧑‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
-🧑🏻‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
-🧑🏼‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
-🧑🏽‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
-🧑🏾‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
-🧑🏿‍🦼‍➡	persona en silla de ruedas eléctrica hacia la derecha	none
+🧑🏻‍🦼‍➡	persona en silla de ruedas eléctrica tono de piel claro y hacia la derecha	none
+🧑🏼‍🦼‍➡	persona en silla de ruedas eléctrica tono de piel claro medio y hacia la derecha	none
+🧑🏽‍🦼‍➡	persona en silla de ruedas eléctrica tono de piel medio y hacia la derecha	none
+🧑🏾‍🦼‍➡	persona en silla de ruedas eléctrica tono de piel oscuro medio y hacia la derecha	none
+🧑🏿‍🦼‍➡	persona en silla de ruedas eléctrica tono de piel oscuro y hacia la derecha	none
 👨🏻‍🦼	hombre en silla de ruedas eléctrica tono de piel claro	none
 👨🏼‍🦼	hombre en silla de ruedas eléctrica tono de piel claro medio	none
 👨🏽‍🦼	hombre en silla de ruedas eléctrica tono de piel medio	none
 👨🏾‍🦼	hombre en silla de ruedas eléctrica tono de piel oscuro medio	none
 👨🏿‍🦼	hombre en silla de ruedas eléctrica tono de piel oscuro	none
 👨‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
-👨🏻‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
-👨🏼‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
-👨🏽‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
-👨🏾‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
-👨🏿‍🦼‍➡	hombre en silla de ruedas eléctrica hacia la derecha	none
+👨🏻‍🦼‍➡	hombre en silla de ruedas eléctrica tono de piel claro y hacia la derecha	none
+👨🏼‍🦼‍➡	hombre en silla de ruedas eléctrica tono de piel claro medio y hacia la derecha	none
+👨🏽‍🦼‍➡	hombre en silla de ruedas eléctrica tono de piel medio y hacia la derecha	none
+👨🏾‍🦼‍➡	hombre en silla de ruedas eléctrica tono de piel oscuro medio y hacia la derecha	none
+👨🏿‍🦼‍➡	hombre en silla de ruedas eléctrica tono de piel oscuro y hacia la derecha	none
 👩🏻‍🦼	mujer en silla de ruedas eléctrica tono de piel claro	none
 👩🏼‍🦼	mujer en silla de ruedas eléctrica tono de piel claro medio	none
 👩🏽‍🦼	mujer en silla de ruedas eléctrica tono de piel medio	none
 👩🏾‍🦼	mujer en silla de ruedas eléctrica tono de piel oscuro medio	none
 👩🏿‍🦼	mujer en silla de ruedas eléctrica tono de piel oscuro	none
 👩‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
-👩🏻‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
-👩🏼‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
-👩🏽‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
-👩🏾‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
-👩🏿‍🦼‍➡	mujer en silla de ruedas eléctrica hacia la derecha	none
+👩🏻‍🦼‍➡	mujer en silla de ruedas eléctrica tono de piel claro y hacia la derecha	none
+👩🏼‍🦼‍➡	mujer en silla de ruedas eléctrica tono de piel claro medio y hacia la derecha	none
+👩🏽‍🦼‍➡	mujer en silla de ruedas eléctrica tono de piel medio y hacia la derecha	none
+👩🏾‍🦼‍➡	mujer en silla de ruedas eléctrica tono de piel oscuro medio y hacia la derecha	none
+👩🏿‍🦼‍➡	mujer en silla de ruedas eléctrica tono de piel oscuro y hacia la derecha	none
 🧑🏻‍🦽	persona en silla de ruedas manual tono de piel claro	none
 🧑🏼‍🦽	persona en silla de ruedas manual tono de piel claro medio	none
 🧑🏽‍🦽	persona en silla de ruedas manual tono de piel medio	none
 🧑🏾‍🦽	persona en silla de ruedas manual tono de piel oscuro medio	none
 🧑🏿‍🦽	persona en silla de ruedas manual tono de piel oscuro	none
 🧑‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
-🧑🏻‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
-🧑🏼‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
-🧑🏽‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
-🧑🏾‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
-🧑🏿‍🦽‍➡	persona en silla de ruedas manual hacia la derecha	none
+🧑🏻‍🦽‍➡	persona en silla de ruedas manual tono de piel claro y hacia la derecha	none
+🧑🏼‍🦽‍➡	persona en silla de ruedas manual tono de piel claro medio y hacia la derecha	none
+🧑🏽‍🦽‍➡	persona en silla de ruedas manual tono de piel medio y hacia la derecha	none
+🧑🏾‍🦽‍➡	persona en silla de ruedas manual tono de piel oscuro medio y hacia la derecha	none
+🧑🏿‍🦽‍➡	persona en silla de ruedas manual tono de piel oscuro y hacia la derecha	none
 👨🏻‍🦽	hombre en silla de ruedas manual tono de piel claro	none
 👨🏼‍🦽	hombre en silla de ruedas manual tono de piel claro medio	none
 👨🏽‍🦽	hombre en silla de ruedas manual tono de piel medio	none
 👨🏾‍🦽	hombre en silla de ruedas manual tono de piel oscuro medio	none
 👨🏿‍🦽	hombre en silla de ruedas manual tono de piel oscuro	none
 👨‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
-👨🏻‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
-👨🏼‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
-👨🏽‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
-👨🏾‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
-👨🏿‍🦽‍➡	hombre en silla de ruedas manual hacia la derecha	none
+👨🏻‍🦽‍➡	hombre en silla de ruedas manual tono de piel claro y hacia la derecha	none
+👨🏼‍🦽‍➡	hombre en silla de ruedas manual tono de piel claro medio y hacia la derecha	none
+👨🏽‍🦽‍➡	hombre en silla de ruedas manual tono de piel medio y hacia la derecha	none
+👨🏾‍🦽‍➡	hombre en silla de ruedas manual tono de piel oscuro medio y hacia la derecha	none
+👨🏿‍🦽‍➡	hombre en silla de ruedas manual tono de piel oscuro y hacia la derecha	none
 👩🏻‍🦽	mujer en silla de ruedas manual tono de piel claro	none
 👩🏼‍🦽	mujer en silla de ruedas manual tono de piel claro medio	none
 👩🏽‍🦽	mujer en silla de ruedas manual tono de piel medio	none
 👩🏾‍🦽	mujer en silla de ruedas manual tono de piel oscuro medio	none
 👩🏿‍🦽	mujer en silla de ruedas manual tono de piel oscuro	none
 👩‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
-👩🏻‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
-👩🏼‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
-👩🏽‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
-👩🏾‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
-👩🏿‍🦽‍➡	mujer en silla de ruedas manual hacia la derecha	none
+👩🏻‍🦽‍➡	mujer en silla de ruedas manual tono de piel claro y hacia la derecha	none
+👩🏼‍🦽‍➡	mujer en silla de ruedas manual tono de piel claro medio y hacia la derecha	none
+👩🏽‍🦽‍➡	mujer en silla de ruedas manual tono de piel medio y hacia la derecha	none
+👩🏾‍🦽‍➡	mujer en silla de ruedas manual tono de piel oscuro medio y hacia la derecha	none
+👩🏿‍🦽‍➡	mujer en silla de ruedas manual tono de piel oscuro y hacia la derecha	none
 🏃🏻	persona corriendo tono de piel claro	none
 🏃🏼	persona corriendo tono de piel claro medio	none
 🏃🏽	persona corriendo tono de piel medio	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	mujer corriendo tono de piel oscuro medio	none
 🏃🏿‍♀	mujer corriendo tono de piel oscuro	none
 🏃‍➡	persona corriendo hacia la derecha	none
-🏃🏻‍➡	persona corriendo hacia la derecha	none
-🏃🏼‍➡	persona corriendo hacia la derecha	none
-🏃🏽‍➡	persona corriendo hacia la derecha	none
-🏃🏾‍➡	persona corriendo hacia la derecha	none
-🏃🏿‍➡	persona corriendo hacia la derecha	none
+🏃🏻‍➡	persona corriendo tono de piel claro y hacia la derecha	none
+🏃🏼‍➡	persona corriendo tono de piel claro medio y hacia la derecha	none
+🏃🏽‍➡	persona corriendo tono de piel medio y hacia la derecha	none
+🏃🏾‍➡	persona corriendo tono de piel oscuro medio y hacia la derecha	none
+🏃🏿‍➡	persona corriendo tono de piel oscuro y hacia la derecha	none
 🏃‍♀‍➡	mujer corriendo hacia la derecha	none
-🏃🏻‍♀‍➡	mujer corriendo hacia la derecha	none
-🏃🏼‍♀‍➡	mujer corriendo hacia la derecha	none
-🏃🏽‍♀‍➡	mujer corriendo hacia la derecha	none
-🏃🏾‍♀‍➡	mujer corriendo hacia la derecha	none
-🏃🏿‍♀‍➡	mujer corriendo hacia la derecha	none
+🏃🏻‍♀‍➡	mujer corriendo tono de piel claro y hacia la derecha	none
+🏃🏼‍♀‍➡	mujer corriendo tono de piel claro medio y hacia la derecha	none
+🏃🏽‍♀‍➡	mujer corriendo tono de piel medio y hacia la derecha	none
+🏃🏾‍♀‍➡	mujer corriendo tono de piel oscuro medio y hacia la derecha	none
+🏃🏿‍♀‍➡	mujer corriendo tono de piel oscuro y hacia la derecha	none
 🏃‍♂‍➡	hombre corriendo hacia la derecha	none
-🏃🏻‍♂‍➡	hombre corriendo hacia la derecha	none
-🏃🏼‍♂‍➡	hombre corriendo hacia la derecha	none
-🏃🏽‍♂‍➡	hombre corriendo hacia la derecha	none
-🏃🏾‍♂‍➡	hombre corriendo hacia la derecha	none
-🏃🏿‍♂‍➡	hombre corriendo hacia la derecha	none
+🏃🏻‍♂‍➡	hombre corriendo tono de piel claro y hacia la derecha	none
+🏃🏼‍♂‍➡	hombre corriendo tono de piel claro medio y hacia la derecha	none
+🏃🏽‍♂‍➡	hombre corriendo tono de piel medio y hacia la derecha	none
+🏃🏾‍♂‍➡	hombre corriendo tono de piel oscuro medio y hacia la derecha	none
+🏃🏿‍♂‍➡	hombre corriendo tono de piel oscuro y hacia la derecha	none
+🧑🏻‍🩰	bailarina de ballet tono de piel claro	none
+🧑🏼‍🩰	bailarina de ballet tono de piel claro medio	none
+🧑🏽‍🩰	bailarina de ballet tono de piel medio	none
+🧑🏾‍🩰	bailarina de ballet tono de piel oscuro medio	none
+🧑🏿‍🩰	bailarina de ballet tono de piel oscuro	none
 💃🏻	mujer bailando tono de piel claro	none
 💃🏼	mujer bailando tono de piel claro medio	none
 💃🏽	mujer bailando tono de piel medio	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	persona trajeada levitando tono de piel medio	none
 🕴🏾	persona trajeada levitando tono de piel oscuro medio	none
 🕴🏿	persona trajeada levitando tono de piel oscuro	none
+👯🏻	personas con orejas de conejo tono de piel claro	none
+👯🏼	personas con orejas de conejo tono de piel claro medio	none
+👯🏽	personas con orejas de conejo tono de piel medio	none
+👯🏾	personas con orejas de conejo tono de piel oscuro medio	none
+👯🏿	personas con orejas de conejo tono de piel oscuro	none
+👯🏻‍♂	hombres con orejas de conejo tono de piel claro	none
+👯🏼‍♂	hombres con orejas de conejo tono de piel claro medio	none
+👯🏽‍♂	hombres con orejas de conejo tono de piel medio	none
+👯🏾‍♂	hombres con orejas de conejo tono de piel oscuro medio	none
+👯🏿‍♂	hombres con orejas de conejo tono de piel oscuro	none
+👯🏻‍♀	mujeres con orejas de conejo tono de piel claro	none
+👯🏼‍♀	mujeres con orejas de conejo tono de piel claro medio	none
+👯🏽‍♀	mujeres con orejas de conejo tono de piel medio	none
+👯🏾‍♀	mujeres con orejas de conejo tono de piel oscuro medio	none
+👯🏿‍♀	mujeres con orejas de conejo tono de piel oscuro	none
 🧖🏻	persona en una sauna tono de piel claro	none
 🧖🏼	persona en una sauna tono de piel claro medio	none
 🧖🏽	persona en una sauna tono de piel medio	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	mujer dando una voltereta lateral tono de piel medio	none
 🤸🏾‍♀	mujer dando una voltereta lateral tono de piel oscuro medio	none
 🤸🏿‍♀	mujer dando una voltereta lateral tono de piel oscuro	none
+🤼🏻	personas luchando tono de piel claro	none
+🤼🏼	personas luchando tono de piel claro medio	none
+🤼🏽	personas luchando tono de piel medio	none
+🤼🏾	personas luchando tono de piel oscuro medio	none
+🤼🏿	personas luchando tono de piel oscuro	none
+🤼🏻‍♂	hombres luchando tono de piel claro	none
+🤼🏼‍♂	hombres luchando tono de piel claro medio	none
+🤼🏽‍♂	hombres luchando tono de piel medio	none
+🤼🏾‍♂	hombres luchando tono de piel oscuro medio	none
+🤼🏿‍♂	hombres luchando tono de piel oscuro	none
+🤼🏻‍♀	mujeres luchando tono de piel claro	none
+🤼🏼‍♀	mujeres luchando tono de piel claro medio	none
+🤼🏽‍♀	mujeres luchando tono de piel medio	none
+🤼🏾‍♀	mujeres luchando tono de piel oscuro medio	none
+🤼🏿‍♀	mujeres luchando tono de piel oscuro	none
 🤽🏻	persona jugando al waterpolo tono de piel claro	none
 🤽🏼	persona jugando al waterpolo tono de piel claro medio	none
 🤽🏽	persona jugando al waterpolo tono de piel medio	none
@@ -3812,6 +3982,7 @@ symbols:
 🇨🇳	Bandera China	none
 🇨🇴	Bandera Colombia	none
 🇨🇵	Bandera Isla Clipperton	none
+🇨🇶	Bandera Sark	none
 🇨🇷	Bandera Costa Rica	none
 🇨🇺	Bandera Cuba	none
 🇨🇻	Bandera Cabo Verde	none
@@ -4023,16 +4194,16 @@ symbols:
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	Bandera Escocia	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	Bandera Gales	none
 ₡	colón costarricense	none
-₦	naira	none
+₦	naira nigeriano	none
 ₪	nuevo séquel israelí	none
-₫	dong	none
-₭	kip	none
-₮	tugrik	none
+₫	dong vietnamita	none
+₭	kip laosiano	none
+₮	tugrik mongol	none
 ₲	guaraní paraguayo	none
-₴	grivna	none
-₵	cedi	none
+₴	grivna ucraniana	none
+₵	cedi ghanés	none
 ₸	tengue kazajo	none
 ₺	lira turca	none
 ₼	manat azerbaiyano	none
-₾	lari	none
+₾	lari georgiano	none
 ₧	peseta española	none

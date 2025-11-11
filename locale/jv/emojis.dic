@@ -295,7 +295,7 @@ symbols:
 🤑	rai mata dhuwiten	none
 🤗	rai nyikep	none
 🤭	rai mawa tangan nutupi cangkem	none
-🫢	rai mawa mata melek lan tangan nutupi cangkem	none
+🫢	rai matane melek lan tangan nutupi cangkem	none
 🫣	rai mawa mripat ngintip	none
 🤫	rai ngaba-aba akon meneng	none
 🤔	rai mikir	none
@@ -321,6 +321,7 @@ symbols:
 😪	rai ngantuk	none
 🤤	rai ileren	none
 😴	rai turu	none
+🫩	mata pendul	none
 😷	rai nganggo masker dhokter	none
 🤒	rai ngemut termometer	none
 🤕	rai sirahe dibebet	none
@@ -348,6 +349,7 @@ symbols:
 😯	rai dumadakan meneng	none
 😲	rai gumun	none
 😳	rai isin	none
+🫪	rai semrawut	none
 🥺	rai ngarep-arep welas	none
 🥹	rai mbrambangi	none
 😦	rai sedhih karo mlongo	none
@@ -421,6 +423,7 @@ symbols:
 💋	tandha ambung	none
 💯	biji satus	none
 💢	simbol nesu	none
+🫯	gelut muntel	none
 💥	tabrakan	none
 💫	ngelu	none
 💦	tesing kringet	none
@@ -448,7 +451,7 @@ symbols:
 🤏	tangan njiwit	none
 ✌	tangan nuduhake tandha kamenangan	none
 🤞	driji loro tetalenan	none
-🫰	tangan mawa jempol karo driji telunjuk tetalenan	none
+🫰	jempol karo driji panuduh tetalenan	none
 🤟	tangan nuduhake tandha tresna sliramu	none
 🤘	tandha sungu	none
 🤙	tangan nuduhake tandha telpuna aku	none
@@ -593,8 +596,8 @@ symbols:
 🕵	dhetektif	none
 🕵‍♂	dhetektif lanang	none
 🕵‍♀	dhetektif wadon	none
-💂	prejurit	none
-💂‍♂	prejurit lanang	none
+💂	panjaga	none
+💂‍♂	panjaga lanang	none
 💂‍♀	prejurit wadon	none
 🥷	ninja	none
 👷	buruh bangunan	none
@@ -653,6 +656,7 @@ symbols:
 🧟‍♂	zombi lanang	none
 🧟‍♀	zombi wadon	none
 🧌	troll	none
+🫈	makhluk wulunen	none
 💆	wong dipijeti	none
 💆‍♂	wong lanang dipijeti	none
 💆‍♀	wong wadon dipijeti	none
@@ -680,6 +684,7 @@ symbols:
 🏃	wong mlayu	none
 🏃‍♂	wong lanang mlayu	none
 🏃‍♀	wong wadon mlayu	none
+🧑‍🩰	penari balet	none
 💃	wong wadon njoget	none
 🕺	wong lanang njoget	none
 🕴	wong lanang jas-jasan ora napak	none
@@ -756,6 +761,7 @@ symbols:
 🧑‍🧒	kulawarga diwasa, anak	none
 🧑‍🧒‍🧒	kulawarga diwasa, anak, anak	none
 👣	tipak sikil	none
+🫆	tipak driji	none
 🦰	rambut abang	none
 🦱	rambut brintik	none
 🦳	rambut putih	none
@@ -860,7 +866,8 @@ symbols:
 🐳	paus nyembur	none
 🐋	paus	none
 🐬	lumba-lumba	none
-🦭	seal	none
+🫍	orca	none
+🦭	asu laut	none
 🐟	iwak	none
 🐠	iwak tropis	none
 🐡	iwak buntal	none
@@ -869,6 +876,11 @@ symbols:
 🐚	keong spiral	none
 🪸	koral	none
 🪼	ubur-ubur	none
+🦀	rajungan	none
+🦞	lopster	none
+🦐	urang	none
+🦑	sotong	none
+🦪	tiram	none
 🐌	bekicot	none
 🦋	kupu	none
 🐛	uler	none
@@ -913,6 +925,7 @@ symbols:
 🪹	susuh kosong	none
 🪺	susuh ono endoke	none
 🍄	jamur	none
+🪾	wit tanpa godhong	none
 🍇	anggur	none
 🍈	melon	none
 🍉	semangka	none
@@ -951,6 +964,7 @@ symbols:
 🫚	jahe	none
 🫛	kacang polong	none
 🍄‍🟫	jamur soklat	none
+🫜	sayuran oyot	none
 🍞	roti	none
 🥐	kroasang	none
 🥖	roti baget	none
@@ -1002,11 +1016,6 @@ symbols:
 🥟	siomay kukus	none
 🥠	roti begja	none
 🥡	kothak bungkus	none
-🦀	rajungan	none
-🦞	lopster	none
-🦐	urang	none
-🦑	sotong	none
-🦪	tiram	none
 🍦	es krim salju	none
 🍧	es puter	none
 🍨	es krim	none
@@ -1057,6 +1066,7 @@ symbols:
 🧭	kompas	none
 🏔	gunung punthuke katutup salju	none
 ⛰	gunung	none
+🛘	longsor	none
 🌋	gunung geni	none
 🗻	gunung fuji	none
 🏕	kemah	none
@@ -1417,16 +1427,18 @@ symbols:
 🎧	headphone	none
 📻	radio	none
 🎷	saksofon	none
+🎺	trompet	none
+🪊	trombon	none
 🪗	akordion	none
 🎸	gitar	none
 🎹	kibor musik	none
-🎺	trompet	none
 🎻	biola	none
 🪕	gitar banjo	none
 🥁	dram	none
 🪘	kendhang	none
 🪇	marakas	none
 🪈	suling	none
+🪉	harpa	none
 📱	telepon seluler	none
 📲	telepon seluler nganggo panah	none
 ☎	telepon	none
@@ -1470,7 +1482,7 @@ symbols:
 📘	buku biru	none
 📙	buku kunir	none
 📚	buku-buku	none
-📓	notebook	none
+📓	buku cathetan	none
 📒	buku besar	none
 📃	salembar kertas nglunthung	none
 📜	gulungan	none
@@ -1480,8 +1492,9 @@ symbols:
 📑	tetenger	none
 🔖	tenger	none
 🏷	label tenger	none
-💰	kanthong dhuwit	none
 🪙	koin	none
+💰	kanthong dhuwit	none
+🪎	pethi rajabrana	none
 💴	dhuwit kertas yen	none
 💵	dhuwit kertas dolar	none
 💶	dhuwit kertas euro	none
@@ -1506,7 +1519,7 @@ symbols:
 ✏	potlot	none
 ✒	dom mangsi ireng	none
 🖋	pen mangsi	none
-🖊	pen	none
+🖊	pena	none
 🖌	kuwas kanggo nglukis	none
 🖍	krayon	none
 📝	cathetan cilik	none
@@ -1565,6 +1578,7 @@ symbols:
 🧰	kothak bekakas	none
 🧲	wesi magnet	none
 🪜	ondo	none
+🪏	sekop	none
 ⚗	pranti suling alembik	none
 🧪	tabung reaksi	none
 🧫	cawan petri	none
@@ -1745,6 +1759,7 @@ symbols:
 ✴	lintang mata wolu	none
 ❇	kelip-kelip	none
 ™	merek dagang	none
+🫟	cipratan	none
 🔠	lebokake aksara latin gedhe	none
 🔡	lebokake aksara latin cilik	none
 🔢	lebokake angka	none
@@ -1924,11 +1939,11 @@ symbols:
 🤞🏽	driji loro tetalenan kulit kuning	none
 🤞🏾	driji loro tetalenan kulit sawo mateng	none
 🤞🏿	driji loro tetalenan kulit ireng	none
-🫰🏻	tangan mawa jempol karo driji telunjuk tetalenan kulit putih	none
-🫰🏼	tangan mawa jempol karo driji telunjuk tetalenan kulit putih langsep	none
-🫰🏽	tangan mawa jempol karo driji telunjuk tetalenan kulit kuning	none
-🫰🏾	tangan mawa jempol karo driji telunjuk tetalenan kulit sawo mateng	none
-🫰🏿	tangan mawa jempol karo driji telunjuk tetalenan kulit ireng	none
+🫰🏻	jempol karo driji panuduh tetalenan kulit putih	none
+🫰🏼	jempol karo driji panuduh tetalenan kulit putih langsep	none
+🫰🏽	jempol karo driji panuduh tetalenan kulit kuning	none
+🫰🏾	jempol karo driji panuduh tetalenan kulit sawo mateng	none
+🫰🏿	jempol karo driji panuduh tetalenan kulit ireng	none
 🤟🏻	tangan nuduhake tandha tresna sliramu kulit putih	none
 🤟🏼	tangan nuduhake tandha tresna sliramu kulit putih langsep	none
 🤟🏽	tangan nuduhake tandha tresna sliramu kulit kuning	none
@@ -2159,6 +2174,26 @@ symbols:
 🧑🏿‍❤‍🧑🏼	pasangan lan tandha ati wong, wong, kulit ireng, kulit putih langsep	none
 🧑🏿‍❤‍🧑🏽	pasangan lan tandha ati wong, wong, kulit ireng, kulit kuning	none
 🧑🏿‍❤‍🧑🏾	pasangan lan tandha ati wong, wong, kulit ireng, kulit sawo mateng	none
+🧑🏻‍🫯‍🧑🏼	wong gulat kulit putih, kulit putih langsep	none
+🧑🏻‍🫯‍🧑🏽	wong gulat kulit putih, kulit kuning	none
+🧑🏻‍🫯‍🧑🏾	wong gulat kulit putih, kulit sawo mateng	none
+🧑🏻‍🫯‍🧑🏿	wong gulat kulit putih, kulit ireng	none
+🧑🏼‍🫯‍🧑🏻	wong gulat kulit putih langsep, kulit putih	none
+🧑🏼‍🫯‍🧑🏽	wong gulat kulit putih langsep, kulit kuning	none
+🧑🏼‍🫯‍🧑🏾	wong gulat kulit putih langsep, kulit sawo mateng	none
+🧑🏼‍🫯‍🧑🏿	wong gulat kulit putih langsep, kulit ireng	none
+🧑🏽‍🫯‍🧑🏻	wong gulat kulit kuning, kulit putih	none
+🧑🏽‍🫯‍🧑🏼	wong gulat kulit kuning, kulit putih langsep	none
+🧑🏽‍🫯‍🧑🏾	wong gulat kulit kuning, kulit sawo mateng	none
+🧑🏽‍🫯‍🧑🏿	wong gulat kulit kuning, kulit ireng	none
+🧑🏾‍🫯‍🧑🏻	wong gulat kulit sawo mateng, kulit putih	none
+🧑🏾‍🫯‍🧑🏼	wong gulat kulit sawo mateng, kulit putih langsep	none
+🧑🏾‍🫯‍🧑🏽	wong gulat kulit sawo mateng, kulit kuning	none
+🧑🏾‍🫯‍🧑🏿	wong gulat kulit sawo mateng, kulit ireng	none
+🧑🏿‍🫯‍🧑🏻	wong gulat kulit ireng, kulit putih	none
+🧑🏿‍🫯‍🧑🏼	wong gulat kulit ireng, kulit putih langsep	none
+🧑🏿‍🫯‍🧑🏽	wong gulat kulit ireng, kulit kuning	none
+🧑🏿‍🫯‍🧑🏾	wong gulat kulit ireng, kulit sawo mateng	none
 🧑‍🦰	wong rambut abang	none
 🧑🏻‍🦰	wong kulit putih, rambut abang	none
 🧑🏼‍🦰	wong kulit putih langsep, rambut abang	none
@@ -2183,6 +2218,26 @@ symbols:
 🧑🏽‍🦲	wong kulit kuning, buthak	none
 🧑🏾‍🦲	wong kulit sawo mateng, buthak	none
 🧑🏿‍🦲	wong kulit ireng, buthak	none
+🧑🏻‍🐰‍🧑🏼	wong nganggo kuping terwelu kulit putih, kulit putih langsep	none
+🧑🏻‍🐰‍🧑🏽	wong nganggo kuping terwelu kulit putih, kulit kuning	none
+🧑🏻‍🐰‍🧑🏾	wong nganggo kuping terwelu kulit putih, kulit sawo mateng	none
+🧑🏻‍🐰‍🧑🏿	wong nganggo kuping terwelu kulit putih, kulit ireng	none
+🧑🏼‍🐰‍🧑🏻	wong nganggo kuping terwelu kulit putih langsep, kulit putih	none
+🧑🏼‍🐰‍🧑🏽	wong nganggo kuping terwelu kulit putih langsep, kulit kuning	none
+🧑🏼‍🐰‍🧑🏾	wong nganggo kuping terwelu kulit putih langsep, kulit sawo mateng	none
+🧑🏼‍🐰‍🧑🏿	wong nganggo kuping terwelu kulit putih langsep, kulit ireng	none
+🧑🏽‍🐰‍🧑🏻	wong nganggo kuping terwelu kulit kuning, kulit putih	none
+🧑🏽‍🐰‍🧑🏼	wong nganggo kuping terwelu kulit kuning, kulit putih langsep	none
+🧑🏽‍🐰‍🧑🏾	wong nganggo kuping terwelu kulit kuning, kulit sawo mateng	none
+🧑🏽‍🐰‍🧑🏿	wong nganggo kuping terwelu kulit kuning, kulit ireng	none
+🧑🏾‍🐰‍🧑🏻	wong nganggo kuping terwelu kulit sawo mateng, kulit putih	none
+🧑🏾‍🐰‍🧑🏼	wong nganggo kuping terwelu kulit sawo mateng, kulit putih langsep	none
+🧑🏾‍🐰‍🧑🏽	wong nganggo kuping terwelu kulit sawo mateng, kulit kuning	none
+🧑🏾‍🐰‍🧑🏿	wong nganggo kuping terwelu kulit sawo mateng, kulit ireng	none
+🧑🏿‍🐰‍🧑🏻	wong nganggo kuping terwelu kulit ireng, kulit putih	none
+🧑🏿‍🐰‍🧑🏼	wong nganggo kuping terwelu kulit ireng, kulit putih langsep	none
+🧑🏿‍🐰‍🧑🏽	wong nganggo kuping terwelu kulit ireng, kulit kuning	none
+🧑🏿‍🐰‍🧑🏾	wong nganggo kuping terwelu kulit ireng, kulit sawo mateng	none
 👨🏻	wong lanang kulit putih	none
 👨🏼	wong lanang kulit putih langsep	none
 👨🏽	wong lanang kulit kuning	none
@@ -2253,6 +2308,26 @@ symbols:
 👨🏿‍❤‍👨🏽	pasangan lan tandha ati wong lanang, wong lanang, kulit ireng, kulit kuning	none
 👨🏿‍❤‍👨🏾	pasangan lan tandha ati wong lanang, wong lanang, kulit ireng, kulit sawo mateng	none
 👨🏿‍❤‍👨🏿	pasangan lan tandha ati wong lanang, wong lanang, kulit ireng	none
+👨🏻‍🫯‍👨🏼	wong lanang gulat kulit putih, kulit putih langsep	none
+👨🏻‍🫯‍👨🏽	wong lanang gulat kulit putih, kulit kuning	none
+👨🏻‍🫯‍👨🏾	wong lanang gulat kulit putih, kulit sawo mateng	none
+👨🏻‍🫯‍👨🏿	wong lanang gulat kulit putih, kulit ireng	none
+👨🏼‍🫯‍👨🏻	wong lanang gulat kulit putih langsep, kulit putih	none
+👨🏼‍🫯‍👨🏽	wong lanang gulat kulit putih langsep, kulit kuning	none
+👨🏼‍🫯‍👨🏾	wong lanang gulat kulit putih langsep, kulit sawo mateng	none
+👨🏼‍🫯‍👨🏿	wong lanang gulat kulit putih langsep, kulit ireng	none
+👨🏽‍🫯‍👨🏻	wong lanang gulat kulit kuning, kulit putih	none
+👨🏽‍🫯‍👨🏼	wong lanang gulat kulit kuning, kulit putih langsep	none
+👨🏽‍🫯‍👨🏾	wong lanang gulat kulit kuning, kulit sawo mateng	none
+👨🏽‍🫯‍👨🏿	wong lanang gulat kulit kuning, kulit ireng	none
+👨🏾‍🫯‍👨🏻	wong lanang gulat kulit sawo mateng, kulit putih	none
+👨🏾‍🫯‍👨🏼	wong lanang gulat kulit sawo mateng, kulit putih langsep	none
+👨🏾‍🫯‍👨🏽	wong lanang gulat kulit sawo mateng, kulit kuning	none
+👨🏾‍🫯‍👨🏿	wong lanang gulat kulit sawo mateng, kulit ireng	none
+👨🏿‍🫯‍👨🏻	wong lanang gulat kulit ireng, kulit putih	none
+👨🏿‍🫯‍👨🏼	wong lanang gulat kulit ireng, kulit putih langsep	none
+👨🏿‍🫯‍👨🏽	wong lanang gulat kulit ireng, kulit kuning	none
+👨🏿‍🫯‍👨🏾	wong lanang gulat kulit ireng, kulit sawo mateng	none
 👨‍🦰	wong lanang rambut abang	none
 👨🏻‍🦰	wong lanang kulit putih, rambut abang	none
 👨🏼‍🦰	wong lanang kulit putih langsep, rambut abang	none
@@ -2277,6 +2352,26 @@ symbols:
 👨🏽‍🦲	wong lanang kulit kuning, buthak	none
 👨🏾‍🦲	wong lanang kulit sawo mateng, buthak	none
 👨🏿‍🦲	wong lanang kulit ireng, buthak	none
+👨🏻‍🐰‍👨🏼	wong lanang nganggo kuping terwelu kulit putih, kulit putih langsep	none
+👨🏻‍🐰‍👨🏽	wong lanang nganggo kuping terwelu kulit putih, kulit kuning	none
+👨🏻‍🐰‍👨🏾	wong lanang nganggo kuping terwelu kulit putih, kulit sawo mateng	none
+👨🏻‍🐰‍👨🏿	wong lanang nganggo kuping terwelu kulit putih, kulit ireng	none
+👨🏼‍🐰‍👨🏻	wong lanang nganggo kuping terwelu kulit putih langsep, kulit putih	none
+👨🏼‍🐰‍👨🏽	wong lanang nganggo kuping terwelu kulit putih langsep, kulit kuning	none
+👨🏼‍🐰‍👨🏾	wong lanang nganggo kuping terwelu kulit putih langsep, kulit sawo mateng	none
+👨🏼‍🐰‍👨🏿	wong lanang nganggo kuping terwelu kulit putih langsep, kulit ireng	none
+👨🏽‍🐰‍👨🏻	wong lanang nganggo kuping terwelu kulit kuning, kulit putih	none
+👨🏽‍🐰‍👨🏼	wong lanang nganggo kuping terwelu kulit kuning, kulit putih langsep	none
+👨🏽‍🐰‍👨🏾	wong lanang nganggo kuping terwelu kulit kuning, kulit sawo mateng	none
+👨🏽‍🐰‍👨🏿	wong lanang nganggo kuping terwelu kulit kuning, kulit ireng	none
+👨🏾‍🐰‍👨🏻	wong lanang nganggo kuping terwelu kulit sawo mateng, kulit putih	none
+👨🏾‍🐰‍👨🏼	wong lanang nganggo kuping terwelu kulit sawo mateng, kulit putih langsep	none
+👨🏾‍🐰‍👨🏽	wong lanang nganggo kuping terwelu kulit sawo mateng, kulit kuning	none
+👨🏾‍🐰‍👨🏿	wong lanang nganggo kuping terwelu kulit sawo mateng, kulit ireng	none
+👨🏿‍🐰‍👨🏻	wong lanang nganggo kuping terwelu kulit ireng, kulit putih	none
+👨🏿‍🐰‍👨🏼	wong lanang nganggo kuping terwelu kulit ireng, kulit putih langsep	none
+👨🏿‍🐰‍👨🏽	wong lanang nganggo kuping terwelu kulit ireng, kulit kuning	none
+👨🏿‍🐰‍👨🏾	wong lanang nganggo kuping terwelu kulit ireng, kulit sawo mateng	none
 👩🏻	wong wadon kulit putih	none
 👩🏼	wong wadon kulit putih langsep	none
 👩🏽	wong wadon kulit kuning	none
@@ -2392,6 +2487,26 @@ symbols:
 👩🏿‍❤‍👩🏽	pasangan lan tandha ati wong wadon, wong wadon, kulit ireng, kulit kuning	none
 👩🏿‍❤‍👩🏾	pasangan lan tandha ati wong wadon, wong wadon, kulit ireng, kulit sawo mateng	none
 👩🏿‍❤‍👩🏿	pasangan lan tandha ati wong wadon, wong wadon, kulit ireng	none
+👩🏻‍🫯‍👩🏼	wong wadon gulat kulit putih, kulit putih langsep	none
+👩🏻‍🫯‍👩🏽	wong wadon gulat kulit putih, kulit kuning	none
+👩🏻‍🫯‍👩🏾	wong wadon gulat kulit putih, kulit sawo mateng	none
+👩🏻‍🫯‍👩🏿	wong wadon gulat kulit putih, kulit ireng	none
+👩🏼‍🫯‍👩🏻	wong wadon gulat kulit putih langsep, kulit putih	none
+👩🏼‍🫯‍👩🏽	wong wadon gulat kulit putih langsep, kulit kuning	none
+👩🏼‍🫯‍👩🏾	wong wadon gulat kulit putih langsep, kulit sawo mateng	none
+👩🏼‍🫯‍👩🏿	wong wadon gulat kulit putih langsep, kulit ireng	none
+👩🏽‍🫯‍👩🏻	wong wadon gulat kulit kuning, kulit putih	none
+👩🏽‍🫯‍👩🏼	wong wadon gulat kulit kuning, kulit putih langsep	none
+👩🏽‍🫯‍👩🏾	wong wadon gulat kulit kuning, kulit sawo mateng	none
+👩🏽‍🫯‍👩🏿	wong wadon gulat kulit kuning, kulit ireng	none
+👩🏾‍🫯‍👩🏻	wong wadon gulat kulit sawo mateng, kulit putih	none
+👩🏾‍🫯‍👩🏼	wong wadon gulat kulit sawo mateng, kulit putih langsep	none
+👩🏾‍🫯‍👩🏽	wong wadon gulat kulit sawo mateng, kulit kuning	none
+👩🏾‍🫯‍👩🏿	wong wadon gulat kulit sawo mateng, kulit ireng	none
+👩🏿‍🫯‍👩🏻	wong wadon gulat kulit ireng, kulit putih	none
+👩🏿‍🫯‍👩🏼	wong wadon gulat kulit ireng, kulit putih langsep	none
+👩🏿‍🫯‍👩🏽	wong wadon gulat kulit ireng, kulit kuning	none
+👩🏿‍🫯‍👩🏾	wong wadon gulat kulit ireng, kulit sawo mateng	none
 👩‍🦰	wong wadon rambut abang	none
 👩🏻‍🦰	wong wadon kulit putih, rambut abang	none
 👩🏼‍🦰	wong wadon kulit putih langsep, rambut abang	none
@@ -2416,6 +2531,26 @@ symbols:
 👩🏽‍🦲	wong wadon kulit kuning, buthak	none
 👩🏾‍🦲	wong wadon kulit sawo mateng, buthak	none
 👩🏿‍🦲	wong wadon kulit ireng, buthak	none
+👩🏻‍🐰‍👩🏼	wong wadon nganggo kuping terwelu kulit putih, kulit putih langsep	none
+👩🏻‍🐰‍👩🏽	wong wadon nganggo kuping terwelu kulit putih, kulit kuning	none
+👩🏻‍🐰‍👩🏾	wong wadon nganggo kuping terwelu kulit putih, kulit sawo mateng	none
+👩🏻‍🐰‍👩🏿	wong wadon nganggo kuping terwelu kulit putih, kulit ireng	none
+👩🏼‍🐰‍👩🏻	wong wadon nganggo kuping terwelu kulit putih langsep, kulit putih	none
+👩🏼‍🐰‍👩🏽	wong wadon nganggo kuping terwelu kulit putih langsep, kulit kuning	none
+👩🏼‍🐰‍👩🏾	wong wadon nganggo kuping terwelu kulit putih langsep, kulit sawo mateng	none
+👩🏼‍🐰‍👩🏿	wong wadon nganggo kuping terwelu kulit putih langsep, kulit ireng	none
+👩🏽‍🐰‍👩🏻	wong wadon nganggo kuping terwelu kulit kuning, kulit putih	none
+👩🏽‍🐰‍👩🏼	wong wadon nganggo kuping terwelu kulit kuning, kulit putih langsep	none
+👩🏽‍🐰‍👩🏾	wong wadon nganggo kuping terwelu kulit kuning, kulit sawo mateng	none
+👩🏽‍🐰‍👩🏿	wong wadon nganggo kuping terwelu kulit kuning, kulit ireng	none
+👩🏾‍🐰‍👩🏻	wong wadon nganggo kuping terwelu kulit sawo mateng, kulit putih	none
+👩🏾‍🐰‍👩🏼	wong wadon nganggo kuping terwelu kulit sawo mateng, kulit putih langsep	none
+👩🏾‍🐰‍👩🏽	wong wadon nganggo kuping terwelu kulit sawo mateng, kulit kuning	none
+👩🏾‍🐰‍👩🏿	wong wadon nganggo kuping terwelu kulit sawo mateng, kulit ireng	none
+👩🏿‍🐰‍👩🏻	wong wadon nganggo kuping terwelu kulit ireng, kulit putih	none
+👩🏿‍🐰‍👩🏼	wong wadon nganggo kuping terwelu kulit ireng, kulit putih langsep	none
+👩🏿‍🐰‍👩🏽	wong wadon nganggo kuping terwelu kulit ireng, kulit kuning	none
+👩🏿‍🐰‍👩🏾	wong wadon nganggo kuping terwelu kulit ireng, kulit sawo mateng	none
 🧓🏻	wong tuwa kulit putih	none
 🧓🏼	wong tuwa kulit putih langsep	none
 🧓🏽	wong tuwa kulit kuning	none
@@ -2851,16 +2986,16 @@ symbols:
 🕵🏽‍♀	dhetektif wadon kulit kuning	none
 🕵🏾‍♀	dhetektif wadon kulit sawo mateng	none
 🕵🏿‍♀	dhetektif wadon kulit ireng	none
-💂🏻	prejurit kulit putih	none
-💂🏼	prejurit kulit putih langsep	none
-💂🏽	prejurit kulit kuning	none
-💂🏾	prejurit kulit sawo mateng	none
-💂🏿	prejurit kulit ireng	none
-💂🏻‍♂	prejurit lanang kulit putih	none
-💂🏼‍♂	prejurit lanang kulit putih langsep	none
-💂🏽‍♂	prejurit lanang kulit kuning	none
-💂🏾‍♂	prejurit lanang kulit sawo mateng	none
-💂🏿‍♂	prejurit lanang kulit ireng	none
+💂🏻	panjaga kulit putih	none
+💂🏼	panjaga kulit putih langsep	none
+💂🏽	panjaga kulit kuning	none
+💂🏾	panjaga kulit sawo mateng	none
+💂🏿	panjaga kulit ireng	none
+💂🏻‍♂	panjaga lanang kulit putih	none
+💂🏼‍♂	panjaga lanang kulit putih langsep	none
+💂🏽‍♂	panjaga lanang kulit kuning	none
+💂🏾‍♂	panjaga lanang kulit sawo mateng	none
+💂🏿‍♂	panjaga lanang kulit ireng	none
 💂🏻‍♀	prejurit wadon kulit putih	none
 💂🏼‍♀	prejurit wadon kulit putih langsep	none
 💂🏽‍♀	prejurit wadon kulit kuning	none
@@ -3162,23 +3297,23 @@ symbols:
 🚶🏾‍♀	wong wadon mlaku kulit sawo mateng	none
 🚶🏿‍♀	wong wadon mlaku kulit ireng	none
 🚶‍➡	wong mlaku madhep tengen	none
-🚶🏻‍➡	wong mlaku madhep tengen	none
-🚶🏼‍➡	wong mlaku madhep tengen	none
-🚶🏽‍➡	wong mlaku madhep tengen	none
-🚶🏾‍➡	wong mlaku madhep tengen	none
-🚶🏿‍➡	wong mlaku madhep tengen	none
+🚶🏻‍➡	wong mlaku kulit putih, madhep tengen	none
+🚶🏼‍➡	wong mlaku kulit putih langsep, madhep tengen	none
+🚶🏽‍➡	wong mlaku kulit kuning, madhep tengen	none
+🚶🏾‍➡	wong mlaku kulit sawo mateng, madhep tengen	none
+🚶🏿‍➡	wong mlaku kulit ireng, madhep tengen	none
 🚶‍♀‍➡	wong wadon mlaku madhep tengen	none
-🚶🏻‍♀‍➡	wong wadon mlaku madhep tengen	none
-🚶🏼‍♀‍➡	wong wadon mlaku madhep tengen	none
-🚶🏽‍♀‍➡	wong wadon mlaku madhep tengen	none
-🚶🏾‍♀‍➡	wong wadon mlaku madhep tengen	none
-🚶🏿‍♀‍➡	wong wadon mlaku madhep tengen	none
+🚶🏻‍♀‍➡	wong wadon mlaku kulit putih, madhep tengen	none
+🚶🏼‍♀‍➡	wong wadon mlaku kulit putih langsep, madhep tengen	none
+🚶🏽‍♀‍➡	wong wadon mlaku kulit kuning, madhep tengen	none
+🚶🏾‍♀‍➡	wong wadon mlaku kulit sawo mateng, madhep tengen	none
+🚶🏿‍♀‍➡	wong wadon mlaku kulit ireng, madhep tengen	none
 🚶‍♂‍➡	wong lanang mlaku madhep tengen	none
-🚶🏻‍♂‍➡	wong lanang mlaku madhep tengen	none
-🚶🏼‍♂‍➡	wong lanang mlaku madhep tengen	none
-🚶🏽‍♂‍➡	wong lanang mlaku madhep tengen	none
-🚶🏾‍♂‍➡	wong lanang mlaku madhep tengen	none
-🚶🏿‍♂‍➡	wong lanang mlaku madhep tengen	none
+🚶🏻‍♂‍➡	wong lanang mlaku kulit putih, madhep tengen	none
+🚶🏼‍♂‍➡	wong lanang mlaku kulit putih langsep, madhep tengen	none
+🚶🏽‍♂‍➡	wong lanang mlaku kulit kuning, madhep tengen	none
+🚶🏾‍♂‍➡	wong lanang mlaku kulit sawo mateng, madhep tengen	none
+🚶🏿‍♂‍➡	wong lanang mlaku kulit ireng, madhep tengen	none
 🧍🏻	wong ngadeg kulit putih	none
 🧍🏼	wong ngadeg kulit putih langsep	none
 🧍🏽	wong ngadeg kulit kuning	none
@@ -3210,122 +3345,122 @@ symbols:
 🧎🏾‍♀	wong wadon timpuh kulit sawo mateng	none
 🧎🏿‍♀	wong wadon timpuh kulit ireng	none
 🧎‍➡	wong timpuh madhep tengen	none
-🧎🏻‍➡	wong timpuh madhep tengen	none
-🧎🏼‍➡	wong timpuh madhep tengen	none
-🧎🏽‍➡	wong timpuh madhep tengen	none
-🧎🏾‍➡	wong timpuh madhep tengen	none
-🧎🏿‍➡	wong timpuh madhep tengen	none
+🧎🏻‍➡	wong timpuh kulit putih, madhep tengen	none
+🧎🏼‍➡	wong timpuh kulit putih langsep, madhep tengen	none
+🧎🏽‍➡	wong timpuh kulit kuning, madhep tengen	none
+🧎🏾‍➡	wong timpuh kulit sawo mateng, madhep tengen	none
+🧎🏿‍➡	wong timpuh kulit ireng, madhep tengen	none
 🧎‍♀‍➡	wong wadon timpuh madhep tengen	none
-🧎🏻‍♀‍➡	wong wadon timpuh madhep tengen	none
-🧎🏼‍♀‍➡	wong wadon timpuh madhep tengen	none
-🧎🏽‍♀‍➡	wong wadon timpuh madhep tengen	none
-🧎🏾‍♀‍➡	wong wadon timpuh madhep tengen	none
-🧎🏿‍♀‍➡	wong wadon timpuh madhep tengen	none
+🧎🏻‍♀‍➡	wong wadon timpuh kulit putih, madhep tengen	none
+🧎🏼‍♀‍➡	wong wadon timpuh kulit putih langsep, madhep tengen	none
+🧎🏽‍♀‍➡	wong wadon timpuh kulit kuning, madhep tengen	none
+🧎🏾‍♀‍➡	wong wadon timpuh kulit sawo mateng, madhep tengen	none
+🧎🏿‍♀‍➡	wong wadon timpuh kulit ireng, madhep tengen	none
 🧎‍♂‍➡	wong lanang timpuh madhep tengen	none
-🧎🏻‍♂‍➡	wong lanang timpuh madhep tengen	none
-🧎🏼‍♂‍➡	wong lanang timpuh madhep tengen	none
-🧎🏽‍♂‍➡	wong lanang timpuh madhep tengen	none
-🧎🏾‍♂‍➡	wong lanang timpuh madhep tengen	none
-🧎🏿‍♂‍➡	wong lanang timpuh madhep tengen	none
+🧎🏻‍♂‍➡	wong lanang timpuh kulit putih, madhep tengen	none
+🧎🏼‍♂‍➡	wong lanang timpuh kulit putih langsep, madhep tengen	none
+🧎🏽‍♂‍➡	wong lanang timpuh kulit kuning, madhep tengen	none
+🧎🏾‍♂‍➡	wong lanang timpuh kulit sawo mateng, madhep tengen	none
+🧎🏿‍♂‍➡	wong lanang timpuh kulit ireng, madhep tengen	none
 🧑🏻‍🦯	wong nyekeli teken kulit putih	none
 🧑🏼‍🦯	wong nyekeli teken kulit putih langsep	none
 🧑🏽‍🦯	wong nyekeli teken kulit kuning	none
 🧑🏾‍🦯	wong nyekeli teken kulit sawo mateng	none
 🧑🏿‍🦯	wong nyekeli teken kulit ireng	none
 🧑‍🦯‍➡	wong nyekeli teken madhep tengen	none
-🧑🏻‍🦯‍➡	wong nyekeli teken madhep tengen	none
-🧑🏼‍🦯‍➡	wong nyekeli teken madhep tengen	none
-🧑🏽‍🦯‍➡	wong nyekeli teken madhep tengen	none
-🧑🏾‍🦯‍➡	wong nyekeli teken madhep tengen	none
-🧑🏿‍🦯‍➡	wong nyekeli teken madhep tengen	none
+🧑🏻‍🦯‍➡	wong nyekeli teken kulit putih, madhep tengen	none
+🧑🏼‍🦯‍➡	wong nyekeli teken kulit putih langsep, madhep tengen	none
+🧑🏽‍🦯‍➡	wong nyekeli teken kulit kuning, madhep tengen	none
+🧑🏾‍🦯‍➡	wong nyekeli teken kulit sawo mateng, madhep tengen	none
+🧑🏿‍🦯‍➡	wong nyekeli teken kulit ireng, madhep tengen	none
 👨🏻‍🦯	wong lanang nyekeli teken kulit putih	none
 👨🏼‍🦯	wong lanang nyekeli teken kulit putih langsep	none
 👨🏽‍🦯	wong lanang nyekeli teken kulit kuning	none
 👨🏾‍🦯	wong lanang nyekeli teken kulit sawo mateng	none
 👨🏿‍🦯	wong lanang nyekeli teken kulit ireng	none
 👨‍🦯‍➡	wong lanang nyekeli teken madhep tengen	none
-👨🏻‍🦯‍➡	wong lanang nyekeli teken madhep tengen	none
-👨🏼‍🦯‍➡	wong lanang nyekeli teken madhep tengen	none
-👨🏽‍🦯‍➡	wong lanang nyekeli teken madhep tengen	none
-👨🏾‍🦯‍➡	wong lanang nyekeli teken madhep tengen	none
-👨🏿‍🦯‍➡	wong lanang nyekeli teken madhep tengen	none
+👨🏻‍🦯‍➡	wong lanang nyekeli teken kulit putih, madhep tengen	none
+👨🏼‍🦯‍➡	wong lanang nyekeli teken kulit putih langsep, madhep tengen	none
+👨🏽‍🦯‍➡	wong lanang nyekeli teken kulit kuning, madhep tengen	none
+👨🏾‍🦯‍➡	wong lanang nyekeli teken kulit sawo mateng, madhep tengen	none
+👨🏿‍🦯‍➡	wong lanang nyekeli teken kulit ireng, madhep tengen	none
 👩🏻‍🦯	wong wadon nyekeli teken kulit putih	none
 👩🏼‍🦯	wong wadon nyekeli teken kulit putih langsep	none
 👩🏽‍🦯	wong wadon nyekeli teken kulit kuning	none
 👩🏾‍🦯	wong wadon nyekeli teken kulit sawo mateng	none
 👩🏿‍🦯	wong wadon nyekeli teken kulit ireng	none
 👩‍🦯‍➡	wong wadon nyekeli teken madhep tengen	none
-👩🏻‍🦯‍➡	wong wadon nyekeli teken madhep tengen	none
-👩🏼‍🦯‍➡	wong wadon nyekeli teken madhep tengen	none
-👩🏽‍🦯‍➡	wong wadon nyekeli teken madhep tengen	none
-👩🏾‍🦯‍➡	wong wadon nyekeli teken madhep tengen	none
-👩🏿‍🦯‍➡	wong wadon nyekeli teken madhep tengen	none
+👩🏻‍🦯‍➡	wong wadon nyekeli teken kulit putih, madhep tengen	none
+👩🏼‍🦯‍➡	wong wadon nyekeli teken kulit putih langsep, madhep tengen	none
+👩🏽‍🦯‍➡	wong wadon nyekeli teken kulit kuning, madhep tengen	none
+👩🏾‍🦯‍➡	wong wadon nyekeli teken kulit sawo mateng, madhep tengen	none
+👩🏿‍🦯‍➡	wong wadon nyekeli teken kulit ireng, madhep tengen	none
 🧑🏻‍🦼	wong numpak kursi rodha mesin kulit putih	none
 🧑🏼‍🦼	wong numpak kursi rodha mesin kulit putih langsep	none
 🧑🏽‍🦼	wong numpak kursi rodha mesin kulit kuning	none
 🧑🏾‍🦼	wong numpak kursi rodha mesin kulit sawo mateng	none
 🧑🏿‍🦼	wong numpak kursi rodha mesin kulit ireng	none
 🧑‍🦼‍➡	wong numpak kursi rodha mesin madhep tengen	none
-🧑🏻‍🦼‍➡	wong numpak kursi rodha mesin madhep tengen	none
-🧑🏼‍🦼‍➡	wong numpak kursi rodha mesin madhep tengen	none
-🧑🏽‍🦼‍➡	wong numpak kursi rodha mesin madhep tengen	none
-🧑🏾‍🦼‍➡	wong numpak kursi rodha mesin madhep tengen	none
-🧑🏿‍🦼‍➡	wong numpak kursi rodha mesin madhep tengen	none
+🧑🏻‍🦼‍➡	wong numpak kursi rodha mesin kulit putih, madhep tengen	none
+🧑🏼‍🦼‍➡	wong numpak kursi rodha mesin kulit putih langsep, madhep tengen	none
+🧑🏽‍🦼‍➡	wong numpak kursi rodha mesin kulit kuning, madhep tengen	none
+🧑🏾‍🦼‍➡	wong numpak kursi rodha mesin kulit sawo mateng, madhep tengen	none
+🧑🏿‍🦼‍➡	wong numpak kursi rodha mesin kulit ireng, madhep tengen	none
 👨🏻‍🦼	wong lanang numpak kursi rodha mesin kulit putih	none
 👨🏼‍🦼	wong lanang numpak kursi rodha mesin kulit putih langsep	none
 👨🏽‍🦼	wong lanang numpak kursi rodha mesin kulit kuning	none
 👨🏾‍🦼	wong lanang numpak kursi rodha mesin kulit sawo mateng	none
 👨🏿‍🦼	wong lanang numpak kursi rodha mesin kulit ireng	none
 👨‍🦼‍➡	wong lanang numpak kursi rodha mesin madhep tengen	none
-👨🏻‍🦼‍➡	wong lanang numpak kursi rodha mesin madhep tengen	none
-👨🏼‍🦼‍➡	wong lanang numpak kursi rodha mesin madhep tengen	none
-👨🏽‍🦼‍➡	wong lanang numpak kursi rodha mesin madhep tengen	none
-👨🏾‍🦼‍➡	wong lanang numpak kursi rodha mesin madhep tengen	none
-👨🏿‍🦼‍➡	wong lanang numpak kursi rodha mesin madhep tengen	none
+👨🏻‍🦼‍➡	wong lanang numpak kursi rodha mesin kulit putih, madhep tengen	none
+👨🏼‍🦼‍➡	wong lanang numpak kursi rodha mesin kulit putih langsep, madhep tengen	none
+👨🏽‍🦼‍➡	wong lanang numpak kursi rodha mesin kulit kuning, madhep tengen	none
+👨🏾‍🦼‍➡	wong lanang numpak kursi rodha mesin kulit sawo mateng, madhep tengen	none
+👨🏿‍🦼‍➡	wong lanang numpak kursi rodha mesin kulit ireng, madhep tengen	none
 👩🏻‍🦼	wong wadon numpak kursi rodha mesin kulit putih	none
 👩🏼‍🦼	wong wadon numpak kursi rodha mesin kulit putih langsep	none
 👩🏽‍🦼	wong wadon numpak kursi rodha mesin kulit kuning	none
 👩🏾‍🦼	wong wadon numpak kursi rodha mesin kulit sawo mateng	none
 👩🏿‍🦼	wong wadon numpak kursi rodha mesin kulit ireng	none
 👩‍🦼‍➡	wong wadon numpak kursi rodha mesin madhep tengen	none
-👩🏻‍🦼‍➡	wong wadon numpak kursi rodha mesin madhep tengen	none
-👩🏼‍🦼‍➡	wong wadon numpak kursi rodha mesin madhep tengen	none
-👩🏽‍🦼‍➡	wong wadon numpak kursi rodha mesin madhep tengen	none
-👩🏾‍🦼‍➡	wong wadon numpak kursi rodha mesin madhep tengen	none
-👩🏿‍🦼‍➡	wong wadon numpak kursi rodha mesin madhep tengen	none
+👩🏻‍🦼‍➡	wong wadon numpak kursi rodha mesin kulit putih, madhep tengen	none
+👩🏼‍🦼‍➡	wong wadon numpak kursi rodha mesin kulit putih langsep, madhep tengen	none
+👩🏽‍🦼‍➡	wong wadon numpak kursi rodha mesin kulit kuning, madhep tengen	none
+👩🏾‍🦼‍➡	wong wadon numpak kursi rodha mesin kulit sawo mateng, madhep tengen	none
+👩🏿‍🦼‍➡	wong wadon numpak kursi rodha mesin kulit ireng, madhep tengen	none
 🧑🏻‍🦽	wong numpak kursi rodha manual kulit putih	none
 🧑🏼‍🦽	wong numpak kursi rodha manual kulit putih langsep	none
 🧑🏽‍🦽	wong numpak kursi rodha manual kulit kuning	none
 🧑🏾‍🦽	wong numpak kursi rodha manual kulit sawo mateng	none
 🧑🏿‍🦽	wong numpak kursi rodha manual kulit ireng	none
 🧑‍🦽‍➡	wong numpak kursi rodha manual madhep tengen	none
-🧑🏻‍🦽‍➡	wong numpak kursi rodha manual madhep tengen	none
-🧑🏼‍🦽‍➡	wong numpak kursi rodha manual madhep tengen	none
-🧑🏽‍🦽‍➡	wong numpak kursi rodha manual madhep tengen	none
-🧑🏾‍🦽‍➡	wong numpak kursi rodha manual madhep tengen	none
-🧑🏿‍🦽‍➡	wong numpak kursi rodha manual madhep tengen	none
+🧑🏻‍🦽‍➡	wong numpak kursi rodha manual kulit putih, madhep tengen	none
+🧑🏼‍🦽‍➡	wong numpak kursi rodha manual kulit putih langsep, madhep tengen	none
+🧑🏽‍🦽‍➡	wong numpak kursi rodha manual kulit kuning, madhep tengen	none
+🧑🏾‍🦽‍➡	wong numpak kursi rodha manual kulit sawo mateng, madhep tengen	none
+🧑🏿‍🦽‍➡	wong numpak kursi rodha manual kulit ireng, madhep tengen	none
 👨🏻‍🦽	wong lanang numpak kursi rodha manual kulit putih	none
 👨🏼‍🦽	wong lanang numpak kursi rodha manual kulit putih langsep	none
 👨🏽‍🦽	wong lanang numpak kursi rodha manual kulit kuning	none
 👨🏾‍🦽	wong lanang numpak kursi rodha manual kulit sawo mateng	none
 👨🏿‍🦽	wong lanang numpak kursi rodha manual kulit ireng	none
 👨‍🦽‍➡	wong lanang numpak kursi rodha manual madhep tengen	none
-👨🏻‍🦽‍➡	wong lanang numpak kursi rodha manual madhep tengen	none
-👨🏼‍🦽‍➡	wong lanang numpak kursi rodha manual madhep tengen	none
-👨🏽‍🦽‍➡	wong lanang numpak kursi rodha manual madhep tengen	none
-👨🏾‍🦽‍➡	wong lanang numpak kursi rodha manual madhep tengen	none
-👨🏿‍🦽‍➡	wong lanang numpak kursi rodha manual madhep tengen	none
+👨🏻‍🦽‍➡	wong lanang numpak kursi rodha manual kulit putih, madhep tengen	none
+👨🏼‍🦽‍➡	wong lanang numpak kursi rodha manual kulit putih langsep, madhep tengen	none
+👨🏽‍🦽‍➡	wong lanang numpak kursi rodha manual kulit kuning, madhep tengen	none
+👨🏾‍🦽‍➡	wong lanang numpak kursi rodha manual kulit sawo mateng, madhep tengen	none
+👨🏿‍🦽‍➡	wong lanang numpak kursi rodha manual kulit ireng, madhep tengen	none
 👩🏻‍🦽	wong wadon numpak kursi rodha manual kulit putih	none
 👩🏼‍🦽	wong wadon numpak kursi rodha manual kulit putih langsep	none
 👩🏽‍🦽	wong wadon numpak kursi rodha manual kulit kuning	none
 👩🏾‍🦽	wong wadon numpak kursi rodha manual kulit sawo mateng	none
 👩🏿‍🦽	wong wadon numpak kursi rodha manual kulit ireng	none
 👩‍🦽‍➡	wong wadon numpak kursi rodha manual madhep tengen	none
-👩🏻‍🦽‍➡	wong wadon numpak kursi rodha manual madhep tengen	none
-👩🏼‍🦽‍➡	wong wadon numpak kursi rodha manual madhep tengen	none
-👩🏽‍🦽‍➡	wong wadon numpak kursi rodha manual madhep tengen	none
-👩🏾‍🦽‍➡	wong wadon numpak kursi rodha manual madhep tengen	none
-👩🏿‍🦽‍➡	wong wadon numpak kursi rodha manual madhep tengen	none
+👩🏻‍🦽‍➡	wong wadon numpak kursi rodha manual kulit putih, madhep tengen	none
+👩🏼‍🦽‍➡	wong wadon numpak kursi rodha manual kulit putih langsep, madhep tengen	none
+👩🏽‍🦽‍➡	wong wadon numpak kursi rodha manual kulit kuning, madhep tengen	none
+👩🏾‍🦽‍➡	wong wadon numpak kursi rodha manual kulit sawo mateng, madhep tengen	none
+👩🏿‍🦽‍➡	wong wadon numpak kursi rodha manual kulit ireng, madhep tengen	none
 🏃🏻	wong mlayu kulit putih	none
 🏃🏼	wong mlayu kulit putih langsep	none
 🏃🏽	wong mlayu kulit kuning	none
@@ -3342,23 +3477,28 @@ symbols:
 🏃🏾‍♀	wong wadon mlayu kulit sawo mateng	none
 🏃🏿‍♀	wong wadon mlayu kulit ireng	none
 🏃‍➡	wong mlayu madhep tengen	none
-🏃🏻‍➡	wong mlayu madhep tengen	none
-🏃🏼‍➡	wong mlayu madhep tengen	none
-🏃🏽‍➡	wong mlayu madhep tengen	none
-🏃🏾‍➡	wong mlayu madhep tengen	none
-🏃🏿‍➡	wong mlayu madhep tengen	none
+🏃🏻‍➡	wong mlayu kulit putih, madhep tengen	none
+🏃🏼‍➡	wong mlayu kulit putih langsep, madhep tengen	none
+🏃🏽‍➡	wong mlayu kulit kuning, madhep tengen	none
+🏃🏾‍➡	wong mlayu kulit sawo mateng, madhep tengen	none
+🏃🏿‍➡	wong mlayu kulit ireng, madhep tengen	none
 🏃‍♀‍➡	wong wadon mlayu madhep tengen	none
-🏃🏻‍♀‍➡	wong wadon mlayu madhep tengen	none
-🏃🏼‍♀‍➡	wong wadon mlayu madhep tengen	none
-🏃🏽‍♀‍➡	wong wadon mlayu madhep tengen	none
-🏃🏾‍♀‍➡	wong wadon mlayu madhep tengen	none
-🏃🏿‍♀‍➡	wong wadon mlayu madhep tengen	none
+🏃🏻‍♀‍➡	wong wadon mlayu kulit putih, madhep tengen	none
+🏃🏼‍♀‍➡	wong wadon mlayu kulit putih langsep, madhep tengen	none
+🏃🏽‍♀‍➡	wong wadon mlayu kulit kuning, madhep tengen	none
+🏃🏾‍♀‍➡	wong wadon mlayu kulit sawo mateng, madhep tengen	none
+🏃🏿‍♀‍➡	wong wadon mlayu kulit ireng, madhep tengen	none
 🏃‍♂‍➡	wong lanang mlayu madhep tengen	none
-🏃🏻‍♂‍➡	wong lanang mlayu madhep tengen	none
-🏃🏼‍♂‍➡	wong lanang mlayu madhep tengen	none
-🏃🏽‍♂‍➡	wong lanang mlayu madhep tengen	none
-🏃🏾‍♂‍➡	wong lanang mlayu madhep tengen	none
-🏃🏿‍♂‍➡	wong lanang mlayu madhep tengen	none
+🏃🏻‍♂‍➡	wong lanang mlayu kulit putih, madhep tengen	none
+🏃🏼‍♂‍➡	wong lanang mlayu kulit putih langsep, madhep tengen	none
+🏃🏽‍♂‍➡	wong lanang mlayu kulit kuning, madhep tengen	none
+🏃🏾‍♂‍➡	wong lanang mlayu kulit sawo mateng, madhep tengen	none
+🏃🏿‍♂‍➡	wong lanang mlayu kulit ireng, madhep tengen	none
+🧑🏻‍🩰	penari balet kulit putih	none
+🧑🏼‍🩰	penari balet kulit putih langsep	none
+🧑🏽‍🩰	penari balet kulit kuning	none
+🧑🏾‍🩰	penari balet kulit sawo mateng	none
+🧑🏿‍🩰	penari balet kulit ireng	none
 💃🏻	wong wadon njoget kulit putih	none
 💃🏼	wong wadon njoget kulit putih langsep	none
 💃🏽	wong wadon njoget kulit kuning	none
@@ -3374,6 +3514,21 @@ symbols:
 🕴🏽	wong lanang jas-jasan ora napak kulit kuning	none
 🕴🏾	wong lanang jas-jasan ora napak kulit sawo mateng	none
 🕴🏿	wong lanang jas-jasan ora napak kulit ireng	none
+👯🏻	wong nganggo kuping terwelu kulit putih	none
+👯🏼	wong nganggo kuping terwelu kulit putih langsep	none
+👯🏽	wong nganggo kuping terwelu kulit kuning	none
+👯🏾	wong nganggo kuping terwelu kulit sawo mateng	none
+👯🏿	wong nganggo kuping terwelu kulit ireng	none
+👯🏻‍♂	wong lanang nganggo kuping terwelu kulit putih	none
+👯🏼‍♂	wong lanang nganggo kuping terwelu kulit putih langsep	none
+👯🏽‍♂	wong lanang nganggo kuping terwelu kulit kuning	none
+👯🏾‍♂	wong lanang nganggo kuping terwelu kulit sawo mateng	none
+👯🏿‍♂	wong lanang nganggo kuping terwelu kulit ireng	none
+👯🏻‍♀	wong wadon nganggo kuping terwelu kulit putih	none
+👯🏼‍♀	wong wadon nganggo kuping terwelu kulit putih langsep	none
+👯🏽‍♀	wong wadon nganggo kuping terwelu kulit kuning	none
+👯🏾‍♀	wong wadon nganggo kuping terwelu kulit sawo mateng	none
+👯🏿‍♀	wong wadon nganggo kuping terwelu kulit ireng	none
 🧖🏻	wong ing kamar kebak sumub kulit putih	none
 🧖🏼	wong ing kamar kebak sumub kulit putih langsep	none
 🧖🏽	wong ing kamar kebak sumub kulit kuning	none
@@ -3549,6 +3704,21 @@ symbols:
 🤸🏽‍♀	wong wadon engkang kulit kuning	none
 🤸🏾‍♀	wong wadon engkang kulit sawo mateng	none
 🤸🏿‍♀	wong wadon engkang kulit ireng	none
+🤼🏻	wong gulat kulit putih	none
+🤼🏼	wong gulat kulit putih langsep	none
+🤼🏽	wong gulat kulit kuning	none
+🤼🏾	wong gulat kulit sawo mateng	none
+🤼🏿	wong gulat kulit ireng	none
+🤼🏻‍♂	wong lanang gulat kulit putih	none
+🤼🏼‍♂	wong lanang gulat kulit putih langsep	none
+🤼🏽‍♂	wong lanang gulat kulit kuning	none
+🤼🏾‍♂	wong lanang gulat kulit sawo mateng	none
+🤼🏿‍♂	wong lanang gulat kulit ireng	none
+🤼🏻‍♀	wong wadon gulat kulit putih	none
+🤼🏼‍♀	wong wadon gulat kulit putih langsep	none
+🤼🏽‍♀	wong wadon gulat kulit kuning	none
+🤼🏾‍♀	wong wadon gulat kulit sawo mateng	none
+🤼🏿‍♀	wong wadon gulat kulit ireng	none
 🤽🏻	wong main polo banyu kulit putih	none
 🤽🏼	wong main polo banyu kulit putih langsep	none
 🤽🏽	wong main polo banyu kulit kuning	none
@@ -3792,7 +3962,7 @@ symbols:
 🇧🇴	gendera Bolivia	none
 🇧🇶	gendera Karibia Walanda	none
 🇧🇷	gendera Brasil	none
-🇧🇸	gendera Bahamas	none
+🇧🇸	gendera Bahama	none
 🇧🇹	gendera Bhutan	none
 🇧🇻	gendera Pulo Bovèt	none
 🇧🇼	gendera Botswana	none
@@ -3811,6 +3981,7 @@ symbols:
 🇨🇳	gendera Tyongkok	none
 🇨🇴	gendera Kolombia	none
 🇨🇵	gendera Pulo Clipperton	none
+🇨🇶	gendera Sark	none
 🇨🇷	gendera Kosta Rika	none
 🇨🇺	gendera Kuba	none
 🇨🇻	gendera Pongol Verdé	none

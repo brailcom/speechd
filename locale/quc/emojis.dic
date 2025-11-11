@@ -467,6 +467,9 @@ symbols:
 🦈	Tib’kar	none
 🐙	Yatz chikop	none
 🐚	Ub’olq’otim rib’ concha	none
+🦀	Tap	none
+🦐	kamaron	none
+🦑	kalamar	none
 🐌	T’ot’	none
 🦋	Pepe	none
 🐛	k’axk’olil	none
@@ -568,9 +571,6 @@ symbols:
 🥟	t’oqto’y	none
 🥠	q’ochom kab’	none
 🥡	k’olwa	none
-🦀	Tap	none
-🦐	kamaron	none
-🦑	kalamar	none
 🍦	Tz’uqutz’ik t’aja’j	none
 🍧	T’aja’j pa k’olib’al	none
 🍨	Joromsab’al	none
@@ -921,9 +921,9 @@ symbols:
 🎧	Uk’amal ch’aweb’al	none
 📻	Q’axeb’al tzij	none
 🎷	Saxopon	none
+🎺	Trompet	none
 🎸	Kita’r	none
 🎹	Q’ojomb’al tz’emb’al	none
-🎺	Trompet	none
 🎻	Violin	none
 🥁	Tamb’or	none
 📱	B’inib’al ch’aweb’al	none
@@ -1505,6 +1505,46 @@ symbols:
 🧑🏿‍❤‍🧑🏼	Kab’ichal ruk’ anima nim, nim, q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
 🧑🏿‍❤‍🧑🏽	Kab’ichal ruk’ anima nim, nim, q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
 🧑🏿‍❤‍🧑🏾	Kab’ichal ruk’ anima nim, nim, q’eq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+🧑🏻‍🫯‍🧑🏼	E winaq kech’o’jinik saq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+🧑🏻‍🫯‍🧑🏽	E winaq kech’o’jinik saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+🧑🏻‍🫯‍🧑🏾	E winaq kech’o’jinik saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+🧑🏻‍🫯‍🧑🏿	E winaq kech’o’jinik saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+🧑🏼‍🫯‍🧑🏻	E winaq kech’o’jinik retal saq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+🧑🏼‍🫯‍🧑🏽	E winaq kech’o’jinik retal saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+🧑🏼‍🫯‍🧑🏾	E winaq kech’o’jinik retal saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+🧑🏼‍🫯‍🧑🏿	E winaq kech’o’jinik retal saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+🧑🏽‍🫯‍🧑🏻	E winaq kech’o’jinik retal ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+🧑🏽‍🫯‍🧑🏼	E winaq kech’o’jinik retal ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+🧑🏽‍🫯‍🧑🏾	E winaq kech’o’jinik retal ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+🧑🏽‍🫯‍🧑🏿	E winaq kech’o’jinik retal ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+🧑🏾‍🫯‍🧑🏻	E winaq kech’o’jinik retal-q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+🧑🏾‍🫯‍🧑🏼	E winaq kech’o’jinik retal-q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+🧑🏾‍🫯‍🧑🏽	E winaq kech’o’jinik retal-q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+🧑🏾‍🫯‍🧑🏿	E winaq kech’o’jinik retal-q’eq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+🧑🏿‍🫯‍🧑🏻	E winaq kech’o’jinik q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+🧑🏿‍🫯‍🧑🏼	E winaq kech’o’jinik q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+🧑🏿‍🫯‍🧑🏽	E winaq kech’o’jinik q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+🧑🏿‍🫯‍🧑🏾	E winaq kech’o’jinik q’eq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+🧑🏻‍🐰‍🧑🏼	E winaq ruk’ uxikin imul saq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+🧑🏻‍🐰‍🧑🏽	E winaq ruk’ uxikin imul saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+🧑🏻‍🐰‍🧑🏾	E winaq ruk’ uxikin imul saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+🧑🏻‍🐰‍🧑🏿	E winaq ruk’ uxikin imul saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+🧑🏼‍🐰‍🧑🏻	E winaq ruk’ uxikin imul retal saq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+🧑🏼‍🐰‍🧑🏽	E winaq ruk’ uxikin imul retal saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+🧑🏼‍🐰‍🧑🏾	E winaq ruk’ uxikin imul retal saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+🧑🏼‍🐰‍🧑🏿	E winaq ruk’ uxikin imul retal saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+🧑🏽‍🐰‍🧑🏻	E winaq ruk’ uxikin imul retal ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+🧑🏽‍🐰‍🧑🏼	E winaq ruk’ uxikin imul retal ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+🧑🏽‍🐰‍🧑🏾	E winaq ruk’ uxikin imul retal ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+🧑🏽‍🐰‍🧑🏿	E winaq ruk’ uxikin imul retal ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+🧑🏾‍🐰‍🧑🏻	E winaq ruk’ uxikin imul retal-q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+🧑🏾‍🐰‍🧑🏼	E winaq ruk’ uxikin imul retal-q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+🧑🏾‍🐰‍🧑🏽	E winaq ruk’ uxikin imul retal-q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+🧑🏾‍🐰‍🧑🏿	E winaq ruk’ uxikin imul retal-q’eq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+🧑🏿‍🐰‍🧑🏻	E winaq ruk’ uxikin imul q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+🧑🏿‍🐰‍🧑🏼	E winaq ruk’ uxikin imul q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+🧑🏿‍🐰‍🧑🏽	E winaq ruk’ uxikin imul q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+🧑🏿‍🐰‍🧑🏾	E winaq ruk’ uxikin imul q’eq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
 👨🏻	Achi saq ub’antajik b’aqilal	none
 👨🏼	Achi retal saq ub’antajik b’aqilal	none
 👨🏽	Achi retal ub’antajik b’aqilal	none
@@ -1570,6 +1610,46 @@ symbols:
 👨🏿‍❤‍👨🏽	Kab’ichal ruk’ anima Achi, Achi, q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
 👨🏿‍❤‍👨🏾	Kab’ichal ruk’ anima Achi, Achi, q’eq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
 👨🏿‍❤‍👨🏿	Kab’ichal ruk’ anima Achi, Achi, q’eq ub’antajik b’aqilal	none
+👨🏻‍🫯‍👨🏼	achi ktajin kch’ojinik saq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👨🏻‍🫯‍👨🏽	achi ktajin kch’ojinik saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👨🏻‍🫯‍👨🏾	achi ktajin kch’ojinik saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👨🏻‍🫯‍👨🏿	achi ktajin kch’ojinik saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👨🏼‍🫯‍👨🏻	achi ktajin kch’ojinik retal saq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👨🏼‍🫯‍👨🏽	achi ktajin kch’ojinik retal saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👨🏼‍🫯‍👨🏾	achi ktajin kch’ojinik retal saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👨🏼‍🫯‍👨🏿	achi ktajin kch’ojinik retal saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👨🏽‍🫯‍👨🏻	achi ktajin kch’ojinik retal ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👨🏽‍🫯‍👨🏼	achi ktajin kch’ojinik retal ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👨🏽‍🫯‍👨🏾	achi ktajin kch’ojinik retal ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👨🏽‍🫯‍👨🏿	achi ktajin kch’ojinik retal ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👨🏾‍🫯‍👨🏻	achi ktajin kch’ojinik retal-q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👨🏾‍🫯‍👨🏼	achi ktajin kch’ojinik retal-q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👨🏾‍🫯‍👨🏽	achi ktajin kch’ojinik retal-q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👨🏾‍🫯‍👨🏿	achi ktajin kch’ojinik retal-q’eq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👨🏿‍🫯‍👨🏻	achi ktajin kch’ojinik q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👨🏿‍🫯‍👨🏼	achi ktajin kch’ojinik q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👨🏿‍🫯‍👨🏽	achi ktajin kch’ojinik q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👨🏿‍🫯‍👨🏾	achi ktajin kch’ojinik q’eq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👨🏻‍🐰‍👨🏼	achi ruk’ uxikin imul pa nimaq’ij saq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👨🏻‍🐰‍👨🏽	achi ruk’ uxikin imul pa nimaq’ij saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👨🏻‍🐰‍👨🏾	achi ruk’ uxikin imul pa nimaq’ij saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👨🏻‍🐰‍👨🏿	achi ruk’ uxikin imul pa nimaq’ij saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👨🏼‍🐰‍👨🏻	achi ruk’ uxikin imul pa nimaq’ij retal saq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👨🏼‍🐰‍👨🏽	achi ruk’ uxikin imul pa nimaq’ij retal saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👨🏼‍🐰‍👨🏾	achi ruk’ uxikin imul pa nimaq’ij retal saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👨🏼‍🐰‍👨🏿	achi ruk’ uxikin imul pa nimaq’ij retal saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👨🏽‍🐰‍👨🏻	achi ruk’ uxikin imul pa nimaq’ij retal ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👨🏽‍🐰‍👨🏼	achi ruk’ uxikin imul pa nimaq’ij retal ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👨🏽‍🐰‍👨🏾	achi ruk’ uxikin imul pa nimaq’ij retal ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👨🏽‍🐰‍👨🏿	achi ruk’ uxikin imul pa nimaq’ij retal ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👨🏾‍🐰‍👨🏻	achi ruk’ uxikin imul pa nimaq’ij retal-q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👨🏾‍🐰‍👨🏼	achi ruk’ uxikin imul pa nimaq’ij retal-q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👨🏾‍🐰‍👨🏽	achi ruk’ uxikin imul pa nimaq’ij retal-q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👨🏾‍🐰‍👨🏿	achi ruk’ uxikin imul pa nimaq’ij retal-q’eq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👨🏿‍🐰‍👨🏻	achi ruk’ uxikin imul pa nimaq’ij q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👨🏿‍🐰‍👨🏼	achi ruk’ uxikin imul pa nimaq’ij q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👨🏿‍🐰‍👨🏽	achi ruk’ uxikin imul pa nimaq’ij q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👨🏿‍🐰‍👨🏾	achi ruk’ uxikin imul pa nimaq’ij q’eq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
 👩🏻	Ixoq saq ub’antajik b’aqilal	none
 👩🏼	Ixoq retal saq ub’antajik b’aqilal	none
 👩🏽	Ixoq retal ub’antajik b’aqilal	none
@@ -1680,6 +1760,46 @@ symbols:
 👩🏿‍❤‍👩🏽	Kab’ichal ruk’ anima Ixoq, Ixoq, q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
 👩🏿‍❤‍👩🏾	Kab’ichal ruk’ anima Ixoq, Ixoq, q’eq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
 👩🏿‍❤‍👩🏿	Kab’ichal ruk’ anima Ixoq, Ixoq, q’eq ub’antajik b’aqilal	none
+👩🏻‍🫯‍👩🏼	ixoq ktajin kch’ojinik saq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👩🏻‍🫯‍👩🏽	ixoq ktajin kch’ojinik saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👩🏻‍🫯‍👩🏾	ixoq ktajin kch’ojinik saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👩🏻‍🫯‍👩🏿	ixoq ktajin kch’ojinik saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👩🏼‍🫯‍👩🏻	ixoq ktajin kch’ojinik retal saq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👩🏼‍🫯‍👩🏽	ixoq ktajin kch’ojinik retal saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👩🏼‍🫯‍👩🏾	ixoq ktajin kch’ojinik retal saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👩🏼‍🫯‍👩🏿	ixoq ktajin kch’ojinik retal saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👩🏽‍🫯‍👩🏻	ixoq ktajin kch’ojinik retal ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👩🏽‍🫯‍👩🏼	ixoq ktajin kch’ojinik retal ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👩🏽‍🫯‍👩🏾	ixoq ktajin kch’ojinik retal ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👩🏽‍🫯‍👩🏿	ixoq ktajin kch’ojinik retal ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👩🏾‍🫯‍👩🏻	ixoq ktajin kch’ojinik retal-q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👩🏾‍🫯‍👩🏼	ixoq ktajin kch’ojinik retal-q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👩🏾‍🫯‍👩🏽	ixoq ktajin kch’ojinik retal-q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👩🏾‍🫯‍👩🏿	ixoq ktajin kch’ojinik retal-q’eq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👩🏿‍🫯‍👩🏻	ixoq ktajin kch’ojinik q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👩🏿‍🫯‍👩🏼	ixoq ktajin kch’ojinik q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👩🏿‍🫯‍👩🏽	ixoq ktajin kch’ojinik q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👩🏿‍🫯‍👩🏾	ixoq ktajin kch’ojinik q’eq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👩🏻‍🐰‍👩🏼	ixoq ruk’ uxikin imul pa nimaq’ij saq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👩🏻‍🐰‍👩🏽	ixoq ruk’ uxikin imul pa nimaq’ij saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👩🏻‍🐰‍👩🏾	ixoq ruk’ uxikin imul pa nimaq’ij saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👩🏻‍🐰‍👩🏿	ixoq ruk’ uxikin imul pa nimaq’ij saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👩🏼‍🐰‍👩🏻	ixoq ruk’ uxikin imul pa nimaq’ij retal saq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👩🏼‍🐰‍👩🏽	ixoq ruk’ uxikin imul pa nimaq’ij retal saq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👩🏼‍🐰‍👩🏾	ixoq ruk’ uxikin imul pa nimaq’ij retal saq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👩🏼‍🐰‍👩🏿	ixoq ruk’ uxikin imul pa nimaq’ij retal saq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👩🏽‍🐰‍👩🏻	ixoq ruk’ uxikin imul pa nimaq’ij retal ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👩🏽‍🐰‍👩🏼	ixoq ruk’ uxikin imul pa nimaq’ij retal ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👩🏽‍🐰‍👩🏾	ixoq ruk’ uxikin imul pa nimaq’ij retal ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
+👩🏽‍🐰‍👩🏿	ixoq ruk’ uxikin imul pa nimaq’ij retal ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👩🏾‍🐰‍👩🏻	ixoq ruk’ uxikin imul pa nimaq’ij retal-q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👩🏾‍🐰‍👩🏼	ixoq ruk’ uxikin imul pa nimaq’ij retal-q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👩🏾‍🐰‍👩🏽	ixoq ruk’ uxikin imul pa nimaq’ij retal-q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👩🏾‍🐰‍👩🏿	ixoq ruk’ uxikin imul pa nimaq’ij retal-q’eq ub’antajik b’aqilal, q’eq ub’antajik b’aqilal	none
+👩🏿‍🐰‍👩🏻	ixoq ruk’ uxikin imul pa nimaq’ij q’eq ub’antajik b’aqilal, saq ub’antajik b’aqilal	none
+👩🏿‍🐰‍👩🏼	ixoq ruk’ uxikin imul pa nimaq’ij q’eq ub’antajik b’aqilal, retal saq ub’antajik b’aqilal	none
+👩🏿‍🐰‍👩🏽	ixoq ruk’ uxikin imul pa nimaq’ij q’eq ub’antajik b’aqilal, retal ub’antajik b’aqilal	none
+👩🏿‍🐰‍👩🏾	ixoq ruk’ uxikin imul pa nimaq’ij q’eq ub’antajik b’aqilal, retal-q’eq ub’antajik b’aqilal	none
 🧓🏻	ri’j saq ub’antajik b’aqilal	none
 🧓🏼	ri’j retal saq ub’antajik b’aqilal	none
 🧓🏽	ri’j retal ub’antajik b’aqilal	none
@@ -2270,6 +2390,21 @@ symbols:
 🕴🏽	achi ukojon nim atz’i’aq rech k’ayinem retal ub’antajik b’aqilal	none
 🕴🏾	achi ukojon nim atz’i’aq rech k’ayinem retal-q’eq ub’antajik b’aqilal	none
 🕴🏿	achi ukojon nim atz’i’aq rech k’ayinem q’eq ub’antajik b’aqilal	none
+👯🏻	E winaq ruk’ uxikin imul saq ub’antajik b’aqilal	none
+👯🏼	E winaq ruk’ uxikin imul retal saq ub’antajik b’aqilal	none
+👯🏽	E winaq ruk’ uxikin imul retal ub’antajik b’aqilal	none
+👯🏾	E winaq ruk’ uxikin imul retal-q’eq ub’antajik b’aqilal	none
+👯🏿	E winaq ruk’ uxikin imul q’eq ub’antajik b’aqilal	none
+👯🏻‍♂	achi ruk’ uxikin imul pa nimaq’ij saq ub’antajik b’aqilal	none
+👯🏼‍♂	achi ruk’ uxikin imul pa nimaq’ij retal saq ub’antajik b’aqilal	none
+👯🏽‍♂	achi ruk’ uxikin imul pa nimaq’ij retal ub’antajik b’aqilal	none
+👯🏾‍♂	achi ruk’ uxikin imul pa nimaq’ij retal-q’eq ub’antajik b’aqilal	none
+👯🏿‍♂	achi ruk’ uxikin imul pa nimaq’ij q’eq ub’antajik b’aqilal	none
+👯🏻‍♀	ixoq ruk’ uxikin imul pa nimaq’ij saq ub’antajik b’aqilal	none
+👯🏼‍♀	ixoq ruk’ uxikin imul pa nimaq’ij retal saq ub’antajik b’aqilal	none
+👯🏽‍♀	ixoq ruk’ uxikin imul pa nimaq’ij retal ub’antajik b’aqilal	none
+👯🏾‍♀	ixoq ruk’ uxikin imul pa nimaq’ij retal-q’eq ub’antajik b’aqilal	none
+👯🏿‍♀	ixoq ruk’ uxikin imul pa nimaq’ij q’eq ub’antajik b’aqilal	none
 🧖🏻	winaq pa uxlab’ upaja saq ub’antajik b’aqilal	none
 🧖🏼	winaq pa uxlab’ upaja retal saq ub’antajik b’aqilal	none
 🧖🏽	winaq pa uxlab’ upaja retal ub’antajik b’aqilal	none
@@ -2445,6 +2580,21 @@ symbols:
 🤸🏽‍♀	ixoq pa setch’ich’ retal ub’antajik b’aqilal	none
 🤸🏾‍♀	ixoq pa setch’ich’ retal-q’eq ub’antajik b’aqilal	none
 🤸🏿‍♀	ixoq pa setch’ich’ q’eq ub’antajik b’aqilal	none
+🤼🏻	E winaq kech’o’jinik saq ub’antajik b’aqilal	none
+🤼🏼	E winaq kech’o’jinik retal saq ub’antajik b’aqilal	none
+🤼🏽	E winaq kech’o’jinik retal ub’antajik b’aqilal	none
+🤼🏾	E winaq kech’o’jinik retal-q’eq ub’antajik b’aqilal	none
+🤼🏿	E winaq kech’o’jinik q’eq ub’antajik b’aqilal	none
+🤼🏻‍♂	achi ktajin kch’ojinik saq ub’antajik b’aqilal	none
+🤼🏼‍♂	achi ktajin kch’ojinik retal saq ub’antajik b’aqilal	none
+🤼🏽‍♂	achi ktajin kch’ojinik retal ub’antajik b’aqilal	none
+🤼🏾‍♂	achi ktajin kch’ojinik retal-q’eq ub’antajik b’aqilal	none
+🤼🏿‍♂	achi ktajin kch’ojinik q’eq ub’antajik b’aqilal	none
+🤼🏻‍♀	ixoq ktajin kch’ojinik saq ub’antajik b’aqilal	none
+🤼🏼‍♀	ixoq ktajin kch’ojinik retal saq ub’antajik b’aqilal	none
+🤼🏽‍♀	ixoq ktajin kch’ojinik retal ub’antajik b’aqilal	none
+🤼🏾‍♀	ixoq ktajin kch’ojinik retal-q’eq ub’antajik b’aqilal	none
+🤼🏿‍♀	ixoq ktajin kch’ojinik q’eq ub’antajik b’aqilal	none
 🤽🏻	Winaq aj etz’anel potz’ pa ja’ saq ub’antajik b’aqilal	none
 🤽🏼	Winaq aj etz’anel potz’ pa ja’ retal saq ub’antajik b’aqilal	none
 🤽🏽	Winaq aj etz’anel potz’ pa ja’ retal ub’antajik b’aqilal	none

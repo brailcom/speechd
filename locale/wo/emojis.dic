@@ -182,6 +182,7 @@ symbols:
 ✋	loxo bu jog	none
 🖖	loxo xaajale ñeenti baaraam	none
 👌	laxo waaw-kay	none
+🤌	dompat baaraam	none
 ✌	loxo ndam	none
 🤞	laxasante ñaari baaraam	none
 🤟	liyaar mbëggeel	none
@@ -220,7 +221,7 @@ symbols:
 🧒	xale	none
 👦	xale bu góor	none
 👧	xale bu jigéen	none
-🧑	mag	none
+🧑	nit	none
 👱	nit ku karaw yu weex	none
 👨	góor	none
 🧔	nit am sikkim	none
@@ -496,6 +497,9 @@ symbols:
 🦈	rekeŋ	none
 🐙	oktopis	none
 🐚	xoru espiraal	none
+🦀	junqoob	none
+🦐	krëwet	none
+🦑	kalamaar	none
 🐌	eskargoo	none
 🦋	lëppaalëp	none
 🐛	gunóor	none
@@ -597,9 +601,6 @@ symbols:
 🥟	buleet	none
 🥠	mbiskitu musuwaar	none
 🥡	boyetu yóbbaale	none
-🦀	junqoob	none
-🦐	krëwet	none
-🦑	kalamaar	none
 🍦	kreem galaas bu am suukar	none
 🍧	galaas guñ dëbb	none
 🍨	kreem galaase	none
@@ -647,7 +648,7 @@ symbols:
 🏖	tefes ak parasol	none
 🏜	desert	none
 🏝	desert dun	none
-🏞	park national	none
+🏞	park nasyonaal	none
 🏟	estad	none
 🏛	tabaxu cosaan	none
 🏗	tabax ab tabax	none
@@ -899,6 +900,7 @@ symbols:
 🎭	yëngu ci aar	none
 🖼	nataal buñ kaadare	none
 🎨	boolu pentiirukaay	none
+🧵	woñ	none
 👓	linet	none
 🕶	nuwaarfime	none
 👔	karawaat	none
@@ -951,9 +953,9 @@ symbols:
 🎧	kasku misik	none
 📻	rajo	none
 🎷	saksofon	none
+🎺	trompet	none
 🎸	gitaar	none
 🎹	klawiyee misik	none
-🎺	trompet	none
 🎻	violon	none
 🥁	ndënd	none
 📱	telefon portaabal	none
@@ -1064,6 +1066,7 @@ symbols:
 🔑	caabi	none
 🗝	caabi ju yàgg	none
 🔨	marto	none
+🪓	séemeñ	none
 ⛏	pik	none
 ⚒	marto ak pik	none
 🛠	marto ak kle	none
@@ -1079,6 +1082,7 @@ symbols:
 ⚖	balaasu peesekaay	none
 🔗	lëkkalekaay	none
 ⛓	ceen	none
+🪝	lonka	none
 ⚗	alembik	none
 🔬	mikroskop	none
 🔭	teleskop	none
@@ -1086,11 +1090,20 @@ symbols:
 💉	pikiir	none
 💊	garab	none
 🚪	buntu	none
+🛗	asansëër	none
+🪞	seetu	none
+🪟	palanteer	none
 🛏	lal	none
 🛋	kanape and làmp	none
 🚽	wanag	none
 🚿	duus	none
 🛁	beñuwaar	none
+🪒	raasuwaar	none
+🧹	bale	none
+🧺	pañe	none
+🧼	saabu	none
+🫧	bax	none
+🪥	borosada	none
 🛒	puus-puusu bagaas	none
 🚬	sigaret	none
 ⚰	keesu-néew	none
@@ -1322,6 +1335,11 @@ symbols:
 👌🏽	laxo waaw-kay xeesaayu der bu yam	none
 👌🏾	laxo waaw-kay xeesaayu der bu xawa ñuul	none
 👌🏿	laxo waaw-kay xeesaayu der bu ñuul	none
+🤌🏻	dompat baaraam xeesaayu der bu woyof	none
+🤌🏼	dompat baaraam xeesaayu der bu xeereer	none
+🤌🏽	dompat baaraam xeesaayu der bu yam	none
+🤌🏾	dompat baaraam xeesaayu der bu xawa ñuul	none
+🤌🏿	dompat baaraam xeesaayu der bu ñuul	none
 ✌🏻	loxo ndam xeesaayu der bu woyof	none
 ✌🏼	loxo ndam xeesaayu der bu xeereer	none
 ✌🏽	loxo ndam xeesaayu der bu yam	none
@@ -1487,56 +1505,96 @@ symbols:
 👧🏽	xale bu jigéen xeesaayu der bu yam	none
 👧🏾	xale bu jigéen xeesaayu der bu xawa ñuul	none
 👧🏿	xale bu jigéen xeesaayu der bu ñuul	none
-🧑🏻	mag xeesaayu der bu woyof	none
-🧑🏼	mag xeesaayu der bu xeereer	none
-🧑🏽	mag xeesaayu der bu yam	none
-🧑🏾	mag xeesaayu der bu xawa ñuul	none
-🧑🏿	mag xeesaayu der bu ñuul	none
+🧑🏻	nit xeesaayu der bu woyof	none
+🧑🏼	nit xeesaayu der bu xeereer	none
+🧑🏽	nit xeesaayu der bu yam	none
+🧑🏾	nit xeesaayu der bu xawa ñuul	none
+🧑🏿	nit xeesaayu der bu ñuul	none
 👱🏻	nit ku karaw yu weex xeesaayu der bu woyof	none
 👱🏼	nit ku karaw yu weex xeesaayu der bu xeereer	none
 👱🏽	nit ku karaw yu weex xeesaayu der bu yam	none
 👱🏾	nit ku karaw yu weex xeesaayu der bu xawa ñuul	none
 👱🏿	nit ku karaw yu weex xeesaayu der bu ñuul	none
-🧑🏻‍❤‍💋‍🧑🏼	fóon mag, mag, xeesaayu der bu woyof, xeesaayu der bu xeereer	none
-🧑🏻‍❤‍💋‍🧑🏽	fóon mag, mag, xeesaayu der bu woyof, xeesaayu der bu yam	none
-🧑🏻‍❤‍💋‍🧑🏾	fóon mag, mag, xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
-🧑🏻‍❤‍💋‍🧑🏿	fóon mag, mag, xeesaayu der bu woyof, xeesaayu der bu ñuul	none
-🧑🏼‍❤‍💋‍🧑🏻	fóon mag, mag, xeesaayu der bu xeereer, xeesaayu der bu woyof	none
-🧑🏼‍❤‍💋‍🧑🏽	fóon mag, mag, xeesaayu der bu xeereer, xeesaayu der bu yam	none
-🧑🏼‍❤‍💋‍🧑🏾	fóon mag, mag, xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
-🧑🏼‍❤‍💋‍🧑🏿	fóon mag, mag, xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
-🧑🏽‍❤‍💋‍🧑🏻	fóon mag, mag, xeesaayu der bu yam, xeesaayu der bu woyof	none
-🧑🏽‍❤‍💋‍🧑🏼	fóon mag, mag, xeesaayu der bu yam, xeesaayu der bu xeereer	none
-🧑🏽‍❤‍💋‍🧑🏾	fóon mag, mag, xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
-🧑🏽‍❤‍💋‍🧑🏿	fóon mag, mag, xeesaayu der bu yam, xeesaayu der bu ñuul	none
-🧑🏾‍❤‍💋‍🧑🏻	fóon mag, mag, xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
-🧑🏾‍❤‍💋‍🧑🏼	fóon mag, mag, xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
-🧑🏾‍❤‍💋‍🧑🏽	fóon mag, mag, xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
-🧑🏾‍❤‍💋‍🧑🏿	fóon mag, mag, xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
-🧑🏿‍❤‍💋‍🧑🏻	fóon mag, mag, xeesaayu der bu ñuul, xeesaayu der bu woyof	none
-🧑🏿‍❤‍💋‍🧑🏼	fóon mag, mag, xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
-🧑🏿‍❤‍💋‍🧑🏽	fóon mag, mag, xeesaayu der bu ñuul, xeesaayu der bu yam	none
-🧑🏿‍❤‍💋‍🧑🏾	fóon mag, mag, xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
-🧑🏻‍❤‍🧑🏼	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu woyof, xeesaayu der bu xeereer	none
-🧑🏻‍❤‍🧑🏽	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu woyof, xeesaayu der bu yam	none
-🧑🏻‍❤‍🧑🏾	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
-🧑🏻‍❤‍🧑🏿	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu woyof, xeesaayu der bu ñuul	none
-🧑🏼‍❤‍🧑🏻	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu xeereer, xeesaayu der bu woyof	none
-🧑🏼‍❤‍🧑🏽	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu xeereer, xeesaayu der bu yam	none
-🧑🏼‍❤‍🧑🏾	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
-🧑🏼‍❤‍🧑🏿	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
-🧑🏽‍❤‍🧑🏻	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu yam, xeesaayu der bu woyof	none
-🧑🏽‍❤‍🧑🏼	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu yam, xeesaayu der bu xeereer	none
-🧑🏽‍❤‍🧑🏾	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
-🧑🏽‍❤‍🧑🏿	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu yam, xeesaayu der bu ñuul	none
-🧑🏾‍❤‍🧑🏻	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
-🧑🏾‍❤‍🧑🏼	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
-🧑🏾‍❤‍🧑🏽	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
-🧑🏾‍❤‍🧑🏿	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
-🧑🏿‍❤‍🧑🏻	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu ñuul, xeesaayu der bu woyof	none
-🧑🏿‍❤‍🧑🏼	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
-🧑🏿‍❤‍🧑🏽	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu ñuul, xeesaayu der bu yam	none
-🧑🏿‍❤‍🧑🏾	xol ak ñaar ñu bëggante mag, mag, xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
+🧑🏻‍❤‍💋‍🧑🏼	fóon nit, nit, xeesaayu der bu woyof, xeesaayu der bu xeereer	none
+🧑🏻‍❤‍💋‍🧑🏽	fóon nit, nit, xeesaayu der bu woyof, xeesaayu der bu yam	none
+🧑🏻‍❤‍💋‍🧑🏾	fóon nit, nit, xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
+🧑🏻‍❤‍💋‍🧑🏿	fóon nit, nit, xeesaayu der bu woyof, xeesaayu der bu ñuul	none
+🧑🏼‍❤‍💋‍🧑🏻	fóon nit, nit, xeesaayu der bu xeereer, xeesaayu der bu woyof	none
+🧑🏼‍❤‍💋‍🧑🏽	fóon nit, nit, xeesaayu der bu xeereer, xeesaayu der bu yam	none
+🧑🏼‍❤‍💋‍🧑🏾	fóon nit, nit, xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
+🧑🏼‍❤‍💋‍🧑🏿	fóon nit, nit, xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
+🧑🏽‍❤‍💋‍🧑🏻	fóon nit, nit, xeesaayu der bu yam, xeesaayu der bu woyof	none
+🧑🏽‍❤‍💋‍🧑🏼	fóon nit, nit, xeesaayu der bu yam, xeesaayu der bu xeereer	none
+🧑🏽‍❤‍💋‍🧑🏾	fóon nit, nit, xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
+🧑🏽‍❤‍💋‍🧑🏿	fóon nit, nit, xeesaayu der bu yam, xeesaayu der bu ñuul	none
+🧑🏾‍❤‍💋‍🧑🏻	fóon nit, nit, xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
+🧑🏾‍❤‍💋‍🧑🏼	fóon nit, nit, xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
+🧑🏾‍❤‍💋‍🧑🏽	fóon nit, nit, xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
+🧑🏾‍❤‍💋‍🧑🏿	fóon nit, nit, xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
+🧑🏿‍❤‍💋‍🧑🏻	fóon nit, nit, xeesaayu der bu ñuul, xeesaayu der bu woyof	none
+🧑🏿‍❤‍💋‍🧑🏼	fóon nit, nit, xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
+🧑🏿‍❤‍💋‍🧑🏽	fóon nit, nit, xeesaayu der bu ñuul, xeesaayu der bu yam	none
+🧑🏿‍❤‍💋‍🧑🏾	fóon nit, nit, xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
+🧑🏻‍❤‍🧑🏼	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu woyof, xeesaayu der bu xeereer	none
+🧑🏻‍❤‍🧑🏽	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu woyof, xeesaayu der bu yam	none
+🧑🏻‍❤‍🧑🏾	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
+🧑🏻‍❤‍🧑🏿	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu woyof, xeesaayu der bu ñuul	none
+🧑🏼‍❤‍🧑🏻	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu xeereer, xeesaayu der bu woyof	none
+🧑🏼‍❤‍🧑🏽	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu xeereer, xeesaayu der bu yam	none
+🧑🏼‍❤‍🧑🏾	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
+🧑🏼‍❤‍🧑🏿	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
+🧑🏽‍❤‍🧑🏻	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu yam, xeesaayu der bu woyof	none
+🧑🏽‍❤‍🧑🏼	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu yam, xeesaayu der bu xeereer	none
+🧑🏽‍❤‍🧑🏾	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
+🧑🏽‍❤‍🧑🏿	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu yam, xeesaayu der bu ñuul	none
+🧑🏾‍❤‍🧑🏻	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
+🧑🏾‍❤‍🧑🏼	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
+🧑🏾‍❤‍🧑🏽	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
+🧑🏾‍❤‍🧑🏿	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
+🧑🏿‍❤‍🧑🏻	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu ñuul, xeesaayu der bu woyof	none
+🧑🏿‍❤‍🧑🏼	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
+🧑🏿‍❤‍🧑🏽	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu ñuul, xeesaayu der bu yam	none
+🧑🏿‍❤‍🧑🏾	xol ak ñaar ñu bëggante nit, nit, xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
+🧑🏻‍🫯‍🧑🏼	nit ñuy bëre xeesaayu der bu woyof, xeesaayu der bu xeereer	none
+🧑🏻‍🫯‍🧑🏽	nit ñuy bëre xeesaayu der bu woyof, xeesaayu der bu yam	none
+🧑🏻‍🫯‍🧑🏾	nit ñuy bëre xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
+🧑🏻‍🫯‍🧑🏿	nit ñuy bëre xeesaayu der bu woyof, xeesaayu der bu ñuul	none
+🧑🏼‍🫯‍🧑🏻	nit ñuy bëre xeesaayu der bu xeereer, xeesaayu der bu woyof	none
+🧑🏼‍🫯‍🧑🏽	nit ñuy bëre xeesaayu der bu xeereer, xeesaayu der bu yam	none
+🧑🏼‍🫯‍🧑🏾	nit ñuy bëre xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
+🧑🏼‍🫯‍🧑🏿	nit ñuy bëre xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
+🧑🏽‍🫯‍🧑🏻	nit ñuy bëre xeesaayu der bu yam, xeesaayu der bu woyof	none
+🧑🏽‍🫯‍🧑🏼	nit ñuy bëre xeesaayu der bu yam, xeesaayu der bu xeereer	none
+🧑🏽‍🫯‍🧑🏾	nit ñuy bëre xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
+🧑🏽‍🫯‍🧑🏿	nit ñuy bëre xeesaayu der bu yam, xeesaayu der bu ñuul	none
+🧑🏾‍🫯‍🧑🏻	nit ñuy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
+🧑🏾‍🫯‍🧑🏼	nit ñuy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
+🧑🏾‍🫯‍🧑🏽	nit ñuy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
+🧑🏾‍🫯‍🧑🏿	nit ñuy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
+🧑🏿‍🫯‍🧑🏻	nit ñuy bëre xeesaayu der bu ñuul, xeesaayu der bu woyof	none
+🧑🏿‍🫯‍🧑🏼	nit ñuy bëre xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
+🧑🏿‍🫯‍🧑🏽	nit ñuy bëre xeesaayu der bu ñuul, xeesaayu der bu yam	none
+🧑🏿‍🫯‍🧑🏾	nit ñuy bëre xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
+🧑🏻‍🐰‍🧑🏼	nit ñuy fecc, ak noppi lëk xeesaayu der bu woyof, xeesaayu der bu xeereer	none
+🧑🏻‍🐰‍🧑🏽	nit ñuy fecc, ak noppi lëk xeesaayu der bu woyof, xeesaayu der bu yam	none
+🧑🏻‍🐰‍🧑🏾	nit ñuy fecc, ak noppi lëk xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
+🧑🏻‍🐰‍🧑🏿	nit ñuy fecc, ak noppi lëk xeesaayu der bu woyof, xeesaayu der bu ñuul	none
+🧑🏼‍🐰‍🧑🏻	nit ñuy fecc, ak noppi lëk xeesaayu der bu xeereer, xeesaayu der bu woyof	none
+🧑🏼‍🐰‍🧑🏽	nit ñuy fecc, ak noppi lëk xeesaayu der bu xeereer, xeesaayu der bu yam	none
+🧑🏼‍🐰‍🧑🏾	nit ñuy fecc, ak noppi lëk xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
+🧑🏼‍🐰‍🧑🏿	nit ñuy fecc, ak noppi lëk xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
+🧑🏽‍🐰‍🧑🏻	nit ñuy fecc, ak noppi lëk xeesaayu der bu yam, xeesaayu der bu woyof	none
+🧑🏽‍🐰‍🧑🏼	nit ñuy fecc, ak noppi lëk xeesaayu der bu yam, xeesaayu der bu xeereer	none
+🧑🏽‍🐰‍🧑🏾	nit ñuy fecc, ak noppi lëk xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
+🧑🏽‍🐰‍🧑🏿	nit ñuy fecc, ak noppi lëk xeesaayu der bu yam, xeesaayu der bu ñuul	none
+🧑🏾‍🐰‍🧑🏻	nit ñuy fecc, ak noppi lëk xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
+🧑🏾‍🐰‍🧑🏼	nit ñuy fecc, ak noppi lëk xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
+🧑🏾‍🐰‍🧑🏽	nit ñuy fecc, ak noppi lëk xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
+🧑🏾‍🐰‍🧑🏿	nit ñuy fecc, ak noppi lëk xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
+🧑🏿‍🐰‍🧑🏻	nit ñuy fecc, ak noppi lëk xeesaayu der bu ñuul, xeesaayu der bu woyof	none
+🧑🏿‍🐰‍🧑🏼	nit ñuy fecc, ak noppi lëk xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
+🧑🏿‍🐰‍🧑🏽	nit ñuy fecc, ak noppi lëk xeesaayu der bu ñuul, xeesaayu der bu yam	none
+🧑🏿‍🐰‍🧑🏾	nit ñuy fecc, ak noppi lëk xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
 👨🏻	góor xeesaayu der bu woyof	none
 👨🏼	góor xeesaayu der bu xeereer	none
 👨🏽	góor xeesaayu der bu yam	none
@@ -1602,6 +1660,46 @@ symbols:
 👨🏿‍❤‍👨🏽	xol ak ñaar ñu bëggante góor, góor, xeesaayu der bu ñuul, xeesaayu der bu yam	none
 👨🏿‍❤‍👨🏾	xol ak ñaar ñu bëggante góor, góor, xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
 👨🏿‍❤‍👨🏿	xol ak ñaar ñu bëggante góor, góor, xeesaayu der bu ñuul	none
+👨🏻‍🫯‍👨🏼	góor guy bëre xeesaayu der bu woyof, xeesaayu der bu xeereer	none
+👨🏻‍🫯‍👨🏽	góor guy bëre xeesaayu der bu woyof, xeesaayu der bu yam	none
+👨🏻‍🫯‍👨🏾	góor guy bëre xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
+👨🏻‍🫯‍👨🏿	góor guy bëre xeesaayu der bu woyof, xeesaayu der bu ñuul	none
+👨🏼‍🫯‍👨🏻	góor guy bëre xeesaayu der bu xeereer, xeesaayu der bu woyof	none
+👨🏼‍🫯‍👨🏽	góor guy bëre xeesaayu der bu xeereer, xeesaayu der bu yam	none
+👨🏼‍🫯‍👨🏾	góor guy bëre xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
+👨🏼‍🫯‍👨🏿	góor guy bëre xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
+👨🏽‍🫯‍👨🏻	góor guy bëre xeesaayu der bu yam, xeesaayu der bu woyof	none
+👨🏽‍🫯‍👨🏼	góor guy bëre xeesaayu der bu yam, xeesaayu der bu xeereer	none
+👨🏽‍🫯‍👨🏾	góor guy bëre xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
+👨🏽‍🫯‍👨🏿	góor guy bëre xeesaayu der bu yam, xeesaayu der bu ñuul	none
+👨🏾‍🫯‍👨🏻	góor guy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
+👨🏾‍🫯‍👨🏼	góor guy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
+👨🏾‍🫯‍👨🏽	góor guy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
+👨🏾‍🫯‍👨🏿	góor guy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
+👨🏿‍🫯‍👨🏻	góor guy bëre xeesaayu der bu ñuul, xeesaayu der bu woyof	none
+👨🏿‍🫯‍👨🏼	góor guy bëre xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
+👨🏿‍🫯‍👨🏽	góor guy bëre xeesaayu der bu ñuul, xeesaayu der bu yam	none
+👨🏿‍🫯‍👨🏾	góor guy bëre xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
+👨🏻‍🐰‍👨🏼	góorak noppi lëks suwaare xeesaayu der bu woyof, xeesaayu der bu xeereer	none
+👨🏻‍🐰‍👨🏽	góorak noppi lëks suwaare xeesaayu der bu woyof, xeesaayu der bu yam	none
+👨🏻‍🐰‍👨🏾	góorak noppi lëks suwaare xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
+👨🏻‍🐰‍👨🏿	góorak noppi lëks suwaare xeesaayu der bu woyof, xeesaayu der bu ñuul	none
+👨🏼‍🐰‍👨🏻	góorak noppi lëks suwaare xeesaayu der bu xeereer, xeesaayu der bu woyof	none
+👨🏼‍🐰‍👨🏽	góorak noppi lëks suwaare xeesaayu der bu xeereer, xeesaayu der bu yam	none
+👨🏼‍🐰‍👨🏾	góorak noppi lëks suwaare xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
+👨🏼‍🐰‍👨🏿	góorak noppi lëks suwaare xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
+👨🏽‍🐰‍👨🏻	góorak noppi lëks suwaare xeesaayu der bu yam, xeesaayu der bu woyof	none
+👨🏽‍🐰‍👨🏼	góorak noppi lëks suwaare xeesaayu der bu yam, xeesaayu der bu xeereer	none
+👨🏽‍🐰‍👨🏾	góorak noppi lëks suwaare xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
+👨🏽‍🐰‍👨🏿	góorak noppi lëks suwaare xeesaayu der bu yam, xeesaayu der bu ñuul	none
+👨🏾‍🐰‍👨🏻	góorak noppi lëks suwaare xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
+👨🏾‍🐰‍👨🏼	góorak noppi lëks suwaare xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
+👨🏾‍🐰‍👨🏽	góorak noppi lëks suwaare xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
+👨🏾‍🐰‍👨🏿	góorak noppi lëks suwaare xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
+👨🏿‍🐰‍👨🏻	góorak noppi lëks suwaare xeesaayu der bu ñuul, xeesaayu der bu woyof	none
+👨🏿‍🐰‍👨🏼	góorak noppi lëks suwaare xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
+👨🏿‍🐰‍👨🏽	góorak noppi lëks suwaare xeesaayu der bu ñuul, xeesaayu der bu yam	none
+👨🏿‍🐰‍👨🏾	góorak noppi lëks suwaare xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
 👩🏻	jigéen xeesaayu der bu woyof	none
 👩🏼	jigéen xeesaayu der bu xeereer	none
 👩🏽	jigéen xeesaayu der bu yam	none
@@ -1712,6 +1810,46 @@ symbols:
 👩🏿‍❤‍👩🏽	xol ak ñaar ñu bëggante jigéen, jigéen, xeesaayu der bu ñuul, xeesaayu der bu yam	none
 👩🏿‍❤‍👩🏾	xol ak ñaar ñu bëggante jigéen, jigéen, xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
 👩🏿‍❤‍👩🏿	xol ak ñaar ñu bëggante jigéen, jigéen, xeesaayu der bu ñuul	none
+👩🏻‍🫯‍👩🏼	jigéen juy bëre xeesaayu der bu woyof, xeesaayu der bu xeereer	none
+👩🏻‍🫯‍👩🏽	jigéen juy bëre xeesaayu der bu woyof, xeesaayu der bu yam	none
+👩🏻‍🫯‍👩🏾	jigéen juy bëre xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
+👩🏻‍🫯‍👩🏿	jigéen juy bëre xeesaayu der bu woyof, xeesaayu der bu ñuul	none
+👩🏼‍🫯‍👩🏻	jigéen juy bëre xeesaayu der bu xeereer, xeesaayu der bu woyof	none
+👩🏼‍🫯‍👩🏽	jigéen juy bëre xeesaayu der bu xeereer, xeesaayu der bu yam	none
+👩🏼‍🫯‍👩🏾	jigéen juy bëre xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
+👩🏼‍🫯‍👩🏿	jigéen juy bëre xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
+👩🏽‍🫯‍👩🏻	jigéen juy bëre xeesaayu der bu yam, xeesaayu der bu woyof	none
+👩🏽‍🫯‍👩🏼	jigéen juy bëre xeesaayu der bu yam, xeesaayu der bu xeereer	none
+👩🏽‍🫯‍👩🏾	jigéen juy bëre xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
+👩🏽‍🫯‍👩🏿	jigéen juy bëre xeesaayu der bu yam, xeesaayu der bu ñuul	none
+👩🏾‍🫯‍👩🏻	jigéen juy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
+👩🏾‍🫯‍👩🏼	jigéen juy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
+👩🏾‍🫯‍👩🏽	jigéen juy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
+👩🏾‍🫯‍👩🏿	jigéen juy bëre xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
+👩🏿‍🫯‍👩🏻	jigéen juy bëre xeesaayu der bu ñuul, xeesaayu der bu woyof	none
+👩🏿‍🫯‍👩🏼	jigéen juy bëre xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
+👩🏿‍🫯‍👩🏽	jigéen juy bëre xeesaayu der bu ñuul, xeesaayu der bu yam	none
+👩🏿‍🫯‍👩🏾	jigéen juy bëre xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
+👩🏻‍🐰‍👩🏼	jigéen ak noppi lëks suwaare xeesaayu der bu woyof, xeesaayu der bu xeereer	none
+👩🏻‍🐰‍👩🏽	jigéen ak noppi lëks suwaare xeesaayu der bu woyof, xeesaayu der bu yam	none
+👩🏻‍🐰‍👩🏾	jigéen ak noppi lëks suwaare xeesaayu der bu woyof, xeesaayu der bu xawa ñuul	none
+👩🏻‍🐰‍👩🏿	jigéen ak noppi lëks suwaare xeesaayu der bu woyof, xeesaayu der bu ñuul	none
+👩🏼‍🐰‍👩🏻	jigéen ak noppi lëks suwaare xeesaayu der bu xeereer, xeesaayu der bu woyof	none
+👩🏼‍🐰‍👩🏽	jigéen ak noppi lëks suwaare xeesaayu der bu xeereer, xeesaayu der bu yam	none
+👩🏼‍🐰‍👩🏾	jigéen ak noppi lëks suwaare xeesaayu der bu xeereer, xeesaayu der bu xawa ñuul	none
+👩🏼‍🐰‍👩🏿	jigéen ak noppi lëks suwaare xeesaayu der bu xeereer, xeesaayu der bu ñuul	none
+👩🏽‍🐰‍👩🏻	jigéen ak noppi lëks suwaare xeesaayu der bu yam, xeesaayu der bu woyof	none
+👩🏽‍🐰‍👩🏼	jigéen ak noppi lëks suwaare xeesaayu der bu yam, xeesaayu der bu xeereer	none
+👩🏽‍🐰‍👩🏾	jigéen ak noppi lëks suwaare xeesaayu der bu yam, xeesaayu der bu xawa ñuul	none
+👩🏽‍🐰‍👩🏿	jigéen ak noppi lëks suwaare xeesaayu der bu yam, xeesaayu der bu ñuul	none
+👩🏾‍🐰‍👩🏻	jigéen ak noppi lëks suwaare xeesaayu der bu xawa ñuul, xeesaayu der bu woyof	none
+👩🏾‍🐰‍👩🏼	jigéen ak noppi lëks suwaare xeesaayu der bu xawa ñuul, xeesaayu der bu xeereer	none
+👩🏾‍🐰‍👩🏽	jigéen ak noppi lëks suwaare xeesaayu der bu xawa ñuul, xeesaayu der bu yam	none
+👩🏾‍🐰‍👩🏿	jigéen ak noppi lëks suwaare xeesaayu der bu xawa ñuul, xeesaayu der bu ñuul	none
+👩🏿‍🐰‍👩🏻	jigéen ak noppi lëks suwaare xeesaayu der bu ñuul, xeesaayu der bu woyof	none
+👩🏿‍🐰‍👩🏼	jigéen ak noppi lëks suwaare xeesaayu der bu ñuul, xeesaayu der bu xeereer	none
+👩🏿‍🐰‍👩🏽	jigéen ak noppi lëks suwaare xeesaayu der bu ñuul, xeesaayu der bu yam	none
+👩🏿‍🐰‍👩🏾	jigéen ak noppi lëks suwaare xeesaayu der bu ñuul, xeesaayu der bu xawa ñuul	none
 🧓🏻	mag mu gën a màgget xeesaayu der bu woyof	none
 🧓🏼	mag mu gën a màgget xeesaayu der bu xeereer	none
 🧓🏽	mag mu gën a màgget xeesaayu der bu yam	none
@@ -2302,6 +2440,21 @@ symbols:
 🕴🏽	góor ci bisnes kostim lewitasiyoŋ xeesaayu der bu yam	none
 🕴🏾	góor ci bisnes kostim lewitasiyoŋ xeesaayu der bu xawa ñuul	none
 🕴🏿	góor ci bisnes kostim lewitasiyoŋ xeesaayu der bu ñuul	none
+👯🏻	nit ñuy fecc, ak noppi lëk xeesaayu der bu woyof	none
+👯🏼	nit ñuy fecc, ak noppi lëk xeesaayu der bu xeereer	none
+👯🏽	nit ñuy fecc, ak noppi lëk xeesaayu der bu yam	none
+👯🏾	nit ñuy fecc, ak noppi lëk xeesaayu der bu xawa ñuul	none
+👯🏿	nit ñuy fecc, ak noppi lëk xeesaayu der bu ñuul	none
+👯🏻‍♂	góorak noppi lëks suwaare xeesaayu der bu woyof	none
+👯🏼‍♂	góorak noppi lëks suwaare xeesaayu der bu xeereer	none
+👯🏽‍♂	góorak noppi lëks suwaare xeesaayu der bu yam	none
+👯🏾‍♂	góorak noppi lëks suwaare xeesaayu der bu xawa ñuul	none
+👯🏿‍♂	góorak noppi lëks suwaare xeesaayu der bu ñuul	none
+👯🏻‍♀	jigéen ak noppi lëks suwaare xeesaayu der bu woyof	none
+👯🏼‍♀	jigéen ak noppi lëks suwaare xeesaayu der bu xeereer	none
+👯🏽‍♀	jigéen ak noppi lëks suwaare xeesaayu der bu yam	none
+👯🏾‍♀	jigéen ak noppi lëks suwaare xeesaayu der bu xawa ñuul	none
+👯🏿‍♀	jigéen ak noppi lëks suwaare xeesaayu der bu ñuul	none
 🧖🏻	nit ci néegu wapër xeesaayu der bu woyof	none
 🧖🏼	nit ci néegu wapër xeesaayu der bu xeereer	none
 🧖🏽	nit ci néegu wapër xeesaayu der bu yam	none
@@ -2477,6 +2630,21 @@ symbols:
 🤸🏽‍♀	jigéen juy pëno-sareet xeesaayu der bu yam	none
 🤸🏾‍♀	jigéen juy pëno-sareet xeesaayu der bu xawa ñuul	none
 🤸🏿‍♀	jigéen juy pëno-sareet xeesaayu der bu ñuul	none
+🤼🏻	nit ñuy bëre xeesaayu der bu woyof	none
+🤼🏼	nit ñuy bëre xeesaayu der bu xeereer	none
+🤼🏽	nit ñuy bëre xeesaayu der bu yam	none
+🤼🏾	nit ñuy bëre xeesaayu der bu xawa ñuul	none
+🤼🏿	nit ñuy bëre xeesaayu der bu ñuul	none
+🤼🏻‍♂	góor guy bëre xeesaayu der bu woyof	none
+🤼🏼‍♂	góor guy bëre xeesaayu der bu xeereer	none
+🤼🏽‍♂	góor guy bëre xeesaayu der bu yam	none
+🤼🏾‍♂	góor guy bëre xeesaayu der bu xawa ñuul	none
+🤼🏿‍♂	góor guy bëre xeesaayu der bu ñuul	none
+🤼🏻‍♀	jigéen juy bëre xeesaayu der bu woyof	none
+🤼🏼‍♀	jigéen juy bëre xeesaayu der bu xeereer	none
+🤼🏽‍♀	jigéen juy bëre xeesaayu der bu yam	none
+🤼🏾‍♀	jigéen juy bëre xeesaayu der bu xawa ñuul	none
+🤼🏿‍♀	jigéen juy bëre xeesaayu der bu ñuul	none
 🤽🏻	nit kuy polo ci ndox xeesaayu der bu woyof	none
 🤽🏼	nit kuy polo ci ndox xeesaayu der bu xeereer	none
 🤽🏽	nit kuy polo ci ndox xeesaayu der bu yam	none
@@ -2663,3 +2831,16 @@ symbols:
 👩‍👧	bokk famiy jigéen, xale bu jigéen	none
 👩‍👧‍👦	bokk famiy jigéen, xale bu jigéen, xale bu góor	none
 👩‍👧‍👧	bokk famiy jigéen, xale bu jigéen, xale bu jigéen	none
+₡	Costa Rican Colón	none
+₦	Nigerian Naira	none
+₪	Israeli New Shekel	none
+₫	Vietnamese Dong	none
+₭	Laotian Kip	none
+₮	Mongolian Tugrik	none
+₲	Paraguayan Guaranis	none
+₴	UAHS	none
+₵	Ghanaian Cedi	none
+₸	Kazakhstani Tenge	none
+₺	Turkish Lira	none
+₼	Azerbaijani Manat	none
+₾	Georgian Lari	none
