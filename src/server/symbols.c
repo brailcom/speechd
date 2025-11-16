@@ -131,6 +131,8 @@ typedef struct {
 	gint ntags; /* number of elements in tags array */
 
 	GRegex *regex; /* compiled regular expression for parsing input */
+	GRegex **multi_chars_regex; /* array of compiled regular expression for simple multi-char symbols */
+	gint nmulti_chars_regex; /* number of elements in multi_chars_regex */
 	/* Table of identifier(string):symbol(SpeechSymbol).
 	 * Indexes are pointers to symbol->identifier. */
 	GHashTable *symbols;
@@ -771,8 +773,12 @@ static gint list_sort_string_longest_first(gconstpointer a, gconstpointer b)
 
 static void speech_symbols_processor_free(SpeechSymbolProcessor *ssp)
 {
+	gint i;
 	if (ssp->regex)
 		g_regex_unref(ssp->regex);
+	for (i = 0; i < ssp->nmulti_chars_regex; i++)
+		g_regex_unref(ssp->multi_chars_regex[i]);
+	g_free(ssp->multi_chars_regex);
 	g_slist_free(ssp->complex_list);
 	if (ssp->symbols)
 		g_hash_table_unref(ssp->symbols);
@@ -798,7 +804,6 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 	GString *characters;
 	GSList *multi_chars_list = NULL;
 	gchar *escaped;
-	GString *escaped_multi;
 	GString *pattern;
 	GError *error = NULL;
 	GSList *sources = NULL;
@@ -814,6 +819,9 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 		sources = g_slist_append(sources, ssbase);
 
 	ssp = g_malloc(sizeof *ssp);
+	ssp->multi_chars_regex = NULL;
+	ssp->nmulti_chars_regex = 0;
+
 	ssp->source = g_strdup(syms->source);
 	/* The computed symbol information from all sources. */
 	ssp->symbols = g_hash_table_new_full(g_str_hash, g_str_equal,
@@ -954,29 +962,13 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 		g_string_append_c(pattern, '|');
 		g_string_append_printf(pattern, "(?P<c%u>%s)", i, sym->pattern);
 	}
-	/* Simple symbols.
-	 * These are all handled in one named group.
-	 * Because the symbols are just text, we know which symbol matched just by looking at the matched text. */
-	escaped_multi = g_string_new(NULL);
-	for (node = multi_chars_list; node; node = node->next) {
-		escaped = g_regex_escape_string(node->data, -1);
-		if (escaped_multi->len > 0)
-			g_string_append_c(escaped_multi, '|');
-		g_string_append(escaped_multi, escaped);
-		g_free(escaped);
-	}
-	if (escaped_multi->len || characters->len) {
+	if (characters->len) {
 		g_string_append_c(pattern, '|');
 		g_string_append_printf(pattern, "(?P<simple>");
-		if (escaped_multi->len)
-			g_string_append_printf(pattern, "%s", escaped_multi->str);
-		if (escaped_multi->len && characters->len)
-			g_string_append_printf(pattern, "|");
-		if (characters->len)
-			g_string_append_printf(pattern, "%s", characters->str);
+		g_string_append_printf(pattern, "%s", characters->str);
 		g_string_append_printf(pattern, ")");
 	}
-	g_string_free(escaped_multi, TRUE);
+	g_string_free(characters, TRUE);
 
 	MSG2(5, "symbols", "building regex: %s", pattern->str);
 	ssp->regex = g_regex_new(pattern->str, G_REGEX_OPTIMIZE, 0, &error);
@@ -989,11 +981,57 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 		g_error_free(error);
 		speech_symbols_processor_free(ssp);
 		ssp = NULL;
+		goto out;
 	}
 
-	g_string_free(pattern, TRUE);
-	g_string_free(characters, TRUE);
+	g_string_truncate(pattern, 0);
+
+	gint nsymbols = 0;
+
+	/* Simple symbols.
+	 * These are all handled in one named group, but possibly in several regexps to avoid the limitations of pcre.
+	 * Because the symbols are just text, we know which symbol matched just by looking at the matched text. */
+	for (node = multi_chars_list; node; node = node->next) {
+		if (!nsymbols)
+			g_string_append_printf(pattern, "(?P<simple>");
+		else
+			g_string_append_c(pattern, '|');
+		escaped = g_regex_escape_string(node->data, -1);
+		g_string_append(pattern, escaped);
+		g_free(escaped);
+		nsymbols++;
+
+		if (nsymbols == 1000 || !node->next) {
+			/* Already large pattern, or end of list, flush pattern */
+			g_string_append_printf(pattern, ")");
+
+			MSG2(5, "symbols", "building regex: %s", pattern->str);
+			GRegex *regex = g_regex_new(pattern->str, G_REGEX_OPTIMIZE, 0, &error);
+			if (!regex) {
+				/* if regex compilation failed, bail out */
+				MSG2(1, "symbols", "ERROR compiling regular expression: %s. "
+						   "This is likely due to an invalid complex "
+						   "symbol regular expression in locale %s.",
+						   error->message, locale);
+				g_error_free(error);
+				speech_symbols_processor_free(ssp);
+				ssp = NULL;
+				goto out;
+			}
+
+			ssp->nmulti_chars_regex++;
+			ssp->multi_chars_regex = g_realloc(ssp->multi_chars_regex, ssp->nmulti_chars_regex * sizeof(ssp->multi_chars_regex[0]));
+			ssp->multi_chars_regex[ssp->nmulti_chars_regex-1] = regex;
+
+			g_string_truncate(pattern, 0);
+			nsymbols = 0;
+		}
+	}
+
+out:
 	g_slist_free(multi_chars_list);
+
+	g_string_free(pattern, TRUE);
 	g_slist_free(sources);
 
 	return ssp;
@@ -1327,6 +1365,7 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 
 		ssp->level = level;
 		ssp->support_level = support_level;
+		MSG2(5, "symbols", "translating complex symbols and characters");
 		processed = g_regex_replace_eval(ssp->regex, text, -1, 0, 0, regex_eval, ssp, &error);
 		if (!processed) {
 			MSG2(1, "symbols", "ERROR applying regex: %s", error->message);
@@ -1335,6 +1374,20 @@ static gchar *speech_symbols_processor_process_text(GSList *sspl, const gchar *i
 			MSG2(5, "symbols", "'%s' translated '%s' to '%s'", ssp->source, text, processed);
 			g_free(text);
 			text = processed;
+
+			gint i;
+			for (i = 0; i < ssp->nmulti_chars_regex; i++) {
+				MSG2(5, "symbols", "translating multi-characters step %d", i);
+				processed = g_regex_replace_eval(ssp->multi_chars_regex[i], text, -1, 0, 0, regex_eval, ssp, &error);
+				if (!processed) {
+					MSG2(1, "symbols", "ERROR applying regex: %s", error->message);
+					g_error_free(error);
+				} else {
+					MSG2(5, "symbols", "'%s' translated '%s' to '%s'", ssp->source, text, processed);
+					g_free(text);
+					text = processed;
+				}
+			}
 
 			if (ssml_mode == SPD_DATA_SSML) {
 				/* This accumulates the shifts of all previous replacements */
