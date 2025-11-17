@@ -804,6 +804,7 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 	GString *characters;
 	GSList *multi_chars_list = NULL;
 	gchar *escaped;
+	GString *escaped_multi;
 	GString *pattern;
 	GError *error = NULL;
 	GSList *sources = NULL;
@@ -962,12 +963,33 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 		g_string_append_c(pattern, '|');
 		g_string_append_printf(pattern, "(?P<c%u>%s)", i, sym->pattern);
 	}
-	if (characters->len) {
+
+	/* Simple symbols.
+	 * These are all handled in one named group.
+	 * Because the symbols are just text, we know which symbol matched just by looking at the matched text. */
+	escaped_multi = g_string_new(NULL);
+	if (ssp->complex_list)
+	/* We have some complex symbols. Keep the multi-characters rules along it */
+	for (node = multi_chars_list; node; node = node->next) {
+		escaped = g_regex_escape_string(node->data, -1);
+		if (escaped_multi->len > 0)
+			g_string_append_c(escaped_multi, '|');
+		g_string_append(escaped_multi, escaped);
+		g_free(escaped);
+	}
+
+	if ((escaped_multi->len && ssp->complex_list) || characters->len) {
 		g_string_append_c(pattern, '|');
 		g_string_append_printf(pattern, "(?P<simple>");
-		g_string_append_printf(pattern, "%s", characters->str);
+		if (escaped_multi->len && ssp->complex_list)
+			g_string_append_printf(pattern, "%s", escaped_multi->str);
+		if (escaped_multi->len && ssp->complex_list && characters->len)
+			g_string_append_printf(pattern, "|");
+		if (characters->len)
+			g_string_append_printf(pattern, "%s", characters->str);
 		g_string_append_printf(pattern, ")");
 	}
+	g_string_free(escaped_multi, TRUE);
 	g_string_free(characters, TRUE);
 
 	MSG2(5, "symbols", "building regex: %s", pattern->str);
@@ -988,9 +1010,12 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 
 	gint nsymbols = 0;
 
-	/* Simple symbols.
-	 * These are all handled in one named group, but possibly in several regexps to avoid the limitations of pcre.
-	 * Because the symbols are just text, we know which symbol matched just by looking at the matched text. */
+	/* Simple symbols. */
+	if (!ssp->complex_list)
+	/* We have no complex symbols. We can handle them in one named group,
+	 * but possibly in several regexps to avoid the limitations of pcre.
+	 * Because the symbols are just text, we know which symbol matched
+	 * just by looking at the matched text. */
 	for (node = multi_chars_list; node; node = node->next) {
 		if (!nsymbols)
 			g_string_append_printf(pattern, "(?P<simple>");
