@@ -1319,9 +1319,11 @@ int main(int argc, char *argv[])
 					    "unix_socket")) {
 					/* Check socket name */
 					if (spawn_socket_path)
-						if (strcmp
-						    (spawn_socket_path,
-						     SpeechdOptions.socket_path))
+					{
+						char *spawn_socket_path_norm = realpath(spawn_socket_path, NULL);
+						char *opts_socket_path_norm = realpath(SpeechdOptions.socket_path, NULL);
+						if (spawn_socket_path_norm && opts_socket_path_norm
+						    && strcmp(spawn_socket_path_norm, opts_socket_path_norm))
 						{
 							MSG(-1,
 							    "Autospawn failed: Mismatch in socket names. The server "
@@ -1333,6 +1335,9 @@ int main(int argc, char *argv[])
 							    spawn_socket_path);
 							exit(1);
 						}
+						free(spawn_socket_path_norm);
+						free(opts_socket_path_norm);
+					}
 				} else
 					assert(0);
 			}
