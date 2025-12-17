@@ -793,7 +793,7 @@ static void speech_symbols_processor_list_free(GSList *sspl)
 
 /* Loads and compiles speech symbols conversions for @p locale.
  * Returns a SpeechSymbolProcessor*, or NULL on error */
-static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, SpeechSymbols *syms)
+static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, SpeechSymbols *syms, const char *file)
 {
 	SpeechSymbolProcessor *ssp = NULL;
 	SpeechSymbols *ssbase;
@@ -811,14 +811,16 @@ static SpeechSymbolProcessor *speech_symbols_processor_new(const char *locale, S
 	int has_rbracket = 0;
 	int has_circum = 0;
 
-	sources = g_slist_append(sources, syms);
+	if (syms)
+		sources = g_slist_append(sources, syms);
 	/* Always use the base. */
-	ssbase = get_locale_speech_symbols("base", syms->source);
+	ssbase = get_locale_speech_symbols("base", file);
 	if (ssbase)
 		sources = g_slist_append(sources, ssbase);
 
 	ssp = g_malloc(sizeof *ssp);
-	ssp->source = g_strdup(syms->source);
+	ssp->source = g_strdup(file);
+
 	/* The computed symbol information from all sources. */
 	ssp->symbols = g_hash_table_new_full(g_str_hash, g_str_equal,
 					     g_free,
@@ -1027,13 +1029,20 @@ static gpointer speech_symbols_processor_list_new(const char *locale, const char
 	for (node = symbols_files; node; node = node->next) {
 		MSG2(2, "symbols", "Loading '%s'", (char*) node->data);
 		ss = get_locale_speech_symbols(locale, node->data);
-		if (!ss) {
-			MSG2(1, "symbols", "Failed to load symbols '%s' for locale '%s'",
-					   (char*) node->data, locale);
-		} else {
-			ssp = speech_symbols_processor_new(locale, ss);
+		if (ss) {
+			ssp = speech_symbols_processor_new(locale, ss, (char*) node->data);
 			if (ssp)
 				sspl = g_slist_prepend(sspl, ssp);
+		} else {
+			ss = get_locale_speech_symbols("base", node->data);
+			if (ss) {
+				/* Let speech_symbols_processor_new include only "base" */
+				ssp = speech_symbols_processor_new(locale, NULL, (char*) node->data);
+				if (ssp)
+					sspl = g_slist_prepend(sspl, ssp);
+			} else
+				MSG2(1, "symbols", "Failed to load symbols '%s' for locale '%s'",
+						   (char*) node->data, locale);
 		}
 	}
 
