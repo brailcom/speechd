@@ -660,7 +660,11 @@ static int speech_symbols_load(SpeechSymbols *ss, const char *filename, gboolean
 
 	fp = fopen(filename, "r");
 	if (!fp) {
-		MSG2(1, "symbols", "Failed to open file '%s': %s", filename, g_strerror(errno));
+		int level = 5; /* Common case, avoid shouting */
+		if (errno != ENOENT)
+			/* Odd error, shout */
+			level = 1;
+		MSG2(level, "symbols", "Failed to open file '%s': %s", filename, g_strerror(errno));
 		return -1;
 	}
 
@@ -1008,9 +1012,20 @@ static gpointer speech_symbols_processor_list_new(const char *locale, const char
 	GSList *sspl = NULL;
 	GSList *node;
 
-	/* TODO: load user custom symbols? */
+	gchar **parts = g_strsplit_set(locale, "_-", 2);
+	MSG2(2, "symbols", "Loading symbols for locale '%s', will try:", locale);
+	MSG2(2, "symbols", "%s/locale/%s", SpeechdOptions.user_conf_dir, locale);
+	MSG2(2, "symbols", "%s/locale", SpeechdOptions.user_conf_dir);
+	MSG2(2, "symbols", LOCALE_DATA "/%s", locale);
+	MSG2(2, "symbols", "%s/locale/%s", SpeechdOptions.user_conf_dir, parts[0]);
+	MSG2(2, "symbols", LOCALE_DATA "/%s", parts[0]);
+	MSG2(2, "symbols", "and also as base:");
+	MSG2(2, "symbols", "%s/locale/base", SpeechdOptions.user_conf_dir);
+	MSG2(2, "symbols", LOCALE_DATA "/base");
+	g_strfreev(parts);
 
 	for (node = symbols_files; node; node = node->next) {
+		MSG2(2, "symbols", "Loading '%s'", (char*) node->data);
 		ss = get_locale_speech_symbols(locale, node->data);
 		if (!ss) {
 			MSG2(1, "symbols", "Failed to load symbols '%s' for locale '%s'",
