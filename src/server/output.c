@@ -335,8 +335,15 @@ GString *output_read_reply(OutputModule * output)
 				/* Tell it to consume it */
 				pthread_cond_signal(&output->event_cond);
 				/* Wait for it to consume it */
-				while (output->event)
+				while (output->event && output->reading_events)
 					pthread_cond_wait(&output->reply_cond, &output->read_mutex);
+				if (output->event && !output->reading_events)
+				{
+					MSG(2, "eventually unexpected event |%s|", message->str);
+					g_string_free(output->event, TRUE);
+					output->event = NULL;
+					continue;
+				}
 			}
 		}
 	}
@@ -414,6 +421,7 @@ static void output_stop_reading_events(OutputModule * output)
 		output->event = NULL;
 	}
 	output->reading_events = FALSE;
+	pthread_cond_signal(&output->reply_cond);
 	pthread_mutex_unlock(&output->read_mutex);
 }
 
