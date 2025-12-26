@@ -374,6 +374,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	module->reply = NULL;
 	module->event = NULL;
 	module->reading_message = FALSE;
+	module->reading_events = FALSE;
 	module->waiting_for_reply = FALSE;
 
 	if (module->progdir) {
