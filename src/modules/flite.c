@@ -36,6 +36,13 @@
 #define DEBUG_MODULE 1
 DECLARE_DEBUG();
 
+/* These aren't declared in any header */
+extern cst_voice *register_cmu_us_kal16(void);
+extern cst_voice *register_cmu_us_kal(void);
+extern cst_voice *register_cmu_us_awb(void);
+extern cst_voice *register_cmu_us_rms(void);
+extern cst_voice *register_cmu_us_slt(void);
+
 /* Thread and process control */
 static int flite_speaking = 0;
 
@@ -44,11 +51,41 @@ static char *buf;
 static signed int flite_volume = 0;
 
 /* Internal functions prototypes */
+static void flite_set_voice(const char *name);
 static void flite_set_rate(signed int rate);
 static void flite_set_pitch(signed int pitch);
 static void flite_set_volume(signed int pitch);
 
-/* Voice */
+/* Loaded voices */
+static cst_voice *kal16_cst_voice;
+static cst_voice *kal_cst_voice;
+static cst_voice *awb_cst_voice;
+static cst_voice *rms_cst_voice;
+static cst_voice *slt_cst_voice;
+
+static SPDVoice rms_voice = {
+		.name = "rms",
+		.language = "en",
+};
+static SPDVoice slt_voice = {
+		.name = "slt",
+		.language = "en",
+};
+static SPDVoice awb_voice = {
+		.name = "awb",
+		.language = "en",
+};
+static SPDVoice kal16_voice = {
+		.name = "kal16",
+		.language = "en",
+};
+static SPDVoice kal_voice = {
+		.name = "kal",
+		.language = "en",
+};
+static SPDVoice *voices[6]; /* One is left NULL */
+
+/* Current voice */
 static cst_voice *flite_voice;
 
 static int flite_stop = 0;
@@ -72,28 +109,72 @@ int module_load(void)
 
 int module_init(char **status_info)
 {
+	SPDVoice **v;
 	DBG("Module init");
 
 	module_audio_set_server();
 
 	*status_info = NULL;
 
-	/* Init flite and register a new voice */
+	/* Init flite and register voices */
 	flite_init();
 
+	v = voices;
+
+#ifdef HAVE_REGISTER_CMU_US_RMS
+	rms_cst_voice = register_cmu_us_rms();
+	if (rms_cst_voice)
+	{
+		*v++ = &rms_voice;
+		if (flite_voice == NULL)
+			flite_voice = rms_cst_voice;
+	}
+#endif
+
+#ifdef HAVE_REGISTER_CMU_US_SLT
+	slt_cst_voice = register_cmu_us_slt();
+	if (slt_cst_voice)
+	{
+		*v++ = &slt_voice;
+		if (flite_voice == NULL)
+			flite_voice = slt_cst_voice;
+	}
+#endif
+
+#ifdef HAVE_REGISTER_CMU_US_AWB
+	awb_cst_voice = register_cmu_us_awb();
+	if (awb_cst_voice)
+	{
+		*v++ = &awb_voice;
+		if (flite_voice == NULL)
+			flite_voice = awb_cst_voice;
+	}
+#endif
+
 #ifdef HAVE_REGISTER_CMU_US_KAL16
-	cst_voice *register_cmu_us_kal16();	/* This isn't declared in any headers. */
-	flite_voice = register_cmu_us_kal16();
-#else
-	cst_voice *register_cmu_us_kal();
-	flite_voice = register_cmu_us_kal();
-#endif /* HAVE_REGISTER_CMU_US_KAL16 */
+	kal16_cst_voice = register_cmu_us_kal16();
+	if (kal16_cst_voice)
+	{
+		*v++ = &kal16_voice;
+		if (flite_voice == NULL)
+			flite_voice = kal16_cst_voice;
+	}
+#endif
+
+#ifdef HAVE_REGISTER_CMU_US_KAL
+	kal_cst_voice = register_cmu_us_kal();
+	if (kal_cst_voice)
+	{
+		*v++ = &kal_voice;
+		if (flite_voice == NULL)
+			flite_voice = kal_cst_voice;
+	}
+#endif
 
 	if (flite_voice == NULL) {
-		DBG("Couldn't register the basic kal voice.\n");
-		*status_info = g_strdup("Can't register the basic kal voice. "
-					"Currently only kal is supported. Seems your FLite "
-					"installation is incomplete.");
+		DBG("Couldn't register a voice.\n");
+		*status_info = g_strdup("Can't register a voice. "
+					"Seems your FLite installation is incomplete.");
 		return -1;
 	}
 
@@ -111,15 +192,6 @@ int module_init(char **status_info)
 
 SPDVoice **module_list_voices(void)
 {
-	static SPDVoice voice = {
-#ifdef HAVE_REGISTER_CMU_US_KAL16
-			.name = "kal16",
-#else
-			.name = "kal",
-#endif
-			.language = "en",
-	};
-	static SPDVoice *voices[] = { &voice, NULL };
 	return voices;
 }
 
@@ -152,6 +224,7 @@ void module_speak_sync(const gchar * data, size_t len, SPDMessageType msgtype)
 	module_speak_ok();
 
 	/* Setting voice */
+	UPDATE_STRING_PARAMETER(voice.name, flite_set_voice);
 	UPDATE_PARAMETER(rate, flite_set_rate);
 	UPDATE_PARAMETER(volume, flite_set_volume);
 	UPDATE_PARAMETER(pitch, flite_set_pitch);
@@ -259,8 +332,16 @@ int module_close(void)
 		module_stop();
 	}
 
-	g_free(flite_voice);
-	flite_voice = NULL;
+	g_free(kal16_cst_voice);
+	kal16_cst_voice = NULL;
+	g_free(kal_cst_voice);
+	kal_cst_voice = NULL;
+	g_free(awb_cst_voice);
+	awb_cst_voice = NULL;
+	g_free(rms_cst_voice);
+	rms_cst_voice = NULL;
+	g_free(slt_cst_voice);
+	slt_cst_voice = NULL;
 	g_free(buf);
 	buf = NULL;
 
@@ -268,6 +349,21 @@ int module_close(void)
 }
 
 /* Internal functions */
+
+static void flite_set_voice(const char *name)
+{
+	if (!strcmp(name, "kal16"))
+		flite_voice = kal16_cst_voice;
+	else if (!strcmp(name, "kal"))
+		flite_voice = kal_cst_voice;
+	else if (!strcmp(name, "awb"))
+		flite_voice = awb_cst_voice;
+	else if (!strcmp(name, "rms"))
+		flite_voice = rms_cst_voice;
+	else if (!strcmp(name, "slt"))
+		flite_voice = slt_cst_voice;
+	DBG("Unknown voice %s", name);
+}
 
 static void flite_set_rate(signed int rate)
 {

@@ -121,7 +121,7 @@ if flite_support
 modulebin_PROGRAMS += sd_flite
 sd_flite_SOURCES = flite.c $(common_SOURCES)
 sd_flite_LDADD = $(top_builddir)/src/common/libcommon.la \
-	$(flite_kal) $(flite_basic) \
+	$(flite_voices) $(flite_basic) \
 	$(common_LDADD)
 endif
 
