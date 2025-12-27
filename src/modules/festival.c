@@ -285,6 +285,8 @@ int module_init(char **status_info)
 
 SPDVoice **module_list_voices(void)
 {
+	g_free(festival_voice_list);
+	festival_voice_list = festivalGetVoices(festival_info);
 	return festival_voice_list;
 }
 
