@@ -36,6 +36,12 @@
 #include <glib.h>
 #include <fcntl.h>
 
+#ifdef ESPEAK_NG_INCLUDE
+#ifdef __linux__
+#include <sys/inotify.h>
+#endif
+#endif
+
 /* espeak header file */
 #ifdef ESPEAK_NG_INCLUDE
 #include <espeak-ng/espeak_ng.h>
@@ -80,6 +86,11 @@ typedef enum {
 
 static int espeak_sample_rate = 0;
 static SPDVoice **espeak_voice_list = NULL;
+#ifdef ESPEAK_NG_INCLUDE
+#ifdef __linux__
+static int mbrola_voice_inotify = -1;
+#endif
+#endif
 #ifdef ESPEAK_NG_INCLUDE
 struct espeak_variant {
 	char *name;
@@ -223,6 +234,26 @@ int module_init(char **status_info)
 	if (ret != OK)
 		DBG(DBG_MODNAME " Failed to set punctuation list.");
 
+#ifdef ESPEAK_NG_INCLUDE
+#ifdef __linux__
+	if (EspeakMbrola) {
+		mbrola_voice_inotify = inotify_init1(IN_NONBLOCK|IN_CLOEXEC);
+		if (mbrola_voice_inotify >= 0) {
+			const char *espeak_data;
+			char *path;
+			espeak_Info(&espeak_data);
+
+			path = g_strdup_printf("%s/mbrola", espeak_data);
+			inotify_add_watch(mbrola_voice_inotify, path, IN_CREATE|IN_DELETE);
+			g_free(path);
+
+			inotify_add_watch(mbrola_voice_inotify, "/usr/share/mbrola", IN_CREATE|IN_DELETE);
+			inotify_add_watch(mbrola_voice_inotify, "/usr/share/mbrola/voices", IN_CREATE|IN_DELETE);
+		}
+	}
+#endif
+#endif
+
 	espeak_voice_list = espeak_list_synthesis_voices();
 	if (espeak_voice_list == NULL) {
 		*status_info = g_strdup(DBG_MODNAME " has no voice.");
@@ -237,6 +268,27 @@ int module_init(char **status_info)
 
 SPDVoice **module_list_voices(void)
 {
+#ifdef ESPEAK_NG_INCLUDE
+#ifdef __linux__
+	if (mbrola_voice_inotify >= 0) {
+		char buf[1024];
+		struct inotify_event *e = (void*) buf;
+		ssize_t n = read(mbrola_voice_inotify, buf, sizeof(buf));
+
+		if (n > 0) {
+			DBG(DBG_MODNAME "Mbrola path %s updated, re-loading voice list", e->name);
+
+			/* Mbrola voice added or removed */
+			while (read(mbrola_voice_inotify, buf, sizeof(buf)) > 0)
+				/* Flush all events before we re-read voices */
+				;
+
+			espeak_free_voice_list();
+			espeak_voice_list = espeak_list_synthesis_voices();
+		}
+	}
+#endif
+#endif
 	return espeak_voice_list;
 }
 
@@ -405,6 +457,16 @@ int module_close(void)
 	espeak_Terminate();
 
 	espeak_free_voice_list();
+
+#ifdef ESPEAK_NG_INCLUDE
+#ifdef __linux__
+	if (mbrola_voice_inotify >= 0)
+	{
+		close(mbrola_voice_inotify);
+		mbrola_voice_inotify = -1;
+	}
+#endif
+#endif
 
 	initialized = FALSE;
 
