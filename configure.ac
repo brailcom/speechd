@@ -243,10 +243,9 @@ AC_ARG_WITH([flite],
 	[with_flite=check])
 AS_IF([test $with_flite != "no"],
 	[AC_CHECK_LIB([flite], [flite_init],
-		[flite_basic="-lflite"],
+		[flite_basic="-lflite -lm"],
 		[AS_IF([test $with_flite = "yes"],
-			[AC_MSG_FAILURE([libflite is not available])])],
-		[-lm])
+			[AC_MSG_FAILURE([libflite is not available])])])
 	AC_CHECK_LIB([flite_usenglish], [usenglish_init],
 		[flite_basic="-lflite_usenglish ${flite_basic}"],
 		[AS_IF([test $with_flite = "yes"],
@@ -257,25 +256,36 @@ AS_IF([test $with_flite != "no"],
 		[AS_IF([test $with_flite = "yes"],
 			[AC_MSG_FAILURE([libflite_cmulex is not available])])],
 		[-lflite -lm])
+
 	AC_CHECK_LIB([flite_cmu_us_kal16], [register_cmu_us_kal16],
-		[with_flite=yes;
-		flite_kal="-lflite_cmu_us_kal16";
-		AC_DEFINE([HAVE_REGISTER_CMU_US_KAL16], [1],
-			[Use cmu_register_us_kal16 to register the 16-bit voice.])],
-		[AC_CHECK_LIB([flite_cmu_us_kal16], [register_cmu_us_kal],
-			[with_flite=yes;
-			flite_kal="-lflite_cmu_us_kal16"],
-			[AC_CHECK_LIB([flite_cmu_us_kal], [register_cmu_us_kal],
-				[with_flite=yes;
-				flite_kal="-lflite_cmu_us_kal"],
-				[AS_IF([test $with_flite = "yes"],
-					[AC_MSG_FAILURE([no flite voices found])])],
-				[$flite_basic -lm])],
-			[$flite_basic -lm])],
-		[$flite_basic -lm])])
+		[with_flite=yes; flite_voices="$flite_voices -lflite_cmu_us_kal16"
+		 AC_DEFINE([HAVE_REGISTER_CMU_US_KAL16], [1],
+                       [Use cmu_register_us_kal16 to register the kal 16-bit voice.])],
+		[], [$flite_basic])
+	AC_CHECK_LIB([flite_cmu_us_kal], [register_cmu_us_kal],
+		[with_flite=yes; flite_voices="$flite_voices -lflite_cmu_us_kal"
+		 AC_DEFINE([HAVE_REGISTER_CMU_US_KAL], [1],
+                       [Use cmu_register_us_kal to register the kal 8-bit voice.])],
+		[], [$flite_basic])
+	AC_CHECK_LIB([flite_cmu_us_awb], [register_cmu_us_awb],
+		[with_flite=yes; flite_voices="$flite_voices -lflite_cmu_us_awb"
+		 AC_DEFINE([HAVE_REGISTER_CMU_US_AWB], [1],
+                       [Use cmu_register_us_kal to register the awb voice.])],
+		[], [$flite_basic])
+	AC_CHECK_LIB([flite_cmu_us_rms], [register_cmu_us_rms],
+		[with_flite=yes; flite_voices="$flite_voices -lflite_cmu_us_rms"
+		 AC_DEFINE([HAVE_REGISTER_CMU_US_RMS], [1],
+                       [Use cmu_register_us_kal to register the rms voice.])],
+		[], [$flite_basic])
+	AC_CHECK_LIB([flite_cmu_us_slt], [register_cmu_us_slt],
+		[with_flite=yes; flite_voices="$flite_voices -lflite_cmu_us_slt"
+		 AC_DEFINE([HAVE_REGISTER_CMU_US_SLT], [1],
+                       [Use cmu_register_us_kal to register the slt voice.])],
+		[], [$flite_basic])
+])
 AM_CONDITIONAL([flite_support], [test $with_flite = "yes"])
 AC_SUBST([flite_basic])
-AC_SUBST([flite_kal])
+AC_SUBST([flite_voices])
 AS_IF([test $with_flite = "yes"], [output_modules="${output_modules} flite"])
 
 AC_CHECK_PROGS([FLITE], [flite])
