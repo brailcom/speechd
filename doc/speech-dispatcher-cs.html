@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- Created by GNU Texinfo 7.1.1, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.2, https://www.gnu.org/software/texinfo/ -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Speech Dispatcher</title>
@@ -77,7 +77,7 @@ přiložena v sekci nazvané ,,GNU Free Documentation License&rdquo;.
 <h3 class="heading" id="Menu"><span>Menu<a class="copiable-link" href="#Menu"> &para;</a></span></h3>
 
 
-<div class="element-shortcontents" id="SEC_Shortcontents">
+<div class="region-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
@@ -85,13 +85,13 @@ přiložena v sekci nazvané ,,GNU Free Documentation License&rdquo;.
 <li><a id="stoc-Uvod" href="#toc-Uvod">1 Úvod</a></li>
 <li><a id="stoc-Uzivatelska-dokumentace" href="#toc-Uzivatelska-dokumentace">2 Uživatelská dokumentace</a></li>
 <li><a id="stoc-Standardni-hlasy" href="#toc-Standardni-hlasy">Appendix A Standardní hlasy</a></li>
-<li><a id="stoc-GNU-General-Public-License-1" href="#toc-GNU-General-Public-License-1">Appendix B GNU General Public License</a></li>
-<li><a id="stoc-GNU-Free-Documentation-License-1" href="#toc-GNU-Free-Documentation-License-1">Appendix C GNU Free Documentation License</a></li>
-<li><a id="stoc-Index-of-Concepts-1" href="#toc-Index-of-Concepts-1" rel="index">Index of Concepts</a></li>
+<li><a id="stoc-GNU-General-Public-License" href="#toc-GNU-General-Public-License">Appendix B GNU General Public License</a></li>
+<li><a id="stoc-GNU-Free-Documentation-License" href="#toc-GNU-Free-Documentation-License">Appendix C GNU Free Documentation License</a></li>
+<li><a id="stoc-Index-of-Concepts" href="#toc-Index-of-Concepts" rel="index">Index of Concepts</a></li>
 </ul>
 </div>
 </div>
-<div class="element-contents" id="SEC_Contents">
+<div class="region-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
@@ -99,7 +99,7 @@ přiložena v sekci nazvané ,,GNU Free Documentation License&rdquo;.
 <ul class="toc-numbered-mark">
   <li><a id="toc-Uvod" href="#g_t_00davod">1 Úvod</a>
   <ul class="toc-numbered-mark">
-    <li><a id="toc-Motivace-1" href="#Motivace">1.1 Motivace</a></li>
+    <li><a id="toc-Motivace" href="#Motivace">1.1 Motivace</a></li>
     <li><a id="toc-Zakladni-design" href="#Z_00e1kladn_00ed-design">1.2 Základní design</a></li>
     <li><a id="toc-Prehled-zakladnich-rysu" href="#P_0159ehled-z_00e1kladn_00edch-rys_016f">1.3 Přehled základních rysů</a></li>
     <li><a id="toc-Soucasny-stav" href="#Sou_010dasn_00fd-stav">1.4 Současný stav</a></li>
@@ -111,7 +111,7 @@ přiložena v sekci nazvané ,,GNU Free Documentation License&rdquo;.
       <li><a id="toc-Model-priorit-zprav" href="#Model-priorit-zpr_00e1v">2.1.1 Model priorit zpráv</a>
       <ul class="toc-numbered-mark">
         <li><a id="toc-Priority-Categories" href="#Typy-priorit">2.1.1.1 Priority Categories</a></li>
-        <li><a id="toc-Diagram-priorit-1" href="#Diagram-priorit">2.1.1.2 Diagram priorit</a></li>
+        <li><a id="toc-Diagram-priorit" href="#Diagram-priorit">2.1.1.2 Diagram priorit</a></li>
         <li><a id="toc-Priklady-vyuziti-priorit" href="#P_0159_00edklady-vyu_017eit_00ed-priorit">2.1.1.3 Příklady využití priorit</a></li>
       </ul></li>
       <li><a id="toc-Historie-zprav" href="#Historie-zpr_00e1v">2.1.2 Historie zpráv</a>
@@ -140,12 +140,12 @@ přiložena v sekci nazvané ,,GNU Free Documentation License&rdquo;.
     </ul></li>
   </ul></li>
   <li><a id="toc-Standardni-hlasy" href="#Standardn_00ed-hlasy">Appendix A Standardní hlasy</a></li>
-  <li><a id="toc-GNU-General-Public-License-1" href="#GNU-General-Public-License">Appendix B GNU General Public License</a></li>
-  <li><a id="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix C GNU Free Documentation License</a>
+  <li><a id="toc-GNU-General-Public-License" href="#GNU-General-Public-License">Appendix B GNU General Public License</a></li>
+  <li><a id="toc-GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix C GNU Free Documentation License</a>
   <ul class="toc-numbered-mark">
     <li><a id="toc-ADDENDUM_003a-How-to-use-this-License-for-your-documents" href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents">C.1 ADDENDUM: How to use this License for your documents</a></li>
   </ul></li>
-  <li><a id="toc-Index-of-Concepts-1" href="#Index-of-Concepts" rel="index">Index of Concepts</a></li>
+  <li><a id="toc-Index-of-Concepts" href="#Index-of-Concepts" rel="index">Index of Concepts</a></li>
 </ul>
 </div>
 </div>
@@ -910,8 +910,8 @@ podporu pro výstupní zařízení i když neumí programovat.  See <a class="xr
 <p>Klíčová část každého generického výstupního modulu je definice řetězce, který
 se má spouštět.
 </p>
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericExecuteSynth"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericExecuteSynth</strong> <var class="def-var-arguments">&quot;<var class="var">execution_string</var>&quot;</var><a class="copiable-link" href="#index-GenericExecuteSynth"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericExecuteSynth"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericExecuteSynth</strong> <var class="def-var-arguments">&quot;<var class="var">execution_string</var>&quot;</var><a class="copiable-link" href="#index-GenericExecuteSynth"> &para;</a></span></dt>
 <dd>
 <p><code class="code">execution_string</code> je příkaz, který by měl být zavolán v shellu, když je
 potřeba něco říct.  Ve skutečnosti to může být více jak jeden příkaz, dohromady
@@ -949,13 +949,13 @@ GenericRateMultiply)
 </pre></div>
 </dd></dl>
 
-<dl class="first-defvr">
-<dt class="defvr" id="index-AddVoice"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">AddVoice</strong> <var class="def-var-arguments">&quot;<var class="var">language</var>&quot; &quot;<var class="var">symbolicname</var>&quot; &quot;<var class="var">name</var>&quot;</var><a class="copiable-link" href="#index-AddVoice"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-AddVoice"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">AddVoice</strong> <var class="def-var-arguments">&quot;<var class="var">language</var>&quot; &quot;<var class="var">symbolicname</var>&quot; &quot;<var class="var">name</var>&quot;</var><a class="copiable-link" href="#index-AddVoice"> &para;</a></span></dt>
 <dd><p>See <a class="xref" href="#AddVoice">AddVoice</a>.
 </p></dd></dl>
 
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericLanguage"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericLanguage</strong> <var class="def-var-arguments">&quot;iso-code&quot; &quot;string-subst&quot;</var><a class="copiable-link" href="#index-GenericLanguage"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericLanguage"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericLanguage</strong> <var class="def-var-arguments">&quot;iso-code&quot; &quot;string-subst&quot;</var><a class="copiable-link" href="#index-GenericLanguage"> &para;</a></span></dt>
 <dd>
 <p>Definuje, jaký řetězec <code class="code">string-subst</code> by měl být nahrazen za <code class="code">$LANGUAGE</code>
 pro daný <code class="code">iso-code</code> ISO kód jazyka.
@@ -968,17 +968,17 @@ GenericLanguage &quot;sk&quot; &quot;slovak&quot;
 </pre></div>
 </dd></dl>
 
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericRateAdd"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericRateAdd</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericRateAdd"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericRateAdd"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericRateAdd</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericRateAdd"> &para;</a></span></dt>
 </dl>
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericRateMultiply"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericRateMultiply</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericRateMultiply"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericRateMultiply"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericRateMultiply</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericRateMultiply"> &para;</a></span></dt>
 </dl>
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericPitchAdd"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericPitchAdd</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericPitchAdd"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericPitchAdd"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericPitchAdd</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericPitchAdd"> &para;</a></span></dt>
 </dl>
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericPitchMultiply"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericPitchMultiply</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericPitchMultiply"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericPitchMultiply"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericPitchMultiply</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericPitchMultiply"> &para;</a></span></dt>
 <dd><p>Tyto parametry nastavují konverzi pro výpočet rychlosti a výšky.
 (<code class="code">$RATE</code> a <code class="code">$PITCH</code>). 
 </p>
@@ -1906,7 +1906,7 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
+<table class="cp-entries-printindex">
 <tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
 <tr><td colspan="3"><hr></td></tr>
 <tr><th id="Index-of-Concepts_cp_letter-A">A</th></tr>
