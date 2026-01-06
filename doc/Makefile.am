@@ -26,7 +26,7 @@ endif
 MAKEINFOHTML = $(MAKEINFO) --html --no-split
 
 info_TEXINFOS = ssip.texi speech-dispatcher.texi spd-say.texi speech-dispatcher-cs.texi
-EXTRA_DIST = figures
+EXTRA_DIST = figures pydoc.css
 
 speech_dispatcher_TEXINFOS = gpl.texi fdl.texi speech-dispatcher.texi
 speech_dispatcher_cs_TEXINFOS = gpl.texi fdl.texi speech-dispatcher-cs.texi
@@ -34,6 +34,7 @@ ssip_TEXINFOS = gpl.texi fdl.texi
 
 speechd.client.html: $(top_srcdir)/src/api/python/speechd/client.py
 	PYTHONPATH=$(top_builddir)/src/api/python pydoc3 -w speechd.client
+	sed -i -e 's_</title>_</title><style>$(shell cat pydoc.css)</style>_' $@
 
 CLEANFILES = spd-say.info \
 	speech-dispatcher-cs.info \
