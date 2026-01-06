@@ -20,8 +20,7 @@ all: html
 endif
 
 if HAVE_PYTHON
-PYTHON_HTML = speechd.html speechd.client.SSIPClient.html speechd.client.Speaker.html
-all: $(PYTHON_HTML)
+all: speechd.client.html
 endif
 
 MAKEINFOHTML = $(MAKEINFO) --html --no-split
@@ -33,8 +32,8 @@ speech_dispatcher_TEXINFOS = gpl.texi fdl.texi speech-dispatcher.texi
 speech_dispatcher_cs_TEXINFOS = gpl.texi fdl.texi speech-dispatcher-cs.texi
 ssip_TEXINFOS = gpl.texi fdl.texi
 
-$(PYTHON_HTML): %.html: $(top_srcdir)/src/api/python/speechd/__init__.py $(top_srcdir)/src/api/python/speechd/client.py
-	PYTHONPATH=$(top_builddir)/src/api/python pydoc3 -w $*
+speechd.client.html: $(top_srcdir)/src/api/python/speechd/client.py
+	PYTHONPATH=$(top_builddir)/src/api/python pydoc3 -w speechd.client
 
 CLEANFILES = spd-say.info \
 	speech-dispatcher-cs.info \
@@ -52,7 +51,7 @@ DISTCLEANFILES = \
 	speech-dispatcher-cs.dvi \
 	speech-dispatcher.html \
 	speech-dispatcher.dvi \
-	$(PYTHON_HTML) \
+	speechd.client.html \
 	ssip.html \
 	ssip.dvi \
 	mdate-sh \
