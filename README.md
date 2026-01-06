@@ -30,7 +30,12 @@ the [speech dispatcher documentation](http://htmlpreview.github.io/?https://gith
 the [spd-say documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/spd-say.html),
 and the [SSIP protocol documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/ssip.html).
 
-The python binding documentation is available with `pydoc3 speechd` (or `pydoc speechd`)
+The python binding documentation is available on the shell with
+`pydoc3 speechd` (or `pydoc speechd`)
+and online, both the documentation for the
+[direct mapping of the SSIP commands and logic](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/speechd.client.SSIPClient.html)
+and the
+[more convenient interface](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/speechd.client.Speaker.html)
 
 The key features and the supported TTS engines, output subsystems, client
 interfaces and client applications known to work with Speech Dispatcher are
