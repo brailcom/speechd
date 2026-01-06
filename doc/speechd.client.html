@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module speechd.client</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="speechd.html" class="white">speechd</a>.client</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:/home/samy/ens/projet/1/speech/speech-dispatcher-git/src/api/python/speechd/client.py">/home/samy/ens/projet/1/speech/speech-dispatcher-git/src/api/python/speechd/client.py</a></td></tr></table>
+    <p><span class="code">Python&nbsp;API&nbsp;to&nbsp;Speech&nbsp;Dispatcher<br>
+&nbsp;<br>
+Basic&nbsp;Python&nbsp;client&nbsp;API&nbsp;to&nbsp;Speech&nbsp;Dispatcher&nbsp;is&nbsp;provided&nbsp;by&nbsp;the&nbsp;'<a href="#SSIPClient">SSIPClient</a>'<br>
+class.&nbsp;&nbsp;This&nbsp;interface&nbsp;maps&nbsp;directly&nbsp;to&nbsp;available&nbsp;SSIP&nbsp;commands&nbsp;and&nbsp;logic.<br>
+&nbsp;<br>
+A&nbsp;more&nbsp;convenient&nbsp;interface&nbsp;is&nbsp;provided&nbsp;by&nbsp;the&nbsp;'<a href="#Speaker">Speaker</a>'&nbsp;class.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="os.html">os</a><br>
+<a href="speechd.paths.html">speechd.paths</a><br>
+</td><td class="multicolumn"><a href="socket.html">socket</a><br>
+<a href="subprocess.html">subprocess</a><br>
+</td><td class="multicolumn"><a href="tempfile.html">tempfile</a><br>
+<a href="threading.html">threading</a><br>
+</td><td class="multicolumn"><a href="time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#Exception">builtins.Exception</a>(<a href="builtins.html#BaseException">builtins.BaseException</a>)
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="speechd.client.html#SSIPError">SSIPError</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="speechd.client.html#SSIPCommunicationError">SSIPCommunicationError</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="speechd.client.html#SSIPResponseError">SSIPResponseError</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="speechd.client.html#SSIPCommandError">SSIPCommandError</a>
+</dt><dt class="heading-text"><a href="speechd.client.html#SSIPDataError">SSIPDataError</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="speechd.client.html#SpawnError">SpawnError</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="speechd.client.html#CallbackType">CallbackType</a>
+</dt><dt class="heading-text"><a href="speechd.client.html#CommunicationMethod">CommunicationMethod</a>
+</dt><dt class="heading-text"><a href="speechd.client.html#ConnectionMethod">ConnectionMethod</a>
+</dt><dt class="heading-text"><a href="speechd.client.html#DataMode">DataMode</a>
+</dt><dt class="heading-text"><a href="speechd.client.html#Priority">Priority</a>
+</dt><dt class="heading-text"><a href="speechd.client.html#PunctuationMode">PunctuationMode</a>
+</dt><dt class="heading-text"><a href="speechd.client.html#SSIPClient">SSIPClient</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="speechd.client.html#Client">Client</a>
+</dt><dt class="heading-text"><a href="speechd.client.html#Speaker">Speaker</a>
+</dt></dl>
+</dd>
+<dt class="heading-text"><a href="speechd.client.html#Scope">Scope</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="CallbackType">class <strong>CallbackType</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Constants&nbsp;describing&nbsp;the&nbsp;available&nbsp;types&nbsp;of&nbsp;callbacks<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>BEGIN</strong> = 'begin'</dl>
+
+<dl><dt><strong>CANCEL</strong> = 'cancel'</dl>
+
+<dl><dt><strong>END</strong> = 'end'</dl>
+
+<dl><dt><strong>INDEX_MARK</strong> = 'index_marks'</dl>
+
+<dl><dt><strong>PAUSE</strong> = 'pause'</dl>
+
+<dl><dt><strong>RESUME</strong> = 'resume'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Client">class <strong>Client</strong></a>(<a href="speechd.client.html#SSIPClient">SSIPClient</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Client">Client</a>(name=None,&nbsp;client=None,&nbsp;**kwargs)<br>
+&nbsp;<br>
+A&nbsp;DEPRECATED&nbsp;backwards-compatible&nbsp;API.<br>
+&nbsp;<br>
+This&nbsp;Class&nbsp;is&nbsp;provided&nbsp;only&nbsp;for&nbsp;backwards&nbsp;compatibility&nbsp;with&nbsp;the&nbsp;previous<br>
+unofficial&nbsp;API.&nbsp;&nbsp;It&nbsp;will&nbsp;be&nbsp;removed&nbsp;in&nbsp;future&nbsp;versions.&nbsp;&nbsp;Please&nbsp;use&nbsp;either<br>
+'<a href="#SSIPClient">SSIPClient</a>'&nbsp;or&nbsp;'<a href="#Speaker">Speaker</a>'&nbsp;interface&nbsp;instead.&nbsp;&nbsp;As&nbsp;deprecated,&nbsp;the&nbsp;API&nbsp;is&nbsp;no<br>
+longer&nbsp;documented.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="speechd.client.html#Client">Client</a></dd>
+<dd><a href="speechd.client.html#SSIPClient">SSIPClient</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Client-__init__"><strong>__init__</strong></a>(self, name=None, client=None, **kwargs)</dt><dd><span class="code">Initialize&nbsp;the&nbsp;instance&nbsp;and&nbsp;connect&nbsp;to&nbsp;the&nbsp;server.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;name&nbsp;--&nbsp;client&nbsp;identification&nbsp;string<br>
+&nbsp;&nbsp;component&nbsp;--&nbsp;connection&nbsp;identification&nbsp;string.&nbsp;&nbsp;When&nbsp;one&nbsp;client&nbsp;opens<br>
+&nbsp;&nbsp;&nbsp;&nbsp;multiple&nbsp;connections,&nbsp;this&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;identify&nbsp;each&nbsp;of&nbsp;them.<br>
+&nbsp;&nbsp;user&nbsp;--&nbsp;user&nbsp;identification&nbsp;string&nbsp;(user&nbsp;name).&nbsp;&nbsp;When&nbsp;multi-user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;access&nbsp;is&nbsp;expected,&nbsp;this&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;identify&nbsp;their&nbsp;connections.<br>
+&nbsp;&nbsp;address&nbsp;--&nbsp;server&nbsp;address&nbsp;as&nbsp;specified&nbsp;in&nbsp;Speech&nbsp;Dispatcher<br>
+&nbsp;&nbsp;&nbsp;&nbsp;documentation&nbsp;(e.g.&nbsp;"unix:/run/user/joe/speech-dispatcher/speechd.sock"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;"inet:192.168.0.85:6561")<br>
+&nbsp;&nbsp;autospawn&nbsp;--&nbsp;a&nbsp;flag&nbsp;to&nbsp;specify&nbsp;whether&nbsp;the&nbsp;library&nbsp;should<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;to&nbsp;start&nbsp;the&nbsp;server&nbsp;if&nbsp;it&nbsp;determines&nbsp;its&nbsp;not&nbsp;already<br>
+&nbsp;&nbsp;&nbsp;&nbsp;running&nbsp;or&nbsp;not<br>
+&nbsp;<br>
+Deprecated&nbsp;arguments:<br>
+&nbsp;&nbsp;method&nbsp;--&nbsp;communication&nbsp;method&nbsp;to&nbsp;use,&nbsp;one&nbsp;of&nbsp;the&nbsp;constants&nbsp;defined&nbsp;in&nbsp;class<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a><br>
+&nbsp;&nbsp;socket_path&nbsp;--&nbsp;for&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a>.UNIX_SOCKET,&nbsp;socket<br>
+&nbsp;&nbsp;&nbsp;&nbsp;path&nbsp;in&nbsp;filesystem.&nbsp;By&nbsp;default,&nbsp;this&nbsp;is&nbsp;$XDG_RUNTIME_DIR/speech-dispatcher/speechd.sock<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;$XDG_RUNTIME_DIR&nbsp;is&nbsp;determined&nbsp;using&nbsp;the&nbsp;XDG&nbsp;Base&nbsp;Directory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Specification.<br>
+&nbsp;&nbsp;host&nbsp;--&nbsp;for&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a>.INET_SOCKET,&nbsp;server&nbsp;hostname<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;IP&nbsp;address&nbsp;as&nbsp;a&nbsp;string.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;default&nbsp;value&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;taken&nbsp;from&nbsp;SPEECHD_HOST&nbsp;environment&nbsp;variable&nbsp;(if&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exists)&nbsp;or&nbsp;from&nbsp;the&nbsp;DEFAULT_HOST&nbsp;attribute&nbsp;of&nbsp;this&nbsp;class.<br>
+&nbsp;&nbsp;port&nbsp;--&nbsp;for&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a>.INET_SOCKET&nbsp;method,&nbsp;server<br>
+&nbsp;&nbsp;&nbsp;&nbsp;port&nbsp;as&nbsp;number&nbsp;or&nbsp;None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;default&nbsp;value&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;taken&nbsp;from&nbsp;SPEECHD_PORT&nbsp;environment&nbsp;variable&nbsp;(if&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exists)&nbsp;or&nbsp;from&nbsp;the&nbsp;DEFAULT_PORT&nbsp;attribute&nbsp;of&nbsp;this&nbsp;class.<br>
+&nbsp;<br>
+For&nbsp;more&nbsp;information&nbsp;on&nbsp;client&nbsp;identification&nbsp;strings&nbsp;see&nbsp;Speech<br>
+Dispatcher&nbsp;documentation.</span></dd></dl>
+
+<dl><dt><a name="Client-char"><strong>char</strong></a>(self, char, priority='text')</dt><dd><span class="code">Say&nbsp;given&nbsp;character.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;char&nbsp;--&nbsp;a&nbsp;character&nbsp;to&nbsp;be&nbsp;spoken.&nbsp;&nbsp;Either&nbsp;a&nbsp;Python&nbsp;unicode&nbsp;string&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;UTF-8&nbsp;encoded&nbsp;byte&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given<br>
+message&nbsp;is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="Client-key"><strong>key</strong></a>(self, key, priority='text')</dt><dd><span class="code">Say&nbsp;given&nbsp;key&nbsp;name.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;key&nbsp;--&nbsp;the&nbsp;key&nbsp;name&nbsp;(as&nbsp;defined&nbsp;in&nbsp;SSIP);&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given<br>
+message&nbsp;is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="Client-say"><strong>say</strong></a>(self, text, priority='message')</dt></dl>
+
+<dl><dt><a name="Client-sound_icon"><strong>sound_icon</strong></a>(self, sound_icon, priority='text')</dt><dd><span class="code">Output&nbsp;given&nbsp;sound_icon.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;sound_icon&nbsp;--&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;sound&nbsp;icon&nbsp;as&nbsp;defined&nbsp;by&nbsp;SSIP;&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given&nbsp;message<br>
+is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="speechd.client.html#SSIPClient">SSIPClient</a>:<br>
+<dl><dt><a name="Client-__del__"><strong>__del__</strong></a>(self)</dt><dd><span class="code">Close&nbsp;the&nbsp;connection</span></dd></dl>
+
+<dl><dt><a name="Client-block_begin"><strong>block_begin</strong></a>(self)</dt><dd><span class="code">Begin&nbsp;an&nbsp;SSIP&nbsp;block.<br>
+&nbsp;<br>
+See&nbsp;SSIP&nbsp;documentation&nbsp;for&nbsp;more&nbsp;details&nbsp;about&nbsp;blocks.</span></dd></dl>
+
+<dl><dt><a name="Client-block_end"><strong>block_end</strong></a>(self)</dt><dd><span class="code">Close&nbsp;an&nbsp;SSIP&nbsp;block.<br>
+&nbsp;<br>
+See&nbsp;SSIP&nbsp;documentation&nbsp;for&nbsp;more&nbsp;details&nbsp;about&nbsp;blocks.</span></dd></dl>
+
+<dl><dt><a name="Client-cancel"><strong>cancel</strong></a>(self, scope='self')</dt><dd><span class="code">Immediately&nbsp;stop&nbsp;speaking&nbsp;and&nbsp;discard&nbsp;messages&nbsp;in&nbsp;queues.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-close"><strong>close</strong></a>(self)</dt><dd><span class="code">Close&nbsp;the&nbsp;connection&nbsp;to&nbsp;Speech&nbsp;Dispatcher.</span></dd></dl>
+
+<dl><dt><a name="Client-get_language"><strong>get_language</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;language.</span></dd></dl>
+
+<dl><dt><a name="Client-get_output_module"><strong>get_output_module</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;output&nbsp;module.</span></dd></dl>
+
+<dl><dt><a name="Client-get_pitch"><strong>get_pitch</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;pitch.</span></dd></dl>
+
+<dl><dt><a name="Client-get_punctuation"><strong>get_punctuation</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;punctuation&nbsp;pronunciation&nbsp;level.</span></dd></dl>
+
+<dl><dt><a name="Client-get_rate"><strong>get_rate</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;speech&nbsp;rate&nbsp;(speed).</span></dd></dl>
+
+<dl><dt><a name="Client-get_volume"><strong>get_volume</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;speech&nbsp;volume.</span></dd></dl>
+
+<dl><dt><a name="Client-list_output_modules"><strong>list_output_modules</strong></a>(self)</dt><dd><span class="code">Return&nbsp;names&nbsp;of&nbsp;all&nbsp;active&nbsp;output&nbsp;modules&nbsp;as&nbsp;a&nbsp;tuple&nbsp;of&nbsp;strings.</span></dd></dl>
+
+<dl><dt><a name="Client-list_synthesis_voices"><strong>list_synthesis_voices</strong></a>(self, language=None, variant=None)</dt><dd><span class="code">Return&nbsp;names&nbsp;of&nbsp;all&nbsp;available&nbsp;voices&nbsp;for&nbsp;the&nbsp;current&nbsp;output&nbsp;module.<br>
+&nbsp;<br>
+If&nbsp;language&nbsp;(possibly&nbsp;even&nbsp;variant)&nbsp;is&nbsp;set,&nbsp;only&nbsp;the&nbsp;list&nbsp;matching&nbsp;that<br>
+language&nbsp;(possibly&nbsp;even&nbsp;variant)&nbsp;is&nbsp;returned.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;tripplets&nbsp;(name,&nbsp;language,&nbsp;variant).<br>
+&nbsp;<br>
+'name'&nbsp;is&nbsp;a&nbsp;string,&nbsp;'language'&nbsp;is&nbsp;an&nbsp;ISO&nbsp;639-1&nbsp;Alpha-2/3&nbsp;language&nbsp;code<br>
+and&nbsp;'variant'&nbsp;is&nbsp;a&nbsp;string.&nbsp;&nbsp;Language&nbsp;and&nbsp;variant&nbsp;may&nbsp;be&nbsp;None.</span></dd></dl>
+
+<dl><dt><a name="Client-pause"><strong>pause</strong></a>(self, scope='self')</dt><dd><span class="code">Pause&nbsp;speaking&nbsp;and&nbsp;postpone&nbsp;other&nbsp;messages&nbsp;until&nbsp;resume.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking.&nbsp;&nbsp;However,&nbsp;speaking&nbsp;can&nbsp;continue&nbsp;for&nbsp;a<br>
+short&nbsp;while&nbsp;even&nbsp;after&nbsp;it's&nbsp;called&nbsp;(typically&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+sentence).<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-resume"><strong>resume</strong></a>(self, scope='self')</dt><dd><span class="code">Resume&nbsp;speaking&nbsp;of&nbsp;the&nbsp;currently&nbsp;paused&nbsp;messages.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking.&nbsp;&nbsp;However,&nbsp;speaking&nbsp;can&nbsp;continue&nbsp;for&nbsp;a<br>
+short&nbsp;while&nbsp;even&nbsp;after&nbsp;it's&nbsp;called&nbsp;(typically&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+sentence).<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_cap_let_recogn"><strong>set_cap_let_recogn</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;capital&nbsp;letter&nbsp;recognition&nbsp;mode.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;one&nbsp;of&nbsp;'none',&nbsp;'spell',&nbsp;'icon'.&nbsp;None&nbsp;means&nbsp;no&nbsp;signalization<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;capital&nbsp;letters,&nbsp;'spell'&nbsp;means&nbsp;capital&nbsp;letters&nbsp;will&nbsp;be&nbsp;spelled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;a&nbsp;synthetic&nbsp;voice&nbsp;and&nbsp;'icon'&nbsp;means&nbsp;that&nbsp;the&nbsp;capital-letter&nbsp;icon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;prepended&nbsp;before&nbsp;each&nbsp;capital&nbsp;letter.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_data_mode"><strong>set_data_mode</strong></a>(self, value)</dt><dd><span class="code">Set&nbsp;the&nbsp;data&nbsp;mode&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;-&nbsp;one&nbsp;of&nbsp;the&nbsp;constants&nbsp;defined&nbsp;by&nbsp;the&nbsp;<a href="#DataMode">DataMode</a>&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_debug"><strong>set_debug</strong></a>(self, val)</dt><dd><span class="code">Switch&nbsp;debugging&nbsp;on&nbsp;and&nbsp;off.&nbsp;When&nbsp;switched&nbsp;on,<br>
+debugging&nbsp;files&nbsp;will&nbsp;be&nbsp;created&nbsp;in&nbsp;the&nbsp;chosen&nbsp;destination<br>
+(see&nbsp;<a href="#Client-set_debug_destination">set_debug_destination</a>())&nbsp;for&nbsp;Speech&nbsp;Dispatcher&nbsp;and&nbsp;all<br>
+its&nbsp;running&nbsp;modules.&nbsp;All&nbsp;logging&nbsp;information&nbsp;will&nbsp;then&nbsp;be<br>
+written&nbsp;into&nbsp;these&nbsp;files&nbsp;with&nbsp;maximal&nbsp;verbosity&nbsp;until&nbsp;switched<br>
+off.&nbsp;You&nbsp;should&nbsp;always&nbsp;first&nbsp;call&nbsp;set_debug_destination.<br>
+&nbsp;<br>
+The&nbsp;intended&nbsp;use&nbsp;of&nbsp;this&nbsp;functionality&nbsp;is&nbsp;to&nbsp;switch&nbsp;debugging<br>
+on&nbsp;for&nbsp;a&nbsp;period&nbsp;of&nbsp;time&nbsp;while&nbsp;the&nbsp;user&nbsp;will&nbsp;repeat&nbsp;the&nbsp;behavior<br>
+and&nbsp;then&nbsp;send&nbsp;the&nbsp;logs&nbsp;to&nbsp;the&nbsp;appropriate&nbsp;bug-reporting&nbsp;place.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;val&nbsp;--&nbsp;a&nbsp;boolean&nbsp;value&nbsp;determining&nbsp;whether&nbsp;debugging<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;switched&nbsp;on&nbsp;or&nbsp;off<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_debug_destination"><strong>set_debug_destination</strong></a>(self, path)</dt><dd><span class="code">Set&nbsp;debug&nbsp;destination.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;path&nbsp;--&nbsp;path&nbsp;(string)&nbsp;to&nbsp;the&nbsp;directory&nbsp;where&nbsp;debugging<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;files&nbsp;will&nbsp;be&nbsp;created<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_language"><strong>set_language</strong></a>(self, language, scope='self')</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;particular&nbsp;language&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;language&nbsp;--&nbsp;two/three&nbsp;letter&nbsp;language&nbsp;code&nbsp;according&nbsp;to&nbsp;<a href="https://www.rfc-editor.org/rfc/rfc1766.txt">RFC&nbsp;1766</a>&nbsp;as&nbsp;string,&nbsp;possibly&nbsp;with&nbsp;a&nbsp;region&nbsp;qualification.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_output_module"><strong>set_output_module</strong></a>(self, name, scope='self')</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;particular&nbsp;output&nbsp;module.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;name&nbsp;--&nbsp;module&nbsp;(string)&nbsp;as&nbsp;returned&nbsp;by&nbsp;'<a href="#Client-list_output_modules">list_output_modules</a>()'.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_pause_context"><strong>set_pause_context</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;amount&nbsp;of&nbsp;context&nbsp;when&nbsp;resuming&nbsp;a&nbsp;paused&nbsp;message.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;a&nbsp;positive&nbsp;or&nbsp;negative&nbsp;value&nbsp;meaning&nbsp;how&nbsp;many&nbsp;chunks&nbsp;of&nbsp;data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;after&nbsp;or&nbsp;before&nbsp;the&nbsp;pause&nbsp;should&nbsp;be&nbsp;read&nbsp;when&nbsp;<a href="#Client-resume">resume</a>()&nbsp;is&nbsp;executed.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_pitch"><strong>set_pitch</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;pitch&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;pitch&nbsp;of&nbsp;the&nbsp;current&nbsp;speech&nbsp;synthesis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;lower&nbsp;pitch&nbsp;and&nbsp;higher&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;meaning&nbsp;higher&nbsp;pitch.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_pitch_range"><strong>set_pitch_range</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;pitch&nbsp;range&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;pitch&nbsp;range&nbsp;of&nbsp;the&nbsp;current&nbsp;speech&nbsp;synthesis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;lower&nbsp;pitch&nbsp;range&nbsp;and&nbsp;higher&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;meaning&nbsp;higher&nbsp;pitch&nbsp;range.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_priority"><strong>set_priority</strong></a>(self, priority)</dt><dd><span class="code">Set&nbsp;the&nbsp;priority&nbsp;category&nbsp;for&nbsp;the&nbsp;following&nbsp;messages.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;priority&nbsp;--&nbsp;one&nbsp;of&nbsp;the&nbsp;'<a href="#Priority">Priority</a>'&nbsp;constants.</span></dd></dl>
+
+<dl><dt><a name="Client-set_punctuation"><strong>set_punctuation</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;punctuation&nbsp;pronunciation&nbsp;level.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;one&nbsp;of&nbsp;the&nbsp;'<a href="#PunctuationMode">PunctuationMode</a>'&nbsp;constants.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_rate"><strong>set_rate</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;speech&nbsp;rate&nbsp;(speed)&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;speech&nbsp;rate&nbsp;of&nbsp;the&nbsp;current&nbsp;speech<br>
+&nbsp;&nbsp;&nbsp;&nbsp;synthesis&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;slower&nbsp;speech&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;higher&nbsp;values&nbsp;meaning&nbsp;faster&nbsp;speech.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_spelling"><strong>set_spelling</strong></a>(self, value, scope='self')</dt><dd><span class="code">Toggle&nbsp;the&nbsp;spelling&nbsp;mode&nbsp;or&nbsp;on&nbsp;off.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;if&nbsp;'True',&nbsp;all&nbsp;incoming&nbsp;messages&nbsp;will&nbsp;be&nbsp;spelled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instead&nbsp;of&nbsp;being&nbsp;read&nbsp;as&nbsp;normal&nbsp;words.&nbsp;'False'&nbsp;switches<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;behavior&nbsp;off.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_synthesis_voice"><strong>set_synthesis_voice</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;voice&nbsp;by&nbsp;its&nbsp;real&nbsp;name.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;voice&nbsp;name&nbsp;as&nbsp;returned&nbsp;by&nbsp;'<a href="#Client-list_synthesis_voices">list_synthesis_voices</a>()'<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-set_voice"><strong>set_voice</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;voice&nbsp;by&nbsp;a&nbsp;symbolic&nbsp;name.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;one&nbsp;of&nbsp;the&nbsp;SSIP&nbsp;symbolic&nbsp;voice&nbsp;names:&nbsp;'MALE1'&nbsp;..&nbsp;'MALE3',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'FEMALE1'&nbsp;...&nbsp;'FEMALE3',&nbsp;'CHILD_MALE',&nbsp;'CHILD_FEMALE'<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.<br>
+&nbsp;<br>
+Symbolic&nbsp;voice&nbsp;names&nbsp;are&nbsp;mapped&nbsp;to&nbsp;real&nbsp;synthesizer&nbsp;voices&nbsp;in&nbsp;the<br>
+configuration&nbsp;of&nbsp;the&nbsp;output&nbsp;module.&nbsp;&nbsp;Use&nbsp;the&nbsp;method<br>
+'<a href="#Client-set_synthesis_voice">set_synthesis_voice</a>()'&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;work&nbsp;with&nbsp;real&nbsp;voices.</span></dd></dl>
+
+<dl><dt><a name="Client-set_volume"><strong>set_volume</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;speech&nbsp;volume&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;speech&nbsp;volume&nbsp;of&nbsp;the&nbsp;current&nbsp;speech<br>
+&nbsp;&nbsp;&nbsp;&nbsp;synthesis&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;softer&nbsp;speech.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Client-speak"><strong>speak</strong></a>(self, text, callback=None, event_types=None)</dt><dd><span class="code">Say&nbsp;given&nbsp;message.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;text&nbsp;--&nbsp;message&nbsp;text&nbsp;to&nbsp;be&nbsp;spoken.&nbsp;&nbsp;This&nbsp;may&nbsp;be&nbsp;either&nbsp;a&nbsp;UTF-8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;encoded&nbsp;byte&nbsp;string&nbsp;or&nbsp;a&nbsp;Python&nbsp;unicode&nbsp;string.<br>
+&nbsp;&nbsp;callback&nbsp;--&nbsp;a&nbsp;callback&nbsp;handler&nbsp;for&nbsp;asynchronous&nbsp;event&nbsp;notifications.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;callable&nbsp;<a href="builtins.html#object">object</a>&nbsp;(function)&nbsp;which&nbsp;accepts&nbsp;one&nbsp;positional&nbsp;argument<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`type'&nbsp;and&nbsp;one&nbsp;keyword&nbsp;argument&nbsp;`index_mark'.&nbsp;&nbsp;See&nbsp;below&nbsp;for&nbsp;more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;details.<br>
+&nbsp;&nbsp;event_types&nbsp;--&nbsp;a&nbsp;tuple&nbsp;of&nbsp;event&nbsp;types&nbsp;for&nbsp;which&nbsp;the&nbsp;callback&nbsp;should<br>
+&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;called.&nbsp;&nbsp;Each&nbsp;item&nbsp;must&nbsp;be&nbsp;one&nbsp;of&nbsp;`<a href="#CallbackType">CallbackType</a>'&nbsp;constants.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;(the&nbsp;default&nbsp;value)&nbsp;means&nbsp;to&nbsp;handle&nbsp;all&nbsp;event&nbsp;types.&nbsp;&nbsp;This<br>
+&nbsp;&nbsp;&nbsp;&nbsp;argument&nbsp;is&nbsp;irrelevant&nbsp;when&nbsp;`callback'&nbsp;is&nbsp;not&nbsp;used.<br>
+&nbsp;<br>
+The&nbsp;callback&nbsp;function&nbsp;will&nbsp;be&nbsp;called&nbsp;whenever&nbsp;one&nbsp;of&nbsp;the&nbsp;events&nbsp;occurs.<br>
+The&nbsp;event&nbsp;type&nbsp;will&nbsp;be&nbsp;passed&nbsp;as&nbsp;argument.&nbsp;&nbsp;Its&nbsp;value&nbsp;is&nbsp;one&nbsp;of&nbsp;the<br>
+`<a href="#CallbackType">CallbackType</a>'&nbsp;constants.&nbsp;&nbsp;In&nbsp;case&nbsp;of&nbsp;an&nbsp;index&nbsp;mark&nbsp;event,&nbsp;additional<br>
+keyword&nbsp;argument&nbsp;`index_mark'&nbsp;will&nbsp;be&nbsp;passed&nbsp;and&nbsp;will&nbsp;contain&nbsp;the&nbsp;index<br>
+mark&nbsp;identifier&nbsp;as&nbsp;specified&nbsp;within&nbsp;the&nbsp;text.<br>
+&nbsp;<br>
+The&nbsp;callback&nbsp;function&nbsp;should&nbsp;not&nbsp;perform&nbsp;anything&nbsp;complicated&nbsp;and&nbsp;is<br>
+not&nbsp;allowed&nbsp;to&nbsp;issue&nbsp;any&nbsp;further&nbsp;SSIP&nbsp;client&nbsp;commands.&nbsp;&nbsp;An&nbsp;attempt&nbsp;to<br>
+do&nbsp;so&nbsp;would&nbsp;lead&nbsp;to&nbsp;a&nbsp;deadlock&nbsp;in&nbsp;SSIP&nbsp;communication.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given<br>
+message&nbsp;is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="Client-stop"><strong>stop</strong></a>(self, scope='self')</dt><dd><span class="code">Immediately&nbsp;stop&nbsp;speaking&nbsp;the&nbsp;currently&nbsp;spoken&nbsp;message.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="speechd.client.html#SSIPClient">SSIPClient</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="speechd.client.html#SSIPClient">SSIPClient</a>:<br>
+<dl><dt><strong>DEFAULT_HOST</strong> = '127.0.0.1'</dl>
+
+<dl><dt><strong>DEFAULT_PORT</strong> = 6560</dl>
+
+<dl><dt><strong>DEFAULT_SOCKET_PATH</strong> = 'speech-dispatcher/speechd.sock'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="CommunicationMethod">class <strong>CommunicationMethod</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Constants&nbsp;describing&nbsp;the&nbsp;possible&nbsp;methods&nbsp;of&nbsp;connection&nbsp;to&nbsp;server.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>INET_SOCKET</strong> = 'inet_socket'</dl>
+
+<dl><dt><strong>UNIX_SOCKET</strong> = 'unix_socket'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="ConnectionMethod">class <strong>ConnectionMethod</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Constants&nbsp;describing&nbsp;the&nbsp;possible&nbsp;methods&nbsp;of&nbsp;connection&nbsp;to&nbsp;server.<br>
+&nbsp;<br>
+Retained&nbsp;for&nbsp;backwards&nbsp;compatibility&nbsp;but&nbsp;DEPRECATED.&nbsp;See&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a>.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>INET_SOCKET</strong> = 'inet_socket'</dl>
+
+<dl><dt><strong>UNIX_SOCKET</strong> = 'unix_socket'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="DataMode">class <strong>DataMode</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Constants&nbsp;specifying&nbsp;the&nbsp;type&nbsp;of&nbsp;data&nbsp;contained&nbsp;within&nbsp;messages<br>
+to&nbsp;be&nbsp;spoken.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>SSML</strong> = 'ssml'</dl>
+
+<dl><dt><strong>TEXT</strong> = 'text'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Priority">class <strong>Priority</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">An&nbsp;enumeration&nbsp;of&nbsp;valid&nbsp;SSIP&nbsp;message&nbsp;priorities.<br>
+&nbsp;<br>
+The&nbsp;constants&nbsp;of&nbsp;this&nbsp;class&nbsp;should&nbsp;be&nbsp;used&nbsp;to&nbsp;specify&nbsp;the&nbsp;'priority'<br>
+argument&nbsp;for&nbsp;the&nbsp;'<a href="#Client">Client</a>'&nbsp;methods.&nbsp;&nbsp;For&nbsp;more&nbsp;information&nbsp;about&nbsp;message<br>
+priorities&nbsp;and&nbsp;their&nbsp;interaction,&nbsp;see&nbsp;the&nbsp;SSIP&nbsp;documentation.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>IMPORTANT</strong> = 'important'</dl>
+
+<dl><dt><strong>MESSAGE</strong> = 'message'</dl>
+
+<dl><dt><strong>NOTIFICATION</strong> = 'notification'</dl>
+
+<dl><dt><strong>PROGRESS</strong> = 'progress'</dl>
+
+<dl><dt><strong>TEXT</strong> = 'text'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="PunctuationMode">class <strong>PunctuationMode</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Constants&nbsp;for&nbsp;selecting&nbsp;a&nbsp;punctuation&nbsp;mode.<br>
+&nbsp;<br>
+The&nbsp;mode&nbsp;determines&nbsp;which&nbsp;characters&nbsp;should&nbsp;be&nbsp;read.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>ALL</strong> = 'all'</dl>
+
+<dl><dt><strong>MOST</strong> = 'most'</dl>
+
+<dl><dt><strong>NONE</strong> = 'none'</dl>
+
+<dl><dt><strong>SOME</strong> = 'some'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="SSIPClient">class <strong>SSIPClient</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#SSIPClient">SSIPClient</a>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;component='default',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user='unknown',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;address=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;autospawn=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;host=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;port=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;method=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;socket_path=None<br>
+)<br>
+&nbsp;<br>
+Basic&nbsp;Speech&nbsp;Dispatcher&nbsp;client&nbsp;interface.<br>
+&nbsp;<br>
+This&nbsp;class&nbsp;provides&nbsp;a&nbsp;Python&nbsp;interface&nbsp;to&nbsp;Speech&nbsp;Dispatcher&nbsp;functionality<br>
+over&nbsp;an&nbsp;SSIP&nbsp;connection.&nbsp;&nbsp;The&nbsp;API&nbsp;maps&nbsp;directly&nbsp;to&nbsp;available&nbsp;SSIP&nbsp;commands.<br>
+Each&nbsp;connection&nbsp;to&nbsp;Speech&nbsp;Dispatcher&nbsp;is&nbsp;represented&nbsp;by&nbsp;one&nbsp;instance&nbsp;of&nbsp;this<br>
+class.<br>
+&nbsp;<br>
+Many&nbsp;commands&nbsp;take&nbsp;the&nbsp;'scope'&nbsp;argument,&nbsp;thus&nbsp;it&nbsp;is&nbsp;shortly&nbsp;documented<br>
+here.&nbsp;&nbsp;It&nbsp;is&nbsp;either&nbsp;one&nbsp;of&nbsp;'<a href="#Scope">Scope</a>'&nbsp;constants&nbsp;or&nbsp;a&nbsp;number&nbsp;of&nbsp;connection.&nbsp;&nbsp;By<br>
+specifying&nbsp;the&nbsp;connection&nbsp;number,&nbsp;you&nbsp;are&nbsp;applying&nbsp;the&nbsp;command&nbsp;to&nbsp;a<br>
+particular&nbsp;connection.&nbsp;&nbsp;This&nbsp;feature&nbsp;is&nbsp;only&nbsp;meant&nbsp;to&nbsp;be&nbsp;used&nbsp;by&nbsp;Speech<br>
+Dispatcher&nbsp;control&nbsp;application,&nbsp;however.&nbsp;&nbsp;More&nbsp;datails&nbsp;can&nbsp;be&nbsp;found&nbsp;in<br>
+Speech&nbsp;Dispatcher&nbsp;documentation.<br>
+&nbsp;<br>
+Here&nbsp;is&nbsp;a&nbsp;simple&nbsp;example:<br>
+&nbsp;<br>
+from&nbsp;speechd&nbsp;import&nbsp;client<br>
+c&nbsp;=&nbsp;client.<a href="#SSIPClient">SSIPClient</a>("mytest")<br>
+c.<a href="#SSIPClient-speak">speak</a>("hello,&nbsp;world!")<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="SSIPClient-__del__"><strong>__del__</strong></a>(self)</dt><dd><span class="code">Close&nbsp;the&nbsp;connection</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-__init__"><strong>__init__</strong></a>(
+    self,
+    name,
+    component='default',
+    user='unknown',
+    address=None,
+    autospawn=None,
+    host=None,
+    port=None,
+    method=None,
+    socket_path=None
+)</dt><dd><span class="code">Initialize&nbsp;the&nbsp;instance&nbsp;and&nbsp;connect&nbsp;to&nbsp;the&nbsp;server.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;name&nbsp;--&nbsp;client&nbsp;identification&nbsp;string<br>
+&nbsp;&nbsp;component&nbsp;--&nbsp;connection&nbsp;identification&nbsp;string.&nbsp;&nbsp;When&nbsp;one&nbsp;client&nbsp;opens<br>
+&nbsp;&nbsp;&nbsp;&nbsp;multiple&nbsp;connections,&nbsp;this&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;identify&nbsp;each&nbsp;of&nbsp;them.<br>
+&nbsp;&nbsp;user&nbsp;--&nbsp;user&nbsp;identification&nbsp;string&nbsp;(user&nbsp;name).&nbsp;&nbsp;When&nbsp;multi-user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;access&nbsp;is&nbsp;expected,&nbsp;this&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;identify&nbsp;their&nbsp;connections.<br>
+&nbsp;&nbsp;address&nbsp;--&nbsp;server&nbsp;address&nbsp;as&nbsp;specified&nbsp;in&nbsp;Speech&nbsp;Dispatcher<br>
+&nbsp;&nbsp;&nbsp;&nbsp;documentation&nbsp;(e.g.&nbsp;"unix:/run/user/joe/speech-dispatcher/speechd.sock"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;"inet:192.168.0.85:6561")<br>
+&nbsp;&nbsp;autospawn&nbsp;--&nbsp;a&nbsp;flag&nbsp;to&nbsp;specify&nbsp;whether&nbsp;the&nbsp;library&nbsp;should<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;to&nbsp;start&nbsp;the&nbsp;server&nbsp;if&nbsp;it&nbsp;determines&nbsp;its&nbsp;not&nbsp;already<br>
+&nbsp;&nbsp;&nbsp;&nbsp;running&nbsp;or&nbsp;not<br>
+&nbsp;<br>
+Deprecated&nbsp;arguments:<br>
+&nbsp;&nbsp;method&nbsp;--&nbsp;communication&nbsp;method&nbsp;to&nbsp;use,&nbsp;one&nbsp;of&nbsp;the&nbsp;constants&nbsp;defined&nbsp;in&nbsp;class<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a><br>
+&nbsp;&nbsp;socket_path&nbsp;--&nbsp;for&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a>.UNIX_SOCKET,&nbsp;socket<br>
+&nbsp;&nbsp;&nbsp;&nbsp;path&nbsp;in&nbsp;filesystem.&nbsp;By&nbsp;default,&nbsp;this&nbsp;is&nbsp;$XDG_RUNTIME_DIR/speech-dispatcher/speechd.sock<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;$XDG_RUNTIME_DIR&nbsp;is&nbsp;determined&nbsp;using&nbsp;the&nbsp;XDG&nbsp;Base&nbsp;Directory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Specification.<br>
+&nbsp;&nbsp;host&nbsp;--&nbsp;for&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a>.INET_SOCKET,&nbsp;server&nbsp;hostname<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;IP&nbsp;address&nbsp;as&nbsp;a&nbsp;string.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;default&nbsp;value&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;taken&nbsp;from&nbsp;SPEECHD_HOST&nbsp;environment&nbsp;variable&nbsp;(if&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exists)&nbsp;or&nbsp;from&nbsp;the&nbsp;DEFAULT_HOST&nbsp;attribute&nbsp;of&nbsp;this&nbsp;class.<br>
+&nbsp;&nbsp;port&nbsp;--&nbsp;for&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a>.INET_SOCKET&nbsp;method,&nbsp;server<br>
+&nbsp;&nbsp;&nbsp;&nbsp;port&nbsp;as&nbsp;number&nbsp;or&nbsp;None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;default&nbsp;value&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;taken&nbsp;from&nbsp;SPEECHD_PORT&nbsp;environment&nbsp;variable&nbsp;(if&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exists)&nbsp;or&nbsp;from&nbsp;the&nbsp;DEFAULT_PORT&nbsp;attribute&nbsp;of&nbsp;this&nbsp;class.<br>
+&nbsp;<br>
+For&nbsp;more&nbsp;information&nbsp;on&nbsp;client&nbsp;identification&nbsp;strings&nbsp;see&nbsp;Speech<br>
+Dispatcher&nbsp;documentation.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-block_begin"><strong>block_begin</strong></a>(self)</dt><dd><span class="code">Begin&nbsp;an&nbsp;SSIP&nbsp;block.<br>
+&nbsp;<br>
+See&nbsp;SSIP&nbsp;documentation&nbsp;for&nbsp;more&nbsp;details&nbsp;about&nbsp;blocks.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-block_end"><strong>block_end</strong></a>(self)</dt><dd><span class="code">Close&nbsp;an&nbsp;SSIP&nbsp;block.<br>
+&nbsp;<br>
+See&nbsp;SSIP&nbsp;documentation&nbsp;for&nbsp;more&nbsp;details&nbsp;about&nbsp;blocks.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-cancel"><strong>cancel</strong></a>(self, scope='self')</dt><dd><span class="code">Immediately&nbsp;stop&nbsp;speaking&nbsp;and&nbsp;discard&nbsp;messages&nbsp;in&nbsp;queues.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-char"><strong>char</strong></a>(self, char)</dt><dd><span class="code">Say&nbsp;given&nbsp;character.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;char&nbsp;--&nbsp;a&nbsp;character&nbsp;to&nbsp;be&nbsp;spoken.&nbsp;&nbsp;Either&nbsp;a&nbsp;Python&nbsp;unicode&nbsp;string&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;UTF-8&nbsp;encoded&nbsp;byte&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given<br>
+message&nbsp;is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-close"><strong>close</strong></a>(self)</dt><dd><span class="code">Close&nbsp;the&nbsp;connection&nbsp;to&nbsp;Speech&nbsp;Dispatcher.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-get_language"><strong>get_language</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;language.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-get_output_module"><strong>get_output_module</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;output&nbsp;module.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-get_pitch"><strong>get_pitch</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;pitch.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-get_punctuation"><strong>get_punctuation</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;punctuation&nbsp;pronunciation&nbsp;level.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-get_rate"><strong>get_rate</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;speech&nbsp;rate&nbsp;(speed).</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-get_volume"><strong>get_volume</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;speech&nbsp;volume.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-key"><strong>key</strong></a>(self, key)</dt><dd><span class="code">Say&nbsp;given&nbsp;key&nbsp;name.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;key&nbsp;--&nbsp;the&nbsp;key&nbsp;name&nbsp;(as&nbsp;defined&nbsp;in&nbsp;SSIP);&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given<br>
+message&nbsp;is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-list_output_modules"><strong>list_output_modules</strong></a>(self)</dt><dd><span class="code">Return&nbsp;names&nbsp;of&nbsp;all&nbsp;active&nbsp;output&nbsp;modules&nbsp;as&nbsp;a&nbsp;tuple&nbsp;of&nbsp;strings.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-list_synthesis_voices"><strong>list_synthesis_voices</strong></a>(self, language=None, variant=None)</dt><dd><span class="code">Return&nbsp;names&nbsp;of&nbsp;all&nbsp;available&nbsp;voices&nbsp;for&nbsp;the&nbsp;current&nbsp;output&nbsp;module.<br>
+&nbsp;<br>
+If&nbsp;language&nbsp;(possibly&nbsp;even&nbsp;variant)&nbsp;is&nbsp;set,&nbsp;only&nbsp;the&nbsp;list&nbsp;matching&nbsp;that<br>
+language&nbsp;(possibly&nbsp;even&nbsp;variant)&nbsp;is&nbsp;returned.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;tripplets&nbsp;(name,&nbsp;language,&nbsp;variant).<br>
+&nbsp;<br>
+'name'&nbsp;is&nbsp;a&nbsp;string,&nbsp;'language'&nbsp;is&nbsp;an&nbsp;ISO&nbsp;639-1&nbsp;Alpha-2/3&nbsp;language&nbsp;code<br>
+and&nbsp;'variant'&nbsp;is&nbsp;a&nbsp;string.&nbsp;&nbsp;Language&nbsp;and&nbsp;variant&nbsp;may&nbsp;be&nbsp;None.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-pause"><strong>pause</strong></a>(self, scope='self')</dt><dd><span class="code">Pause&nbsp;speaking&nbsp;and&nbsp;postpone&nbsp;other&nbsp;messages&nbsp;until&nbsp;resume.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking.&nbsp;&nbsp;However,&nbsp;speaking&nbsp;can&nbsp;continue&nbsp;for&nbsp;a<br>
+short&nbsp;while&nbsp;even&nbsp;after&nbsp;it's&nbsp;called&nbsp;(typically&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+sentence).<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-resume"><strong>resume</strong></a>(self, scope='self')</dt><dd><span class="code">Resume&nbsp;speaking&nbsp;of&nbsp;the&nbsp;currently&nbsp;paused&nbsp;messages.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking.&nbsp;&nbsp;However,&nbsp;speaking&nbsp;can&nbsp;continue&nbsp;for&nbsp;a<br>
+short&nbsp;while&nbsp;even&nbsp;after&nbsp;it's&nbsp;called&nbsp;(typically&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+sentence).<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_cap_let_recogn"><strong>set_cap_let_recogn</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;capital&nbsp;letter&nbsp;recognition&nbsp;mode.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;one&nbsp;of&nbsp;'none',&nbsp;'spell',&nbsp;'icon'.&nbsp;None&nbsp;means&nbsp;no&nbsp;signalization<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;capital&nbsp;letters,&nbsp;'spell'&nbsp;means&nbsp;capital&nbsp;letters&nbsp;will&nbsp;be&nbsp;spelled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;a&nbsp;synthetic&nbsp;voice&nbsp;and&nbsp;'icon'&nbsp;means&nbsp;that&nbsp;the&nbsp;capital-letter&nbsp;icon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;prepended&nbsp;before&nbsp;each&nbsp;capital&nbsp;letter.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_data_mode"><strong>set_data_mode</strong></a>(self, value)</dt><dd><span class="code">Set&nbsp;the&nbsp;data&nbsp;mode&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;-&nbsp;one&nbsp;of&nbsp;the&nbsp;constants&nbsp;defined&nbsp;by&nbsp;the&nbsp;<a href="#DataMode">DataMode</a>&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_debug"><strong>set_debug</strong></a>(self, val)</dt><dd><span class="code">Switch&nbsp;debugging&nbsp;on&nbsp;and&nbsp;off.&nbsp;When&nbsp;switched&nbsp;on,<br>
+debugging&nbsp;files&nbsp;will&nbsp;be&nbsp;created&nbsp;in&nbsp;the&nbsp;chosen&nbsp;destination<br>
+(see&nbsp;<a href="#SSIPClient-set_debug_destination">set_debug_destination</a>())&nbsp;for&nbsp;Speech&nbsp;Dispatcher&nbsp;and&nbsp;all<br>
+its&nbsp;running&nbsp;modules.&nbsp;All&nbsp;logging&nbsp;information&nbsp;will&nbsp;then&nbsp;be<br>
+written&nbsp;into&nbsp;these&nbsp;files&nbsp;with&nbsp;maximal&nbsp;verbosity&nbsp;until&nbsp;switched<br>
+off.&nbsp;You&nbsp;should&nbsp;always&nbsp;first&nbsp;call&nbsp;set_debug_destination.<br>
+&nbsp;<br>
+The&nbsp;intended&nbsp;use&nbsp;of&nbsp;this&nbsp;functionality&nbsp;is&nbsp;to&nbsp;switch&nbsp;debugging<br>
+on&nbsp;for&nbsp;a&nbsp;period&nbsp;of&nbsp;time&nbsp;while&nbsp;the&nbsp;user&nbsp;will&nbsp;repeat&nbsp;the&nbsp;behavior<br>
+and&nbsp;then&nbsp;send&nbsp;the&nbsp;logs&nbsp;to&nbsp;the&nbsp;appropriate&nbsp;bug-reporting&nbsp;place.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;val&nbsp;--&nbsp;a&nbsp;boolean&nbsp;value&nbsp;determining&nbsp;whether&nbsp;debugging<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;switched&nbsp;on&nbsp;or&nbsp;off<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_debug_destination"><strong>set_debug_destination</strong></a>(self, path)</dt><dd><span class="code">Set&nbsp;debug&nbsp;destination.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;path&nbsp;--&nbsp;path&nbsp;(string)&nbsp;to&nbsp;the&nbsp;directory&nbsp;where&nbsp;debugging<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;files&nbsp;will&nbsp;be&nbsp;created<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_language"><strong>set_language</strong></a>(self, language, scope='self')</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;particular&nbsp;language&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;language&nbsp;--&nbsp;two/three&nbsp;letter&nbsp;language&nbsp;code&nbsp;according&nbsp;to&nbsp;<a href="https://www.rfc-editor.org/rfc/rfc1766.txt">RFC&nbsp;1766</a>&nbsp;as&nbsp;string,&nbsp;possibly&nbsp;with&nbsp;a&nbsp;region&nbsp;qualification.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_output_module"><strong>set_output_module</strong></a>(self, name, scope='self')</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;particular&nbsp;output&nbsp;module.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;name&nbsp;--&nbsp;module&nbsp;(string)&nbsp;as&nbsp;returned&nbsp;by&nbsp;'<a href="#SSIPClient-list_output_modules">list_output_modules</a>()'.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_pause_context"><strong>set_pause_context</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;amount&nbsp;of&nbsp;context&nbsp;when&nbsp;resuming&nbsp;a&nbsp;paused&nbsp;message.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;a&nbsp;positive&nbsp;or&nbsp;negative&nbsp;value&nbsp;meaning&nbsp;how&nbsp;many&nbsp;chunks&nbsp;of&nbsp;data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;after&nbsp;or&nbsp;before&nbsp;the&nbsp;pause&nbsp;should&nbsp;be&nbsp;read&nbsp;when&nbsp;<a href="#SSIPClient-resume">resume</a>()&nbsp;is&nbsp;executed.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_pitch"><strong>set_pitch</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;pitch&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;pitch&nbsp;of&nbsp;the&nbsp;current&nbsp;speech&nbsp;synthesis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;lower&nbsp;pitch&nbsp;and&nbsp;higher&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;meaning&nbsp;higher&nbsp;pitch.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_pitch_range"><strong>set_pitch_range</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;pitch&nbsp;range&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;pitch&nbsp;range&nbsp;of&nbsp;the&nbsp;current&nbsp;speech&nbsp;synthesis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;lower&nbsp;pitch&nbsp;range&nbsp;and&nbsp;higher&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;meaning&nbsp;higher&nbsp;pitch&nbsp;range.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_priority"><strong>set_priority</strong></a>(self, priority)</dt><dd><span class="code">Set&nbsp;the&nbsp;priority&nbsp;category&nbsp;for&nbsp;the&nbsp;following&nbsp;messages.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;priority&nbsp;--&nbsp;one&nbsp;of&nbsp;the&nbsp;'<a href="#Priority">Priority</a>'&nbsp;constants.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_punctuation"><strong>set_punctuation</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;punctuation&nbsp;pronunciation&nbsp;level.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;one&nbsp;of&nbsp;the&nbsp;'<a href="#PunctuationMode">PunctuationMode</a>'&nbsp;constants.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_rate"><strong>set_rate</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;speech&nbsp;rate&nbsp;(speed)&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;speech&nbsp;rate&nbsp;of&nbsp;the&nbsp;current&nbsp;speech<br>
+&nbsp;&nbsp;&nbsp;&nbsp;synthesis&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;slower&nbsp;speech&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;higher&nbsp;values&nbsp;meaning&nbsp;faster&nbsp;speech.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_spelling"><strong>set_spelling</strong></a>(self, value, scope='self')</dt><dd><span class="code">Toggle&nbsp;the&nbsp;spelling&nbsp;mode&nbsp;or&nbsp;on&nbsp;off.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;if&nbsp;'True',&nbsp;all&nbsp;incoming&nbsp;messages&nbsp;will&nbsp;be&nbsp;spelled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instead&nbsp;of&nbsp;being&nbsp;read&nbsp;as&nbsp;normal&nbsp;words.&nbsp;'False'&nbsp;switches<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;behavior&nbsp;off.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_synthesis_voice"><strong>set_synthesis_voice</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;voice&nbsp;by&nbsp;its&nbsp;real&nbsp;name.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;voice&nbsp;name&nbsp;as&nbsp;returned&nbsp;by&nbsp;'<a href="#SSIPClient-list_synthesis_voices">list_synthesis_voices</a>()'<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_voice"><strong>set_voice</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;voice&nbsp;by&nbsp;a&nbsp;symbolic&nbsp;name.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;one&nbsp;of&nbsp;the&nbsp;SSIP&nbsp;symbolic&nbsp;voice&nbsp;names:&nbsp;'MALE1'&nbsp;..&nbsp;'MALE3',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'FEMALE1'&nbsp;...&nbsp;'FEMALE3',&nbsp;'CHILD_MALE',&nbsp;'CHILD_FEMALE'<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.<br>
+&nbsp;<br>
+Symbolic&nbsp;voice&nbsp;names&nbsp;are&nbsp;mapped&nbsp;to&nbsp;real&nbsp;synthesizer&nbsp;voices&nbsp;in&nbsp;the<br>
+configuration&nbsp;of&nbsp;the&nbsp;output&nbsp;module.&nbsp;&nbsp;Use&nbsp;the&nbsp;method<br>
+'<a href="#SSIPClient-set_synthesis_voice">set_synthesis_voice</a>()'&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;work&nbsp;with&nbsp;real&nbsp;voices.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-set_volume"><strong>set_volume</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;speech&nbsp;volume&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;speech&nbsp;volume&nbsp;of&nbsp;the&nbsp;current&nbsp;speech<br>
+&nbsp;&nbsp;&nbsp;&nbsp;synthesis&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;softer&nbsp;speech.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-sound_icon"><strong>sound_icon</strong></a>(self, sound_icon)</dt><dd><span class="code">Output&nbsp;given&nbsp;sound_icon.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;sound_icon&nbsp;--&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;sound&nbsp;icon&nbsp;as&nbsp;defined&nbsp;by&nbsp;SSIP;&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given&nbsp;message<br>
+is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-speak"><strong>speak</strong></a>(self, text, callback=None, event_types=None)</dt><dd><span class="code">Say&nbsp;given&nbsp;message.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;text&nbsp;--&nbsp;message&nbsp;text&nbsp;to&nbsp;be&nbsp;spoken.&nbsp;&nbsp;This&nbsp;may&nbsp;be&nbsp;either&nbsp;a&nbsp;UTF-8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;encoded&nbsp;byte&nbsp;string&nbsp;or&nbsp;a&nbsp;Python&nbsp;unicode&nbsp;string.<br>
+&nbsp;&nbsp;callback&nbsp;--&nbsp;a&nbsp;callback&nbsp;handler&nbsp;for&nbsp;asynchronous&nbsp;event&nbsp;notifications.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;callable&nbsp;<a href="builtins.html#object">object</a>&nbsp;(function)&nbsp;which&nbsp;accepts&nbsp;one&nbsp;positional&nbsp;argument<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`type'&nbsp;and&nbsp;one&nbsp;keyword&nbsp;argument&nbsp;`index_mark'.&nbsp;&nbsp;See&nbsp;below&nbsp;for&nbsp;more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;details.<br>
+&nbsp;&nbsp;event_types&nbsp;--&nbsp;a&nbsp;tuple&nbsp;of&nbsp;event&nbsp;types&nbsp;for&nbsp;which&nbsp;the&nbsp;callback&nbsp;should<br>
+&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;called.&nbsp;&nbsp;Each&nbsp;item&nbsp;must&nbsp;be&nbsp;one&nbsp;of&nbsp;`<a href="#CallbackType">CallbackType</a>'&nbsp;constants.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;(the&nbsp;default&nbsp;value)&nbsp;means&nbsp;to&nbsp;handle&nbsp;all&nbsp;event&nbsp;types.&nbsp;&nbsp;This<br>
+&nbsp;&nbsp;&nbsp;&nbsp;argument&nbsp;is&nbsp;irrelevant&nbsp;when&nbsp;`callback'&nbsp;is&nbsp;not&nbsp;used.<br>
+&nbsp;<br>
+The&nbsp;callback&nbsp;function&nbsp;will&nbsp;be&nbsp;called&nbsp;whenever&nbsp;one&nbsp;of&nbsp;the&nbsp;events&nbsp;occurs.<br>
+The&nbsp;event&nbsp;type&nbsp;will&nbsp;be&nbsp;passed&nbsp;as&nbsp;argument.&nbsp;&nbsp;Its&nbsp;value&nbsp;is&nbsp;one&nbsp;of&nbsp;the<br>
+`<a href="#CallbackType">CallbackType</a>'&nbsp;constants.&nbsp;&nbsp;In&nbsp;case&nbsp;of&nbsp;an&nbsp;index&nbsp;mark&nbsp;event,&nbsp;additional<br>
+keyword&nbsp;argument&nbsp;`index_mark'&nbsp;will&nbsp;be&nbsp;passed&nbsp;and&nbsp;will&nbsp;contain&nbsp;the&nbsp;index<br>
+mark&nbsp;identifier&nbsp;as&nbsp;specified&nbsp;within&nbsp;the&nbsp;text.<br>
+&nbsp;<br>
+The&nbsp;callback&nbsp;function&nbsp;should&nbsp;not&nbsp;perform&nbsp;anything&nbsp;complicated&nbsp;and&nbsp;is<br>
+not&nbsp;allowed&nbsp;to&nbsp;issue&nbsp;any&nbsp;further&nbsp;SSIP&nbsp;client&nbsp;commands.&nbsp;&nbsp;An&nbsp;attempt&nbsp;to<br>
+do&nbsp;so&nbsp;would&nbsp;lead&nbsp;to&nbsp;a&nbsp;deadlock&nbsp;in&nbsp;SSIP&nbsp;communication.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given<br>
+message&nbsp;is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="SSIPClient-stop"><strong>stop</strong></a>(self, scope='self')</dt><dd><span class="code">Immediately&nbsp;stop&nbsp;speaking&nbsp;the&nbsp;currently&nbsp;spoken&nbsp;message.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DEFAULT_HOST</strong> = '127.0.0.1'</dl>
+
+<dl><dt><strong>DEFAULT_PORT</strong> = 6560</dl>
+
+<dl><dt><strong>DEFAULT_SOCKET_PATH</strong> = 'speech-dispatcher/speechd.sock'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="SSIPCommandError">class <strong>SSIPCommandError</strong></a>(<a href="speechd.client.html#SSIPResponseError">SSIPResponseError</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#SSIPCommandError">SSIPCommandError</a>(code,&nbsp;msg,&nbsp;data)<br>
+&nbsp;<br>
+<a href="builtins.html#Exception">Exception</a>&nbsp;raised&nbsp;on&nbsp;error&nbsp;response&nbsp;after&nbsp;sending&nbsp;command.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="speechd.client.html#SSIPCommandError">SSIPCommandError</a></dd>
+<dd><a href="speechd.client.html#SSIPResponseError">SSIPResponseError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SSIPCommandError-command"><strong>command</strong></a>(self)</dt><dd><span class="code">Return&nbsp;the&nbsp;command&nbsp;string&nbsp;which&nbsp;resulted&nbsp;in&nbsp;this&nbsp;error.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="speechd.client.html#SSIPResponseError">SSIPResponseError</a>:<br>
+<dl><dt><a name="SSIPCommandError-__init__"><strong>__init__</strong></a>(self, code, msg, data)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="SSIPCommandError-code"><strong>code</strong></a>(self)</dt><dd><span class="code">Return&nbsp;the&nbsp;server&nbsp;response&nbsp;error&nbsp;code&nbsp;as&nbsp;integer&nbsp;number.</span></dd></dl>
+
+<dl><dt><a name="SSIPCommandError-msg"><strong>msg</strong></a>(self)</dt><dd><span class="code">Return&nbsp;server&nbsp;response&nbsp;error&nbsp;message&nbsp;as&nbsp;string.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="speechd.client.html#SSIPResponseError">SSIPResponseError</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="SSIPCommandError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> class method of <a href="builtins.html#Exception">builtins.Exception</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="SSIPCommandError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="SSIPCommandError-__reduce__"><strong>__reduce__</strong></a>(self, /)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="SSIPCommandError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="SSIPCommandError-__setstate__"><strong>__setstate__</strong></a>(self, object, /)</dt></dl>
+
+<dl><dt><a name="SSIPCommandError-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="SSIPCommandError-add_note"><strong>add_note</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SSIPCommandError-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="SSIPCommandError-with_traceback"><strong>with_traceback</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SSIPCommandError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="SSIPCommunicationError">class <strong>SSIPCommunicationError</strong></a>(<a href="speechd.client.html#SSIPError">SSIPError</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#SSIPCommunicationError">SSIPCommunicationError</a>(description=None,&nbsp;original_exception=None,&nbsp;**kwargs)<br>
+&nbsp;<br>
+<a href="builtins.html#Exception">Exception</a>&nbsp;raised&nbsp;when&nbsp;trying&nbsp;to&nbsp;operate&nbsp;on&nbsp;a&nbsp;closed&nbsp;connection.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="speechd.client.html#SSIPCommunicationError">SSIPCommunicationError</a></dd>
+<dd><a href="speechd.client.html#SSIPError">SSIPError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SSIPCommunicationError-__init__"><strong>__init__</strong></a>(self, description=None, original_exception=None, **kwargs)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="SSIPCommunicationError-__str__"><strong>__str__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="SSIPCommunicationError-additional_exception"><strong>additional_exception</strong></a>(self)</dt><dd><span class="code">Return&nbsp;an&nbsp;additional&nbsp;exception<br>
+&nbsp;<br>
+Additional&nbsp;exceptions&nbsp;araise&nbsp;from&nbsp;failed&nbsp;attempts&nbsp;to&nbsp;resolve<br>
+the&nbsp;former&nbsp;problem</span></dd></dl>
+
+<dl><dt><a name="SSIPCommunicationError-description"><strong>description</strong></a>(self)</dt><dd><span class="code">Return&nbsp;error&nbsp;description</span></dd></dl>
+
+<dl><dt><a name="SSIPCommunicationError-original_exception"><strong>original_exception</strong></a>(self)</dt><dd><span class="code">Return&nbsp;the&nbsp;original&nbsp;exception&nbsp;if&nbsp;any<br>
+&nbsp;<br>
+If&nbsp;this&nbsp;exception&nbsp;is&nbsp;secondary,&nbsp;being&nbsp;caused&nbsp;by&nbsp;a&nbsp;lower<br>
+level&nbsp;exception,&nbsp;return&nbsp;this&nbsp;original&nbsp;exception,&nbsp;otherwise<br>
+None</span></dd></dl>
+
+<dl><dt><a name="SSIPCommunicationError-set_additional_exception"><strong>set_additional_exception</strong></a>(self, exception)</dt><dd><span class="code">Set&nbsp;an&nbsp;additional&nbsp;exception<br>
+&nbsp;<br>
+See&nbsp;method&nbsp;<a href="#SSIPCommunicationError-additional_exception">additional_exception</a>().</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="speechd.client.html#SSIPError">SSIPError</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="SSIPCommunicationError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> class method of <a href="builtins.html#Exception">builtins.Exception</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="SSIPCommunicationError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="SSIPCommunicationError-__reduce__"><strong>__reduce__</strong></a>(self, /)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="SSIPCommunicationError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="SSIPCommunicationError-__setstate__"><strong>__setstate__</strong></a>(self, object, /)</dt></dl>
+
+<dl><dt><a name="SSIPCommunicationError-add_note"><strong>add_note</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SSIPCommunicationError-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="SSIPCommunicationError-with_traceback"><strong>with_traceback</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SSIPCommunicationError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="SSIPDataError">class <strong>SSIPDataError</strong></a>(<a href="speechd.client.html#SSIPResponseError">SSIPResponseError</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#SSIPDataError">SSIPDataError</a>(code,&nbsp;msg,&nbsp;data)<br>
+&nbsp;<br>
+<a href="builtins.html#Exception">Exception</a>&nbsp;raised&nbsp;on&nbsp;error&nbsp;response&nbsp;after&nbsp;sending&nbsp;data.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="speechd.client.html#SSIPDataError">SSIPDataError</a></dd>
+<dd><a href="speechd.client.html#SSIPResponseError">SSIPResponseError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SSIPDataError-data"><strong>data</strong></a>(self)</dt><dd><span class="code">Return&nbsp;the&nbsp;data&nbsp;which&nbsp;resulted&nbsp;in&nbsp;this&nbsp;error.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="speechd.client.html#SSIPResponseError">SSIPResponseError</a>:<br>
+<dl><dt><a name="SSIPDataError-__init__"><strong>__init__</strong></a>(self, code, msg, data)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="SSIPDataError-code"><strong>code</strong></a>(self)</dt><dd><span class="code">Return&nbsp;the&nbsp;server&nbsp;response&nbsp;error&nbsp;code&nbsp;as&nbsp;integer&nbsp;number.</span></dd></dl>
+
+<dl><dt><a name="SSIPDataError-msg"><strong>msg</strong></a>(self)</dt><dd><span class="code">Return&nbsp;server&nbsp;response&nbsp;error&nbsp;message&nbsp;as&nbsp;string.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="speechd.client.html#SSIPResponseError">SSIPResponseError</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="SSIPDataError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> class method of <a href="builtins.html#Exception">builtins.Exception</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="SSIPDataError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="SSIPDataError-__reduce__"><strong>__reduce__</strong></a>(self, /)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="SSIPDataError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="SSIPDataError-__setstate__"><strong>__setstate__</strong></a>(self, object, /)</dt></dl>
+
+<dl><dt><a name="SSIPDataError-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="SSIPDataError-add_note"><strong>add_note</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SSIPDataError-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="SSIPDataError-with_traceback"><strong>with_traceback</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SSIPDataError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="SSIPError">class <strong>SSIPError</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Common&nbsp;base&nbsp;class&nbsp;for&nbsp;exceptions&nbsp;during&nbsp;SSIP&nbsp;communication.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="speechd.client.html#SSIPError">SSIPError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="SSIPError-__init__"><strong>__init__</strong></a>(self, /, *args, **kwargs)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="SSIPError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> class method of <a href="builtins.html#Exception">builtins.Exception</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="SSIPError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="SSIPError-__reduce__"><strong>__reduce__</strong></a>(self, /)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="SSIPError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="SSIPError-__setstate__"><strong>__setstate__</strong></a>(self, object, /)</dt></dl>
+
+<dl><dt><a name="SSIPError-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="SSIPError-add_note"><strong>add_note</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SSIPError-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="SSIPError-with_traceback"><strong>with_traceback</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SSIPError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="SSIPResponseError">class <strong>SSIPResponseError</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#SSIPResponseError">SSIPResponseError</a>(code,&nbsp;msg,&nbsp;data)<br>
+&nbsp;<br>
+<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="speechd.client.html#SSIPResponseError">SSIPResponseError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SSIPResponseError-__init__"><strong>__init__</strong></a>(self, code, msg, data)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="SSIPResponseError-code"><strong>code</strong></a>(self)</dt><dd><span class="code">Return&nbsp;the&nbsp;server&nbsp;response&nbsp;error&nbsp;code&nbsp;as&nbsp;integer&nbsp;number.</span></dd></dl>
+
+<dl><dt><a name="SSIPResponseError-msg"><strong>msg</strong></a>(self)</dt><dd><span class="code">Return&nbsp;server&nbsp;response&nbsp;error&nbsp;message&nbsp;as&nbsp;string.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="SSIPResponseError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> class method of <a href="builtins.html#Exception">builtins.Exception</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="SSIPResponseError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="SSIPResponseError-__reduce__"><strong>__reduce__</strong></a>(self, /)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="SSIPResponseError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="SSIPResponseError-__setstate__"><strong>__setstate__</strong></a>(self, object, /)</dt></dl>
+
+<dl><dt><a name="SSIPResponseError-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="SSIPResponseError-add_note"><strong>add_note</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SSIPResponseError-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="SSIPResponseError-with_traceback"><strong>with_traceback</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SSIPResponseError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Scope">class <strong>Scope</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">An&nbsp;enumeration&nbsp;of&nbsp;valid&nbsp;SSIP&nbsp;command&nbsp;scopes.<br>
+&nbsp;<br>
+The&nbsp;constants&nbsp;of&nbsp;this&nbsp;class&nbsp;should&nbsp;be&nbsp;used&nbsp;to&nbsp;specify&nbsp;the&nbsp;'scope'&nbsp;argument<br>
+for&nbsp;the&nbsp;'<a href="#Client">Client</a>'&nbsp;methods.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>ALL</strong> = 'all'</dl>
+
+<dl><dt><strong>SELF</strong> = 'self'</dl>
+
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="SpawnError">class <strong>SpawnError</strong></a>(<a href="builtins.html#Exception">builtins.Exception</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Indicates&nbsp;failure&nbsp;in&nbsp;server&nbsp;autospawn.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="speechd.client.html#SpawnError">SpawnError</a></dd>
+<dd><a href="builtins.html#Exception">builtins.Exception</a></dd>
+<dd><a href="builtins.html#BaseException">builtins.BaseException</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="SpawnError-__init__"><strong>__init__</strong></a>(self, /, *args, **kwargs)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Static methods inherited from <a href="builtins.html#Exception">builtins.Exception</a>:<br>
+<dl><dt><a name="SpawnError-__new__"><strong>__new__</strong></a>(*args, **kwargs)<span class="grey"><span class="heading-text"> class method of <a href="builtins.html#Exception">builtins.Exception</a></span></span></dt><dd><span class="code">Create&nbsp;and&nbsp;return&nbsp;a&nbsp;new&nbsp;<a href="builtins.html#object">object</a>.&nbsp;&nbsp;See&nbsp;help(type)&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<hr>
+Methods inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><a name="SpawnError-__getattribute__"><strong>__getattribute__</strong></a>(self, name, /)</dt><dd><span class="code">Return&nbsp;getattr(self,&nbsp;name).</span></dd></dl>
+
+<dl><dt><a name="SpawnError-__reduce__"><strong>__reduce__</strong></a>(self, /)</dt><dd><span class="code">Helper&nbsp;for&nbsp;pickle.</span></dd></dl>
+
+<dl><dt><a name="SpawnError-__repr__"><strong>__repr__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;repr(self).</span></dd></dl>
+
+<dl><dt><a name="SpawnError-__setstate__"><strong>__setstate__</strong></a>(self, object, /)</dt></dl>
+
+<dl><dt><a name="SpawnError-__str__"><strong>__str__</strong></a>(self, /)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<dl><dt><a name="SpawnError-add_note"><strong>add_note</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SpawnError-add_note">add_note</a>(note)&nbsp;--<br>
+add&nbsp;a&nbsp;note&nbsp;to&nbsp;the&nbsp;exception</span></dd></dl>
+
+<dl><dt><a name="SpawnError-with_traceback"><strong>with_traceback</strong></a>(self, object, /)</dt><dd><span class="code"><a href="builtins.html#Exception">Exception</a>.<a href="#SpawnError-with_traceback">with_traceback</a>(tb)&nbsp;--<br>
+set&nbsp;self.<strong>__traceback__</strong>&nbsp;to&nbsp;tb&nbsp;and&nbsp;return&nbsp;self.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="builtins.html#BaseException">builtins.BaseException</a>:<br>
+<dl><dt><strong>__cause__</strong></dt>
+<dd><span class="code">exception&nbsp;cause</span></dd>
+</dl>
+<dl><dt><strong>__context__</strong></dt>
+<dd><span class="code">exception&nbsp;context</span></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>__suppress_context__</strong></dt>
+</dl>
+<dl><dt><strong>__traceback__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Speaker">class <strong>Speaker</strong></a>(<a href="speechd.client.html#SSIPClient">SSIPClient</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Speaker">Speaker</a>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;component='default',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;user='unknown',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;address=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;autospawn=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;host=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;port=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;method=None,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;socket_path=None<br>
+)<br>
+&nbsp;<br>
+Extended&nbsp;Speech&nbsp;Dispatcher&nbsp;Interface.<br>
+&nbsp;<br>
+This&nbsp;class&nbsp;provides&nbsp;an&nbsp;extended&nbsp;intercace&nbsp;to&nbsp;Speech&nbsp;Dispatcher<br>
+functionality&nbsp;and&nbsp;tries&nbsp;to&nbsp;hide&nbsp;most&nbsp;of&nbsp;the&nbsp;lower&nbsp;level&nbsp;details&nbsp;of&nbsp;SSIP<br>
+(such&nbsp;as&nbsp;a&nbsp;more&nbsp;sophisticated&nbsp;handling&nbsp;of&nbsp;blocks&nbsp;and&nbsp;priorities&nbsp;and<br>
+advanced&nbsp;event&nbsp;notifications)&nbsp;under&nbsp;a&nbsp;more&nbsp;convenient&nbsp;API.<br>
+&nbsp;<br>
+Please&nbsp;note&nbsp;that&nbsp;the&nbsp;API&nbsp;is&nbsp;not&nbsp;yet&nbsp;stabilized&nbsp;and&nbsp;thus&nbsp;is&nbsp;subject&nbsp;to<br>
+change!&nbsp;&nbsp;Please&nbsp;contact&nbsp;the&nbsp;authors&nbsp;if&nbsp;you&nbsp;plan&nbsp;using&nbsp;it&nbsp;and/or&nbsp;if&nbsp;you&nbsp;have<br>
+any&nbsp;suggestions.<br>
+&nbsp;<br>
+Well,&nbsp;in&nbsp;fact&nbsp;this&nbsp;class&nbsp;is&nbsp;currently&nbsp;not&nbsp;implemented&nbsp;at&nbsp;all.&nbsp;&nbsp;It&nbsp;is&nbsp;just&nbsp;a<br>
+draft.&nbsp;&nbsp;The&nbsp;intention&nbsp;is&nbsp;to&nbsp;hide&nbsp;the&nbsp;SSIP&nbsp;details&nbsp;and&nbsp;provide&nbsp;a&nbsp;generic<br>
+interface&nbsp;practical&nbsp;for&nbsp;screen&nbsp;readers.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt>Method resolution order:</dt>
+<dd><a href="speechd.client.html#Speaker">Speaker</a></dd>
+<dd><a href="speechd.client.html#SSIPClient">SSIPClient</a></dd>
+<dd><a href="builtins.html#object">builtins.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="speechd.client.html#SSIPClient">SSIPClient</a>:<br>
+<dl><dt><a name="Speaker-__del__"><strong>__del__</strong></a>(self)</dt><dd><span class="code">Close&nbsp;the&nbsp;connection</span></dd></dl>
+
+<dl><dt><a name="Speaker-__init__"><strong>__init__</strong></a>(
+    self,
+    name,
+    component='default',
+    user='unknown',
+    address=None,
+    autospawn=None,
+    host=None,
+    port=None,
+    method=None,
+    socket_path=None
+)</dt><dd><span class="code">Initialize&nbsp;the&nbsp;instance&nbsp;and&nbsp;connect&nbsp;to&nbsp;the&nbsp;server.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;name&nbsp;--&nbsp;client&nbsp;identification&nbsp;string<br>
+&nbsp;&nbsp;component&nbsp;--&nbsp;connection&nbsp;identification&nbsp;string.&nbsp;&nbsp;When&nbsp;one&nbsp;client&nbsp;opens<br>
+&nbsp;&nbsp;&nbsp;&nbsp;multiple&nbsp;connections,&nbsp;this&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;identify&nbsp;each&nbsp;of&nbsp;them.<br>
+&nbsp;&nbsp;user&nbsp;--&nbsp;user&nbsp;identification&nbsp;string&nbsp;(user&nbsp;name).&nbsp;&nbsp;When&nbsp;multi-user<br>
+&nbsp;&nbsp;&nbsp;&nbsp;access&nbsp;is&nbsp;expected,&nbsp;this&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;identify&nbsp;their&nbsp;connections.<br>
+&nbsp;&nbsp;address&nbsp;--&nbsp;server&nbsp;address&nbsp;as&nbsp;specified&nbsp;in&nbsp;Speech&nbsp;Dispatcher<br>
+&nbsp;&nbsp;&nbsp;&nbsp;documentation&nbsp;(e.g.&nbsp;"unix:/run/user/joe/speech-dispatcher/speechd.sock"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;"inet:192.168.0.85:6561")<br>
+&nbsp;&nbsp;autospawn&nbsp;--&nbsp;a&nbsp;flag&nbsp;to&nbsp;specify&nbsp;whether&nbsp;the&nbsp;library&nbsp;should<br>
+&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;to&nbsp;start&nbsp;the&nbsp;server&nbsp;if&nbsp;it&nbsp;determines&nbsp;its&nbsp;not&nbsp;already<br>
+&nbsp;&nbsp;&nbsp;&nbsp;running&nbsp;or&nbsp;not<br>
+&nbsp;<br>
+Deprecated&nbsp;arguments:<br>
+&nbsp;&nbsp;method&nbsp;--&nbsp;communication&nbsp;method&nbsp;to&nbsp;use,&nbsp;one&nbsp;of&nbsp;the&nbsp;constants&nbsp;defined&nbsp;in&nbsp;class<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a><br>
+&nbsp;&nbsp;socket_path&nbsp;--&nbsp;for&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a>.UNIX_SOCKET,&nbsp;socket<br>
+&nbsp;&nbsp;&nbsp;&nbsp;path&nbsp;in&nbsp;filesystem.&nbsp;By&nbsp;default,&nbsp;this&nbsp;is&nbsp;$XDG_RUNTIME_DIR/speech-dispatcher/speechd.sock<br>
+&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;$XDG_RUNTIME_DIR&nbsp;is&nbsp;determined&nbsp;using&nbsp;the&nbsp;XDG&nbsp;Base&nbsp;Directory<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Specification.<br>
+&nbsp;&nbsp;host&nbsp;--&nbsp;for&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a>.INET_SOCKET,&nbsp;server&nbsp;hostname<br>
+&nbsp;&nbsp;&nbsp;&nbsp;or&nbsp;IP&nbsp;address&nbsp;as&nbsp;a&nbsp;string.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;default&nbsp;value&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;taken&nbsp;from&nbsp;SPEECHD_HOST&nbsp;environment&nbsp;variable&nbsp;(if&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exists)&nbsp;or&nbsp;from&nbsp;the&nbsp;DEFAULT_HOST&nbsp;attribute&nbsp;of&nbsp;this&nbsp;class.<br>
+&nbsp;&nbsp;port&nbsp;--&nbsp;for&nbsp;<a href="#CommunicationMethod">CommunicationMethod</a>.INET_SOCKET&nbsp;method,&nbsp;server<br>
+&nbsp;&nbsp;&nbsp;&nbsp;port&nbsp;as&nbsp;number&nbsp;or&nbsp;None.&nbsp;&nbsp;If&nbsp;None,&nbsp;the&nbsp;default&nbsp;value&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;taken&nbsp;from&nbsp;SPEECHD_PORT&nbsp;environment&nbsp;variable&nbsp;(if&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;exists)&nbsp;or&nbsp;from&nbsp;the&nbsp;DEFAULT_PORT&nbsp;attribute&nbsp;of&nbsp;this&nbsp;class.<br>
+&nbsp;<br>
+For&nbsp;more&nbsp;information&nbsp;on&nbsp;client&nbsp;identification&nbsp;strings&nbsp;see&nbsp;Speech<br>
+Dispatcher&nbsp;documentation.</span></dd></dl>
+
+<dl><dt><a name="Speaker-block_begin"><strong>block_begin</strong></a>(self)</dt><dd><span class="code">Begin&nbsp;an&nbsp;SSIP&nbsp;block.<br>
+&nbsp;<br>
+See&nbsp;SSIP&nbsp;documentation&nbsp;for&nbsp;more&nbsp;details&nbsp;about&nbsp;blocks.</span></dd></dl>
+
+<dl><dt><a name="Speaker-block_end"><strong>block_end</strong></a>(self)</dt><dd><span class="code">Close&nbsp;an&nbsp;SSIP&nbsp;block.<br>
+&nbsp;<br>
+See&nbsp;SSIP&nbsp;documentation&nbsp;for&nbsp;more&nbsp;details&nbsp;about&nbsp;blocks.</span></dd></dl>
+
+<dl><dt><a name="Speaker-cancel"><strong>cancel</strong></a>(self, scope='self')</dt><dd><span class="code">Immediately&nbsp;stop&nbsp;speaking&nbsp;and&nbsp;discard&nbsp;messages&nbsp;in&nbsp;queues.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-char"><strong>char</strong></a>(self, char)</dt><dd><span class="code">Say&nbsp;given&nbsp;character.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;char&nbsp;--&nbsp;a&nbsp;character&nbsp;to&nbsp;be&nbsp;spoken.&nbsp;&nbsp;Either&nbsp;a&nbsp;Python&nbsp;unicode&nbsp;string&nbsp;or<br>
+&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;UTF-8&nbsp;encoded&nbsp;byte&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given<br>
+message&nbsp;is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="Speaker-close"><strong>close</strong></a>(self)</dt><dd><span class="code">Close&nbsp;the&nbsp;connection&nbsp;to&nbsp;Speech&nbsp;Dispatcher.</span></dd></dl>
+
+<dl><dt><a name="Speaker-get_language"><strong>get_language</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;language.</span></dd></dl>
+
+<dl><dt><a name="Speaker-get_output_module"><strong>get_output_module</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;output&nbsp;module.</span></dd></dl>
+
+<dl><dt><a name="Speaker-get_pitch"><strong>get_pitch</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;pitch.</span></dd></dl>
+
+<dl><dt><a name="Speaker-get_punctuation"><strong>get_punctuation</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;punctuation&nbsp;pronunciation&nbsp;level.</span></dd></dl>
+
+<dl><dt><a name="Speaker-get_rate"><strong>get_rate</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;current&nbsp;speech&nbsp;rate&nbsp;(speed).</span></dd></dl>
+
+<dl><dt><a name="Speaker-get_volume"><strong>get_volume</strong></a>(self)</dt><dd><span class="code">Get&nbsp;the&nbsp;speech&nbsp;volume.</span></dd></dl>
+
+<dl><dt><a name="Speaker-key"><strong>key</strong></a>(self, key)</dt><dd><span class="code">Say&nbsp;given&nbsp;key&nbsp;name.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;key&nbsp;--&nbsp;the&nbsp;key&nbsp;name&nbsp;(as&nbsp;defined&nbsp;in&nbsp;SSIP);&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given<br>
+message&nbsp;is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="Speaker-list_output_modules"><strong>list_output_modules</strong></a>(self)</dt><dd><span class="code">Return&nbsp;names&nbsp;of&nbsp;all&nbsp;active&nbsp;output&nbsp;modules&nbsp;as&nbsp;a&nbsp;tuple&nbsp;of&nbsp;strings.</span></dd></dl>
+
+<dl><dt><a name="Speaker-list_synthesis_voices"><strong>list_synthesis_voices</strong></a>(self, language=None, variant=None)</dt><dd><span class="code">Return&nbsp;names&nbsp;of&nbsp;all&nbsp;available&nbsp;voices&nbsp;for&nbsp;the&nbsp;current&nbsp;output&nbsp;module.<br>
+&nbsp;<br>
+If&nbsp;language&nbsp;(possibly&nbsp;even&nbsp;variant)&nbsp;is&nbsp;set,&nbsp;only&nbsp;the&nbsp;list&nbsp;matching&nbsp;that<br>
+language&nbsp;(possibly&nbsp;even&nbsp;variant)&nbsp;is&nbsp;returned.<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;tuple&nbsp;of&nbsp;tripplets&nbsp;(name,&nbsp;language,&nbsp;variant).<br>
+&nbsp;<br>
+'name'&nbsp;is&nbsp;a&nbsp;string,&nbsp;'language'&nbsp;is&nbsp;an&nbsp;ISO&nbsp;639-1&nbsp;Alpha-2/3&nbsp;language&nbsp;code<br>
+and&nbsp;'variant'&nbsp;is&nbsp;a&nbsp;string.&nbsp;&nbsp;Language&nbsp;and&nbsp;variant&nbsp;may&nbsp;be&nbsp;None.</span></dd></dl>
+
+<dl><dt><a name="Speaker-pause"><strong>pause</strong></a>(self, scope='self')</dt><dd><span class="code">Pause&nbsp;speaking&nbsp;and&nbsp;postpone&nbsp;other&nbsp;messages&nbsp;until&nbsp;resume.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking.&nbsp;&nbsp;However,&nbsp;speaking&nbsp;can&nbsp;continue&nbsp;for&nbsp;a<br>
+short&nbsp;while&nbsp;even&nbsp;after&nbsp;it's&nbsp;called&nbsp;(typically&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+sentence).<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-resume"><strong>resume</strong></a>(self, scope='self')</dt><dd><span class="code">Resume&nbsp;speaking&nbsp;of&nbsp;the&nbsp;currently&nbsp;paused&nbsp;messages.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking.&nbsp;&nbsp;However,&nbsp;speaking&nbsp;can&nbsp;continue&nbsp;for&nbsp;a<br>
+short&nbsp;while&nbsp;even&nbsp;after&nbsp;it's&nbsp;called&nbsp;(typically&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the<br>
+sentence).<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_cap_let_recogn"><strong>set_cap_let_recogn</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;capital&nbsp;letter&nbsp;recognition&nbsp;mode.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;one&nbsp;of&nbsp;'none',&nbsp;'spell',&nbsp;'icon'.&nbsp;None&nbsp;means&nbsp;no&nbsp;signalization<br>
+&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;capital&nbsp;letters,&nbsp;'spell'&nbsp;means&nbsp;capital&nbsp;letters&nbsp;will&nbsp;be&nbsp;spelled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;with&nbsp;a&nbsp;synthetic&nbsp;voice&nbsp;and&nbsp;'icon'&nbsp;means&nbsp;that&nbsp;the&nbsp;capital-letter&nbsp;icon<br>
+&nbsp;&nbsp;&nbsp;&nbsp;will&nbsp;be&nbsp;prepended&nbsp;before&nbsp;each&nbsp;capital&nbsp;letter.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_data_mode"><strong>set_data_mode</strong></a>(self, value)</dt><dd><span class="code">Set&nbsp;the&nbsp;data&nbsp;mode&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;-&nbsp;one&nbsp;of&nbsp;the&nbsp;constants&nbsp;defined&nbsp;by&nbsp;the&nbsp;<a href="#DataMode">DataMode</a>&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_debug"><strong>set_debug</strong></a>(self, val)</dt><dd><span class="code">Switch&nbsp;debugging&nbsp;on&nbsp;and&nbsp;off.&nbsp;When&nbsp;switched&nbsp;on,<br>
+debugging&nbsp;files&nbsp;will&nbsp;be&nbsp;created&nbsp;in&nbsp;the&nbsp;chosen&nbsp;destination<br>
+(see&nbsp;<a href="#Speaker-set_debug_destination">set_debug_destination</a>())&nbsp;for&nbsp;Speech&nbsp;Dispatcher&nbsp;and&nbsp;all<br>
+its&nbsp;running&nbsp;modules.&nbsp;All&nbsp;logging&nbsp;information&nbsp;will&nbsp;then&nbsp;be<br>
+written&nbsp;into&nbsp;these&nbsp;files&nbsp;with&nbsp;maximal&nbsp;verbosity&nbsp;until&nbsp;switched<br>
+off.&nbsp;You&nbsp;should&nbsp;always&nbsp;first&nbsp;call&nbsp;set_debug_destination.<br>
+&nbsp;<br>
+The&nbsp;intended&nbsp;use&nbsp;of&nbsp;this&nbsp;functionality&nbsp;is&nbsp;to&nbsp;switch&nbsp;debugging<br>
+on&nbsp;for&nbsp;a&nbsp;period&nbsp;of&nbsp;time&nbsp;while&nbsp;the&nbsp;user&nbsp;will&nbsp;repeat&nbsp;the&nbsp;behavior<br>
+and&nbsp;then&nbsp;send&nbsp;the&nbsp;logs&nbsp;to&nbsp;the&nbsp;appropriate&nbsp;bug-reporting&nbsp;place.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;val&nbsp;--&nbsp;a&nbsp;boolean&nbsp;value&nbsp;determining&nbsp;whether&nbsp;debugging<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;switched&nbsp;on&nbsp;or&nbsp;off<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_debug_destination"><strong>set_debug_destination</strong></a>(self, path)</dt><dd><span class="code">Set&nbsp;debug&nbsp;destination.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;path&nbsp;--&nbsp;path&nbsp;(string)&nbsp;to&nbsp;the&nbsp;directory&nbsp;where&nbsp;debugging<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;files&nbsp;will&nbsp;be&nbsp;created<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_language"><strong>set_language</strong></a>(self, language, scope='self')</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;particular&nbsp;language&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;language&nbsp;--&nbsp;two/three&nbsp;letter&nbsp;language&nbsp;code&nbsp;according&nbsp;to&nbsp;<a href="https://www.rfc-editor.org/rfc/rfc1766.txt">RFC&nbsp;1766</a>&nbsp;as&nbsp;string,&nbsp;possibly&nbsp;with&nbsp;a&nbsp;region&nbsp;qualification.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_output_module"><strong>set_output_module</strong></a>(self, name, scope='self')</dt><dd><span class="code">Switch&nbsp;to&nbsp;a&nbsp;particular&nbsp;output&nbsp;module.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;name&nbsp;--&nbsp;module&nbsp;(string)&nbsp;as&nbsp;returned&nbsp;by&nbsp;'<a href="#Speaker-list_output_modules">list_output_modules</a>()'.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_pause_context"><strong>set_pause_context</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;amount&nbsp;of&nbsp;context&nbsp;when&nbsp;resuming&nbsp;a&nbsp;paused&nbsp;message.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;a&nbsp;positive&nbsp;or&nbsp;negative&nbsp;value&nbsp;meaning&nbsp;how&nbsp;many&nbsp;chunks&nbsp;of&nbsp;data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;after&nbsp;or&nbsp;before&nbsp;the&nbsp;pause&nbsp;should&nbsp;be&nbsp;read&nbsp;when&nbsp;<a href="#Speaker-resume">resume</a>()&nbsp;is&nbsp;executed.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_pitch"><strong>set_pitch</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;pitch&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;pitch&nbsp;of&nbsp;the&nbsp;current&nbsp;speech&nbsp;synthesis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;lower&nbsp;pitch&nbsp;and&nbsp;higher&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;meaning&nbsp;higher&nbsp;pitch.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_pitch_range"><strong>set_pitch_range</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;pitch&nbsp;range&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;pitch&nbsp;range&nbsp;of&nbsp;the&nbsp;current&nbsp;speech&nbsp;synthesis<br>
+&nbsp;&nbsp;&nbsp;&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;lower&nbsp;pitch&nbsp;range&nbsp;and&nbsp;higher&nbsp;values<br>
+&nbsp;&nbsp;&nbsp;&nbsp;meaning&nbsp;higher&nbsp;pitch&nbsp;range.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_priority"><strong>set_priority</strong></a>(self, priority)</dt><dd><span class="code">Set&nbsp;the&nbsp;priority&nbsp;category&nbsp;for&nbsp;the&nbsp;following&nbsp;messages.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;priority&nbsp;--&nbsp;one&nbsp;of&nbsp;the&nbsp;'<a href="#Priority">Priority</a>'&nbsp;constants.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_punctuation"><strong>set_punctuation</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;punctuation&nbsp;pronunciation&nbsp;level.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;one&nbsp;of&nbsp;the&nbsp;'<a href="#PunctuationMode">PunctuationMode</a>'&nbsp;constants.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_rate"><strong>set_rate</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;speech&nbsp;rate&nbsp;(speed)&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;0<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;speech&nbsp;rate&nbsp;of&nbsp;the&nbsp;current&nbsp;speech<br>
+&nbsp;&nbsp;&nbsp;&nbsp;synthesis&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;slower&nbsp;speech&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;higher&nbsp;values&nbsp;meaning&nbsp;faster&nbsp;speech.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_spelling"><strong>set_spelling</strong></a>(self, value, scope='self')</dt><dd><span class="code">Toggle&nbsp;the&nbsp;spelling&nbsp;mode&nbsp;or&nbsp;on&nbsp;off.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;if&nbsp;'True',&nbsp;all&nbsp;incoming&nbsp;messages&nbsp;will&nbsp;be&nbsp;spelled<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instead&nbsp;of&nbsp;being&nbsp;read&nbsp;as&nbsp;normal&nbsp;words.&nbsp;'False'&nbsp;switches<br>
+&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;behavior&nbsp;off.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_synthesis_voice"><strong>set_synthesis_voice</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;voice&nbsp;by&nbsp;its&nbsp;real&nbsp;name.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;voice&nbsp;name&nbsp;as&nbsp;returned&nbsp;by&nbsp;'<a href="#Speaker-list_synthesis_voices">list_synthesis_voices</a>()'<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_voice"><strong>set_voice</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;voice&nbsp;by&nbsp;a&nbsp;symbolic&nbsp;name.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;one&nbsp;of&nbsp;the&nbsp;SSIP&nbsp;symbolic&nbsp;voice&nbsp;names:&nbsp;'MALE1'&nbsp;..&nbsp;'MALE3',<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'FEMALE1'&nbsp;...&nbsp;'FEMALE3',&nbsp;'CHILD_MALE',&nbsp;'CHILD_FEMALE'<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.<br>
+&nbsp;<br>
+Symbolic&nbsp;voice&nbsp;names&nbsp;are&nbsp;mapped&nbsp;to&nbsp;real&nbsp;synthesizer&nbsp;voices&nbsp;in&nbsp;the<br>
+configuration&nbsp;of&nbsp;the&nbsp;output&nbsp;module.&nbsp;&nbsp;Use&nbsp;the&nbsp;method<br>
+'<a href="#Speaker-set_synthesis_voice">set_synthesis_voice</a>()'&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;work&nbsp;with&nbsp;real&nbsp;voices.</span></dd></dl>
+
+<dl><dt><a name="Speaker-set_volume"><strong>set_volume</strong></a>(self, value, scope='self')</dt><dd><span class="code">Set&nbsp;the&nbsp;speech&nbsp;volume&nbsp;for&nbsp;further&nbsp;speech&nbsp;commands.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;value&nbsp;--&nbsp;integer&nbsp;value&nbsp;within&nbsp;the&nbsp;range&nbsp;from&nbsp;-100&nbsp;to&nbsp;100,&nbsp;with&nbsp;100<br>
+&nbsp;&nbsp;&nbsp;&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;default&nbsp;speech&nbsp;volume&nbsp;of&nbsp;the&nbsp;current&nbsp;speech<br>
+&nbsp;&nbsp;&nbsp;&nbsp;synthesis&nbsp;output&nbsp;module,&nbsp;lower&nbsp;values&nbsp;meaning&nbsp;softer&nbsp;speech.<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<dl><dt><a name="Speaker-sound_icon"><strong>sound_icon</strong></a>(self, sound_icon)</dt><dd><span class="code">Output&nbsp;given&nbsp;sound_icon.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;sound_icon&nbsp;--&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;sound&nbsp;icon&nbsp;as&nbsp;defined&nbsp;by&nbsp;SSIP;&nbsp;string.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given&nbsp;message<br>
+is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="Speaker-speak"><strong>speak</strong></a>(self, text, callback=None, event_types=None)</dt><dd><span class="code">Say&nbsp;given&nbsp;message.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;text&nbsp;--&nbsp;message&nbsp;text&nbsp;to&nbsp;be&nbsp;spoken.&nbsp;&nbsp;This&nbsp;may&nbsp;be&nbsp;either&nbsp;a&nbsp;UTF-8<br>
+&nbsp;&nbsp;&nbsp;&nbsp;encoded&nbsp;byte&nbsp;string&nbsp;or&nbsp;a&nbsp;Python&nbsp;unicode&nbsp;string.<br>
+&nbsp;&nbsp;callback&nbsp;--&nbsp;a&nbsp;callback&nbsp;handler&nbsp;for&nbsp;asynchronous&nbsp;event&nbsp;notifications.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;callable&nbsp;<a href="builtins.html#object">object</a>&nbsp;(function)&nbsp;which&nbsp;accepts&nbsp;one&nbsp;positional&nbsp;argument<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`type'&nbsp;and&nbsp;one&nbsp;keyword&nbsp;argument&nbsp;`index_mark'.&nbsp;&nbsp;See&nbsp;below&nbsp;for&nbsp;more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;details.<br>
+&nbsp;&nbsp;event_types&nbsp;--&nbsp;a&nbsp;tuple&nbsp;of&nbsp;event&nbsp;types&nbsp;for&nbsp;which&nbsp;the&nbsp;callback&nbsp;should<br>
+&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;called.&nbsp;&nbsp;Each&nbsp;item&nbsp;must&nbsp;be&nbsp;one&nbsp;of&nbsp;`<a href="#CallbackType">CallbackType</a>'&nbsp;constants.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;None&nbsp;(the&nbsp;default&nbsp;value)&nbsp;means&nbsp;to&nbsp;handle&nbsp;all&nbsp;event&nbsp;types.&nbsp;&nbsp;This<br>
+&nbsp;&nbsp;&nbsp;&nbsp;argument&nbsp;is&nbsp;irrelevant&nbsp;when&nbsp;`callback'&nbsp;is&nbsp;not&nbsp;used.<br>
+&nbsp;<br>
+The&nbsp;callback&nbsp;function&nbsp;will&nbsp;be&nbsp;called&nbsp;whenever&nbsp;one&nbsp;of&nbsp;the&nbsp;events&nbsp;occurs.<br>
+The&nbsp;event&nbsp;type&nbsp;will&nbsp;be&nbsp;passed&nbsp;as&nbsp;argument.&nbsp;&nbsp;Its&nbsp;value&nbsp;is&nbsp;one&nbsp;of&nbsp;the<br>
+`<a href="#CallbackType">CallbackType</a>'&nbsp;constants.&nbsp;&nbsp;In&nbsp;case&nbsp;of&nbsp;an&nbsp;index&nbsp;mark&nbsp;event,&nbsp;additional<br>
+keyword&nbsp;argument&nbsp;`index_mark'&nbsp;will&nbsp;be&nbsp;passed&nbsp;and&nbsp;will&nbsp;contain&nbsp;the&nbsp;index<br>
+mark&nbsp;identifier&nbsp;as&nbsp;specified&nbsp;within&nbsp;the&nbsp;text.<br>
+&nbsp;<br>
+The&nbsp;callback&nbsp;function&nbsp;should&nbsp;not&nbsp;perform&nbsp;anything&nbsp;complicated&nbsp;and&nbsp;is<br>
+not&nbsp;allowed&nbsp;to&nbsp;issue&nbsp;any&nbsp;further&nbsp;SSIP&nbsp;client&nbsp;commands.&nbsp;&nbsp;An&nbsp;attempt&nbsp;to<br>
+do&nbsp;so&nbsp;would&nbsp;lead&nbsp;to&nbsp;a&nbsp;deadlock&nbsp;in&nbsp;SSIP&nbsp;communication.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;non-blocking;&nbsp;&nbsp;it&nbsp;just&nbsp;sends&nbsp;the&nbsp;command,&nbsp;given<br>
+message&nbsp;is&nbsp;queued&nbsp;on&nbsp;the&nbsp;server&nbsp;and&nbsp;the&nbsp;method&nbsp;returns&nbsp;immediately.</span></dd></dl>
+
+<dl><dt><a name="Speaker-stop"><strong>stop</strong></a>(self, scope='self')</dt><dd><span class="code">Immediately&nbsp;stop&nbsp;speaking&nbsp;the&nbsp;currently&nbsp;spoken&nbsp;message.<br>
+&nbsp;<br>
+Arguments:<br>
+&nbsp;&nbsp;scope&nbsp;--&nbsp;see&nbsp;the&nbsp;documentation&nbsp;of&nbsp;this&nbsp;class.</span></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="speechd.client.html#SSIPClient">SSIPClient</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="speechd.client.html#SSIPClient">SSIPClient</a>:<br>
+<dl><dt><strong>DEFAULT_HOST</strong> = '127.0.0.1'</dl>
+
+<dl><dt><strong>DEFAULT_PORT</strong> = 6560</dl>
+
+<dl><dt><strong>DEFAULT_SOCKET_PATH</strong> = 'speech-dispatcher/speechd.sock'</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
