@@ -30,6 +30,8 @@ the [speech dispatcher documentation](http://htmlpreview.github.io/?https://gith
 the [spd-say documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/spd-say.html),
 and the [SSIP protocol documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/ssip.html).
 
+The python binding documentation is available with `pydoc3 speechd` (or `pydoc speechd`)
+
 The key features and the supported TTS engines, output subsystems, client
 interfaces and client applications known to work with Speech Dispatcher are
 listed in [overview of speech-dispatcher](README.overview.md) as well as voices
@@ -197,7 +199,7 @@ LGPLv2.1-or-later source code.
 
 
 Copyright (C) 2001-2009 Brailcom, o.p.s
-Copyright (C) 2018-2020, 2022, 2024-2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2020, 2022, 2024-2026 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Didier Spaier <didier@slint.fr>
 
 This README file is free software; you can redistribute it and/or modify it under
