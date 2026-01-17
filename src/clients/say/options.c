@@ -65,6 +65,7 @@ void options_print_help(char *argv[])
 	assert(argv[0]);
 
 	printf(_("send text-to-speech output request to speech-dispatcher\n\n"));
+	printf(_("note that unless -w is given, %s does not wait for speech completion\n\n"), argv[0]);
 	printf(_("Usage: %s [options] \"some text\"\n\n"), argv[0]);
 
 	printf(_("Options:\n"));
