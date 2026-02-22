@@ -19,7 +19,7 @@
 (in-package :asdf)
 
 
-(defsystem :ssip :depends-on (:regex #+SBCL :sb-bsd-sockets)
+(defsystem :ssip :depends-on (#+SBCL :sb-bsd-sockets)
   :components
   ((:file "package")
    (:file "sysdep")
