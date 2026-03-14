@@ -20,7 +20,7 @@ Support
 
 These speech syntheses are supported:
 
-- Baratinoo
+- Baratinoo / VoxyGen
 - Cicero
 - DECTalk
 - Epos
