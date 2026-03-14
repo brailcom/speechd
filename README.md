@@ -15,6 +15,29 @@ Speech Dispatcher project provides a high-level *device independent* layer
 for access to speech synthesis through a simple, stable and well documented
 interface.
 
+Support
+-------
+
+These speech syntheses are supported:
+
+- Baratinoo
+- Cicero
+- DECTalk
+- Epos
+- ESpeak/ESpeak-NG
+- Festival
+- Flite
+- IBMTTS / voxin
+- Ivona
+- Kali
+- Llia
+- Mary
+- MBrola
+- Mimic3
+- OpenJTalk
+- Pico
+- Swift
+
 Documentation
 -------------
 
@@ -197,7 +220,7 @@ LGPLv2.1-or-later source code.
 
 
 Copyright (C) 2001-2009 Brailcom, o.p.s
-Copyright (C) 2018-2020, 2022, 2024-2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2020, 2022, 2024-2026 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Didier Spaier <didier@slint.fr>
 
 This README file is free software; you can redistribute it and/or modify it under
