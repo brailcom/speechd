@@ -43,12 +43,28 @@ LT_PREREQ([2.2])
 LT_INIT([dlopen])
 AC_CONFIG_SRCDIR([src/server/speechd.c])
 AC_CONFIG_HEADERS([config.h])
+AC_ARG_ENABLE([libs-only], [AS_HELP_STRING([--enable-libs-only], [build only the client library])], [], [enable_libs_only=no])
+AM_CONDITIONAL([LIBS_ONLY], [test "$enable_libs_only" = "yes"])
+if test "$enable_libs_only" = "yes"; then
+	with_espeak=no with_espeak_ng=no with_flite=no with_ibmtts=no
+	with_voxin=no with_ivona=no with_pico=no with_baratinoo=no
+	with_kali=no with_piper=no
+	with_pulse=no with_alsa=no with_oss=no with_nas=no
+	with_libao=no with_pipewire=no
+	enable_python=no enable_doc=no
+	with_systemdsystemunitdir=no with_systemduserunitdir=no
+fi
+m4_ifdef([AM_GNU_GETTEXT_VERSION], [AM_GNU_GETTEXT_VERSION([0.19.8])])
+m4_ifdef([AM_GNU_GETTEXT], [
+if test "$enable_libs_only" != "yes"; then
 AM_GNU_GETTEXT_VERSION([0.19.8])
 AM_GNU_GETTEXT([external])
 if test "$ac_cv_path_MSGFMT" = ":"
 then
 	AC_MSG_FAILURE([msgfmt missing from the gettext package])
 fi
+fi
+])
 
 # Split version number
 [MAJOR_VERSION]=MAJOR_VERSION
@@ -75,6 +91,7 @@ AC_SEARCH_LIBS([sqrt], [m], [],
 	[AC_MSG_FAILURE([Math library missing])])
 AC_SEARCH_LIBS([pthread_create], [pthread], [],
 	[AC_MSG_FAILURE([Threads library missing])])
+if test "$enable_libs_only" != "yes"; then
 AC_ARG_ENABLE([ltdl],
 	[AS_HELP_STRING([--disable-ltdl], [do not use ltdl for modules])],
 	[],
@@ -99,6 +116,7 @@ then
 	AC_SEARCH_LIBS([dlopen], [dl], [],
 		[AC_MSG_FAILURE([dlopen missing])])
 fi
+fi
 
 if test x$enable_shared = xyes;
 then
@@ -119,7 +137,7 @@ AM_CONDITIONAL(DARWIN_HOST, test "$darwin_host" = yes)
 PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.36])
 AC_SUBST([GLIB_CFLAGS])
 AC_SUBST([GLIB_LIBS])
-
+if test "$enable_libs_only" != "yes"; then
 PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
 AC_SUBST([GTHREAD_CFLAGS])
 AC_SUBST([GTHREAD_LIBS])
@@ -135,6 +153,7 @@ AC_SUBST([DOTCONF_LIBS])
 PKG_CHECK_MODULES([SNDFILE], [sndfile >= 1.0.2])
 AC_SUBST([SNDFILE_CFLAGS])
 AC_SUBST([SNDFILE_LIBS])
+fi
 
 PKG_CHECK_MODULES([LIBSYSTEMD], [libsystemd], [have_libsystemd=yes], [:])
 
