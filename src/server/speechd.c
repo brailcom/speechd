@@ -107,10 +107,11 @@ static gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer 
 static gboolean speechd_reload_dead_modules(gpointer user_data);
 static gboolean speechd_reload_configuration(gpointer user_data);
 enum quit_reason {
+	QUIT_TIMEOUT,
 	QUIT_SIGINT,
 	QUIT_SIGTERM,
-	QUIT_TIMEOUT,
 };
+static enum quit_reason quit_reason = QUIT_TIMEOUT;
 static gboolean speechd_quit(gpointer user_data);
 
 static gboolean server_process_incoming (gint          fd,
@@ -863,7 +864,11 @@ static void speechd_check_modules(void)
 
 static gboolean speechd_quit(gpointer user_data)
 {
-	switch ((enum quit_reason)(uintptr_t) user_data) {
+	/* Don't drop an existing non-timeout reason.  */
+	if (quit_reason == QUIT_TIMEOUT)
+		quit_reason = (enum quit_reason)(uintptr_t) user_data;
+
+	switch (quit_reason) {
 		case QUIT_SIGINT:
 			MSG(4, "Got SIGINT");
 			break;
@@ -1440,7 +1445,11 @@ int main(int argc, char *argv[])
 
 	check_client_count();
 
-	g_main_loop_run(main_loop);
+	do {
+		g_main_loop_run(main_loop);
+		/* Make a last client check before existing on timeout.
+		 * Systemd will restart us if a client connected in between. */
+	} while (quit_reason == QUIT_TIMEOUT && client_count > 0);
 
 	MSG(1, "Terminating...");
 
