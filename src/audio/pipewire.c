@@ -1,5 +1,5 @@
 /*
- * a pipewire backend for Speech Dispatcher
+ * pipewire.c -- The Pipewire backend for Speech Dispatcher
  *
  * Copyright (C) 2024 Alberto Tirla <albertotirla@gmail.com>
  *
@@ -76,8 +76,8 @@ typedef struct
     int32_t eventfd_number;        // used in on_process to signal the thread where pipewire_play is running that the ringbuffer has been drained to the point where playback either finished or is in progress, but for sure to the point where we could push more audio, because our side of the buffer at least is drained
 } module_state;
 
-// pipewire on process callback
-// this function would be called each time the server requests data from usa
+// pipewire on_process callback
+// this function would be called each time the server requests data from us
 static void on_process(void *userdata)
 {
     module_state *state = (module_state *)userdata;
@@ -88,7 +88,7 @@ static void on_process(void *userdata)
     void *destination_memory; // where we end up writing to, after reading from the ringbuffer
     uint32_t read_index, available_for_loading, must_load_with_silence;
     int32_t available_bytes_in_speech_dispatcher_buffer, total_number_of_bytes_in_pipewire_buffer;
-    message(5, "entering on process callback");
+    message(5, "entering on_process callback");
     if ((b = pw_stream_dequeue_buffer(state->stream)) == NULL)
     {
         error("out of buffers. Aborting");
@@ -103,13 +103,13 @@ static void on_process(void *userdata)
         abort();
     }
     // in the process callback, we take the samples from the ring buffer we used in the pipewire_play function and send it to pipewire for playback
-    // this will be done using the following two step algorythm:
+    // this will be done using the following two step algorithm:
     // we first get the read index of the ringbuffer, which also returns the amount available in there
     // if we have enough data in the ringbuffer, aka if the read index isn't less than requested, then we load all of it at once in pipewire
-    // however, if the remainder between the filled part of the buffer and the value of requested is greatter than 0, then we fill that part of the buffer with silence, while taking everything else, hoping we will have more samples next time
+    // however, if the remainder between the filled part of the buffer and the value of requested is greater than 0, then we fill that part of the buffer with silence, while taking everything else, hoping we will have more samples next time
     available_bytes_in_speech_dispatcher_buffer = spa_ringbuffer_get_read_index(&state->rb, &read_index);
     message(4, "we have %i bytes in the spd ringbuffer", available_bytes_in_speech_dispatcher_buffer);
-    total_number_of_bytes_in_pipewire_buffer = buf->datas[0].maxsize; // how many samples, in bytes,  of audio are in this chunk. Technically, requested itself could be used, but this is done instead to avoid some very rare, but important, edge cases, for example buggy hardware drivers which don't probe the card correctly, so on_process gets called very often, with a value of requested samples greatter than what pipewire could allocate, in maxsize
+    total_number_of_bytes_in_pipewire_buffer = buf->datas[0].maxsize; // how many samples, in bytes, of audio are in this chunk. Technically, requested itself could be used, but this is done instead to avoid some very rare, but important, edge cases, for example buggy hardware drivers which don't probe the card correctly, so on_process gets called very often, with a value of requested_samples greater than what pipewire could allocate, in maxsize
 // if our pipewire is new enough, we know exactly how many samples to push, given through the value of the requested field, from the structure returned when we dequeue a buffer for filling
 #if PW_CHECK_VERSION(0, 3, 49)
     if (b->requested > 0)
@@ -169,39 +169,39 @@ static const struct pw_stream_events stream_events = {
     .process = on_process,
 };
 
-//  open a pipewire connection and initialize a non-blocking main loop
-//  pars[1] contains the name of the sink
+// open a pipewire connection and initialize a non-blocking main loop
+// pars[1] contains the name of the sink
 static AudioID *pipewire_open(void **pars)
 {
     module_state *state = (module_state *)malloc(sizeof(module_state));
     message(3, "initialising pipewire output");
     pw_init(0, NULL);
-    // initialise the main loop, and then get the inner loop from it, so that locks are kepped from the most often contended path as much as possible
+    // initialise the main loop, and then get the inner loop from it, so that locks are kept from the most often contended path as much as possible
     state->loop = pw_thread_loop_new("pipewire audio thread", NULL);
     state->inner_loop = pw_thread_loop_get_loop(state->loop);
     // the ring buffer and its backing memory
     state->rb = SPA_RINGBUFFER_INIT();
     state->sample_buffer = malloc(SAMPLE_BUFFER_SIZE);
-    // initialise the event file descripter and the stream
+    // initialise the event file descriptor and the stream
     state->stream = pw_stream_new_simple(state->inner_loop, pars[1], pw_properties_new(PW_KEY_MEDIA_TYPE, "Audio", PW_KEY_MEDIA_CATEGORY, "Playback", PW_KEY_MEDIA_ROLE, "Accessibility", NULL), &stream_events, state);
     if (!state->stream)
 	return NULL;
     if ((state->eventfd_number = spa_system_eventfd_create(state->inner_loop->system, SPA_FD_CLOEXEC)) < 0)
     {
-        error("can not create event file descriptor");
+        error("cannot create event file descriptor");
         abort();
     }
     // set our flag to true
     state->is_running = true;
     // set sample rate to 0, to then be able to check if this is the first time pipewire_begin has been called. We explicitly set this to 0 as a sentinel value of sorts, because we can't rely on uninitialised memory, as that's unpredictable
     state->playback_sample_rate = 0;
-    message(3, "basic soundsystem initialisation completed without errors");
-    //  start the threaded loop
+    message(3, "basic soundsystem initialisation completed");
+    // start the threaded loop
     pw_thread_loop_start(state->loop);
     return (AudioID *)state;
 }
 
-// configure a pipewire stream for the given speech dispatcher configuration and then prepair loop for playback
+// configure a pipewire stream for the given speech dispatcher configuration and then prepare loop for playback
 static int pipewire_begin(AudioID *id, AudioTrack track)
 {
     module_state *state = (module_state *)id;
@@ -217,11 +217,11 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
         {
         case SPD_AUDIO_LE:
             format = SPA_AUDIO_FORMAT_S16_LE;
-            message(4, "audio format is signed 16 bit, little endian");
+            message(4, "audio format is signed 16 bits, little endian");
             break;
         case SPD_AUDIO_BE:
             format = SPA_AUDIO_FORMAT_S16_BE;
-            message(4, "audio format is signed 16 bit, big endian");
+            message(4, "audio format is signed 16 bits, big endian");
             break;
         default:
             error("invalid audio format specifier");
@@ -232,7 +232,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     {
         state->stride = track.num_channels * sizeof(uint8_t);
         format = SPA_AUDIO_FORMAT_S8;
-        message(4, "audio format is signed 8bit");
+        message(4, "audio format is signed 8 bits");
     }
     else
     {
@@ -270,7 +270,7 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     pw_thread_loop_lock(state->loop);
     pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, &params, 1);
 
-    // The default quality 4 notably make espeak-ng's output lame
+    // The default quality 4 makes espeak-ng's output notably lame
     int quality = 10;
     struct spa_pod_frame f[2];
     spa_pod_builder_push_object(&b, &f[0], SPA_TYPE_OBJECT_Props, SPA_PARAM_Props);
@@ -290,17 +290,17 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     return 0;
 }
 
-static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
+static int pipewire_feed_sync_overlap(AudioID *id, AudioTrack track)
 {
     module_state *state = (module_state *)id;
     uint32_t write_index, fill_quantity, room_left_in_buffer = 0, track_buffer_size;
-    uint64_t dummy; // used to read from the event file descripter. We don't use this for anything, at the moment.
+    uint64_t dummy; // used to read from the event file descriptor. We don't use this for anything, at the moment.
     uint8_t *samples_buffer_copy = (uint8_t *)track.samples;
     // if the stream has been deactivated because of a pipewire_stop call, we activate it
     pw_thread_loop_lock(state->loop);
     if (pw_stream_get_state(state->stream, NULL) == PW_STREAM_STATE_PAUSED)
     {
-        if (state->is_running == false)
+        if (! state->is_running)
         {
             message(4, "stream is paused, starting");
             state->is_running = true;
@@ -318,7 +318,7 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         while (true)
         {
             // we generally spend a lot of time waiting for this to happen, enough so that there can be something interrupting us, for example, speech dispatcher deciding that another piece of audio must have priority, while we're blocked in here. So, we check, each iteration of this loop, if  we were stopped by something, upon which we imediately return
-            if (state->is_running == false)
+            if (! state->is_running)
                 return 0;
             // how much of the buffer was actually filled and not played yet by on_process
             fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
@@ -335,11 +335,11 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
             spa_system_eventfd_read(state->inner_loop->system, state->eventfd_number, &dummy);
         }
         // we write the amount of samples we can at this time without overflowing the buffer, to the memory area represented by the amount of room that's free after the last on_process call, to then be enqueued by pipewire
-        //  we assume speech dispatcher gives us the correct number of bytes for the format it chose, enough for this chunk. If that's not the case, there's not much we could do besides reading uninitialized memory or an incomplete chunk, unfortunately
+        // we assume speech-dispatcher gives us the correct number of bytes for the format it chose, enough for this chunk. If that's not the case, there's not much we could do besides reading uninitialized memory or an incomplete chunk, unfortunately
         // in case we produced more audio than the available room in the buffer that got freed by on_process, we only push what we can, otherwise we would scramble existing audio samples
         room_left_in_buffer = SPA_MIN(track_buffer_size, room_left_in_buffer);
         // everything has been accounted for, so write the first batch of data, keeping into account that we can't overflow the initially allocated block for the buffer, represented by SAMPLE_BUFFER_SIZE
-        message(4, "writing %i bytes to speech dispatcher buffer", room_left_in_buffer);
+        message(4, "writing %i bytes to speech-dispatcher buffer", room_left_in_buffer);
         spa_ringbuffer_write_data(&state->rb, state->sample_buffer, SAMPLE_BUFFER_SIZE, write_index % SAMPLE_BUFFER_SIZE, samples_buffer_copy, room_left_in_buffer);
         // subtract from the total buffer what we were already able to write, in order to indicate that we played some of the initial capacity of the buffer by queueing it to on_process
         track_buffer_size -= room_left_in_buffer;
@@ -347,14 +347,14 @@ static int pipewire_feed_sink_overlap(AudioID *id, AudioTrack track)
         spa_ringbuffer_write_update(&state->rb, write_index + room_left_in_buffer);
         // advance our pointer by how much we were able to free by playing it
         samples_buffer_copy += room_left_in_buffer;
-        message(4, "writing completed without errors");
+        message(4, "write completed");
     }
-    // because this is feed_sink_overlap, we wait till the ringbuffer falls below 10 ms, to not lose some small segments of speech
-    fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index); // update the value
-    while (fill_quantity >= track.sample_rate * state->stride * 10 / 1000) // untill there's less than 10 ms in the ringbuffer
+    // because this is feed_sync_overlap, we wait till the ringbuffer falls below 10 ms, to not loose some small segments of speech
+    fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
+    while (fill_quantity >= track.sample_rate * state->stride * 10 / 1000) // until there's less than 10 ms in the ringbuffer
     {
         spa_system_eventfd_read(state->inner_loop->system, state->eventfd_number, &dummy);
-        fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index); // update the value
+        fill_quantity = spa_ringbuffer_get_write_index(&state->rb, &write_index);
     }
     message(4, "buffer drained from spd side, nothing else to do");
     return 0;
@@ -387,7 +387,7 @@ static int pipewire_set_volume(AudioID *id, int volume)
     module_state *state = (module_state *)id;
     message(3, "setting audio stream volume to %i", volume);
         // because volume is given to us in the range -100, 100 and pipewire requests a floating point number between 0 and 1, we have to normalize it first
-        int min_value = -100;
+    int min_value = -100;
     int max_value = 100;
     float normalized = (float)(volume - min_value) / (max_value - min_value);
     // use that normalized value to set the volume
@@ -398,7 +398,7 @@ static int pipewire_set_volume(AudioID *id, int volume)
 }
 
 // this function is responsible for cleanning up all the memory used by all the objects collected by the module_state structure
-// if any memory leaks appear, this isa the place to look for, or if this is never called, why it's never called is yet another mystery which should be resolved
+// if any memory leaks appear, this is the place to look for, or if this is never called, why it's never called is yet another mystery which should be resolved
 static int pipewire_close(AudioID *id)
 {
     module_state *state = (module_state *)id;
@@ -412,7 +412,7 @@ static int pipewire_close(AudioID *id)
     // now that the stream is destroyed, we can kill the loop
     pw_thread_loop_stop(state->loop);
     pw_thread_loop_destroy(state->loop);
-    // free the memory allocated by  the sample buffer used to hold samples between pipewire and speech dispatcher
+    // free the memory allocated by the sample buffer used to hold samples between pipewire and speech-dispatcher
     free(state->sample_buffer);
     // uninitialize pipewire
     pw_deinit();
@@ -443,7 +443,7 @@ static spd_audio_plugin_t pipewire_exports = {
     .begin = pipewire_begin,
     .close = pipewire_close,
     .stop = pipewire_stop,
-    .feed_sync_overlap = pipewire_feed_sink_overlap,
+    .feed_sync_overlap = pipewire_feed_sync_overlap,
     .get_playcmd = pipewire_get_play_command,
     .set_volume = pipewire_set_volume,
     .set_loglevel = pipewire_set_log_level
