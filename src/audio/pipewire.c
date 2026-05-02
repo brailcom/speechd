@@ -56,7 +56,7 @@ static int32_t pipewire_log_level; // only one per module, accessing this from m
 do {                                             \
     if (level <= pipewire_log_level)             \
     {                                            \
-        MSG(0, "pipewire: " arg, ##__VA_ARGS__); \
+        MSG(level, "pipewire: " arg, ##__VA_ARGS__); \
     }                                            \
 } while (0)
 #define error(arg, ...) message(0, "pipewire: fatal: " arg, ##__VA_ARGS__)

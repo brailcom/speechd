@@ -1,4 +1,3 @@
-
 /*
  * pulse.c -- The simple pulseaudio backend for the spd_audio library.
  *
@@ -88,7 +87,7 @@ static int pulse_log_level;
 static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
 
 /* Put a message into the logfile (stderr) */
-#define MSG(level, arg, ...) if (level <= pulse_log_level) { MSG(0, "Pulse: " arg, ##__VA_ARGS__); }
+#define MSG(level, arg, ...) if (level <= pulse_log_level) { MSG(level, "Pulse: " arg, ##__VA_ARGS__); }
 #define ERR(arg, ...) MSG(0, "Pulse ERROR: " arg, ##__VA_ARGS__)
 
 /* The following is a copy of pulseaudio's src/pulse/simple.c

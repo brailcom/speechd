@@ -1,4 +1,3 @@
-
 /*
  * alsa.c -- The Advanced Linux Sound System backend for Speech Dispatcher
  *
@@ -85,7 +84,7 @@ static int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 #endif
 
 /* Put a message into the logfile (stderr) */
-#define MSG(level, arg, ...) if (level <= alsa_log_level) { MSG(0, "ALSA: " arg, ##__VA_ARGS__); }
+#define MSG(level, arg, ...) if (level <= alsa_log_level) { MSG(level, "ALSA: " arg, ##__VA_ARGS__); }
 #define ERR(arg, ...) MSG(0, "ALSA ERROR: " arg, ##__VA_ARGS__)
 
 static int alsa_log_level;

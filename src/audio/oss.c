@@ -1,4 +1,3 @@
-
 /*
  * oss.c -- The Open Sound System backend for the spd_audio library.
  *
@@ -62,7 +61,7 @@ static int _oss_close(spd_oss_id_t * id);
 static int _oss_sync(spd_oss_id_t * id);
 
 /* Put a message into the logfile (stderr) */
-#define MSG(level, arg, ...) if (level <= oss_log_level) { MSG(0, "OSS: " arg, ##__VA_ARGS__); }
+#define MSG(level, arg, ...) if (level <= oss_log_level) { MSG(level, "OSS: " arg, ##__VA_ARGS__); }
 #define ERR(arg, ...) MSG(0, "OSS ERROR: " arg, ##__VA_ARGS__)
 
 static int oss_log_level;

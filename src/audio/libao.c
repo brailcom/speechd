@@ -45,7 +45,7 @@
 #define AO_SEND_BYTES 256
 
 /* Put a message into the logfile (stderr) */
-#define MSG(level, arg, ...) if (level <= libao_log_level) { MSG(0, "libao: " arg, ##__VA_ARGS__); }
+#define MSG(level, arg, ...) if (level <= libao_log_level) { MSG(level, "libao: " arg, ##__VA_ARGS__); }
 #define ERR(arg, ...) MSG(0, "libao ERROR: " arg, ##__VA_ARGS__)
 
 /* AO_FORMAT_INITIALIZER is an ao_sample_format structure with zero values
