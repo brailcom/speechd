@@ -332,7 +332,7 @@ namespace cxxpiper {
 	parseModelConfig(voice.configRoot, voice.modelConfig);
 	if (voice.modelConfig.numSpeakers > 1) {
 	    if (speakerId) {
-		DBG(DBG_MODNAME "Using Multi-speaker model, found configured speaker id %d", speakerId);
+		DBG(DBG_MODNAME "Using Multi-speaker model, found configured speaker id %ld", speakerId.value());
 		voice.synthesisConfig.speakerId = speakerId;
 	    } else {
 		DBG(DBG_MODNAME "Using Multi-speaker model with default speaker id 0");
@@ -843,7 +843,7 @@ namespace cxxpiper {
 	    if ( ! cbuf) {
 		throw std::runtime_error("Failure allocating dynamic memory for adjustment buffer");
 	    }
-	    for (size_t c = 0; c < channels; ++c) {
+	    for (int c = 0; c < channels; ++c) {
 		cbuf[c] = g_new0(float, bs);
 		if ( ! cbuf[c]) {
 		    throw std::runtime_error("Failure allocating dynamic memory for adjustment buffer values");
@@ -855,7 +855,7 @@ namespace cxxpiper {
 	static int cxxpiper_free_cbuf()
 	{
 	    const int channels = voice.synthesisConfig.channels;
-	    for (size_t c = 0; c < channels; ++c) g_free(cbuf[c]);
+	    for (int c = 0; c < channels; ++c) g_free(cbuf[c]);
 	    g_free(cbuf);
 	    return 0;
 	}
