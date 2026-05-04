@@ -34,7 +34,7 @@ ssip_TEXINFOS = gpl.texi fdl.texi
 
 speechd.client.html: $(top_srcdir)/src/api/python/speechd/client.py
 	PYTHONPATH=$(top_builddir)/src/api/python pydoc3 -w speechd.client
-	sed -i -e 's_</title>_</title><style>$(shell cat pydoc.css)</style>_' $@
+	sed -i -e 's_</title>_</title><style>$(shell cat $(srcdir)/pydoc.css)</style>_' $@
 
 CLEANFILES = spd-say.info \
 	speech-dispatcher-cs.info \
