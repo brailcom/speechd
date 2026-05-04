@@ -22,7 +22,10 @@ pkgconfig_DATA = speech-dispatcher.pc
 
 BUILT_SOURCES = $(top_srcdir)/.version
 
-SUBDIRS= include locale src config po
+SUBDIRS = include src
+if !LIBS_ONLY
+SUBDIRS += locale config po
+endif
 
 if ENABLE_DOC
 SUBDIRS += doc
