@@ -25,6 +25,8 @@ nodist_speechd_python_PYTHON = paths.py
 edit = sed  \
 	-e 's:@bindir[@]:$(bindir):g'
 
+all: paths.py
+
 paths.py: Makefile
 	rm -f $@
 	srcdir=; \
