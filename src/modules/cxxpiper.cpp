@@ -855,8 +855,11 @@ namespace cxxpiper {
 	static int cxxpiper_free_cbuf()
 	{
 	    const int channels = voice.synthesisConfig.channels;
-	    for (int c = 0; c < channels; ++c) g_free(cbuf[c]);
-	    g_free(cbuf);
+	    if (cbuf) {
+		for (int c = 0; c < channels; ++c) g_free(cbuf[c]);
+		g_free(cbuf);
+		cbuf = NULL;
+	    }
 	    return 0;
 	}
 
