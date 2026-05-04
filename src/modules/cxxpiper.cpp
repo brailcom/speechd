@@ -345,7 +345,7 @@ namespace cxxpiper {
 
 // Copied from piper distribution.
     void synthesize(std::vector<PhonemeId> &phonemeIds,
-		    SynthesisConfig &synthesisConfig, ModelSession &session,
+		    SynthesisConfig &synthesisConfig, ModelSession &session, ModelConfig &modelConfig,
 		    std::vector<int16_t> &audioBuffer, SynthesisResult &result)
     {
 	//debug("Synthesizing audio for {} phoneme id(s)", phonemeIds.size());
@@ -374,19 +374,19 @@ namespace cxxpiper {
 	std::vector<int64_t> speakerId{
 	    (int64_t)synthesisConfig.speakerId.value_or(0)};
 	std::vector<int64_t> speakerIdShape{(int64_t)speakerId.size()};
-	if (synthesisConfig.speakerId) {
+	if (modelConfig.numSpeakers > 1) {
 	    inputTensors.push_back(Ort::Value::CreateTensor<int64_t>(
 				       memoryInfo, speakerId.data(), speakerId.size(), speakerIdShape.data(),
 				       speakerIdShape.size()));
 	}
 	// From export_onnx.py
-	std::array<const char *, 4> inputNames = {"input", "input_lengths", "scales",
-						  "sid"};
+	std::array<const char *, 4> inputNames_multi = {"input", "input_lengths", "scales", "sid"};
+	std::array<const char *, 3> inputNames = {"input", "input_lengths", "scales"};
 	std::array<const char *, 1> outputNames = {"output"};
 	// Infer
 	auto startTime = std::chrono::steady_clock::now();
 	auto outputTensors = session.onnx.Run(
-	    Ort::RunOptions{nullptr}, inputNames.data(), inputTensors.data(),
+	Ort::RunOptions{nullptr}, modelConfig.numSpeakers > 1 ? inputNames_multi.data() : inputNames.data(), inputTensors.data(),
 	    inputTensors.size(), outputNames.data(), outputNames.size());
 	auto endTime = std::chrono::steady_clock::now();
 	if ((outputTensors.size() != 1) || (!outputTensors.front().IsTensor())) {
@@ -518,7 +518,7 @@ namespace cxxpiper {
 		phonemes_to_ids(*(phrasePhonemes[phraseIdx]), idConfig, phonemeIds,
 				missingPhonemes);
 		// ids -> audio
-		synthesize(phonemeIds, voice.synthesisConfig, voice.session, audioBuffer,
+		synthesize(phonemeIds, voice.synthesisConfig, voice.session, voice.modelConfig, audioBuffer,
 			   phraseResults[phraseIdx]);
 		// Add end of phrase silence
 		for (std::size_t i = 0; i < phraseSilenceSamples[phraseIdx]; i++) {
