@@ -32,11 +32,16 @@ paths.py: Makefile
 	srcdir=; \
 	test -f ./$@.in || srcdir=$(srcdir)/; \
 	$(edit) $${srcdir}$@.in > $@
+	test -f client.py || ln -s $(srcdir)/client.py .
+	test -f __init__.py || ln -s $(srcdir)/__init__.py .
 
 paths.py: $(srcdir)/paths.py.in
 
 CLEANFILES = paths.py
 
 EXTRA_DIST = paths.py.in
+
+clean-local:
+	rm -fr __pycache__
 
 -include $(top_srcdir)/git.mk
