@@ -389,6 +389,8 @@ char *module_strip_ssml(const char *message)
 			omit = 0;
 			continue;
 		}
+		if (omit && i != len)
+			continue;
 		if (!strncmp(&(message[i]), "&lt;", 4)) {
 			i += 3;
 			out[n++] = '<';
