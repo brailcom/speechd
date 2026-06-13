@@ -379,7 +379,7 @@ char *module_strip_ssml(const char *message)
 	len = strlen(message);
 	out = (char *)g_malloc(sizeof(char) * (len + 1));
 
-	for (i = 0, n = 0; i <= len; i++) {
+	for (i = 0, n = 0; i < len; i++) {
 
 		if (message[i] == '<') {
 			omit = 1;
@@ -389,6 +389,8 @@ char *module_strip_ssml(const char *message)
 			omit = 0;
 			continue;
 		}
+		if (omit)
+			continue;
 		if (!strncmp(&(message[i]), "&lt;", 4)) {
 			i += 3;
 			out[n++] = '<';
@@ -404,9 +406,13 @@ char *module_strip_ssml(const char *message)
 		} else if (!strncmp(&(message[i]), "&apos;", 6)) {
 			i += 5;
 			out[n++] = '\'';
-		} else if (!omit || i == len)
+		} else {
 			out[n++] = message[i];
+		}
 	}
+
+	out[n++] = 0;
+
 	DBG("In stripping ssml: |%s|", out);
 
 	return out;
