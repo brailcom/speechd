@@ -411,7 +411,7 @@ char *module_strip_ssml(const char *message)
 		}
 	}
 
-	out[n++] = messaege[i];
+	out[n++] = 0;
 
 	DBG("In stripping ssml: |%s|", out);
 
