@@ -1,0 +1,138 @@
+# python_module.at - python module tests
+#
+# Copyright (C) 2026 Jean-François David
+#
+# This is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+#
+# This software is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+AT_BANNER([Python module])
+
+AT_SETUP([Python module imports])
+AT_KEYWORDS([python import])
+
+AT_SKIP_IF([test "x$TEST_PYTHON_ENABLED" != xyes])
+
+AT_CHECK([[test_pythonpath=${TEST_PYTHONPATH-"$abs_top_srcdir/src/modules"}
+PYTHONDONTWRITEBYTECODE=1 \
+PYTHONNOUSERSITE=1 \
+PYTHONPATH="$test_pythonpath" \
+"$PYTHON" - "$test_pythonpath" <<'PY'
+import os
+import sys
+
+from speechd_python_modules import module_utils, speechd_types
+
+pythonpath_dir = os.path.realpath(sys.argv[1])
+module_dir = os.path.join(pythonpath_dir, "speechd_python_modules")
+modules = [module_utils, speechd_types]
+
+
+def check_module_path(module):
+    module_file = os.path.realpath(module.__file__)
+    if os.path.dirname(module_file) != module_dir:
+        raise SystemExit(
+            "%s imported from %r, expected %r"
+            % (module.__name__, module_file, module_dir)
+        )
+
+
+for module in modules:
+    check_module_path(module)
+PY
+]], [0], [], [])
+
+AT_CLEANUP
+
+AT_SETUP([module_strip_ssml])
+AT_KEYWORDS([python module_utils ssml])
+
+AT_SKIP_IF([test "x$TEST_PYTHON_ENABLED" != xyes])
+
+AT_CHECK([[test_pythonpath=${TEST_PYTHONPATH-"$abs_top_srcdir/src/modules"}
+PYTHONDONTWRITEBYTECODE=1 \
+PYTHONNOUSERSITE=1 \
+PYTHONPATH="$test_pythonpath" \
+"$PYTHON" - <<'PY'
+from speechd_python_modules import module_utils
+
+strip_ssml = module_utils.module_strip_ssml
+
+
+def check(message, expected):
+    actual = strip_ssml(message)
+    if actual != expected:
+        raise SystemExit(
+            "strip_ssml(%r) returned %r, expected %r"
+            % (message, actual, expected)
+        )
+
+
+check("Plain text.", "Plain text.")
+check("Hello <emphasis>world</emphasis>.", "Hello world.")
+check('<speak>Hello <break time="500ms"/>world</speak>', "Hello world")
+check('<tag attr="&amp;">text</tag>', "text")
+check(
+    "Use &lt;tag&gt;, &amp;, &quot;quotes&quot; and &apos;apostrophes&apos;.",
+    "Use <tag>, &, \"quotes\" and 'apostrophes'.",
+)
+check("Keep <unfinished", "Keep ")
+check("Unknown &copy; entity stays.", "Unknown &copy; entity stays.")
+PY
+]], [0], [], [])
+
+AT_CLEANUP
+
+AT_SETUP([Python module types])
+AT_KEYWORDS([python speechd_types])
+
+AT_SKIP_IF([test "x$TEST_PYTHON_ENABLED" != xyes])
+
+AT_CHECK([[test_pythonpath=${TEST_PYTHONPATH-"$abs_top_srcdir/src/modules"}
+PYTHONDONTWRITEBYTECODE=1 \
+PYTHONNOUSERSITE=1 \
+PYTHONPATH="$test_pythonpath" \
+"$PYTHON" - <<'PY'
+from speechd_python_modules import speechd_types
+
+if speechd_types.SPD_MSGTYPE_TEXT != 0:
+    raise SystemExit("unexpected SPD_MSGTYPE_TEXT value")
+if speechd_types.SPD_MSGTYPE_SPELL != 99:
+    raise SystemExit("unexpected SPD_MSGTYPE_SPELL value")
+if speechd_types.SPD_AUDIO_LE != 0:
+    raise SystemExit("unexpected SPD_AUDIO_LE value")
+if speechd_types.SPD_AUDIO_BE != 1:
+    raise SystemExit("unexpected SPD_AUDIO_BE value")
+
+voice = speechd_types.SPDVoice(name="name", language="en", variant="male")
+if (voice.name, voice.language, voice.variant) != ("name", "en", "male"):
+    raise SystemExit("unexpected SPDVoice fields")
+
+track = speechd_types.AudioTrack(
+    bits=16,
+    num_channels=1,
+    sample_rate=22050,
+    num_samples=2,
+    samples=b"\0\0\1\0",
+)
+if (
+    track.bits,
+    track.num_channels,
+    track.sample_rate,
+    track.num_samples,
+    track.samples,
+) != (16, 1, 22050, 2, b"\0\0\1\0"):
+    raise SystemExit("unexpected AudioTrack fields")
+PY
+]], [0], [], [])
+
+AT_CLEANUP

@@ -224,7 +224,7 @@ AM_CONDITIONAL(ENABLE_DOC, test "$enable_doc" != "no")
 # Check for python support.
 # Python 3 or greater required
 AC_ARG_ENABLE([python],
-	[AS_HELP_STRING([--disable-python], [do not install python bindings])],
+	[AS_HELP_STRING([--disable-python], [do not install python bindings and python output-module helpers])],
 	[],
 	[enable_python=check])
 AS_IF([test $enable_python != "no"],
@@ -233,6 +233,11 @@ AS_IF([test $enable_python != "no"],
 		[AS_IF([test $enable_python = "yes"],
 			[AC_MSG_FAILURE([python 3 or greater is not available])])])])
 AM_CONDITIONAL([HAVE_PYTHON], [test $enable_python = "yes"])
+AS_IF([test "$enable_python" = "yes"],
+	[TEST_PYTHON_ENABLED=yes],
+	[TEST_PYTHON_ENABLED=no])
+AC_SUBST([TEST_PYTHON_ENABLED])
+AC_SUBST([PYTHON])
 
 output_modules="cicero dummy festival openjtalk generic"
 # checks for output modules
@@ -721,6 +726,7 @@ AC_CONFIG_FILES([Makefile
                  src/common/Makefile
                  src/modules/Makefile
                  src/server/Makefile
+                 src/tests/atlocal
                  src/tests/Makefile],
                 [chmod +x run-speechd run-spd-say])
 AC_OUTPUT

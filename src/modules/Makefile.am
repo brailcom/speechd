@@ -26,6 +26,14 @@ EXTRA_DIST += dummy-message-default.wav
 EXTRA_DIST += dummy-message.txt
 CLEANFILES = dummy-message.wav
 
+if HAVE_PYTHON
+speechd_python_modules_pythondir = $(pythondir)/speechd_python_modules
+dist_speechd_python_modules_python_PYTHON = \
+	speechd_python_modules/__init__.py \
+	speechd_python_modules/module_utils.py \
+	speechd_python_modules/speechd_types.py
+endif
+
 inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/common
 
 if DARWIN_HOST
