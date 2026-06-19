@@ -17,7 +17,7 @@
 
 ## Process this file with automake to produce Makefile.in
 
-DISTCLEANFILES = atconfig $(TESTSUITE)
+DISTCLEANFILES = atconfig atlocal $(TESTSUITE)
 
 c_api = $(top_builddir)/src/api/c
 
@@ -42,7 +42,7 @@ atconfig: $(top_builddir)/config.status
 AUTOM4TE = autom4te
 AUTOTEST = $(AUTOM4TE) --language=autotest
 
-TESTSUITE_AT = c_api.at
+TESTSUITE_AT = c_api.at python_module.at
 TESTSUITE = ./testsuite
 $(TESTSUITE): package.m4 testsuite.at $(TESTSUITE_AT)
 	$(AUTOTEST) -I '$(srcdir)' -o $@.tmp $@.at
@@ -79,7 +79,7 @@ run_test_LDADD = $(c_api)/libspeechd.la $(GLIB_LIBS) $(EXTRA_SOCKET_LIBS)
 EXTRA_DIST= basic.test general.test keys.test priority_progress.test \
             pronunciation.test punctuation.test sound_icons.test spelling.test \
             ssml.test stop_and_pause.test voices.test yo.wav \
-            testsuite.at $(TESTSUITE_AT) sayfortune.sh
+            atlocal.in testsuite.at $(TESTSUITE_AT) sayfortune.sh
 
 clean-local:
 	test ! -f $(TESTSUITE) || $(SHELL) $(TESTSUITE) --clean
@@ -88,7 +88,7 @@ clean-local:
 
 # Run the test suite on the *installed* tree.
 testinstall: atconfig $(TESTSUITE)
-	$(SHELL) $(TESTSUITE) AUTOTEST_PATH="$(bindir)" $(TESTSUITEFLAGS)
+	$(SHELL) $(TESTSUITE) AUTOTEST_PATH="$(bindir)" TEST_PYTHONPATH="$(DESTDIR)$(pythondir)" $(TESTSUITEFLAGS)
 
 CLEANFILES = package.m4
 
