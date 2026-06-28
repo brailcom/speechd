@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: speech-dispatcher 0.10.1-19-g3194b-dirty\n"
 "Report-Msgid-Bugs-To: speechd-discuss@nongnu.org\n"
 "POT-Creation-Date: 2026-05-04 03:36+0200\n"
-"PO-Revision-Date: 2025-02-07 22:02+0000\n"
-"Last-Translator: Bruno Fragoso <darth_signa@hotmail.com>\n"
+"PO-Revision-Date: 2026-06-29 07:01+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/speech-"
 "dispatcher/po/pt/>\n"
 "Language: pt\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 2026.7.dev0\n"
 
 #: src/server/options.c:63
 #, c-format
@@ -181,6 +181,8 @@ msgid ""
 "note that unless -w is given, %s does not wait for speech completion\n"
 "\n"
 msgstr ""
+"note que a menos que -w seja fornecido, %s não espera completar a fala\n"
+"\n"
 
 #: src/clients/say/options.c:69
 #, c-format
