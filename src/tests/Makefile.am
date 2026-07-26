@@ -43,6 +43,11 @@ AUTOM4TE = autom4te
 AUTOTEST = $(AUTOM4TE) --language=autotest
 
 TESTSUITE_AT = c_api.at python_module.at
+PYTHON_TESTS = \
+	python/test_imports.py \
+	python/test_module_readline.py \
+	python/test_module_utils.py \
+	python/test_speechd_types.py
 TESTSUITE = ./testsuite
 $(TESTSUITE): package.m4 testsuite.at $(TESTSUITE_AT)
 	$(AUTOTEST) -I '$(srcdir)' -o $@.tmp $@.at
@@ -79,7 +84,7 @@ run_test_LDADD = $(c_api)/libspeechd.la $(GLIB_LIBS) $(EXTRA_SOCKET_LIBS)
 EXTRA_DIST= basic.test general.test keys.test priority_progress.test \
             pronunciation.test punctuation.test sound_icons.test spelling.test \
             ssml.test stop_and_pause.test voices.test yo.wav \
-            atlocal.in testsuite.at $(TESTSUITE_AT) sayfortune.sh
+            atlocal.in testsuite.at $(TESTSUITE_AT) $(PYTHON_TESTS) sayfortune.sh
 
 clean-local:
 	test ! -f $(TESTSUITE) || $(SHELL) $(TESTSUITE) --clean
