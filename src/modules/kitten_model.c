@@ -150,6 +150,9 @@ GArray *get_char_indices(const gchar *locate, const gchar *index_str) {
     }
 
     gsize char_length = g_utf8_strlen(locate, -1);
+    if (char_length >= 400){
+        fprintf(stderr, "Error: string is over 400 char's long, this indice will not run\n");
+    }
 
     GArray *output_array = g_array_sized_new(FALSE, FALSE, sizeof(int64_t), char_length);
 
@@ -169,7 +172,7 @@ GArray *get_char_indices(const gchar *locate, const gchar *index_str) {
             // Calculate character offset
             index_val = (int64_t)g_utf8_pointer_to_offset(index_str, match);
         } else {
-            index_val = -1; // Character not found
+            index_val = 16; // Character not found, so change it to a space character.
         }
 
         // Append the index value to the GArray

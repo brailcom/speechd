@@ -277,22 +277,45 @@ GQueue* parse_ssml_to_gqueue(const char *data, size_t bytes){
     return output;
 }
 
-/*
-During testing I found that most generations create more seconds audio then they take to generate,
-but on longer sentances this is not the case and can create a noticeable delay between sentances.
-To fix this we will buffer the first few sentances before we start sending audio.
-If our buffer gets too low then we will take a pause and build it up again before sending more audio.
-This will have a delay at the start of speaking but will be more fluid for long texts like books and webpages.
-If the text is short(<=200 bytes) we will just speak it without buffering.
-If our buffer gets too large over 90 seconds of audio then we will pause generation while we play down that audio.
-*/
+/**
+ * Splits a GString into chunks containing at most max_utf8_chars UTF-8 characters.
+ * Returns a GPtrArray of GString pointers containing valid UTF-8 strings.
+ */
+GPtrArray* split_gstring_utf8(const GString *input_str, glong max_utf8_chars) {
+    GPtrArray *chunks = g_ptr_array_new_with_free_func((GDestroyNotify)g_string_free);
+
+    if (!input_str || input_str->len == 0 || max_utf8_chars <= 0) {
+        return chunks;
+    }
+
+    const gchar *start = input_str->str;
+    const gchar *end = input_str->str + input_str->len;
+
+    while (start < end) {
+        // Find the pointer position 'max_utf8_chars' ahead (or stop at 'end' if fewer remain)
+        const gchar *next_boundary = g_utf8_offset_to_pointer(start, max_utf8_chars);
+
+        // Ensure we don't go past the end of the string buffer
+        if (next_boundary > end) {
+            next_boundary = end;
+        }
+
+        // Calculate exact byte length for this UTF-8 safe slice
+        gsize byte_len = next_boundary - start;
+
+        // Create the chunk
+        GString *chunk = g_string_new_len(start, byte_len);
+        g_ptr_array_add(chunks, chunk);
+
+        // Move start pointer forward
+        start = next_boundary;
+    }
+
+    return chunks;
+}
+
 int model_generate_speech(const char *data, size_t bytes){
     g_mutex_lock(&model_mutex);
-
-    bool require_buffer=false;
-    bool charging_buffer=false;
-    GQueue *queue = g_queue_new();
-    GQueue *queue_marks = g_queue_new();
 
     //The ssml is parsed using libxml and then returned in a GQueue.
     GQueue *ssml_queue = parse_ssml_to_gqueue(data, bytes);
@@ -304,67 +327,33 @@ int model_generate_speech(const char *data, size_t bytes){
 
     ahead_set(0.0); // number of seconds the generation is ahead of the played audio.
 
-    // Decide if we have enought text to buffer.
-    if (bytes > 200){
-        require_buffer=true;
-        charging_buffer=true;
-    }
-
     send_wav_start();
-
-    fprintf(stderr, "require_buffer: %d, charging_buffer: %d\n", require_buffer, charging_buffer);
 
     while (!g_queue_is_empty(ssml_queue)) {
         SSMLPayload *item = g_queue_pop_head(ssml_queue);
 
-        clock_t gen = clock();
-        GArray *op = kitten_speak(item->text->str);
-        clock_t end = clock();
-        double seconds = (double)(end - gen) / CLOCKS_PER_SEC;
-        fprintf(stderr, "Generated %f seconds of audio in %f seconds\n", op->len/24000.0, seconds);
+        // Split into chunks of max 399 UTF-8 characters
+        // our model can not handle anything that is larger.
+        const glong MAX_CHARS = 399;
+        GPtrArray *chunks = split_gstring_utf8(item->text, MAX_CHARS);
 
-        if (require_buffer && charging_buffer){
-            float last_ahead = ahead_get();
-            fprintf(stderr, "g_queue_get_length(queue): %d\n",g_queue_get_length(queue));
-            //if ( (g_queue_get_length(queue) <= 10) && (last_ahead < 20.0) ){
-            if ( (g_queue_get_length(queue) <= 3) ){
-                fprintf(stderr, "Charging queue\n");
-                g_queue_push_tail(queue, op);
-                g_queue_push_tail(queue_marks, g_string_new(item->mark->str));
-            } else {
-                fprintf(stderr, "Unloading queue\n");
-                g_queue_push_tail(queue, op);
-                g_queue_push_tail(queue_marks, g_string_new(item->mark->str));
-                charging_buffer = false;
+        for (guint i = 0; i < chunks->len; i++) {
+            GString *chunk = g_ptr_array_index(chunks, i);
 
-                while (!g_queue_is_empty(queue)) {
-                    // Pop the pointer and cast it back to GArray*
-                    GArray *op = (GArray *)g_queue_pop_head(queue);
-                    GString *mark_string = (GString *)g_queue_pop_head(queue_marks);
-                    fprintf(stderr, "Unloading queue for %s\n", mark_string->str);
-
-                    send_wav(op, mark_string->str);
-
-                    ahead_add(op->len/24000.0);
-                    ahead_print();
-
-                    g_string_free(mark_string, TRUE);
-                }
-            }
-
-        } else {
+            clock_t gen = clock();
+            GArray *op = kitten_speak(chunk->str);
+            //GArray *op = kitten_speak(item->text->str);
+            clock_t end = clock();
+            double seconds = (double)(end - gen) / CLOCKS_PER_SEC;
+            fprintf(stderr, "Generated %f seconds of audio in %f seconds\n", op->len/24000.0, seconds);
 
             send_wav(op, NULL);
 
             ahead_add(op->len/24000.0);
             ahead_print();
-
-            if ((ahead_get() <= 0) && (require_buffer)){
-                fprintf(stderr, "Need to charge queue again\n");
-                charging_buffer = true;
-            }
         }
 
+        g_ptr_array_free(chunks, TRUE);
         free_SSMLPayload(item);
 
         // if we get more then a 90 seconds ahead then block the thread,
@@ -387,8 +376,6 @@ int model_generate_speech(const char *data, size_t bytes){
     send_wav_end();
 
     // Cleanup
-    g_queue_free_full(queue, free_garray);
-    g_queue_free_full(queue_marks, free_string);
     g_queue_free_full(ssml_queue, free_SSMLPayload);
 
     g_mutex_unlock(&model_mutex);
