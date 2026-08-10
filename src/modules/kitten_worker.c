@@ -495,6 +495,7 @@ int init_model_thread_pool(){
 
     // default the voice to hugo
     voice = g_string_new("Hugo");
+    // default to the micro model it seems to be the best combo of quality and speed for me.
     voice_setting = g_string_new("Normal");
 
     home_dir = g_get_home_dir();
@@ -509,9 +510,6 @@ int init_model_thread_pool(){
     tmp = g_build_filename(home_dir, TARGET_SUBDIR, NULL);
     model_dir = g_string_new(tmp);
     g_free(tmp);
-
-    // default to the micro model it seems to be the best combo of quality and speed for me.
-    voice_setting = g_string_new("Normal");
 
     tmp = g_build_filename(model_dir->str, FILES[0].filename, NULL);
     model_path = g_string_new(tmp);
