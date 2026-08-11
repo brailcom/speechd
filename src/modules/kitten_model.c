@@ -338,6 +338,8 @@ GArray* run_model(GArray *inputs_array, GArray *styles_array, float speed){
 
     // Access the Underlying Raw Data Buffer
     float* float_array = NULL;
+    // float_array need not be freed its simply a pointer to onnx data, it will be
+    // freed when output_tensor is.
     CHECK_STATUS(g_ort->GetTensorMutableData(output_tensor, (void**)&float_array));
 
     GArray *copy = g_array_sized_new(FALSE, FALSE, sizeof(float), total_elements);
@@ -401,6 +403,7 @@ GArray* kitten_speak(const char* data){
     convert_float_to_short((float*)output->data, output_s, output->len);
 
     //clean up.
+    g_array_unref(output);
     g_array_unref(inputs_array);
     g_array_unref(styles_array);
     g_string_free(phonemes, TRUE);

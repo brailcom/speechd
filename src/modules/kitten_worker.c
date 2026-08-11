@@ -63,8 +63,8 @@ void free_GeneratePayload(gpointer data){
 int model_change_voice(const char *var, const char *val){
     g_mutex_lock(&model_mutex);
 
-    char *voice_name = NULL;
-    char *voice_quality = NULL;
+    GString *voice_name = g_string_new("");
+    GString *voice_quality = g_string_new("");
     const char *allowed_voices[] = {
     "Leo", "Kiki", "Hugo", "Rosie",
     "Bruno", "Luna", "Jasper", "Bella",
@@ -76,28 +76,27 @@ int model_change_voice(const char *var, const char *val){
 
     if (tokens[0] != NULL && tokens[1] != NULL) {
         // Substring contains '_'
-        voice_name = g_strdup(tokens[0]);
-        voice_quality = g_strdup(tokens[1]);
+        g_string_assign(voice_name, tokens[0]);
+        g_string_assign(voice_quality, tokens[1]);
     } else if (tokens[0] != NULL) {
         // No '_' present in string
-        voice_name = g_strdup(tokens[0]);
-        voice_quality = g_strdup("Normal");
+        g_string_assign(voice_name, tokens[0]);
+        g_string_assign(voice_quality, "Normal");
     }
 
     // Check if voice_name is in the allowed list if not set to Hugo.
-    if (!g_strv_contains(allowed_voices, voice_name)) {
-        g_free(voice_name);
-        voice_name = g_strdup("Hugo");
+    if (!g_strv_contains(allowed_voices, voice_name->str)) {
+        g_string_assign(voice_name, "Hugo");
     }
 
-    g_string_assign(voice, voice_name);
+    g_string_assign(voice, voice_name->str);
 
     // if the voice quality has changed then we have to reload the correct model and voices bin.
-    if (g_strcmp0(voice_quality, voice_setting->str) != 0){
-        g_string_assign(voice_setting, voice_quality);
-        if (voice_quality == "Low") {
+    if (!g_string_equal(voice_quality, voice_setting)) {
+        g_string_assign(voice_setting, voice_quality->str);
+        if (g_strcmp0(voice_quality->str, "Low") == 0) {
             reload_models_and_voices(FILES[2].filename, FILES[5].filename);
-        } else if (voice_quality == "High") {
+        } else if (g_strcmp0(voice_quality->str, "High") == 0) {
             reload_models_and_voices(FILES[1].filename, FILES[4].filename);
         } else {
             g_string_assign(voice_setting, "Normal");
@@ -107,8 +106,8 @@ int model_change_voice(const char *var, const char *val){
 
     // Free allocated memory
     g_strfreev(tokens);
-    g_free(voice_name);
-    g_free(voice_quality);
+    g_string_free(voice_name);
+    g_string_free(voice_quality);
 
     g_mutex_unlock(&model_mutex);
 }
@@ -145,6 +144,8 @@ void send_wav(GArray *wav, char *mark){
     } else {
         wp->mark = g_string_new(mark);
     }
+    // everything pushed to the wav_queue should get freed by
+    // _play_wav_thread or the free_WavPayload on destroy.
     g_async_queue_push(wav_queue, wp);
 }
 
@@ -153,6 +154,8 @@ void send_wav(GArray *wav, char *mark){
 void send_wav_start(){
     WavPayload *wp = g_new(WavPayload, 1);
     wp->cmd = BEGIN;
+    // everything pushed to the wav_queue should get freed by
+    // _play_wav_thread or the free_WavPayload on destroy.
     g_async_queue_push(wav_queue, wp);
 }
 
@@ -161,6 +164,8 @@ void send_wav_start(){
 void send_wav_end(){
     WavPayload *wp = g_new(WavPayload, 1);
     wp->cmd = STOP;
+    // everything pushed to the wav_queue should get freed by
+    // _play_wav_thread or the free_WavPayload on destroy.
     g_async_queue_push(wav_queue, wp);
 }
 
@@ -342,12 +347,16 @@ int model_generate_speech(const char *data, size_t bytes){
 
             clock_t gen = clock();
             GArray *op = kitten_speak(chunk->str);
-            //GArray *op = kitten_speak(item->text->str);
             clock_t end = clock();
             double seconds = (double)(end - gen) / CLOCKS_PER_SEC;
             fprintf(stderr, "Generated %f seconds of audio in %f seconds\n", op->len/24000.0, seconds);
 
-            send_wav(op, NULL);
+            //The op array will be freed by the _generation_thread or free_GeneratePayload on destroy.
+            if (i == chunks->len){
+                send_wav(op, item->mark); // on the last chunk send the mark also.
+            } else {
+                send_wav(op, NULL);
+            }
 
             ahead_add(op->len/24000.0);
             ahead_print();
@@ -439,6 +448,8 @@ int add_generate_speech_task(const char* data, size_t bytes) {
 
     message_payload->data = g_memdup2(data, bytes);
     message_payload->size = bytes;
+    // everything pushed to the message_queue should get freed by
+    // _generation_thread or the free_GeneratePayload on destroy.
     g_async_queue_push(message_queue, message_payload);
 
     return 0;
@@ -505,7 +516,6 @@ int init_model_thread_pool(){
     }
 
     // Build absolute destination directory path: ~/.config/speech-dispatcher/extra/
-    // TODO: need to find out if this is the correct path to place stuff on other distros. but it should work on fedora.
     char* tmp;
     tmp = g_build_filename(home_dir, TARGET_SUBDIR, NULL);
     model_dir = g_string_new(tmp);

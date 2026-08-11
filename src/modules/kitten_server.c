@@ -12,9 +12,6 @@ int module_init(char **msg)
 {
 	fprintf(stderr, "initializing\n");
 
-    void (*fp)(const AudioTrack *, AudioFormat) = module_tts_output_server;
-    fprintf(stderr, "module_tts_output_server: %p\n", (void *)fp);
-
     init_model_thread_pool();
 
     *msg = strdup("ok!");
@@ -108,7 +105,7 @@ size_t module_pause(void)
 	fprintf(stderr, "pausing\n");
 
     // does not seem there is a resume function so
-    // pause will be handled the same a a stop.
+    // pause will be handled the same as stop.
     model_stop_generation();
 	module_report_event_stop();
 
