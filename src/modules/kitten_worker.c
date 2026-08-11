@@ -106,8 +106,8 @@ int model_change_voice(const char *var, const char *val){
 
     // Free allocated memory
     g_strfreev(tokens);
-    g_string_free(voice_name);
-    g_string_free(voice_quality);
+    g_string_free(voice_name, true);
+    g_string_free(voice_quality, true);
 
     g_mutex_unlock(&model_mutex);
 }
@@ -353,7 +353,7 @@ int model_generate_speech(const char *data, size_t bytes){
 
             //The op array will be freed by the _generation_thread or free_GeneratePayload on destroy.
             if (i == chunks->len){
-                send_wav(op, item->mark); // on the last chunk send the mark also.
+                send_wav(op, item->mark->str); // on the last chunk send the mark also.
             } else {
                 send_wav(op, NULL);
             }
