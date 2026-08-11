@@ -4,7 +4,7 @@ This is a speech dispatch model for running [Kitten TTS](https://github.com/Kitt
 
 # Installing KittenTTS from a prebuilt binary.
 
-Download the binary from the git [here](https://github.com/jsett/speechd/releases/tag/0.01).
+Download the binary from the git [here](https://github.com/jsett/speechd/releases/tag/0.02).
 
 You may need to install dependencies for onnxruntime, libxml, libcurl for your os
 
