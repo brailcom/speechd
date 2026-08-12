@@ -99,8 +99,8 @@ dist_snddata_DATA = dummy-message.wav
 #
 modulebin_PROGRAMS += sd_kittentts
 sd_kittentts_SOURCES = kitten_server.c kitten_downloader.c kitten_model.c kitten_worker.c
-sd_kittentts_CFLAGS = $(ESPEAK_NG_CFLAGS) $(GLIB_CFLAGS) $(LIBONNXRUNTIME_CFLAGS) $(SNDFILE_CFLAGS) $(LIBXML_CFLAGS) $(LIBCURL_CFLAGS) $(GIO_CFLAGS)
-sd_kittentts_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) $(GLIB_LIBS) $(LIBONNXRUNTIME_LIBS) $(SNDFILE_LIBS) $(LIBXML_LIBS) $(LIBCURL_LIBS) $(GIO_LIBS)
+sd_kittentts_CFLAGS = $(ESPEAK_NG_CFLAGS) $(GLIB_CFLAGS) $(LIBONNXRUNTIME_CFLAGS) $(LIBXML_CFLAGS) $(LIBCURL_CFLAGS)
+sd_kittentts_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) $(GLIB_LIBS) $(LIBONNXRUNTIME_LIBS) $(LIBXML_LIBS) $(LIBCURL_LIBS)
 
 #
 # festival module

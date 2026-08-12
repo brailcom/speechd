@@ -181,10 +181,6 @@ PKG_CHECK_MODULES([LIBCURL], [libcurl])
 AC_SUBST([LIBCURL_CFLAGS])
 AC_SUBST([LIBCURL_LIBS])
 
-PKG_CHECK_MODULES([GIO], [gio-2.0])
-AC_SUBST([GIO_CFLAGS])
-AC_SUBST([GIO_LIBS])
-
 PKG_CHECK_MODULES([LIBSYSTEMD], [libsystemd], [have_libsystemd=yes], [:])
 
 # Checks for header files.
