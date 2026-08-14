@@ -197,18 +197,16 @@ void ahead_set(float val){
     g_mutex_unlock(&ahead_mutex);
 }
 
-void ahead_print(){
-    g_mutex_lock(&ahead_mutex);
-    fprintf(stderr, "Ahead by %f seconds of audio\n", ahead_by);
-    g_mutex_unlock(&ahead_mutex);
-}
-
 float ahead_get(){
     float tmp;
     g_mutex_lock(&ahead_mutex);
     tmp = ahead_by;
     g_mutex_unlock(&ahead_mutex);
     return tmp;
+}
+
+void ahead_print(){
+    fprintf(stderr, "Ahead by %f seconds of audio\n", ahead_get());
 }
 
 void stop_set(bool val){
@@ -501,9 +499,6 @@ int init_model_thread_pool(){
     // lock the model mutex while loading
     g_mutex_lock(&model_mutex);
 
-    kitty_pthread_create(&kitten_generation_thread, NULL, _generation_thread, NULL);
-    kitty_pthread_create(&kitten_play_wav_thread, NULL, _play_wav_thread, NULL);
-
     // default the voice to hugo
     voice = g_string_new("Hugo");
     // default to the micro model it seems to be the best combo of quality and speed for me.
@@ -512,28 +507,45 @@ int init_model_thread_pool(){
     home_dir = g_get_home_dir();
     if (!home_dir) {
         fprintf(stderr, "Error: Could not determine home directory.\n");
-        return EXIT_FAILURE;
+        g_mutex_unlock(&model_mutex);
+        return -1;
     }
 
-    // Build absolute destination directory path: ~/.config/speech-dispatcher/extra/
-    char* tmp;
-    tmp = g_build_filename(home_dir, TARGET_SUBDIR, NULL);
-    model_dir = g_string_new(tmp);
-    g_free(tmp);
+    // Build absolute destination directory path: ~/.cache/speech-dispatcher/kitten
+    model_dir = g_string_new_take(g_build_filename(home_dir, TARGET_SUBDIR, NULL));
+    model_path = g_string_new_take(g_build_filename(model_dir->str, FILES[0].filename, NULL));
+    voices_path = g_string_new_take(g_build_filename(model_dir->str, FILES[3].filename, NULL));
 
-    tmp = g_build_filename(model_dir->str, FILES[0].filename, NULL);
-    model_path = g_string_new(tmp);
-    g_free(tmp);
+    if (kitty_pthread_create(&kitten_generation_thread, NULL, _generation_thread, NULL) != 0){
+        fprintf(stderr, "Error: Creating _generation_thread()\n");
+        g_mutex_unlock(&model_mutex);
+        return -1;
+    }
 
-    tmp = g_build_filename(model_dir->str, FILES[3].filename, NULL);
-    voices_path = g_string_new(tmp);
-    g_free(tmp);
+    if (kitty_pthread_create(&kitten_play_wav_thread, NULL, _play_wav_thread, NULL) != 0){
+        fprintf(stderr, "Error: Creating _play_wav_thread()\n");
+        g_mutex_unlock(&model_mutex);
+        return -1;
+    }
 
     // download models and voices if they have not been download already.
-    download_models();
+    if (download_models() == -1){
+        fprintf(stderr, "Error: Downloading/Verification of models failed\n");
+        g_mutex_unlock(&model_mutex);
+        return -1;
+    };
 
-    init_voice_style(voices_path->str);
-    init_model(model_path->str);
+    if (init_voice_style(voices_path->str) == -1){
+        fprintf(stderr, "Error: Initializing voice style\n");
+        g_mutex_unlock(&model_mutex);
+        return -1;
+    };
+
+    if (init_model(model_path->str) == -1){
+        fprintf(stderr, "Error Initializing model/onnx\n");
+        g_mutex_unlock(&model_mutex);
+        return -1;
+    }
 
     g_mutex_unlock(&model_mutex);
 

@@ -121,13 +121,13 @@ int download_models(void) {
 
     if (ensure_directory_exists(target_dir) != 0) {
         g_free(target_dir);
-        return EXIT_FAILURE;
+        return -1;
     }
 
     if (curl_global_init(CURL_GLOBAL_ALL) != 0) {
         fprintf(stderr, "Error: Failed to initialize libcurl.\n");
         g_free(target_dir);
-        return EXIT_FAILURE;
+        return -1;
     }
 
     CURL *curl = curl_easy_init();
@@ -135,26 +135,35 @@ int download_models(void) {
         fprintf(stderr, "Error: Failed to create libcurl handle.\n");
         curl_global_cleanup();
         g_free(target_dir);
-        return EXIT_FAILURE;
+        return -1;
     }
 
-    int overall_status = EXIT_SUCCESS;
+    int overall_status = 0;
 
     for (size_t i = 0; i < NUM_FILES; i++) {
         char *full_path = g_build_filename(target_dir, FILES[i].filename, NULL);
 
         // Check if file already exists
         if (file_exists(full_path)) {
-            fprintf(stderr, "Info: File '%s' already exists. Skipping download.\n", FILES[i].filename);
-            g_free(full_path);
-            continue;
+
+            // Verify SHA256 even for files that have already been downloaded.
+            if (verify_sha256(full_path, FILES[i].expected_sha256) != 0) {
+                fprintf(stderr, "Error: Integrity check failed for '%s'.\n", FILES[i].filename);
+                g_free(full_path);
+                overall_status = -1;
+                break;
+            } else {
+                fprintf(stderr, "Info: File '%s' already exists. Skipping download.\n", FILES[i].filename);
+                g_free(full_path);
+                continue;
+            }
         }
 
         fprintf(stderr, "Info: Downloading '%s'...\n", FILES[i].filename);
         if (download_file(curl, FILES[i].url, full_path) != 0) {
             fprintf(stderr, "Error: Aborting process due to download error.\n");
             g_free(full_path);
-            overall_status = EXIT_FAILURE;
+            overall_status = -1;
             break;
         }
 
@@ -163,7 +172,7 @@ int download_models(void) {
         if (stat(full_path, &st) != 0) {
             fprintf(stderr, "Error: Could not stat downloaded file '%s'.\n", full_path);
             g_free(full_path);
-            overall_status = EXIT_FAILURE;
+            overall_status = -1;
             break;
         }
 
@@ -171,7 +180,7 @@ int download_models(void) {
             fprintf(stderr, "Error: File size mismatch for '%s'! Expected: %ld bytes, Got: %ld bytes.\n",
                     FILES[i].filename, (long)FILES[i].expected_size, (long)st.st_size);
             g_free(full_path);
-            overall_status = EXIT_FAILURE;
+            overall_status = -1;
             break;
         }
 
@@ -179,7 +188,7 @@ int download_models(void) {
         if (verify_sha256(full_path, FILES[i].expected_sha256) != 0) {
             fprintf(stderr, "Error: Integrity check failed for '%s'.\n", FILES[i].filename);
             g_free(full_path);
-            overall_status = EXIT_FAILURE;
+            overall_status = -1;
             break;
         }
 

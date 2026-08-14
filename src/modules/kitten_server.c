@@ -12,11 +12,14 @@ int module_init(char **msg)
 {
 	fprintf(stderr, "initializing\n");
 
-    init_model_thread_pool();
+	int ret = init_model_thread_pool();
+	if (ret == 0){
+		*msg = strdup("ok!");
+	} else{
+		*msg = strdup("Failed Init");
+	}
 
-    *msg = strdup("ok!");
-
-	return 0;
+	return ret;
 }
 
 SPDVoice **module_list_voices(void)

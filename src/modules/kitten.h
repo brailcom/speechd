@@ -66,7 +66,7 @@ extern OrtEnv* env;
 extern OrtSessionOptions* session_options;
 extern OrtSession* session;
 
-#define TARGET_SUBDIR ".config/speech-dispatcher/extra"
+#define TARGET_SUBDIR ".cache/speech-dispatcher/kitten"
 
 typedef struct {
     const char *url;
