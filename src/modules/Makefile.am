@@ -95,14 +95,6 @@ sd_dummy_LDADD = $(top_builddir)/src/common/libcommon.la \
 dist_snddata_DATA = dummy-message.wav
 
 #
-# kitten tts module
-#
-modulebin_PROGRAMS += sd_kittentts
-sd_kittentts_SOURCES = kitten_server.c kitten_downloader.c kitten_model.c kitten_worker.c
-sd_kittentts_CFLAGS = $(ESPEAK_NG_CFLAGS) $(GLIB_CFLAGS) $(LIBONNXRUNTIME_CFLAGS) $(LIBXML_CFLAGS) $(LIBCURL_CFLAGS)
-sd_kittentts_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) $(GLIB_LIBS) $(LIBONNXRUNTIME_LIBS) $(LIBXML_LIBS) $(LIBCURL_LIBS)
-
-#
 # festival module
 #
 modulebin_PROGRAMS += sd_festival
@@ -139,6 +131,16 @@ sd_flite_SOURCES = flite.c $(common_SOURCES)
 sd_flite_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(flite_voices) $(flite_basic) \
 	$(common_LDADD)
+endif
+
+#
+# kitten tts module
+#
+if kitten_support
+modulebin_PROGRAMS += sd_kittentts
+sd_kittentts_SOURCES = kitten_server.c kitten_downloader.c kitten_model.c kitten_worker.c
+sd_kittentts_CFLAGS = $(ESPEAK_NG_CFLAGS) $(GLIB_CFLAGS) $(LIBONNXRUNTIME_CFLAGS) $(LIBXML_CFLAGS) $(LIBCURL_CFLAGS)
+sd_kittentts_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) $(GLIB_LIBS) $(LIBONNXRUNTIME_LIBS) $(LIBXML_LIBS) $(LIBCURL_LIBS)
 endif
 
 #

@@ -56,6 +56,7 @@ if test "$enable_libs_only" = "yes"; then
 	with_baratinoo=no
 	with_kali=no
 	with_piper=no
+	with_kitten=no
 
 	with_pulse=no
 	with_alsa=no
@@ -168,18 +169,6 @@ PKG_CHECK_MODULES([SNDFILE], [sndfile >= 1.0.2])
 AC_SUBST([SNDFILE_CFLAGS])
 AC_SUBST([SNDFILE_LIBS])
 fi
-
-PKG_CHECK_MODULES([LIBONNXRUNTIME], [libonnxruntime])
-AC_SUBST([LIBONNXRUNTIME_CFLAGS])
-AC_SUBST([LIBONNXRUNTIME_LIBS])
-
-PKG_CHECK_MODULES([LIBXML], [libxml-2.0])
-AC_SUBST([LIBXML_CFLAGS])
-AC_SUBST([LIBXML_LIBS])
-
-PKG_CHECK_MODULES([LIBCURL], [libcurl])
-AC_SUBST([LIBCURL_CFLAGS])
-AC_SUBST([LIBCURL_LIBS])
 
 PKG_CHECK_MODULES([LIBSYSTEMD], [libsystemd], [have_libsystemd=yes], [:])
 
@@ -436,6 +425,35 @@ AS_IF([test $with_kali = yes -o $with_kali = check],
 AM_CONDITIONAL([kali_support], [test $with_kali != no])
 AM_CONDITIONAL([kali_shim], [test $with_kali = shim])
 AS_IF([test $with_kali != no], [output_modules="${output_modules} kali"])
+
+# check for kitten support
+AC_ARG_WITH([kitten],
+  [AS_HELP_STRING([--with-kitten], [Compile with KittenTTS support])],
+  [],
+  [with_kitten=check])
+AS_IF([test $with_kitten != "no"],
+  [PKG_CHECK_MODULES([LIBONNXRUNTIME], [libonnxruntime],
+      [kitten_libonnxruntime="yes"],
+      [AS_IF([test $with_kitten = "yes"],
+        [AC_MSG_FAILURE([libonnxruntime is not available])])])
+   PKG_CHECK_MODULES([LIBXML], [libxml-2.0],
+      [kitten_libxml="yes"],
+      [AS_IF([test $with_kitten = "yes"],
+        [AC_MSG_FAILURE([libxml-2.0 is not available])])])
+   PKG_CHECK_MODULES([LIBCURL], [libcurl],
+      [kitten_libcurl="yes"],
+      [AS_IF([test $with_kitten = "yes"],
+        [AC_MSG_FAILURE([libcurl is not available])])])
+   AS_IF([test "x$kitten_libonnxruntime" = "xyes" -a "x$kitten_libxml" = "xyes" -a "x$kitten_libcurl" = "xyes"],
+     [with_kitten="yes"])])
+AM_CONDITIONAL([kitten_support], [test $with_kitten = "yes"])
+AC_SUBST([LIBONNXRUNTIME_CFLAGS])
+AC_SUBST([LIBONNXRUNTIME_LIBS])
+AC_SUBST([LIBXML_CFLAGS])
+AC_SUBST([LIBXML_LIBS])
+AC_SUBST([LIBCURL_CFLAGS])
+AC_SUBST([LIBCURL_LIBS])
+AS_IF([test $with_kitten = "yes"], [output_modules="${output_modules} kitten"])
 
 # check for piper support
 AC_ARG_WITH([piper],
