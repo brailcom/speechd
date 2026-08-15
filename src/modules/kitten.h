@@ -79,6 +79,7 @@ extern OrtSessionOptions* session_options;
 extern OrtSession* session;
 
 #define TARGET_SUBDIR ".cache/speech-dispatcher/kitten"
+#define DISTRO_TARGET_SUBDIR "/usr/share/speech-dispatcher/models/kitten"
 
 typedef struct {
     const char *url;
@@ -122,6 +123,7 @@ extern const FileInfo FILES[];
 
 // kitten_downloader.c
 int download_models(void);
+bool use_distro_path(void);
 
 // kitten_model.c
 int init_voice_style(const char* voices_path);

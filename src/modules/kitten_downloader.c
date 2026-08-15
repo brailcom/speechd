@@ -125,11 +125,42 @@ static int verify_sha256(const char *filepath, const char *expected_sha256) {
     return match ? 0 : -1;
 }
 
+// determine if we should use DISTRO_TARGET_SUBDIR or TARGET_SUBDIR when looking
+// for models. The rules are to use the distro path if all the files
+// are in that path, and pass the verify_sha256. If not then fall back to TARGET_SUBDIR
+// and download the files if needed.
+bool use_distro_path(void){
+    char *target_dir_distro = DISTRO_TARGET_SUBDIR;
+    bool use_distro_dir=true;
+    for (size_t i = 0; i < NUM_FILES; i++) {
+        char *full_path = g_build_filename(target_dir_distro, FILES[i].filename, NULL);
+        // check if the file exists.
+        if (!file_exists(full_path)) {
+            use_distro_dir = false;
+        } else {
+            // verify the sha
+            if (verify_sha256(full_path, FILES[i].expected_sha256) != 0) {
+                fprintf(stderr, "Integrity check failed for '%s' in '%s'.\n", FILES[i].filename, full_path);
+                fprintf(stderr, "Cannot use distro directory\n");
+                use_distro_dir = false;
+            }
+        }
+        g_free(full_path);
+    }
+    return use_distro_dir;
+}
+
 // downloads the models and voices if they do not already exist.
 // also verifys using sha256 and checks file size.
 int download_models(void) {
-    // Build absolute destination directory path: ~/.config/speech-dispatcher/extra/
-    char *target_dir = g_build_filename(home_dir, TARGET_SUBDIR, NULL);
+
+    char *target_dir;
+    if (!use_distro_path()){
+        // Build absolute destination directory path: ~/.config/speech-dispatcher/extra/
+        target_dir = g_build_filename(home_dir, TARGET_SUBDIR, NULL);
+    } else {
+        return 0; //no need to download if the models are already in the distro path.
+    }
 
     if (ensure_directory_exists(target_dir) != 0) {
         g_free(target_dir);

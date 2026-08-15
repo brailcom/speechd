@@ -523,8 +523,15 @@ int init_model_thread_pool(){
         return -1;
     }
 
-    // Build absolute destination directory path: ~/.cache/speech-dispatcher/kitten
-    model_dir = g_string_new_take(g_build_filename(home_dir, TARGET_SUBDIR, NULL));
+    if (use_distro_path()){
+        // use disto path.
+        fprintf(stderr, "INFO: using distro path for loading models.\n");
+        model_dir = g_string_new(DISTRO_TARGET_SUBDIR);
+    } else {
+        // Build absolute destination directory path: ~/.cache/speech-dispatcher/kitten
+        fprintf(stderr, "INFO: using user path for loading models.\n");
+        model_dir = g_string_new_take(g_build_filename(home_dir, TARGET_SUBDIR, NULL));
+    }
     model_path = g_string_new_take(g_build_filename(model_dir->str, FILES[0].filename, NULL));
     voices_path = g_string_new_take(g_build_filename(model_dir->str, FILES[3].filename, NULL));
 
