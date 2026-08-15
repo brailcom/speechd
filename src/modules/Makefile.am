@@ -295,16 +295,14 @@ endif
 endif
 
 #
-#  cxxpiper
+#  piper
 #
 if piper_support
-modulebin_PROGRAMS += sd_cxxpiper
-sd_cxxpiper_SOURCES = cxxpiper.cpp module_utils_addvoice.c module_utils_play.c $(common_SOURCES)
-sd_cxxpiper_CPPFLAGS = -I$(PIPER_SRC_DIR) $(ONNXRUNTIME_CFLAGS) $(RUBBERBAND_CFLAGS) $(AM_CPPFLAGS)
-sd_cxxpiper_LDADD = $(top_builddir)/src/common/libcommon.la \
-	-lpiper_phonemize \
-	$(ONNXRUNTIME_LIBS) \
-	-lespeak-ng \
+modulebin_PROGRAMS += sd_piper
+sd_piper_SOURCES = piper.cpp module_utils_addvoice.c module_utils_play.c $(common_SOURCES)
+sd_piper_CPPFLAGS = $(PIPER_CFLAGS) $(RUBBERBAND_CFLAGS) $(AM_CPPFLAGS)
+sd_piper_LDADD = $(top_builddir)/src/common/libcommon.la \
+	$(PIPER_LIBS) \
 	$(RUBBERBAND_LIBS) \
 	$(SNDFILE_LIBS) \
 	$(common_LDADD)

@@ -54,8 +54,8 @@ dist_moduleconforig_DATA += kali.conf
 endif
 
 if piper_support
-dist_moduleconf_DATA += cxxpiper.conf
-dist_moduleconforig_DATA += cxxpiper.conf
+dist_moduleconf_DATA += piper.conf
+dist_moduleconforig_DATA += piper.conf
 endif
 
 if ibmtts_support

@@ -152,22 +152,26 @@ chmod +x autogen.sh
 make
 make install
 
-Notes about cxxpiper support
-============================
+Notes about piper support
+=========================
 
-The cxxpiper module uses the Piper synthesis
-https://github.com/rhasspy/piper/
+The piper module uses the Piper neural TTS engine
+https://github.com/OHF-Voice/piper1-gpl
 
-Upstream piper however does not provide an API that can really be used nicely,
-so the build is quite convoluted. The following should be working:
+Speech Dispatcher links against the `libpiper` C shared library (and `librubberband`).
+To build and install `libpiper` from source:
 
-wget https://github.com/rhasspy/piper-phonemize/releases/download/2023.11.14-4/piper-phonemize_linux_x86_64.tar.gz
-sudo tar -C /opt -xvf piper-phonemize_linux_x86_64.tar.gz
-wget https://github.com/rhasspy/piper/archive/refs/tags/2023.11.14-2.tar.gz
-sudo tar -C /opt -xvf 2023.11.14-2.tar.gz
-CXXFLAGS=-I/opt/piper_phonemize/include LDFLAGS=-L/opt/piper_phonemize/lib ./configure --with-piper=/opt/piper-2023.11.14-2
-make
-make install
+  $ git clone https://github.com/OHF-Voice/piper1-gpl.git
+  $ cd piper1-gpl/libpiper
+  $ cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+  $ cmake --build build -j$(nproc)
+  $ sudo cmake --install build
+
+Then configure Speech Dispatcher with:
+  $ ./configure --with-piper
+
+(If libpiper is installed in a non-standard prefix like /opt/piper, use:
+  $ ./configure --with-piper=/opt/piper)
 
 Continue building Speech Dispatcher
 ===================================
