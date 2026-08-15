@@ -156,7 +156,7 @@ int download_models(void) {
 
     char *target_dir;
     if (!use_distro_path()){
-        // Build absolute destination directory path: ~/.config/speech-dispatcher/extra/
+        // Build absolute destination directory path: ~/.cache/speech-dispatcher/kitten
         target_dir = g_build_filename(home_dir, TARGET_SUBDIR, NULL);
     } else {
         return 0; //no need to download if the models are already in the distro path.
