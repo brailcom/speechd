@@ -34,13 +34,14 @@ int main()
 {
 	SPDConnection *sockfd;
 	int ret;
+	char *error;
 
 	printf("Start of the test.\n");
 
 	printf("Trying to initialize Speech Dispatcher...\n");
-	sockfd = spd_open("test", NULL, NULL, SPD_MODE_SINGLE);
+	sockfd = spd_open2("test", NULL, NULL, SPD_MODE_SINGLE, NULL, 1, &error);
 	if (sockfd == 0) {
-		printf("Speech Dispatcher failed\n");
+		printf("Speech Daemon failed:\n%s\n", error);
 		exit(1);
 	}
 	printf("OK\n");

@@ -49,11 +49,12 @@ static void notification_cb(size_t msg_id, size_t client_id,
 int main(int argc, char *argv[])
 {
 	int result, count;
+	char *error;
 
 	/* Open Speech Dispatcher connection */
-	spd = spd_open(TEST_NAME, __FUNCTION__, NULL, SPD_MODE_THREADED);
+	spd = spd_open2(TEST_NAME, __FUNCTION__, NULL, SPD_MODE_THREADED, NULL, 1, &error);
 	if (!spd) {
-		printf("Speech-dispatcher: Failed to open connection. \n");
+		printf("Speech-dispatcher: Failed to open connection:\n%s\n", error);
 		exit(1);
 	}
 

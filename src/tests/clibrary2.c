@@ -52,6 +52,7 @@ int main()
 	char **voices;
 	char *module;
 	char *language;
+	char *error;
 	int value;
 	SPDVoiceType voice_type = SPD_CHILD_MALE;
 	SPDVoice **synth_voices;
@@ -72,15 +73,15 @@ int main()
 	printf("Start of the test.\n");
 
 	printf("Trying to initialize Speech Daemon...\n");
-	conn = spd_open("say", NULL, NULL,
+	conn = spd_open2("say", NULL, NULL,
 #ifdef THOROUGH
-			SPD_MODE_THREADED
+			SPD_MODE_THREADED,
 #else
-			SPD_MODE_SINGLE
+			SPD_MODE_SINGLE,
 #endif
-			);
+			NULL, 1, &error);
 	if (conn == 0) {
-		printf("Speech Daemon failed\n");
+		printf("Speech Daemon failed:\n%s\n", error);
 		exit(1);
 	}
 	printf("OK\n");

@@ -36,14 +36,17 @@ SPDConnection *try_to_reconnect(void)
 {
 	SPDConnection *conn;
 	while (1) {
+		char *error;
 		printf("Trying to reconnect\n");
 		usleep(1000);
-		conn = spd_open("test", NULL, NULL, SPD_MODE_THREADED);
+		conn = spd_open2("test", NULL, NULL, SPD_MODE_THREADED, NULL, 1, &error);
 		if (conn != NULL) {
 			spd_say(conn, SPD_MESSAGE, "Reconnect successful");
 			printf("Reconnect successful\n");
 			return conn;
 		}
+		printf("Reconnect failed:\n%s\n", error);
+		free(error);
 	}
 }
 
@@ -53,10 +56,11 @@ int main(void)
 	int i = 0;
 	int failures = 0;
 	int ret;
+	char *error;
 
-	conn = spd_open("test", NULL, NULL, SPD_MODE_THREADED);
+	conn = spd_open2("test", NULL, NULL, SPD_MODE_THREADED, NULL, 1, &error);
 	if (conn == 0) {
-		printf("Speech Daemon failed\n");
+		printf("Speech Daemon failed:\n%s\n", error);
 		exit(1);
 	}
 

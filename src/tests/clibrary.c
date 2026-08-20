@@ -37,13 +37,14 @@ int main()
 	
 	SPDConnection *conn;
 	int i, ret;
+	char *error;
 
 	printf("Start of the test of the test.\n");
 
 	printf("Trying to initialize Speech Daemon...\n");
-	conn = spd_open("say", NULL, NULL, SPD_MODE_SINGLE);
+	conn = spd_open2("say", NULL, NULL, SPD_MODE_SINGLE, NULL, 1, &error);
 	if (conn == 0) {
-		printf("Speech Daemon failed.\n");
+		printf("Speech Daemon failed:\n%s\n", error);
 		exit(1);
 	}
 	printf("OK\n");
