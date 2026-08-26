@@ -107,12 +107,18 @@ int model_change_voice(const char *var, const char *val){
     if (!g_string_equal(voice_quality, voice_setting)) {
         g_string_assign(voice_setting, voice_quality->str);
         if (g_strcmp0(voice_quality->str, "Low") == 0) {
-            reload_models_and_voices(FILES[2].filename, FILES[5].filename);
+            char *model_filename = file_hash_get_value(files_hash_table, "Low", "model_filename");
+            char *voice_filename = file_hash_get_value(files_hash_table, "Low", "voices_filename");
+            reload_models_and_voices(model_filename, voice_filename);
         } else if (g_strcmp0(voice_quality->str, "High") == 0) {
-            reload_models_and_voices(FILES[1].filename, FILES[4].filename);
+            char *model_filename = file_hash_get_value(files_hash_table, "High", "model_filename");
+            char *voice_filename = file_hash_get_value(files_hash_table, "High", "voices_filename");
+            reload_models_and_voices(model_filename, voice_filename);
         } else {
             g_string_assign(voice_setting, "Normal");
-            reload_models_and_voices(FILES[0].filename, FILES[3].filename);
+            char *model_filename = file_hash_get_value(files_hash_table, "Normal", "model_filename");
+            char *voice_filename = file_hash_get_value(files_hash_table, "Normal", "voices_filename");
+            reload_models_and_voices(model_filename, voice_filename);
         }
     }
 
@@ -532,8 +538,10 @@ int init_model_thread_pool(){
         fprintf(stderr, "INFO: using user path for loading models.\n");
         model_dir = g_string_new_take(g_build_filename(home_dir, TARGET_SUBDIR, NULL));
     }
-    model_path = g_string_new_take(g_build_filename(model_dir->str, FILES[0].filename, NULL));
-    voices_path = g_string_new_take(g_build_filename(model_dir->str, FILES[3].filename, NULL));
+    char *model_filename = file_hash_get_value(files_hash_table, "Normal", "model_filename");
+    char *voice_filename = file_hash_get_value(files_hash_table, "Normal", "voices_filename");
+    model_path = g_string_new_take(g_build_filename(model_dir->str, model_filename, NULL));
+    voices_path = g_string_new_take(g_build_filename(model_dir->str, voice_filename, NULL));
 
     if (kitty_pthread_create(&kitten_generation_thread, NULL, _generation_thread, NULL) != 0){
         fprintf(stderr, "Error: Creating _generation_thread()\n");
@@ -595,4 +603,6 @@ int cleanup_threads(){
 
     g_async_queue_unref(wav_queue);
     g_async_queue_unref(message_queue);
+
+    g_hash_table_destroy(files_hash_table);
 }

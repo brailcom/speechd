@@ -78,19 +78,22 @@ extern OrtEnv* env;
 extern OrtSessionOptions* session_options;
 extern OrtSession* session;
 
+extern GHashTable *files_hash_table;
+
 #define TARGET_SUBDIR ".cache/speech-dispatcher/kitten"
 #define DISTRO_TARGET_SUBDIR "/usr/share/speech-dispatcher/models/kitten"
 
 typedef struct {
-    const char *url;
-    const char *filename;
-    curl_off_t expected_size;
-    const char *expected_sha256;
+    const char *quality;
+    const char *model_url;
+    const char *model_filename;
+    const char *model_expected_size;
+    const char *model_expected_sha256;
+    const char *voice_url;
+    const char *voice_filename;
+    const char *voice_expected_size;
+    const char *voice_expected_sha256;
 } FileInfo;
-
-extern const FileInfo FILES[];
-
-#define NUM_FILES (sizeof(FILES) / sizeof(FILES[0]))
 
 #define VOICE_LIST(X) \
     X(Leo)            \
@@ -124,6 +127,10 @@ extern const FileInfo FILES[];
 // kitten_downloader.c
 int download_models(void);
 bool use_distro_path(void);
+void init_file_hashtable(void);
+void build_hash_from_defaults(GHashTable *ht);
+void file_hash_add_sub_key(GHashTable *ht, const char* quality, const char* key, const char* value);
+char* file_hash_get_value(GHashTable *ht, const char* quality, const char* key);
 
 // kitten_model.c
 int init_voice_style(const char* voices_path);
