@@ -3608,6 +3608,8 @@ intended to make writing new output modules easier and allow the
 programmer to reuse existing pieces of code instead of writing
 everything from scratch.
 
+An example of using this is available in @code{src/modules/skeleton_config.c}
+
 @menu
 * Initialization Macros and Functions::
 * Generic Macros and Functions::
