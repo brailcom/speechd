@@ -18,6 +18,8 @@
 
 #include <signal.h>
 #include <pthread.h>
+#include <stdarg.h>
+#include <stdio.h>
 
 #include "common.h"
 
@@ -45,6 +47,14 @@ int spd_pthread_create(pthread_t *thread, const pthread_attr_t *attr,
 		pthread_sigmask(SIG_SETMASK, &old_signals, NULL);
 
 	return ret;
+}
+
+/* weak version, replaced by module_utils' version when that is used */
+void __attribute__ ((weak)) MSG(int level, const char *format, ...) {
+	va_list ap;
+	va_start(ap, format);
+	vfprintf(stderr, format, ap);
+	va_end(ap);
 }
 
 void set_speaking_thread_parameters(void)
