@@ -436,7 +436,7 @@ AS_IF([test "$with_piper" != "no"], [
 	PIPER_LIBS=""
 	AS_IF([test "$with_piper" != "yes" -a "$with_piper" != "check"], [
 		PIPER_CFLAGS="-I$with_piper/include"
-		PIPER_LIBS="-L$with_piper/lib -lpiper"
+		PIPER_LIBS="-L$with_piper/lib -lonnxruntime -lpiper"
 	])
 	OLDCXXFLAGS="$CXXFLAGS"
 	OLDLDFLAGS="$LDFLAGS"
