@@ -24,6 +24,7 @@ EXTRA_DIST += voxin_shim.c voxin.h
 EXTRA_DIST += module_utils.h
 EXTRA_DIST += dummy-message-default.wav
 EXTRA_DIST += dummy-message.txt
+EXTRA_DIST += kitten.h
 CLEANFILES = dummy-message.wav
 
 if HAVE_PYTHON
