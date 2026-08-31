@@ -23,6 +23,7 @@ These speech syntheses are supported:
 - Baratinoo / VoxyGen
 - Cicero
 - DECTalk
+- Edge TTS
 - Epos
 - ESpeak/ESpeak-NG
 - Festival
