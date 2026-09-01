@@ -1426,8 +1426,11 @@ spd_set_notification_off(SPDConnection * connection,
 		return -1;
 }
 
+/* SPD_ALL is the union of the six event bits rather than a bit of its own,
+   so every bit of val has to be set, not just one of them.  For the
+   single-bit values the two tests are equivalent. */
 #define NOTIFICATION_SET(val, ssip_val) \
-	if (notification & val){ \
+	if ((notification & (val)) == (val)){ \
 		sprintf(command, "SET SELF NOTIFICATION "ssip_val" %s", state);\
 		ret = spd_execute_command_wo_mutex(connection, command);\
 		if (ret < 0) RET(-1);\
