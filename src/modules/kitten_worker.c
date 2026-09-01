@@ -522,26 +522,10 @@ int init_model_thread_pool(){
     // default to the micro model it seems to be the best combo of quality and speed for me.
     voice_setting = g_string_new("Normal");
 
-    home_dir = g_get_home_dir();
-    if (!home_dir) {
-        fprintf(stderr, "Error: Could not determine home directory.\n");
+    if (init_paths() == -1){
         g_mutex_unlock(&model_mutex);
         return -1;
     }
-
-    if (use_distro_path()){
-        // use disto path.
-        fprintf(stderr, "INFO: using distro path for loading models.\n");
-        model_dir = g_string_new(DISTRO_TARGET_SUBDIR);
-    } else {
-        // Build absolute destination directory path: ~/.cache/speech-dispatcher/kitten
-        fprintf(stderr, "INFO: using user path for loading models.\n");
-        model_dir = g_string_new_take(g_build_filename(home_dir, TARGET_SUBDIR, NULL));
-    }
-    char *model_filename = file_hash_get_value(files_hash_table, "Normal", "model_filename");
-    char *voice_filename = file_hash_get_value(files_hash_table, "Normal", "voices_filename");
-    model_path = g_string_new_take(g_build_filename(model_dir->str, model_filename, NULL));
-    voices_path = g_string_new_take(g_build_filename(model_dir->str, voice_filename, NULL));
 
     if (kitty_pthread_create(&kitten_generation_thread, NULL, _generation_thread, NULL) != 0){
         fprintf(stderr, "Error: Creating _generation_thread()\n");
@@ -554,13 +538,6 @@ int init_model_thread_pool(){
         g_mutex_unlock(&model_mutex);
         return -1;
     }
-
-    // download models and voices if they have not been download already.
-    if (download_models() == -1){
-        fprintf(stderr, "Error: Downloading/Verification of models failed\n");
-        g_mutex_unlock(&model_mutex);
-        return -1;
-    };
 
     if (init_voice_style(voices_path->str) == -1){
         fprintf(stderr, "Error: Initializing voice style\n");
@@ -593,6 +570,7 @@ int cleanup_threads(){
     g_string_free(voices_path, TRUE);
     g_string_free(voice_setting, TRUE);
     g_string_free(voice, TRUE);
+    g_string_free(distro_target_subdir, TRUE);
 
     g_mutex_unlock(&model_mutex);
 

@@ -440,10 +440,6 @@ AS_IF([test $with_kitten != "no"],
       [kitten_libxml="yes"],
       [AS_IF([test $with_kitten = "yes"],
         [AC_MSG_FAILURE([libxml-2.0 is not available])])])
-   PKG_CHECK_MODULES([LIBCURL], [libcurl],
-      [kitten_libcurl="yes"],
-      [AS_IF([test $with_kitten = "yes"],
-        [AC_MSG_FAILURE([libcurl is not available])])])
    AS_IF([test "x$kitten_libonnxruntime" = "xyes" -a "x$kitten_libxml" = "xyes" -a "x$kitten_libcurl" = "xyes"],
      [with_kitten="yes"])])
 AM_CONDITIONAL([kitten_support], [test $with_kitten = "yes"])
@@ -451,8 +447,6 @@ AC_SUBST([LIBONNXRUNTIME_CFLAGS])
 AC_SUBST([LIBONNXRUNTIME_LIBS])
 AC_SUBST([LIBXML_CFLAGS])
 AC_SUBST([LIBXML_LIBS])
-AC_SUBST([LIBCURL_CFLAGS])
-AC_SUBST([LIBCURL_LIBS])
 AS_IF([test $with_kitten = "yes"], [output_modules="${output_modules} kitten"])
 
 # check for piper support

@@ -15,27 +15,32 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 #include <dotconf.h>
 
 static DOTCONF_CB(cb_voicefiles);
+static DOTCONF_CB(cb_modelPath);
 
 static const configoption_t options[] = {
 	{"AddVoiceFile", ARG_LIST, cb_voicefiles, NULL, CTX_ALL},
+	{"modelPath", ARG_STR, cb_modelPath, NULL, CTX_ALL},
 	LAST_OPTION
 };
 
 bool built_voice_table = false;
 
 /*
-the models .conf can be used to configure the model/voice files/downloads.
+the models .conf can be used to configure the model/voice files.
 add a line to the .conf like below this to do so.
-AddVoiceFile "voice_quality" "model url" "model filename" "model size bytes" "model sha256" "voices url" "voices filename" "voices size bytes" "voices sha256"
+AddVoiceFile "voice_quality" "model filename" "model sha256" "voices filename" "voices sha256"
 
 here is an example using the same configs as the default.
-https://gist.github.com/jsett/6146eb2803f8780a1830ed816bdc94ef
+https://gist.github.com/jsett/b82d19d3e2e538a29e5e79995b619a62
+
+you can also set the modelPath to configure where to search for models/voices.
+modelPath "<your path>"
 */
 int module_config(const char *configfilepath)
 {
 	fprintf(stderr, "opening .conf file %s\n", configfilepath);
 
-	init_file_hashtable();
+	init_file_hashtable_and_distro_subdir();
 
 	configfile_t *configfile;
 
@@ -65,27 +70,30 @@ int module_config(const char *configfilepath)
 DOTCONF_CB(cb_voicefiles)
 {
 	int i;
-	if (cmd->arg_count != 9){
+	if (cmd->arg_count != 5){
 		fprintf(stderr, "arg_count: %d\n", cmd->arg_count);
 		fprintf(stderr, "Incorrectly formated .conf line for AddVoiceFile\n");
 		fprintf(stderr, "AddVoiceFile should be formated like\n");
-		fprintf(stderr, "AddVoiceFile \"voice_quality\" \"model url\" \"model filename\" \"model size bytes\" \"model sha256\" \"voices url\" \"voices filename\" \"voices size bytes\" \"voices sha256\"\n");
+		fprintf(stderr, "AddVoiceFile \"voice_quality\" \"model filename\" \"model sha256\" \"voices filename\" \"voices sha256\"\n");
 	} else {
 
 		char* quality = cmd->data.list[0];
 
-		file_hash_add_sub_key(files_hash_table, quality, "model_url", cmd->data.list[1]);
-		file_hash_add_sub_key(files_hash_table, quality, "model_filename", cmd->data.list[2]);
-		file_hash_add_sub_key(files_hash_table, quality, "model_size", cmd->data.list[3]);
-		file_hash_add_sub_key(files_hash_table, quality, "model_sha256", cmd->data.list[4]);
-		file_hash_add_sub_key(files_hash_table, quality, "voices_url", cmd->data.list[5]);
-		file_hash_add_sub_key(files_hash_table, quality, "voices_filename", cmd->data.list[6]);
-		file_hash_add_sub_key(files_hash_table, quality, "voices_size", cmd->data.list[7]);
-		file_hash_add_sub_key(files_hash_table, quality, "voices_sha256", cmd->data.list[8]);
+		file_hash_add_sub_key(files_hash_table, quality, "model_filename", cmd->data.list[1]);
+		file_hash_add_sub_key(files_hash_table, quality, "model_sha256", cmd->data.list[2]);
+		file_hash_add_sub_key(files_hash_table, quality, "voices_filename", cmd->data.list[3]);
+		file_hash_add_sub_key(files_hash_table, quality, "voices_sha256", cmd->data.list[4]);
 
 		built_voice_table = true;
-		fprintf(stderr, "Added voice file for %s\n", cmd->data.list[2]);
+		fprintf(stderr, "Added voice file for %s\n", cmd->data.list[1]);
 	}
+	return NULL;
+}
+
+DOTCONF_CB(cb_modelPath)
+{
+	g_string_assign(distro_target_subdir, cmd->data.str);
+	fprintf(stderr,"Info: Using '%s' for distro_target_subdir\n", distro_target_subdir->str);
 	return NULL;
 }
 

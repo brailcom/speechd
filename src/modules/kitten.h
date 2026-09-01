@@ -20,7 +20,6 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <errno.h>
-#include <curl/curl.h>
 #include <stdbool.h>
 #include <glib.h>
 #include <onnxruntime_c_api.h>
@@ -68,6 +67,8 @@ extern GString *voices_path;
 extern const char *home_dir;
 extern GString *model_dir;
 
+extern GString *distro_target_subdir;
+
 extern bool stop_generation;
 
 // holds and array of values that must be passed to the model based off the requested voice and length of the text.
@@ -81,17 +82,12 @@ extern OrtSession* session;
 extern GHashTable *files_hash_table;
 
 #define TARGET_SUBDIR ".cache/speech-dispatcher/kitten"
-#define DISTRO_TARGET_SUBDIR "/usr/share/speech-dispatcher/models/kitten"
 
 typedef struct {
     const char *quality;
-    const char *model_url;
     const char *model_filename;
-    const char *model_expected_size;
     const char *model_expected_sha256;
-    const char *voice_url;
     const char *voice_filename;
-    const char *voice_expected_size;
     const char *voice_expected_sha256;
 } FileInfo;
 
@@ -124,10 +120,9 @@ typedef struct {
 #define DEFINE_VOICE(name_token) static SPDVoice voice_##name_token = { .name = #name_token, .language = "en" };
 #define VOICE_PTR_ITEM(name_token) &voice_##name_token,
 
-// kitten_downloader.c
-int download_models(void);
-bool use_distro_path(void);
-void init_file_hashtable(void);
+// kitten_utilities.c
+void init_file_hashtable_and_distro_subdir(void);
+int init_paths(void);
 void build_hash_from_defaults(GHashTable *ht);
 void file_hash_add_sub_key(GHashTable *ht, const char* quality, const char* key, const char* value);
 char* file_hash_get_value(GHashTable *ht, const char* quality, const char* key);
