@@ -440,7 +440,7 @@ AS_IF([test $with_kitten != "no"],
       [kitten_libxml="yes"],
       [AS_IF([test $with_kitten = "yes"],
         [AC_MSG_FAILURE([libxml-2.0 is not available])])])
-   AS_IF([test "x$kitten_libonnxruntime" = "xyes" -a "x$kitten_libxml" = "xyes" -a "x$kitten_libcurl" = "xyes"],
+   AS_IF([test "x$kitten_libonnxruntime" = "xyes" -a "x$kitten_libxml" = "xyes"],
      [with_kitten="yes"])])
 AM_CONDITIONAL([kitten_support], [test $with_kitten = "yes"])
 AC_SUBST([LIBONNXRUNTIME_CFLAGS])
