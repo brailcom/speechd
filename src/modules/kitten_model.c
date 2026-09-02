@@ -65,7 +65,7 @@ int init_voice_style(const char* voices_path){
     GError *error = NULL;
 
     if (!g_file_get_contents(voices_path, &file_contents, &file_length, &error)) {
-        g_printerr("Error reading file: %s\n", error->message);
+        MSG(2, "ERROR: reading file: %s\n", error->message);
         g_clear_error(&error);
         return -1;
     }
@@ -81,7 +81,7 @@ int init_voice_style(const char* voices_path){
         ROWS = 3200;
     }
     else {
-        g_printerr("Error: File size is incorrect must be 3200x256 floats or 8x256 floats.\n");
+        MSG(2, "ERROR: File size is incorrect must be 3200x256 floats or 8x256 floats.\n");
         g_free(file_contents);
         return -1;
     }
@@ -123,7 +123,7 @@ GArray *get_style(const char *text, const char *voice) {
     }
 
     if (voice_index == -1) {
-        g_printerr("Error: Voice '%s' not found in voices list.\n", voice);
+        MSG(2, "ERROR: Voice '%s' not found in voices list.\n", voice);
         return NULL;
     }
 
@@ -138,7 +138,7 @@ GArray *get_style(const char *text, const char *voice) {
     }
 
     if (target_row < 0 || target_row >= ROWS) {
-        g_printerr("Error: Calculated row index %d out of bounds.\n", target_row);
+        MSG(2, "ERROR: Calculated row index %d out of bounds.\n", target_row);
         return NULL;
     }
 
@@ -163,7 +163,8 @@ GArray *get_char_indices(const gchar *locate, const gchar *index_str) {
 
     gsize char_length = g_utf8_strlen(locate, -1);
     if (char_length >= 400){
-        fprintf(stderr, "Error: string is over 400 char's long, this indice will not run\n");
+        MSG(2, "ERROR: string is over 400 char's long, this indice will not run\n");
+        return NULL;
     }
 
     GArray *output_array = g_array_sized_new(FALSE, FALSE, sizeof(int64_t), char_length);
@@ -208,13 +209,13 @@ GString *get_phonemes(const char *text){
     // Initialize espeak.
     int samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, 0);
     if (samplerate < 0) {
-        g_printerr("Failed to initialize eSpeak.\n");
+        MSG(2, "Error: Failed to initialize eSpeak.\n");
         return NULL;
     }
 
     // Set the voice to US English
     if (espeak_SetVoiceByName("en-us") != EE_OK) {
-        g_printerr("Failed to set voice to en-us.\n");
+        MSG(2, "Error: Failed to set voice to en-us.\n");
         return NULL;
     }
 
@@ -287,7 +288,7 @@ int init_model(const char* model_path){
     // Initialize the ONNX Runtime API table
     g_ort = OrtGetApiBase()->GetApi(ORT_API_VERSION);
     if (!g_ort) {
-        fprintf(stderr, "Failed to initialize ONNX Runtime API.\n");
+        MSG(2, "ERROR: Failed to initialize ONNX Runtime API.\n");
         return -1;
     }
 
@@ -397,13 +398,25 @@ The output is a GArray of shorts with our audio.
 GArray* kitten_speak(const char* data){
     // turn the text into phonemes
     GString *phonemes = get_phonemes(data);
+    if (phonemes==NULL){
+        return NULL;
+    }
     const char* phonemes1 = phonemes->str;
 
     //The model needs the text to be converted to indices based off SYMBOLS
     GArray *inputs_array = get_char_indices(phonemes1, SYMBOLS);
+    if (inputs_array==NULL){
+        g_string_free(phonemes, TRUE);
+        return NULL;
+    }
 
     // we have to get the voice styles.
     GArray *styles_array = get_style(data, voice->str);
+    if (styles_array==NULL){
+        g_array_unref(inputs_array);
+        g_string_free(phonemes, TRUE);
+        return NULL;
+    }
 
     // Run the model using onnx.
     GArray* output = run_model(inputs_array, styles_array, speed);

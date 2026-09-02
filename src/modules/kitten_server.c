@@ -14,12 +14,16 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 #include <dotconf.h>
 
+bool debug_module=false;
+
 static DOTCONF_CB(cb_voicefiles);
 static DOTCONF_CB(cb_modelPath);
+static DOTCONF_CB(cb_debug_module);
 
 static const configoption_t options[] = {
 	{"AddVoiceFile", ARG_LIST, cb_voicefiles, NULL, CTX_ALL},
 	{"modelPath", ARG_STR, cb_modelPath, NULL, CTX_ALL},
+	{"debug", ARG_STR, cb_debug_module, NULL, CTX_ALL},
 	LAST_OPTION
 };
 
@@ -38,7 +42,7 @@ modelPath "<your path>"
 */
 int module_config(const char *configfilepath)
 {
-	fprintf(stderr, "opening .conf file %s\n", configfilepath);
+	MSG(1, "opening .conf file %s\n", configfilepath);
 
 	init_file_hashtable_and_distro_subdir();
 
@@ -48,21 +52,21 @@ int module_config(const char *configfilepath)
 				    options, NULL, CASE_INSENSITIVE);
 
 	if (!configfile) {
-		fprintf(stderr, "Error opening config file\n");
+		MSG(2, "Error: opening config file\n");
 		return -1;
 	}
 
 	if (dotconf_command_loop(configfile) == 0)
-		fprintf(stderr, "Nothing in config file\n");
+		MSG(2, "Nothing in config file\n");
 
 	dotconf_cleanup(configfile);
 
 	if (!built_voice_table){
-		fprintf(stderr, "building voice table from defaults. dot conf was not set\n");
+		DEBUG_PRINT("building voice table from defaults. dot conf was not set\n");
 		build_hash_from_defaults(files_hash_table);
 	}
 
-	fprintf(stderr, "finished parsing config file\n");
+	DEBUG_PRINT("finished parsing config file\n");
 
 	return 0;
 }
@@ -71,10 +75,9 @@ DOTCONF_CB(cb_voicefiles)
 {
 	int i;
 	if (cmd->arg_count != 5){
-		fprintf(stderr, "arg_count: %d\n", cmd->arg_count);
-		fprintf(stderr, "Incorrectly formated .conf line for AddVoiceFile\n");
-		fprintf(stderr, "AddVoiceFile should be formated like\n");
-		fprintf(stderr, "AddVoiceFile \"voice_quality\" \"model filename\" \"model sha256\" \"voices filename\" \"voices sha256\"\n");
+		MSG(2, "Error: Incorrectly formated .conf line for AddVoiceFile\n");
+		MSG(2, "AddVoiceFile should be formated like\n");
+		MSG(2, "AddVoiceFile \"voice_quality\" \"model filename\" \"model sha256\" \"voices filename\" \"voices sha256\"\n");
 	} else {
 
 		char* quality = cmd->data.list[0];
@@ -85,7 +88,7 @@ DOTCONF_CB(cb_voicefiles)
 		file_hash_add_sub_key(files_hash_table, quality, "voices_sha256", cmd->data.list[4]);
 
 		built_voice_table = true;
-		fprintf(stderr, "Added voice file for %s\n", cmd->data.list[1]);
+		MSG(5, "Added voice file for %s\n", cmd->data.list[1]);
 	}
 	return NULL;
 }
@@ -93,13 +96,22 @@ DOTCONF_CB(cb_voicefiles)
 DOTCONF_CB(cb_modelPath)
 {
 	g_string_assign(distro_target_subdir, cmd->data.str);
-	fprintf(stderr,"Info: Using '%s' for distro_target_subdir\n", distro_target_subdir->str);
+	MSG(5, "Info: Using '%s' for distro_target_subdir\n", distro_target_subdir->str);
+	return NULL;
+}
+
+DOTCONF_CB(cb_debug_module)
+{
+	if (!strcmp(cmd->data.str, "TRUE")){
+		MSG(5, "Debug enabled\n");
+		debug_module = true;
+	}
 	return NULL;
 }
 
 int module_init(char **msg)
 {
-	fprintf(stderr, "initializing\n");
+	MSG(1, "Initializing\n");
 
 	int ret = init_model_thread_pool();
 	if (ret == 0){
@@ -125,7 +137,7 @@ SPDVoice **module_list_voices(void)
 
 int module_set(const char *var, const char *val)
 {
-	fprintf(stderr,"got var '%s' to be set to '%s'\n", var, val);
+	DEBUG_PRINT("module_set: var '%s' to be set to '%s'\n", var, val);
 
     if (!strcmp(var, "synthesis_voice")) {
         // change the voice.
@@ -174,13 +186,13 @@ int module_debug(int enable, const char *file)
 int module_loop(void)
 {
 	/* Main loop */
-	fprintf(stderr, "main loop\n");
+	MSG(1, "Main Loop\n");
 
 	/* Let module_process run the protocol */
 	int ret = module_process(STDIN_FILENO, 1);
 
 	if (ret != 0)
-		fprintf(stderr, "Broken pipe, exiting...\n");
+		MSG(2, "Error: Broken pipe, exiting...\n");
 
 	return ret;
 }
@@ -194,7 +206,7 @@ int module_speak(char *data, size_t bytes, SPDMessageType msgtype)
 size_t module_pause(void)
 {
 	/* Pause playing */
-	fprintf(stderr, "pausing\n");
+	DEBUG_PRINT("Pausing\n");
 
     // does not seem there is a resume function so
     // pause will be handled the same as stop.
@@ -207,7 +219,7 @@ size_t module_pause(void)
 int module_stop(void)
 {
 	/* Stop any current synth */
-	fprintf(stderr, "stopping\n");
+	DEBUG_PRINT("Stopping\n");
 
     model_stop_generation();
 	module_report_event_stop();
@@ -218,7 +230,7 @@ int module_stop(void)
 int module_close(void)
 {
 	/* Deinitialize synthesizer */
-	fprintf(stderr, "closing\n");
+	MSG(1, "Closing\n");
 
     cleanup_threads();
 

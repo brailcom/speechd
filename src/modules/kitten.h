@@ -39,7 +39,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
         OrtStatus* status = (expr); \
         if (status != NULL) { \
             const char* msg = g_ort->GetErrorMessage(status); \
-            fprintf(stderr, "ONNX Runtime Error: %s\n", msg); \
+            MSG(2, "ERROR: ONNX Runtime Error: %s\n", msg); \
             g_ort->ReleaseStatus(status); \
             exit(1); \
         } \
@@ -80,6 +80,15 @@ extern OrtSessionOptions* session_options;
 extern OrtSession* session;
 
 extern GHashTable *files_hash_table;
+
+extern bool debug_module;
+
+#define DEBUG_PRINT(...) \
+    do { \
+        if (debug_module) { \
+            MSG(5, __VA_ARGS__); \
+        } \
+    } while (0)
 
 #define TARGET_SUBDIR ".cache/speech-dispatcher/kitten"
 

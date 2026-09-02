@@ -101,7 +101,7 @@ void init_file_hashtable_and_distro_subdir(void){
 // Helper function to recursively create directories
 static int ensure_directory_exists(const char *path) {
     if (g_mkdir_with_parents(path, 0755) != 0) {
-        fprintf(stderr, "Error: Failed to create directory '%s': %s\n", path, g_strerror(errno));
+        MSG(2, "ERROR: Failed to create directory '%s': %s\n", path, g_strerror(errno));
         return -1;
     }
     return 0;
@@ -117,7 +117,7 @@ static int file_exists(const char *path) {
 static int verify_sha256(const char *filepath, const char *expected_sha256) {
     GMappedFile *mfile = g_mapped_file_new(filepath, FALSE, NULL);
     if (!mfile) {
-        fprintf(stderr, "Error: Failed to memory-map file '%s' for SHA256 calculation.\n", filepath);
+        MSG(2, "ERROR: Failed to memory-map file '%s' for SHA256 calculation.\n", filepath);
         return -1;
     }
 
@@ -131,8 +131,9 @@ static int verify_sha256(const char *filepath, const char *expected_sha256) {
     int match = (g_ascii_strcasecmp(computed_sha256, expected_sha256) == 0);
 
     if (!match) {
-        fprintf(stderr, "Error: Checksum mismatch for '%s'!\n Expected: %s\n Computed: %s\n",
+        MSG(2, "ERROR: Checksum mismatch for '%s'!\n Expected: %s\n Computed: %s\n",
                 filepath, expected_sha256, computed_sha256);
+
     }
 
     g_checksum_free(checksum);
@@ -150,7 +151,7 @@ bool file_integrity_check(char *target_dir, char* filename, char* sha){
     } else {
         // verify the sha
         if (verify_sha256(full_path, sha) != 0) {
-            fprintf(stderr, "Integrity check failed for '%s' in '%s'.\n", filename, full_path);
+            MSG(2, "ERROR: Integrity check failed for '%s' in '%s'.\n", filename, full_path);
             output = false;
         }
     }
@@ -235,17 +236,17 @@ int init_paths(void){
 
     home_dir = g_get_home_dir();
     if (!home_dir) {
-        fprintf(stderr, "Error: Could not determine home directory.\n");
+        MSG(2, "ERROR: Could not determine home directory.\n");
         return -1;
     }
 
     if (use_distro_path()){
         // use disto path.
-        fprintf(stderr, "INFO: using distro path for loading models.\n");
+        DEBUG_PRINT("INFO: using distro path for loading models.\n");
         model_dir = g_string_new(distro_target_subdir->str);
     } else {
         // Build absolute destination directory path: ~/.cache/speech-dispatcher/kitten
-        fprintf(stderr, "INFO: using user path for loading models.\n");
+        DEBUG_PRINT("INFO: using user path for loading models.\n");
         model_dir = g_string_new_take(g_build_filename(home_dir, TARGET_SUBDIR, NULL));
     }
 
@@ -256,7 +257,7 @@ int init_paths(void){
 
     // verify the user models.
     if (verify_user_models() == -1){
-        fprintf(stderr, "Error: Verification of models failed\n");
+        MSG(2, "ERROR: Verification of models failed\n");
         return -1;
     };
 

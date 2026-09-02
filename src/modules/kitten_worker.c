@@ -224,7 +224,7 @@ float ahead_get(){
 }
 
 void ahead_print(){
-    fprintf(stderr, "Ahead by %f seconds of audio\n", ahead_get());
+    DEBUG_PRINT("Ahead by %f seconds of audio\n", ahead_get());
 }
 
 void stop_set(bool val){
@@ -252,7 +252,8 @@ GQueue* parse_ssml_to_gqueue(const char *data, size_t bytes){
     // use libxml to parse the ssml data.
     xmlDocPtr doc = xmlReadMemory(data, bytes, "noname.xml", NULL, 0);
     if (doc == NULL) {
-        fprintf(stderr, "Failed to parse XML\n");
+        MSG(2, "Error: Failed to parse XML\n");
+        return output;
     }
 
     xmlNodePtr root = xmlDocGetRootElement(doc); // <speak> node
@@ -271,7 +272,7 @@ GQueue* parse_ssml_to_gqueue(const char *data, size_t bytes){
             SSMLPayload *pl = g_new(SSMLPayload,1);
 
             pl->mark = g_string_new(mark_name);
-            pl->text = g_string_new(buffer->content);
+            pl->text = g_string_new((const char *)xmlBufferContent(buffer));
 
             g_queue_push_tail(output,pl);
 
@@ -282,11 +283,11 @@ GQueue* parse_ssml_to_gqueue(const char *data, size_t bytes){
         }
     }
     // add any trailing text after the final mark.
-    if (buffer->use > 0) {
+    if (xmlBufferLength(buffer) > 0) {
         SSMLPayload *pl = g_new(SSMLPayload,1);
 
         pl->mark = g_string_new("");
-        pl->text = g_string_new(buffer->content);
+        pl->text = g_string_new((const char *)xmlBufferContent(buffer));
 
         g_queue_push_tail(output, pl);
     }
@@ -341,8 +342,8 @@ int model_generate_speech(const char *data, size_t bytes){
     //The ssml is parsed using libxml and then returned in a GQueue.
     GQueue *ssml_queue = parse_ssml_to_gqueue(data, bytes);
 
-    fprintf(stderr, "speaking '%s'\n", data);
-    fprintf(stderr, "using voice %s and speed %f\n", voice->str, speed);
+    DEBUG_PRINT("speaking '%s'\n", data);
+    DEBUG_PRINT("using voice %s and speed %f\n", voice->str, speed);
 
     stop_set(false); // make sure that stop generation has been reset to false.
 
@@ -364,18 +365,20 @@ int model_generate_speech(const char *data, size_t bytes){
             clock_t gen = clock();
             GArray *op = kitten_speak(chunk->str);
             clock_t end = clock();
-            double seconds = (double)(end - gen) / CLOCKS_PER_SEC;
-            fprintf(stderr, "Generated %f seconds of audio in %f seconds\n", op->len/24000.0, seconds);
+            if (op!=NULL){
+                double seconds = (double)(end - gen) / CLOCKS_PER_SEC;
+                DEBUG_PRINT("Generated %f seconds of audio in %f seconds\n", op->len/24000.0, seconds);
 
-            //The op array will be freed by the _generation_thread or free_GeneratePayload on destroy.
-            if (i == chunks->len){
-                send_wav(op, item->mark->str); // on the last chunk send the mark also.
-            } else {
-                send_wav(op, NULL);
+                //The op array will be freed by the _generation_thread or free_GeneratePayload on destroy.
+                if (i == chunks->len){
+                    send_wav(op, item->mark->str); // on the last chunk send the mark also.
+                } else {
+                    send_wav(op, NULL);
+                }
+
+                ahead_add(op->len/24000.0);
+                ahead_print();
             }
-
-            ahead_add(op->len/24000.0);
-            ahead_print();
         }
 
         g_ptr_array_free(chunks, TRUE);
@@ -385,7 +388,7 @@ int model_generate_speech(const char *data, size_t bytes){
         // no need to blow up the cpu on super long texts.
         float last_ahead = ahead_get();
         while (last_ahead >= 90.0){
-            fprintf(stderr, "ahead 90sec, blocking\n");
+            DEBUG_PRINT("ahead 90sec, blocking\n");
             sleep(20);// 20 seconds.
             last_ahead = ahead_get();
 
@@ -413,7 +416,7 @@ void *_generation_thread(void *nothing)
 	while (1) {
         // use a async queue to handle signalling.
         GeneratePayload *message_payload = (GeneratePayload *) g_async_queue_pop(message_queue);// this is thread safe and will block if nothing in the queue.
-        fprintf(stderr,"thread loop: got message: size %d\n",message_payload->size);
+        DEBUG_PRINT("thread loop: got message: size %zd\n",message_payload->size);
 
         model_generate_speech(message_payload->data, message_payload->size);
 
@@ -432,16 +435,16 @@ void *_play_wav_thread(void *nothing)
 	while (1) {
         // use a async queue to handle signalling.
         WavPayload *wp = (WavPayload*) g_async_queue_pop(wav_queue);// this is thread safe and will block if nothing in the queue.
-        fprintf(stderr,"wav_thread: got payload\n");
+        DEBUG_PRINT("wav_thread: got payload\n");
 
         if (wp->cmd == BEGIN){
-            fprintf(stderr,"wav_thread: module_report_event_begin\n");
+            DEBUG_PRINT("wav_thread: module_report_event_begin\n");
             module_report_event_begin();
         } else if (wp->cmd == STOP){
-            fprintf(stderr,"wav_thread: module_report_event_end\n");
+            DEBUG_PRINT("wav_thread: module_report_event_end\n");
             module_report_event_end();
         } else if (wp->cmd == DATA){
-            fprintf(stderr,"wav_thread: send_samples\n");
+            DEBUG_PRINT("wav_thread: send_samples\n");
             GArray *op = (GArray *) wp->op;
             GString *mark = wp->mark;
             send_samples((short*)op->data, op->len, 24000);
@@ -478,33 +481,8 @@ int model_stop_generation(){
     return 0;
 }
 
-// This is the same as spd_pthread_create, I move it in here because including $(common_SOURCES) was creating circular dependences for me.
-int kitty_pthread_create(pthread_t *thread, const pthread_attr_t *attr,
-                          void *(*start_routine) (void *), void *arg)
-{
-	int retsig, ret;
-	sigset_t all_signals;
-	sigset_t old_signals;
-
-	retsig = sigfillset(&all_signals);
-	if (retsig != 0)
-		fprintf(stderr, "Can't fill signal set (%d), expect problems when terminating!\n", retsig);
-	else {
-		retsig = pthread_sigmask(SIG_BLOCK, &all_signals, &old_signals);
-		if (retsig != 0)
-			fprintf(stderr, "Can't set signal set (%d), expect problems when terminating!\n", retsig);
-	}
-
-	ret = pthread_create(thread, attr, start_routine, arg);
-
-	if (retsig == 0)
-		pthread_sigmask(SIG_SETMASK, &old_signals, NULL);
-
-	return ret;
-}
-
 int init_model_thread_pool(){
-    fprintf(stderr, "init_model_thread_pool();\n");
+    DEBUG_PRINT("init_model_thread_pool();\n");
     GError *pool_error = NULL;
 
     g_mutex_init(&model_mutex);
@@ -527,26 +505,26 @@ int init_model_thread_pool(){
         return -1;
     }
 
-    if (kitty_pthread_create(&kitten_generation_thread, NULL, _generation_thread, NULL) != 0){
-        fprintf(stderr, "Error: Creating _generation_thread()\n");
+    if (spd_pthread_create(&kitten_generation_thread, NULL, _generation_thread, NULL) != 0){
+        MSG(2, "ERROR: Creating _generation_thread()\n");
         g_mutex_unlock(&model_mutex);
         return -1;
     }
 
-    if (kitty_pthread_create(&kitten_play_wav_thread, NULL, _play_wav_thread, NULL) != 0){
-        fprintf(stderr, "Error: Creating _play_wav_thread()\n");
+    if (spd_pthread_create(&kitten_play_wav_thread, NULL, _play_wav_thread, NULL) != 0){
+        MSG(2, "ERROR: Creating _play_wav_thread()\n");
         g_mutex_unlock(&model_mutex);
         return -1;
     }
 
     if (init_voice_style(voices_path->str) == -1){
-        fprintf(stderr, "Error: Initializing voice style\n");
+        MSG(2, "ERROR: Initializing voice style\n");
         g_mutex_unlock(&model_mutex);
         return -1;
     };
 
     if (init_model(model_path->str) == -1){
-        fprintf(stderr, "Error Initializing model/onnx\n");
+        MSG(2, "ERROR: Initializing model/onnx\n");
         g_mutex_unlock(&model_mutex);
         return -1;
     }
