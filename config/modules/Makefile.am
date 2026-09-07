@@ -70,4 +70,9 @@ dist_moduleconf_DATA += voxin.conf
 dist_moduleconforig_DATA += voxin.conf
 endif
 
+if kitten_support
+dist_moduleconf_DATA += kitten.conf
+dist_moduleconforig_DATA += kitten.conf
+endif
+
 -include $(top_srcdir)/git.mk
