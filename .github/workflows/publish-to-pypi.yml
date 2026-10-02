@@ -2,8 +2,6 @@ name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
 
 on:
   push:
-    tags:
-      - 'pySpeechModuleV*'
   workflow_dispatch:
 
 jobs:
