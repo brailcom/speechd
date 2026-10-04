@@ -28,6 +28,7 @@
 
 #include <spa/param/audio/format-utils.h>
 #include <spa/utils/ringbuffer.h>
+#include <spa/utils/result.h>
 #include <spa/param/props.h>
 
 #include <spd_audio_plugin.h>
@@ -162,10 +163,19 @@ static void on_process(void *userdata)
     spa_system_eventfd_write(state->inner_loop->system, state->eventfd_number, 1);
 }
 
+static void on_state_changed(void *userdata, enum pw_stream_state old, enum pw_stream_state new_state, const char *error_message)
+{
+    message(4, "stream state changed from %s to %s", pw_stream_state_as_string(old), pw_stream_state_as_string(new_state));
+    if (new_state == PW_STREAM_STATE_ERROR)
+        error("stream error: %s", error_message ? error_message : "unknown error");
+    else if (new_state == PW_STREAM_STATE_UNCONNECTED && old != PW_STREAM_STATE_UNCONNECTED)
+        message(3, "stream got disconnected from the pipewire daemon");
+}
+
 // pipewire internal: structure describing what kind of events we subscribe to
-// For now, this is only on_process
 static const struct pw_stream_events stream_events = {
     PW_VERSION_STREAM_EVENTS,
+    .state_changed = on_state_changed,
     .process = on_process,
 };
 
