@@ -28,6 +28,7 @@
 
 #include <spa/param/audio/format-utils.h>
 #include <spa/utils/ringbuffer.h>
+#include <spa/utils/result.h>
 #include <spa/param/props.h>
 
 #include <spd_audio_plugin.h>
@@ -162,10 +163,19 @@ static void on_process(void *userdata)
     spa_system_eventfd_write(state->inner_loop->system, state->eventfd_number, 1);
 }
 
+static void on_state_changed(void *userdata, enum pw_stream_state old, enum pw_stream_state new_state, const char *error_message)
+{
+    message(4, "stream state changed from %s to %s", pw_stream_state_as_string(old), pw_stream_state_as_string(new_state));
+    if (new_state == PW_STREAM_STATE_ERROR)
+        error("stream error: %s", error_message ? error_message : "unknown error");
+    else if (new_state == PW_STREAM_STATE_UNCONNECTED && old != PW_STREAM_STATE_UNCONNECTED)
+        message(3, "stream got disconnected from the pipewire daemon");
+}
+
 // pipewire internal: structure describing what kind of events we subscribe to
-// For now, this is only on_process
 static const struct pw_stream_events stream_events = {
     PW_VERSION_STREAM_EVENTS,
+    .state_changed = on_state_changed,
     .process = on_process,
 };
 
@@ -268,7 +278,18 @@ static int pipewire_begin(AudioID *id, AudioTrack track)
     params = spa_format_audio_raw_build(&b, SPA_PARAM_EnumFormat, &SPA_AUDIO_INFO_RAW_INIT(.format = format, .channels = track.num_channels, .rate = state->playback_sample_rate));
     message(4, "connecting pipewire stream");
     pw_thread_loop_lock(state->loop);
-    pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, &params, 1);
+    int res = pw_stream_connect(state->stream, PW_DIRECTION_OUTPUT, PW_ID_ANY, PW_STREAM_FLAG_AUTOCONNECT | PW_STREAM_FLAG_MAP_BUFFERS | PW_STREAM_FLAG_RT_PROCESS, &params, 1);
+    if (res < 0)
+    {
+        const char *stream_error = NULL;
+        pw_stream_get_state(state->stream, &stream_error);
+        // the error string belongs to the stream, so print it before releasing the lock
+        error("cannot connect stream: %s (%s)", spa_strerror(res), stream_error ? stream_error : "no details from pipewire");
+        pw_thread_loop_unlock(state->loop);
+        // forget the sample rate, so that the next call tries to connect again
+        state->playback_sample_rate = 0;
+        return -1;
+    }
 
     // The default quality 4 makes espeak-ng's output notably lame
     int quality = 10;
