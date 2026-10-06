@@ -22,7 +22,6 @@
 
 import logging
 import time
-import soundfile as sf
 
 class SpeechDispatch():
     def __init__(self):
