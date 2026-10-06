@@ -68,6 +68,7 @@ static void *_nas_handle_events(void *par)
 	while (1)
 		AuHandleEvents(nas_id->aud);
 
+	return NULL;
 }
 
 /* NAS Server error handler */
