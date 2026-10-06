@@ -459,8 +459,8 @@ char *module_multicases_string(char *message)
 	guint i;
 
 	assert(message != NULL);
-	
-	for (i = 0; i < 4; i++) {
+
+	for (i = 0; i < G_N_ELEMENTS(mcstr); i++) {
 		message = (char*)module_multicases_string_replace((gchar*)message, &mcstr[i]);
 	}
 
