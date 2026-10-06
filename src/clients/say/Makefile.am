@@ -17,8 +17,8 @@
 
 ## Process this file with automake to produce Makefile.in
 
-inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/api/c
 c_api = $(top_builddir)/src/api/c
+inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/api/c -I$(c_api)
 
 bin_PROGRAMS = spd-say
 spd_say_CPPFLAGS = $(inc_local) $(GLIB_CFLAGS)
