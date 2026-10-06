@@ -40,6 +40,7 @@ These speech syntheses are supported:
 - Pico
 - Piper
 - Swift
+- Kitten
 
 Documentation
 -------------
@@ -59,6 +60,8 @@ and the [SSIP protocol documentation](http://htmlpreview.github.io/?https://gith
 The python binding documentation is available on the shell with
 `pydoc3 speechd` (or `pydoc speechd`)
 and online: the [speechd.client module documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/speechd.client.html)
+
+Also python documentation for writing server modules can be found [here](https://pyspeechmodule.readthedocs.io/en/latest/index.html)
 
 The key features and the supported TTS engines, output subsystems, client
 interfaces and client applications known to work with Speech Dispatcher are
@@ -170,7 +173,7 @@ Development team:
   * Andrei Kholodnyi
 
 Contributors: Trevor Saunders, Lukas Loehrer,Gary Cramblitt, Olivier Bert, Jacob
-Schmude, Steve Holmes, Gilles Casse, Rui Batista, Marco Skambraks ...and many
+Schmude, Steve Holmes, Gilles Casse, Rui Batista, Marco Skambraks, John Settlemyer ...and many
 others.
 
 Licensing
