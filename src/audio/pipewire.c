@@ -62,6 +62,33 @@ do {                                             \
 } while (0)
 #define error(arg, ...) message(0, "pipewire: fatal: " arg, ##__VA_ARGS__)
 
+// Convert between pipewire and speech-dispatcher log levels
+static enum spa_log_level spd_to_pw_log_level(int level)
+{
+    if (level >= 5)
+        return SPA_LOG_LEVEL_DEBUG;
+    if (level == 4)
+        return SPA_LOG_LEVEL_INFO;
+    if (level >= 2)
+        return SPA_LOG_LEVEL_WARN;
+    return SPA_LOG_LEVEL_ERROR;
+}
+
+static int pw_to_spd_log_level(enum spa_log_level level)
+{
+    switch (level)
+    {
+    case SPA_LOG_LEVEL_ERROR:
+        return 1;
+    case SPA_LOG_LEVEL_WARN:
+        return 2;
+    case SPA_LOG_LEVEL_INFO:
+        return 4;
+    default:
+        return 5;
+    }
+}
+
 // state of the backend, where all components are gathered. This will be allocated on the heap
 typedef struct
 {
@@ -76,6 +103,47 @@ typedef struct
     uint32_t playback_sample_rate; // store this in here so that we can detect when spd changes the sample rate because of another module
     int32_t eventfd_number;        // used in on_process to signal the thread where pipewire_play is running that the ringbuffer has been drained to the point where playback either finished or is in progress, but for sure to the point where we could push more audio, because our side of the buffer at least is drained
 } module_state;
+
+static void forward_logtv(void *object, enum spa_log_level level, const struct spa_log_topic *topic, const char *file, int line, const char *func, const char *fmt, va_list args)
+{
+    char *text;
+    vasprintf(&text, fmt, args);
+    message(pw_to_spd_log_level(level), "%s:%d(%s): %s", file, line, func, text);
+}
+
+static void forward_logt(void *object, enum spa_log_level level, const struct spa_log_topic *topic, const char *file, int line, const char *func, const char *fmt, ...)
+{
+    va_list args;
+    va_start(args, fmt);
+    forward_logtv(object, level, topic, file, line, func, fmt, args);
+    va_end(args);
+}
+
+static void forward_logv(void *object, enum spa_log_level level, const char *file, int line, const char *func, const char *fmt, va_list args)
+{
+    forward_logtv(object, level, NULL, file, line, func, fmt, args);
+}
+
+static void forward_log(void *object, enum spa_log_level level, const char *file, int line, const char *func, const char *fmt, ...)
+{
+    va_list args;
+    va_start(args, fmt);
+    forward_logtv(object, level, NULL, file, line, func, fmt, args);
+    va_end(args);
+}
+
+static const struct spa_log_methods forward_log_methods = {
+    SPA_VERSION_LOG_METHODS,
+    .log = forward_log,
+    .logv = forward_logv,
+    .logt = forward_logt,
+    .logtv = forward_logtv,
+};
+
+static struct spa_log forward_log_interface = {
+    .iface = SPA_INTERFACE_INIT(SPA_TYPE_INTERFACE_Log, SPA_VERSION_LOG, &forward_log_methods, NULL),
+    .level = SPA_LOG_LEVEL_ERROR,
+};
 
 // pipewire on_process callback
 // this function would be called each time the server requests data from us
@@ -185,6 +253,9 @@ static AudioID *pipewire_open(void **pars)
 {
     module_state *state = (module_state *)malloc(sizeof(module_state));
     message(3, "initialising pipewire output");
+    // forward all pipewire messages to log
+    pw_log_set(&forward_log_interface);
+    pw_log_set_level(SPA_LOG_LEVEL_WARN);
     pw_init(0, NULL);
     // initialise the main loop, and then get the inner loop from it, so that locks are kept from the most often contended path as much as possible
     state->loop = pw_thread_loop_new("pipewire audio thread", NULL);
@@ -455,6 +526,7 @@ static void pipewire_set_log_level(int level)
     if (level != 0)
     {
         pipewire_log_level = level;
+        pw_log_set_level(spd_to_pw_log_level(pipewire_log_level));
     }
 }
 
