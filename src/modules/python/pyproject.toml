@@ -1,0 +1,19 @@
+[project]
+name = "pySpeechModule"
+version = "1.0.2"
+authors = [
+  { name="John Settlemyer", email="author@example.com" },
+]
+dependencies = []
+description = "A framework for creating speechd modules"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/brailcom/speechd"
+Issues = "https://github.com/brailcom/speechd/issues"
