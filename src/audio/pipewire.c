@@ -89,6 +89,15 @@ static int pw_to_spd_log_level(enum spa_log_level level)
     }
 }
 
+static void pipewire_set_log_level(int level)
+{
+    if (level != 0)
+    {
+        pipewire_log_level = level;
+        pw_log_set_level(spd_to_pw_log_level(pipewire_log_level));
+    }
+}
+
 // state of the backend, where all components are gathered. This will be allocated on the heap
 typedef struct
 {
@@ -252,10 +261,10 @@ static const struct pw_stream_events stream_events = {
 static AudioID *pipewire_open(void **pars)
 {
     module_state *state = (module_state *)malloc(sizeof(module_state));
-    message(3, "initialising pipewire output");
     // forward all pipewire messages to log
     pw_log_set(&forward_log_interface);
-    pw_log_set_level(SPA_LOG_LEVEL_WARN);
+    pipewire_set_log_level(3);
+    message(3, "initialising pipewire output");
     pw_init(0, NULL);
     // initialise the main loop, and then get the inner loop from it, so that locks are kept from the most often contended path as much as possible
     state->loop = pw_thread_loop_new("pipewire audio thread", NULL);
@@ -519,15 +528,6 @@ static int pipewire_close(AudioID *id)
 static const char *pipewire_get_play_command()
 {
     return "pw-play -";
-}
-
-static void pipewire_set_log_level(int level)
-{
-    if (level != 0)
-    {
-        pipewire_log_level = level;
-        pw_log_set_level(spd_to_pw_log_level(pipewire_log_level));
-    }
 }
 
 static spd_audio_plugin_t pipewire_exports = {
