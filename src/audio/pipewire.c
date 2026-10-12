@@ -390,14 +390,11 @@ static int pipewire_feed_sync_overlap(AudioID *id, AudioTrack track)
     uint8_t *samples_buffer_copy = (uint8_t *)track.samples;
     // if the stream has been deactivated because of a pipewire_stop call, we activate it
     pw_thread_loop_lock(state->loop);
-    if (pw_stream_get_state(state->stream, NULL) == PW_STREAM_STATE_PAUSED)
+    if (! state->is_running)
     {
-        if (! state->is_running)
-        {
-            message(4, "stream is paused, starting");
-            state->is_running = true;
-            pw_stream_set_active(state->stream, true);
-        }
+	message(4, "stream is paused, starting");
+	state->is_running = true;
+	pw_stream_set_active(state->stream, true);
     }
     pw_thread_loop_unlock(state->loop);
     track_buffer_size = track.num_samples * state->stride; // we want bytes, not frames
