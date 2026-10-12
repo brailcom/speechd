@@ -693,7 +693,7 @@ int report_index_mark(TSpeechDMessage * msg, const char *index_mark)
 		ret = socket_send_msg(msg->settings.fd, cmd); \
 		g_free(cmd); \
 		if (ret){ \
-			MSG(2, "ERROR: Can't report index mark!"); \
+			MSG(2, "ERROR: Can't report "#state"!"); \
 			return -1; \
 		} \
 		return 0; \
