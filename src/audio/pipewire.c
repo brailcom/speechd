@@ -261,6 +261,7 @@ static AudioID *pipewire_open(void **pars)
     state->loop = pw_thread_loop_new("pipewire audio thread", NULL);
     state->inner_loop = pw_thread_loop_get_loop(state->loop);
     // the ring buffer and its backing memory
+    // FIXME: what if on_process is in the middle of reading rb?
     state->rb = SPA_RINGBUFFER_INIT();
     state->sample_buffer = malloc(SAMPLE_BUFFER_SIZE);
     // initialise the event file descriptor and the stream
@@ -455,8 +456,10 @@ static int pipewire_stop(AudioID *id)
     message(4, "stopping audio playback");
     // unset the running flag
     state->is_running = false;
-    // drain the stream, to make sure there are no more samples playing, to avoid crackling
+    // flush the stream, to make sure there are no more samples playing, to avoid crackling
+    pw_thread_loop_lock(state->loop);
     pw_stream_flush(state->stream, false);
+    pw_thread_loop_unlock(state->loop);
     // from here too, we must wake the audio thread, so that the locking loop can be aware of our flag change and terminate as a consequnce
     message(4, "waking up audio thread");
     spa_system_eventfd_write(state->inner_loop->system, state->eventfd_number, 1);
