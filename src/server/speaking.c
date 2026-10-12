@@ -657,7 +657,7 @@ int socket_send_msg(int fd, const char *msg)
 	ret = write(fd, msg, strlen(msg));
 	pthread_mutex_unlock(&socket_com_mutex);
 	if (ret < 0) {
-		MSG(1, "write() error: %s", strerror(errno));
+		MSG(1, "write(%d) error: %s", fd, strerror(errno));
 		return -1;
 	}
 	return 0;
