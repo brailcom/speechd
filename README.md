@@ -40,7 +40,6 @@ These speech syntheses are supported:
 - Pico
 - Piper
 - Swift
-- Kitten
 
 Documentation
 -------------
