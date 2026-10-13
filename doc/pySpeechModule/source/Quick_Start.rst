@@ -35,7 +35,7 @@ You need to `download <https://github.com/brailcom/speechd/raw/refs/heads/master
             except Exception as e:
                 logging.error("An error occurred:", e)
 
-    SpeechServer().start(Dummy())
+    SpeechServer().start(Dummy)
 
 Now you need to make the file executable
 

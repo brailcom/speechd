@@ -110,7 +110,7 @@ Create your module.
             except Exception as e:
                 print("An error occurred:", e)
 
-    SpeechServer().start(KokoroDispatch())
+    SpeechServer().start(KokoroDispatch)
 
 This should like somewhat similar to the previous example. But lets go through the methods and explain each of them.
 
@@ -230,7 +230,7 @@ This last line is used to "return" the output of a chunk of audio along with the
 
 .. code-block:: python3
 
-    SpeechServer().start(KokoroDispatch())
+    SpeechServer().start(KokoroDispatch)
 
 Finally we start the server and pass a instance of the class.
 

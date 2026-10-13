@@ -389,31 +389,41 @@ class SpeechServer():
         Starts the mainloop and sets the client callback.
         """
 
-        self._callback = callback
-        # keep a local copy of the voices
-        # it should be set at the start and never changed.
-        if hasattr(callback, "voices"):
-            self.voices = callback.voices
-        else:
-            self.voices = [{"name": "GenericPythonModule", "language": "en", "variant": "none"}]
-
-        # Start the worker threads.
-        self.execution_worker.set_callback(callback)
-        self.execution_worker.start()
-        self.action_worker.start()
-        self._callback._set_init(self.action_worker.queue, self)
-
-        # run configure.
-        self._configure()
-
         line = self._readline()
         if (line != "INIT\n"):
             logging.error("ERROR: Server did not start with INIT\n")
 
-        msg = "GOOD"
-        stdout.write(f"299-{msg}\n")
-        stdout.write("299 OK LOADED SUCCESSFULLY\n")
-        stdout.flush()
+        try:
+            self._callback = callback()
+            # keep a local copy of the voices
+            # it should be set at the start and never changed.
+            if hasattr(self._callback, "voices"):
+                self.voices = self._callback.voices
+            else:
+                self.voices = [{"name": "GenericPythonModule", "language": "en", "variant": "none"}]
+
+            # Start the worker threads.
+            self.execution_worker.set_callback(self._callback)
+            self.execution_worker.start()
+            self.action_worker.start()
+            self._callback._set_init(self.action_worker.queue, self)
+
+            # run configure.
+            self._configure()
+            issue = False
+            msg = "GOOD"
+        except Exception as e:
+            issue = True
+            msg = f"Failed loading: {e}"
+
+        if (issue):
+            stdout.write(f"399-{msg}\n")
+            stdout.write("399 ERR CANT INIT MODULE\n")
+            stdout.flush()
+        else:
+            stdout.write(f"299-{msg}\n")
+            stdout.write("299 OK LOADED SUCCESSFULLY\n")
+            stdout.flush()
 
         logging.info("server: Starting _process()")
         self._process()

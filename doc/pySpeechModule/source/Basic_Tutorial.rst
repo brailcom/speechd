@@ -108,7 +108,7 @@ Last we need to create the server and create a instance of our class.
     :caption: dummy.py
     :name: dummy-py5
 
-    SpeechServer().start(Dummy())
+    SpeechServer().start(Dummy)
 
 .. _full-code:
 
@@ -138,7 +138,7 @@ Here is the complete code. You will also need to `download <https://github.com/b
             except Exception as e:
                 logging.error("An error occurred:", e)
 
-    SpeechServer().start(Dummy())
+    SpeechServer().start(Dummy)
 
 Now you need to make the file executable
 

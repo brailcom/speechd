@@ -109,7 +109,12 @@ def strip_ssml(ssml_string: bytes):
         root = ET.fromstring(ssml_string)
     except ET.ParseError:
         # Wrap fragments in a temporary root node to ensure valid parsing
-        root = ET.fromstring(f"<root>{ssml_string}</root>")
+        if isinstance(ssml_string, bytes):
+            wrapped = b"<root>" + ssml_string + b"</root>"
+        else:
+            wrapped = f"<root>{ssml_string}</root>"
+
+        root = ET.fromstring(wrapped)
 
     # itertext() yields all text within the element and its children
     return "".join(root.itertext())
