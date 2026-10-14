@@ -285,6 +285,10 @@ Lets now break it all this down.
 
 ``parse_ssml`` is a convenience function which you can use to turn the ssml(which is really just like xml) into a python list of dict's. Each dict has the text and the mark. The mark is a way of telling speechd where you are at in the text, you can think of it as a index. if you have a few sentence's of text and you speak up to the second sentence you would send the mark linked to the second sentence to tell speechd what has been spoken.
 
+.. warning::
+
+ ``parse_ssml`` this is not a full implementation of SSML and as such will only give you a stripped down version containing the text and mark.
+
 .. code-block:: python3
 
     generator = self.pipeline(text, voice=self.voice, speed=self.speed)

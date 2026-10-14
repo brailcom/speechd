@@ -47,6 +47,10 @@ def parse_ssml(data: bytes) -> list[dict]:
     """
     This is a convenience function for parsing SSML into a list of dicts in the format
 
+    .. warning::
+
+        ``parse_ssml`` this is not a full implementation of SSML and as such will only give you a stripped down version containing the text and mark.
+
     .. code-block:: python
 
         [{"mark": "<mark>", "text": "<text>"}]
