@@ -69,6 +69,23 @@ void destroy_module(OutputModule * module)
 	g_free(module);
 }
 
+/* Make sure the child process of a module we are giving up on has
+ * terminated and has been reaped, so that it does not linger as a
+ * zombie.  The child is SIGKILLed first in case it is still alive (e.g.
+ * because it closed its output but kept running).  We wait with a
+ * timeout so that a child stuck in uninterruptible sleep cannot make us
+ * hang forever. */
+static void kill_and_reap_module(OutputModule * module)
+{
+	if (module->pid <= 0)
+		return;
+
+	kill(module->pid, SIGKILL);
+	if (waitpid_with_timeout(module->pid, NULL, 0, 1000) <= 0)
+		MSG(1, "ERROR: Module %s is not able to terminate, giving up.",
+		    module->name);
+}
+
 /*
  * Check that we can execute the configured command
  */
@@ -532,6 +549,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 			g_string_free(reply, TRUE);
 			free(rep_line);
 			fclose(f);
+			kill_and_reap_module(module);
 			destroy_module(module);
 			return NULL;
 		}
@@ -543,6 +561,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 			g_string_free(reply, TRUE);
 			free(rep_line);
 			fclose(f);
+			kill_and_reap_module(module);
 			destroy_module(module);
 			return NULL;
 		}
@@ -563,8 +582,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 		MSG(1, "ERROR: Module %s failed to initialize. Reason: %s",
 		    module->name, reply->str);
 		module->working = 0;
-		kill(module->pid, 9);
-		waitpid(module->pid, NULL, WNOHANG);
+		kill_and_reap_module(module);
 		destroy_module(module);
 		g_string_free(reply, TRUE);
 		return NULL;
@@ -588,8 +606,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 		MSG(1,
 		    "ERROR: Can't initialize audio in output module, see reason above.");
 		module->working = 0;
-		kill(module->pid, 9);
-		waitpid(module->pid, NULL, WNOHANG);
+		kill_and_reap_module(module);
 		destroy_module(module);
 		return NULL;
 	}
@@ -600,8 +617,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 		MSG(1,
 		    "ERROR: Can't set the log level inin the output module.");
 		module->working = 0;
-		kill(module->pid, 9);
-		waitpid(module->pid, NULL, WNOHANG);
+		kill_and_reap_module(module);
 		destroy_module(module);
 		return NULL;
 	}
@@ -614,8 +630,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 		MSG(1,
 		    "ERROR: Can't get a list of voices from the output module.");
 		module->working = 0;
-		kill(module->pid, 9);
-		waitpid(module->pid, NULL, WNOHANG);
+		kill_and_reap_module(module);
 		destroy_module(module);
 		return NULL;
 	}
