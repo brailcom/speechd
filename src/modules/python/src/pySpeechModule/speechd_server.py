@@ -136,6 +136,8 @@ class SpeechServer():
             data = val['audio']
             sample_rate = val['rate']
             mark = val['mark']
+            bits = int(val['bits']) if 'bits' in val else 16
+            channels = int(val['num_channels']) if 'num_channels' in val else 1
 
             chunk_size = 5000
             for i in range(0, len(data), chunk_size):
@@ -152,9 +154,9 @@ class SpeechServer():
                     # anything else is a fatal error.
                     raise Exception("Audio must be list or ndarray.")
 
-                stdout.write(f"705-bits=16\n")
+                stdout.write(f"705-bits={bits}\n")
                 stdout.flush()
-                stdout.write(f"705-num_channels=1\n")
+                stdout.write(f"705-num_channels={channels}\n")
                 stdout.flush()
                 stdout.write(f"705-sample_rate={sample_rate}\n")
                 stdout.flush()
