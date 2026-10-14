@@ -7,6 +7,7 @@ source venv/bin/activate
 pip install -U sphinx
 pip install sphinx-autobuild
 pip install sphinx-rtd-theme myst-parser
+pip install sphinx-tabs
 
 # using sphinx
 sphinx-build -M html source build

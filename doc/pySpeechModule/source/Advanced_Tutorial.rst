@@ -6,13 +6,25 @@ In this tutorial we will create a speechd module that can generate tts output, i
 Setup the directories and venv.
 -------------------------------
 
-.. code-block:: bash
+.. tabs::
 
-    mkdir kokoro_speechd_module
-    cd kokoro_speechd_module
+   .. group-tab:: Local
 
-    python3.12 -m venv venv
-    source venv/bin/activate
+    .. code-block:: bash
+
+        mkdir -p ~/.local/libexec/speech-dispatcher-modules/
+        cd ~/.local/libexec/speech-dispatcher-modules/
+        python3.12 -m venv venv-kokoro
+        source venv-kokoro/bin/activate
+
+   .. group-tab:: System-Wide
+
+    .. code-block:: bash
+
+        mkdir -p /usr/libexec/speech-dispatcher-modules
+        cd /usr/libexec/speech-dispatcher-modules
+        python3.12 -m venv venv-kokoro
+        source venv-kokoro/bin/activate
 
 .. note:: In this case we are using python 3.12. As of writing this, 3.14 is somewhat painful to use due to having to build many packages, I would recommend 3.12 for now.
 
@@ -45,72 +57,145 @@ Start python and run the following. You should get a .wav file back that says "h
 Create your module.
 -------------------
 
-.. code-block:: python3
-    :caption: kokoro_module.py
-    :name: kokoro-py
+.. tabs::
 
-    #!/home/user/src/kokoro_speechd_module/venv/bin/python
+   .. group-tab:: Local
 
-    import soundfile as sf
-    from kokoro import KPipeline
-    import logging
-    import torch
-    from pySpeechModule import SpeechServer, SpeechDispatch, parse_ssml
-    import io
+    .. code-block:: python3
+        :caption: /home/user/.local/libexec/speech-dispatcher-modules/sd_kokoro.py
+        :name: kokoro-py
 
-    class KokoroDispatch(SpeechDispatch):
-        def __init__(self):
-            self.pipeline = KPipeline(lang_code='a')
-            self.speed = 1.0
-            self.voice = 'af_heart'
-            self.voices = [{"name": "af_heart", "language": "en", "variant": "none", "kokoro_lang": 'a'},
-            {"name": "af_alloy", "language": "en", "variant": "none", "kokoro_lang": 'a'}]
-            self.max_ahead = 60
-            self.min_ahead = 30
+        #!/home/user/.local/libexec/speech-dispatcher-modules/venv-kokoro/bin/python
 
-        def change_speed(self, speed):
-            # callback for changing the speed.
-            # speechd gives speed between -100 and 100
-            # we have to convert that into a multiplier
-            speed = int(speed)
-            if speed < 0:
-                self.speed = 1.0 + (float(speed) / 100.0) * 0.5
-            else:
-                self.speed = 1.0 + (float(speed) / 100.0) * 2.0
+        import soundfile as sf
+        from kokoro import KPipeline
+        import logging
+        import torch
+        from pySpeechModule import SpeechServer, SpeechDispatch, parse_ssml
+        import io
 
-        def change_voice(self, voice_name):
-            # call back for changing the voice.
-            logging.critical(f"Changed voice_name: {voice_name}")
-            try:
-                filtered = [voice for voice in self.voices if voice["name"] == voice_name][0]
-            except:
-                filtered = self.voices[0]
-            self.voice = filtered["name"]
-            self.pipeline = KPipeline(lang_code=filtered["kokoro_lang"])
+        class KokoroDispatch(SpeechDispatch):
+            def __init__(self):
+                self.pipeline = KPipeline(lang_code='a')
+                self.speed = 1.0
+                self.voice = 'af_heart'
+                self.voices = [{"name": "af_heart", "language": "en", "variant": "none", "kokoro_lang": 'a'},
+                {"name": "af_alloy", "language": "en", "variant": "none", "kokoro_lang": 'a'}]
+                self.max_ahead = 60
+                self.min_ahead = 30
 
-        def speak(self, ssml):
-            try:
-                # parse the ssml into chunk of text each with a mark.
-                for item in parse_ssml(ssml):
-                    text = item['text']
-                    mark = item['mark']
-                    # setup Kokoro's generator
-                    generator = self.pipeline(text, voice=self.voice, speed=self.speed)
-                    # iterate over Kokoro's generator.
-                    for i, (gs, ps, audio) in enumerate(generator):
-                        # use sound file to convert the output audio to a format we can use
-                        buff = io.BytesIO() # create a in memory buffer
-                        buff.name = "tmp.wav"
-                        samplerate = 24000
-                        sf.write(buff, audio, samplerate, subtype="PCM_16") # write the current audio to the buffer
-                        # you can use sf.available_subtypes() to get a list available subtypes, and match your models input audio format.
-                        buff.seek(0) # set the buffer back to start
-                        audio_data, output_sample_rate = sf.read(buff, dtype="int16") # read the buffer in the correct format.
-                        yield {"audio": audio_data, "rate": output_sample_rate, "mark": mark} # you must yield data even if you have a single output.
-            except Exception as e:
-                print("An error occurred:", e)
+            def change_speed(self, speed):
+                # callback for changing the speed.
+                # speechd gives speed between -100 and 100
+                # we have to convert that into a multiplier
+                speed = int(speed)
+                if speed < 0:
+                    self.speed = 1.0 + (float(speed) / 100.0) * 0.5
+                else:
+                    self.speed = 1.0 + (float(speed) / 100.0) * 2.0
 
-    SpeechServer().start(KokoroDispatch)
+            def change_voice(self, voice_name):
+                # call back for changing the voice.
+                logging.critical(f"Changed voice_name: {voice_name}")
+                try:
+                    filtered = [voice for voice in self.voices if voice["name"] == voice_name][0]
+                except:
+                    filtered = self.voices[0]
+                self.voice = filtered["name"]
+                self.pipeline = KPipeline(lang_code=filtered["kokoro_lang"])
+
+            def speak(self, ssml):
+                try:
+                    # parse the ssml into chunk of text each with a mark.
+                    for item in parse_ssml(ssml):
+                        text = item['text']
+                        mark = item['mark']
+                        # setup Kokoro's generator
+                        generator = self.pipeline(text, voice=self.voice, speed=self.speed)
+                        # iterate over Kokoro's generator.
+                        for i, (gs, ps, audio) in enumerate(generator):
+                            # use sound file to convert the output audio to a format we can use
+                            buff = io.BytesIO() # create a in memory buffer
+                            buff.name = "tmp.wav"
+                            samplerate = 24000
+                            sf.write(buff, audio, samplerate, subtype="PCM_16") # write the current audio to the buffer
+                            # you can use sf.available_subtypes() to get a list available subtypes, and match your models input audio format.
+                            buff.seek(0) # set the buffer back to start
+                            audio_data, output_sample_rate = sf.read(buff, dtype="int16") # read the buffer in the correct format.
+                            yield {"audio": audio_data, "rate": output_sample_rate, "mark": mark} # you must yield data even if you have a single output.
+                except Exception as e:
+                    print("An error occurred:", e)
+
+        SpeechServer().start(KokoroDispatch)
+
+   .. group-tab:: System-Wide
+
+    .. code-block:: python3
+        :caption: /usr/libexec/speech-dispatcher-modules/sd_kokoro.py
+        :name: kokoro-py
+
+        #!/usr/libexec/speech-dispatcher-modules/venv-kokoro/bin/python
+
+        import soundfile as sf
+        from kokoro import KPipeline
+        import logging
+        import torch
+        from pySpeechModule import SpeechServer, SpeechDispatch, parse_ssml
+        import io
+
+        class KokoroDispatch(SpeechDispatch):
+            def __init__(self):
+                self.pipeline = KPipeline(lang_code='a')
+                self.speed = 1.0
+                self.voice = 'af_heart'
+                self.voices = [{"name": "af_heart", "language": "en", "variant": "none", "kokoro_lang": 'a'},
+                {"name": "af_alloy", "language": "en", "variant": "none", "kokoro_lang": 'a'}]
+                self.max_ahead = 60
+                self.min_ahead = 30
+
+            def change_speed(self, speed):
+                # callback for changing the speed.
+                # speechd gives speed between -100 and 100
+                # we have to convert that into a multiplier
+                speed = int(speed)
+                if speed < 0:
+                    self.speed = 1.0 + (float(speed) / 100.0) * 0.5
+                else:
+                    self.speed = 1.0 + (float(speed) / 100.0) * 2.0
+
+            def change_voice(self, voice_name):
+                # call back for changing the voice.
+                logging.critical(f"Changed voice_name: {voice_name}")
+                try:
+                    filtered = [voice for voice in self.voices if voice["name"] == voice_name][0]
+                except:
+                    filtered = self.voices[0]
+                self.voice = filtered["name"]
+                self.pipeline = KPipeline(lang_code=filtered["kokoro_lang"])
+
+            def speak(self, ssml):
+                try:
+                    # parse the ssml into chunk of text each with a mark.
+                    for item in parse_ssml(ssml):
+                        text = item['text']
+                        mark = item['mark']
+                        # setup Kokoro's generator
+                        generator = self.pipeline(text, voice=self.voice, speed=self.speed)
+                        # iterate over Kokoro's generator.
+                        for i, (gs, ps, audio) in enumerate(generator):
+                            # use sound file to convert the output audio to a format we can use
+                            buff = io.BytesIO() # create a in memory buffer
+                            buff.name = "tmp.wav"
+                            samplerate = 24000
+                            sf.write(buff, audio, samplerate, subtype="PCM_16") # write the current audio to the buffer
+                            # you can use sf.available_subtypes() to get a list available subtypes, and match your models input audio format.
+                            buff.seek(0) # set the buffer back to start
+                            audio_data, output_sample_rate = sf.read(buff, dtype="int16") # read the buffer in the correct format.
+                            yield {"audio": audio_data, "rate": output_sample_rate, "mark": mark} # you must yield data even if you have a single output.
+                except Exception as e:
+                    print("An error occurred:", e)
+
+        SpeechServer().start(KokoroDispatch)
 
 This should like somewhat similar to the previous example. But lets go through the methods and explain each of them.
 
@@ -241,18 +326,21 @@ When speechd run's you script it needs to file to be executable. You can use ``c
 
 .. code-block:: python3
 
-    chmod +x kokoro_module.py
+    chmod +x sd_kokoro.py
 
-Finally add a configure line to speechd's config file. speechd's configure file is usually found in ``~/.config/speech-dispatcher/speechd.conf``, but may be in a different location depending on your distro.
+.. tabs::
 
-.. code-block:: bash
-    :caption: speechd.conf
-    :name: speechd-conf-adv
+   .. group-tab:: Local
 
-    Timeout 0
-    AddModule "kokoropy" "/home/user/src/kokoro_speechd_module/kokoro_module.py" "kokoropy.conf"
+    .. code-block:: bash
 
-.. warning:: You should change ``/home/user/src/kokoro_speechd_module/kokoro_module.py`` to match your path.
+        touch ~/.config/speech-dispatcher/modules/kokoro.py.conf
+
+   .. group-tab:: System-Wide
+
+    .. code-block:: bash
+
+        touch /etc/speech-dispatcher/modules/kokoro.py.conf
 
 Testing the module.
 -------------------
@@ -267,7 +355,7 @@ Then send a speak command to speechd using ``spd-say``.
 
 .. code-block:: bash
 
-    spd-say -o "kokoropy" -y "af_heart" "Hello world."
+    spd-say -o "kokoro.py" -y "af_heart" "Hello world."
 
 You should hear it speaking.
 
@@ -275,12 +363,12 @@ Lets try a diffrent voice.
 
 .. code-block:: bash
 
-    spd-say -o "kokoropy" -y "af_alloy" "Hello world."
+    spd-say -o "kokoro.py" -y "af_alloy" "Hello world."
 
 Lets make it speak faster.
 
 .. code-block:: bash
 
-    spd-say -o "kokoropy" -r 25 -y "af_heart" "Hello world."
+    spd-say -o "kokoro.py" -r 25 -y "af_heart" "Hello world."
 
 Congratulations, you have now create a speechd module that can generate tts output, is able to change speed and voices

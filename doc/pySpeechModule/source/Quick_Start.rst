@@ -1,56 +1,109 @@
 Quick Start.
 ============
 
-If you have not already see the Basic_Tutorial for a more detailed explaintion of whats going on.
+If you have not already see the :doc:`Basic Tutorial <Basic_Tutorial>` for a more detailed explaintion of whats going on.
 
-.. code-block:: bash
+.. tabs::
 
-    mkdir my_first_speechd_module
-    cd my_first_speechd_module
-    python3.12 -m venv venv
-    source venv/bin/activate
-    pip install --upgrade pip
-    pip install pySpeechModule soundfile
+   .. group-tab:: Local
+
+    .. code-block:: bash
+
+        mkdir -p ~/.local/libexec/speech-dispatcher-modules/
+        cd ~/.local/libexec/speech-dispatcher-modules/
+        python3.12 -m venv venv-dummy
+        source venv-dummy/bin/activate
+        pip install --upgrade pip
+        pip install pySpeechModule soundfile
+
+   .. group-tab:: System-Wide
+
+    .. code-block:: bash
+
+        mkdir -p /usr/libexec/speech-dispatcher-modules
+        cd /usr/libexec/speech-dispatcher-modules
+        python3.12 -m venv venv-dummy
+        source venv-dummy/bin/activate
+        pip install --upgrade pip
+        pip install pySpeechModule soundfile
+
 
 You need to `download <https://github.com/brailcom/speechd/raw/refs/heads/master/doc/pySpeechModule/source/deep_learning.wav>`_ and make sure to name it ``deep_learning.wav``.
 
-.. code-block:: python3
-    :caption: dummy.py
-    :name: dummy-py-quick
+.. tabs::
 
-    #!/home/user/src/my_first_speechd_module/venv/bin/python
+   .. group-tab:: Local
 
-    import logging
-    import soundfile as sf
-    from pySpeechModule import SpeechServer, SpeechDispatch
+    .. code-block:: python3
+        :caption: /home/user/.local/libexec/speech-dispatcher-modules/sd_dummy.py
+        :name: dummy-py-quick
 
-    class Dummy(SpeechDispatch):
-        def __init__(self):
-            logging.info("Dummy Started!")
-            self.file_path = "deep_learning.wav"
-        def speak(self,text):
-            try:
-                data, samplerate = sf.read(self.file_path, dtype='int16')
-                yield {"audio": data, "rate": samplerate, "mark": ""}
-            except Exception as e:
-                logging.error("An error occurred:", e)
+        #!/home/user/.local/libexec/speech-dispatcher-modules/venv-dummy/bin/python
 
-    SpeechServer().start(Dummy)
+        import logging
+        import soundfile as sf
+        from speechd_module import SpeechServer, SpeechDispatch
+
+        class Dummy(SpeechDispatch):
+            def __init__(self):
+                logging.info("Dummy Started!")
+                self.file_path = "deep_learning.wav"
+            def speak(self,text):
+                try:
+                    data, samplerate = sf.read(self.file_path, dtype='int16')
+                    yield {"audio": data, "rate": samplerate, "mark": ""}
+                except Exception as e:
+                    logging.error("An error occurred:", e)
+
+        SpeechServer().start(Dummy)
+
+   .. group-tab:: System-Wide
+
+    .. code-block:: python3
+        :caption: /usr/libexec/speech-dispatcher-modules/sd_dummy.py
+        :name: dummy-py-quick
+
+        #!/usr/libexec/speech-dispatcher-modules/venv-dummy/bin/python
+
+        import logging
+        import soundfile as sf
+        from speechd_module import SpeechServer, SpeechDispatch
+
+        class Dummy(SpeechDispatch):
+            def __init__(self):
+                logging.info("Dummy Started!")
+                self.file_path = "deep_learning.wav"
+            def speak(self,text):
+                try:
+                    data, samplerate = sf.read(self.file_path, dtype='int16')
+                    yield {"audio": data, "rate": samplerate, "mark": ""}
+                except Exception as e:
+                    logging.error("An error occurred:", e)
+
+        SpeechServer().start(Dummy)
 
 Now you need to make the file executable
 
 .. code-block:: bash
 
-    chmod +x dummy.py
+    chmod +x sd_dummy.py
 
-Finally add a configure line to speechd's configure file. speechd's configure file is usually found in ``~/.config/speech-dispatcher/speechd.conf``, but may be in a different location depending on your distro.
+Add the .conf file.
 
-.. code-block:: bash
-    :caption: speechd.conf
-    :name: speechd-conf-quick
+.. tabs::
 
-    Timeout 0
-    AddModule "dummypy" "/home/user/src/my_first_speechd_module/dummy.py" "dummypy.conf"
+   .. group-tab:: Local
+
+    .. code-block:: bash
+
+        touch ~/.config/speech-dispatcher/modules/dummy.py.conf
+
+   .. group-tab:: System-Wide
+
+    .. code-block:: bash
+
+        touch /etc/speech-dispatcher/modules/dummy.py.conf
+
 
 To test the module. First stop any running speech-dispatch processes.
 
@@ -62,4 +115,4 @@ Then send a speak command to speechd using ``spd-say``.
 
 .. code-block:: bash
 
-    spd-say -o "dummypy" -y "en" "Hello world."
+    spd-say -o "dummy.py" -y "en" "Hello world."
