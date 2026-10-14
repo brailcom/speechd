@@ -132,33 +132,37 @@ class SpeechDispatch():
         self._server.stop_set(False)
         self._ahead = 0
         self.action_queue.put({"command": "begin"})
-        it = self.speak(text)
-        while (True):
-            try:
-                if (self._server.stop_get()):
-                    break
-                start_time = time.time()
-                item = next(it) # get the next audio chunk
-                end_time = time.time()
-                total_time = end_time-start_time # total time it took to generate that audio chunk
-                produced_time = (len(item['audio']) / item['rate']) # amount of audio generate
-                logging.debug(f"Speak chunk took {total_time} to produce {produced_time} for mark {item['mark']}")
-                self._ahead = self._ahead + produced_time
-                self._ahead = self._ahead - total_time
-                logging.debug(f"Ahead: {self._ahead}")
+        if (hasattr(self, "basic") and (self.basic==True)):
+            for item in self.speak(text):
                 self.action_queue.put({"command": "speak", "val": item})
-                # sleep if we have too much audio generated, only do this is max_ahead and min_ahead are set.
-                if (hasattr(self, "max_ahead") and hasattr(self, "min_ahead")):
-                    if (self._ahead >= self.max_ahead):
-                        logging.debug(f"Ahead by too much sleeping")
-                        while (self._ahead >= self.min_ahead):
-                            time.sleep(1)
-                            self._ahead = self._ahead - 1
-                            if (self._server.stop_get()):
-                                break;
-            except StopIteration:
-                logging.debug("finished speak chunking")
-                break
+        else:
+            it = self.speak(text)
+            while (True):
+                try:
+                    if (self._server.stop_get()):
+                        break
+                    start_time = time.time()
+                    item = next(it) # get the next audio chunk
+                    end_time = time.time()
+                    total_time = end_time-start_time # total time it took to generate that audio chunk
+                    produced_time = (len(item['audio']) / item['rate']) # amount of audio generate
+                    logging.debug(f"Speak chunk took {total_time} to produce {produced_time} for mark {item['mark']}")
+                    self._ahead = self._ahead + produced_time
+                    self._ahead = self._ahead - total_time
+                    logging.debug(f"Ahead: {self._ahead}")
+                    self.action_queue.put({"command": "speak", "val": item})
+                    # sleep if we have too much audio generated, only do this is max_ahead and min_ahead are set.
+                    if (hasattr(self, "max_ahead") and hasattr(self, "min_ahead")):
+                        if (self._ahead >= self.max_ahead):
+                            logging.debug(f"Ahead by too much sleeping")
+                            while (self._ahead >= self.min_ahead):
+                                time.sleep(1)
+                                self._ahead = self._ahead - 1
+                                if (self._server.stop_get()):
+                                    break;
+                except StopIteration:
+                    logging.debug("finished speak chunking")
+                    break
         self.action_queue.put({"command": "end"})
     def speak(self,text: str):
         """
