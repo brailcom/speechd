@@ -268,13 +268,14 @@ symbols:
 😃	grijnzend gezicht met grote ogen	none
 😄	grijnzend gezicht met lachende ogen	none
 😁	stralend gezicht met lachende ogen	none
-😆	grijnzend gezicht met stijf dichtgeknepen ogen	none
+😆	grijnzend gezicht met dichtgeknepen ogen	none
 😅	grijnzend gezicht met zweetdruppels	none
 🤣	gezicht dat op de grond rolt van het lachen	none
 😂	gezicht met tranen van vreugde	none
 🙂	enigszins lachend gezicht	none
 🙃	omgekeerd gezicht	none
 🫠	smeltend gezicht	none
+🫫	barstend gezicht	none
 😉	knipogend gezicht	none
 😊	lachend gezicht met lachende ogen	none
 😇	lachend gezicht met halo	none
@@ -464,6 +465,8 @@ symbols:
 🫵	wijsvinger die naar de kijker wijst	none
 👍	duim omhoog	none
 👎	duim omlaag	none
+🫹	duim naar links	none
+🫺	duim naar rechts	none
 ✊	opgeheven vuist	none
 👊	stotende vuist	none
 🤛	naar links gerichte vuist	none
@@ -883,6 +886,7 @@ symbols:
 🦪	oester	none
 🐌	slak	none
 🦋	vlinder	none
+🫌	monarchvlinder	none
 🐛	insect	none
 🐜	mier	none
 🐝	honingbij	none
@@ -954,6 +958,7 @@ symbols:
 🌶	hete peper	none
 🫑	paprika	none
 🥒	komkommer	none
+🫝	augurk	none
 🥬	bladgroente	none
 🥦	broccoli	none
 🧄	knoflook	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	verticaal verkeerslicht	none
 🛑	stopteken	none
 🚧	bouwwerkzaamheden	none
+🛙	vuurtoren	none
 ⚓	anker	none
 🛟	reddingsboei	none
 ⛵	zeilboot	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	sneeuwpop	none
 ⛄	sneeuwpop zonder sneeuwvlokken	none
 ☄	komeet	none
+🪋	meteoor	none
 🔥	vuur	none
 💧	druppel	none
 🌊	golf	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	kwast	none
 🖍	krijtje	none
 📝	memo	none
+🪌	gum	none
 💼	aktentas	none
 📁	bestandsmap	none
 📂	geopende map	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	gesloten slot met sleutel	none
 🔑	sleutel	none
 🗝	oude sleutel	none
+🪍	net met steel	none
 🔨	hamer	none
 🪓	bijl	none
 ⛏	pikhouweel	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	duim omlaag getinte huidskleur	none
 👎🏾	duim omlaag donkergetinte huidskleur	none
 👎🏿	duim omlaag donkere huidskleur	none
+🫹🏻	duim naar links lichte huidskleur	none
+🫹🏼	duim naar links lichtgetinte huidskleur	none
+🫹🏽	duim naar links getinte huidskleur	none
+🫹🏾	duim naar links donkergetinte huidskleur	none
+🫹🏿	duim naar links donkere huidskleur	none
+🫺🏻	duim naar rechts lichte huidskleur	none
+🫺🏼	duim naar rechts lichtgetinte huidskleur	none
+🫺🏽	duim naar rechts getinte huidskleur	none
+🫺🏾	duim naar rechts donkergetinte huidskleur	none
+🫺🏿	duim naar rechts donkere huidskleur	none
 ✊🏻	opgeheven vuist lichte huidskleur	none
 ✊🏼	opgeheven vuist lichtgetinte huidskleur	none
 ✊🏽	opgeheven vuist getinte huidskleur	none

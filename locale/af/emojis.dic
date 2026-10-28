@@ -275,6 +275,7 @@ symbols:
 🙂	gesig wat effens glimlag	none
 🙃	onderstebo gesig	none
 🫠	gesig wat smelt	none
+🫫	gekraakte gesig	none
 😉	gesig wat knipoog	none
 😊	glimlaggende gesig met glimlaggende oë	none
 😇	glimlaggende gesig met stralekrans	none
@@ -464,6 +465,8 @@ symbols:
 🫵	wysvinger na kyker	none
 👍	laaik baie	none
 👎	laaik niks	none
+🫹	links duimgooi	none
+🫺	regs duimgooi	none
 ✊	vuis in die lug	none
 👊	vuishou	none
 🤛	vuis links	none
@@ -883,6 +886,7 @@ symbols:
 🦪	oester	none
 🐌	slak	none
 🦋	skoenlapper	none
+🫌	koningvlinder	none
 🐛	gogga	none
 🐜	mier	none
 🐝	heuningby	none
@@ -954,6 +958,7 @@ symbols:
 🌶	brandrissie	none
 🫑	soetrissie	none
 🥒	komkommer	none
+🫝	agurkie	none
 🥬	groen blare	none
 🥦	broccoli	none
 🧄	knoffel	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	vertikale verkeerslig	none
 🛑	stopteken	none
 🚧	konstruksieteken	none
+🛙	lugtoring	none
 ⚓	anker	none
 🛟	boei	none
 ⛵	seilboot	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	sneeuman	none
 ⛄	sneeuman sonder sneeu	none
 ☄	komeet	none
+🪋	meteoor	none
 🔥	vuur	none
 💧	druppel	none
 🌊	brander	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	verfkwas	none
 🖍	vetkryt	none
 📝	aantekening	none
+🪌	uitveër	none
 💼	aktetas	none
 📁	lêervouer	none
 📂	oop lêervouer	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	toe slot met sleutel	none
 🔑	sleutel	none
 🗝	ou sleutel	none
+🪍	vangnet met steel	none
 🔨	hamer	none
 🪓	byl	none
 ⛏	pik	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	laaik niks medium velkleur	none
 👎🏾	laaik niks medium-donker velkleur	none
 👎🏿	laaik niks donker velkleur	none
+🫹🏻	links duimgooi ligte velkleur	none
+🫹🏼	links duimgooi medium-ligte velkleur	none
+🫹🏽	links duimgooi medium velkleur	none
+🫹🏾	links duimgooi medium-donker velkleur	none
+🫹🏿	links duimgooi donker velkleur	none
+🫺🏻	regs duimgooi ligte velkleur	none
+🫺🏼	regs duimgooi medium-ligte velkleur	none
+🫺🏽	regs duimgooi medium velkleur	none
+🫺🏾	regs duimgooi medium-donker velkleur	none
+🫺🏿	regs duimgooi donker velkleur	none
 ✊🏻	vuis in die lug ligte velkleur	none
 ✊🏼	vuis in die lug medium-ligte velkleur	none
 ✊🏽	vuis in die lug medium velkleur	none

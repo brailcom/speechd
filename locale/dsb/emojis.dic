@@ -275,6 +275,7 @@ symbols:
 🙂	tšošku se smjejuce woblico	none
 🙃	znak stojece woblico	none
 🫠	rozbězěce woblico	none
+🫫	zrozpukowane woblico	none
 😉	mykotajuce woblico	none
 😊	smjejuce woblico ze se smjejucyma wócyma	none
 😇	se smjejkotajuce woblico ze swětym swětłom	none
@@ -464,6 +465,8 @@ symbols:
 🫵	pokazowaŕ, wusměrjony na glědajucego	none
 👍	tłusty palc górjej	none
 👎	tłusty palc dołoj	none
+🫹	wjeliki palc dolěwa	none
+🫺	wjeliki palc dopšawa	none
 ✊	pózwignjona pěsć	none
 👊	zamknjona pěsć	none
 🤛	pěsć nalěwo	none
@@ -627,7 +630,7 @@ symbols:
 👼	janźelik	none
 🎅	ruprajcht	none
 🤶	ruprajchtowka	none
-🧑‍🎄	gódy	none
+🧑‍🎄	gódowna	none
 🦸	superryśaŕ	none
 🦸‍♂	muskecy superryśaŕ	none
 🦸‍♀	superryśaŕka	none
@@ -883,6 +886,7 @@ symbols:
 🦪	wustrica	none
 🐌	slinik	none
 🦋	mjatel	none
+🫌	monarchowy mjatel	none
 🐛	gusenica	none
 🐜	mrowja	none
 🐝	pcołka	none
@@ -954,6 +958,7 @@ symbols:
 🌶	peperoni	none
 🫑	paprika	none
 🥒	górka	none
+🫝	kisała górka	none
 🥬	zelene	none
 🥦	brokoli	none
 🧄	kobołk	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	padorowna ampla	none
 🛑	sopowe znamje	none
 🚧	twarnišćowa tofla	none
+🛙	swěśak	none
 ⚓	kokula	none
 🛟	wumožaŕska boja	none
 ⛵	płachtak	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	muž	none
 ⛄	sněgowa muž bźez sněžynkow	none
 ☄	komet	none
+🪋	meteor	none
 🔥	wogeń	none
 💧	chrapka	none
 🌊	žwała	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	šćotka	none
 🖍	wóskowy barwik	none
 📝	papjerka a wołojnik	none
+🪌	guma	none
 💼	aktowka	none
 📁	zarědnik	none
 📂	wótcynjony zarědnik	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	zamk z klucykom	none
 🔑	kluc	none
 🗝	stary kluc	none
+🪍	seś	none
 🔨	klapac	none
 🪓	sekera	none
 ⛏	štapc	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	tłusty palc dołoj wósrědna barwa kóže	none
 👎🏾	tłusty palc dołoj srjejźnośamna barwa kóže	none
 👎🏿	tłusty palc dołoj śamna barwa kóže	none
+🫹🏻	wjeliki palc dolěwa swětła barwa kóže	none
+🫹🏼	wjeliki palc dolěwa srjejźnoswětła barwa kóže	none
+🫹🏽	wjeliki palc dolěwa wósrědna barwa kóže	none
+🫹🏾	wjeliki palc dolěwa srjejźnośamna barwa kóže	none
+🫹🏿	wjeliki palc dolěwa śamna barwa kóže	none
+🫺🏻	wjeliki palc dopšawa swětła barwa kóže	none
+🫺🏼	wjeliki palc dopšawa srjejźnoswětła barwa kóže	none
+🫺🏽	wjeliki palc dopšawa wósrědna barwa kóže	none
+🫺🏾	wjeliki palc dopšawa srjejźnośamna barwa kóže	none
+🫺🏿	wjeliki palc dopšawa śamna barwa kóže	none
 ✊🏻	pózwignjona pěsć swětła barwa kóže	none
 ✊🏼	pózwignjona pěsć srjejźnoswětła barwa kóže	none
 ✊🏽	pózwignjona pěsć wósrědna barwa kóže	none
@@ -3141,11 +3160,11 @@ symbols:
 🤶🏽	ruprajchtowka wósrědna barwa kóže	none
 🤶🏾	ruprajchtowka srjejźnośamna barwa kóže	none
 🤶🏿	ruprajchtowka śamna barwa kóže	none
-🧑🏻‍🎄	gódy swětła barwa kóže	none
-🧑🏼‍🎄	gódy srjejźnoswětła barwa kóže	none
-🧑🏽‍🎄	gódy wósrědna barwa kóže	none
-🧑🏾‍🎄	gódy srjejźnośamna barwa kóže	none
-🧑🏿‍🎄	gódy śamna barwa kóže	none
+🧑🏻‍🎄	gódowna swětła barwa kóže	none
+🧑🏼‍🎄	gódowna srjejźnoswětła barwa kóže	none
+🧑🏽‍🎄	gódowna wósrědna barwa kóže	none
+🧑🏾‍🎄	gódowna srjejźnośamna barwa kóže	none
+🧑🏿‍🎄	gódowna śamna barwa kóže	none
 🦸🏻	superryśaŕ swětła barwa kóže	none
 🦸🏼	superryśaŕ srjejźnoswětła barwa kóže	none
 🦸🏽	superryśaŕ wósrědna barwa kóže	none

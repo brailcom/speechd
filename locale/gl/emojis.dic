@@ -275,6 +275,7 @@ symbols:
 🙂	cara cun leve sorriso	none
 🙃	cara ao revés	none
 🫠	cara derreténdose	none
+🫫	cara facéndose cachiños	none
 😉	cara chiscando un ollo	none
 😊	cara alegre con ollos riseiros	none
 😇	cara riseira con auréola	none
@@ -464,6 +465,8 @@ symbols:
 🫵	dedo índice apuntando de fronte	none
 👍	polgar cara arriba	none
 👎	polgar cara abaixo	none
+🫹	polgar cara á esquerda	none
+🫺	polgar cara á dereita	none
 ✊	puño en alto	none
 👊	puñada	none
 🤛	puño cara á esquerda	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ostra	none
 🐌	caracol	none
 🦋	bolboreta	none
+🫌	bolboreta monarca	none
 🐛	cempés	none
 🐜	formiga	none
 🐝	abella	none
@@ -954,6 +958,7 @@ symbols:
 🌶	chile picante	none
 🫑	pemento	none
 🥒	cogombro	none
+🫝	cogombriño	none
 🥬	verdura de folla	none
 🥦	brócoli	none
 🧄	allo	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	semáforo	none
 🛑	sinal de stop	none
 🚧	en construción	none
+🛙	faro	none
 ⚓	áncora	none
 🛟	salvavidas	none
 ⛵	veleiro	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	nevando e boneco de neve	none
 ⛄	boneco de neve	none
 ☄	cometa	none
+🪋	meteoro	none
 🔥	lume	none
 💧	pinga	none
 🌊	onda	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	pincel	none
 🖍	lapis de cor	none
 📝	nota	none
+🪌	goma de borrar	none
 💼	maletín	none
 📁	cartafol	none
 📂	cartafol aberto	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	cadeado con chave	none
 🔑	chave	none
 🗝	chave antiga	none
+🪍	rede con mango	none
 🔨	martelo	none
 🪓	machado	none
 ⛏	pico	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	polgar cara abaixo ton de pel medio	none
 👎🏾	polgar cara abaixo ton de pel escuro	none
 👎🏿	polgar cara abaixo ton de pel moi escuro	none
+🫹🏻	polgar cara á esquerda ton de pel moi claro	none
+🫹🏼	polgar cara á esquerda ton de pel claro	none
+🫹🏽	polgar cara á esquerda ton de pel medio	none
+🫹🏾	polgar cara á esquerda ton de pel escuro	none
+🫹🏿	polgar cara á esquerda ton de pel moi escuro	none
+🫺🏻	polgar cara á dereita ton de pel moi claro	none
+🫺🏼	polgar cara á dereita ton de pel claro	none
+🫺🏽	polgar cara á dereita ton de pel medio	none
+🫺🏾	polgar cara á dereita ton de pel escuro	none
+🫺🏿	polgar cara á dereita ton de pel moi escuro	none
 ✊🏻	puño en alto ton de pel moi claro	none
 ✊🏼	puño en alto ton de pel claro	none
 ✊🏽	puño en alto ton de pel medio	none

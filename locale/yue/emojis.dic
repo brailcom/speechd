@@ -275,6 +275,7 @@ symbols:
 🙂	咪咪笑嘅脸	none
 🙃	上下倒转嘅脸	none
 🫠	溶咗嘅脸	none
+🫫	破碎嘅面	none
 😉	眨眼嘅脸	none
 😊	微笑嘅脸同微笑嘅眼睛	none
 😇	头顶有光环嘅笑脸	none
@@ -464,6 +465,8 @@ symbols:
 🫵	食指指向观众	none
 👍	竖起手指公	none
 👎	手指公向下	none
+🫹	拇指向左指	none
+🫺	拇指向右指	none
 ✊	举起拳头	none
 👊	迎面而来嘅拳头	none
 🤛	向左嘅拳头	none
@@ -883,6 +886,7 @@ symbols:
 🦪	生蚝	none
 🐌	蜗牛	none
 🦋	蝴蝶	none
+🫌	帝王斑蝶	none
 🐛	毛虫	none
 🐜	蚂蚁	none
 🐝	蜜蜂	none
@@ -954,6 +958,7 @@ symbols:
 🌶	辣椒	none
 🫑	灯笼椒	none
 🥒	青瓜	none
+🫝	酸瓜	none
 🥬	菜	none
 🥦	西兰花	none
 🧄	蒜头	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	垂直交通灯	none
 🛑	停止标志	none
 🚧	建造	none
+🛙	灯塔	none
 ⚓	锚	none
 🛟	水泡	none
 ⛵	帆船	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	雪人	none
 ⛄	冇雪嘅雪人	none
 ☄	彗星	none
+🪋	陨石	none
 🔥	火	none
 💧	小水滴	none
 🌊	海浪	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	画笔	none
 🖍	蜡笔	none
 📝	便条	none
+🪌	擦胶	none
 💼	公事包	none
 📁	文件夹	none
 📂	打开文件夹	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	用锁匙锁	none
 🔑	锁匙	none
 🗝	旧锁匙	none
+🪍	手捞网	none
 🔨	锤	none
 🪓	斧头	none
 ⛏	挑	none
@@ -1738,7 +1747,7 @@ symbols:
 ❓	红色问号	none
 ❔	白色问号	none
 ❕	白色感叹号	none
-❗	感叹号	none
+❗	红色感叹号	none
 💱	货币兑换	none
 💲	粗美元符号	none
 ⚕	医疗符号	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	手指公向下 中肤色	none
 👎🏾	手指公向下 中深肤色	none
 👎🏿	手指公向下 深肤色	none
+🫹🏻	拇指向左指 浅肤色	none
+🫹🏼	拇指向左指 中浅肤色	none
+🫹🏽	拇指向左指 中肤色	none
+🫹🏾	拇指向左指 中深肤色	none
+🫹🏿	拇指向左指 深肤色	none
+🫺🏻	拇指向右指 浅肤色	none
+🫺🏼	拇指向右指 中浅肤色	none
+🫺🏽	拇指向右指 中肤色	none
+🫺🏾	拇指向右指 中深肤色	none
+🫺🏿	拇指向右指 深肤色	none
 ✊🏻	举起拳头 浅肤色	none
 ✊🏼	举起拳头 中浅肤色	none
 ✊🏽	举起拳头 中肤色	none

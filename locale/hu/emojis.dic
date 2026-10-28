@@ -275,6 +275,7 @@ symbols:
 🙂	finoman mosolygó arc	none
 🙃	arc fejjel lefelé	none
 🫠	elolvadó arc	none
+🫫	repedezett arc	none
 😉	kacsintó arc	none
 😊	mosolygó arc mosolygó szemmel	none
 😇	mosolygó arc glóriával	none
@@ -464,6 +465,8 @@ symbols:
 🫵	felhasználóra mutató ujj	none
 👍	felfelé mutató hüvelykujj	none
 👎	lefelé mutató hüvelykujj	none
+🫹	balra mutató hüvelykujj	none
+🫺	jobbra mutató hüvelykujj	none
 ✊	felemelt ököl	none
 👊	ütésre emelt ököl	none
 🤛	balra néző ököl	none
@@ -883,6 +886,7 @@ symbols:
 🦪	osztriga	none
 🐌	csiga	none
 🦋	pillangó	none
+🫌	királylepke	none
 🐛	rovar	none
 🐜	hangya	none
 🐝	méh	none
@@ -954,6 +958,7 @@ symbols:
 🌶	erőspaprika	none
 🫑	kaliforniai paprika	none
 🥒	uborka	none
+🫝	csemegeuborka	none
 🥬	leveles zöldség	none
 🥦	brokkoli	none
 🧄	fokhagyma	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	függőleges közlekedési lámpa	none
 🛑	stoptábla	none
 🚧	útépítés	none
+🛙	világítótorony	none
 ⚓	vasmacska	none
 🛟	mentőöv	none
 ⛵	vitorlás hajó	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	hóember	none
 ⛄	hóember hó nélkül	none
 ☄	üstökös	none
+🪋	meteor	none
 🔥	tűz	none
 💧	csepp	none
 🌊	vízhullám	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	ecset	none
 🖍	zsírkréta	none
 📝	feljegyzés	none
+🪌	radír	none
 💼	aktatáska	none
 📁	fájlmappa	none
 📂	nyitott fájlmappa	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	zárt lakat kulccsal	none
 🔑	kulcs	none
 🗝	régi kulcs	none
+🪍	nyeles háló	none
 🔨	kalapács	none
 🪓	balta	none
 ⛏	csákány	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	lefelé mutató hüvelykujj közepes bőrtónus	none
 👎🏾	lefelé mutató hüvelykujj közepesen sötét bőrtónus	none
 👎🏿	lefelé mutató hüvelykujj sötét bőrtónus	none
+🫹🏻	balra mutató hüvelykujj világos bőrtónus	none
+🫹🏼	balra mutató hüvelykujj közepesen világos bőrtónus	none
+🫹🏽	balra mutató hüvelykujj közepes bőrtónus	none
+🫹🏾	balra mutató hüvelykujj közepesen sötét bőrtónus	none
+🫹🏿	balra mutató hüvelykujj sötét bőrtónus	none
+🫺🏻	jobbra mutató hüvelykujj világos bőrtónus	none
+🫺🏼	jobbra mutató hüvelykujj közepesen világos bőrtónus	none
+🫺🏽	jobbra mutató hüvelykujj közepes bőrtónus	none
+🫺🏾	jobbra mutató hüvelykujj közepesen sötét bőrtónus	none
+🫺🏿	jobbra mutató hüvelykujj sötét bőrtónus	none
 ✊🏻	felemelt ököl világos bőrtónus	none
 ✊🏼	felemelt ököl közepesen világos bőrtónus	none
 ✊🏽	felemelt ököl közepes bőrtónus	none
@@ -4193,7 +4212,7 @@ symbols:
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	zászló Anglia	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	zászló Skócia	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	zászló Wales	none
-₡	Costa Rica-i colon	none
+₡	Costa Rica-i colón	none
 ₦	nigériai naira	none
 ₪	izraeli új sékel	none
 ₫	vietnámi dong	none

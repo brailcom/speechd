@@ -275,6 +275,7 @@ symbols:
 🙂	blago nasmiješeno lice	none
 🙃	naopačke okrenuto lice	none
 🫠	lice koje se topi	none
+🫫	ispucalo lice	none
 😉	lice koje namiguje	none
 😊	nasmiješeno lice s nasmiješenim očima	none
 😇	nasmiješeno lice s aureolom	none
@@ -464,6 +465,8 @@ symbols:
 🫵	kažiprst uperen prema gledatelju	none
 👍	palac gore	none
 👎	palac dolje	none
+🫹	znak ulijevo palcem	none
+🫺	znak udesno palcem	none
 ✊	podignuta šaka	none
 👊	stisnuta šaka	none
 🤛	šaka ulijevo	none
@@ -883,6 +886,7 @@ symbols:
 🦪	kamenica	none
 🐌	puž	none
 🦋	leptir	none
+🫌	kraljevski leptir	none
 🐛	gusjenica	none
 🐜	mrav	none
 🐝	pčela	none
@@ -954,6 +958,7 @@ symbols:
 🌶	ljuta papričica	none
 🫑	paprika	none
 🥒	krastavac	none
+🫝	kiseli krastavac	none
 🥬	lisnato povrće	none
 🥦	brokula	none
 🧄	češnjak	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	okomiti semafor	none
 🛑	znak stop	none
 🚧	znak radova	none
+🛙	svjetionik	none
 ⚓	sidro	none
 🛟	kolut za spašavanje	none
 ⛵	jedrilica	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	snjegović	none
 ⛄	snjegović bez snijega	none
 ☄	komet	none
+🪋	meteor	none
 🔥	vatra	none
 💧	kapljica	none
 🌊	vodeni val	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	kist	none
 🖍	bojica	none
 📝	bilješka	none
+🪌	gumica za brisanje	none
 💼	aktovka	none
 📁	mapa	none
 📂	otvorena mapa	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	zatvoreni lokot s ključem	none
 🔑	ključ	none
 🗝	starinski ključ	none
+🪍	mrežica s drškom	none
 🔨	čekić	none
 🪓	sjekira	none
 ⛏	pijuk	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	palac dolje maslinasta boja kože	none
 👎🏾	palac dolje smeđa boja kože	none
 👎🏿	palac dolje tamno smeđa boja kože	none
+🫹🏻	znak ulijevo palcem svijetla boja kože	none
+🫹🏼	znak ulijevo palcem svijetlo maslinasta boja kože	none
+🫹🏽	znak ulijevo palcem maslinasta boja kože	none
+🫹🏾	znak ulijevo palcem smeđa boja kože	none
+🫹🏿	znak ulijevo palcem tamno smeđa boja kože	none
+🫺🏻	znak udesno palcem svijetla boja kože	none
+🫺🏼	znak udesno palcem svijetlo maslinasta boja kože	none
+🫺🏽	znak udesno palcem maslinasta boja kože	none
+🫺🏾	znak udesno palcem smeđa boja kože	none
+🫺🏿	znak udesno palcem tamno smeđa boja kože	none
 ✊🏻	podignuta šaka svijetla boja kože	none
 ✊🏼	podignuta šaka svijetlo maslinasta boja kože	none
 ✊🏽	podignuta šaka maslinasta boja kože	none

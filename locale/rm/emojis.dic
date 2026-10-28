@@ -9,12 +9,12 @@ symbols:
 🏾	pel mez stgira	none
 🏿	pel stgira	none
 ℗	simbol da copyright per registraziuns sonoras	none
-←	frizza a sanestra	none
+←	frizza che mussa a sanestra	none
 ↚	frizza a sanestra stritgada	none
-→	frizza a dretga	none
+→	frizza che mussa a dretga	none
 ↛	frizza a dretga stritgada	none
-↑	frizza ensi	none
-↓	frizza engiu	none
+↑	frizza che mussa ensi	none
+↓	frizza che mussa engiu	none
 ↜	frizza undegiada a sanestra	none
 ↝	frizza undegiada a dretga	none
 ↞	frizza cun piz dubel a sanestra	none
@@ -37,7 +37,7 @@ symbols:
 ↲	frizza engiu cun piz a sanestra	none
 ↳	frizza engiu cun piz a dretga	none
 ↴	frizza a dretga cun piz vers engiu	none
-↵	frizza engiu cun piz a sanestra	none
+↵	frizza fina engiu cun piz a sanestra	none
 ↶	frizza sura en direcziun cuntraria a l’ura	none
 ↷	frizza sura en direcziun da l’ura	none
 ↸	frizza nordvest vers ina trav lunga	none
@@ -275,6 +275,7 @@ symbols:
 🙂	fatscha che surri	none
 🙃	fatscha sutsura	none
 🫠	fatscha che lieua	none
+🫫	fatscha che va en tocs	none
 😉	fatscha che tschegna	none
 😊	fatscha cuntenta cun egls che rin	none
 😇	fatscha che ri cun gloriola	none
@@ -289,6 +290,7 @@ symbols:
 🥲	fatscha che ri cun larma	none
 😋	fatscha che litga ils lefs	none
 😛	fatscha cun lieunga	none
+😜	fatscha che tschegna e chatscha ora la lieunga	none
 🤪	fatscha narra	none
 😝	fatscha che tschegna e mussa la lieunga	none
 🤑	fatscha cun daners en bucca	none
@@ -297,6 +299,7 @@ symbols:
 🫢	fatscha cun egls averts e maun davant la bucca	none
 🫣	fatscha cun egl che cuchegia	none
 🤫	fatscha cun det che mussa da star airi	none
+🤔	fatscha pensiva	none
 🫡	fatscha che salutescha	none
 🤐	fatscha cun bucca da serranetga	none
 🤨	fatscha cun survantscheglia auzada	none
@@ -315,7 +318,7 @@ symbols:
 🙂‍↔	scurlattar il chau	none
 🙂‍↕	dar dal chau	none
 😌	fatscha surlevgiada	none
-😔	fatscha pensiva	none
+😔	fatscha penserusa	none
 😪	fatscha dormulenta	none
 🤤	fatscha che sbava	none
 😴	fatscha che dorma	none
@@ -338,6 +341,7 @@ symbols:
 😎	fatscha che ri cun egliers da sulegl	none
 🤓	fatscha da nerd	none
 🧐	fatscha cun monochel	none
+😕	fatscha confusa	none
 🫤	fatscha cun bucca guerscha	none
 😟	fatscha preoccupada	none
 🙁	fatscha deprimida	none
@@ -357,7 +361,7 @@ symbols:
 😢	fatscha che crida	none
 😭	fatscha che bragia dad aut	none
 😱	fatscha che sbragia da la tema	none
-😖	fatscha confusa	none
+😖	fatscha consternada	none
 😣	fatscha resoluta	none
 😞	fatscha dischillusiunada	none
 😓	fatscha deprimida cun suaditsch	none
@@ -461,6 +465,8 @@ symbols:
 🫵	det mussader che mussa sin mai	none
 👍	polesch che mussa ensi	none
 👎	polesch che mussa engiu	none
+🫹	polesch che mussa a sanestra	none
+🫺	polesch che mussa a dretga	none
 ✊	pugn ad aut	none
 👊	pugn vers mai	none
 🤛	pugn che mussa a sanestra	none
@@ -542,61 +548,13 @@ symbols:
 🧑‍⚕	persuna che lavura en il sectur da la sanadad	none
 👨‍⚕	um che lavura en il sectur da la sanadad	none
 👩‍⚕	dunna che lavura en il sectur da la sanadad	none
-🧑‍🎓	studenta	none
-👨‍🎓	student	none
-👩‍🎓	studenta	none
-🧑‍🏫	scolasta	none
-👨‍🏫	scolast	none
-👩‍🏫	scolasta	none
-🧑‍⚖	derschadra	none
-👨‍⚖	derschader	none
-👩‍⚖	derschadra	none
-🧑‍🌾	pura	none
-👨‍🌾	pur	none
-👩‍🌾	pura	none
-🧑‍🍳	cuschiniera	none
-👨‍🍳	cuschinier	none
-👩‍🍳	cuschiniera	none
-🧑‍🔧	mecanista	none
-👨‍🔧	mecanist	none
-👩‍🔧	mecanista	none
 🧑‍🏭	persuna che lavura en fabrica	none
 👨‍🏭	um che lavura en fabrica	none
 👩‍🏭	dunna che lavura en fabrica	none
-🧑‍💼	birolista	none
-👨‍💼	birolist	none
-👩‍💼	birolista	none
-🧑‍🔬	scienziada	none
-👨‍🔬	scienzià	none
-👩‍🔬	scienziada	none
-🧑‍💻	tecnologa	none
-👨‍💻	tecnolog	none
-👩‍💻	tecnologa	none
-🧑‍🎤	chantadura	none
-👨‍🎤	chantadur	none
-👩‍🎤	chantadura	none
-🧑‍🎨	pictura artista	none
-👨‍🎨	pictur artist	none
-👩‍🎨	pictura artista	none
-🧑‍✈	pilota	none
-👨‍✈	pilot	none
-👩‍✈	pilota	none
-🧑‍🚀	astronauta	none
-👨‍🚀	astronaut	none
-👩‍🚀	astronauta	none
-🧑‍🚒	pumpiera	none
-👨‍🚒	pumpier	none
-👩‍🚒	pumpiera	none
-👮	policista	none
-👮‍♂	policist	none
-👮‍♀	policista	none
-🕵	detectiva	none
-🕵‍♂	detectiv	none
-🕵‍♀	detectiva	none
+💂	guardia	none
+💂‍♂	guardian	none
+💂‍♀	guardiana	none
 🥷	ninja	none
-👷	lavurera da construcziun	none
-👷‍♂	lavurer da construcziun	none
-👷‍♀	lavurera da construcziun	none
 🫅	persuna cun curuna	none
 🤴	prinzi	none
 👸	princessa	none
@@ -622,27 +580,12 @@ symbols:
 🎅	Son Niclà	none
 🤶	Sontga Nicoletta	none
 🧑‍🎄	Santa Claus	none
-🦸	supereroxa	none
-🦸‍♂	supererox	none
-🦸‍♀	supereroxa	none
-🦹	supernauscha	none
-🦹‍♂	supernausch	none
-🦹‍♀	supernauscha	none
-🧙	striuna	none
-🧙‍♂	striun	none
-🧙‍♀	striuna	none
-🧚	diala	none
-🧚‍♂	dial	none
-🧚‍♀	diala	none
 🧛	vampira	none
 🧛‍♂	vampir	none
 🧛‍♀	vamipra	none
 🧜	uman da l’aua	none
 🧜‍♂	um da l’aua	none
 🧜‍♀	sirena	none
-🧝	elfa	none
-🧝‍♂	elf	none
-🧝‍♀	elfa	none
 🧞	spiert da buttiglia	none
 🧞‍♂	spiert da buttiglia masculin	none
 🧞‍♀	spiert da buttiglia feminin	none
@@ -877,6 +820,7 @@ symbols:
 🦪	austra	none
 🐌	lindorna	none
 🦋	tgiralla	none
+🫌	monarchina	none
 🐛	rasulauna	none
 🐜	furmia	none
 🐝	avieul	none
@@ -948,6 +892,7 @@ symbols:
 🌶	chili	none
 🫑	peperoni	none
 🥒	cucumera	none
+🫝	cucumera en aschieu	none
 🥬	legums da feglia	none
 🥦	broccoli	none
 🧄	agl	none
@@ -1168,6 +1113,7 @@ symbols:
 🚦	ampla verticala	none
 🛑	signal da stop	none
 🚧	plazzal	none
+🛙	far	none
 ⚓	ancra	none
 🛟	rintg da salvament	none
 ⛵	bartga a vela	none
@@ -1267,6 +1213,7 @@ symbols:
 ☃	um da naiv cun flocs da naiv	none
 ⛄	um da naiv	none
 ☄	comet	none
+🪋	meteor	none
 🔥	fieu	none
 💧	dagut	none
 🌊	unda	none
@@ -1326,6 +1273,7 @@ symbols:
 🥌	crap da curling	none
 🎯	schiba da darts	none
 🪀	jojo	none
+🪁	dragun en l’aria	none
 🔫	pistola d’aua	none
 🎱	culla da bigliard	none
 🔮	culla da cristal	none
@@ -1516,6 +1464,7 @@ symbols:
 🖌	penel	none
 🖍	colur da tschaira	none
 📝	notizia	none
+🪌	gumma	none
 💼	mappa d’actas	none
 📁	dossier	none
 📂	dossier avert	none
@@ -1545,6 +1494,7 @@ symbols:
 🔐	marschlos cun clav	none
 🔑	clav	none
 🗝	clav veglia	none
+🪍	rait cun moni	none
 🔨	martè	none
 🪓	manera	none
 ⛏	zappun	none
@@ -1626,6 +1576,7 @@ symbols:
 ♿	simbol sutga cun rodas	none
 🚹	tualetta d’umens	none
 🚺	tualetta da dunnas	none
+🚻	tualettas	none
 🚼	simbol poppa	none
 🚾	WC	none
 🛂	controlla da passaport	none
@@ -1680,17 +1631,17 @@ symbols:
 🕎	menora	none
 🔯	hexagram cun punct	none
 🪯	khanda	none
-♈	Botsch	none
+♈	Botsch (ensaina)	none
 ♉	Taur	none
 ♊	Schumellins	none
-♋	Giomber	none
-♌	Liun	none
+♋	Giomber (ensaina)	none
+♌	Liun (ensaina)	none
 ♍	Giuvintschella	none
 ♎	Stadaira	none
-♏	Scorpiun	none
+♏	Scorpiun (ensaina)	none
 ♐	Tiradur	none
 ♑	Capricorn	none
-♒	Um da l’aua	none
+♒	Um da l’aua (ensaina)	none
 ♓	Peschs	none
 ⛎	Portaserps	none
 🔀	modus casual	none
@@ -1725,7 +1676,7 @@ symbols:
 ➕	plus	none
 ➖	minus	none
 ➗	divider	none
-🟰	egual	none
+🟰	segn egual	none
 ♾	infinit	none
 ❓	segn da dumonda cotschen	none
 ❔	segn da dumonda alv	none
@@ -1996,6 +1947,16 @@ symbols:
 👎🏽	polesch che mussa engiu pel media	none
 👎🏾	polesch che mussa engiu pel mez stgira	none
 👎🏿	polesch che mussa engiu pel stgira	none
+🫹🏻	polesch che mussa a sanestra pel clera	none
+🫹🏼	polesch che mussa a sanestra pel mez clera	none
+🫹🏽	polesch che mussa a sanestra pel media	none
+🫹🏾	polesch che mussa a sanestra pel mez stgira	none
+🫹🏿	polesch che mussa a sanestra pel stgira	none
+🫺🏻	polesch che mussa a dretga pel clera	none
+🫺🏼	polesch che mussa a dretga pel mez clera	none
+🫺🏽	polesch che mussa a dretga pel media	none
+🫺🏾	polesch che mussa a dretga pel mez stgira	none
+🫺🏿	polesch che mussa a dretga pel stgira	none
 ✊🏻	pugn ad aut pel clera	none
 ✊🏼	pugn ad aut pel mez clera	none
 ✊🏽	pugn ad aut pel media	none
@@ -2723,96 +2684,6 @@ symbols:
 👩🏽‍⚕	dunna che lavura en il sectur da la sanadad pel media	none
 👩🏾‍⚕	dunna che lavura en il sectur da la sanadad pel mez stgira	none
 👩🏿‍⚕	dunna che lavura en il sectur da la sanadad pel stgira	none
-🧑🏻‍🎓	studenta pel clera	none
-🧑🏼‍🎓	studenta pel mez clera	none
-🧑🏽‍🎓	studenta pel media	none
-🧑🏾‍🎓	studenta pel mez stgira	none
-🧑🏿‍🎓	studenta pel stgira	none
-👨🏻‍🎓	student pel clera	none
-👨🏼‍🎓	student pel mez clera	none
-👨🏽‍🎓	student pel media	none
-👨🏾‍🎓	student pel mez stgira	none
-👨🏿‍🎓	student pel stgira	none
-👩🏻‍🎓	studenta pel clera	none
-👩🏼‍🎓	studenta pel mez clera	none
-👩🏽‍🎓	studenta pel media	none
-👩🏾‍🎓	studenta pel mez stgira	none
-👩🏿‍🎓	studenta pel stgira	none
-🧑🏻‍🏫	scolasta pel clera	none
-🧑🏼‍🏫	scolasta pel mez clera	none
-🧑🏽‍🏫	scolasta pel media	none
-🧑🏾‍🏫	scolasta pel mez stgira	none
-🧑🏿‍🏫	scolasta pel stgira	none
-👨🏻‍🏫	scolast pel clera	none
-👨🏼‍🏫	scolast pel mez clera	none
-👨🏽‍🏫	scolast pel media	none
-👨🏾‍🏫	scolast pel mez stgira	none
-👨🏿‍🏫	scolast pel stgira	none
-👩🏻‍🏫	scolasta pel clera	none
-👩🏼‍🏫	scolasta pel mez clera	none
-👩🏽‍🏫	scolasta pel media	none
-👩🏾‍🏫	scolasta pel mez stgira	none
-👩🏿‍🏫	scolasta pel stgira	none
-🧑🏻‍⚖	derschadra pel clera	none
-🧑🏼‍⚖	derschadra pel mez clera	none
-🧑🏽‍⚖	derschadra pel media	none
-🧑🏾‍⚖	derschadra pel mez stgira	none
-🧑🏿‍⚖	derschadra pel stgira	none
-👨🏻‍⚖	derschader pel clera	none
-👨🏼‍⚖	derschader pel mez clera	none
-👨🏽‍⚖	derschader pel media	none
-👨🏾‍⚖	derschader pel mez stgira	none
-👨🏿‍⚖	derschader pel stgira	none
-👩🏻‍⚖	derschadra pel clera	none
-👩🏼‍⚖	derschadra pel mez clera	none
-👩🏽‍⚖	derschadra pel media	none
-👩🏾‍⚖	derschadra pel mez stgira	none
-👩🏿‍⚖	derschadra pel stgira	none
-🧑🏻‍🌾	pura pel clera	none
-🧑🏼‍🌾	pura pel mez clera	none
-🧑🏽‍🌾	pura pel media	none
-🧑🏾‍🌾	pura pel mez stgira	none
-🧑🏿‍🌾	pura pel stgira	none
-👨🏻‍🌾	pur pel clera	none
-👨🏼‍🌾	pur pel mez clera	none
-👨🏽‍🌾	pur pel media	none
-👨🏾‍🌾	pur pel mez stgira	none
-👨🏿‍🌾	pur pel stgira	none
-👩🏻‍🌾	pura pel clera	none
-👩🏼‍🌾	pura pel mez clera	none
-👩🏽‍🌾	pura pel media	none
-👩🏾‍🌾	pura pel mez stgira	none
-👩🏿‍🌾	pura pel stgira	none
-🧑🏻‍🍳	cuschiniera pel clera	none
-🧑🏼‍🍳	cuschiniera pel mez clera	none
-🧑🏽‍🍳	cuschiniera pel media	none
-🧑🏾‍🍳	cuschiniera pel mez stgira	none
-🧑🏿‍🍳	cuschiniera pel stgira	none
-👨🏻‍🍳	cuschinier pel clera	none
-👨🏼‍🍳	cuschinier pel mez clera	none
-👨🏽‍🍳	cuschinier pel media	none
-👨🏾‍🍳	cuschinier pel mez stgira	none
-👨🏿‍🍳	cuschinier pel stgira	none
-👩🏻‍🍳	cuschiniera pel clera	none
-👩🏼‍🍳	cuschiniera pel mez clera	none
-👩🏽‍🍳	cuschiniera pel media	none
-👩🏾‍🍳	cuschiniera pel mez stgira	none
-👩🏿‍🍳	cuschiniera pel stgira	none
-🧑🏻‍🔧	mecanista pel clera	none
-🧑🏼‍🔧	mecanista pel mez clera	none
-🧑🏽‍🔧	mecanista pel media	none
-🧑🏾‍🔧	mecanista pel mez stgira	none
-🧑🏿‍🔧	mecanista pel stgira	none
-👨🏻‍🔧	mecanist pel clera	none
-👨🏼‍🔧	mecanist pel mez clera	none
-👨🏽‍🔧	mecanist pel media	none
-👨🏾‍🔧	mecanist pel mez stgira	none
-👨🏿‍🔧	mecanist pel stgira	none
-👩🏻‍🔧	mecanista pel clera	none
-👩🏼‍🔧	mecanista pel mez clera	none
-👩🏽‍🔧	mecanista pel media	none
-👩🏾‍🔧	mecanista pel mez stgira	none
-👩🏿‍🔧	mecanista pel stgira	none
 🧑🏻‍🏭	persuna che lavura en fabrica pel clera	none
 🧑🏼‍🏭	persuna che lavura en fabrica pel mez clera	none
 🧑🏽‍🏭	persuna che lavura en fabrica pel media	none
@@ -2828,176 +2699,26 @@ symbols:
 👩🏽‍🏭	dunna che lavura en fabrica pel media	none
 👩🏾‍🏭	dunna che lavura en fabrica pel mez stgira	none
 👩🏿‍🏭	dunna che lavura en fabrica pel stgira	none
-🧑🏻‍💼	birolista pel clera	none
-🧑🏼‍💼	birolista pel mez clera	none
-🧑🏽‍💼	birolista pel media	none
-🧑🏾‍💼	birolista pel mez stgira	none
-🧑🏿‍💼	birolista pel stgira	none
-👨🏻‍💼	birolist pel clera	none
-👨🏼‍💼	birolist pel mez clera	none
-👨🏽‍💼	birolist pel media	none
-👨🏾‍💼	birolist pel mez stgira	none
-👨🏿‍💼	birolist pel stgira	none
-👩🏻‍💼	birolista pel clera	none
-👩🏼‍💼	birolista pel mez clera	none
-👩🏽‍💼	birolista pel media	none
-👩🏾‍💼	birolista pel mez stgira	none
-👩🏿‍💼	birolista pel stgira	none
-🧑🏻‍🔬	scienziada pel clera	none
-🧑🏼‍🔬	scienziada pel mez clera	none
-🧑🏽‍🔬	scienziada pel media	none
-🧑🏾‍🔬	scienziada pel mez stgira	none
-🧑🏿‍🔬	scienziada pel stgira	none
-👨🏻‍🔬	scienzià pel clera	none
-👨🏼‍🔬	scienzià pel mez clera	none
-👨🏽‍🔬	scienzià pel media	none
-👨🏾‍🔬	scienzià pel mez stgira	none
-👨🏿‍🔬	scienzià pel stgira	none
-👩🏻‍🔬	scienziada pel clera	none
-👩🏼‍🔬	scienziada pel mez clera	none
-👩🏽‍🔬	scienziada pel media	none
-👩🏾‍🔬	scienziada pel mez stgira	none
-👩🏿‍🔬	scienziada pel stgira	none
-🧑🏻‍💻	tecnologa pel clera	none
-🧑🏼‍💻	tecnologa pel mez clera	none
-🧑🏽‍💻	tecnologa pel media	none
-🧑🏾‍💻	tecnologa pel mez stgira	none
-🧑🏿‍💻	tecnologa pel stgira	none
-👨🏻‍💻	tecnolog pel clera	none
-👨🏼‍💻	tecnolog pel mez clera	none
-👨🏽‍💻	tecnolog pel media	none
-👨🏾‍💻	tecnolog pel mez stgira	none
-👨🏿‍💻	tecnolog pel stgira	none
-👩🏻‍💻	tecnologa pel clera	none
-👩🏼‍💻	tecnologa pel mez clera	none
-👩🏽‍💻	tecnologa pel media	none
-👩🏾‍💻	tecnologa pel mez stgira	none
-👩🏿‍💻	tecnologa pel stgira	none
-🧑🏻‍🎤	chantadura pel clera	none
-🧑🏼‍🎤	chantadura pel mez clera	none
-🧑🏽‍🎤	chantadura pel media	none
-🧑🏾‍🎤	chantadura pel mez stgira	none
-🧑🏿‍🎤	chantadura pel stgira	none
-👨🏻‍🎤	chantadur pel clera	none
-👨🏼‍🎤	chantadur pel mez clera	none
-👨🏽‍🎤	chantadur pel media	none
-👨🏾‍🎤	chantadur pel mez stgira	none
-👨🏿‍🎤	chantadur pel stgira	none
-👩🏻‍🎤	chantadura pel clera	none
-👩🏼‍🎤	chantadura pel mez clera	none
-👩🏽‍🎤	chantadura pel media	none
-👩🏾‍🎤	chantadura pel mez stgira	none
-👩🏿‍🎤	chantadura pel stgira	none
-🧑🏻‍🎨	pictura artista pel clera	none
-🧑🏼‍🎨	pictura artista pel mez clera	none
-🧑🏽‍🎨	pictura artista pel media	none
-🧑🏾‍🎨	pictura artista pel mez stgira	none
-🧑🏿‍🎨	pictura artista pel stgira	none
-👨🏻‍🎨	pictur artist pel clera	none
-👨🏼‍🎨	pictur artist pel mez clera	none
-👨🏽‍🎨	pictur artist pel media	none
-👨🏾‍🎨	pictur artist pel mez stgira	none
-👨🏿‍🎨	pictur artist pel stgira	none
-👩🏻‍🎨	pictura artista pel clera	none
-👩🏼‍🎨	pictura artista pel mez clera	none
-👩🏽‍🎨	pictura artista pel media	none
-👩🏾‍🎨	pictura artista pel mez stgira	none
-👩🏿‍🎨	pictura artista pel stgira	none
-🧑🏻‍✈	pilota pel clera	none
-🧑🏼‍✈	pilota pel mez clera	none
-🧑🏽‍✈	pilota pel media	none
-🧑🏾‍✈	pilota pel mez stgira	none
-🧑🏿‍✈	pilota pel stgira	none
-👨🏻‍✈	pilot pel clera	none
-👨🏼‍✈	pilot pel mez clera	none
-👨🏽‍✈	pilot pel media	none
-👨🏾‍✈	pilot pel mez stgira	none
-👨🏿‍✈	pilot pel stgira	none
-👩🏻‍✈	pilota pel clera	none
-👩🏼‍✈	pilota pel mez clera	none
-👩🏽‍✈	pilota pel media	none
-👩🏾‍✈	pilota pel mez stgira	none
-👩🏿‍✈	pilota pel stgira	none
-🧑🏻‍🚀	astronauta pel clera	none
-🧑🏼‍🚀	astronauta pel mez clera	none
-🧑🏽‍🚀	astronauta pel media	none
-🧑🏾‍🚀	astronauta pel mez stgira	none
-🧑🏿‍🚀	astronauta pel stgira	none
-👨🏻‍🚀	astronaut pel clera	none
-👨🏼‍🚀	astronaut pel mez clera	none
-👨🏽‍🚀	astronaut pel media	none
-👨🏾‍🚀	astronaut pel mez stgira	none
-👨🏿‍🚀	astronaut pel stgira	none
-👩🏻‍🚀	astronauta pel clera	none
-👩🏼‍🚀	astronauta pel mez clera	none
-👩🏽‍🚀	astronauta pel media	none
-👩🏾‍🚀	astronauta pel mez stgira	none
-👩🏿‍🚀	astronauta pel stgira	none
-🧑🏻‍🚒	pumpiera pel clera	none
-🧑🏼‍🚒	pumpiera pel mez clera	none
-🧑🏽‍🚒	pumpiera pel media	none
-🧑🏾‍🚒	pumpiera pel mez stgira	none
-🧑🏿‍🚒	pumpiera pel stgira	none
-👨🏻‍🚒	pumpier pel clera	none
-👨🏼‍🚒	pumpier pel mez clera	none
-👨🏽‍🚒	pumpier pel media	none
-👨🏾‍🚒	pumpier pel mez stgira	none
-👨🏿‍🚒	pumpier pel stgira	none
-👩🏻‍🚒	pumpiera pel clera	none
-👩🏼‍🚒	pumpiera pel mez clera	none
-👩🏽‍🚒	pumpiera pel media	none
-👩🏾‍🚒	pumpiera pel mez stgira	none
-👩🏿‍🚒	pumpiera pel stgira	none
-👮🏻	policista pel clera	none
-👮🏼	policista pel mez clera	none
-👮🏽	policista pel media	none
-👮🏾	policista pel mez stgira	none
-👮🏿	policista pel stgira	none
-👮🏻‍♂	policist pel clera	none
-👮🏼‍♂	policist pel mez clera	none
-👮🏽‍♂	policist pel media	none
-👮🏾‍♂	policist pel mez stgira	none
-👮🏿‍♂	policist pel stgira	none
-👮🏻‍♀	policista pel clera	none
-👮🏼‍♀	policista pel mez clera	none
-👮🏽‍♀	policista pel media	none
-👮🏾‍♀	policista pel mez stgira	none
-👮🏿‍♀	policista pel stgira	none
-🕵🏻	detectiva pel clera	none
-🕵🏼	detectiva pel mez clera	none
-🕵🏽	detectiva pel media	none
-🕵🏾	detectiva pel mez stgira	none
-🕵🏿	detectiva pel stgira	none
-🕵🏻‍♂	detectiv pel clera	none
-🕵🏼‍♂	detectiv pel mez clera	none
-🕵🏽‍♂	detectiv pel media	none
-🕵🏾‍♂	detectiv pel mez stgira	none
-🕵🏿‍♂	detectiv pel stgira	none
-🕵🏻‍♀	detectiva pel clera	none
-🕵🏼‍♀	detectiva pel mez clera	none
-🕵🏽‍♀	detectiva pel media	none
-🕵🏾‍♀	detectiva pel mez stgira	none
-🕵🏿‍♀	detectiva pel stgira	none
+💂🏻	guardia pel clera	none
+💂🏼	guardia pel mez clera	none
+💂🏽	guardia pel media	none
+💂🏾	guardia pel mez stgira	none
+💂🏿	guardia pel stgira	none
+💂🏻‍♂	guardian pel clera	none
+💂🏼‍♂	guardian pel mez clera	none
+💂🏽‍♂	guardian pel media	none
+💂🏾‍♂	guardian pel mez stgira	none
+💂🏿‍♂	guardian pel stgira	none
+💂🏻‍♀	guardiana pel clera	none
+💂🏼‍♀	guardiana pel mez clera	none
+💂🏽‍♀	guardiana pel media	none
+💂🏾‍♀	guardiana pel mez stgira	none
+💂🏿‍♀	guardiana pel stgira	none
 🥷🏻	ninja pel clera	none
 🥷🏼	ninja pel mez clera	none
 🥷🏽	ninja pel media	none
 🥷🏾	ninja pel mez stgira	none
 🥷🏿	ninja pel stgira	none
-👷🏻	lavurera da construcziun pel clera	none
-👷🏼	lavurera da construcziun pel mez clera	none
-👷🏽	lavurera da construcziun pel media	none
-👷🏾	lavurera da construcziun pel mez stgira	none
-👷🏿	lavurera da construcziun pel stgira	none
-👷🏻‍♂	lavurer da construcziun pel clera	none
-👷🏼‍♂	lavurer da construcziun pel mez clera	none
-👷🏽‍♂	lavurer da construcziun pel media	none
-👷🏾‍♂	lavurer da construcziun pel mez stgira	none
-👷🏿‍♂	lavurer da construcziun pel stgira	none
-👷🏻‍♀	lavurera da construcziun pel clera	none
-👷🏼‍♀	lavurera da construcziun pel mez clera	none
-👷🏽‍♀	lavurera da construcziun pel media	none
-👷🏾‍♀	lavurera da construcziun pel mez stgira	none
-👷🏿‍♀	lavurera da construcziun pel stgira	none
 🫅🏻	persuna cun curuna pel clera	none
 🫅🏼	persuna cun curuna pel mez clera	none
 🫅🏽	persuna cun curuna pel media	none
@@ -3123,66 +2844,6 @@ symbols:
 🧑🏽‍🎄	Santa Claus pel media	none
 🧑🏾‍🎄	Santa Claus pel mez stgira	none
 🧑🏿‍🎄	Santa Claus pel stgira	none
-🦸🏻	supereroxa pel clera	none
-🦸🏼	supereroxa pel mez clera	none
-🦸🏽	supereroxa pel media	none
-🦸🏾	supereroxa pel mez stgira	none
-🦸🏿	supereroxa pel stgira	none
-🦸🏻‍♂	supererox pel clera	none
-🦸🏼‍♂	supererox pel mez clera	none
-🦸🏽‍♂	supererox pel media	none
-🦸🏾‍♂	supererox pel mez stgira	none
-🦸🏿‍♂	supererox pel stgira	none
-🦸🏻‍♀	supereroxa pel clera	none
-🦸🏼‍♀	supereroxa pel mez clera	none
-🦸🏽‍♀	supereroxa pel media	none
-🦸🏾‍♀	supereroxa pel mez stgira	none
-🦸🏿‍♀	supereroxa pel stgira	none
-🦹🏻	supernauscha pel clera	none
-🦹🏼	supernauscha pel mez clera	none
-🦹🏽	supernauscha pel media	none
-🦹🏾	supernauscha pel mez stgira	none
-🦹🏿	supernauscha pel stgira	none
-🦹🏻‍♂	supernausch pel clera	none
-🦹🏼‍♂	supernausch pel mez clera	none
-🦹🏽‍♂	supernausch pel media	none
-🦹🏾‍♂	supernausch pel mez stgira	none
-🦹🏿‍♂	supernausch pel stgira	none
-🦹🏻‍♀	supernauscha pel clera	none
-🦹🏼‍♀	supernauscha pel mez clera	none
-🦹🏽‍♀	supernauscha pel media	none
-🦹🏾‍♀	supernauscha pel mez stgira	none
-🦹🏿‍♀	supernauscha pel stgira	none
-🧙🏻	striuna pel clera	none
-🧙🏼	striuna pel mez clera	none
-🧙🏽	striuna pel media	none
-🧙🏾	striuna pel mez stgira	none
-🧙🏿	striuna pel stgira	none
-🧙🏻‍♂	striun pel clera	none
-🧙🏼‍♂	striun pel mez clera	none
-🧙🏽‍♂	striun pel media	none
-🧙🏾‍♂	striun pel mez stgira	none
-🧙🏿‍♂	striun pel stgira	none
-🧙🏻‍♀	striuna pel clera	none
-🧙🏼‍♀	striuna pel mez clera	none
-🧙🏽‍♀	striuna pel media	none
-🧙🏾‍♀	striuna pel mez stgira	none
-🧙🏿‍♀	striuna pel stgira	none
-🧚🏻	diala pel clera	none
-🧚🏼	diala pel mez clera	none
-🧚🏽	diala pel media	none
-🧚🏾	diala pel mez stgira	none
-🧚🏿	diala pel stgira	none
-🧚🏻‍♂	dial pel clera	none
-🧚🏼‍♂	dial pel mez clera	none
-🧚🏽‍♂	dial pel media	none
-🧚🏾‍♂	dial pel mez stgira	none
-🧚🏿‍♂	dial pel stgira	none
-🧚🏻‍♀	diala pel clera	none
-🧚🏼‍♀	diala pel mez clera	none
-🧚🏽‍♀	diala pel media	none
-🧚🏾‍♀	diala pel mez stgira	none
-🧚🏿‍♀	diala pel stgira	none
 🧛🏻	vampira pel clera	none
 🧛🏼	vampira pel mez clera	none
 🧛🏽	vampira pel media	none
@@ -3213,21 +2874,6 @@ symbols:
 🧜🏽‍♀	sirena pel media	none
 🧜🏾‍♀	sirena pel mez stgira	none
 🧜🏿‍♀	sirena pel stgira	none
-🧝🏻	elfa pel clera	none
-🧝🏼	elfa pel mez clera	none
-🧝🏽	elfa pel media	none
-🧝🏾	elfa pel mez stgira	none
-🧝🏿	elfa pel stgira	none
-🧝🏻‍♂	elf pel clera	none
-🧝🏼‍♂	elf pel mez clera	none
-🧝🏽‍♂	elf pel media	none
-🧝🏾‍♂	elf pel mez stgira	none
-🧝🏿‍♂	elf pel stgira	none
-🧝🏻‍♀	elfa pel clera	none
-🧝🏼‍♀	elfa pel mez clera	none
-🧝🏽‍♀	elfa pel media	none
-🧝🏾‍♀	elfa pel mez stgira	none
-🧝🏿‍♀	elfa pel stgira	none
 💆🏻	persuna che vegn massada pel clera	none
 💆🏼	persuna che vegn massada pel mez clera	none
 💆🏽	persuna che vegn massada pel media	none

@@ -275,6 +275,7 @@ symbols:
 🙂	yengilgina kulayotgan yuz	none
 🙃	to‘ntarilgan yuz	none
 🫠	erib ketayotgan yuz	none
+🫫	parchalangan yuz	none
 😉	ko‘z qisish	none
 😊	tabassum va kulib turgan ko‘zlar	none
 😇	tabassum, bosh ustida gardish	none
@@ -464,6 +465,8 @@ symbols:
 🫵	tomoshabinga qaragan koʻrsatkich barmoq	none
 👍	tepaga qaragan bosh barmoq	none
 👎	pastga qaragan bosh barmoq	none
+🫹	chapga qaragan bosh barmoq	none
+🫺	oʼngga qaragan bosh barmoq	none
 ✊	ko‘tarilgan musht	none
 👊	yaqinlashayotgan musht	none
 🤛	chapga qaragan musht	none
@@ -883,6 +886,7 @@ symbols:
 🦪	chigʻanoq	none
 🐌	shilliqqurt	none
 🦋	kapalak	none
+🫌	monarx kapalagi	none
 🐛	taxtakana	none
 🐜	chumoli	none
 🐝	asalari	none
@@ -954,6 +958,7 @@ symbols:
 🌶	achchiq qalampir	none
 🫑	bolgar qalampiri	none
 🥒	bodring	none
+🫝	tuzlama	none
 🥬	salat bargi	none
 🥦	brokkoli	none
 🧄	sarimsoq	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	tik svetofor	none
 🛑	stop belgisi	none
 🚧	qurilish	none
+🛙	mayoq	none
 ⚓	langar	none
 🛟	qutqaruv chambaragi	none
 ⛵	yelkanli kema	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	qorbobo va qor	none
 ⛄	qorbobo	none
 ☄	kometa	none
+🪋	meteorit	none
 🔥	olov	none
 💧	tomchi	none
 🌊	suv to‘lqini	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	mo‘yqalam	none
 🖍	rangli qalam	none
 📝	qayd	none
+🪌	oʻchirgich	none
 💼	portfel	none
 📁	fayl jildi	none
 📂	ochiq fayl jildi	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	qulf va kalit	none
 🔑	kalit	none
 🗝	qadimiy kalit	none
+🪍	dastali toʻr	none
 🔨	bolg‘a	none
 🪓	bolta	none
 ⛏	uchli bolg‘a	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	pastga qaragan bosh barmoq 4-teri turi	none
 👎🏾	pastga qaragan bosh barmoq 5-teri turi	none
 👎🏿	pastga qaragan bosh barmoq 6-teri turi	none
+🫹🏻	chapga qaragan bosh barmoq 1–2-teri turi	none
+🫹🏼	chapga qaragan bosh barmoq 3-teri turi	none
+🫹🏽	chapga qaragan bosh barmoq 4-teri turi	none
+🫹🏾	chapga qaragan bosh barmoq 5-teri turi	none
+🫹🏿	chapga qaragan bosh barmoq 6-teri turi	none
+🫺🏻	oʼngga qaragan bosh barmoq 1–2-teri turi	none
+🫺🏼	oʼngga qaragan bosh barmoq 3-teri turi	none
+🫺🏽	oʼngga qaragan bosh barmoq 4-teri turi	none
+🫺🏾	oʼngga qaragan bosh barmoq 5-teri turi	none
+🫺🏿	oʼngga qaragan bosh barmoq 6-teri turi	none
 ✊🏻	ko‘tarilgan musht 1–2-teri turi	none
 ✊🏼	ko‘tarilgan musht 3-teri turi	none
 ✊🏽	ko‘tarilgan musht 4-teri turi	none

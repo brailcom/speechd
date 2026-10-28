@@ -9,8 +9,8 @@ symbols:
 🏾	ọtanjele ahụ maka òji-ndịna etiti	none
 🏿	ọtanjele ahụ maka òji	none
 ℗	ụda recording copyright	none
-←	left-pointing arrow	none
-↚	akụ na-atụ aka ekpe	none
+←	akụ na-atụ aka ekpe	none
+↚	akara akụ na-atụ aka ekpe	none
 →	right-pointing akụ	none
 ↛	akụ na-atụ aka nri	none
 ↑	akụ na-atụlị elu	none
@@ -121,8 +121,8 @@ symbols:
 ∣	n’ekewa	none
 ∥	ahịrị abụọ nọkọtara ọnụ	none
 ∧	nwere nghọta ma	none
-∩	intersection	none
-∪	union	none
+∩	dị n’ime	none
+∪	njikọta	none
 ∫	intija	none
 ∬	intija abụọ	none
 ∮	kọntọ intija	none
@@ -152,7 +152,7 @@ symbols:
 ≺	na-ebute ụzọ	none
 ≻	na-esote	none
 ⊁	anaghị esote	none
-⊂	subset of	none
+⊂	akụkụ setị nke	none
 ⊃	set dị elu	none
 ⊆	set dị ala hatara	none
 ⊇	set dị elu hatara	none
@@ -275,6 +275,7 @@ symbols:
 🙂	nwa obere ihu na-amụ amụ	none
 🙃	ihu nsụgharị-isi n’ala	none
 🫠	ihu agbaze	none
+🫫	ihu mgbawa	none
 😉	Ihu na-atabi anya	none
 😊	ihu amụ nwere anya amụ	none
 😇	ihu amụ nwere okirikiri okụ	none
@@ -464,6 +465,8 @@ symbols:
 🫵	mkpịsị aka na-atu na mmadu	none
 👍	oboaka n’elu	none
 👎	oboaka n’ala	none
+🫹	akara mkpịsị aka akaekpe	none
+🫺	akara mkpịsị aka nri	none
 ✊	aka ọkpọ ewelitere	none
 👊	aka ọkpọ na-abịa abịa	none
 🤛	aka ọkpọ chewere-akaèkpè	none
@@ -883,6 +886,7 @@ symbols:
 🦪	oporo gbarampi	none
 🐌	ejù	none
 🦋	mbubara	none
+🫌	urukurubụba tụrụ àgwà	none
 🐛	Chinchi	none
 🐜	agbịsị	none
 🐝	aṅụ́ mmanụaṅụ	none
@@ -953,7 +957,8 @@ symbols:
 🌽	ogbo nke ọkà	none
 🌶	ọsọ ọkụ	none
 🫑	ose ose	none
-🥒	mkpụrụakwụkwọnri	none
+🥒	kukumba	none
+🫝	mkpụrụakwụkwọnri	none
 🥬	akwukwo nri	none
 🥦	akwụkwọnri bèkee	none
 🧄	galiki	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	ọkụ ngafè ụgbọala kwụọtọ	none
 🛑	akara kwụsị	none
 🚧	ọrụụzọ	none
+🛙	ụlọ nduzi ndị ọrụ ụgbọ mmiri	none
 ⚓	mkpọrọ	none
 🛟	rọba ọkirikiri mmiri	none
 ⛵	egwuregwu ụgbọmmiri	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	nwoke akụrụmmiri igwe	none
 ⛄	nwoke akụ mmiri igwe na-enweghị akụ mmiri igwe	none
 ☄	ire ọkụ igwe	none
+🪋	ọkụ igwe dị okirikiri	none
 🔥	ọkụ	none
 💧	ntụsa	none
 🌊	ìkùkù mmiri	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	ngwa ǹteàgbà	none
 🖍	kreyọn	none
 📝	memọ	none
+🪌	nchịcha	none
 💼	igbe mpanaka	none
 📁	foldà faịlị̀	none
 📂	mepee foldà faịlụ	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	akpọchiri n’iji ọtụgwo	none
 🔑	ọtụgwo	none
 🗝	ọtụgwo ochie	none
+🪍	nkata nwere aka	none
 🔨	nkụigwe	none
 🪓	anyụike	none
 ⛏	họrọ	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	oboaka n’ala ọtanjele ahụ ndịna etiti	none
 👎🏾	oboaka n’ala ọtanjele ahụ maka òji-ndịna etiti	none
 👎🏿	oboaka n’ala ọtanjele ahụ maka òji	none
+🫹🏻	akara mkpịsị aka akaekpe ọtanjele ahụ maka ọcha	none
+🫹🏼	akara mkpịsị aka akaekpe ọtanjele ahụ maka ọcha-ndịna etiti	none
+🫹🏽	akara mkpịsị aka akaekpe ọtanjele ahụ ndịna etiti	none
+🫹🏾	akara mkpịsị aka akaekpe ọtanjele ahụ maka òji-ndịna etiti	none
+🫹🏿	akara mkpịsị aka akaekpe ọtanjele ahụ maka òji	none
+🫺🏻	akara mkpịsị aka nri ọtanjele ahụ maka ọcha	none
+🫺🏼	akara mkpịsị aka nri ọtanjele ahụ maka ọcha-ndịna etiti	none
+🫺🏽	akara mkpịsị aka nri ọtanjele ahụ ndịna etiti	none
+🫺🏾	akara mkpịsị aka nri ọtanjele ahụ maka òji-ndịna etiti	none
+🫺🏿	akara mkpịsị aka nri ọtanjele ahụ maka òji	none
 ✊🏻	aka ọkpọ ewelitere ọtanjele ahụ maka ọcha	none
 ✊🏼	aka ọkpọ ewelitere ọtanjele ahụ maka ọcha-ndịna etiti	none
 ✊🏽	aka ọkpọ ewelitere ọtanjele ahụ ndịna etiti	none
@@ -3931,7 +3950,7 @@ symbols:
 👩‍👧‍👦	ezinaụlọ nwanyị, nwata nwaanyị, nwa nwoke	none
 👩‍👧‍👧	ezinaụlọ nwanyị, nwata nwaanyị, nwata nwaanyị	none
 ₡	Ego Colón obodo Costa Rica	none
-₦	Naịra	none
+₦	Nigerian Naira	none
 ₪	Ego Shekel ọhụrụ obodo Israel	none
 ₫	Ego Dong obodo Vietnam	none
 ₭	Ego Kip Obodo Laos	none

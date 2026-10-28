@@ -116,7 +116,7 @@ symbols:
 √	square root	none
 ∝	proporsyonal	none
 ∞	infinity sign	none
-∟	kanang anggulo	none
+∟	right angle	none
 ∠	angle	none
 ∣	hatiin	none
 ∥	kahanay	none
@@ -143,7 +143,7 @@ symbols:
 ≣	istriktong katumbas	none
 ≤	mas mababa sa o katumbas	none
 ≥	mahigit sa o katumbas	none
-≦	simblo ng mas mababa sa sa taas ng simblo ng katumbas	none
+≦	simbolo ng mas mababa sa sa taas ng simbolo ng katumbas	none
 ≧	simbolo ng mas higit sa sa taas ng simbolo ng katumbas	none
 ≪	higit na mas mababa sa	none
 ≫	higit na mas higit sa	none
@@ -275,6 +275,7 @@ symbols:
 🙂	medyo nakangiti	none
 🙃	baligtad na mukha	none
 🫠	natutunaw na mukha	none
+🫫	nababasag na mukha	none
 😉	kumikindat	none
 😊	nakangiti kasama ang mga mata	none
 😇	nakangiti nang may halo	none
@@ -464,6 +465,8 @@ symbols:
 🫵	hintuturong nakaturo sa tumitingin	none
 👍	thumbs up	none
 👎	thumbs down	none
+🫹	pakaliwang thumb sign	none
+🫺	pakanang thumb sign	none
 ✊	nakataas na kamao	none
 👊	pasuntok na kamao	none
 🤛	pakaliwang kamao	none
@@ -883,6 +886,7 @@ symbols:
 🦪	talaba	none
 🐌	kuhol	none
 🦋	paru-paro	none
+🫌	monarch butterfly	none
 🐛	insekto	none
 🐜	langgam	none
 🐝	bubuyog	none
@@ -954,6 +958,7 @@ symbols:
 🌶	sili	none
 🫑	bell pepper	none
 🥒	pipino	none
+🫝	atsara	none
 🥬	madahong gulay	none
 🥦	broccoli	none
 🧄	bawang	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	patayong traffic light	none
 🛑	stop sign	none
 🚧	construction	none
+🛙	parola	none
 ⚓	angkla	none
 🛟	salbabida	none
 ⛵	bangkang may layag	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	snowman	none
 ⛄	snowman na walang niyebe	none
 ☄	comet	none
+🪋	meteor	none
 🔥	apoy	none
 💧	maliit na patak	none
 🌊	alon	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	paintbrush	none
 🖍	krayola	none
 📝	memo	none
+🪌	pambura	none
 💼	briefcase	none
 📁	file folder	none
 📂	nakabukas na file folder	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	nakasarang kandado na may susi	none
 🔑	susi	none
 🗝	lumang susi	none
+🪍	lambat	none
 🔨	martilyo	none
 🪓	palakol	none
 ⛏	piko	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	thumbs down katamtamang kulay ng balat	none
 👎🏾	thumbs down katamtamang dark na kulay ng balat	none
 👎🏿	thumbs down dark na kulay ng balat	none
+🫹🏻	pakaliwang thumb sign light na kulay ng balat	none
+🫹🏼	pakaliwang thumb sign katamtamang light na kulay ng balat	none
+🫹🏽	pakaliwang thumb sign katamtamang kulay ng balat	none
+🫹🏾	pakaliwang thumb sign katamtamang dark na kulay ng balat	none
+🫹🏿	pakaliwang thumb sign dark na kulay ng balat	none
+🫺🏻	pakanang thumb sign light na kulay ng balat	none
+🫺🏼	pakanang thumb sign katamtamang light na kulay ng balat	none
+🫺🏽	pakanang thumb sign katamtamang kulay ng balat	none
+🫺🏾	pakanang thumb sign katamtamang dark na kulay ng balat	none
+🫺🏿	pakanang thumb sign dark na kulay ng balat	none
 ✊🏻	nakataas na kamao light na kulay ng balat	none
 ✊🏼	nakataas na kamao katamtamang light na kulay ng balat	none
 ✊🏽	nakataas na kamao katamtamang kulay ng balat	none

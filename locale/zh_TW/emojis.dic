@@ -275,6 +275,7 @@ symbols:
 🙂	呆呆笑	none
 🙃	顛倒臉	none
 🫠	融化的臉	none
+🫫	裂開的臉	none
 😉	眨眼	none
 😊	微笑	none
 😇	天使笑臉	none
@@ -464,6 +465,8 @@ symbols:
 🫵	食指朝向觀眾	none
 👍	讚	none
 👎	遜	none
+🫹	拇指向左指	none
+🫺	拇指向右指	none
 ✊	拳頭	none
 👊	出拳	none
 🤛	握右拳	none
@@ -883,6 +886,7 @@ symbols:
 🦪	牡蠣	none
 🐌	蝸牛	none
 🦋	蝴蝶	none
+🫌	帝王斑蝶	none
 🐛	毛毛蟲	none
 🐜	螞蟻	none
 🐝	蜜蜂	none
@@ -954,6 +958,7 @@ symbols:
 🌶	辣椒	none
 🫑	甜椒	none
 🥒	小黃瓜	none
+🫝	醃黃瓜	none
 🥬	綠葉蔬菜	none
 🥦	花椰菜	none
 🧄	大蒜	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	直式紅綠燈	none
 🛑	停止標誌	none
 🚧	施工	none
+🛙	燈塔	none
 ⚓	錨	none
 🛟	救生圈	none
 ⛵	帆船	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	雪中的雪人	none
 ⛄	雪人	none
 ☄	慧星	none
+🪋	隕星	none
 🔥	火	none
 💧	水滴	none
 🌊	波浪	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	畫筆	none
 🖍	蠟筆	none
 📝	備忘錄	none
+🪌	橡皮擦	none
 💼	公事包	none
 📁	資料夾	none
 📂	打開資料夾	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	鑰匙和鎖	none
 🔑	鑰匙	none
 🗝	老鑰匙	none
+🪍	帶柄的網子	none
 🔨	鎚子	none
 🪓	斧頭	none
 ⛏	十字鎬	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	遜：淺褐皮膚	none
 👎🏾	遜：褐皮膚	none
 👎🏿	遜：黑皮膚	none
+🫹🏻	拇指向左指：白皮膚	none
+🫹🏼	拇指向左指：黃皮膚	none
+🫹🏽	拇指向左指：淺褐皮膚	none
+🫹🏾	拇指向左指：褐皮膚	none
+🫹🏿	拇指向左指：黑皮膚	none
+🫺🏻	拇指向右指：白皮膚	none
+🫺🏼	拇指向右指：黃皮膚	none
+🫺🏽	拇指向右指：淺褐皮膚	none
+🫺🏾	拇指向右指：褐皮膚	none
+🫺🏿	拇指向右指：黑皮膚	none
 ✊🏻	拳頭：白皮膚	none
 ✊🏼	拳頭：黃皮膚	none
 ✊🏽	拳頭：淺褐皮膚	none

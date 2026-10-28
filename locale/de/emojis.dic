@@ -275,6 +275,7 @@ symbols:
 🙂	leicht lächelndes Gesicht	none
 🙃	umgekehrtes Gesicht	none
 🫠	schmelzendes Gesicht	none
+🫫	Zerbrechendes Gesicht	none
 😉	zwinkerndes Gesicht	none
 😊	lächelndes Gesicht mit lachenden Augen	none
 😇	lächelndes Gesicht mit Heiligenschein	none
@@ -464,6 +465,8 @@ symbols:
 🫵	auf Betrachter zeigender Zeigefinger	none
 👍	Daumen hoch	none
 👎	Daumen runter	none
+🫹	Daumen nach links	none
+🫺	Daumen nach rechts	none
 ✊	erhobene Faust	none
 👊	geballte Faust	none
 🤛	Faust nach links	none
@@ -883,6 +886,7 @@ symbols:
 🦪	Auster	none
 🐌	Schnecke	none
 🦋	Schmetterling	none
+🫌	Monarchfalter	none
 🐛	Raupe	none
 🐜	Ameise	none
 🐝	Biene	none
@@ -954,6 +958,7 @@ symbols:
 🌶	Peperoni	none
 🫑	Paprika	none
 🥒	Gurke	none
+🫝	Saure Gurke	none
 🥬	Blattgemüse	none
 🥦	Brokkoli	none
 🧄	Knoblauch	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	vertikale Verkehrsampel	none
 🛑	Stoppschild	none
 🚧	Baustellenabsperrung	none
+🛙	Leuchtturm	none
 ⚓	Anker	none
 🛟	Rettungsring	none
 ⛵	Segelboot	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	Schneemann im Schnee	none
 ⛄	Schneemann ohne Schneeflocken	none
 ☄	Komet	none
+🪋	Meteor	none
 🔥	Feuer	none
 💧	Tropfen	none
 🌊	Welle	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	Pinsel	none
 🖍	Wachsmalstift	none
 📝	Papier und Bleistift	none
+🪌	Radiergummi	none
 💼	Aktentasche	none
 📁	Ordner	none
 📂	geöffneter Ordner	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	Schloss mit Schlüssel	none
 🔑	Schlüssel	none
 🗝	alter Schlüssel	none
+🪍	Kescher	none
 🔨	Hammer	none
 🪓	Axt	none
 ⛏	Pickel	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	Daumen runter mittlere Hautfarbe	none
 👎🏾	Daumen runter mitteldunkle Hautfarbe	none
 👎🏿	Daumen runter dunkle Hautfarbe	none
+🫹🏻	Daumen nach links helle Hautfarbe	none
+🫹🏼	Daumen nach links mittelhelle Hautfarbe	none
+🫹🏽	Daumen nach links mittlere Hautfarbe	none
+🫹🏾	Daumen nach links mitteldunkle Hautfarbe	none
+🫹🏿	Daumen nach links dunkle Hautfarbe	none
+🫺🏻	Daumen nach rechts helle Hautfarbe	none
+🫺🏼	Daumen nach rechts mittelhelle Hautfarbe	none
+🫺🏽	Daumen nach rechts mittlere Hautfarbe	none
+🫺🏾	Daumen nach rechts mitteldunkle Hautfarbe	none
+🫺🏿	Daumen nach rechts dunkle Hautfarbe	none
 ✊🏻	erhobene Faust helle Hautfarbe	none
 ✊🏼	erhobene Faust mittelhelle Hautfarbe	none
 ✊🏽	erhobene Faust mittlere Hautfarbe	none

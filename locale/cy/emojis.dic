@@ -275,6 +275,7 @@ symbols:
 🙂	wyneb ag ychydig o wên arni	none
 🙃	wyneb â’i ben i waered	none
 🫠	wyneb toddi	none
+🫫	Wyneb yn cracio	none
 😉	llygaid yn wincio	none
 😊	wyneb yn gwenu â gwên yn y llygaid	none
 😇	wyneb yn gwenu ag eurgylch	none
@@ -464,6 +465,8 @@ symbols:
 🫵	bys mynegai yn pwyntio at y gwyliwr	none
 👍	bys bawd i fyny	none
 👎	bys bawd i lawr	none
+🫹	bawd i’r chwith	none
+🫺	bawd i’r dde	none
 ✊	dwrn wedi codi	none
 👊	dwrn yn agosáu	none
 🤛	dwrn tua’r chwith	none
@@ -883,6 +886,7 @@ symbols:
 🦪	wystrys	none
 🐌	malwoden	none
 🦋	pili-pala	none
+🫌	glöyn y llaethlys	none
 🐛	pryf	none
 🐜	morgrugyn	none
 🐝	gwenynen	none
@@ -954,6 +958,7 @@ symbols:
 🌶	pupur twym	none
 🫑	pupryn	none
 🥒	ciwcymber	none
+🫝	picl	none
 🥬	gwyrdd deiliog	none
 🥦	brocoli	none
 🧄	garlleg	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	golau traffig fertigol	none
 🛑	arwydd stop	none
 🚧	adeiladwaith	none
+🛙	goleudy	none
 ⚓	angor	none
 🛟	bwi cylch	none
 ⛵	cwch hwylio	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	dyn eira	none
 ⛄	dyn eira heb eira	none
 ☄	comed	none
+🪋	meteor	none
 🔥	tân	none
 💧	defnyn	none
 🌊	ton ddŵr	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	brwsh paent	none
 🖍	pensil lliw	none
 📝	memo	none
+🪌	rhwbiwr	none
 💼	cas friff	none
 📁	ffolder ffeiliau	none
 📂	agor ffolder ffeiliau	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	clô ynghau gydag allwedd	none
 🔑	allwedd	none
 🗝	hen allwedd	none
+🪍	Rhwyd gyda handlen	none
 🔨	morthwyl	none
 🪓	bwyell	none
 ⛏	caib	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	bys bawd i lawr arlliw croen canolog	none
 👎🏾	bys bawd i lawr arlliw croen canolig-tywyll	none
 👎🏿	bys bawd i lawr arlliw croen tywyll	none
+🫹🏻	bawd i’r chwith arlliw croen golau	none
+🫹🏼	bawd i’r chwith arlliw croen canolig-golau	none
+🫹🏽	bawd i’r chwith arlliw croen canolog	none
+🫹🏾	bawd i’r chwith arlliw croen canolig-tywyll	none
+🫹🏿	bawd i’r chwith arlliw croen tywyll	none
+🫺🏻	bawd i’r dde arlliw croen golau	none
+🫺🏼	bawd i’r dde arlliw croen canolig-golau	none
+🫺🏽	bawd i’r dde arlliw croen canolog	none
+🫺🏾	bawd i’r dde arlliw croen canolig-tywyll	none
+🫺🏿	bawd i’r dde arlliw croen tywyll	none
 ✊🏻	dwrn wedi codi arlliw croen golau	none
 ✊🏼	dwrn wedi codi arlliw croen canolig-golau	none
 ✊🏽	dwrn wedi codi arlliw croen canolog	none
@@ -4017,7 +4036,7 @@ symbols:
 🇬🇩	baner Grenada	none
 🇬🇪	baner Georgia	none
 🇬🇫	baner Guyane Ffrengig	none
-🇬🇬	baner Ynys y Garn	none
+🇬🇬	baner Guernsey	none
 🇬🇭	baner Ghana	none
 🇬🇮	baner Gibraltar	none
 🇬🇱	baner Yr Ynys Las	none

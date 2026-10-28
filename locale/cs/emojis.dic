@@ -275,6 +275,7 @@ symbols:
 🙂	obličej s mírným úsměvem	none
 🙃	převrácený obličej	none
 🫠	tající obličej	none
+🫫	praskající obličej	none
 😉	mrkající obličej	none
 😊	smějící se obličej s usměvavýma očima	none
 😇	usmívající se obličej se svatozáří	none
@@ -464,6 +465,8 @@ symbols:
 🫵	ukazováček namířený na diváka	none
 👍	palec nahoru	none
 👎	palec dolů	none
+🫹	gesto palcem doleva	none
+🫺	gesto palcem doprava	none
 ✊	zvednutá pěst	none
 👊	namířená pěst	none
 🤛	pěst mířící doleva	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ústřice	none
 🐌	hlemýžď	none
 🦋	motýl	none
+🫌	motýl monarcha	none
 🐛	housenka	none
 🐜	mravenec	none
 🐝	včela	none
@@ -954,6 +958,7 @@ symbols:
 🌶	feferonka	none
 🫑	paprika	none
 🥒	okurka	none
+🫝	nakládačka	none
 🥬	salátové listy	none
 🥦	brokolice	none
 🧄	česnek	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	svislý semafor	none
 🛑	značka stop	none
 🚧	stavební zábrana	none
+🛙	maják	none
 ⚓	kotva	none
 🛟	záchranný kruh	none
 ⛵	plachetnice	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	sněhulák	none
 ⛄	sněhulák bez sněhu	none
 ☄	kometa	none
+🪋	meteorit	none
 🔥	oheň	none
 💧	kapka	none
 🌊	vodní vlna	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	štětec	none
 🖍	pastelka	none
 📝	lístek se vzkazem	none
+🪌	guma	none
 💼	kufřík	none
 📁	složka	none
 📂	otevřená složka	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	zamknutý zámek s klíčem	none
 🔑	klíč	none
 🗝	starý klíč	none
+🪍	podběrák	none
 🔨	kladivo	none
 🪓	sekera	none
 ⛏	krumpáč	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	palec dolů střední odstín pleti	none
 👎🏾	palec dolů středně tmavý odstín pleti	none
 👎🏿	palec dolů tmavý odstín pleti	none
+🫹🏻	gesto palcem doleva světlý odstín pleti	none
+🫹🏼	gesto palcem doleva středně světlý odstín pleti	none
+🫹🏽	gesto palcem doleva střední odstín pleti	none
+🫹🏾	gesto palcem doleva středně tmavý odstín pleti	none
+🫹🏿	gesto palcem doleva tmavý odstín pleti	none
+🫺🏻	gesto palcem doprava světlý odstín pleti	none
+🫺🏼	gesto palcem doprava středně světlý odstín pleti	none
+🫺🏽	gesto palcem doprava střední odstín pleti	none
+🫺🏾	gesto palcem doprava středně tmavý odstín pleti	none
+🫺🏿	gesto palcem doprava tmavý odstín pleti	none
 ✊🏻	zvednutá pěst světlý odstín pleti	none
 ✊🏼	zvednutá pěst středně světlý odstín pleti	none
 ✊🏽	zvednutá pěst střední odstín pleti	none

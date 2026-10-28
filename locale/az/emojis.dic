@@ -275,6 +275,7 @@ symbols:
 🙂	yüngülcə gülümsəyən üz	none
 🙃	başı-aşağı üz	none
 🫠	əriyən üz	none
+🫫	Sınıq üz	none
 😉	göz vuran üz	none
 😊	gülən gözlərlə gülümsəyən üz	none
 😇	başında halə gülmsəyən üz	none
@@ -464,6 +465,8 @@ symbols:
 🫵	tamaşaçıya işarə edən barmaq	none
 👍	baş barmaq yuxarı	none
 👎	baş barmaq aşağı	none
+🫹	sola baxan baş barmaq işarəsi	none
+🫺	sağa baş barmaq işarəsi	none
 ✊	qaldırılmış yumruq	none
 👊	yaxınlaşan yumruq	none
 🤛	sola yönələn yumruq	none
@@ -883,6 +886,7 @@ symbols:
 🦪	stridiya	none
 🐌	ilbiz	none
 🦋	kəpənək	none
+🫌	monarx kəpənəyi	none
 🐛	böcək	none
 🐜	qarışqa	none
 🐝	bal arısı	none
@@ -954,6 +958,7 @@ symbols:
 🌶	acı bibər	none
 🫑	bolqar bibəri	none
 🥒	xiyar	none
+🫝	xiyar turşusu	none
 🥬	kahı	none
 🥦	brokkoli	none
 🧄	sarımsaq	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	şaquli işıqfor	none
 🛑	dayanmaq işarəsi	none
 🚧	tikinti	none
+🛙	mayak	none
 ⚓	lövbər	none
 🛟	üzük buy	none
 ⛵	yelkənli qayıq	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	qar adam	none
 ⛄	qarsız qar adam	none
 ☄	kometa	none
+🪋	meteor	none
 🔥	alov	none
 💧	damcı	none
 🌊	su dalğası	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	fırça	none
 🖍	yağlı karandaş	none
 📝	yaddaş qeydi	none
+🪌	pozan	none
 💼	çemodan	none
 📁	fayl qovluğu	none
 📂	açıq fayl qovluğu	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	açarla bağlanmış kilid	none
 🔑	açar	none
 🗝	köhnə açar	none
+🪍	kəpənəktutan	none
 🔨	çəkic	none
 🪓	balta	none
 ⛏	külüng	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	baş barmaq aşağı orta dəri tonu	none
 👎🏾	baş barmaq aşağı orta-tünd dəri tonu	none
 👎🏿	baş barmaq aşağı tünd dəri tonu	none
+🫹🏻	sola baxan baş barmaq işarəsi açıq dəri tonu	none
+🫹🏼	sola baxan baş barmaq işarəsi orta-açıq dəri tonu	none
+🫹🏽	sola baxan baş barmaq işarəsi orta dəri tonu	none
+🫹🏾	sola baxan baş barmaq işarəsi orta-tünd dəri tonu	none
+🫹🏿	sola baxan baş barmaq işarəsi tünd dəri tonu	none
+🫺🏻	sağa baş barmaq işarəsi açıq dəri tonu	none
+🫺🏼	sağa baş barmaq işarəsi orta-açıq dəri tonu	none
+🫺🏽	sağa baş barmaq işarəsi orta dəri tonu	none
+🫺🏾	sağa baş barmaq işarəsi orta-tünd dəri tonu	none
+🫺🏿	sağa baş barmaq işarəsi tünd dəri tonu	none
 ✊🏻	qaldırılmış yumruq açıq dəri tonu	none
 ✊🏼	qaldırılmış yumruq orta-açıq dəri tonu	none
 ✊🏽	qaldırılmış yumruq orta dəri tonu	none

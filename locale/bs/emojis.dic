@@ -275,6 +275,7 @@ symbols:
 🙂	diskretni osmijeh	none
 🙃	naglavačke	none
 🫠	lice koje se topi	none
+🫫	ispucalo lice	none
 😉	namigivanje	none
 😊	širok osmijeh	none
 😇	oreol iznad glave	none
@@ -464,6 +465,8 @@ symbols:
 🫵	kažiprst uperen u gledaoca	none
 👍	palac gore	none
 👎	palac dolje	none
+🫹	palac pokazuje ulijevo	none
+🫺	palac pokazuje udesno	none
 ✊	podignuta pesnica	none
 👊	nabacivanje pesnicom	none
 🤛	šaka ulijevo	none
@@ -883,6 +886,7 @@ symbols:
 🦪	kamenica	none
 🐌	puž	none
 🦋	leptir	none
+🫌	leptir monarh	none
 🐛	buba	none
 🐜	mrav	none
 🐝	pčela	none
@@ -954,6 +958,7 @@ symbols:
 🌶	ljuti feferon	none
 🫑	paprika babura	none
 🥒	krastavac	none
+🫝	kiseli krastavac	none
 🥬	lisnato povrće	none
 🥦	brokula	none
 🧄	bijeli luk	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	semafor	none
 🛑	stop	none
 🚧	konstrukcija	none
+🛙	svjetionik	none
 ⚓	sidro	none
 🛟	kolut za spašavanje	none
 ⛵	jedrilica	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	snješko bijelić	none
 ⛄	snješko bijelić bez snijega	none
 ☄	kometa	none
+🪋	meteor	none
 🔥	vatra	none
 💧	kapljica vode	none
 🌊	val	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	kist	none
 🖍	voštana bojica	none
 📝	bilješka	none
+🪌	gumica za brisanje	none
 💼	aktovka	none
 📁	fascikla	none
 📂	otvorena fascikla	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	zatvoren katanac sa ključem	none
 🔑	ključ	none
 🗝	stari ključ	none
+🪍	mreža s ručkom	none
 🔨	čekić	none
 🪓	sjekira	none
 ⛏	krampa	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	palac dolje umjerena boja kože	none
 👎🏾	palac dolje umjereno tamna boja kože	none
 👎🏿	palac dolje tamna boja kože	none
+🫹🏻	palac pokazuje ulijevo svijetla boja kože	none
+🫹🏼	palac pokazuje ulijevo umjereno svijetla boja kože	none
+🫹🏽	palac pokazuje ulijevo umjerena boja kože	none
+🫹🏾	palac pokazuje ulijevo umjereno tamna boja kože	none
+🫹🏿	palac pokazuje ulijevo tamna boja kože	none
+🫺🏻	palac pokazuje udesno svijetla boja kože	none
+🫺🏼	palac pokazuje udesno umjereno svijetla boja kože	none
+🫺🏽	palac pokazuje udesno umjerena boja kože	none
+🫺🏾	palac pokazuje udesno umjereno tamna boja kože	none
+🫺🏿	palac pokazuje udesno tamna boja kože	none
 ✊🏻	podignuta pesnica svijetla boja kože	none
 ✊🏼	podignuta pesnica umjereno svijetla boja kože	none
 ✊🏽	podignuta pesnica umjerena boja kože	none

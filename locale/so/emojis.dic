@@ -275,6 +275,7 @@ symbols:
 🙂	waji yara dhoola cadeynaya	none
 🙃	waji hoos-hoos u raaraca	none
 🫠	waji dhalaalaya	none
+🫫	weji dilaacsan	none
 😉	waji il jabinaaya	none
 😊	waji iyo indho dhoolo cadeynaaya	none
 😇	waji dhoolo cadeynaya wareeg leh	none
@@ -464,6 +465,8 @@ symbols:
 🫵	tusmo tilmaame daawadaha	none
 👍	suulka kor	none
 👎	suulka hoos	none
+🫹	calaamada suul-taaga gacanta bidix	none
+🫺	calaamada suul-taaga gacanta midigta	none
 ✊	kor u qaadid tantoonyo (feer)	none
 👊	feer soo socoto	none
 🤛	feerka tilmaamaysa bidix	none
@@ -764,7 +767,7 @@ symbols:
 🫆	sawirka faraha	none
 🦰	timo cas	none
 🦱	timo walaaqan	none
-🦳	caddaan	none
+🦳	timo cad	none
 🦲	bidaar	none
 🐵	waji daanyeer	none
 🐒	daanyeer	none
@@ -850,7 +853,7 @@ symbols:
 🦩	qudunquuto	none
 🦚	daa’uus	none
 🦜	baqbaqaaq	none
-🪽	wing	none
+🪽	garab	none
 🐦‍⬛	shimbir madoow	none
 🪿	booloboolo	none
 🐦‍🔥	phoenix	none
@@ -883,6 +886,7 @@ symbols:
 🦪	lohod	none
 🐌	dixiri qolof leh	none
 🦋	balanbaalis	none
+🫌	balanbaalista monarch	none
 🐛	kutaan	none
 🐜	quraanjo	none
 🐝	shinni malab	none
@@ -954,6 +958,7 @@ symbols:
 🌶	basbaas	none
 🫑	basbaas dawan	none
 🥒	qajaar	none
+🫝	qajaar dhanaan	none
 🥬	caleenta cagaaran	none
 🥦	barakooli	none
 🧄	toon	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	iftiin taraafika oo toosan	none
 🛑	calaamad joogsi	none
 🚧	dhismo	none
+🛙	munaaradda hagidda maraakiibta	none
 ⚓	baroosinka	none
 🛟	giraan sabanaysa	none
 ⛵	doon shiraac	none
@@ -1201,7 +1207,7 @@ symbols:
 ⌛	dhalada saacad-beegtada ah oo dhamaysay	none
 ⏳	dhalada saacad-beegtada ah wali ma dhamayn	none
 ⌚	goor-sheeg	none
-⏰	saacadda qaylo-dhaanta	none
+⏰	saacadda alarmiga leh	none
 ⏱	saacad-joojin	none
 ⏲	saacadda goor-sheegtada ah	none
 🕰	qaanadda kore ee saacadda	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	baraf-naag	none
 ⛄	baraf-naag oo naag la’aan ah	none
 ☄	dhagax-xiddig	none
+🪋	Xiddig dhacaya	none
 🔥	dab	none
 💧	dhibicda	none
 🌊	hirka biyaha	none
@@ -1520,9 +1527,10 @@ symbols:
 ✒	af-qalin madow	none
 🖋	qalin saxeex	none
 🖊	qalin	none
-🖌	burushka buufinta	none
+🖌	burushka rinjiga	none
 🖍	kalar	none
 📝	xusuus qor	none
+🪌	tirtire	none
 💼	shandad shaqo	none
 📁	fooldarka faylasha	none
 📂	fooldarka faylasha oo furan	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	xidhan oo fure wata	none
 🔑	fure	none
 🗝	fure qadiimi ah	none
+🪍	shabaq leh goob la qabto	none
 🔨	dube	none
 🪓	faas	none
 ⛏	madaraq	none
@@ -1713,7 +1722,7 @@ symbols:
 ⏮	badhanka daarista ugu dambeeya	none
 🔼	badhanka xagga sare	none
 ⏫	badhanka degdegga sare ah	none
-🔽	badhanka xagga hoose	none
+🔽	badhanka xagga hoose u jeeda	none
 ⏬	badhanka degdegga hoose	none
 ⏸	badhanka hakinta	none
 ⏹	badhanka joojinta	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	suulka hoos jidh nooc dhexe	none
 👎🏾	suulka hoos jidh nooc madaw oo dhexe	none
 👎🏿	suulka hoos jidh madaw	none
+🫹🏻	calaamada suul-taaga gacanta bidix jidh fudud	none
+🫹🏼	calaamada suul-taaga gacanta bidix jidh fudud oo dhexe	none
+🫹🏽	calaamada suul-taaga gacanta bidix jidh nooc dhexe	none
+🫹🏾	calaamada suul-taaga gacanta bidix jidh nooc madaw oo dhexe	none
+🫹🏿	calaamada suul-taaga gacanta bidix jidh madaw	none
+🫺🏻	calaamada suul-taaga gacanta midigta jidh fudud	none
+🫺🏼	calaamada suul-taaga gacanta midigta jidh fudud oo dhexe	none
+🫺🏽	calaamada suul-taaga gacanta midigta jidh nooc dhexe	none
+🫺🏾	calaamada suul-taaga gacanta midigta jidh nooc madaw oo dhexe	none
+🫺🏿	calaamada suul-taaga gacanta midigta jidh madaw	none
 ✊🏻	kor u qaadid tantoonyo (feer) jidh fudud	none
 ✊🏼	kor u qaadid tantoonyo (feer) jidh fudud oo dhexe	none
 ✊🏽	kor u qaadid tantoonyo (feer) jidh nooc dhexe	none
@@ -2206,12 +2225,12 @@ symbols:
 🧑🏽‍🦱	qof jidh nooc dhexe, timo walaaqan	none
 🧑🏾‍🦱	qof jidh nooc madaw oo dhexe, timo walaaqan	none
 🧑🏿‍🦱	qof jidh madaw, timo walaaqan	none
-🧑‍🦳	qof caddaan	none
-🧑🏻‍🦳	qof jidh fudud, caddaan	none
-🧑🏼‍🦳	qof jidh fudud oo dhexe, caddaan	none
-🧑🏽‍🦳	qof jidh nooc dhexe, caddaan	none
-🧑🏾‍🦳	qof jidh nooc madaw oo dhexe, caddaan	none
-🧑🏿‍🦳	qof jidh madaw, caddaan	none
+🧑‍🦳	qof timo cad	none
+🧑🏻‍🦳	qof jidh fudud, timo cad	none
+🧑🏼‍🦳	qof jidh fudud oo dhexe, timo cad	none
+🧑🏽‍🦳	qof jidh nooc dhexe, timo cad	none
+🧑🏾‍🦳	qof jidh nooc madaw oo dhexe, timo cad	none
+🧑🏿‍🦳	qof jidh madaw, timo cad	none
 🧑‍🦲	qof bidaar	none
 🧑🏻‍🦲	qof jidh fudud, bidaar	none
 🧑🏼‍🦲	qof jidh fudud oo dhexe, bidaar	none
@@ -2340,12 +2359,12 @@ symbols:
 👨🏽‍🦱	ninka jidh nooc dhexe, timo walaaqan	none
 👨🏾‍🦱	ninka jidh nooc madaw oo dhexe, timo walaaqan	none
 👨🏿‍🦱	ninka jidh madaw, timo walaaqan	none
-👨‍🦳	ninka caddaan	none
-👨🏻‍🦳	ninka jidh fudud, caddaan	none
-👨🏼‍🦳	ninka jidh fudud oo dhexe, caddaan	none
-👨🏽‍🦳	ninka jidh nooc dhexe, caddaan	none
-👨🏾‍🦳	ninka jidh nooc madaw oo dhexe, caddaan	none
-👨🏿‍🦳	ninka jidh madaw, caddaan	none
+👨‍🦳	ninka timo cad	none
+👨🏻‍🦳	ninka jidh fudud, timo cad	none
+👨🏼‍🦳	ninka jidh fudud oo dhexe, timo cad	none
+👨🏽‍🦳	ninka jidh nooc dhexe, timo cad	none
+👨🏾‍🦳	ninka jidh nooc madaw oo dhexe, timo cad	none
+👨🏿‍🦳	ninka jidh madaw, timo cad	none
 👨‍🦲	ninka bidaar	none
 👨🏻‍🦲	ninka jidh fudud, bidaar	none
 👨🏼‍🦲	ninka jidh fudud oo dhexe, bidaar	none
@@ -2519,12 +2538,12 @@ symbols:
 👩🏽‍🦱	naag jidh nooc dhexe, timo walaaqan	none
 👩🏾‍🦱	naag jidh nooc madaw oo dhexe, timo walaaqan	none
 👩🏿‍🦱	naag jidh madaw, timo walaaqan	none
-👩‍🦳	naag caddaan	none
-👩🏻‍🦳	naag jidh fudud, caddaan	none
-👩🏼‍🦳	naag jidh fudud oo dhexe, caddaan	none
-👩🏽‍🦳	naag jidh nooc dhexe, caddaan	none
-👩🏾‍🦳	naag jidh nooc madaw oo dhexe, caddaan	none
-👩🏿‍🦳	naag jidh madaw, caddaan	none
+👩‍🦳	naag timo cad	none
+👩🏻‍🦳	naag jidh fudud, timo cad	none
+👩🏼‍🦳	naag jidh fudud oo dhexe, timo cad	none
+👩🏽‍🦳	naag jidh nooc dhexe, timo cad	none
+👩🏾‍🦳	naag jidh nooc madaw oo dhexe, timo cad	none
+👩🏿‍🦳	naag jidh madaw, timo cad	none
 👩‍🦲	naag bidaar	none
 👩🏻‍🦲	naag jidh fudud, bidaar	none
 👩🏼‍🦲	naag jidh fudud oo dhexe, bidaar	none
@@ -3965,7 +3984,7 @@ symbols:
 🇧🇷	calan Baraasiil	none
 🇧🇸	calan Bahaamas	none
 🇧🇹	calan Buutan	none
-🇧🇻	calan Buufet Island	none
+🇧🇻	calan Jasiiradda Bouvet	none
 🇧🇼	calan Botuswaana	none
 🇧🇾	calan Belarus	none
 🇧🇿	calan Beliis	none

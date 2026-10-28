@@ -275,6 +275,7 @@ symbols:
 🙂	față ușor zâmbitoare	none
 🙃	față cu susul în jos	none
 🫠	față care se topește	none
+🫫	față care se crapă	none
 😉	față care face cu ochiul	none
 😊	față zâmbitoare cu ochi zâmbitori	none
 😇	față zâmbitoare cu aură	none
@@ -464,6 +465,8 @@ symbols:
 🫵	deget arătător îndreptat spre privitor	none
 👍	semn de aprobare	none
 👎	semn de dezaprobare	none
+🫹	semn cu degetul mare spre stânga	none
+🫺	semn cu degetul mare spre dreapta	none
 ✊	pumn ridicat	none
 👊	lovitură de pumn	none
 🤛	pumn spre stânga	none
@@ -883,6 +886,7 @@ symbols:
 🦪	stridie	none
 🐌	melc	none
 🦋	fluture	none
+🫌	fluture monarh	none
 🐛	gândac	none
 🐜	furnică	none
 🐝	albină	none
@@ -954,6 +958,7 @@ symbols:
 🌶	ardei iute	none
 🫑	ardei gras	none
 🥒	castravete	none
+🫝	murătură	none
 🥬	verdețuri	none
 🥦	broccoli	none
 🧄	usturoi	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	semafor vertical	none
 🛑	semnul stop	none
 🚧	șantier	none
+🛙	far	none
 ⚓	ancoră	none
 🛟	colac de salvare	none
 ⛵	barcă cu pânze	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	om de zăpadă	none
 ⛄	om de zăpadă fără zăpadă	none
 ☄	cometă	none
+🪋	meteor	none
 🔥	foc	none
 💧	picătură	none
 🌊	val	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	pensulă	none
 🖍	creion colorat	none
 📝	notă	none
+🪌	radieră	none
 💼	servietă	none
 📁	dosar de arhivare	none
 📂	dosar de arhivare deschis	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	lacăt închis cu cheie	none
 🔑	cheie	none
 🗝	cheie veche	none
+🪍	plasă cu mâner	none
 🔨	ciocan	none
 🪓	topor	none
 ⛏	târnăcop	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	semn de dezaprobare ton mediu al pielii	none
 👎🏾	semn de dezaprobare ton semi‑închis al pielii	none
 👎🏿	semn de dezaprobare ton închis al pielii	none
+🫹🏻	semn cu degetul mare spre stânga ton deschis al pielii	none
+🫹🏼	semn cu degetul mare spre stânga ton semi‑deschis al pielii	none
+🫹🏽	semn cu degetul mare spre stânga ton mediu al pielii	none
+🫹🏾	semn cu degetul mare spre stânga ton semi‑închis al pielii	none
+🫹🏿	semn cu degetul mare spre stânga ton închis al pielii	none
+🫺🏻	semn cu degetul mare spre dreapta ton deschis al pielii	none
+🫺🏼	semn cu degetul mare spre dreapta ton semi‑deschis al pielii	none
+🫺🏽	semn cu degetul mare spre dreapta ton mediu al pielii	none
+🫺🏾	semn cu degetul mare spre dreapta ton semi‑închis al pielii	none
+🫺🏿	semn cu degetul mare spre dreapta ton închis al pielii	none
 ✊🏻	pumn ridicat ton deschis al pielii	none
 ✊🏼	pumn ridicat ton semi‑deschis al pielii	none
 ✊🏽	pumn ridicat ton mediu al pielii	none
