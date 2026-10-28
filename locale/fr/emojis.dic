@@ -238,10 +238,10 @@ symbols:
 ◗	demi-cercle droit plein	none
 ◘	puce noir au blanc	none
 ◙	carré plein contenant un cercle creux	none
-◜	arc de cercle dans le quadrant supérieur gauche	none
-◝	arc de cercle dans le quadrant supérieur droit	none
-◞	arc de cercle dans le quadrant inférieur droit	none
-◟	arc de cercle dans le quadrant inférieur gauche	none
+◜	arc de cercle quadrant supérieur gauche	none
+◝	arc de cercle quadrant supérieur droit	none
+◞	arc de cercle quadrant inférieur droit	none
+◟	arc de cercle quadrant inférieur gauche	none
 ◠	demi-cercle supérieur	none
 ◡	demi-cercle inférieur	none
 ◢	triangle rectangle inférieur droit plein	none
@@ -275,6 +275,7 @@ symbols:
 🙂	visage avec un léger sourire	none
 🙃	tête à l’envers	none
 🫠	visage qui fond	none
+🫫	visage craquelé	none
 😉	visage faisant un clin d’œil	none
 😊	visage souriant avec yeux rieurs	none
 😇	visage souriant avec auréole	none
@@ -464,6 +465,8 @@ symbols:
 🫵	index pointant vers l’utilisateur	none
 👍	pouce vers le haut	none
 👎	pouce vers le bas	none
+🫹	pouce vers la gauche	none
+🫺	pouce vers la droite	none
 ✊	poing levé	none
 👊	poing de face	none
 🤛	poing à gauche	none
@@ -883,6 +886,7 @@ symbols:
 🦪	huître	none
 🐌	escargot	none
 🦋	papillon	none
+🫌	monarque	none
 🐛	chenille	none
 🐜	fourmi	none
 🐝	abeille	none
@@ -954,6 +958,7 @@ symbols:
 🌶	piment rouge	none
 🫑	poivron	none
 🥒	concombre	none
+🫝	cornichon	none
 🥬	légume à feuilles vertes	none
 🥦	brocoli	none
 🧄	ail	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	feu tricolore vertical	none
 🛑	stop	none
 🚧	travaux	none
+🛙	phare	none
 ⚓	ancre	none
 🛟	bouée de sauvetage	none
 ⛵	voilier	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	bonhomme de neige	none
 ⛄	bonhomme de neige sans neige	none
 ☄	comète	none
+🪋	météorite	none
 🔥	feu	none
 💧	goutte d’eau	none
 🌊	vague	none
@@ -1428,6 +1435,7 @@ symbols:
 📻	radio	none
 🎷	saxophone	none
 🎺	trompette	none
+🪊	trombone à coulisse	none
 🪗	accordéon	none
 🎸	guitare	none
 🎹	piano	none
@@ -1522,6 +1530,7 @@ symbols:
 🖌	pinceau	none
 🖍	crayon pastel	none
 📝	mémo	none
+🪌	gomme	none
 💼	porte-documents	none
 📁	dossier	none
 📂	dossier ouvert	none
@@ -1551,6 +1560,7 @@ symbols:
 🔐	cadenas fermé avec clé	none
 🔑	clé	none
 🗝	clé ancienne	none
+🪍	filet avec manche	none
 🔨	marteau	none
 🪓	hache	none
 ⛏	pioche	none
@@ -2003,6 +2013,16 @@ symbols:
 👎🏽	pouce vers le bas  peau légèrement mate	none
 👎🏾	pouce vers le bas  peau mate	none
 👎🏿	pouce vers le bas  peau foncée	none
+🫹🏻	pouce vers la gauche  peau claire	none
+🫹🏼	pouce vers la gauche  peau moyennement claire	none
+🫹🏽	pouce vers la gauche  peau légèrement mate	none
+🫹🏾	pouce vers la gauche  peau mate	none
+🫹🏿	pouce vers la gauche  peau foncée	none
+🫺🏻	pouce vers la droite  peau claire	none
+🫺🏼	pouce vers la droite  peau moyennement claire	none
+🫺🏽	pouce vers la droite  peau légèrement mate	none
+🫺🏾	pouce vers la droite  peau mate	none
+🫺🏿	pouce vers la droite  peau foncée	none
 ✊🏻	poing levé  peau claire	none
 ✊🏼	poing levé  peau moyennement claire	none
 ✊🏽	poing levé  peau légèrement mate	none

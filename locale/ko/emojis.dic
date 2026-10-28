@@ -275,6 +275,7 @@ symbols:
 🙂	살짝 미소 짓는 얼굴	none
 🙃	거꾸로 된 얼굴	none
 🫠	녹아 내리는 얼굴	none
+🫫	금이 간 얼굴	none
 😉	윙크하는 얼굴	none
 😊	미소 짓는 눈으로 살짝 웃는 얼굴	none
 😇	후광이 비치는 웃는 얼굴	none
@@ -464,6 +465,8 @@ symbols:
 🫵	보는 사람을 가리키는 검지	none
 👍	올린 엄지	none
 👎	내린 엄지	none
+🫹	왼쪽을 향한 엄지	none
+🫺	오른쪽을 향한 엄지	none
 ✊	주먹	none
 👊	주먹 전면	none
 🤛	왼쪽을 향하는 주먹	none
@@ -883,6 +886,7 @@ symbols:
 🦪	굴	none
 🐌	달팽이	none
 🦋	나비	none
+🫌	제왕나비	none
 🐛	송충이	none
 🐜	개미	none
 🐝	꿀벌	none
@@ -954,6 +958,7 @@ symbols:
 🌶	홍고추	none
 🫑	피망	none
 🥒	오이	none
+🫝	피클	none
 🥬	녹색 채소	none
 🥦	브로콜리	none
 🧄	마늘	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	세로 신호등	none
 🛑	멈춤 표시	none
 🚧	공사 중	none
+🛙	등대	none
 ⚓	닻	none
 🛟	구명부환	none
 ⛵	돛단배	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	눈사람	none
 ⛄	스노우맨	none
 ☄	혜성	none
+🪋	유성	none
 🔥	불	none
 💧	물방울	none
 🌊	파도	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	붓	none
 🖍	크레용	none
 📝	메모	none
+🪌	지우개	none
 💼	서류 가방	none
 📁	폴더	none
 📂	폴더 열기	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	자물쇠와 열쇠	none
 🔑	열쇠	none
 🗝	오래된 열쇠	none
+🪍	잠자리채	none
 🔨	망치	none
 🪓	도끼	none
 ⛏	곡괭이	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	내린 엄지 갈색 피부	none
 👎🏾	내린 엄지 진한 갈색 피부	none
 👎🏿	내린 엄지 검은색 피부	none
+🫹🏻	왼쪽을 향한 엄지 하얀 피부	none
+🫹🏼	왼쪽을 향한 엄지 연한 갈색 피부	none
+🫹🏽	왼쪽을 향한 엄지 갈색 피부	none
+🫹🏾	왼쪽을 향한 엄지 진한 갈색 피부	none
+🫹🏿	왼쪽을 향한 엄지 검은색 피부	none
+🫺🏻	오른쪽을 향한 엄지 하얀 피부	none
+🫺🏼	오른쪽을 향한 엄지 연한 갈색 피부	none
+🫺🏽	오른쪽을 향한 엄지 갈색 피부	none
+🫺🏾	오른쪽을 향한 엄지 진한 갈색 피부	none
+🫺🏿	오른쪽을 향한 엄지 검은색 피부	none
 ✊🏻	주먹 하얀 피부	none
 ✊🏼	주먹 연한 갈색 피부	none
 ✊🏽	주먹 갈색 피부	none

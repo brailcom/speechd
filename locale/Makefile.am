@@ -44,6 +44,7 @@ nobase_localedata_DATA = \
 	ceb/emojis.dic \
 	chr/emojis.dic \
 	ckb/emojis.dic \
+	cop/emojis.dic \
 	cs/emojis.dic \
 	cv/emojis.dic \
 	cy/emojis.dic \
@@ -385,6 +386,7 @@ nobase_localedata_DATA = \
 	kn/symbols.dic \
 	ko/symbols.dic \
 	ky/symbols.dic \
+	lb/symbols.dic \
 	lt/symbols.dic \
 	mk/symbols.dic \
 	mn/symbols.dic \

@@ -275,6 +275,7 @@ symbols:
 🙂	seja ar vieglu smaidu	none
 🙃	apgriezta seja	none
 🫠	kūstoša seja	none
+🫫	plaisājoša seja	none
 😉	seja ar piemiegtu aci	none
 😊	smaidoša seja ar smaidošām acīm	none
 😇	smaidoša seja ar nimbu	none
@@ -464,6 +465,8 @@ symbols:
 🫵	rādītājpirksts pret sevi	none
 👍	augšupvērsts īkšķis	none
 👎	lejupvērsts īkšķis	none
+🫹	pa kreisi vērsts īkšķis	none
+🫺	pa labi vērsts īkšķis	none
 ✊	pacelta dūre	none
 👊	pretim vērsta dūre	none
 🤛	dūre pa kreisi	none
@@ -883,6 +886,7 @@ symbols:
 🦪	austere	none
 🐌	gliemezis	none
 🦋	taurenis	none
+🫌	monarha tauriņš	none
 🐛	kukainis	none
 🐜	skudra	none
 🐝	bite	none
@@ -954,6 +958,7 @@ symbols:
 🌶	asais pipars	none
 🫑	paprika	none
 🥒	gurķis	none
+🫝	marinēts gurķis	none
 🥬	lapu dārzenis	none
 🥦	brokoļi	none
 🧄	ķiploks	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	vertikāls luksofors	none
 🛑	stopzīme	none
 🚧	celtniecība	none
+🛙	bāka	none
 ⚓	enkurs	none
 🛟	gredzenu boja	none
 ⛵	buru laiva	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	sniegavīrs	none
 ⛄	sniegavīrs bez sniega	none
 ☄	komēta	none
+🪋	meteors	none
 🔥	uguns	none
 💧	lāse	none
 🌊	vilnis	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	ota	none
 🖍	krītiņš	none
 📝	piezīme	none
+🪌	dzēšgumija	none
 💼	portfelis	none
 📁	dokumentu mape	none
 📂	atvērta dokumentu mape	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	aizvērta slēdzene ar atslēgu	none
 🔑	atslēga	none
 🗝	veca atslēga	none
+🪍	tīkliņš ar rokturi	none
 🔨	āmurs	none
 🪓	cirvis	none
 ⛏	cirtnis	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	lejupvērsts īkšķis vidējs ādas tonis	none
 👎🏾	lejupvērsts īkšķis vidēji tumšs ādas tonis	none
 👎🏿	lejupvērsts īkšķis tumšs ādas tonis	none
+🫹🏻	pa kreisi vērsts īkšķis gaišs ādas tonis	none
+🫹🏼	pa kreisi vērsts īkšķis vidēji gaišs ādas tonis	none
+🫹🏽	pa kreisi vērsts īkšķis vidējs ādas tonis	none
+🫹🏾	pa kreisi vērsts īkšķis vidēji tumšs ādas tonis	none
+🫹🏿	pa kreisi vērsts īkšķis tumšs ādas tonis	none
+🫺🏻	pa labi vērsts īkšķis gaišs ādas tonis	none
+🫺🏼	pa labi vērsts īkšķis vidēji gaišs ādas tonis	none
+🫺🏽	pa labi vērsts īkšķis vidējs ādas tonis	none
+🫺🏾	pa labi vērsts īkšķis vidēji tumšs ādas tonis	none
+🫺🏿	pa labi vērsts īkšķis tumšs ādas tonis	none
 ✊🏻	pacelta dūre gaišs ādas tonis	none
 ✊🏼	pacelta dūre vidēji gaišs ādas tonis	none
 ✊🏽	pacelta dūre vidējs ādas tonis	none

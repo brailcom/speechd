@@ -233,7 +233,7 @@ symbols:
 ◒	sirkel med nedre halvdel fylt	none
 ◓	sirkel med øvre halvdel fylt	none
 ◔	sirkel med øvre høyre kvadrant fylt	none
-◕	sirkel med alt unntatt øvre venstre kvadrant fylt	none
+◕	fylt sirkel med øvre venstre kvadrant tom	none
 ◖	fylt venstre halvsirkel	none
 ◗	fylt høyre halvsirkel	none
 ◘	invertert punkttegn	none
@@ -275,6 +275,7 @@ symbols:
 🙂	smiler litt	none
 🙃	fjes som er opp-ned	none
 🫠	fjes som smelter	none
+🫫	krakelert fjes	none
 😉	blunkende ansikt	none
 😊	smil med smilende øyne	none
 😇	smil med glorie	none
@@ -464,6 +465,8 @@ symbols:
 🫵	pekefinger peker på leseren	none
 👍	tommel opp	none
 👎	tommel ned	none
+🫹	tommelfinger til venstre	none
+🫺	tommelfinger til høyre	none
 ✊	hevet knyttneve	none
 👊	knyttneve	none
 🤛	knyttneve mot venstre	none
@@ -883,6 +886,7 @@ symbols:
 🦪	østers	none
 🐌	snegle	none
 🦋	sommerfugl	none
+🫌	monarksommerfugl	none
 🐛	insekt	none
 🐜	maur	none
 🐝	honningbie	none
@@ -954,6 +958,7 @@ symbols:
 🌶	rød chili	none
 🫑	paprika	none
 🥒	agurk	none
+🫝	sylteagurk	none
 🥬	bladgrønnsaker	none
 🥦	brokkoli	none
 🧄	hvitløk	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	vertikale trafiklys	none
 🛑	stoppskilt	none
 🚧	anleggsarbeid	none
+🛙	fyrtårn	none
 ⚓	anker	none
 🛟	livbøye	none
 ⛵	seilbåt	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	snømann	none
 ⛄	snømann uten snø	none
 ☄	komet	none
+🪋	meteor	none
 🔥	ild	none
 💧	dråpe	none
 🌊	bølge	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	pensel	none
 🖍	fargestift	none
 📝	notat	none
+🪌	viskelær	none
 💼	dokumentmappe	none
 📁	arkivmappe	none
 📂	åpen arkivmappe	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	låst med nøkkel	none
 🔑	nøkkel	none
 🗝	gammeldags nøkkel	none
+🪍	håv	none
 🔨	hammer	none
 🪓	øks	none
 ⛏	hakke	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	tommel ned hudtype 4	none
 👎🏾	tommel ned hudtype 5	none
 👎🏿	tommel ned hudtype 6	none
+🫹🏻	tommelfinger til venstre hudtype 1–2	none
+🫹🏼	tommelfinger til venstre hudtype 3	none
+🫹🏽	tommelfinger til venstre hudtype 4	none
+🫹🏾	tommelfinger til venstre hudtype 5	none
+🫹🏿	tommelfinger til venstre hudtype 6	none
+🫺🏻	tommelfinger til høyre hudtype 1–2	none
+🫺🏼	tommelfinger til høyre hudtype 3	none
+🫺🏽	tommelfinger til høyre hudtype 4	none
+🫺🏾	tommelfinger til høyre hudtype 5	none
+🫺🏿	tommelfinger til høyre hudtype 6	none
 ✊🏻	hevet knyttneve hudtype 1–2	none
 ✊🏼	hevet knyttneve hudtype 3	none
 ✊🏽	hevet knyttneve hudtype 4	none

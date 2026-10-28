@@ -275,6 +275,7 @@ symbols:
 🙂	šiek tiek besišypsantis veidas	none
 🙃	apverstas veidas	none
 🫠	tirpstantis veidas	none
+🫫	lūžtantis veidas	none
 😉	mirksintis veidas	none
 😊	besišypsantis veidas su besišypsančiomis akimis	none
 😇	besišypsantis veidas su aureole	none
@@ -464,6 +465,8 @@ symbols:
 🫵	į žiūrovą rodantis smilius	none
 👍	nykštys į viršų	none
 👎	nykštys į apačią	none
+🫹	nykštys į kairę	none
+🫺	nykštys į dešinę	none
 ✊	iškeltas kumštis	none
 👊	artėjantis kumštis	none
 🤛	į kairę nukreiptas kumštis	none
@@ -883,6 +886,7 @@ symbols:
 🦪	austrė	none
 🐌	sraigė	none
 🦋	drugelis	none
+🫌	drugelis monarchas	none
 🐛	vabalas	none
 🐜	skruzdėlė	none
 🐝	bitė	none
@@ -954,6 +958,7 @@ symbols:
 🌶	aštrusis pipiras	none
 🫑	paprika	none
 🥒	agurkas	none
+🫝	raugintas agurkas	none
 🥬	lapinė daržovė	none
 🥦	brokolis	none
 🧄	česnakas	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	vertikalus šviesoforas	none
 🛑	sustojimo ženklas	none
 🚧	statybos	none
+🛙	švyturys	none
 ⚓	inkaras	none
 🛟	gelbėjimo ratas	none
 ⛵	burlaivis	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	sniego senis	none
 ⛄	sniego senis be sniego	none
 ☄	kometa	none
+🪋	meteoras	none
 🔥	ugnis	none
 💧	lašas	none
 🌊	vandens banga	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	teptukas	none
 🖍	kreidelė	none
 📝	atmintinė	none
+🪌	trintukas	none
 💼	portfelis	none
 📁	failų aplankas	none
 📂	atidarytas failų aplankas	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	užrakinta spyna su raktu	none
 🔑	raktas	none
 🗝	senas raktas	none
+🪍	tinklas su rankena	none
 🔨	plaktukas	none
 🪓	kirvis	none
 ⛏	kirstuvas	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	nykštys į apačią rusvos odos	none
 👎🏾	nykštys į apačią tamsios odos	none
 👎🏿	nykštys į apačią itin tamsios odos	none
+🫹🏻	nykštys į kairę šviesios odos	none
+🫹🏼	nykštys į kairę vidutinio gymio	none
+🫹🏽	nykštys į kairę rusvos odos	none
+🫹🏾	nykštys į kairę tamsios odos	none
+🫹🏿	nykštys į kairę itin tamsios odos	none
+🫺🏻	nykštys į dešinę šviesios odos	none
+🫺🏼	nykštys į dešinę vidutinio gymio	none
+🫺🏽	nykštys į dešinę rusvos odos	none
+🫺🏾	nykštys į dešinę tamsios odos	none
+🫺🏿	nykštys į dešinę itin tamsios odos	none
 ✊🏻	iškeltas kumštis šviesios odos	none
 ✊🏼	iškeltas kumštis vidutinio gymio	none
 ✊🏽	iškeltas kumštis rusvos odos	none

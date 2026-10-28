@@ -275,6 +275,7 @@ symbols:
 🙂	mặt cười mỉm	none
 🙃	mặt lộn ngược	none
 🫠	mặt tan chảy	none
+🫫	mặt rạn nứt	none
 😉	mặt nháy mắt	none
 😊	mặt cười híp mắt	none
 😇	mặt cười có hào quang	none
@@ -464,6 +465,8 @@ symbols:
 🫵	ngón trỏ chỉ vào người xem	none
 👍	dấu ra hiệu đồng ý	none
 👎	dấu ra hiệu từ chối	none
+🫹	biểu tượng ngón tay cái chỉ sang trái	none
+🫺	biểu tượng ngón tay cái chỉ sang phải	none
 ✊	nắm đấm giơ lên	none
 👊	nắm đấm	none
 🤛	nắm đấm hướng phía trái	none
@@ -883,6 +886,7 @@ symbols:
 🦪	hàu	none
 🐌	ốc sên	none
 🦋	bướm	none
+🫌	bướm chúa	none
 🐛	con bọ	none
 🐜	kiến	none
 🐝	ong mật	none
@@ -954,6 +958,7 @@ symbols:
 🌶	quả ớt	none
 🫑	ớt chuông	none
 🥒	dưa chuột	none
+🫝	dưa muối	none
 🥬	xanh lá	none
 🥦	xúp lơ xanh	none
 🧄	tỏi	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	đèn giao thông dọc	none
 🛑	ký hiệu dừng	none
 🚧	công trường	none
+🛙	hải đăng	none
 ⚓	mỏ neo	none
 🛟	phao cứu sinh	none
 ⛵	thuyền buồm	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	người tuyết	none
 ⛄	người tuyết không có tuyết	none
 ☄	sao chổi	none
+🪋	thiên thạch	none
 🔥	lửa	none
 💧	giọt nước	none
 🌊	sóng nước	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	cọ vẽ tranh	none
 🖍	bút sáp màu	none
 📝	sổ ghi nhớ	none
+🪌	cục tẩy	none
 💼	cặp tài liệu	none
 📁	thư mục tệp	none
 📂	thư mục tệp mở	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	khóa với chìa	none
 🔑	chìa khóa	none
 🗝	chìa khóa cũ	none
+🪍	vợt bắt côn trùng	none
 🔨	búa	none
 🪓	rìu	none
 ⛏	búa chim	none
@@ -1688,19 +1697,19 @@ symbols:
 🕎	cây đèn menorah	none
 🔯	ngôi sao sáu cánh có dấu chấm	none
 🪯	biểu tượng khanda	none
-♈	Bạch Dương	none
-♉	Kim Ngưu	none
-♊	Song Tử	none
-♋	Cự Giải	none
-♌	Sư Tử	none
-♍	Xử Nữ	none
-♎	Thiên Bình	none
-♏	Bọ Cạp	none
-♐	Nhân Mã	none
-♑	Ma Kết	none
-♒	Bảo Bình	none
-♓	Song Ngư	none
-⛎	Xà Phu	none
+♈	cung Bạch Dương	none
+♉	cung Kim Ngưu	none
+♊	cung Song Tử	none
+♋	cung Cự Giải	none
+♌	cung Sư Tử	none
+♍	cung Xử Nữ	none
+♎	cung Thiên Bình	none
+♏	cung Bọ Cạp	none
+♐	cung Nhân Mã	none
+♑	cung Ma Kết	none
+♒	cung Bảo Bình	none
+♓	cung Song Ngư	none
+⛎	cung Xà Phu	none
 🔀	nút xáo trộn bài	none
 🔁	nút lặp lại	none
 🔂	nút lặp lại một lần	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	dấu ra hiệu từ chối màu da trung bình	none
 👎🏾	dấu ra hiệu từ chối màu da tối trung bình	none
 👎🏿	dấu ra hiệu từ chối màu da tối	none
+🫹🏻	biểu tượng ngón tay cái chỉ sang trái màu da sáng	none
+🫹🏼	biểu tượng ngón tay cái chỉ sang trái màu da sáng trung bình	none
+🫹🏽	biểu tượng ngón tay cái chỉ sang trái màu da trung bình	none
+🫹🏾	biểu tượng ngón tay cái chỉ sang trái màu da tối trung bình	none
+🫹🏿	biểu tượng ngón tay cái chỉ sang trái màu da tối	none
+🫺🏻	biểu tượng ngón tay cái chỉ sang phải màu da sáng	none
+🫺🏼	biểu tượng ngón tay cái chỉ sang phải màu da sáng trung bình	none
+🫺🏽	biểu tượng ngón tay cái chỉ sang phải màu da trung bình	none
+🫺🏾	biểu tượng ngón tay cái chỉ sang phải màu da tối trung bình	none
+🫺🏿	biểu tượng ngón tay cái chỉ sang phải màu da tối	none
 ✊🏻	nắm đấm giơ lên màu da sáng	none
 ✊🏼	nắm đấm giơ lên màu da sáng trung bình	none
 ✊🏽	nắm đấm giơ lên màu da trung bình	none

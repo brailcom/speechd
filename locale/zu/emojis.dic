@@ -52,17 +52,17 @@ symbols:
 ⇁	i-harpoon barb yaphansi kwesokudla	none
 ⇂	i-harpoon barb yakwesokudla phansi	none
 ⇃	i-harpoon barb yakwesokunxele phansi	none
-⇄	umcibisholo wakwesokudla ngaphezu komcibisholo wakwesokunxele	none
+⇄	umcibisholo wakwesokudla ngaphezu kowakwesokunxele	none
 ⇅	phezulu-ukukhomba phezulu nasezansi	none
 ⇆	left-ukukhomba ku-right naku-left	none
-⇇	imicibisholo ebhangqiwe yangakwesokunxele	none
+⇇	imicibisholo ebhanqiwe yakwesokunxele	none
 ⇈	imicibisholo ebhangqiwe yaphezulu	none
 ⇉	imicibisholo ebhangqiwe yakwesokudla	none
 ⇊	imicibisholo ebhangqiwe yaphansi	none
-⇋	i-harpoon yangakwesokunxele ngaphezu kwe-harpon yangakwesokudla	none
-⇌	i-harpoon yangakwesokudla ngaphezu kwe-harpon yangakwesokunxele	none
+⇋	i-harpoon yakwesokunxele ngaphezu kweyakwesokudla	none
+⇌	i-harpoon yangakwesokudla kwi-harpon kwesokunxele	none
 ⇐	umcibisholo ongakubili wangakwesokunxele	none
-⇍	i-stroke somcibisholo ongakubili wangakwesokunxele	none
+⇍	i-stroke somcibisholo wangakwesokunxele	none
 ⇑	umcibisholo ongakubili waphezulu	none
 ⇒	umcibisholo ongakubili wangakwesokudla	none
 ⇏	i-stroke somcibisholo ongakubili wangakwesokudla	none
@@ -72,10 +72,10 @@ symbols:
 ⇖	umcibisholo ongakubili wasentshonalanga nenyakatho	none
 ⇗	umcibisholo ongakubili wasempumalanga nenyakatho	none
 ⇘	umcibisholo ongakubili waseningizimu esempumalanga	none
-⇙	umcibisholo ongakubili weningizimu esentshonalanga	none
-⇚	umcibisholo ongakuthathu wangakwesokunxele	none
+⇙	umcibisholo ongakubili weningizimu ntshonalanga	none
+⇚	umcibisholo ongakuthathu ngakwesokunxele	none
 ⇛	umcibisholo ongakuthathu wangakwesokudla	none
-⇜	umcibisholo we-squiggle ongakwesokunxele	none
+⇜	umcibisholo we-squiggle kwesokunxele	none
 ⇝	umcibisholo we-squiggle ongakwesokudla	none
 ⇞	i-stroke esingakubili somcibisholo ophezulu	none
 ⇟	i-stroke esingakubili somcibisholo ophansi	none
@@ -268,13 +268,14 @@ symbols:
 😃	ubuso obumoyizelayo obuvule umlomo	none
 😄	ubuso obumoyizelayo obuvule umlomo bunamehlo ajabule	none
 😁	ubuso obusinekile obunamehlo amoyizelayo	none
-😆	ubuso obumoyizelayo buvule umlomo buvale amehlo	none
-😅	ubuso obumoyizelayo obuvule umlomo nomjuluko obandayo	none
+😆	ubuso obuhleka inhlinini buvale amehlo	none
+😅	ubuso obuhleka inhlinini obujulukile	none
 🤣	ngihleka ngiyabhuquza	none
 😂	ubuso obunezinyembezi zentokozo	none
 🙂	ubuso obumoyizela kancane	none
 🙃	ubuso obupheke phansi	none
 🫠	ubuso obuncibilikayo	none
+🫫	cracking face	none
 😉	ubuso obucishe ihlo	none
 😊	ubuso obumoyizelayo namehlo ajabule	none
 😇	ubuso obumoyizela nosawubona	none
@@ -289,7 +290,7 @@ symbols:
 🥲	ubuso obumamathekayo obunonyembezi	none
 😋	ubuso obujabulela ukudla okumnandi	none
 😛	ubuso obukhiphele phandle ulimi	none
-😜	ubuso obukhiphele phandle ulimi obucishe ihlo	none
+😜	ubuso obucife ihlo bakhipha ulimi	none
 🤪	ubuso obuhlanyayo	none
 😝	ubuso obukhiphele phandle ulimi evale amehlo	none
 🤑	ubuso obunomlomo wemali	none
@@ -464,6 +465,8 @@ symbols:
 🫵	umunwe ukhomba umbukeli	none
 👍	ukumisa isithupha	none
 👎	ukubhekisa phansi isithupha	none
+🫹	uphawu lwesithupha lwesobunxele	none
+🫺	uphawu lwesithupha sokudla	none
 ✊	iqupha elimisiwe	none
 👊	iqupha elizayo	none
 🤛	inqindi ebheke kwesokunxele	none
@@ -883,6 +886,7 @@ symbols:
 🦪	i-oyster	none
 🐌	umnenke	none
 🦋	uvemvane	none
+🫌	monarch butterfly	none
 🐛	isilokozane	none
 🐜	intuthwane	none
 🐝	inyosi yoju	none
@@ -954,6 +958,7 @@ symbols:
 🌶	upelepele obabayo	none
 🫑	i-bell pepper	none
 🥒	ukhukhumba	none
+🫝	pickle	none
 🥬	leafy green	none
 🥦	i-bhulokholi	none
 🧄	igalikhi	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	irobhothi elibheke phezulu	none
 🛑	uphawu lokuma	none
 🚧	ukwakha	none
+🛙	indlu yesibani	none
 ⚓	ihange	none
 🛟	ring buoy	none
 ⛵	isikebhe sasolwandle	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	indoda yesithwathwa	none
 ⛄	indoda yesithwathwa engenasithwathwa	none
 ☄	ikhomethi	none
+🪋	umkhathi	none
 🔥	umlimo	none
 💧	iqabazi	none
 🌊	igagasi lamanzi	none
@@ -1468,7 +1475,7 @@ symbols:
 📸	ikhamera enefleshi	none
 📹	ividiyo khamera	none
 📼	ividiyo khasethi	none
-🔍	ibhodlela elikhulisayo elibheke kwesokunxele	none
+🔍	ibhodlela elibheke kwesokunxele	none
 🔎	ibhodlela elikhulisayo elibheke kwesokudla	none
 🕯	ikhandlela	none
 💡	igilobhu likagesi	none
@@ -1511,8 +1518,8 @@ symbols:
 📥	ibhokisi lokungenayo	none
 📦	iphasela	none
 📫	ibhokisi leposi elivaliwe elinefulegi eliphakanyisiwe	none
-📪	ibhokisi leposi elivaliwe elinefulegi elehlisiwe	none
-📬	ibhokisi leposi elivuliwe elinefulgi eliphakanyisiwe	none
+📪	iposi elivaliwe elinefulegi elehlisiwe	none
+📬	iposi elivuliwe elinefulegi eliphakanyisiwe	none
 📭	iposi elivuliwe elinefulegi elehlisiwe	none
 📮	ibhokisi leposi	none
 🗳	ibhokisi lebhalothi elinebhalothi	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	ibhulashi lokupeda	none
 🖍	ikhrayoni	none
 📝	imemo	none
+🪌	irabha	none
 💼	ibhrifukhesi	none
 📁	ifolda yefayela	none
 📂	vula ifolda yefayela	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	ingidi evaliwe enokhiye	none
 🔑	ukhiye	none
 🗝	ukhiye omdala	none
+🪍	inethi esesibambo	none
 🔨	isando	none
 🪓	imbazo	none
 ⛏	ipiki	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	ukubhekisa phansi isithupha uhlobo-4	none
 👎🏾	ukubhekisa phansi isithupha uhlobo-5	none
 👎🏿	ukubhekisa phansi isithupha uhlobo-6	none
+🫹🏻	uphawu lwesithupha lwesobunxele uhlobo-1-2	none
+🫹🏼	uphawu lwesithupha lwesobunxele uhlobo-3	none
+🫹🏽	uphawu lwesithupha lwesobunxele uhlobo-4	none
+🫹🏾	uphawu lwesithupha lwesobunxele uhlobo-5	none
+🫹🏿	uphawu lwesithupha lwesobunxele uhlobo-6	none
+🫺🏻	uphawu lwesithupha sokudla uhlobo-1-2	none
+🫺🏼	uphawu lwesithupha sokudla uhlobo-3	none
+🫺🏽	uphawu lwesithupha sokudla uhlobo-4	none
+🫺🏾	uphawu lwesithupha sokudla uhlobo-5	none
+🫺🏿	uphawu lwesithupha sokudla uhlobo-6	none
 ✊🏻	iqupha elimisiwe uhlobo-1-2	none
 ✊🏼	iqupha elimisiwe uhlobo-3	none
 ✊🏽	iqupha elimisiwe uhlobo-4	none
@@ -3924,7 +3943,7 @@ symbols:
 🇬🇼	ifulegi i-Guinea-Bissau	none
 🇬🇾	ifulegi i-Guyana	none
 🇭🇰	ifulegi i-Hong Kong SAR China	none
-🇭🇲	ifulegi I-Heard & McDonald Island	none
+🇭🇲	ifulegi i-Heard & McDonald Island	none
 🇭🇳	ifulegi i-Honduras	none
 🇭🇷	ifulegi i-Croatia	none
 🇭🇹	ifulegi i-Haiti	none
@@ -4062,8 +4081,8 @@ symbols:
 🇹🇿	ifulegi i-Tanzania	none
 🇺🇦	ifulegi i-Ukraine	none
 🇺🇬	ifulegi i-Uganda	none
-🇺🇲	ifulegi I-U.S. Outlying Islands	none
-🇺🇳	ifulegi I-United Nations	none
+🇺🇲	ifulegi i-U.S. Outlying Islands	none
+🇺🇳	ifulegi i-United Nations	none
 🇺🇸	ifulegi i-United States	none
 🇺🇾	ifulegi i-Uruguay	none
 🇺🇿	ifulegi i-Uzbekistan	none

@@ -275,6 +275,7 @@ symbols:
 🙂	muka tersenyum sedikit	none
 🙃	muka terbalik	none
 🫠	muka mencair	none
+🫫	muka meretak	none
 😉	muka kenyit mata	none
 😊	muka tersenyum dengan mata tersenyum	none
 😇	muka tersenyum dengan halo	none
@@ -464,6 +465,8 @@ symbols:
 🫵	jari telunjuk menunjuk ke arah pemandang	none
 👍	simbol bagus	none
 👎	simbol tidak bagus	none
+🫹	simbol ibu jari ke kiri	none
+🫺	simbol ibu jari ke kanan	none
 ✊	angkat penumbuk	none
 👊	penumbuk dari depan	none
 🤛	penumbuk ke kiri	none
@@ -883,6 +886,7 @@ symbols:
 🦪	tiram	none
 🐌	siput	none
 🦋	rama-rama	none
+🫌	kupu-kupu monarch	none
 🐛	ulat	none
 🐜	semut	none
 🐝	lebah madu	none
@@ -954,6 +958,7 @@ symbols:
 🌶	cili api	none
 🫑	cili kembung	none
 🥒	timun	none
+🫝	jeruk	none
 🥬	sayuran hijau	none
 🥦	brokoli	none
 🧄	bawang putih	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	lampu isyarat menegak	none
 🛑	tanda berhenti	none
 🚧	pembinaan	none
+🛙	rumah api	none
 ⚓	sauh	none
 🛟	boya	none
 ⛵	perahu layar	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	orang-orang salji	none
 ⛄	orang-orang salji tanpa salji	none
 ☄	komet	none
+🪋	meteor	none
 🔥	api	none
 💧	titisan air	none
 🌊	ombak laut	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	berus cat	none
 🖍	krayon	none
 📝	memo	none
+🪌	pemadam	none
 💼	beg bimbit	none
 📁	folder fail	none
 📂	folder buka fail	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	mangga terkunci dengan anak kunci	none
 🔑	kunci	none
 🗝	kunci lama	none
+🪍	jaring dengan pemegang	none
 🔨	tukul	none
 🪓	kapak	none
 ⛏	beliung	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	simbol tidak bagus ton kulit sederhana	none
 👎🏾	simbol tidak bagus ton kulit sederhana gelap	none
 👎🏿	simbol tidak bagus ton kulit gelap	none
+🫹🏻	simbol ibu jari ke kiri ton kulit cerah	none
+🫹🏼	simbol ibu jari ke kiri ton kulit sederhana cerah	none
+🫹🏽	simbol ibu jari ke kiri ton kulit sederhana	none
+🫹🏾	simbol ibu jari ke kiri ton kulit sederhana gelap	none
+🫹🏿	simbol ibu jari ke kiri ton kulit gelap	none
+🫺🏻	simbol ibu jari ke kanan ton kulit cerah	none
+🫺🏼	simbol ibu jari ke kanan ton kulit sederhana cerah	none
+🫺🏽	simbol ibu jari ke kanan ton kulit sederhana	none
+🫺🏾	simbol ibu jari ke kanan ton kulit sederhana gelap	none
+🫺🏿	simbol ibu jari ke kanan ton kulit gelap	none
 ✊🏻	angkat penumbuk ton kulit cerah	none
 ✊🏼	angkat penumbuk ton kulit sederhana cerah	none
 ✊🏽	angkat penumbuk ton kulit sederhana	none

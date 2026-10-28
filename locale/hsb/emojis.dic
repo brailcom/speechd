@@ -275,6 +275,7 @@ symbols:
 🙂	so tróšku posměwkowace wobličo	none
 🙃	znak stejace wobličo	none
 🫠	rozběžace wobličo	none
+🫫	rozkwěkane wobličo	none
 😉	wobličo, kiž ći přimiknje	none
 😊	wobličo z posměwkom a so smějacymaj wočomaj	none
 😇	wobličo z posměwkom a swjatosćinom	none
@@ -464,6 +465,8 @@ symbols:
 🫵	pokazowak, wusměrjeny na hladaceho	none
 👍	palc horje	none
 👎	palc dele	none
+🫹	palc dolěwa	none
+🫺	palc doprawa	none
 ✊	zběhnjena pjasć	none
 👊	spinana pjasć	none
 🤛	pjasć dolěwa	none
@@ -627,7 +630,7 @@ symbols:
 👼	jandźelk	none
 🎅	rumpodich	none
 🤶	rumpodichowka	none
-🧑‍🎄	hodowna wosoba	none
+🧑‍🎄	hodowna	none
 🦸	superrjek/ superrjekowka	none
 🦸‍♂	superrjek	none
 🦸‍♀	superrjekowka	none
@@ -883,6 +886,7 @@ symbols:
 🦪	wustrica	none
 🐌	šlink	none
 🦋	mjetelčka	none
+🫌	monarchowa mjetelčka	none
 🐛	husańca	none
 🐜	mrowja	none
 🐝	pčołka	none
@@ -954,6 +958,7 @@ symbols:
 🌶	peperoni	none
 🫑	paprika	none
 🥒	kórka	none
+🫝	kisała kórka	none
 🥬	łopjenojta zelenina	none
 🥦	brokoli	none
 🧄	kobołk	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	padoruna ampla	none
 🛑	stopowe znamjo	none
 🚧	twarnišćowe zaraćenje	none
+🛙	swětłownja	none
 ⚓	kótwica	none
 🛟	wuchowanska boja	none
 ⛵	płachtak	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	sněhowy muž	none
 ⛄	sněhowy muž bjez sněha	none
 ☄	komet	none
+🪋	meteor	none
 🔥	woheń	none
 💧	kapka	none
 🌊	žołma	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	seršćowc	none
 🖍	wóskowy barbjenčk	none
 📝	papjerka a wołojnik	none
+🪌	drapak	none
 💼	aktowka	none
 📁	rjadowak	none
 📂	wočinjeny rjadowak	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	zamk z klučikom	none
 🔑	kluč	none
 🗝	stary kluč	none
+🪍	sak z přimadłom	none
 🔨	hamor	none
 🪓	sekera	none
 ⛏	kilop	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	palc dele srěnja barba kože	none
 👎🏾	palc dele srěnjoćmowa barba kože	none
 👎🏿	palc dele ćmowa barba kože	none
+🫹🏻	palc dolěwa swětła barba kože	none
+🫹🏼	palc dolěwa srěnjoswětła barba kože	none
+🫹🏽	palc dolěwa srěnja barba kože	none
+🫹🏾	palc dolěwa srěnjoćmowa barba kože	none
+🫹🏿	palc dolěwa ćmowa barba kože	none
+🫺🏻	palc doprawa swětła barba kože	none
+🫺🏼	palc doprawa srěnjoswětła barba kože	none
+🫺🏽	palc doprawa srěnja barba kože	none
+🫺🏾	palc doprawa srěnjoćmowa barba kože	none
+🫺🏿	palc doprawa ćmowa barba kože	none
 ✊🏻	zběhnjena pjasć swětła barba kože	none
 ✊🏼	zběhnjena pjasć srěnjoswětła barba kože	none
 ✊🏽	zběhnjena pjasć srěnja barba kože	none
@@ -3141,11 +3160,11 @@ symbols:
 🤶🏽	rumpodichowka srěnja barba kože	none
 🤶🏾	rumpodichowka srěnjoćmowa barba kože	none
 🤶🏿	rumpodichowka ćmowa barba kože	none
-🧑🏻‍🎄	hodowna wosoba swětła barba kože	none
-🧑🏼‍🎄	hodowna wosoba srěnjoswětła barba kože	none
-🧑🏽‍🎄	hodowna wosoba srěnja barba kože	none
-🧑🏾‍🎄	hodowna wosoba srěnjoćmowa barba kože	none
-🧑🏿‍🎄	hodowna wosoba ćmowa barba kože	none
+🧑🏻‍🎄	hodowna swětła barba kože	none
+🧑🏼‍🎄	hodowna srěnjoswětła barba kože	none
+🧑🏽‍🎄	hodowna srěnja barba kože	none
+🧑🏾‍🎄	hodowna srěnjoćmowa barba kože	none
+🧑🏿‍🎄	hodowna ćmowa barba kože	none
 🦸🏻	superrjek/ superrjekowka swětła barba kože	none
 🦸🏼	superrjek/ superrjekowka srěnjoswětła barba kože	none
 🦸🏽	superrjek/ superrjekowka srěnja barba kože	none

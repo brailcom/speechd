@@ -275,6 +275,7 @@ symbols:
 🙂	wajah agak tersenyum	none
 🙃	wajah terbalik	none
 🫠	wajah meleleh	none
+🫫	wajah retak	none
 😉	wajah berkedip	none
 😊	wajah tersenyum dengan mata bahagia	none
 😇	wajah malaikat	none
@@ -464,6 +465,8 @@ symbols:
 🫵	jari telunjuk menunjuk penonton	none
 👍	jempol ke atas	none
 👎	jempol ke bawah	none
+🫹	isyarat jempol ke kiri	none
+🫺	isyarat jempol ke kanan	none
 ✊	tangan terkepal ke atas	none
 👊	tangan terkepal ke depan	none
 🤛	tinju kiri	none
@@ -883,6 +886,7 @@ symbols:
 🦪	tiram	none
 🐌	siput	none
 🦋	kupu-kupu	none
+🫌	kupu-kupu raja	none
 🐛	serangga kecil	none
 🐜	semut	none
 🐝	lebah madu	none
@@ -954,6 +958,7 @@ symbols:
 🌶	cabai pedas	none
 🫑	paprika	none
 🥒	ketimun	none
+🫝	acar ketimun	none
 🥬	selada hijau	none
 🥦	brokoli	none
 🧄	bawang putih	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	lampu lalu lintas vertikal	none
 🛑	rambu stop	none
 🚧	konstruksi	none
+🛙	mercusuar	none
 ⚓	jangkar	none
 🛟	ban pelampung	none
 ⛵	perahu layar	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	boneka salju dengan hujan salju	none
 ⛄	boneka salju tanpa salju	none
 ☄	komet	none
+🪋	meteor	none
 🔥	api	none
 💧	tetesan air	none
 🌊	ombak	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	kuas	none
 🖍	krayon	none
 📝	memo	none
+🪌	penghapus	none
 💼	tas kantor	none
 📁	folder file	none
 📂	folder file terbuka	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	gembok terkunci dengan kunci	none
 🔑	kunci	none
 🗝	kunci antik	none
+🪍	jaring dengan gagang	none
 🔨	palu	none
 🪓	kapak	none
 ⛏	beliung	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	jempol ke bawah warna kulit sedang	none
 👎🏾	jempol ke bawah warna kulit gelap-sedang	none
 👎🏿	jempol ke bawah warna kulit gelap	none
+🫹🏻	isyarat jempol ke kiri warna kulit cerah	none
+🫹🏼	isyarat jempol ke kiri warna kulit cerah-sedang	none
+🫹🏽	isyarat jempol ke kiri warna kulit sedang	none
+🫹🏾	isyarat jempol ke kiri warna kulit gelap-sedang	none
+🫹🏿	isyarat jempol ke kiri warna kulit gelap	none
+🫺🏻	isyarat jempol ke kanan warna kulit cerah	none
+🫺🏼	isyarat jempol ke kanan warna kulit cerah-sedang	none
+🫺🏽	isyarat jempol ke kanan warna kulit sedang	none
+🫺🏾	isyarat jempol ke kanan warna kulit gelap-sedang	none
+🫺🏿	isyarat jempol ke kanan warna kulit gelap	none
 ✊🏻	tangan terkepal ke atas warna kulit cerah	none
 ✊🏼	tangan terkepal ke atas warna kulit cerah-sedang	none
 ✊🏽	tangan terkepal ke atas warna kulit sedang	none
@@ -3958,7 +3977,7 @@ symbols:
 🇧🇯	bendera Benin	none
 🇧🇱	bendera Saint Barthélemy	none
 🇧🇲	bendera Bermuda	none
-🇧🇳	bendera Brunei	none
+🇧🇳	bendera Brunei Darussalam	none
 🇧🇴	bendera Bolivia	none
 🇧🇶	bendera Belanda Karibia	none
 🇧🇷	bendera Brasil	none

@@ -275,6 +275,7 @@ symbols:
 🙂	微笑む	none
 🙃	さかさまの顔	none
 🫠	溶けている顔	none
+🫫	ひび割れた顔	none
 😉	ウインク	none
 😊	にこにこ	none
 😇	天使の輪がついた笑顔	none
@@ -464,6 +465,8 @@ symbols:
 🫵	人を指差している手	none
 👍	サムズアップ	none
 👎	サムズダウン	none
+🫹	左向きの親指	none
+🫺	右向きの親指	none
 ✊	げんこつ	none
 👊	グー	none
 🤛	左向きのこぶし	none
@@ -883,6 +886,7 @@ symbols:
 🦪	牡蠣	none
 🐌	かたつむり	none
 🦋	チョウ	none
+🫌	オオカバマダラ	none
 🐛	毛虫	none
 🐜	アリ	none
 🐝	ミツバチ	none
@@ -954,6 +958,7 @@ symbols:
 🌶	とうがらし	none
 🫑	ピーマン	none
 🥒	キュウリ	none
+🫝	ピクルス	none
 🥬	葉野菜	none
 🥦	ブロッコリー	none
 🧄	ニンニク	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	信号縦	none
 🛑	止まれの標識	none
 🚧	工事中	none
+🛙	灯台	none
 ⚓	錨	none
 🛟	救命浮環	none
 ⛵	ヨット	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	雪だるまと雪	none
 ⛄	雪だるま	none
 ☄	彗星	none
+🪋	隕石	none
 🔥	火	none
 💧	水滴	none
 🌊	波	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	絵筆	none
 🖍	クレヨン	none
 📝	鉛筆とメモ	none
+🪌	消しゴム	none
 💼	ブリーフケース	none
 📁	フォルダー	none
 📂	開いたフォルダー	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	閉じた錠と鍵	none
 🔑	鍵	none
 🗝	古い鍵	none
+🪍	虫取り網	none
 🔨	ハンマー	none
 🪓	斧	none
 ⛏	つるはし	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	サムズダウン 中間の肌色	none
 👎🏾	サムズダウン やや濃い肌色	none
 👎🏿	サムズダウン 濃い肌色	none
+🫹🏻	左向きの親指 薄い肌色	none
+🫹🏼	左向きの親指 やや薄い肌色	none
+🫹🏽	左向きの親指 中間の肌色	none
+🫹🏾	左向きの親指 やや濃い肌色	none
+🫹🏿	左向きの親指 濃い肌色	none
+🫺🏻	右向きの親指 薄い肌色	none
+🫺🏼	右向きの親指 やや薄い肌色	none
+🫺🏽	右向きの親指 中間の肌色	none
+🫺🏾	右向きの親指 やや濃い肌色	none
+🫺🏿	右向きの親指 濃い肌色	none
 ✊🏻	げんこつ 薄い肌色	none
 ✊🏼	げんこつ やや薄い肌色	none
 ✊🏽	げんこつ 中間の肌色	none

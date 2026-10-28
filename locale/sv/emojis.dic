@@ -112,7 +112,7 @@ symbols:
 ∕	divisionsstreck	none
 ∗	asteriskoperator	none
 ∘	ringoperator	none
-∙	punktoperator	none
+∙	multiplikationspunktoperator	none
 √	kvadratrot	none
 ∝	proportionerlig	none
 ∞	oändlighetstecken	none
@@ -176,7 +176,7 @@ symbols:
 ⋁	n-ställig logik eller	none
 ⋂	n-ställigt snitt	none
 ⋃	n-ställig union	none
-⋅	prickoperator	none
+⋅	punktoperator	none
 ⋆	stjärnoperator	none
 ⋈	naturlig ordning	none
 ⋒	dubbelsnitt	none
@@ -275,6 +275,7 @@ symbols:
 🙂	småleende ansikte	none
 🙃	upp-och-nervänt ansikte	none
 🫠	smältande ansikte	none
+🫫	ansikte som spricker	none
 😉	ansikte som blinkar med ett öga	none
 😊	leende ansikte och ögon	none
 😇	leende ansikte med gloria	none
@@ -295,7 +296,7 @@ symbols:
 🤑	ansikte med dollarögon	none
 🤗	ansikte som kramas	none
 🤭	ansikte med handen för munnen	none
-🫢	ansikte med öppna ögon och hand för munnen	none
+🫢	ansikte med stora ögon och hand för mun	none
 🫣	ansikte med kikande öga	none
 🤫	hyssjande ansikte	none
 🤔	ansikte som tänker	none
@@ -464,6 +465,8 @@ symbols:
 🫵	finger som pekar på mig	none
 👍	tummen upp	none
 👎	tummen ned	none
+🫹	tumme åt vänster	none
+🫺	tumme åt höger	none
 ✊	knytnäve i luften	none
 👊	knuten hand	none
 🤛	vänstervänd näve	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ostron	none
 🐌	snigel	none
 🦋	fjäril	none
+🫌	monarkfjäril	none
 🐛	tusenfoting	none
 🐜	myra	none
 🐝	bi	none
@@ -954,6 +958,7 @@ symbols:
 🌶	chili	none
 🫑	paprika	none
 🥒	gurka	none
+🫝	smörgåsgurka	none
 🥬	sallat	none
 🥦	broccoli	none
 🧄	vitlök	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	lodräta trafikljus	none
 🛑	stoppskylt	none
 🚧	skylt för byggområde	none
+🛙	fyr	none
 ⚓	ankare	none
 🛟	livboj	none
 ⛵	segelbåt	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	snögubbe	none
 ⛄	snögubbe utan snö	none
 ☄	komet	none
+🪋	meteor	none
 🔥	eld	none
 💧	droppe	none
 🌊	våg	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	målarpensel	none
 🖍	krita	none
 📝	kom ihåg-block	none
+🪌	suddgummi	none
 💼	portfölj	none
 📁	arkivmapp	none
 📂	öppen mapp	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	lås med nyckel	none
 🔑	nyckel	none
 🗝	gammal nyckel	none
+🪍	håv	none
 🔨	hammare	none
 🪓	yxa	none
 ⛏	hacka	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	tummen ned mellanfärgad hy	none
 👎🏾	tummen ned mellanmörk hy	none
 👎🏿	tummen ned mörk hy	none
+🫹🏻	tumme åt vänster ljus hy	none
+🫹🏼	tumme åt vänster mellanljus hy	none
+🫹🏽	tumme åt vänster mellanfärgad hy	none
+🫹🏾	tumme åt vänster mellanmörk hy	none
+🫹🏿	tumme åt vänster mörk hy	none
+🫺🏻	tumme åt höger ljus hy	none
+🫺🏼	tumme åt höger mellanljus hy	none
+🫺🏽	tumme åt höger mellanfärgad hy	none
+🫺🏾	tumme åt höger mellanmörk hy	none
+🫺🏿	tumme åt höger mörk hy	none
 ✊🏻	knytnäve i luften ljus hy	none
 ✊🏼	knytnäve i luften mellanljus hy	none
 ✊🏽	knytnäve i luften mellanfärgad hy	none

@@ -99,7 +99,7 @@ symbols:
 ∇	nafla	none
 ∈	stak í	none
 ∉	ekki stak	none
-∋	stak	none
+∋	inniheldur sem stak	none
 ∎	endanleg sönnun	none
 ∏	n-unda-margfeldi	none
 ∑	n-unda-summun	none
@@ -275,6 +275,7 @@ symbols:
 🙂	milt bros	none
 🙃	andlit á hvolfi	none
 🫠	andlit að bráðna	none
+🫫	andlit með sprungur	none
 😉	blikkandi andlit	none
 😊	bros	none
 😇	brosandi andlit með geislabaug	none
@@ -464,6 +465,8 @@ symbols:
 🫵	vísifingur bendir á áhorfandann	none
 👍	þumall upp	none
 👎	þumall niður	none
+🫹	þumall til vinstri	none
+🫺	þumall til hægri	none
 ✊	hnefi	none
 👊	krepptur hnefi	none
 🤛	hægri hnefi	none
@@ -483,13 +486,13 @@ symbols:
 🦿	vélfótleggur	none
 🦵	fótleggur	none
 🦶	fótur	none
-👂	eyru	none
+👂	eyra	none
 🦻	eyra með heyrnartæki	none
 👃	nef	none
 🧠	heili	none
 🫀	hjartavöðvi	none
 🫁	lungu	none
-🦷	tennur	none
+🦷	tönn	none
 🦴	bein	none
 👀	augu	none
 👁	auga	none
@@ -600,7 +603,7 @@ symbols:
 💂‍♂	karlkyns vörður	none
 💂‍♀	kvenkyns vörður	none
 🥷	ninja	none
-👷	verkamaður	none
+👷	byggingaverkamaður	none
 👷‍♂	karlkyns byggingarstarfsmaður	none
 👷‍♀	kvenkyns byggingarstarfsmaður	none
 🫅	manneskja með kórónu	none
@@ -742,7 +745,7 @@ symbols:
 🤹‍♀	kona kastar boltum	none
 🧘	maður í lótuspósu	none
 🧘‍♂	karl í lótuspósu	none
-🧘‍♀	kona í lótusp´ósu	none
+🧘‍♀	kona í lótuspósu	none
 🛀	bað	none
 🛌	manneskja í rúmi	none
 🧑‍🤝‍🧑	fólk að leiðast	none
@@ -795,7 +798,7 @@ symbols:
 🦬	vísundur	none
 🐮	kýrhöfuð	none
 🐂	uxi	none
-🐃	vatnabuffaló	none
+🐃	vatnabuffall	none
 🐄	kýr	none
 🐷	svínshöfuð	none
 🐖	svín	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ostra	none
 🐌	snigill	none
 🦋	fiðrildi	none
+🫌	kóngafiðrildi	none
 🐛	skordýr	none
 🐜	maur	none
 🐝	hunangsfluga	none
@@ -954,6 +958,7 @@ symbols:
 🌶	chilipipar	none
 🫑	paprika	none
 🥒	gúrka	none
+🫝	súrkrás	none
 🥬	kál	none
 🥦	brokkólí	none
 🧄	hvítlaukur	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	lóðrétt umferðarljós	none
 🛑	stöðvunarskylda	none
 🚧	vegavinna	none
+🛙	viti	none
 ⚓	akkeri	none
 🛟	björgunarhringur	none
 ⛵	seglskúta	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	snjókarl í snjókomu	none
 ⛄	snjókarl	none
 ☄	halastjarna	none
+🪋	vígahnöttur	none
 🔥	eldur	none
 💧	dropi	none
 🌊	alda	none
@@ -1410,7 +1417,7 @@ symbols:
 💎	gimsteinn	none
 🔇	hljóðlaus hátalari	none
 🔈	lágvær hátalari	none
-🔉	hátalari í gangi	none
+🔉	hátalari á meðalstyrk	none
 🔊	hávær hátalari	none
 📢	Almannavarnahátalari	none
 📣	gjallarhorn	none
@@ -1515,7 +1522,7 @@ symbols:
 📬	opinn póstkassi með reistum fána	none
 📭	opinn póstkassi með niðurdregnum fána	none
 📮	póstkassi	none
-🗳	kjörseðlakassi með kjörseðli	none
+🗳	kjörkassi með kjörseðli	none
 ✏	blýantur	none
 ✒	svartur pennaoddur	none
 🖋	sjálfblekungur	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	málningarpensill	none
 🖍	vaxlitur	none
 📝	minnismiði	none
+🪌	strokleður	none
 💼	skjalataska	none
 📁	skráamappa	none
 📂	opin mappa	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	lokaður lás	none
 🔑	lykill	none
 🗝	gamall lykill	none
+🪍	háfur	none
 🔨	hamar	none
 🪓	öxi	none
 ⛏	haki	none
@@ -1690,16 +1699,16 @@ symbols:
 🪯	khanda	none
 ♈	hrúturinn	none
 ♉	nautið	none
-♊	tvíburar	none
+♊	tvíburarnir	none
 ♋	krabbinn	none
 ♌	ljónið	none
-♍	meyja	none
+♍	meyjan	none
 ♎	vogin	none
 ♏	sporðdrekinn	none
-♐	bogmaður	none
-♑	steingeit	none
-♒	vatnsberi	none
-♓	fiskar	none
+♐	bogmaðurinn	none
+♑	steingeitin	none
+♒	vatnsberinn	none
+♓	fiskarnir	none
 ⛎	naðurvaldi	none
 🔀	fléttaðar örvar til hægri	none
 🔁	endurtaka	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	þumall niður millihúðlitur	none
 👎🏾	þumall niður meðaldökkur húðlitur	none
 👎🏿	þumall niður dökkur húðlitur	none
+🫹🏻	þumall til vinstri ljós húðlitur	none
+🫹🏼	þumall til vinstri meðalljós húðlitur	none
+🫹🏽	þumall til vinstri millihúðlitur	none
+🫹🏾	þumall til vinstri meðaldökkur húðlitur	none
+🫹🏿	þumall til vinstri dökkur húðlitur	none
+🫺🏻	þumall til hægri ljós húðlitur	none
+🫺🏼	þumall til hægri meðalljós húðlitur	none
+🫺🏽	þumall til hægri millihúðlitur	none
+🫺🏾	þumall til hægri meðaldökkur húðlitur	none
+🫺🏿	þumall til hægri dökkur húðlitur	none
 ✊🏻	hnefi ljós húðlitur	none
 ✊🏼	hnefi meðalljós húðlitur	none
 ✊🏽	hnefi millihúðlitur	none
@@ -2089,11 +2108,11 @@ symbols:
 🦶🏽	fótur millihúðlitur	none
 🦶🏾	fótur meðaldökkur húðlitur	none
 🦶🏿	fótur dökkur húðlitur	none
-👂🏻	eyru ljós húðlitur	none
-👂🏼	eyru meðalljós húðlitur	none
-👂🏽	eyru millihúðlitur	none
-👂🏾	eyru meðaldökkur húðlitur	none
-👂🏿	eyru dökkur húðlitur	none
+👂🏻	eyra ljós húðlitur	none
+👂🏼	eyra meðalljós húðlitur	none
+👂🏽	eyra millihúðlitur	none
+👂🏾	eyra meðaldökkur húðlitur	none
+👂🏿	eyra dökkur húðlitur	none
 🦻🏻	eyra með heyrnartæki ljós húðlitur	none
 🦻🏼	eyra með heyrnartæki meðalljós húðlitur	none
 🦻🏽	eyra með heyrnartæki millihúðlitur	none
@@ -3006,11 +3025,11 @@ symbols:
 🥷🏽	ninja millihúðlitur	none
 🥷🏾	ninja meðaldökkur húðlitur	none
 🥷🏿	ninja dökkur húðlitur	none
-👷🏻	verkamaður ljós húðlitur	none
-👷🏼	verkamaður meðalljós húðlitur	none
-👷🏽	verkamaður millihúðlitur	none
-👷🏾	verkamaður meðaldökkur húðlitur	none
-👷🏿	verkamaður dökkur húðlitur	none
+👷🏻	byggingaverkamaður ljós húðlitur	none
+👷🏼	byggingaverkamaður meðalljós húðlitur	none
+👷🏽	byggingaverkamaður millihúðlitur	none
+👷🏾	byggingaverkamaður meðaldökkur húðlitur	none
+👷🏿	byggingaverkamaður dökkur húðlitur	none
 👷🏻‍♂	karlkyns byggingarstarfsmaður ljós húðlitur	none
 👷🏼‍♂	karlkyns byggingarstarfsmaður meðalljós húðlitur	none
 👷🏽‍♂	karlkyns byggingarstarfsmaður millihúðlitur	none
@@ -3774,11 +3793,11 @@ symbols:
 🧘🏽‍♂	karl í lótuspósu millihúðlitur	none
 🧘🏾‍♂	karl í lótuspósu meðaldökkur húðlitur	none
 🧘🏿‍♂	karl í lótuspósu dökkur húðlitur	none
-🧘🏻‍♀	kona í lótusp´ósu ljós húðlitur	none
-🧘🏼‍♀	kona í lótusp´ósu meðalljós húðlitur	none
-🧘🏽‍♀	kona í lótusp´ósu millihúðlitur	none
-🧘🏾‍♀	kona í lótusp´ósu meðaldökkur húðlitur	none
-🧘🏿‍♀	kona í lótusp´ósu dökkur húðlitur	none
+🧘🏻‍♀	kona í lótuspósu ljós húðlitur	none
+🧘🏼‍♀	kona í lótuspósu meðalljós húðlitur	none
+🧘🏽‍♀	kona í lótuspósu millihúðlitur	none
+🧘🏾‍♀	kona í lótuspósu meðaldökkur húðlitur	none
+🧘🏿‍♀	kona í lótuspósu dökkur húðlitur	none
 🛀🏻	bað ljós húðlitur	none
 🛀🏼	bað meðalljós húðlitur	none
 🛀🏽	bað millihúðlitur	none

@@ -275,6 +275,7 @@ symbols:
 🙂	uso unaotabasamu kwa mbali	none
 🙃	uso uliogeuzwa juu chini	none
 🫠	uso unaoyeyuka	none
+🫫	uso unaopasuka	none
 😉	uso unaokonyeza	none
 😊	uso unaotabasamu na macho yanayotabasamu	none
 😇	uso unaotabasamu ulio na mduara wa mwangaza juu yake	none
@@ -464,6 +465,8 @@ symbols:
 🫵	kidole cha shahada kinachomwelekea mtazamaji	none
 👍	dole gumba juu	none
 👎	dole gumba chini	none
+🫹	ishara ya dole gumba inayoelekea kushoto	none
+🫺	ishara ya dole gumba inayoelekea kulia	none
 ✊	ngumi iliyoinuliwa	none
 👊	ngumi uliyonyooshewa	none
 🤛	ngumi ya kulia	none
@@ -656,6 +659,7 @@ symbols:
 🧟‍♂	dubwana dume	none
 🧟‍♀	dubwana jike	none
 🧌	jitu	none
+🫈	mnyama mwenye manyoya	none
 💆	kukanda uso	none
 💆‍♂	mwanamume anayekandwa uso	none
 💆‍♀	mwanamke anayekandwa uso	none
@@ -865,6 +869,7 @@ symbols:
 🐳	nyangumi anayerusha maji	none
 🐋	nyangumi	none
 🐬	pomboo	none
+🫍	Chengo	none
 🦭	sili	none
 🐟	samaki	none
 🐠	samaki wa tropiki	none
@@ -881,6 +886,7 @@ symbols:
 🦪	chaza	none
 🐌	konokono	none
 🦋	kipepeo	none
+🫌	kipepeo mkubwa	none
 🐛	mdudu	none
 🐜	siafu	none
 🐝	nyuki	none
@@ -952,6 +958,7 @@ symbols:
 🌶	pilipili kali	none
 🫑	pilipili boga	none
 🥒	tango	none
+🫝	achali	none
 🥬	sukumawiki	none
 🥦	brokoli	none
 🧄	kitunguu saumu	none
@@ -1172,6 +1179,7 @@ symbols:
 🚦	taa wima ya trafiki	none
 🛑	taa ya kusimama	none
 🚧	ujenzi	none
+🛙	mnara wa taa	none
 ⚓	nanga	none
 🛟	boya okozi	none
 ⛵	mashua	none
@@ -1270,7 +1278,8 @@ symbols:
 ❄	chembe ya theluji	none
 ☃	sanamu ya mtu ya theluji	none
 ⛄	sanamu ya mtu ya theluji bila theluji	none
-☄	kimondo	none
+☄	Nyotamkia	none
+🪋	kimondo	none
 🔥	moto	none
 💧	tone	none
 🌊	wimbi la maji	none
@@ -1371,7 +1380,7 @@ symbols:
 🧤	glavu	none
 🧥	koti	none
 🧦	soksi	none
-👗	nguo	none
+👗	rinda	none
 👘	kimono	none
 🥻	sari	none
 🩱	nguo ya kuogelea	none
@@ -1521,6 +1530,7 @@ symbols:
 🖌	brashi ya kupaka rangi	none
 🖍	penseli laini	none
 📝	hati	none
+🪌	kifutio	none
 💼	mkoba	none
 📁	folda ya faili	none
 📂	folda ya faili iliyofunguliwa	none
@@ -1529,7 +1539,7 @@ symbols:
 📆	kalenda unayoweza kuchana kurasa	none
 🗒	daftari lililobanwa kwa waya wa mzunguko	none
 🗓	kalenda iliyofungwa kwa waya wa mzunguko	none
-📇	kadi	none
+📇	farahasa ya kadi	none
 📈	chati inayopanda	none
 📉	chati inayoshuka	none
 📊	chati ya miraba	none
@@ -1550,11 +1560,12 @@ symbols:
 🔐	kufuli iliyofungwa na ufunguo	none
 🔑	ufunguo	none
 🗝	ufunguo wa zamani	none
+🪍	wavu wenye mpini	none
 🔨	nyundo	none
 🪓	shoka	none
 ⛏	sululu	none
 ⚒	nyundo na sululu	none
-🛠	nyundo na spana malaya	none
+🛠	nyundo na spana	none
 🗡	sime	none
 ⚔	panga zilizopishanishwa	none
 💣	bomu	none
@@ -1562,7 +1573,7 @@ symbols:
 🏹	upinde na mshale	none
 🛡	ngao	none
 🪚	msumeno	none
-🔧	spana malaya	none
+🔧	spana	none
 🪛	bisibisi	none
 🔩	nati na bolti	none
 ⚙	gia	none
@@ -1628,7 +1639,7 @@ symbols:
 🏧	alama ya ATM	none
 🚮	weka taka kwenye pipa	none
 🚰	maji safi ya kunywa	none
-♿	kiti cha magurudumu	none
+♿	ishara ya kiti cha magurudumu	none
 🚹	maliwato ya wanaume	none
 🚺	maliwato ya wanawake	none
 🚻	maliwato	none
@@ -2002,6 +2013,16 @@ symbols:
 👎🏽	dole gumba chini ngozi ya kahawia	none
 👎🏾	dole gumba chini ngozi nyeusi kiasi	none
 👎🏿	dole gumba chini ngozi nyeusi	none
+🫹🏻	ishara ya dole gumba inayoelekea kushoto ngozi nyeupe	none
+🫹🏼	ishara ya dole gumba inayoelekea kushoto ngozi nyeupe kiasi	none
+🫹🏽	ishara ya dole gumba inayoelekea kushoto ngozi ya kahawia	none
+🫹🏾	ishara ya dole gumba inayoelekea kushoto ngozi nyeusi kiasi	none
+🫹🏿	ishara ya dole gumba inayoelekea kushoto ngozi nyeusi	none
+🫺🏻	ishara ya dole gumba inayoelekea kulia ngozi nyeupe	none
+🫺🏼	ishara ya dole gumba inayoelekea kulia ngozi nyeupe kiasi	none
+🫺🏽	ishara ya dole gumba inayoelekea kulia ngozi ya kahawia	none
+🫺🏾	ishara ya dole gumba inayoelekea kulia ngozi nyeusi kiasi	none
+🫺🏿	ishara ya dole gumba inayoelekea kulia ngozi nyeusi	none
 ✊🏻	ngumi iliyoinuliwa ngozi nyeupe	none
 ✊🏼	ngumi iliyoinuliwa ngozi nyeupe kiasi	none
 ✊🏽	ngumi iliyoinuliwa ngozi ya kahawia	none
@@ -3954,18 +3975,18 @@ symbols:
 🇧🇬	bendera Bulgaria	none
 🇧🇭	bendera Bahareni	none
 🇧🇮	bendera Burundi	none
-🇧🇯	bendera Benin	none
+🇧🇯	bendera Benini	none
 🇧🇱	bendera St. Barthelemy	none
 🇧🇲	bendera Bermuda	none
 🇧🇳	bendera Brunei	none
 🇧🇴	bendera Bolivia	none
 🇧🇶	bendera Uholanzi ya Karibiani	none
-🇧🇷	bendera Brazil	none
+🇧🇷	bendera Brazili	none
 🇧🇸	bendera Bahama	none
 🇧🇹	bendera Bhutan	none
 🇧🇻	bendera Kisiwa cha Bouvet	none
 🇧🇼	bendera Botswana	none
-🇧🇾	bendera Belarus	none
+🇧🇾	bendera Belarusi	none
 🇧🇿	bendera Belize	none
 🇨🇦	bendera Kanada	none
 🇨🇨	bendera Visiwa vya Cocos (Keeling)	none
@@ -3996,7 +4017,7 @@ symbols:
 🇩🇴	bendera Jamhuri ya Dominika	none
 🇩🇿	bendera Aljeria	none
 🇪🇦	bendera Ceuta na Melilla	none
-🇪🇨	bendera Ecuador	none
+🇪🇨	bendera Ekwado	none
 🇪🇪	bendera Estonia	none
 🇪🇬	bendera Misri	none
 🇪🇭	bendera Sahara Magharibi	none
@@ -4010,7 +4031,7 @@ symbols:
 🇫🇲	bendera Mikronesia	none
 🇫🇴	bendera Visiwa vya Faroe	none
 🇫🇷	bendera Ufaransa	none
-🇬🇦	bendera Gabon	none
+🇬🇦	bendera Goboni	none
 🇬🇧	bendera Ufalme wa Muungano	none
 🇬🇩	bendera Grenada	none
 🇬🇪	bendera Jojia	none
@@ -4069,11 +4090,11 @@ symbols:
 🇱🇷	bendera Liberia	none
 🇱🇸	bendera Lesoto	none
 🇱🇹	bendera Lithuania	none
-🇱🇺	bendera Luxembourg	none
+🇱🇺	bendera Lasembagi	none
 🇱🇻	bendera Latvia	none
 🇱🇾	bendera Libya	none
-🇲🇦	bendera Morocco	none
-🇲🇨	bendera Monaco	none
+🇲🇦	bendera Moroko	none
+🇲🇨	bendera Monako	none
 🇲🇩	bendera Moldova	none
 🇲🇪	bendera Montenegro	none
 🇲🇫	bendera St. Martin	none
@@ -4107,22 +4128,22 @@ symbols:
 🇳🇷	bendera Nauru	none
 🇳🇺	bendera Niue	none
 🇳🇿	bendera Nyuzilandi	none
-🇴🇲	bendera Oman	none
+🇴🇲	bendera Omani	none
 🇵🇦	bendera Panama	none
 🇵🇪	bendera Peru	none
 🇵🇫	bendera Polynesia ya Ufaransa	none
 🇵🇬	bendera Papua New Guinea	none
 🇵🇭	bendera Ufilipino	none
 🇵🇰	bendera Pakistani	none
-🇵🇱	bendera Poland	none
+🇵🇱	bendera Polandi	none
 🇵🇲	bendera Santapierre na Miquelon	none
 🇵🇳	bendera Visiwa vya Pitcairn	none
 🇵🇷	bendera Puerto Rico	none
 🇵🇸	bendera Maeneo ya Palestina	none
 🇵🇹	bendera Ureno	none
 🇵🇼	bendera Palau	none
-🇵🇾	bendera Paraguay	none
-🇶🇦	bendera Qatar	none
+🇵🇾	bendera Paragwai	none
+🇶🇦	bendera Katari	none
 🇷🇪	bendera Reunion	none
 🇷🇴	bendera Romania	none
 🇷🇸	bendera Serbia	none
@@ -4131,7 +4152,7 @@ symbols:
 🇸🇦	bendera Saudia	none
 🇸🇧	bendera Visiwa vya Solomon	none
 🇸🇨	bendera Ushelisheli	none
-🇸🇩	bendera Sudan	none
+🇸🇩	bendera Sudani	none
 🇸🇪	bendera Uswidi	none
 🇸🇬	bendera Singapore	none
 🇸🇭	bendera St. Helena	none
@@ -4147,11 +4168,11 @@ symbols:
 🇸🇹	bendera Sao Tome na Principe	none
 🇸🇻	bendera El Salvador	none
 🇸🇽	bendera Sint Maarten	none
-🇸🇾	bendera Syria	none
+🇸🇾	bendera Siria	none
 🇸🇿	bendera Eswatini	none
 🇹🇦	bendera Tristan da Cunha	none
 🇹🇨	bendera Visiwa vya Turks na Caicos	none
-🇹🇩	bendera Chad	none
+🇹🇩	bendera Chadi	none
 🇹🇫	bendera Himaya za Kusini za Kifaranza	none
 🇹🇬	bendera Togo	none
 🇹🇭	bendera Tailandi	none
@@ -4171,7 +4192,7 @@ symbols:
 🇺🇲	bendera Visiwa Vidogo vya Nje vya Marekani	none
 🇺🇳	bendera Umoja wa Mataifa	none
 🇺🇸	bendera Marekani	none
-🇺🇾	bendera Uruguay	none
+🇺🇾	bendera Urugwai	none
 🇺🇿	bendera Uzibekistani	none
 🇻🇦	bendera Mji wa Vatican	none
 🇻🇨	bendera St. Vincent na Grenadines	none

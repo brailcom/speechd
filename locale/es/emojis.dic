@@ -275,6 +275,7 @@ symbols:
 🙂	cara sonriendo ligeramente	none
 🙃	cara al revés	none
 🫠	cara derritiéndose	none
+🫫	cara resquebrajándose	none
 😉	cara guiñando el ojo	none
 😊	cara feliz con ojos sonrientes	none
 😇	cara sonriendo con aureola	none
@@ -464,6 +465,8 @@ symbols:
 🫵	dedo índice apuntándote a ti	none
 👍	pulgar hacia arriba	none
 👎	pulgar hacia abajo	none
+🫹	pulgar hacia la izquierda	none
+🫺	pulgar hacia la derecha	none
 ✊	puño en alto	none
 👊	puño cerrado	none
 🤛	puño hacia la izquierda	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ostra	none
 🐌	caracol	none
 🦋	mariposa	none
+🫌	mariposa monarca	none
 🐛	bicho	none
 🐜	hormiga	none
 🐝	abeja	none
@@ -954,6 +958,7 @@ symbols:
 🌶	chile picante	none
 🫑	pimiento	none
 🥒	pepino	none
+🫝	pepinillo	none
 🥬	verdura de hoja verde	none
 🥦	brócoli	none
 🧄	ajo	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	semáforo	none
 🛑	señal de stop	none
 🚧	obras	none
+🛙	faro	none
 ⚓	ancla	none
 🛟	salvavidas	none
 ⛵	velero	none
@@ -1272,7 +1278,8 @@ symbols:
 ❄	copo de nieve	none
 ☃	muñeco de nieve con nieve	none
 ⛄	muñeco de nieve	none
-☄	meteorito	none
+☄	cometa espacial	none
+🪋	meteorito	none
 🔥	fuego	none
 💧	gota	none
 🌊	ola de mar	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	pincel	none
 🖍	lápiz de cera	none
 📝	cuaderno de notas	none
+🪌	goma de borrar	none
 💼	maletín	none
 📁	carpeta de archivos	none
 📂	carpeta de archivos abierta	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	candado cerrado y llave	none
 🔑	llave	none
 🗝	llave antigua	none
+🪍	red con mango	none
 🔨	martillo	none
 🪓	hacha	none
 ⛏	pico	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	pulgar hacia abajo tono de piel medio	none
 👎🏾	pulgar hacia abajo tono de piel oscuro medio	none
 👎🏿	pulgar hacia abajo tono de piel oscuro	none
+🫹🏻	pulgar hacia la izquierda tono de piel claro	none
+🫹🏼	pulgar hacia la izquierda tono de piel claro medio	none
+🫹🏽	pulgar hacia la izquierda tono de piel medio	none
+🫹🏾	pulgar hacia la izquierda tono de piel oscuro medio	none
+🫹🏿	pulgar hacia la izquierda tono de piel oscuro	none
+🫺🏻	pulgar hacia la derecha tono de piel claro	none
+🫺🏼	pulgar hacia la derecha tono de piel claro medio	none
+🫺🏽	pulgar hacia la derecha tono de piel medio	none
+🫺🏾	pulgar hacia la derecha tono de piel oscuro medio	none
+🫺🏿	pulgar hacia la derecha tono de piel oscuro	none
 ✊🏻	puño en alto tono de piel claro	none
 ✊🏼	puño en alto tono de piel claro medio	none
 ✊🏽	puño en alto tono de piel medio	none

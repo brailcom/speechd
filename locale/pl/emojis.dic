@@ -275,6 +275,7 @@ symbols:
 🙂	lekko uśmiechnięta twarz	none
 🙃	odwrócona twarz	none
 🫠	roztapiająca się twarz	none
+🫫	popękana twarz	none
 😉	twarz puszczająca oko	none
 😊	uśmiechnięta twarz o roześmianych oczach	none
 😇	uśmiechnięta twarz z aureolą	none
@@ -464,6 +465,8 @@ symbols:
 🫵	palec wskazujący skierowany na patrzącego	none
 👍	kciuk w górę	none
 👎	kciuk w dół	none
+🫹	gest kciuka w lewo	none
+🫺	gest kciuka w prawo	none
 ✊	wzniesiona pięść	none
 👊	pięść od przodu	none
 🤛	pięść skierowana w lewo	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ostryga	none
 🐌	ślimak	none
 🦋	motyl	none
+🫌	monarcha	none
 🐛	gąsienica	none
 🐜	mrówka	none
 🐝	pszczoła	none
@@ -954,6 +958,7 @@ symbols:
 🌶	ostra papryka	none
 🫑	papryka	none
 🥒	ogórek	none
+🫝	ogórek kiszony	none
 🥬	warzywo liściaste	none
 🥦	brokuł	none
 🧄	czosnek	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	pionowa sygnalizacja uliczna	none
 🛑	znak stopu	none
 🚧	prace drogowe	none
+🛙	latarnia morska	none
 ⚓	kotwica	none
 🛟	koło ratunkowe	none
 ⛵	żaglówka	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	bałwanek i płatki śniegu	none
 ⛄	bałwanek bez śniegu	none
 ☄	kometa	none
+🪋	meteor	none
 🔥	ogień	none
 💧	kropla	none
 🌊	fala	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	pędzel	none
 🖍	kredka	none
 📝	notatka	none
+🪌	gumka	none
 💼	teczka	none
 📁	folder	none
 📂	otwarty folder	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	zamknięta kłódka z kluczem	none
 🔑	klucz	none
 🗝	staroświecki klucz	none
+🪍	siatka z rączką	none
 🔨	młotek	none
 🪓	siekiera	none
 ⛏	kilof	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	kciuk w dół karnacja średnia	none
 👎🏾	kciuk w dół karnacja średnio ciemna	none
 👎🏿	kciuk w dół karnacja ciemna	none
+🫹🏻	gest kciuka w lewo karnacja jasna	none
+🫹🏼	gest kciuka w lewo karnacja średnio jasna	none
+🫹🏽	gest kciuka w lewo karnacja średnia	none
+🫹🏾	gest kciuka w lewo karnacja średnio ciemna	none
+🫹🏿	gest kciuka w lewo karnacja ciemna	none
+🫺🏻	gest kciuka w prawo karnacja jasna	none
+🫺🏼	gest kciuka w prawo karnacja średnio jasna	none
+🫺🏽	gest kciuka w prawo karnacja średnia	none
+🫺🏾	gest kciuka w prawo karnacja średnio ciemna	none
+🫺🏿	gest kciuka w prawo karnacja ciemna	none
 ✊🏻	wzniesiona pięść karnacja jasna	none
 ✊🏼	wzniesiona pięść karnacja średnio jasna	none
 ✊🏽	wzniesiona pięść karnacja średnia	none

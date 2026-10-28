@@ -23,10 +23,10 @@ symbols:
 ↡	shigjetë dymajëshe poshtë	none
 ↢	shigjetë majtas me bisht	none
 ↣	shigjetë djathtas me bisht	none
-↤	shigjetë majtas me shufër	none
-↥	shigjetë lart me shufër	none
-↦	shigjetë djathtas me shufër	none
-↧	shigjetë poshtë me shufër	none
+↤	shigjetë majtas nga vija vertikale	none
+↥	shigjetë lart nga vija vertikale	none
+↦	shigjetë djathtas nga vija vertikale	none
+↧	shigjetë poshtë nga vija vertikale	none
 ↨	shigjetë lart-poshtë me bazament	none
 ↫	shigjetë majtas me lak	none
 ↬	shigjetë djathtas me lak	none
@@ -40,8 +40,8 @@ symbols:
 ↵	shigjetë poshtë me kënd majtas	none
 ↶	shigjetë gjysmëhark lart me drejtim kundërorar	none
 ↷	shigjetë gjysmëhark lart me drejtim orar	none
-↸	shigjetë veriperëndim me tra të gjatë	none
-↹	shigjetë majtas me shufër mbi shigjetë djathtas me shufër	none
+↸	shigjetë nga veriperëndimi me vijë vertikale	none
+↹	shigjetë majtas e djathtas kundrejt vijave vertikale	none
 ↺	shigjetë rrethhapur me drejtim kundërorar	none
 ↻	shigjetë rrethhapur me drejtim orar	none
 ↼	fuzhnjë majtas me grep lart	none
@@ -69,9 +69,9 @@ symbols:
 ⇓	shigjetë dyshe poshtë	none
 ⇔	shigjetë dyshe majtas-djathtas	none
 ⇎	shigjetë dyshe majtas-djathtas me fraksion	none
-⇖	shigjetë dyshe veriperëndim	none
-⇗	shigjetë dyshe verilindje	none
-⇘	shigjetë dyshe juglindje	none
+⇖	shigjetë dyshe në veriperëndim	none
+⇗	shigjetë dyshe në verilindje	none
+⇘	shigjetë dyshe në juglindje	none
 ⇙	shigjetë dyshe drejt jugperëndimit	none
 ⇚	shigjetë treshe majtas	none
 ⇛	shigjetë treshe djathtas	none
@@ -83,13 +83,13 @@ symbols:
 ⇡	shigjetë lart me ndërprerje	none
 ⇢	shigjetë djathtas me ndërprerje	none
 ⇣	shigjetë poshtë me ndërprerje	none
-⇤	shigjetë me shufër majtas	none
-⇥	shigjetë me shufër djathtas	none
+⇤	shigjetë majtas me vijë vertikale	none
+⇥	shigjetë djathtas me vijë vertikale	none
 ⇦	shigjetë bosh majtas	none
 ⇧	shigjetë bosh lart	none
 ⇨	shigjetë bosh djathtas	none
 ⇩	shigjetë bosh poshtë	none
-⇪	shigjetë bosh lart nga shufër	none
+⇪	shigjetë bosh lart nga vija	none
 ⇵	shigjetë poshtë majtas shigjetë lart	none
 ∀	për të gjitha	none
 ∂	diferencial i pjesshëm	none
@@ -206,11 +206,11 @@ symbols:
 ▵	trekëndësh i zbrazët i vogël me drejtim lart	none
 ▷	trekëndësh i zbrazët i me drejtim djathtas	none
 ▸	trekëndësh i mbushur i vogël me drejtim djathtas	none
-▹	trekëndësh i mbushur i zbrazët me drejtim djathtas	none
+▹	trekëndësh i vogël i zbrazët me drejtim djathtas	none
 ►	tregues i mbushur me drejtim djathtas	none
 ▻	tregues i zbrazët me drejtim djathtas	none
 ▼	trekëndësh i mbushur, me drejtim poshtë	none
-▽	tregues i mbushur me drejtim poshtë	none
+▽	tregues bosh me drejtim poshtë	none
 ▾	trekëndësh i mbushur i vogël me drejtim poshtë	none
 ▿	trekëndësh i zbrazët i vogël me drejtim poshtë	none
 ◁	trekëndësh i zbrazët me drejtim majtas	none
@@ -234,14 +234,14 @@ symbols:
 ◓	rreth gjysmë i mbushur lart	none
 ◔	rreth me sektor të mbushur djathtas lart	none
 ◕	rreth i mbushur përveç sektorit majtas lart	none
-◖	gjysmërreth i mbushur i majtë	none
-◗	gjysmërreth i mbushur i djathtë	none
+◖	gjysmërreth i mbushur nga ana e majtë	none
+◗	gjysmërreth i mbushur nga ana e djathtë	none
 ◘	pikë e anasjellë	none
 ◙	katror i mbushur me rreth të zbrazët	none
-◜	hark sektori majtas lart	none
-◝	hark sektori djathtas lart	none
+◜	hark rrethor në kuadratin e sipërm majtas	none
+◝	hark rrethor në kuadratin e sipërm djathtas	none
 ◞	hark rrethor në çerekrrethin e djathtë poshtë	none
-◟	hark sektori majtas poshtë	none
+◟	hark rrethor në kuadratin e poshtëm majtas	none
 ◠	gjysmëhark lart	none
 ◡	gjysmëhark poshtë	none
 ◢	trekëndësh i mbushur djathtas poshtë	none
@@ -275,6 +275,7 @@ symbols:
 🙂	fytyrë pak e qeshur	none
 🙃	fytyrë përmbys	none
 🫠	fytyrë që shkrin	none
+🫫	fytyrë që çahet	none
 😉	fytyrë që shkel syrin	none
 😊	fytyrë e qeshur me sy të qeshur	none
 😇	fytyrë e qeshur me aureolë	none
@@ -464,6 +465,8 @@ symbols:
 🫵	gishti tregues nga shikuesi	none
 👍	gishti i madh lart	none
 👎	gishti i madh poshtë	none
+🫹	shenja e gishtit të madh majtas	none
+🫺	shenja e gishtit të madh djathtas	none
 ✊	grusht i ngritur	none
 👊	grusht që vjen	none
 🤛	grusht i majtë në anën e përparme	none
@@ -851,7 +854,7 @@ symbols:
 🦚	pallua	none
 🦜	papagall	none
 🪽	krah	none
-🐦‍⬛	zog i zi	none
+🐦‍⬛	korb	none
 🪿	patë	none
 🐦‍🔥	feniks	none
 🐸	fytyrë bretkose	none
@@ -883,6 +886,7 @@ symbols:
 🦪	gocë deti	none
 🐌	kërmill	none
 🦋	flutur	none
+🫌	flutur monarke	none
 🐛	shumëkëmbësh	none
 🐜	milingonë	none
 🐝	bletë	none
@@ -954,6 +958,7 @@ symbols:
 🌶	spec djegës	none
 🫑	patëllxhanë për mbushje	none
 🥒	kastravec	none
+🫝	kastravec turshi	none
 🥬	sallatë	none
 🥦	brokoli	none
 🧄	hudhër	none
@@ -1055,7 +1060,7 @@ symbols:
 🍴	pirun dhe thikë	none
 🥄	lugë	none
 🔪	thikë kuzhine	none
-🫙	kanë	none
+🫙	kavanoz	none
 🏺	amforë	none
 🌍	globi që tregon Evropën dhe Afrikën	none
 🌎	globi që tregon Amerikat	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	semafor vertikal	none
 🛑	shenja “ndalo”	none
 🚧	ndërtim	none
+🛙	far	none
 ⚓	spirancë	none
 🛟	bovë rrethore	none
 ⛵	varkë me vela	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	njeri prej bore	none
 ⛄	njeri prej bore pa borë	none
 ☄	kometë	none
+🪋	meteor	none
 🔥	zjarr	none
 💧	pikëz	none
 🌊	dallgë uji	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	furçë piktori	none
 🖍	shkumës me ngjyrë	none
 📝	shënime	none
+🪌	gomë fshirëse	none
 💼	valixhe	none
 📁	dosje dokumentesh	none
 📂	dosje dokumentesh e hapur	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	kyç i mbyllur me çelës	none
 🔑	çelës	none
 🗝	çelës i vjetër	none
+🪍	rrjetë me dorezë	none
 🔨	çekiç	none
 🪓	sëpatë	none
 ⛏	kazmë	none
@@ -1722,8 +1731,8 @@ symbols:
 🎦	kinema	none
 🔅	butoni i zbehjes	none
 🔆	butoni i ndriçimit	none
-📶	shiritat e antenës	none
-🛜	lidhje me valë	none
+📶	vijat e antenës	none
+🛜	wireless	none
 📳	modaliteti i dridhjeve	none
 📴	fik celularin	none
 ♀	shenja femër	none
@@ -1733,7 +1742,7 @@ symbols:
 ➕	shenja plus e trashë	none
 ➖	shenja minus e trashë	none
 ➗	shenja e pjesëtimit e trashë	none
-🟰	shenjë e fortë barazie	none
+🟰	shenjë barazimi e trashë	none
 ♾	pafundësi	none
 ❓	shenja e pikëpyetjes e kuqe	none
 ❔	pikëpyetje e bardhë	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	gishti i madh poshtë nuancë lëkure zeshkane	none
 👎🏾	gishti i madh poshtë nuancë lëkure gjysmë e errët	none
 👎🏿	gishti i madh poshtë nuancë lëkure e errët	none
+🫹🏻	shenja e gishtit të madh majtas nuancë lëkure e çelët	none
+🫹🏼	shenja e gishtit të madh majtas nuancë lëkure gjysmë e çelët	none
+🫹🏽	shenja e gishtit të madh majtas nuancë lëkure zeshkane	none
+🫹🏾	shenja e gishtit të madh majtas nuancë lëkure gjysmë e errët	none
+🫹🏿	shenja e gishtit të madh majtas nuancë lëkure e errët	none
+🫺🏻	shenja e gishtit të madh djathtas nuancë lëkure e çelët	none
+🫺🏼	shenja e gishtit të madh djathtas nuancë lëkure gjysmë e çelët	none
+🫺🏽	shenja e gishtit të madh djathtas nuancë lëkure zeshkane	none
+🫺🏾	shenja e gishtit të madh djathtas nuancë lëkure gjysmë e errët	none
+🫺🏿	shenja e gishtit të madh djathtas nuancë lëkure e errët	none
 ✊🏻	grusht i ngritur nuancë lëkure e çelët	none
 ✊🏼	grusht i ngritur nuancë lëkure gjysmë e çelët	none
 ✊🏽	grusht i ngritur nuancë lëkure zeshkane	none

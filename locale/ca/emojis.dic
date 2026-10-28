@@ -275,6 +275,7 @@ symbols:
 🙂	cara que somriu una mica	none
 🙃	cara de cap per avall	none
 🫠	cara que es desfà	none
+🫫	cara que s’esquerda	none
 😉	cara que pica l’ullet	none
 😊	cara somrient amb els ulls alegres	none
 😇	cara somrient amb aurèola	none
@@ -464,6 +465,8 @@ symbols:
 🫵	índex que assenyala l’espectador	none
 👍	polze cap amunt	none
 👎	polze cap avall	none
+🫹	polze cap a l’esquerra	none
+🫺	polze cap a la dreta	none
 ✊	puny alçat	none
 👊	cop de puny	none
 🤛	puny dret	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ostra	none
 🐌	cargol	none
 🦋	papallona	none
+🫌	papallona monarca	none
 🐛	eruga	none
 🐜	formiga	none
 🐝	abella	none
@@ -954,6 +958,7 @@ symbols:
 🌶	bitxo	none
 🫑	pebrot verd	none
 🥒	cogombre	none
+🫝	cogombret en vinagre	none
 🥬	fulla verda	none
 🥦	bròcoli	none
 🧄	all	none
@@ -1066,7 +1071,7 @@ symbols:
 🧭	brúixola	none
 🏔	muntanya amb neu al cim	none
 ⛰	muntanya	none
-🛘	esllevissada	none
+🛘	esllavissada	none
 🌋	volcà	none
 🗻	mont Fuji	none
 🏕	acampada	none
@@ -1119,7 +1124,7 @@ symbols:
 🌉	pont de nit	none
 ♨	fonts termals	none
 🎠	cavallets	none
-🛝	togoban	none
+🛝	tobogan	none
 🎡	roda de fira	none
 🎢	muntanya russa	none
 💈	barberia	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	semàfor vertical	none
 🛑	senyal d’estop	none
 🚧	obres	none
+🛙	far	none
 ⚓	àncora	none
 🛟	salvavides	none
 ⛵	veler	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	ninot de neu	none
 ⛄	ninot de neu sense neu	none
 ☄	cometa	none
+🪋	meteorit	none
 🔥	foc	none
 💧	gota	none
 🌊	onada	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	pinzell	none
 🖍	llapis de color	none
 📝	nota	none
+🪌	goma d’esborrar	none
 💼	maletí	none
 📁	carpeta de fitxers	none
 📂	carpeta de fitxers oberta	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	cadenat tancat amb clau	none
 🔑	clau	none
 🗝	clau antiga	none
+🪍	caçapapallones	none
 🔨	martell	none
 🪓	destral	none
 ⛏	pic	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	polze cap avall pell morena	none
 👎🏾	polze cap avall pell fosca	none
 👎🏿	polze cap avall pell molt fosca	none
+🫹🏻	polze cap a l’esquerra pell molt clara	none
+🫹🏼	polze cap a l’esquerra pell bastant clara	none
+🫹🏽	polze cap a l’esquerra pell morena	none
+🫹🏾	polze cap a l’esquerra pell fosca	none
+🫹🏿	polze cap a l’esquerra pell molt fosca	none
+🫺🏻	polze cap a la dreta pell molt clara	none
+🫺🏼	polze cap a la dreta pell bastant clara	none
+🫺🏽	polze cap a la dreta pell morena	none
+🫺🏾	polze cap a la dreta pell fosca	none
+🫺🏿	polze cap a la dreta pell molt fosca	none
 ✊🏻	puny alçat pell molt clara	none
 ✊🏼	puny alçat pell bastant clara	none
 ✊🏽	puny alçat pell morena	none
@@ -3931,7 +3950,7 @@ symbols:
 👩‍👧‍👦	família dona, noia i noi	none
 👩‍👧‍👧	família dona, noia i noia	none
 🔟	tecla 10	none
-🇦🇨	bandera Illa de l’Ascensió	none
+🇦🇨	bandera illa de l’Ascensió	none
 🇦🇩	bandera Andorra	none
 🇦🇪	bandera Emirats Àrabs Units	none
 🇦🇫	bandera Afganistan	none
@@ -3946,7 +3965,7 @@ symbols:
 🇦🇹	bandera Àustria	none
 🇦🇺	bandera Austràlia	none
 🇦🇼	bandera Aruba	none
-🇦🇽	bandera Illes Åland	none
+🇦🇽	bandera illes Åland	none
 🇦🇿	bandera Azerbaidjan	none
 🇧🇦	bandera Bòsnia i Hercegovina	none
 🇧🇧	bandera Barbados	none
@@ -3965,29 +3984,29 @@ symbols:
 🇧🇷	bandera Brasil	none
 🇧🇸	bandera Bahames	none
 🇧🇹	bandera Bhutan	none
-🇧🇻	bandera Illa Bouvet	none
+🇧🇻	bandera illa Bouvet	none
 🇧🇼	bandera Botswana	none
 🇧🇾	bandera Belarús	none
 🇧🇿	bandera Belize	none
 🇨🇦	bandera Canadà	none
-🇨🇨	bandera Illes Cocos (Keeling)	none
+🇨🇨	bandera illes Cocos (Keeling)	none
 🇨🇩	bandera Congo - Kinshasa	none
 🇨🇫	bandera República Centreafricana	none
 🇨🇬	bandera Congo - Brazzaville	none
 🇨🇭	bandera Suïssa	none
 🇨🇮	bandera Côte d’Ivoire	none
-🇨🇰	bandera Illes Cook	none
+🇨🇰	bandera illes Cook	none
 🇨🇱	bandera Xile	none
 🇨🇲	bandera Camerun	none
 🇨🇳	bandera Xina	none
 🇨🇴	bandera Colòmbia	none
-🇨🇵	bandera Illa Clipperton	none
+🇨🇵	bandera illa Clipperton	none
 🇨🇶	bandera Sark	none
 🇨🇷	bandera Costa Rica	none
 🇨🇺	bandera Cuba	none
 🇨🇻	bandera Cap Verd	none
 🇨🇼	bandera Curaçao	none
-🇨🇽	bandera Illa Christmas	none
+🇨🇽	bandera illa Christmas	none
 🇨🇾	bandera Xipre	none
 🇨🇿	bandera Txèquia	none
 🇩🇪	bandera Alemanya	none
@@ -4008,9 +4027,9 @@ symbols:
 🇪🇺	bandera Unió Europea	none
 🇫🇮	bandera Finlàndia	none
 🇫🇯	bandera Fiji	none
-🇫🇰	bandera Illes Falkland	none
+🇫🇰	bandera illes Falkland	none
 🇫🇲	bandera Micronèsia	none
-🇫🇴	bandera Illes Fèroe	none
+🇫🇴	bandera illes Fèroe	none
 🇫🇷	bandera França	none
 🇬🇦	bandera Gabon	none
 🇬🇧	bandera Regne Unit	none
@@ -4026,22 +4045,22 @@ symbols:
 🇬🇵	bandera Guadalupe	none
 🇬🇶	bandera Guinea Equatorial	none
 🇬🇷	bandera Grècia	none
-🇬🇸	bandera Illes Geòrgia del Sud i Sandwich del Sud	none
+🇬🇸	bandera illes Geòrgia del Sud i Sandwich del Sud	none
 🇬🇹	bandera Guatemala	none
 🇬🇺	bandera Guam	none
 🇬🇼	bandera Guinea Bissau	none
 🇬🇾	bandera Guyana	none
 🇭🇰	bandera Hong Kong (RAE Xina)	none
-🇭🇲	bandera Illes Heard i McDonald	none
+🇭🇲	bandera illes Heard i McDonald	none
 🇭🇳	bandera Hondures	none
 🇭🇷	bandera Croàcia	none
 🇭🇹	bandera Haití	none
 🇭🇺	bandera Hongria	none
-🇮🇨	bandera Illes Canàries	none
+🇮🇨	bandera illes Canàries	none
 🇮🇩	bandera Indonèsia	none
 🇮🇪	bandera Irlanda	none
 🇮🇱	bandera Israel	none
-🇮🇲	bandera Illa de Man	none
+🇮🇲	bandera illa de Man	none
 🇮🇳	bandera Índia	none
 🇮🇴	bandera Territori Britànic de l’Oceà Índic	none
 🇮🇶	bandera Iraq	none
@@ -4061,7 +4080,7 @@ symbols:
 🇰🇵	bandera Corea del Nord	none
 🇰🇷	bandera Corea del Sud	none
 🇰🇼	bandera Kuwait	none
-🇰🇾	bandera Illes Caiman	none
+🇰🇾	bandera illes Caiman	none
 🇰🇿	bandera Kazakhstan	none
 🇱🇦	bandera Lao	none
 🇱🇧	bandera Líban	none
@@ -4080,13 +4099,13 @@ symbols:
 🇲🇪	bandera Montenegro	none
 🇲🇫	bandera Saint Martin	none
 🇲🇬	bandera Madagascar	none
-🇲🇭	bandera Illes Marshall	none
+🇲🇭	bandera illes Marshall	none
 🇲🇰	bandera Macedònia del Nord	none
 🇲🇱	bandera Mali	none
 🇲🇲	bandera Myanmar (Birmània)	none
 🇲🇳	bandera Mongòlia	none
 🇲🇴	bandera Macau (RAE Xina)	none
-🇲🇵	bandera Illes Marianes del Nord	none
+🇲🇵	bandera illes Marianes del Nord	none
 🇲🇶	bandera Martinica	none
 🇲🇷	bandera Mauritània	none
 🇲🇸	bandera Montserrat	none
@@ -4100,7 +4119,7 @@ symbols:
 🇳🇦	bandera Namíbia	none
 🇳🇨	bandera Nova Caledònia	none
 🇳🇪	bandera Níger	none
-🇳🇫	bandera Illa Norfolk	none
+🇳🇫	bandera illa Norfolk	none
 🇳🇬	bandera Nigèria	none
 🇳🇮	bandera Nicaragua	none
 🇳🇱	bandera Països Baixos	none
@@ -4118,20 +4137,20 @@ symbols:
 🇵🇰	bandera Pakistan	none
 🇵🇱	bandera Polònia	none
 🇵🇲	bandera Saint-Pierre-et-Miquelon	none
-🇵🇳	bandera Illes Pitcairn	none
+🇵🇳	bandera illes Pitcairn	none
 🇵🇷	bandera Puerto Rico	none
 🇵🇸	bandera Territoris palestins	none
 🇵🇹	bandera Portugal	none
 🇵🇼	bandera Palau	none
 🇵🇾	bandera Paraguai	none
 🇶🇦	bandera Qatar	none
-🇷🇪	bandera Illa de la Reunió	none
+🇷🇪	bandera Reunió	none
 🇷🇴	bandera Romania	none
 🇷🇸	bandera Sèrbia	none
 🇷🇺	bandera Rússia	none
 🇷🇼	bandera Ruanda	none
 🇸🇦	bandera Aràbia Saudí	none
-🇸🇧	bandera Illes Salomó	none
+🇸🇧	bandera illes Salomó	none
 🇸🇨	bandera Seychelles	none
 🇸🇩	bandera Sudan	none
 🇸🇪	bandera Suècia	none
@@ -4152,7 +4171,7 @@ symbols:
 🇸🇾	bandera Síria	none
 🇸🇿	bandera Eswatini	none
 🇹🇦	bandera Tristan da Cunha	none
-🇹🇨	bandera Illes Turks i Caicos	none
+🇹🇨	bandera illes Turks i Caicos	none
 🇹🇩	bandera Txad	none
 🇹🇫	bandera Terres Australs Antàrtiques Franceses	none
 🇹🇬	bandera Togo	none
@@ -4170,7 +4189,7 @@ symbols:
 🇹🇿	bandera Tanzània	none
 🇺🇦	bandera Ucraïna	none
 🇺🇬	bandera Uganda	none
-🇺🇲	bandera Illes Menors Allunyades dels Estats Units	none
+🇺🇲	bandera illes Menors Allunyades dels Estats Units	none
 🇺🇳	bandera Nacions Unides	none
 🇺🇸	bandera Estats Units	none
 🇺🇾	bandera Uruguai	none
@@ -4178,8 +4197,8 @@ symbols:
 🇻🇦	bandera Ciutat del Vaticà	none
 🇻🇨	bandera Saint Vincent i les Grenadines	none
 🇻🇪	bandera Veneçuela	none
-🇻🇬	bandera Illes Verges Britàniques	none
-🇻🇮	bandera Illes Verges dels Estats Units	none
+🇻🇬	bandera illes Verges Britàniques	none
+🇻🇮	bandera illes Verges dels Estats Units	none
 🇻🇳	bandera Vietnam	none
 🇻🇺	bandera Vanuatu	none
 🇼🇫	bandera Wallis i Futuna	none

@@ -275,6 +275,7 @@ symbols:
 🙂	pieni hymy	none
 🙃	ylösalainen naama	none
 🫠	sulava naama	none
+🫫	halkeileva naama	none
 😉	silmänisku	none
 😊	punastunut hymy	none
 😇	hymy ja sädekehä	none
@@ -464,6 +465,8 @@ symbols:
 🫵	etusormi osoittaa katsojaa	none
 👍	peukalo ylös	none
 👎	peukalo alas	none
+🫹	peukalo vasemmalle	none
+🫺	peukalo oikealle	none
 ✊	nostettu nyrkki	none
 👊	kohti tuleva nyrkki	none
 🤛	nyrkki vasemmalle	none
@@ -883,6 +886,7 @@ symbols:
 🦪	osteri	none
 🐌	etana	none
 🦋	perhonen	none
+🫌	monarkkiperhonen	none
 🐛	ötökkä	none
 🐜	muurahainen	none
 🐝	mehiläinen	none
@@ -954,6 +958,7 @@ symbols:
 🌶	jalapeno	none
 🫑	paprika	none
 🥒	kurkku	none
+🫝	suolakurkku	none
 🥬	lehtivihannes	none
 🥦	parsakaali	none
 🧄	valkosipuli	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	pystysuuntaiset liikennevalot	none
 🛑	pysähtymismerkki	none
 🚧	rakennustyömaan merkki	none
+🛙	majakka	none
 ⚓	ankkuri	none
 🛟	pelastusrengas	none
 ⛵	purjevene	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	lumiukko	none
 ⛄	lumiukko ilman lunta	none
 ☄	komeetta	none
+🪋	meteori	none
 🔥	tuli	none
 💧	pisara	none
 🌊	aalto	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	sivellin	none
 🖍	väriliitu	none
 📝	muistio	none
+🪌	pyyhekumi	none
 💼	salkku	none
 📁	tiedostokansio	none
 📂	avoin tiedostokansio	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	avain ja lukko kiinni	none
 🔑	avain	none
 🗝	vanha avain	none
+🪍	haavi	none
 🔨	vasara	none
 🪓	kirves	none
 ⛏	hakku	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	peukalo alas tummanvaalea iho	none
 👎🏾	peukalo alas keskitumma iho	none
 👎🏿	peukalo alas tumma iho	none
+🫹🏻	peukalo vasemmalle vaalea iho	none
+🫹🏼	peukalo vasemmalle keskivaalea iho	none
+🫹🏽	peukalo vasemmalle tummanvaalea iho	none
+🫹🏾	peukalo vasemmalle keskitumma iho	none
+🫹🏿	peukalo vasemmalle tumma iho	none
+🫺🏻	peukalo oikealle vaalea iho	none
+🫺🏼	peukalo oikealle keskivaalea iho	none
+🫺🏽	peukalo oikealle tummanvaalea iho	none
+🫺🏾	peukalo oikealle keskitumma iho	none
+🫺🏿	peukalo oikealle tumma iho	none
 ✊🏻	nostettu nyrkki vaalea iho	none
 ✊🏼	nostettu nyrkki keskivaalea iho	none
 ✊🏽	nostettu nyrkki tummanvaalea iho	none
@@ -4136,7 +4155,7 @@ symbols:
 🇸🇩	lippu Sudan	none
 🇸🇪	lippu Ruotsi	none
 🇸🇬	lippu Singapore	none
-🇸🇭	lippu Saint Helena	none
+🇸🇭	lippu Saint Helena, Ascension ja Tristan da Cunha	none
 🇸🇮	lippu Slovenia	none
 🇸🇯	lippu Huippuvuoret ja Jan Mayen	none
 🇸🇰	lippu Slovakia	none

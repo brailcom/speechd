@@ -275,6 +275,7 @@ symbols:
 🙂	apur bat irribarre egiten ari den aurpegia	none
 🙃	buruz behera dagoen aurpegia	none
 🫠	urtzen ari den aurpegia	none
+🫫	aurpegi hautsia	none
 😉	begiaz keinu egiten ari den aurpegia	none
 😊	begiez irribarre egiten ari den aurpegia	none
 😇	barreka ari den aurpegia argi-koroarekin	none
@@ -464,6 +465,8 @@ symbols:
 🫵	ikusleari seinalatzen dion erakuslea	none
 👍	erpurua gora	none
 👎	erpurua behera	none
+🫹	ezkerreranzko erpuruaren zeinua	none
+🫺	eskuineranzko erpuruaren zeinua	none
 ✊	ukabil altxatua	none
 👊	ukabilkada	none
 🤛	ukabila ezkerrera begira	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ostra	none
 🐌	barraskiloa	none
 🦋	pinpilinpauxa	none
+🫌	monarka-tximeleta	none
 🐛	zomorroa	none
 🐜	inurria	none
 🐝	erlea	none
@@ -954,6 +958,7 @@ symbols:
 🌶	txilea	none
 🫑	piper	none
 🥒	pepinoa	none
+🫝	ozpinetako luzokerra	none
 🥬	barazki hostodun	none
 🥦	brokoli	none
 🧄	baratxuria	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	semaforo bertikala	none
 🛑	stop ikurra	none
 🚧	lanak	none
+🛙	itsasargia	none
 ⚓	aingura	none
 🛟	sirena	none
 ⛵	belaontzia	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	elurrezko gizona	none
 ⛄	elurrezko gizona elurrik gabe	none
 ☄	kometa	none
+🪋	meteoroa	none
 🔥	sua	none
 💧	tantatxoa	none
 🌊	olatua	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	brotxa	none
 🖍	margoa	none
 📝	oharra	none
+🪌	borragoma	none
 💼	maleta	none
 📁	fitxategi-sailkatzailea	none
 📂	fitxategi-sailkatzaile irekia	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	giltzarrapo itxia giltzarekin	none
 🔑	giltza	none
 🗝	giltza zaharra	none
+🪍	sarea heldulekuarekin	none
 🔨	mailua	none
 🪓	aizkora	none
 ⛏	pikotxa	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	erpurua behera bitarteko azal-tonua	none
 👎🏾	erpurua behera 5. mota	none
 👎🏿	erpurua behera 6. mota	none
+🫹🏻	ezkerreranzko erpuruaren zeinua 1–2. mota	none
+🫹🏼	ezkerreranzko erpuruaren zeinua 3. mota	none
+🫹🏽	ezkerreranzko erpuruaren zeinua bitarteko azal-tonua	none
+🫹🏾	ezkerreranzko erpuruaren zeinua 5. mota	none
+🫹🏿	ezkerreranzko erpuruaren zeinua 6. mota	none
+🫺🏻	eskuineranzko erpuruaren zeinua 1–2. mota	none
+🫺🏼	eskuineranzko erpuruaren zeinua 3. mota	none
+🫺🏽	eskuineranzko erpuruaren zeinua bitarteko azal-tonua	none
+🫺🏾	eskuineranzko erpuruaren zeinua 5. mota	none
+🫺🏿	eskuineranzko erpuruaren zeinua 6. mota	none
 ✊🏻	ukabil altxatua 1–2. mota	none
 ✊🏼	ukabil altxatua 3. mota	none
 ✊🏽	ukabil altxatua bitarteko azal-tonua	none

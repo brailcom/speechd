@@ -275,6 +275,7 @@ symbols:
 🙂	rahlo smejoči obraz	none
 🙃	na glavo obrnjen obraz	none
 🫠	taleči se obraz	none
+🫫	razpočen obraz	none
 😉	obraz s pomežikom	none
 😊	smejoči obraz s smejočimi očmi	none
 😇	smejoči obraz s svetniškim sijem	none
@@ -349,6 +350,7 @@ symbols:
 😯	osupljen obraz	none
 😲	začuden obraz	none
 😳	zardeli obraz	none
+🫪	popačen obraz	none
 🥺	proseč obraz	none
 🥹	obraz, ki zadržuje jok	none
 😦	namrščen obraz z odprtimi usti	none
@@ -463,6 +465,8 @@ symbols:
 🫵	kazalec, usmerjen v opazovalca	none
 👍	palec gor	none
 👎	palec dol	none
+🫹	znak palca, ki kaže v levo	none
+🫺	znak palca, ki kaže v desno	none
 ✊	dvignjena pest	none
 👊	bližajoča se pest	none
 🤛	pest, obrnjena levo	none
@@ -882,6 +886,7 @@ symbols:
 🦪	ostriga	none
 🐌	polž	none
 🦋	metulj	none
+🫌	metulj monarh	none
 🐛	žuželka	none
 🐜	mravlja	none
 🐝	čebela	none
@@ -953,6 +958,7 @@ symbols:
 🌶	feferon	none
 🫑	paprika	none
 🥒	kumara	none
+🫝	kisla kumarica	none
 🥬	listnata zelenjava	none
 🥦	brokoli	none
 🧄	česen	none
@@ -1173,6 +1179,7 @@ symbols:
 🚦	navpični semafor	none
 🛑	znak stop	none
 🚧	zaprto zaradi gradnje	none
+🛙	svetilnik	none
 ⚓	sidro	none
 🛟	rešilni obroč	none
 ⛵	jadrnica	none
@@ -1272,6 +1279,7 @@ symbols:
 ☃	snežak	none
 ⛄	snežak brez snega	none
 ☄	komet	none
+🪋	meteor	none
 🔥	ogenj	none
 💧	kapljica	none
 🌊	vodni val	none
@@ -1453,7 +1461,7 @@ symbols:
 ⌨	tipkovnica	none
 🖱	računalniška miška	none
 🖲	sledilna kroglica	none
-💽	minidisk	none
+💽	računalniški disk	none
 💾	disketa	none
 💿	optični disk	none
 📀	dvd	none
@@ -1522,6 +1530,7 @@ symbols:
 🖌	čopič	none
 🖍	voščenka	none
 📝	zapisek	none
+🪌	radirka	none
 💼	kovček	none
 📁	mapa za spise	none
 📂	odprta mapa za spise	none
@@ -1551,6 +1560,7 @@ symbols:
 🔐	zaprta ključavnica s ključem	none
 🔑	ključ	none
 🗝	star ključ	none
+🪍	mreža z ročajem	none
 🔨	kladivo	none
 🪓	sekira	none
 ⛏	kramp	none
@@ -2003,6 +2013,16 @@ symbols:
 👎🏽	palec dol srednji ten kože	none
 👎🏾	palec dol srednje temen ten kože	none
 👎🏿	palec dol temen ten kože	none
+🫹🏻	znak palca, ki kaže v levo svetel ten kože	none
+🫹🏼	znak palca, ki kaže v levo srednje svetel ten kože	none
+🫹🏽	znak palca, ki kaže v levo srednji ten kože	none
+🫹🏾	znak palca, ki kaže v levo srednje temen ten kože	none
+🫹🏿	znak palca, ki kaže v levo temen ten kože	none
+🫺🏻	znak palca, ki kaže v desno svetel ten kože	none
+🫺🏼	znak palca, ki kaže v desno srednje svetel ten kože	none
+🫺🏽	znak palca, ki kaže v desno srednji ten kože	none
+🫺🏾	znak palca, ki kaže v desno srednje temen ten kože	none
+🫺🏿	znak palca, ki kaže v desno temen ten kože	none
 ✊🏻	dvignjena pest svetel ten kože	none
 ✊🏼	dvignjena pest srednje svetel ten kože	none
 ✊🏽	dvignjena pest srednji ten kože	none
@@ -3295,24 +3315,24 @@ symbols:
 🚶🏽‍♀	ženska, ki hodi srednji ten kože	none
 🚶🏾‍♀	ženska, ki hodi srednje temen ten kože	none
 🚶🏿‍♀	ženska, ki hodi temen ten kože	none
-🚶‍➡	pešec , obrnjen v desno	none
-🚶🏻‍➡	pešec svetel ten kože in , obrnjen v desno	none
-🚶🏼‍➡	pešec srednje svetel ten kože in , obrnjen v desno	none
-🚶🏽‍➡	pešec srednji ten kože in , obrnjen v desno	none
-🚶🏾‍➡	pešec srednje temen ten kože in , obrnjen v desno	none
-🚶🏿‍➡	pešec temen ten kože in , obrnjen v desno	none
-🚶‍♀‍➡	ženska, ki hodi , obrnjen v desno	none
-🚶🏻‍♀‍➡	ženska, ki hodi svetel ten kože in , obrnjen v desno	none
-🚶🏼‍♀‍➡	ženska, ki hodi srednje svetel ten kože in , obrnjen v desno	none
-🚶🏽‍♀‍➡	ženska, ki hodi srednji ten kože in , obrnjen v desno	none
-🚶🏾‍♀‍➡	ženska, ki hodi srednje temen ten kože in , obrnjen v desno	none
-🚶🏿‍♀‍➡	ženska, ki hodi temen ten kože in , obrnjen v desno	none
-🚶‍♂‍➡	moški, ki hodi , obrnjen v desno	none
-🚶🏻‍♂‍➡	moški, ki hodi svetel ten kože in , obrnjen v desno	none
-🚶🏼‍♂‍➡	moški, ki hodi srednje svetel ten kože in , obrnjen v desno	none
-🚶🏽‍♂‍➡	moški, ki hodi srednji ten kože in , obrnjen v desno	none
-🚶🏾‍♂‍➡	moški, ki hodi srednje temen ten kože in , obrnjen v desno	none
-🚶🏿‍♂‍➡	moški, ki hodi temen ten kože in , obrnjen v desno	none
+🚶‍➡	pešec , obrnjeno v desno	none
+🚶🏻‍➡	pešec svetel ten kože in , obrnjeno v desno	none
+🚶🏼‍➡	pešec srednje svetel ten kože in , obrnjeno v desno	none
+🚶🏽‍➡	pešec srednji ten kože in , obrnjeno v desno	none
+🚶🏾‍➡	pešec srednje temen ten kože in , obrnjeno v desno	none
+🚶🏿‍➡	pešec temen ten kože in , obrnjeno v desno	none
+🚶‍♀‍➡	ženska, ki hodi , obrnjeno v desno	none
+🚶🏻‍♀‍➡	ženska, ki hodi svetel ten kože in , obrnjeno v desno	none
+🚶🏼‍♀‍➡	ženska, ki hodi srednje svetel ten kože in , obrnjeno v desno	none
+🚶🏽‍♀‍➡	ženska, ki hodi srednji ten kože in , obrnjeno v desno	none
+🚶🏾‍♀‍➡	ženska, ki hodi srednje temen ten kože in , obrnjeno v desno	none
+🚶🏿‍♀‍➡	ženska, ki hodi temen ten kože in , obrnjeno v desno	none
+🚶‍♂‍➡	moški, ki hodi , obrnjeno v desno	none
+🚶🏻‍♂‍➡	moški, ki hodi svetel ten kože in , obrnjeno v desno	none
+🚶🏼‍♂‍➡	moški, ki hodi srednje svetel ten kože in , obrnjeno v desno	none
+🚶🏽‍♂‍➡	moški, ki hodi srednji ten kože in , obrnjeno v desno	none
+🚶🏾‍♂‍➡	moški, ki hodi srednje temen ten kože in , obrnjeno v desno	none
+🚶🏿‍♂‍➡	moški, ki hodi temen ten kože in , obrnjeno v desno	none
 🧍🏻	stoječa oseba svetel ten kože	none
 🧍🏼	stoječa oseba srednje svetel ten kože	none
 🧍🏽	stoječa oseba srednji ten kože	none
@@ -3343,123 +3363,123 @@ symbols:
 🧎🏽‍♀	klečeča ženska srednji ten kože	none
 🧎🏾‍♀	klečeča ženska srednje temen ten kože	none
 🧎🏿‍♀	klečeča ženska temen ten kože	none
-🧎‍➡	klečeča oseba , obrnjen v desno	none
-🧎🏻‍➡	klečeča oseba svetel ten kože in , obrnjen v desno	none
-🧎🏼‍➡	klečeča oseba srednje svetel ten kože in , obrnjen v desno	none
-🧎🏽‍➡	klečeča oseba srednji ten kože in , obrnjen v desno	none
-🧎🏾‍➡	klečeča oseba srednje temen ten kože in , obrnjen v desno	none
-🧎🏿‍➡	klečeča oseba temen ten kože in , obrnjen v desno	none
-🧎‍♀‍➡	klečeča ženska , obrnjen v desno	none
-🧎🏻‍♀‍➡	klečeča ženska svetel ten kože in , obrnjen v desno	none
-🧎🏼‍♀‍➡	klečeča ženska srednje svetel ten kože in , obrnjen v desno	none
-🧎🏽‍♀‍➡	klečeča ženska srednji ten kože in , obrnjen v desno	none
-🧎🏾‍♀‍➡	klečeča ženska srednje temen ten kože in , obrnjen v desno	none
-🧎🏿‍♀‍➡	klečeča ženska temen ten kože in , obrnjen v desno	none
-🧎‍♂‍➡	klečeč moški , obrnjen v desno	none
-🧎🏻‍♂‍➡	klečeč moški svetel ten kože in , obrnjen v desno	none
-🧎🏼‍♂‍➡	klečeč moški srednje svetel ten kože in , obrnjen v desno	none
-🧎🏽‍♂‍➡	klečeč moški srednji ten kože in , obrnjen v desno	none
-🧎🏾‍♂‍➡	klečeč moški srednje temen ten kože in , obrnjen v desno	none
-🧎🏿‍♂‍➡	klečeč moški temen ten kože in , obrnjen v desno	none
+🧎‍➡	klečeča oseba , obrnjeno v desno	none
+🧎🏻‍➡	klečeča oseba svetel ten kože in , obrnjeno v desno	none
+🧎🏼‍➡	klečeča oseba srednje svetel ten kože in , obrnjeno v desno	none
+🧎🏽‍➡	klečeča oseba srednji ten kože in , obrnjeno v desno	none
+🧎🏾‍➡	klečeča oseba srednje temen ten kože in , obrnjeno v desno	none
+🧎🏿‍➡	klečeča oseba temen ten kože in , obrnjeno v desno	none
+🧎‍♀‍➡	klečeča ženska , obrnjeno v desno	none
+🧎🏻‍♀‍➡	klečeča ženska svetel ten kože in , obrnjeno v desno	none
+🧎🏼‍♀‍➡	klečeča ženska srednje svetel ten kože in , obrnjeno v desno	none
+🧎🏽‍♀‍➡	klečeča ženska srednji ten kože in , obrnjeno v desno	none
+🧎🏾‍♀‍➡	klečeča ženska srednje temen ten kože in , obrnjeno v desno	none
+🧎🏿‍♀‍➡	klečeča ženska temen ten kože in , obrnjeno v desno	none
+🧎‍♂‍➡	klečeč moški , obrnjeno v desno	none
+🧎🏻‍♂‍➡	klečeč moški svetel ten kože in , obrnjeno v desno	none
+🧎🏼‍♂‍➡	klečeč moški srednje svetel ten kože in , obrnjeno v desno	none
+🧎🏽‍♂‍➡	klečeč moški srednji ten kože in , obrnjeno v desno	none
+🧎🏾‍♂‍➡	klečeč moški srednje temen ten kože in , obrnjeno v desno	none
+🧎🏿‍♂‍➡	klečeč moški temen ten kože in , obrnjeno v desno	none
 🧑🏻‍🦯	oseba s palico za slepe svetel ten kože	none
 🧑🏼‍🦯	oseba s palico za slepe srednje svetel ten kože	none
 🧑🏽‍🦯	oseba s palico za slepe srednji ten kože	none
 🧑🏾‍🦯	oseba s palico za slepe srednje temen ten kože	none
 🧑🏿‍🦯	oseba s palico za slepe temen ten kože	none
-🧑‍🦯‍➡	oseba s palico za slepe , obrnjen v desno	none
-🧑🏻‍🦯‍➡	oseba s palico za slepe svetel ten kože in , obrnjen v desno	none
-🧑🏼‍🦯‍➡	oseba s palico za slepe srednje svetel ten kože in , obrnjen v desno	none
-🧑🏽‍🦯‍➡	oseba s palico za slepe srednji ten kože in , obrnjen v desno	none
-🧑🏾‍🦯‍➡	oseba s palico za slepe srednje temen ten kože in , obrnjen v desno	none
-🧑🏿‍🦯‍➡	oseba s palico za slepe temen ten kože in , obrnjen v desno	none
+🧑‍🦯‍➡	oseba s palico za slepe , obrnjeno v desno	none
+🧑🏻‍🦯‍➡	oseba s palico za slepe svetel ten kože in , obrnjeno v desno	none
+🧑🏼‍🦯‍➡	oseba s palico za slepe srednje svetel ten kože in , obrnjeno v desno	none
+🧑🏽‍🦯‍➡	oseba s palico za slepe srednji ten kože in , obrnjeno v desno	none
+🧑🏾‍🦯‍➡	oseba s palico za slepe srednje temen ten kože in , obrnjeno v desno	none
+🧑🏿‍🦯‍➡	oseba s palico za slepe temen ten kože in , obrnjeno v desno	none
 👨🏻‍🦯	moški s palico za slepe svetel ten kože	none
 👨🏼‍🦯	moški s palico za slepe srednje svetel ten kože	none
 👨🏽‍🦯	moški s palico za slepe srednji ten kože	none
 👨🏾‍🦯	moški s palico za slepe srednje temen ten kože	none
 👨🏿‍🦯	moški s palico za slepe temen ten kože	none
-👨‍🦯‍➡	moški s palico za slepe , obrnjen v desno	none
-👨🏻‍🦯‍➡	moški s palico za slepe svetel ten kože in , obrnjen v desno	none
-👨🏼‍🦯‍➡	moški s palico za slepe srednje svetel ten kože in , obrnjen v desno	none
-👨🏽‍🦯‍➡	moški s palico za slepe srednji ten kože in , obrnjen v desno	none
-👨🏾‍🦯‍➡	moški s palico za slepe srednje temen ten kože in , obrnjen v desno	none
-👨🏿‍🦯‍➡	moški s palico za slepe temen ten kože in , obrnjen v desno	none
+👨‍🦯‍➡	moški s palico za slepe , obrnjeno v desno	none
+👨🏻‍🦯‍➡	moški s palico za slepe svetel ten kože in , obrnjeno v desno	none
+👨🏼‍🦯‍➡	moški s palico za slepe srednje svetel ten kože in , obrnjeno v desno	none
+👨🏽‍🦯‍➡	moški s palico za slepe srednji ten kože in , obrnjeno v desno	none
+👨🏾‍🦯‍➡	moški s palico za slepe srednje temen ten kože in , obrnjeno v desno	none
+👨🏿‍🦯‍➡	moški s palico za slepe temen ten kože in , obrnjeno v desno	none
 👩🏻‍🦯	ženska s palico za slepe svetel ten kože	none
 👩🏼‍🦯	ženska s palico za slepe srednje svetel ten kože	none
 👩🏽‍🦯	ženska s palico za slepe srednji ten kože	none
 👩🏾‍🦯	ženska s palico za slepe srednje temen ten kože	none
 👩🏿‍🦯	ženska s palico za slepe temen ten kože	none
-👩‍🦯‍➡	ženska s palico za slepe , obrnjen v desno	none
-👩🏻‍🦯‍➡	ženska s palico za slepe svetel ten kože in , obrnjen v desno	none
-👩🏼‍🦯‍➡	ženska s palico za slepe srednje svetel ten kože in , obrnjen v desno	none
-👩🏽‍🦯‍➡	ženska s palico za slepe srednji ten kože in , obrnjen v desno	none
-👩🏾‍🦯‍➡	ženska s palico za slepe srednje temen ten kože in , obrnjen v desno	none
-👩🏿‍🦯‍➡	ženska s palico za slepe temen ten kože in , obrnjen v desno	none
+👩‍🦯‍➡	ženska s palico za slepe , obrnjeno v desno	none
+👩🏻‍🦯‍➡	ženska s palico za slepe svetel ten kože in , obrnjeno v desno	none
+👩🏼‍🦯‍➡	ženska s palico za slepe srednje svetel ten kože in , obrnjeno v desno	none
+👩🏽‍🦯‍➡	ženska s palico za slepe srednji ten kože in , obrnjeno v desno	none
+👩🏾‍🦯‍➡	ženska s palico za slepe srednje temen ten kože in , obrnjeno v desno	none
+👩🏿‍🦯‍➡	ženska s palico za slepe temen ten kože in , obrnjeno v desno	none
 🧑🏻‍🦼	oseba na motoriziranem invalidskem vozičku svetel ten kože	none
 🧑🏼‍🦼	oseba na motoriziranem invalidskem vozičku srednje svetel ten kože	none
 🧑🏽‍🦼	oseba na motoriziranem invalidskem vozičku srednji ten kože	none
 🧑🏾‍🦼	oseba na motoriziranem invalidskem vozičku srednje temen ten kože	none
 🧑🏿‍🦼	oseba na motoriziranem invalidskem vozičku temen ten kože	none
-🧑‍🦼‍➡	oseba na motoriziranem invalidskem vozičku , obrnjen v desno	none
-🧑🏻‍🦼‍➡	oseba na motoriziranem invalidskem vozičku svetel ten kože in , obrnjen v desno	none
-🧑🏼‍🦼‍➡	oseba na motoriziranem invalidskem vozičku srednje svetel ten kože in , obrnjen v desno	none
-🧑🏽‍🦼‍➡	oseba na motoriziranem invalidskem vozičku srednji ten kože in , obrnjen v desno	none
-🧑🏾‍🦼‍➡	oseba na motoriziranem invalidskem vozičku srednje temen ten kože in , obrnjen v desno	none
-🧑🏿‍🦼‍➡	oseba na motoriziranem invalidskem vozičku temen ten kože in , obrnjen v desno	none
+🧑‍🦼‍➡	oseba na motoriziranem invalidskem vozičku , obrnjeno v desno	none
+🧑🏻‍🦼‍➡	oseba na motoriziranem invalidskem vozičku svetel ten kože in , obrnjeno v desno	none
+🧑🏼‍🦼‍➡	oseba na motoriziranem invalidskem vozičku srednje svetel ten kože in , obrnjeno v desno	none
+🧑🏽‍🦼‍➡	oseba na motoriziranem invalidskem vozičku srednji ten kože in , obrnjeno v desno	none
+🧑🏾‍🦼‍➡	oseba na motoriziranem invalidskem vozičku srednje temen ten kože in , obrnjeno v desno	none
+🧑🏿‍🦼‍➡	oseba na motoriziranem invalidskem vozičku temen ten kože in , obrnjeno v desno	none
 👨🏻‍🦼	moški na motoriziranem invalidskem vozičku svetel ten kože	none
 👨🏼‍🦼	moški na motoriziranem invalidskem vozičku srednje svetel ten kože	none
 👨🏽‍🦼	moški na motoriziranem invalidskem vozičku srednji ten kože	none
 👨🏾‍🦼	moški na motoriziranem invalidskem vozičku srednje temen ten kože	none
 👨🏿‍🦼	moški na motoriziranem invalidskem vozičku temen ten kože	none
-👨‍🦼‍➡	moški na motoriziranem invalidskem vozičku , obrnjen v desno	none
-👨🏻‍🦼‍➡	moški na motoriziranem invalidskem vozičku svetel ten kože in , obrnjen v desno	none
-👨🏼‍🦼‍➡	moški na motoriziranem invalidskem vozičku srednje svetel ten kože in , obrnjen v desno	none
-👨🏽‍🦼‍➡	moški na motoriziranem invalidskem vozičku srednji ten kože in , obrnjen v desno	none
-👨🏾‍🦼‍➡	moški na motoriziranem invalidskem vozičku srednje temen ten kože in , obrnjen v desno	none
-👨🏿‍🦼‍➡	moški na motoriziranem invalidskem vozičku temen ten kože in , obrnjen v desno	none
+👨‍🦼‍➡	moški na motoriziranem invalidskem vozičku , obrnjeno v desno	none
+👨🏻‍🦼‍➡	moški na motoriziranem invalidskem vozičku svetel ten kože in , obrnjeno v desno	none
+👨🏼‍🦼‍➡	moški na motoriziranem invalidskem vozičku srednje svetel ten kože in , obrnjeno v desno	none
+👨🏽‍🦼‍➡	moški na motoriziranem invalidskem vozičku srednji ten kože in , obrnjeno v desno	none
+👨🏾‍🦼‍➡	moški na motoriziranem invalidskem vozičku srednje temen ten kože in , obrnjeno v desno	none
+👨🏿‍🦼‍➡	moški na motoriziranem invalidskem vozičku temen ten kože in , obrnjeno v desno	none
 👩🏻‍🦼	ženska na motoriziranem invalidskem vozičku svetel ten kože	none
 👩🏼‍🦼	ženska na motoriziranem invalidskem vozičku srednje svetel ten kože	none
 👩🏽‍🦼	ženska na motoriziranem invalidskem vozičku srednji ten kože	none
 👩🏾‍🦼	ženska na motoriziranem invalidskem vozičku srednje temen ten kože	none
 👩🏿‍🦼	ženska na motoriziranem invalidskem vozičku temen ten kože	none
-👩‍🦼‍➡	ženska na motoriziranem invalidskem vozičku , obrnjen v desno	none
-👩🏻‍🦼‍➡	ženska na motoriziranem invalidskem vozičku svetel ten kože in , obrnjen v desno	none
-👩🏼‍🦼‍➡	ženska na motoriziranem invalidskem vozičku srednje svetel ten kože in , obrnjen v desno	none
-👩🏽‍🦼‍➡	ženska na motoriziranem invalidskem vozičku srednji ten kože in , obrnjen v desno	none
-👩🏾‍🦼‍➡	ženska na motoriziranem invalidskem vozičku srednje temen ten kože in , obrnjen v desno	none
-👩🏿‍🦼‍➡	ženska na motoriziranem invalidskem vozičku temen ten kože in , obrnjen v desno	none
+👩‍🦼‍➡	ženska na motoriziranem invalidskem vozičku , obrnjeno v desno	none
+👩🏻‍🦼‍➡	ženska na motoriziranem invalidskem vozičku svetel ten kože in , obrnjeno v desno	none
+👩🏼‍🦼‍➡	ženska na motoriziranem invalidskem vozičku srednje svetel ten kože in , obrnjeno v desno	none
+👩🏽‍🦼‍➡	ženska na motoriziranem invalidskem vozičku srednji ten kože in , obrnjeno v desno	none
+👩🏾‍🦼‍➡	ženska na motoriziranem invalidskem vozičku srednje temen ten kože in , obrnjeno v desno	none
+👩🏿‍🦼‍➡	ženska na motoriziranem invalidskem vozičku temen ten kože in , obrnjeno v desno	none
 🧑🏻‍🦽	oseba na ročnem invalidskem vozičku svetel ten kože	none
 🧑🏼‍🦽	oseba na ročnem invalidskem vozičku srednje svetel ten kože	none
 🧑🏽‍🦽	oseba na ročnem invalidskem vozičku srednji ten kože	none
 🧑🏾‍🦽	oseba na ročnem invalidskem vozičku srednje temen ten kože	none
 🧑🏿‍🦽	oseba na ročnem invalidskem vozičku temen ten kože	none
-🧑‍🦽‍➡	oseba na ročnem invalidskem vozičku , obrnjen v desno	none
-🧑🏻‍🦽‍➡	oseba na ročnem invalidskem vozičku svetel ten kože in , obrnjen v desno	none
-🧑🏼‍🦽‍➡	oseba na ročnem invalidskem vozičku srednje svetel ten kože in , obrnjen v desno	none
-🧑🏽‍🦽‍➡	oseba na ročnem invalidskem vozičku srednji ten kože in , obrnjen v desno	none
-🧑🏾‍🦽‍➡	oseba na ročnem invalidskem vozičku srednje temen ten kože in , obrnjen v desno	none
-🧑🏿‍🦽‍➡	oseba na ročnem invalidskem vozičku temen ten kože in , obrnjen v desno	none
+🧑‍🦽‍➡	oseba na ročnem invalidskem vozičku , obrnjeno v desno	none
+🧑🏻‍🦽‍➡	oseba na ročnem invalidskem vozičku svetel ten kože in , obrnjeno v desno	none
+🧑🏼‍🦽‍➡	oseba na ročnem invalidskem vozičku srednje svetel ten kože in , obrnjeno v desno	none
+🧑🏽‍🦽‍➡	oseba na ročnem invalidskem vozičku srednji ten kože in , obrnjeno v desno	none
+🧑🏾‍🦽‍➡	oseba na ročnem invalidskem vozičku srednje temen ten kože in , obrnjeno v desno	none
+🧑🏿‍🦽‍➡	oseba na ročnem invalidskem vozičku temen ten kože in , obrnjeno v desno	none
 👨🏻‍🦽	moški na ročnem invalidskem vozičku svetel ten kože	none
 👨🏼‍🦽	moški na ročnem invalidskem vozičku srednje svetel ten kože	none
 👨🏽‍🦽	moški na ročnem invalidskem vozičku srednji ten kože	none
 👨🏾‍🦽	moški na ročnem invalidskem vozičku srednje temen ten kože	none
 👨🏿‍🦽	moški na ročnem invalidskem vozičku temen ten kože	none
-👨‍🦽‍➡	moški na ročnem invalidskem vozičku , obrnjen v desno	none
-👨🏻‍🦽‍➡	moški na ročnem invalidskem vozičku svetel ten kože in , obrnjen v desno	none
-👨🏼‍🦽‍➡	moški na ročnem invalidskem vozičku srednje svetel ten kože in , obrnjen v desno	none
-👨🏽‍🦽‍➡	moški na ročnem invalidskem vozičku srednji ten kože in , obrnjen v desno	none
-👨🏾‍🦽‍➡	moški na ročnem invalidskem vozičku srednje temen ten kože in , obrnjen v desno	none
-👨🏿‍🦽‍➡	moški na ročnem invalidskem vozičku temen ten kože in , obrnjen v desno	none
+👨‍🦽‍➡	moški na ročnem invalidskem vozičku , obrnjeno v desno	none
+👨🏻‍🦽‍➡	moški na ročnem invalidskem vozičku svetel ten kože in , obrnjeno v desno	none
+👨🏼‍🦽‍➡	moški na ročnem invalidskem vozičku srednje svetel ten kože in , obrnjeno v desno	none
+👨🏽‍🦽‍➡	moški na ročnem invalidskem vozičku srednji ten kože in , obrnjeno v desno	none
+👨🏾‍🦽‍➡	moški na ročnem invalidskem vozičku srednje temen ten kože in , obrnjeno v desno	none
+👨🏿‍🦽‍➡	moški na ročnem invalidskem vozičku temen ten kože in , obrnjeno v desno	none
 👩🏻‍🦽	ženska na ročnem invalidskem vozičku svetel ten kože	none
 👩🏼‍🦽	ženska na ročnem invalidskem vozičku srednje svetel ten kože	none
 👩🏽‍🦽	ženska na ročnem invalidskem vozičku srednji ten kože	none
 👩🏾‍🦽	ženska na ročnem invalidskem vozičku srednje temen ten kože	none
 👩🏿‍🦽	ženska na ročnem invalidskem vozičku temen ten kože	none
-👩‍🦽‍➡	ženska na ročnem invalidskem vozičku , obrnjen v desno	none
-👩🏻‍🦽‍➡	ženska na ročnem invalidskem vozičku svetel ten kože in , obrnjen v desno	none
-👩🏼‍🦽‍➡	ženska na ročnem invalidskem vozičku srednje svetel ten kože in , obrnjen v desno	none
-👩🏽‍🦽‍➡	ženska na ročnem invalidskem vozičku srednji ten kože in , obrnjen v desno	none
-👩🏾‍🦽‍➡	ženska na ročnem invalidskem vozičku srednje temen ten kože in , obrnjen v desno	none
-👩🏿‍🦽‍➡	ženska na ročnem invalidskem vozičku temen ten kože in , obrnjen v desno	none
+👩‍🦽‍➡	ženska na ročnem invalidskem vozičku , obrnjeno v desno	none
+👩🏻‍🦽‍➡	ženska na ročnem invalidskem vozičku svetel ten kože in , obrnjeno v desno	none
+👩🏼‍🦽‍➡	ženska na ročnem invalidskem vozičku srednje svetel ten kože in , obrnjeno v desno	none
+👩🏽‍🦽‍➡	ženska na ročnem invalidskem vozičku srednji ten kože in , obrnjeno v desno	none
+👩🏾‍🦽‍➡	ženska na ročnem invalidskem vozičku srednje temen ten kože in , obrnjeno v desno	none
+👩🏿‍🦽‍➡	ženska na ročnem invalidskem vozičku temen ten kože in , obrnjeno v desno	none
 🏃🏻	tekač svetel ten kože	none
 🏃🏼	tekač srednje svetel ten kože	none
 🏃🏽	tekač srednji ten kože	none
@@ -3475,24 +3495,24 @@ symbols:
 🏃🏽‍♀	ženska, ki teče srednji ten kože	none
 🏃🏾‍♀	ženska, ki teče srednje temen ten kože	none
 🏃🏿‍♀	ženska, ki teče temen ten kože	none
-🏃‍➡	tekač , obrnjen v desno	none
-🏃🏻‍➡	tekač svetel ten kože in , obrnjen v desno	none
-🏃🏼‍➡	tekač srednje svetel ten kože in , obrnjen v desno	none
-🏃🏽‍➡	tekač srednji ten kože in , obrnjen v desno	none
-🏃🏾‍➡	tekač srednje temen ten kože in , obrnjen v desno	none
-🏃🏿‍➡	tekač temen ten kože in , obrnjen v desno	none
-🏃‍♀‍➡	ženska, ki teče , obrnjen v desno	none
-🏃🏻‍♀‍➡	ženska, ki teče svetel ten kože in , obrnjen v desno	none
-🏃🏼‍♀‍➡	ženska, ki teče srednje svetel ten kože in , obrnjen v desno	none
-🏃🏽‍♀‍➡	ženska, ki teče srednji ten kože in , obrnjen v desno	none
-🏃🏾‍♀‍➡	ženska, ki teče srednje temen ten kože in , obrnjen v desno	none
-🏃🏿‍♀‍➡	ženska, ki teče temen ten kože in , obrnjen v desno	none
-🏃‍♂‍➡	moški, ki teče , obrnjen v desno	none
-🏃🏻‍♂‍➡	moški, ki teče svetel ten kože in , obrnjen v desno	none
-🏃🏼‍♂‍➡	moški, ki teče srednje svetel ten kože in , obrnjen v desno	none
-🏃🏽‍♂‍➡	moški, ki teče srednji ten kože in , obrnjen v desno	none
-🏃🏾‍♂‍➡	moški, ki teče srednje temen ten kože in , obrnjen v desno	none
-🏃🏿‍♂‍➡	moški, ki teče temen ten kože in , obrnjen v desno	none
+🏃‍➡	tekač , obrnjeno v desno	none
+🏃🏻‍➡	tekač svetel ten kože in , obrnjeno v desno	none
+🏃🏼‍➡	tekač srednje svetel ten kože in , obrnjeno v desno	none
+🏃🏽‍➡	tekač srednji ten kože in , obrnjeno v desno	none
+🏃🏾‍➡	tekač srednje temen ten kože in , obrnjeno v desno	none
+🏃🏿‍➡	tekač temen ten kože in , obrnjeno v desno	none
+🏃‍♀‍➡	ženska, ki teče , obrnjeno v desno	none
+🏃🏻‍♀‍➡	ženska, ki teče svetel ten kože in , obrnjeno v desno	none
+🏃🏼‍♀‍➡	ženska, ki teče srednje svetel ten kože in , obrnjeno v desno	none
+🏃🏽‍♀‍➡	ženska, ki teče srednji ten kože in , obrnjeno v desno	none
+🏃🏾‍♀‍➡	ženska, ki teče srednje temen ten kože in , obrnjeno v desno	none
+🏃🏿‍♀‍➡	ženska, ki teče temen ten kože in , obrnjeno v desno	none
+🏃‍♂‍➡	moški, ki teče , obrnjeno v desno	none
+🏃🏻‍♂‍➡	moški, ki teče svetel ten kože in , obrnjeno v desno	none
+🏃🏼‍♂‍➡	moški, ki teče srednje svetel ten kože in , obrnjeno v desno	none
+🏃🏽‍♂‍➡	moški, ki teče srednji ten kože in , obrnjeno v desno	none
+🏃🏾‍♂‍➡	moški, ki teče srednje temen ten kože in , obrnjeno v desno	none
+🏃🏿‍♂‍➡	moški, ki teče temen ten kože in , obrnjeno v desno	none
 🧑🏻‍🩰	baletka svetel ten kože	none
 🧑🏼‍🩰	baletka srednje svetel ten kože	none
 🧑🏽‍🩰	baletka srednji ten kože	none

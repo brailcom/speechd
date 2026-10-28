@@ -275,6 +275,7 @@ symbols:
 🙂	rosto levemente sorridente	none
 🙃	rosto de cabeça para baixo	none
 🫠	rosto derretendo	none
+🫫	rosto rachando	none
 😉	rosto com olho piscando	none
 😊	rosto sorridente com olhos sorridentes	none
 😇	rosto sorridente com auréola	none
@@ -464,6 +465,8 @@ symbols:
 🫵	indicador apontando para o visualizador	none
 👍	polegar para cima	none
 👎	polegar para baixo	none
+🫹	sinal de polegar para a esquerda	none
+🫺	sinal de polegar para a direita	none
 ✊	punho levantado	none
 👊	soco	none
 🤛	punho esquerdo	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ostra	none
 🐌	caracol	none
 🦋	borboleta	none
+🫌	borboleta-monarca	none
 🐛	inseto	none
 🐜	formiga	none
 🐝	abelha	none
@@ -954,6 +958,7 @@ symbols:
 🌶	pimenta	none
 🫑	pimentão	none
 🥒	pepino	none
+🫝	picles	none
 🥬	verdura	none
 🥦	brócolis	none
 🧄	alho	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	semáforo vertical	none
 🛑	sinal de pare	none
 🚧	em construção	none
+🛙	farol	none
 ⚓	âncora	none
 🛟	boia	none
 ⛵	barco a vela	none
@@ -1258,7 +1264,7 @@ symbols:
 🌦	sol com chuva	none
 🌧	nuvem com chuva	none
 🌨	nuvem com neve	none
-🌩	nuvem com trovão	none
+🌩	nuvem com relâmpago	none
 🌪	tornado	none
 🌫	nevoeiro	none
 🌬	rosto de vento	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	boneco de neve	none
 ⛄	boneco de neve sem neve	none
 ☄	cometa	none
+🪋	meteoro	none
 🔥	fogo	none
 💧	gota	none
 🌊	onda	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	pincel	none
 🖍	giz de cera	none
 📝	memorando	none
+🪌	borracha	none
 💼	maleta	none
 📁	pasta de arquivos	none
 📂	pasta de arquivos aberta	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	cadeado fechado com chave	none
 🔑	chave	none
 🗝	chave antiga	none
+🪍	rede com cabo	none
 🔨	martelo	none
 🪓	machado	none
 ⛏	picareta	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	polegar para baixo pele morena	none
 👎🏾	polegar para baixo pele morena escura	none
 👎🏿	polegar para baixo pele escura	none
+🫹🏻	sinal de polegar para a esquerda pele clara	none
+🫹🏼	sinal de polegar para a esquerda pele morena clara	none
+🫹🏽	sinal de polegar para a esquerda pele morena	none
+🫹🏾	sinal de polegar para a esquerda pele morena escura	none
+🫹🏿	sinal de polegar para a esquerda pele escura	none
+🫺🏻	sinal de polegar para a direita pele clara	none
+🫺🏼	sinal de polegar para a direita pele morena clara	none
+🫺🏽	sinal de polegar para a direita pele morena	none
+🫺🏾	sinal de polegar para a direita pele morena escura	none
+🫺🏿	sinal de polegar para a direita pele escura	none
 ✊🏻	punho levantado pele clara	none
 ✊🏼	punho levantado pele morena clara	none
 ✊🏽	punho levantado pele morena	none

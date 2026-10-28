@@ -54,7 +54,7 @@ symbols:
 ⇃	aşak tarapdaky garpun tikeni çepde	none
 ⇄	çep okuň üstünden sag ok	none
 ⇅	ýokaryk we aşak görkezýän oklar	none
-⇆	saga görkezýän oklaryň üstünde çepe görkezýän ok	none
+⇆	saga ok üstünde çepe ok	none
 ⇇	çep tarapdaky jübüt oklar	none
 ⇈	ýokary tarapdaky jübüt oklar	none
 ⇉	sag tarapdaky jübüt oklar	none
@@ -275,6 +275,7 @@ symbols:
 🙂	çalaja ýylgyrýan ýüz	none
 🙃	dik başaşak ýüz	none
 🫠	ereýän ýüz	none
+🫫	jaýrylýan ýüz	none
 😉	göz gypýan ýüz	none
 😊	gülýän gözli ýylgyrýan ýüz	none
 😇	başy halkaly ýylgyrýan ýüz	none
@@ -291,7 +292,7 @@ symbols:
 😛	dilini çykarýan ýüz	none
 😜	dilini çykarýan we göz gypýan ýüz	none
 🤪	däli ýüz	none
-😝	dilini çykarýan we gözüniň gytagy bilen seredýän ýüz	none
+😝	dilini çykaryp göz gytagy bilen seredýän ýüz	none
 🤑	pul agyzly ýüz	none
 🤗	gujaklaýan ýüz	none
 🤭	eli agzynyň üstünde ýüz	none
@@ -464,6 +465,8 @@ symbols:
 🫵	tomaşaça gönükdirilen süýem barmak	none
 👍	başam barmak ýokary	none
 👎	başam barmak aşak	none
+🫹	başam barmak çepe	none
+🫺	başam barmak saga	none
 ✊	galdyrylan ýumruk	none
 👊	gelýän ýumruk	none
 🤛	çepe ýumruk	none
@@ -515,9 +518,9 @@ symbols:
 🙍	çytyk adam	none
 🙍‍♂	çytylýan erkek	none
 🙍‍♀	çytylýan zenan	none
-🙎	gamaşyk adam	none
-🙎‍♂	gamaşyk erkek	none
-🙎‍♀	gamaşyk zenan	none
+🙎	nägile adam	none
+🙎‍♂	nägile erkek	none
+🙎‍♀	nägile zenan	none
 🙅	ÝOK ümleýän adam	none
 🙅‍♂	ÝOK ümleýän erkek	none
 🙅‍♀	ÝOK ümleýän zenan	none
@@ -554,7 +557,7 @@ symbols:
 🧑‍⚖	kazy	none
 👨‍⚖	erkek kazy	none
 👩‍⚖	zenan kazy	none
-🧑‍🌾	fermer	none
+🧑‍🌾	daýhan	none
 👨‍🌾	erkek daýhan	none
 👩‍🌾	zenan daýhan	none
 🧑‍🍳	aşpez	none
@@ -614,7 +617,7 @@ symbols:
 🤵	smokingli kişi	none
 🤵‍♂	smokingde erkek	none
 🤵‍♀	aýal smokingde	none
-👰	nykaply kişi	none
+👰	fataly kişi	none
 👰‍♂	fataly erkek	none
 👰‍♀	fataly aýal	none
 🤰	göwreli aýal	none
@@ -675,7 +678,7 @@ symbols:
 🧑‍🦯	kör hasaly adam	none
 👨‍🦯	kör hasaly erkek	none
 👩‍🦯	kör hasaly zenan	none
-🧑‍🦼	motorly arabajykdaky adam	none
+🧑‍🦼	motorly maýyp arabasynda adam	none
 👨‍🦼	motorly maýyp arabasynda erkek	none
 👩‍🦼	motorly maýyp arabasynda zenan	none
 🧑‍🦽	el bilen işleýän tigirçekli oturgyçdaky adam	none
@@ -752,8 +755,8 @@ symbols:
 💏	posa	none
 💑	ýürekli jübüt	none
 🗣	gürleýän kelle	none
-👤	sudury görünýän heýkel	none
-👥	sudury görünýän heýkeller	none
+👤	göwreden ýokarsynyň sudury	none
+👥	göwreden ýokarsynyň sudurlary	none
 🫂	gujaklaşýan adamlar	none
 👪	maşgala	none
 🧑‍🧑‍🧒	maşgala uly, uly, çaga	none
@@ -780,7 +783,7 @@ symbols:
 🦝	ýenot	none
 🐱	pişik ýüz	none
 🐈	pişik	none
-🐈‍⬛	Gara pişik	none
+🐈‍⬛	gara pişik	none
 🦁	ýolbars	none
 🐯	gaplaň ýüz	none
 🐅	gaplaň	none
@@ -820,7 +823,7 @@ symbols:
 🐇	towşan	none
 🐿	alajagözen	none
 🦫	samyr	none
-🦔	oklukirpi	none
+🦔	kirpi	none
 🦇	ýarganat	none
 🐻	aýy	none
 🐻‍❄	polýar aýy	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ustrisa	none
 🐌	ulitka	none
 🦋	kebelek	none
+🫌	monarh kebelegi	none
 🐛	mör-möjek	none
 🐜	garynja	none
 🐝	balary	none
@@ -893,7 +897,7 @@ symbols:
 🕷	möý	none
 🕸	möýüň kerebi	none
 🦂	içýan	none
-🦟	moskito	none
+🦟	peşe	none
 🪰	siňek	none
 🪱	gurçuk	none
 🦠	mikrop	none
@@ -917,7 +921,7 @@ symbols:
 🌵	kaktus	none
 🌾	şaly	none
 🌿	dermanlyk ot	none
-☘	üç ýaprakly	none
+☘	üç ýaprakly ýorunja	none
 🍀	dört ýaprakly ýorunja	none
 🍁	kerkaw ýapragy	none
 🍂	ýere gaçan ýaprak	none
@@ -951,9 +955,10 @@ symbols:
 🥔	ýeralma	none
 🥕	käşir	none
 🌽	mekgejöwen	none
-🌶	ajy garaburç	none
+🌶	ajy burç	none
 🫑	bolgar burç	none
 🥒	hyýar	none
+🫝	duzlanan hyýar	none
 🥬	ýaprakly ýaşyl	none
 🥦	brokkoli	none
 🧄	sarymsak	none
@@ -979,7 +984,7 @@ symbols:
 🥩	et dilimi	none
 🥓	bekon	none
 🍔	gamburger	none
-🍟	fransuz frisi	none
+🍟	fri ýeralma	none
 🍕	pizza	none
 🌭	hotdog	none
 🥪	sendwiç	none
@@ -989,7 +994,7 @@ symbols:
 🥙	dykylan çörek	none
 🧆	falafel	none
 🥚	ýumurtga	none
-🍳	kulinariýa	none
+🍳	aşpezlik	none
 🥘	ýalpak taba	none
 🍲	naharly gazan	none
 🫕	fondýu	none
@@ -1010,7 +1015,7 @@ symbols:
 🍢	oden	none
 🍣	suşi	none
 🍤	gowrulan krewetka	none
-🍥	tüweleýli balyk tort	none
+🍥	dolanan balyk tort	none
 🥮	aý tort	none
 🍡	dango	none
 🥟	hytaý böregi	none
@@ -1023,9 +1028,9 @@ symbols:
 🍪	kökejik	none
 🎂	doglan gün torty	none
 🍰	tortuň dilimi	none
-🧁	käse tort	none
+🧁	kapkeýk	none
 🥧	tort	none
-🍫	şokolad plitasy	none
+🍫	şokolad plitkasy	none
 🍬	kemput	none
 🍭	horaz-süýji	none
 🍮	süýji krem	none
@@ -1048,7 +1053,7 @@ symbols:
 🥤	turbajykly stakan	none
 🧋	köpürjikli çaý	none
 🧃	içgi gutusy	none
-🧉	dost	none
+🧉	mate	none
 🧊	buz kuby	none
 🥢	çöp	none
 🍽	tabakly çarşak we pyçak	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	dik ýolyşyk	none
 🛑	dur belgisi	none
 🚧	gurluşyk	none
+🛙	maýak	none
 ⚓	labyr	none
 🛟	halas ediş tegelegi	none
 ⛵	ýelkenli gämi	none
@@ -1198,10 +1204,10 @@ symbols:
 🛸	uçýan tabak	none
 🛎	çagyryş jaňy	none
 🧳	goş	none
-⌛	çägeli sagat boldy	none
-⏳	çägeli sagat bolmady	none
+⌛	çägeli sagat doldy	none
+⏳	çägeli sagat dolmady	none
 ⌚	goşar sagady	none
-⏰	oýaryjy sagat	none
+⏰	jaň sagady	none
 ⏱	sekundomer	none
 ⏲	wagt belleýji sagat	none
 🕰	diregli sagat	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	gar adam	none
 ⛄	garsyz gar adam	none
 ☄	kometa	none
+🪋	meteorit	none
 🔥	ýangyn	none
 💧	damjajyk	none
 🌊	suw tolkuny	none
@@ -1349,7 +1356,7 @@ symbols:
 ♠	gara kart	none
 ♥	alma kart	none
 ♦	kerpiç kart	none
-♣	jydak kart	none
+♣	haç kart	none
 ♟	küşt pyýadasy	none
 🃏	joker	none
 🀄	mahjong gyzyl aždarha	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	kist	none
 🖍	flomaster	none
 📝	ýatlama	none
+🪌	pozguç	none
 💼	portfel	none
 📁	faýl bukjasy	none
 📂	açyk faýl bukjasy	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	açarly gulply	none
 🔑	açar	none
 🗝	köne açar	none
+🪍	tor halta	none
 🔨	çekiç	none
 🪓	palta	none
 ⛏	çüý goparýan	none
@@ -1782,7 +1791,7 @@ symbols:
 🆘	SOS düwmesi	none
 🆙	UP! düwmesi	none
 🆚	VS düwmesi	none
-🔴	gyzyl halka	none
+🔴	gyzyl tegelek	none
 🟠	narynç tegelek	none
 🟡	sary tegelek	none
 🟢	ýaşyl tegelek	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	başam barmak aşak orta deri reňki	none
 👎🏾	başam barmak aşak orta goýy deri reňki	none
 👎🏿	başam barmak aşak goýy deri reňki	none
+🫹🏻	başam barmak çepe açyk deri reňki	none
+🫹🏼	başam barmak çepe orta açyk deri reňki	none
+🫹🏽	başam barmak çepe orta deri reňki	none
+🫹🏾	başam barmak çepe orta goýy deri reňki	none
+🫹🏿	başam barmak çepe goýy deri reňki	none
+🫺🏻	başam barmak saga açyk deri reňki	none
+🫺🏼	başam barmak saga orta açyk deri reňki	none
+🫺🏽	başam barmak saga orta deri reňki	none
+🫺🏾	başam barmak saga orta goýy deri reňki	none
+🫺🏿	başam barmak saga goýy deri reňki	none
 ✊🏻	galdyrylan ýumruk açyk deri reňki	none
 ✊🏼	galdyrylan ýumruk orta açyk deri reňki	none
 ✊🏽	galdyrylan ýumruk orta deri reňki	none
@@ -2581,21 +2600,21 @@ symbols:
 🙍🏽‍♀	çytylýan zenan orta deri reňki	none
 🙍🏾‍♀	çytylýan zenan orta goýy deri reňki	none
 🙍🏿‍♀	çytylýan zenan goýy deri reňki	none
-🙎🏻	gamaşyk adam açyk deri reňki	none
-🙎🏼	gamaşyk adam orta açyk deri reňki	none
-🙎🏽	gamaşyk adam orta deri reňki	none
-🙎🏾	gamaşyk adam orta goýy deri reňki	none
-🙎🏿	gamaşyk adam goýy deri reňki	none
-🙎🏻‍♂	gamaşyk erkek açyk deri reňki	none
-🙎🏼‍♂	gamaşyk erkek orta açyk deri reňki	none
-🙎🏽‍♂	gamaşyk erkek orta deri reňki	none
-🙎🏾‍♂	gamaşyk erkek orta goýy deri reňki	none
-🙎🏿‍♂	gamaşyk erkek goýy deri reňki	none
-🙎🏻‍♀	gamaşyk zenan açyk deri reňki	none
-🙎🏼‍♀	gamaşyk zenan orta açyk deri reňki	none
-🙎🏽‍♀	gamaşyk zenan orta deri reňki	none
-🙎🏾‍♀	gamaşyk zenan orta goýy deri reňki	none
-🙎🏿‍♀	gamaşyk zenan goýy deri reňki	none
+🙎🏻	nägile adam açyk deri reňki	none
+🙎🏼	nägile adam orta açyk deri reňki	none
+🙎🏽	nägile adam orta deri reňki	none
+🙎🏾	nägile adam orta goýy deri reňki	none
+🙎🏿	nägile adam goýy deri reňki	none
+🙎🏻‍♂	nägile erkek açyk deri reňki	none
+🙎🏼‍♂	nägile erkek orta açyk deri reňki	none
+🙎🏽‍♂	nägile erkek orta deri reňki	none
+🙎🏾‍♂	nägile erkek orta goýy deri reňki	none
+🙎🏿‍♂	nägile erkek goýy deri reňki	none
+🙎🏻‍♀	nägile zenan açyk deri reňki	none
+🙎🏼‍♀	nägile zenan orta açyk deri reňki	none
+🙎🏽‍♀	nägile zenan orta deri reňki	none
+🙎🏾‍♀	nägile zenan orta goýy deri reňki	none
+🙎🏿‍♀	nägile zenan goýy deri reňki	none
 🙅🏻	ÝOK ümleýän adam açyk deri reňki	none
 🙅🏼	ÝOK ümleýän adam orta açyk deri reňki	none
 🙅🏽	ÝOK ümleýän adam orta deri reňki	none
@@ -2776,11 +2795,11 @@ symbols:
 👩🏽‍⚖	zenan kazy orta deri reňki	none
 👩🏾‍⚖	zenan kazy orta goýy deri reňki	none
 👩🏿‍⚖	zenan kazy goýy deri reňki	none
-🧑🏻‍🌾	fermer açyk deri reňki	none
-🧑🏼‍🌾	fermer orta açyk deri reňki	none
-🧑🏽‍🌾	fermer orta deri reňki	none
-🧑🏾‍🌾	fermer orta goýy deri reňki	none
-🧑🏿‍🌾	fermer goýy deri reňki	none
+🧑🏻‍🌾	daýhan açyk deri reňki	none
+🧑🏼‍🌾	daýhan orta açyk deri reňki	none
+🧑🏽‍🌾	daýhan orta deri reňki	none
+🧑🏾‍🌾	daýhan orta goýy deri reňki	none
+🧑🏿‍🌾	daýhan goýy deri reňki	none
 👨🏻‍🌾	erkek daýhan açyk deri reňki	none
 👨🏼‍🌾	erkek daýhan orta açyk deri reňki	none
 👨🏽‍🌾	erkek daýhan orta deri reňki	none
@@ -3076,11 +3095,11 @@ symbols:
 🤵🏽‍♀	aýal smokingde orta deri reňki	none
 🤵🏾‍♀	aýal smokingde orta goýy deri reňki	none
 🤵🏿‍♀	aýal smokingde goýy deri reňki	none
-👰🏻	nykaply kişi açyk deri reňki	none
-👰🏼	nykaply kişi orta açyk deri reňki	none
-👰🏽	nykaply kişi orta deri reňki	none
-👰🏾	nykaply kişi orta goýy deri reňki	none
-👰🏿	nykaply kişi goýy deri reňki	none
+👰🏻	fataly kişi açyk deri reňki	none
+👰🏼	fataly kişi orta açyk deri reňki	none
+👰🏽	fataly kişi orta deri reňki	none
+👰🏾	fataly kişi orta goýy deri reňki	none
+👰🏿	fataly kişi goýy deri reňki	none
 👰🏻‍♂	fataly erkek açyk deri reňki	none
 👰🏼‍♂	fataly erkek orta açyk deri reňki	none
 👰🏽‍♂	fataly erkek orta deri reňki	none
@@ -3395,17 +3414,17 @@ symbols:
 👩🏽‍🦯‍➡	kör hasaly zenan orta deri reňki, ýüzi saga	none
 👩🏾‍🦯‍➡	kör hasaly zenan orta goýy deri reňki, ýüzi saga	none
 👩🏿‍🦯‍➡	kör hasaly zenan goýy deri reňki, ýüzi saga	none
-🧑🏻‍🦼	motorly arabajykdaky adam açyk deri reňki	none
-🧑🏼‍🦼	motorly arabajykdaky adam orta açyk deri reňki	none
-🧑🏽‍🦼	motorly arabajykdaky adam orta deri reňki	none
-🧑🏾‍🦼	motorly arabajykdaky adam orta goýy deri reňki	none
-🧑🏿‍🦼	motorly arabajykdaky adam goýy deri reňki	none
-🧑‍🦼‍➡	motorly arabajykdaky adam ýüzi saga	none
-🧑🏻‍🦼‍➡	motorly arabajykdaky adam açyk deri reňki, ýüzi saga	none
-🧑🏼‍🦼‍➡	motorly arabajykdaky adam orta açyk deri reňki, ýüzi saga	none
-🧑🏽‍🦼‍➡	motorly arabajykdaky adam orta deri reňki, ýüzi saga	none
-🧑🏾‍🦼‍➡	motorly arabajykdaky adam orta goýy deri reňki, ýüzi saga	none
-🧑🏿‍🦼‍➡	motorly arabajykdaky adam goýy deri reňki, ýüzi saga	none
+🧑🏻‍🦼	motorly maýyp arabasynda adam açyk deri reňki	none
+🧑🏼‍🦼	motorly maýyp arabasynda adam orta açyk deri reňki	none
+🧑🏽‍🦼	motorly maýyp arabasynda adam orta deri reňki	none
+🧑🏾‍🦼	motorly maýyp arabasynda adam orta goýy deri reňki	none
+🧑🏿‍🦼	motorly maýyp arabasynda adam goýy deri reňki	none
+🧑‍🦼‍➡	motorly maýyp arabasynda adam ýüzi saga	none
+🧑🏻‍🦼‍➡	motorly maýyp arabasynda adam açyk deri reňki, ýüzi saga	none
+🧑🏼‍🦼‍➡	motorly maýyp arabasynda adam orta açyk deri reňki, ýüzi saga	none
+🧑🏽‍🦼‍➡	motorly maýyp arabasynda adam orta deri reňki, ýüzi saga	none
+🧑🏾‍🦼‍➡	motorly maýyp arabasynda adam orta goýy deri reňki, ýüzi saga	none
+🧑🏿‍🦼‍➡	motorly maýyp arabasynda adam goýy deri reňki, ýüzi saga	none
 👨🏻‍🦼	motorly maýyp arabasynda erkek açyk deri reňki	none
 👨🏼‍🦼	motorly maýyp arabasynda erkek orta açyk deri reňki	none
 👨🏽‍🦼	motorly maýyp arabasynda erkek orta deri reňki	none
@@ -4201,7 +4220,7 @@ symbols:
 ₮	Mongol tugrigi	none
 ₲	Paragwaý guaranisi	none
 ₴	Ukrain griwnasy	none
-₵	Gano sedisi	none
+₵	Gana sedisi	none
 ₸	Gazak teňňesi	none
 ₺	Türk lirasy	none
 ₼	Azerbaýjan manady	none

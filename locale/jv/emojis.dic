@@ -275,6 +275,7 @@ symbols:
 🙂	rai mesem	none
 🙃	rai kuwalik	none
 🫠	rai lebur	none
+🫫	rai pecah	none
 😉	rai ngedhèpi	none
 😊	rai mesem matane merem	none
 😇	rai mesem mawa tandha santo ing sirahe	none
@@ -464,6 +465,8 @@ symbols:
 🫵	driji panuduh seng ngewasi	none
 👍	jempol ngacung	none
 👎	jempol ngacung mudhun	none
+🫹	tandha jempol ngiwa	none
+🫺	tandha jempol nengen	none
 ✊	ngacungake kepel	none
 👊	kepel mara	none
 🤛	kepel katon saka sisih kiwa	none
@@ -883,6 +886,7 @@ symbols:
 🦪	tiram	none
 🐌	bekicot	none
 🦋	kupu	none
+🫌	kupu raja	none
 🐛	uler	none
 🐜	semut	none
 🐝	lebah madu	none
@@ -954,6 +958,7 @@ symbols:
 🌶	lombok	none
 🫑	paprika	none
 🥒	timun	none
+🫝	acar	none
 🥬	selada ijo	none
 🥦	brokoli	none
 🧄	bawang putih	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	lampu bangjo ngadeg	none
 🛑	tandha setop	none
 🚧	konstruksi	none
+🛙	mercusuar	none
 ⚓	jangkar	none
 🛟	ban pelampung	none
 ⛵	prau layar	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	wong-wongan salju	none
 ⛄	wong-wongan salju tanpa salju	none
 ☄	komet	none
+🪋	meteor	none
 🔥	geni	none
 💧	tesing	none
 🌊	ombak banyu	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	kuwas kanggo nglukis	none
 🖍	krayon	none
 📝	cathetan cilik	none
+🪌	setip	none
 💼	tas koper	none
 📁	map berkas	none
 📂	map berkas mbukak	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	gembok nutup karo kunci	none
 🔑	kunci	none
 🗝	kunci kuna	none
+🪍	jaring nganggo gagang	none
 🔨	pukul	none
 🪓	kampak	none
 ⛏	pipril	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	jempol ngacung mudhun kulit kuning	none
 👎🏾	jempol ngacung mudhun kulit sawo mateng	none
 👎🏿	jempol ngacung mudhun kulit ireng	none
+🫹🏻	tandha jempol ngiwa kulit putih	none
+🫹🏼	tandha jempol ngiwa kulit putih langsep	none
+🫹🏽	tandha jempol ngiwa kulit kuning	none
+🫹🏾	tandha jempol ngiwa kulit sawo mateng	none
+🫹🏿	tandha jempol ngiwa kulit ireng	none
+🫺🏻	tandha jempol nengen kulit putih	none
+🫺🏼	tandha jempol nengen kulit putih langsep	none
+🫺🏽	tandha jempol nengen kulit kuning	none
+🫺🏾	tandha jempol nengen kulit sawo mateng	none
+🫺🏿	tandha jempol nengen kulit ireng	none
 ✊🏻	ngacungake kepel kulit putih	none
 ✊🏼	ngacungake kepel kulit putih langsep	none
 ✊🏽	ngacungake kepel kulit kuning	none
@@ -3931,52 +3950,52 @@ symbols:
 👩‍👧‍👦	kluwarga wong wadon, bocah wadon, bocah lanang	none
 👩‍👧‍👧	kluwarga wong wadon, bocah wadon, bocah wadon	none
 🇦🇨	gendera Pulo Ascension	none
-🇦🇩	gendera Andora	none
-🇦🇪	gendera Uni Émirat Arab	none
+🇦🇩	gendera Andorra	none
+🇦🇪	gendera Uni Emirat Arab	none
 🇦🇫	gendera Afganistan	none
 🇦🇬	gendera Antigua lan Barbuda	none
 🇦🇮	gendera Anguilla	none
-🇦🇱	gendera Albani	none
-🇦🇲	gendera Arménia	none
+🇦🇱	gendera Albania	none
+🇦🇲	gendera Armenia	none
 🇦🇴	gendera Angola	none
 🇦🇶	gendera Antartika	none
-🇦🇷	gendera Argèntina	none
+🇦🇷	gendera Argentina	none
 🇦🇸	gendera Samoa Amerika	none
-🇦🇹	gendera Ostenrik	none
-🇦🇺	gendera Ostrali	none
+🇦🇹	gendera Austria	none
+🇦🇺	gendera Australia	none
 🇦🇼	gendera Aruba	none
-🇦🇽	gendera Kapuloan Alan	none
+🇦🇽	gendera Kapuloan Aland	none
 🇦🇿	gendera Azerbaijan	none
-🇧🇦	gendera Bosnia lan Hèrségovina	none
-🇧🇧	gendera Barbadhos	none
-🇧🇩	gendera Banggaladésa	none
-🇧🇪	gendera Bèlgi	none
+🇧🇦	gendera Bosnia & Herzegovina	none
+🇧🇧	gendera Barbados	none
+🇧🇩	gendera Bangladesh	none
+🇧🇪	gendera Belgia	none
 🇧🇫	gendera Burkina Faso	none
-🇧🇬	gendera Bulgari	none
+🇧🇬	gendera Bulgaria	none
 🇧🇭	gendera Bahrain	none
 🇧🇮	gendera Burundi	none
-🇧🇯	gendera Bénin	none
-🇧🇱	gendera Saint Barthélémi	none
+🇧🇯	gendera Benin	none
+🇧🇱	gendera Santo Bartlemi	none
 🇧🇲	gendera Bermuda	none
-🇧🇳	gendera Brunéi	none
+🇧🇳	gendera Brunei	none
 🇧🇴	gendera Bolivia	none
 🇧🇶	gendera Karibia Walanda	none
 🇧🇷	gendera Brasil	none
 🇧🇸	gendera Bahama	none
 🇧🇹	gendera Bhutan	none
-🇧🇻	gendera Pulo Bovèt	none
+🇧🇻	gendera Pulo Bouvet	none
 🇧🇼	gendera Botswana	none
-🇧🇾	gendera Bélarus	none
-🇧🇿	gendera Bélisé	none
+🇧🇾	gendera Belarusia	none
+🇧🇿	gendera Belize	none
 🇨🇦	gendera Kanada	none
 🇨🇨	gendera Kapuloan Cocos (Keeling)	none
 🇨🇩	gendera Kongo - Kinshasa	none
-🇨🇫	gendera Républik Afrika Tengah	none
-🇨🇬	gendera Kongo - Brassaville	none
-🇨🇭	gendera Switserlan	none
-🇨🇮	gendera Pasisir Gadhing	none
+🇨🇫	gendera Republik Afrika Tengah	none
+🇨🇬	gendera Kongo - Brazzaville	none
+🇨🇭	gendera Swiss	none
+🇨🇮	gendera Pante Gadhing	none
 🇨🇰	gendera Kapuloan Cook	none
-🇨🇱	gendera Cilé	none
+🇨🇱	gendera Chili	none
 🇨🇲	gendera Kamerun	none
 🇨🇳	gendera Tyongkok	none
 🇨🇴	gendera Kolombia	none
@@ -3984,127 +4003,127 @@ symbols:
 🇨🇶	gendera Sark	none
 🇨🇷	gendera Kosta Rika	none
 🇨🇺	gendera Kuba	none
-🇨🇻	gendera Pongol Verdé	none
-🇨🇼	gendera Kurasao	none
+🇨🇻	gendera Tanjung Verde	none
+🇨🇼	gendera Curaçao	none
 🇨🇽	gendera Pulo Natal	none
 🇨🇾	gendera Siprus	none
-🇨🇿	gendera Céko	none
-🇩🇪	gendera Jérman	none
+🇨🇿	gendera Ceko	none
+🇩🇪	gendera Jerman	none
 🇩🇬	gendera Diego Garcia	none
-🇩🇯	gendera Jibuti	none
-🇩🇰	gendera Dhènemarken	none
+🇩🇯	gendera Djibouti	none
+🇩🇰	gendera Denmark	none
 🇩🇲	gendera Dominika	none
-🇩🇴	gendera Républik Dominika	none
-🇩🇿	gendera Aljasair	none
-🇪🇦	gendera Séuta lan Melila	none
-🇪🇨	gendera Ékuadhor	none
-🇪🇪	gendera Éstonia	none
+🇩🇴	gendera Republik Dominika	none
+🇩🇿	gendera Aljazair	none
+🇪🇦	gendera Ceuta & Melilla	none
+🇪🇨	gendera Ekuador	none
+🇪🇪	gendera Estonia	none
 🇪🇬	gendera Mesir	none
 🇪🇭	gendera Sahara Kulon	none
-🇪🇷	gendera Éritréa	none
-🇪🇸	gendera Sepanyol	none
-🇪🇹	gendera Étiopia	none
-🇪🇺	gendera Uni Éropah	none
-🇫🇮	gendera Finlan	none
+🇪🇷	gendera Eritrea	none
+🇪🇸	gendera Spanyol	none
+🇪🇹	gendera Ethiopia	none
+🇪🇺	gendera Uni Eropah	none
+🇫🇮	gendera Finlandia	none
 🇫🇯	gendera Fiji	none
 🇫🇰	gendera Kapuloan Falkland	none
-🇫🇲	gendera Féderasi Mikronésia	none
+🇫🇲	gendera Mikronesia	none
 🇫🇴	gendera Kapuloan Faro	none
 🇫🇷	gendera Prancis	none
 🇬🇦	gendera Gabon	none
-🇬🇧	gendera Karajan Manunggal	none
-🇬🇩	gendera Grénada	none
-🇬🇪	gendera Géorgia	none
+🇬🇧	gendera Britania Raya	none
+🇬🇩	gendera Grenada	none
+🇬🇪	gendera Georgia	none
 🇬🇫	gendera Guyana Prancis	none
-🇬🇬	gendera Guernsei	none
+🇬🇬	gendera Guernsey	none
 🇬🇭	gendera Ghana	none
 🇬🇮	gendera Gibraltar	none
 🇬🇱	gendera Greenland	none
 🇬🇲	gendera Gambia	none
 🇬🇳	gendera Guinea	none
-🇬🇵	gendera Guadélup	none
-🇬🇶	gendera Guinéa Katulistiwa	none
-🇬🇷	gendera Grikenlan	none
+🇬🇵	gendera Guadeloupe	none
+🇬🇶	gendera Guinea Khatulistiwa	none
+🇬🇷	gendera Yunani	none
 🇬🇸	gendera Georgia Kidul lan Kapuloan Sandwich Kidul	none
-🇬🇹	gendera Guatémala	none
+🇬🇹	gendera Guatemala	none
 🇬🇺	gendera Guam	none
 🇬🇼	gendera Guinea-Bissau	none
 🇬🇾	gendera Guyana	none
-🇭🇰	gendera Laladan Administratif Astamiwa Hong Kong	none
+🇭🇰	gendera Hong Kong Daerah Administratif Khusus Tyongkok	none
 🇭🇲	gendera Kapuloan Heard lan McDonald	none
 🇭🇳	gendera Honduras	none
 🇭🇷	gendera Kroasia	none
 🇭🇹	gendera Haiti	none
-🇭🇺	gendera Honggari	none
-🇮🇨	gendera Kapuloan Kanari	none
-🇮🇩	gendera Indonésia	none
-🇮🇪	gendera Républik Irlan	none
-🇮🇱	gendera Israèl	none
-🇮🇲	gendera Pulo Man	none
-🇮🇳	gendera Indhia	none
+🇭🇺	gendera Hungaria	none
+🇮🇨	gendera Kapuloan Kanaria	none
+🇮🇩	gendera Indonesia	none
+🇮🇪	gendera Republik Irlandia	none
+🇮🇱	gendera Israel	none
+🇮🇲	gendera Isle of Man	none
+🇮🇳	gendera India	none
 🇮🇴	gendera Wilayah Inggris ing Segara Hindia	none
 🇮🇶	gendera Irak	none
 🇮🇷	gendera Iran	none
-🇮🇸	gendera Èslan	none
-🇮🇹	gendera Itali	none
+🇮🇸	gendera Islandia	none
+🇮🇹	gendera Italia	none
 🇯🇪	gendera Jersey	none
 🇯🇲	gendera Jamaika	none
 🇯🇴	gendera Yordania	none
 🇯🇵	gendera Jepang	none
-🇰🇪	gendera Kénya	none
+🇰🇪	gendera Kenya	none
 🇰🇬	gendera Kirgistan	none
 🇰🇭	gendera Kamboja	none
 🇰🇮	gendera Kiribati	none
 🇰🇲	gendera Komoro	none
-🇰🇳	gendera Saint Kits lan Nèvis	none
+🇰🇳	gendera St. Kitts & Nevis	none
 🇰🇵	gendera Korea Lor	none
-🇰🇷	gendera Koréa Kidul	none
+🇰🇷	gendera Korea Kidul	none
 🇰🇼	gendera Kuwait	none
-🇰🇾	gendera Kapuloan Kéman	none
-🇰🇿	gendera Kasakstan	none
+🇰🇾	gendera Kapuloan Cayman	none
+🇰🇿	gendera Kazakhstan	none
 🇱🇦	gendera Laos	none
-🇱🇧	gendera Libanon	none
+🇱🇧	gendera Lebanon	none
 🇱🇨	gendera Santa Lusia	none
-🇱🇮	gendera Liktenstén	none
+🇱🇮	gendera Liechtenstein	none
 🇱🇰	gendera Sri Lanka	none
-🇱🇷	gendera Libèria	none
-🇱🇸	gendera Lésotho	none
-🇱🇹	gendera Litowen	none
+🇱🇷	gendera Liberia	none
+🇱🇸	gendera Lesotho	none
+🇱🇹	gendera Lithuania	none
 🇱🇺	gendera Luksemburg	none
 🇱🇻	gendera Latvia	none
 🇱🇾	gendera Libya	none
 🇲🇦	gendera Maroko	none
 🇲🇨	gendera Monako	none
 🇲🇩	gendera Moldova	none
-🇲🇪	gendera Montenégro	none
+🇲🇪	gendera Montenegro	none
 🇲🇫	gendera Santa Martin	none
 🇲🇬	gendera Madagaskar	none
 🇲🇭	gendera Kapuloan Marshall	none
-🇲🇰	gendera Républik Makédonia Lor	none
+🇲🇰	gendera Makedonia Lor	none
 🇲🇱	gendera Mali	none
 🇲🇲	gendera Myanmar (Burma)	none
 🇲🇳	gendera Mongolia	none
-🇲🇴	gendera Laladan Administratif Astamiwa Makau	none
+🇲🇴	gendera Makau Daerah Administratif Khusus Tyongkok	none
 🇲🇵	gendera Kapuloan Mariana Lor	none
 🇲🇶	gendera Martinik	none
 🇲🇷	gendera Mauritania	none
-🇲🇸	gendera Monsérat	none
+🇲🇸	gendera Montserrat	none
 🇲🇹	gendera Malta	none
 🇲🇺	gendera Mauritius	none
-🇲🇻	gendera Maladéwa	none
+🇲🇻	gendera Maladewa	none
 🇲🇼	gendera Malawi	none
-🇲🇽	gendera Mèksiko	none
+🇲🇽	gendera Meksiko	none
 🇲🇾	gendera Malaysia	none
-🇲🇿	gendera Mosambik	none
+🇲🇿	gendera Mozambik	none
 🇳🇦	gendera Namibia	none
-🇳🇨	gendera Kalédonia Anyar	none
-🇳🇪	gendera Nigér	none
+🇳🇨	gendera Kaledonia Anyar	none
+🇳🇪	gendera Niger	none
 🇳🇫	gendera Pulo Norfolk	none
-🇳🇬	gendera Nigéria	none
+🇳🇬	gendera Nigeria	none
 🇳🇮	gendera Nikaragua	none
 🇳🇱	gendera Walanda	none
-🇳🇴	gendera Nurwègen	none
-🇳🇵	gendera Népal	none
+🇳🇴	gendera Norwegia	none
+🇳🇵	gendera Nepal	none
 🇳🇷	gendera Nauru	none
 🇳🇺	gendera Niue	none
 🇳🇿	gendera Selandia Anyar	none
@@ -4113,73 +4132,73 @@ symbols:
 🇵🇪	gendera Peru	none
 🇵🇫	gendera Polinesia Prancis	none
 🇵🇬	gendera Papua Nugini	none
-🇵🇭	gendera Pilipina	none
+🇵🇭	gendera Filipina	none
 🇵🇰	gendera Pakistan	none
-🇵🇱	gendera Polen	none
-🇵🇲	gendera Saint Pièr lan Mikuélon	none
+🇵🇱	gendera Polandia	none
+🇵🇲	gendera Saint Pierre lan Miquelon	none
 🇵🇳	gendera Kapuloan Pitcairn	none
-🇵🇷	gendera Puèrto Riko	none
-🇵🇸	gendera Tlatah Palèstina	none
+🇵🇷	gendera Puerto Riko	none
+🇵🇸	gendera Tlatah Palestina	none
 🇵🇹	gendera Portugal	none
 🇵🇼	gendera Palau	none
 🇵🇾	gendera Paraguay	none
-🇶🇦	gendera Katar	none
+🇶🇦	gendera Qatar	none
 🇷🇪	gendera Réunion	none
-🇷🇴	gendera Ruméni	none
-🇷🇸	gendera Sèrbi	none
+🇷🇴	gendera Rumania	none
+🇷🇸	gendera Serbia	none
 🇷🇺	gendera Rusia	none
 🇷🇼	gendera Rwanda	none
 🇸🇦	gendera Arab Saudi	none
-🇸🇧	gendera Kapuloan Suleman	none
-🇸🇨	gendera Sésèl	none
+🇸🇧	gendera Kapuloan Solomon	none
+🇸🇨	gendera Seychelles	none
 🇸🇩	gendera Sudan	none
-🇸🇪	gendera Swèdhen	none
+🇸🇪	gendera Swedia	none
 🇸🇬	gendera Singapura	none
-🇸🇭	gendera Saint Héléna	none
-🇸🇮	gendera Slovénia	none
+🇸🇭	gendera Saint Helena, Ascension, lan Tristan da Cunha	none
+🇸🇮	gendera Slovenia	none
 🇸🇯	gendera Svalbard lan Jan Mayen	none
-🇸🇰	gendera Slowak	none
-🇸🇱	gendera Siéra Léoné	none
+🇸🇰	gendera Slowakia	none
+🇸🇱	gendera Siera Leone	none
 🇸🇲	gendera San Marino	none
-🇸🇳	gendera Sénégal	none
+🇸🇳	gendera Senegal	none
 🇸🇴	gendera Somalia	none
 🇸🇷	gendera Suriname	none
 🇸🇸	gendera Sudan Kidul	none
 🇸🇹	gendera Sao Tomé lan Principé	none
-🇸🇻	gendera Èl Salvador	none
-🇸🇽	gendera Sint Martén	none
+🇸🇻	gendera El Salvador	none
+🇸🇽	gendera Sint Maarten	none
 🇸🇾	gendera Suriah	none
-🇸🇿	gendera Swasiland	none
+🇸🇿	gendera Eswatini	none
 🇹🇦	gendera Tristan da Cunha	none
-🇹🇨	gendera Turks lan Kapuloan Kaikos	none
+🇹🇨	gendera Kapuloan Turks lan Caicos	none
 🇹🇩	gendera Chad	none
 🇹🇫	gendera Wilayah Prancis nang Kutub Kidul	none
 🇹🇬	gendera Togo	none
-🇹🇭	gendera Tanah Thai	none
+🇹🇭	gendera Thailand	none
 🇹🇯	gendera Tajikistan	none
 🇹🇰	gendera Tokelau	none
 🇹🇱	gendera Timor Leste	none
-🇹🇲	gendera Turkménistan	none
+🇹🇲	gendera Turkmenistan	none
 🇹🇳	gendera Tunisia	none
 🇹🇴	gendera Tonga	none
 🇹🇷	gendera Turki	none
 🇹🇹	gendera Trinidad lan Tobago	none
 🇹🇻	gendera Tuvalu	none
 🇹🇼	gendera Taiwan	none
-🇹🇿	gendera Tansania	none
-🇺🇦	gendera Ukrania	none
+🇹🇿	gendera Tanzania	none
+🇺🇦	gendera Ukraina	none
 🇺🇬	gendera Uganda	none
 🇺🇲	gendera Kapuloan AS Paling Njaba	none
-🇺🇳	gendera Pasarékatan Bangsa-Bangsa	none
-🇺🇸	gendera Amérika Sarékat	none
+🇺🇳	gendera Sarekat Bangsa-Bangsa	none
+🇺🇸	gendera Amerika Serikat	none
 🇺🇾	gendera Uruguay	none
-🇺🇿	gendera Usbèkistan	none
+🇺🇿	gendera Uzbekistan	none
 🇻🇦	gendera Kutha Vatikan	none
-🇻🇨	gendera Saint Vinsen lan Grénadin	none
-🇻🇪	gendera Vénésuéla	none
-🇻🇬	gendera Kapuloan Virgin Britania	none
-🇻🇮	gendera Kapuloan Virgin Amérika	none
-🇻🇳	gendera Viètnam	none
+🇻🇨	gendera Saint Vincent & Grenadines	none
+🇻🇪	gendera Venezuela	none
+🇻🇬	gendera Kapuloan Virgin Britania Raya	none
+🇻🇮	gendera Kapuloan Virgin Amerika Serikat	none
+🇻🇳	gendera Vietnam	none
 🇻🇺	gendera Vanuatu	none
 🇼🇫	gendera Wallis lan Futuna	none
 🇼🇸	gendera Samoa	none
@@ -4187,8 +4206,8 @@ symbols:
 🇾🇪	gendera Yaman	none
 🇾🇹	gendera Mayotte	none
 🇿🇦	gendera Afrika Kidul	none
-🇿🇲	gendera Sambia	none
-🇿🇼	gendera Simbabwe	none
+🇿🇲	gendera Zambia	none
+🇿🇼	gendera Zimbabwe	none
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	gendera Inggris	none
 🏴󠁧󠁢󠁳󠁣󠁴󠁿	gendera Skotlandia	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	gendera Wales	none

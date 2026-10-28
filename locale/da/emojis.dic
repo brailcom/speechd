@@ -275,6 +275,7 @@ symbols:
 🙂	let smilende ansigt	none
 🙃	omvendt ansigt	none
 🫠	smeltende ansigt	none
+🫫	krakelerende ansigt	none
 😉	blinkende ansigt	none
 😊	smilende ansigt og øjne	none
 😇	smilende ansigt med glorie	none
@@ -464,6 +465,8 @@ symbols:
 🫵	peger på seeren	none
 👍	tommelfinger op	none
 👎	tommelfinger ned	none
+🫹	tommelfinger til venstre	none
+🫺	tommelfinger til højre	none
 ✊	løftet knytnæve	none
 👊	knytnæve	none
 🤛	venstrevendt knytnæve	none
@@ -883,6 +886,7 @@ symbols:
 🦪	østers	none
 🐌	snegl	none
 🦋	sommerfugl	none
+🫌	monark (sommerfugl)	none
 🐛	larve	none
 🐜	myre	none
 🐝	honningbi	none
@@ -954,6 +958,7 @@ symbols:
 🌶	chili	none
 🫑	peberfrugt	none
 🥒	agurk	none
+🫝	drueagurk	none
 🥬	bladgrønt	none
 🥦	broccoli	none
 🧄	hvidløg	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	trafiklys	none
 🛑	stopskilt	none
 🚧	byggeri	none
+🛙	fyrtårn	none
 ⚓	anker	none
 🛟	redningskrans	none
 ⛵	sejlbåd	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	snemand	none
 ⛄	snemand uden snevejr	none
 ☄	komet	none
+🪋	meteor	none
 🔥	ild	none
 💧	dråbe	none
 🌊	bølge	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	malerpensel	none
 🖍	farvekridt	none
 📝	notat	none
+🪌	viskelæder	none
 💼	attachémappe	none
 📁	mappe	none
 📂	åben mappe	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	lukket hængelås med nøgle	none
 🔑	nøgle	none
 🗝	gammel nøgle	none
+🪍	net med skaft	none
 🔨	hammer	none
 🪓	økse	none
 ⛏	hakke	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	tommelfinger ned medium teint	none
 👎🏾	tommelfinger ned medium til mørk teint	none
 👎🏿	tommelfinger ned mørk teint	none
+🫹🏻	tommelfinger til venstre lys teint	none
+🫹🏼	tommelfinger til venstre medium til lys teint	none
+🫹🏽	tommelfinger til venstre medium teint	none
+🫹🏾	tommelfinger til venstre medium til mørk teint	none
+🫹🏿	tommelfinger til venstre mørk teint	none
+🫺🏻	tommelfinger til højre lys teint	none
+🫺🏼	tommelfinger til højre medium til lys teint	none
+🫺🏽	tommelfinger til højre medium teint	none
+🫺🏾	tommelfinger til højre medium til mørk teint	none
+🫺🏿	tommelfinger til højre mørk teint	none
 ✊🏻	løftet knytnæve lys teint	none
 ✊🏼	løftet knytnæve medium til lys teint	none
 ✊🏽	løftet knytnæve medium teint	none

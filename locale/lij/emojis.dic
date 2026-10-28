@@ -81,17 +81,22 @@ symbols:
 😑	morin sensa esprescion	none
 😶	morin sensa bocca	none
 🫥	morin trattezzou	none
+😶‍🌫	morin inte nuvie	none
 😏	morin co-o fattoriso asperto	none
 😒	morin ascidiou	none
 🙄	morin co-i euggi verso l’erto	none
 😬	morin con grimassa	none
+😮‍💨	morin ch’o l’espira	none
 🤥	morin boxardo	none
 🫨	morin ch’o tremma	none
+🙂‍↔	testa ch’a scòlla in senso orizzontale	none
+🙂‍↕	testa ch’a scòlla in senso verticale	none
 😌	morin reparpou	none
 😔	morin pensamentoso	none
 😪	morin dormiggioso	none
 🤤	morin co-a bava	none
 😴	morin addormio	none
+🫩	morin co-i euggi bollæ	none
 😷	morin co-a mascariña	none
 🤒	morin co-o termòmetro	none
 🤕	morin co-a testa imbindâ	none
@@ -102,6 +107,7 @@ symbols:
 🥶	morin giassou	none
 🥴	morin bambordio	none
 😵	morin invexendou	none
+😵‍💫	morin co-i euggi à spirale	none
 🤯	testa ch’a scciuppa	none
 🤠	morin co-o cappello da cowboy	none
 🥳	morin ch’o festezza	none
@@ -118,6 +124,7 @@ symbols:
 😯	morin sorpreiso	none
 😲	morin mäveggiou	none
 😳	morin imbarassou	none
+🫪	morin stòrto	none
 🥺	morin ch’o suprica	none
 🥹	morin ch’o trattëgne e lagrime	none
 😦	morin inmoronou co-a bocca averta	none
@@ -174,6 +181,8 @@ symbols:
 💟	addobbo con cheu	none
 ❣	ponto d’esclamaçion à cheu	none
 💔	cheu rotto	none
+❤‍🔥	cheu in sciamme	none
+❤‍🩹	cheu guario	none
 ❤	cheu rosso	none
 🩷	cheu reusa	none
 🧡	cheu cô de çetron	none
@@ -181,7 +190,7 @@ symbols:
 💚	cheu verde	none
 💙	cheu bleu	none
 🩵	cheu bleuçê	none
-💜	cheu moelo	none
+💜	cheu moælo	none
 🤎	cheu marròn	none
 🖤	cheu neigro	none
 🩶	cheu grixo	none
@@ -189,12 +198,14 @@ symbols:
 💋	segno de baxo	none
 💯	çento ponti	none
 💢	scimbolo da raggia	none
+🫯	nuvieta de baruffa	none
 💥	collixon	none
 💫	stella con scia	none
 💦	stisse de suo	none
 💨	nuvia de pua	none
 🕳	beuggio	none
 💬	ballon de discorso	none
+👁‍🗨	euggio into ballon	none
 🗨	ballon de discorso a-a manciña	none
 🗯	ballon ch’o l’esprimme raggia	none
 💭	ballon de pensceo	none
@@ -268,37 +279,126 @@ symbols:
 👱	persoña bionda	none
 👨	òmmo	none
 🧔	persoña co-a barba	none
+🧔‍♂	òmmo co-a barba	none
+👱‍♂	òmmo biondo	none
 👩	dònna	none
+🧔‍♀	dònna co-a barba	none
+👱‍♀	dònna bionda	none
 🧓	persoña in etæ	none
 👴	òmmo in etæ	none
 👵	dònna in etæ	none
 🙍	persoña ammagonâ	none
+🙍‍♂	òmmo ammagonou	none
+🙍‍♀	dònna ammagonâ	none
 🙎	persoña inmoronâ	none
+🙎‍♂	òmmo inmoronou	none
+🙎‍♀	dònna inmoronâ	none
 🙅	persoña ch’a fa segno de no	none
+🙅‍♂	òmmo ch’o fa segno de no	none
+🙅‍♀	dònna ch’a fa segno de no	none
 🙆	persoña ch’a fa OK	none
-💁	persoña co-o parmo in sciù	none
+🙆‍♂	òmmo ch’o fa OK	none
+🙆‍♀	dònna ch’a fa OK	none
+💁	persoña co-a parma in sciù	none
+💁‍♂	òmmo co-a parma in sciù	none
+💁‍♀	dònna co-a parma in sciù	none
 🙋	persoña ch’a tia sciù a man	none
+🙋‍♂	òmmo ch’o l’ïsa a man	none
+🙋‍♀	dònna ch’a l’ïsa a man	none
 🧏	persoña sorda	none
+🧏‍♂	òmmo sordo	none
+🧏‍♀	dònna sorda	none
 🙇	persoña ch’a fâ scoaccin	none
+🙇‍♂	òmmo ch’o fa scoaccin	none
+🙇‍♀	dònna ch’a fa scoaccin	none
 🤦	persoña esasperâ	none
+🤦‍♂	òmmo esasperou	none
+🤦‍♀	dònna esasperâ	none
 🤷	persoña ch’a strenze e spalle	none
+🤷‍♂	òmmo ch’o strenze e spalle	none
+🤷‍♀	dònna ch’a strenze e spalle	none
+🧑‍⚕	persoña ch’a travaggia inta sanitæ	none
+👨‍⚕	òmmo ch’o travaggia inta sanitæ	none
+👩‍⚕	dònna ch’a travaggia inta sanitæ	none
+🧑‍🎓	studente	none
+👨‍🎓	studente masccio	none
+👩‍🎓	studente femina	none
+🧑‍🏫	meistro	none
+👨‍🏫	meistro masccio	none
+👩‍🏫	meistra femina	none
+🧑‍⚖	giudiçe	none
+👨‍⚖	giudiçe masccio	none
+👩‍⚖	giudiçe femina	none
+🧑‍🌾	contadin	none
+👨‍🌾	contadin masccio	none
+👩‍🌾	contadiña femina	none
+🧑‍🍳	cheugo	none
+👨‍🍳	cheugo masccio	none
+👩‍🍳	cheuga femina	none
+🧑‍🔧	mecanico	none
+👨‍🔧	mecanico masccio	none
+👩‍🔧	mecanica femina	none
+🧑‍🏭	operäio	none
+👨‍🏭	operäio masccio	none
+👩‍🏭	operäia femina	none
+🧑‍💼	persoña ch’a travaggia in scagno	none
+👨‍💼	òmmo ch’o travaggia in scagno	none
+👩‍💼	dònna ch’a travaggia in scagno	none
+🧑‍🔬	sciensiou	none
+👨‍🔬	sciensiou masccio	none
+👩‍🔬	sciensciâ femina	none
+🧑‍💻	tecnòlogo	none
+👨‍💻	tecnòlogo masccio	none
+👩‍💻	tecnòloga femina	none
+🧑‍🎤	cantante	none
+👨‍🎤	cantante masccio	none
+👩‍🎤	cantante femina	none
+🧑‍🎨	artista	none
+👨‍🎨	artista masccio	none
+👩‍🎨	artista femina	none
+🧑‍✈	pilòtto	none
+👨‍✈	pilòtto masccio	none
+👩‍✈	pilòtta femina	none
+🧑‍🚀	astronauta	none
+👨‍🚀	astronauta masccio	none
+👩‍🚀	astronauta femina	none
+🧑‍🚒	pompê	none
+👨‍🚒	pompê masccio	none
+👩‍🚒	pompea femina	none
 👮	poliçiòtto	none
+👮‍♂	poliçiòtto masccio	none
+👮‍♀	poliçiòtta femina	none
 🕵	investigatô	none
+🕵‍♂	investigatô masccio	none
+🕵‍♀	investigatoa femina	none
 💂	guardia	none
+💂‍♂	guardia masccio	none
+💂‍♀	guardia femina	none
 🥷	ninja	none
 👷	massacan	none
+👷‍♂	massacan masccio	none
+👷‍♀	massacaña femina	none
 🫅	persoña co-a coroña	none
 🤴	prinçipe	none
 👸	prinçipessa	none
 👳	persoña co-o turbante	none
+👳‍♂	òmmo co-o turbante	none
+👳‍♀	dònna co-o turbante	none
 👲	persoña con copolin	none
 🧕	dònna co-o vello	none
 🤵	persoña in smoking	none
+🤵‍♂	òmmo in smoking	none
+🤵‍♀	dònna in smoking	none
 👰	persoña co-o vello	none
+👰‍♂	òmmo co-o vello	none
+👰‍♀	sposâ co-o vello	none
 🤰	dònna gräia	none
 🫃	òmmo gräio	none
 🫄	persoña gräia	none
 🤱	dâ o læte	none
+👩‍🍼	dònna ch’a dà o læte	none
+👨‍🍼	òmmo ch’o dà o læte	none
+🧑‍🍼	persoña ch’a dà o læte	none
 👼	angeo figgeu	none
 🎅	Papà Dënâ	none
 🤶	Mamà Dënâ	none
@@ -312,11 +412,21 @@ symbols:
 🧞	genio	none
 🧟	zombie	none
 🧌	tròll	none
-💆	persoña ch’a l’é massaggiâ	none
-💇	persoña che ghe taggian i cavelli	none
+💆	persoña massaggiâ	none
+💆‍♂	òmmo massaggiou	none
+💆‍♀	dònna massaggiâ	none
+💇	cavelli	none
+💇‍♂	òmmo che ghe taggian i cavalli	none
+💇‍♀	dònna che ghe taggian i cavelli	none
 🚶	persoña ch’a cammiña	none
+🚶‍♂	òmmo ch’o cammiña	none
+🚶‍♀	dònna ch’a cammiña	none
 🧍	persoña in pê	none
+🧍‍♂	òmmo in pê	none
+🧍‍♀	dònna in pê	none
 🧎	persoña in zenoggion	none
+🧎‍♂	òmmo in zenoggion	none
+🧎‍♀	dònna in zenoggion	none
 🏃	persoña ch’a core	none
 💃	dònna ch’a balla	none
 🕺	òmmo ch’o balla	none
@@ -344,11 +454,12 @@ symbols:
 🧘	persoña in sciâ poxiçion do löto	none
 🛀	persoña ch’a se fâ un bagno	none
 🛌	persoña in letto	none
+🧑‍🤝‍🧑	doe persoñe che se tëgnan pe-a man	none
 👭	doe dònne che se tëgnan pe-a man	none
 👫	dònna e òmmo che se tëgnan pe-a man	none
 👬	doî òmmi che se tëgnan pe-a man	none
 💏	baxo	none
-💑	cobbia con cheucobbia co-o cheu	none
+💑	cobbia con cheu	none
 🗣	testa ch’a parla	none
 👤	profî de busto	none
 👥	profî de doî busti	none
@@ -1715,26 +1826,26 @@ symbols:
 🧑🏿‍❤‍💋‍🧑🏼	baxo persoña, persoña, carnaxon scua e carnaxon assæ ciæa	none
 🧑🏿‍❤‍💋‍🧑🏽	baxo persoña, persoña, carnaxon scua e carnaxon cô d’öiva	none
 🧑🏿‍❤‍💋‍🧑🏾	baxo persoña, persoña, carnaxon scua e carnaxon assæ scua	none
-🧑🏻‍❤‍🧑🏼	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon ciæa e carnaxon assæ ciæa	none
-🧑🏻‍❤‍🧑🏽	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon ciæa e carnaxon cô d’öiva	none
-🧑🏻‍❤‍🧑🏾	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon ciæa e carnaxon assæ scua	none
-🧑🏻‍❤‍🧑🏿	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon ciæa e carnaxon scua	none
-🧑🏼‍❤‍🧑🏻	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon assæ ciæa e carnaxon ciæa	none
-🧑🏼‍❤‍🧑🏽	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon assæ ciæa e carnaxon cô d’öiva	none
-🧑🏼‍❤‍🧑🏾	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon assæ ciæa e carnaxon assæ scua	none
-🧑🏼‍❤‍🧑🏿	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon assæ ciæa e carnaxon scua	none
-🧑🏽‍❤‍🧑🏻	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon cô d’öiva e carnaxon ciæa	none
-🧑🏽‍❤‍🧑🏼	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon cô d’öiva e carnaxon assæ ciæa	none
-🧑🏽‍❤‍🧑🏾	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon cô d’öiva e carnaxon assæ scua	none
-🧑🏽‍❤‍🧑🏿	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon cô d’öiva e carnaxon scua	none
-🧑🏾‍❤‍🧑🏻	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon assæ scua e carnaxon ciæa	none
-🧑🏾‍❤‍🧑🏼	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon assæ scua e carnaxon assæ ciæa	none
-🧑🏾‍❤‍🧑🏽	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon assæ scua e carnaxon cô d’öiva	none
-🧑🏾‍❤‍🧑🏿	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon assæ scua e carnaxon scua	none
-🧑🏿‍❤‍🧑🏻	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon scua e carnaxon ciæa	none
-🧑🏿‍❤‍🧑🏼	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon scua e carnaxon assæ ciæa	none
-🧑🏿‍❤‍🧑🏽	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon scua e carnaxon cô d’öiva	none
-🧑🏿‍❤‍🧑🏾	cobbia con cheucobbia co-o cheu persoña, persoña, carnaxon scua e carnaxon assæ scua	none
+🧑🏻‍❤‍🧑🏼	cobbia con cheu persoña, persoña, carnaxon ciæa e carnaxon assæ ciæa	none
+🧑🏻‍❤‍🧑🏽	cobbia con cheu persoña, persoña, carnaxon ciæa e carnaxon cô d’öiva	none
+🧑🏻‍❤‍🧑🏾	cobbia con cheu persoña, persoña, carnaxon ciæa e carnaxon assæ scua	none
+🧑🏻‍❤‍🧑🏿	cobbia con cheu persoña, persoña, carnaxon ciæa e carnaxon scua	none
+🧑🏼‍❤‍🧑🏻	cobbia con cheu persoña, persoña, carnaxon assæ ciæa e carnaxon ciæa	none
+🧑🏼‍❤‍🧑🏽	cobbia con cheu persoña, persoña, carnaxon assæ ciæa e carnaxon cô d’öiva	none
+🧑🏼‍❤‍🧑🏾	cobbia con cheu persoña, persoña, carnaxon assæ ciæa e carnaxon assæ scua	none
+🧑🏼‍❤‍🧑🏿	cobbia con cheu persoña, persoña, carnaxon assæ ciæa e carnaxon scua	none
+🧑🏽‍❤‍🧑🏻	cobbia con cheu persoña, persoña, carnaxon cô d’öiva e carnaxon ciæa	none
+🧑🏽‍❤‍🧑🏼	cobbia con cheu persoña, persoña, carnaxon cô d’öiva e carnaxon assæ ciæa	none
+🧑🏽‍❤‍🧑🏾	cobbia con cheu persoña, persoña, carnaxon cô d’öiva e carnaxon assæ scua	none
+🧑🏽‍❤‍🧑🏿	cobbia con cheu persoña, persoña, carnaxon cô d’öiva e carnaxon scua	none
+🧑🏾‍❤‍🧑🏻	cobbia con cheu persoña, persoña, carnaxon assæ scua e carnaxon ciæa	none
+🧑🏾‍❤‍🧑🏼	cobbia con cheu persoña, persoña, carnaxon assæ scua e carnaxon assæ ciæa	none
+🧑🏾‍❤‍🧑🏽	cobbia con cheu persoña, persoña, carnaxon assæ scua e carnaxon cô d’öiva	none
+🧑🏾‍❤‍🧑🏿	cobbia con cheu persoña, persoña, carnaxon assæ scua e carnaxon scua	none
+🧑🏿‍❤‍🧑🏻	cobbia con cheu persoña, persoña, carnaxon scua e carnaxon ciæa	none
+🧑🏿‍❤‍🧑🏼	cobbia con cheu persoña, persoña, carnaxon scua e carnaxon assæ ciæa	none
+🧑🏿‍❤‍🧑🏽	cobbia con cheu persoña, persoña, carnaxon scua e carnaxon cô d’öiva	none
+🧑🏿‍❤‍🧑🏾	cobbia con cheu persoña, persoña, carnaxon scua e carnaxon assæ scua	none
 🧑🏻‍🫯‍🧑🏼	persoñe che lòttan carnaxon ciæa e carnaxon assæ ciæa	none
 🧑🏻‍🫯‍🧑🏽	persoñe che lòttan carnaxon ciæa e carnaxon cô d’öiva	none
 🧑🏻‍🫯‍🧑🏾	persoñe che lòttan carnaxon ciæa e carnaxon assæ scua	none
@@ -1809,6 +1920,16 @@ symbols:
 🧔🏽	persoña co-a barba carnaxon cô d’öiva	none
 🧔🏾	persoña co-a barba carnaxon assæ scua	none
 🧔🏿	persoña co-a barba carnaxon scua	none
+🧔🏻‍♂	òmmo co-a barba carnaxon ciæa	none
+🧔🏼‍♂	òmmo co-a barba carnaxon assæ ciæa	none
+🧔🏽‍♂	òmmo co-a barba carnaxon cô d’öiva	none
+🧔🏾‍♂	òmmo co-a barba carnaxon assæ scua	none
+🧔🏿‍♂	òmmo co-a barba carnaxon scua	none
+👱🏻‍♂	òmmo biondo carnaxon ciæa	none
+👱🏼‍♂	òmmo biondo carnaxon assæ ciæa	none
+👱🏽‍♂	òmmo biondo carnaxon cô d’öiva	none
+👱🏾‍♂	òmmo biondo carnaxon assæ scua	none
+👱🏿‍♂	òmmo biondo carnaxon scua	none
 👨🏻‍❤‍💋‍👨🏻	baxo òmmo, òmmo e carnaxon ciæa	none
 👨🏻‍❤‍💋‍👨🏼	baxo òmmo, òmmo, carnaxon ciæa e carnaxon assæ ciæa	none
 👨🏻‍❤‍💋‍👨🏽	baxo òmmo, òmmo, carnaxon ciæa e carnaxon cô d’öiva	none
@@ -1834,31 +1955,31 @@ symbols:
 👨🏿‍❤‍💋‍👨🏽	baxo òmmo, òmmo, carnaxon scua e carnaxon cô d’öiva	none
 👨🏿‍❤‍💋‍👨🏾	baxo òmmo, òmmo, carnaxon scua e carnaxon assæ scua	none
 👨🏿‍❤‍💋‍👨🏿	baxo òmmo, òmmo e carnaxon scua	none
-👨🏻‍❤‍👨🏻	cobbia con cheucobbia co-o cheu òmmo, òmmo e carnaxon ciæa	none
-👨🏻‍❤‍👨🏼	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon ciæa e carnaxon assæ ciæa	none
-👨🏻‍❤‍👨🏽	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon ciæa e carnaxon cô d’öiva	none
-👨🏻‍❤‍👨🏾	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon ciæa e carnaxon assæ scua	none
-👨🏻‍❤‍👨🏿	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon ciæa e carnaxon scua	none
-👨🏼‍❤‍👨🏻	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon assæ ciæa e carnaxon ciæa	none
-👨🏼‍❤‍👨🏼	cobbia con cheucobbia co-o cheu òmmo, òmmo e carnaxon assæ ciæa	none
-👨🏼‍❤‍👨🏽	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon assæ ciæa e carnaxon cô d’öiva	none
-👨🏼‍❤‍👨🏾	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon assæ ciæa e carnaxon assæ scua	none
-👨🏼‍❤‍👨🏿	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon assæ ciæa e carnaxon scua	none
-👨🏽‍❤‍👨🏻	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon cô d’öiva e carnaxon ciæa	none
-👨🏽‍❤‍👨🏼	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon cô d’öiva e carnaxon assæ ciæa	none
-👨🏽‍❤‍👨🏽	cobbia con cheucobbia co-o cheu òmmo, òmmo e carnaxon cô d’öiva	none
-👨🏽‍❤‍👨🏾	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon cô d’öiva e carnaxon assæ scua	none
-👨🏽‍❤‍👨🏿	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon cô d’öiva e carnaxon scua	none
-👨🏾‍❤‍👨🏻	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon assæ scua e carnaxon ciæa	none
-👨🏾‍❤‍👨🏼	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon assæ scua e carnaxon assæ ciæa	none
-👨🏾‍❤‍👨🏽	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon assæ scua e carnaxon cô d’öiva	none
-👨🏾‍❤‍👨🏾	cobbia con cheucobbia co-o cheu òmmo, òmmo e carnaxon assæ scua	none
-👨🏾‍❤‍👨🏿	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon assæ scua e carnaxon scua	none
-👨🏿‍❤‍👨🏻	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon scua e carnaxon ciæa	none
-👨🏿‍❤‍👨🏼	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon scua e carnaxon assæ ciæa	none
-👨🏿‍❤‍👨🏽	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon scua e carnaxon cô d’öiva	none
-👨🏿‍❤‍👨🏾	cobbia con cheucobbia co-o cheu òmmo, òmmo, carnaxon scua e carnaxon assæ scua	none
-👨🏿‍❤‍👨🏿	cobbia con cheucobbia co-o cheu òmmo, òmmo e carnaxon scua	none
+👨🏻‍❤‍👨🏻	cobbia con cheu òmmo, òmmo e carnaxon ciæa	none
+👨🏻‍❤‍👨🏼	cobbia con cheu òmmo, òmmo, carnaxon ciæa e carnaxon assæ ciæa	none
+👨🏻‍❤‍👨🏽	cobbia con cheu òmmo, òmmo, carnaxon ciæa e carnaxon cô d’öiva	none
+👨🏻‍❤‍👨🏾	cobbia con cheu òmmo, òmmo, carnaxon ciæa e carnaxon assæ scua	none
+👨🏻‍❤‍👨🏿	cobbia con cheu òmmo, òmmo, carnaxon ciæa e carnaxon scua	none
+👨🏼‍❤‍👨🏻	cobbia con cheu òmmo, òmmo, carnaxon assæ ciæa e carnaxon ciæa	none
+👨🏼‍❤‍👨🏼	cobbia con cheu òmmo, òmmo e carnaxon assæ ciæa	none
+👨🏼‍❤‍👨🏽	cobbia con cheu òmmo, òmmo, carnaxon assæ ciæa e carnaxon cô d’öiva	none
+👨🏼‍❤‍👨🏾	cobbia con cheu òmmo, òmmo, carnaxon assæ ciæa e carnaxon assæ scua	none
+👨🏼‍❤‍👨🏿	cobbia con cheu òmmo, òmmo, carnaxon assæ ciæa e carnaxon scua	none
+👨🏽‍❤‍👨🏻	cobbia con cheu òmmo, òmmo, carnaxon cô d’öiva e carnaxon ciæa	none
+👨🏽‍❤‍👨🏼	cobbia con cheu òmmo, òmmo, carnaxon cô d’öiva e carnaxon assæ ciæa	none
+👨🏽‍❤‍👨🏽	cobbia con cheu òmmo, òmmo e carnaxon cô d’öiva	none
+👨🏽‍❤‍👨🏾	cobbia con cheu òmmo, òmmo, carnaxon cô d’öiva e carnaxon assæ scua	none
+👨🏽‍❤‍👨🏿	cobbia con cheu òmmo, òmmo, carnaxon cô d’öiva e carnaxon scua	none
+👨🏾‍❤‍👨🏻	cobbia con cheu òmmo, òmmo, carnaxon assæ scua e carnaxon ciæa	none
+👨🏾‍❤‍👨🏼	cobbia con cheu òmmo, òmmo, carnaxon assæ scua e carnaxon assæ ciæa	none
+👨🏾‍❤‍👨🏽	cobbia con cheu òmmo, òmmo, carnaxon assæ scua e carnaxon cô d’öiva	none
+👨🏾‍❤‍👨🏾	cobbia con cheu òmmo, òmmo e carnaxon assæ scua	none
+👨🏾‍❤‍👨🏿	cobbia con cheu òmmo, òmmo, carnaxon assæ scua e carnaxon scua	none
+👨🏿‍❤‍👨🏻	cobbia con cheu òmmo, òmmo, carnaxon scua e carnaxon ciæa	none
+👨🏿‍❤‍👨🏼	cobbia con cheu òmmo, òmmo, carnaxon scua e carnaxon assæ ciæa	none
+👨🏿‍❤‍👨🏽	cobbia con cheu òmmo, òmmo, carnaxon scua e carnaxon cô d’öiva	none
+👨🏿‍❤‍👨🏾	cobbia con cheu òmmo, òmmo, carnaxon scua e carnaxon assæ scua	none
+👨🏿‍❤‍👨🏿	cobbia con cheu òmmo, òmmo e carnaxon scua	none
 👨‍🦰	òmmo cavelli rosci	none
 👨🏻‍🦰	òmmo carnaxon ciæa e cavelli rosci	none
 👨🏼‍🦰	òmmo carnaxon assæ ciæa e cavelli rosci	none
@@ -1888,6 +2009,16 @@ symbols:
 👩🏽	dònna carnaxon cô d’öiva	none
 👩🏾	dònna carnaxon assæ scua	none
 👩🏿	dònna carnaxon scua	none
+🧔🏻‍♀	dònna co-a barba carnaxon ciæa	none
+🧔🏼‍♀	dònna co-a barba carnaxon assæ ciæa	none
+🧔🏽‍♀	dònna co-a barba carnaxon cô d’öiva	none
+🧔🏾‍♀	dònna co-a barba carnaxon assæ scua	none
+🧔🏿‍♀	dònna co-a barba carnaxon scua	none
+👱🏻‍♀	dònna bionda carnaxon ciæa	none
+👱🏼‍♀	dònna bionda carnaxon assæ ciæa	none
+👱🏽‍♀	dònna bionda carnaxon cô d’öiva	none
+👱🏾‍♀	dònna bionda carnaxon assæ scua	none
+👱🏿‍♀	dònna bionda carnaxon scua	none
 👩🏻‍❤‍💋‍👨🏻	baxo dònna, òmmo e carnaxon ciæa	none
 👩🏻‍❤‍💋‍👨🏼	baxo dònna, òmmo, carnaxon ciæa e carnaxon assæ ciæa	none
 👩🏻‍❤‍💋‍👨🏽	baxo dònna, òmmo, carnaxon ciæa e carnaxon cô d’öiva	none
@@ -1938,56 +2069,56 @@ symbols:
 👩🏿‍❤‍💋‍👩🏽	baxo dònna, dònna, carnaxon scua e carnaxon cô d’öiva	none
 👩🏿‍❤‍💋‍👩🏾	baxo dònna, dònna, carnaxon scua e carnaxon assæ scua	none
 👩🏿‍❤‍💋‍👩🏿	baxo dònna, dònna e carnaxon scua	none
-👩🏻‍❤‍👨🏻	cobbia con cheucobbia co-o cheu dònna, òmmo e carnaxon ciæa	none
-👩🏻‍❤‍👨🏼	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon ciæa e carnaxon assæ ciæa	none
-👩🏻‍❤‍👨🏽	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon ciæa e carnaxon cô d’öiva	none
-👩🏻‍❤‍👨🏾	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon ciæa e carnaxon assæ scua	none
-👩🏻‍❤‍👨🏿	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon ciæa e carnaxon scua	none
-👩🏼‍❤‍👨🏻	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon assæ ciæa e carnaxon ciæa	none
-👩🏼‍❤‍👨🏼	cobbia con cheucobbia co-o cheu dònna, òmmo e carnaxon assæ ciæa	none
-👩🏼‍❤‍👨🏽	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon assæ ciæa e carnaxon cô d’öiva	none
-👩🏼‍❤‍👨🏾	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon assæ ciæa e carnaxon assæ scua	none
-👩🏼‍❤‍👨🏿	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon assæ ciæa e carnaxon scua	none
-👩🏽‍❤‍👨🏻	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon cô d’öiva e carnaxon ciæa	none
-👩🏽‍❤‍👨🏼	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon cô d’öiva e carnaxon assæ ciæa	none
-👩🏽‍❤‍👨🏽	cobbia con cheucobbia co-o cheu dònna, òmmo e carnaxon cô d’öiva	none
-👩🏽‍❤‍👨🏾	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon cô d’öiva e carnaxon assæ scua	none
-👩🏽‍❤‍👨🏿	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon cô d’öiva e carnaxon scua	none
-👩🏾‍❤‍👨🏻	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon assæ scua e carnaxon ciæa	none
-👩🏾‍❤‍👨🏼	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon assæ scua e carnaxon assæ ciæa	none
-👩🏾‍❤‍👨🏽	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon assæ scua e carnaxon cô d’öiva	none
-👩🏾‍❤‍👨🏾	cobbia con cheucobbia co-o cheu dònna, òmmo e carnaxon assæ scua	none
-👩🏾‍❤‍👨🏿	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon assæ scua e carnaxon scua	none
-👩🏿‍❤‍👨🏻	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon scua e carnaxon ciæa	none
-👩🏿‍❤‍👨🏼	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon scua e carnaxon assæ ciæa	none
-👩🏿‍❤‍👨🏽	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon scua e carnaxon cô d’öiva	none
-👩🏿‍❤‍👨🏾	cobbia con cheucobbia co-o cheu dònna, òmmo, carnaxon scua e carnaxon assæ scua	none
-👩🏿‍❤‍👨🏿	cobbia con cheucobbia co-o cheu dònna, òmmo e carnaxon scua	none
-👩🏻‍❤‍👩🏻	cobbia con cheucobbia co-o cheu dònna, dònna e carnaxon ciæa	none
-👩🏻‍❤‍👩🏼	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon ciæa e carnaxon assæ ciæa	none
-👩🏻‍❤‍👩🏽	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon ciæa e carnaxon cô d’öiva	none
-👩🏻‍❤‍👩🏾	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon ciæa e carnaxon assæ scua	none
-👩🏻‍❤‍👩🏿	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon ciæa e carnaxon scua	none
-👩🏼‍❤‍👩🏻	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon assæ ciæa e carnaxon ciæa	none
-👩🏼‍❤‍👩🏼	cobbia con cheucobbia co-o cheu dònna, dònna e carnaxon assæ ciæa	none
-👩🏼‍❤‍👩🏽	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon assæ ciæa e carnaxon cô d’öiva	none
-👩🏼‍❤‍👩🏾	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon assæ ciæa e carnaxon assæ scua	none
-👩🏼‍❤‍👩🏿	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon assæ ciæa e carnaxon scua	none
-👩🏽‍❤‍👩🏻	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon cô d’öiva e carnaxon ciæa	none
-👩🏽‍❤‍👩🏼	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon cô d’öiva e carnaxon assæ ciæa	none
-👩🏽‍❤‍👩🏽	cobbia con cheucobbia co-o cheu dònna, dònna e carnaxon cô d’öiva	none
-👩🏽‍❤‍👩🏾	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon cô d’öiva e carnaxon assæ scua	none
-👩🏽‍❤‍👩🏿	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon cô d’öiva e carnaxon scua	none
-👩🏾‍❤‍👩🏻	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon assæ scua e carnaxon ciæa	none
-👩🏾‍❤‍👩🏼	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon assæ scua e carnaxon assæ ciæa	none
-👩🏾‍❤‍👩🏽	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon assæ scua e carnaxon cô d’öiva	none
-👩🏾‍❤‍👩🏾	cobbia con cheucobbia co-o cheu dònna, dònna e carnaxon assæ scua	none
-👩🏾‍❤‍👩🏿	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon assæ scua e carnaxon scua	none
-👩🏿‍❤‍👩🏻	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon scua e carnaxon ciæa	none
-👩🏿‍❤‍👩🏼	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon scua e carnaxon assæ ciæa	none
-👩🏿‍❤‍👩🏽	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon scua e carnaxon cô d’öiva	none
-👩🏿‍❤‍👩🏾	cobbia con cheucobbia co-o cheu dònna, dònna, carnaxon scua e carnaxon assæ scua	none
-👩🏿‍❤‍👩🏿	cobbia con cheucobbia co-o cheu dònna, dònna e carnaxon scua	none
+👩🏻‍❤‍👨🏻	cobbia con cheu dònna, òmmo e carnaxon ciæa	none
+👩🏻‍❤‍👨🏼	cobbia con cheu dònna, òmmo, carnaxon ciæa e carnaxon assæ ciæa	none
+👩🏻‍❤‍👨🏽	cobbia con cheu dònna, òmmo, carnaxon ciæa e carnaxon cô d’öiva	none
+👩🏻‍❤‍👨🏾	cobbia con cheu dònna, òmmo, carnaxon ciæa e carnaxon assæ scua	none
+👩🏻‍❤‍👨🏿	cobbia con cheu dònna, òmmo, carnaxon ciæa e carnaxon scua	none
+👩🏼‍❤‍👨🏻	cobbia con cheu dònna, òmmo, carnaxon assæ ciæa e carnaxon ciæa	none
+👩🏼‍❤‍👨🏼	cobbia con cheu dònna, òmmo e carnaxon assæ ciæa	none
+👩🏼‍❤‍👨🏽	cobbia con cheu dònna, òmmo, carnaxon assæ ciæa e carnaxon cô d’öiva	none
+👩🏼‍❤‍👨🏾	cobbia con cheu dònna, òmmo, carnaxon assæ ciæa e carnaxon assæ scua	none
+👩🏼‍❤‍👨🏿	cobbia con cheu dònna, òmmo, carnaxon assæ ciæa e carnaxon scua	none
+👩🏽‍❤‍👨🏻	cobbia con cheu dònna, òmmo, carnaxon cô d’öiva e carnaxon ciæa	none
+👩🏽‍❤‍👨🏼	cobbia con cheu dònna, òmmo, carnaxon cô d’öiva e carnaxon assæ ciæa	none
+👩🏽‍❤‍👨🏽	cobbia con cheu dònna, òmmo e carnaxon cô d’öiva	none
+👩🏽‍❤‍👨🏾	cobbia con cheu dònna, òmmo, carnaxon cô d’öiva e carnaxon assæ scua	none
+👩🏽‍❤‍👨🏿	cobbia con cheu dònna, òmmo, carnaxon cô d’öiva e carnaxon scua	none
+👩🏾‍❤‍👨🏻	cobbia con cheu dònna, òmmo, carnaxon assæ scua e carnaxon ciæa	none
+👩🏾‍❤‍👨🏼	cobbia con cheu dònna, òmmo, carnaxon assæ scua e carnaxon assæ ciæa	none
+👩🏾‍❤‍👨🏽	cobbia con cheu dònna, òmmo, carnaxon assæ scua e carnaxon cô d’öiva	none
+👩🏾‍❤‍👨🏾	cobbia con cheu dònna, òmmo e carnaxon assæ scua	none
+👩🏾‍❤‍👨🏿	cobbia con cheu dònna, òmmo, carnaxon assæ scua e carnaxon scua	none
+👩🏿‍❤‍👨🏻	cobbia con cheu dònna, òmmo, carnaxon scua e carnaxon ciæa	none
+👩🏿‍❤‍👨🏼	cobbia con cheu dònna, òmmo, carnaxon scua e carnaxon assæ ciæa	none
+👩🏿‍❤‍👨🏽	cobbia con cheu dònna, òmmo, carnaxon scua e carnaxon cô d’öiva	none
+👩🏿‍❤‍👨🏾	cobbia con cheu dònna, òmmo, carnaxon scua e carnaxon assæ scua	none
+👩🏿‍❤‍👨🏿	cobbia con cheu dònna, òmmo e carnaxon scua	none
+👩🏻‍❤‍👩🏻	cobbia con cheu dònna, dònna e carnaxon ciæa	none
+👩🏻‍❤‍👩🏼	cobbia con cheu dònna, dònna, carnaxon ciæa e carnaxon assæ ciæa	none
+👩🏻‍❤‍👩🏽	cobbia con cheu dònna, dònna, carnaxon ciæa e carnaxon cô d’öiva	none
+👩🏻‍❤‍👩🏾	cobbia con cheu dònna, dònna, carnaxon ciæa e carnaxon assæ scua	none
+👩🏻‍❤‍👩🏿	cobbia con cheu dònna, dònna, carnaxon ciæa e carnaxon scua	none
+👩🏼‍❤‍👩🏻	cobbia con cheu dònna, dònna, carnaxon assæ ciæa e carnaxon ciæa	none
+👩🏼‍❤‍👩🏼	cobbia con cheu dònna, dònna e carnaxon assæ ciæa	none
+👩🏼‍❤‍👩🏽	cobbia con cheu dònna, dònna, carnaxon assæ ciæa e carnaxon cô d’öiva	none
+👩🏼‍❤‍👩🏾	cobbia con cheu dònna, dònna, carnaxon assæ ciæa e carnaxon assæ scua	none
+👩🏼‍❤‍👩🏿	cobbia con cheu dònna, dònna, carnaxon assæ ciæa e carnaxon scua	none
+👩🏽‍❤‍👩🏻	cobbia con cheu dònna, dònna, carnaxon cô d’öiva e carnaxon ciæa	none
+👩🏽‍❤‍👩🏼	cobbia con cheu dònna, dònna, carnaxon cô d’öiva e carnaxon assæ ciæa	none
+👩🏽‍❤‍👩🏽	cobbia con cheu dònna, dònna e carnaxon cô d’öiva	none
+👩🏽‍❤‍👩🏾	cobbia con cheu dònna, dònna, carnaxon cô d’öiva e carnaxon assæ scua	none
+👩🏽‍❤‍👩🏿	cobbia con cheu dònna, dònna, carnaxon cô d’öiva e carnaxon scua	none
+👩🏾‍❤‍👩🏻	cobbia con cheu dònna, dònna, carnaxon assæ scua e carnaxon ciæa	none
+👩🏾‍❤‍👩🏼	cobbia con cheu dònna, dònna, carnaxon assæ scua e carnaxon assæ ciæa	none
+👩🏾‍❤‍👩🏽	cobbia con cheu dònna, dònna, carnaxon assæ scua e carnaxon cô d’öiva	none
+👩🏾‍❤‍👩🏾	cobbia con cheu dònna, dònna e carnaxon assæ scua	none
+👩🏾‍❤‍👩🏿	cobbia con cheu dònna, dònna, carnaxon assæ scua e carnaxon scua	none
+👩🏿‍❤‍👩🏻	cobbia con cheu dònna, dònna, carnaxon scua e carnaxon ciæa	none
+👩🏿‍❤‍👩🏼	cobbia con cheu dònna, dònna, carnaxon scua e carnaxon assæ ciæa	none
+👩🏿‍❤‍👩🏽	cobbia con cheu dònna, dònna, carnaxon scua e carnaxon cô d’öiva	none
+👩🏿‍❤‍👩🏾	cobbia con cheu dònna, dònna, carnaxon scua e carnaxon assæ scua	none
+👩🏿‍❤‍👩🏿	cobbia con cheu dònna, dònna e carnaxon scua	none
 👩‍🦰	dònna cavelli rosci	none
 👩🏻‍🦰	dònna carnaxon ciæa e cavelli rosci	none
 👩🏼‍🦰	dònna carnaxon assæ ciæa e cavelli rosci	none
@@ -2032,66 +2163,436 @@ symbols:
 🙍🏽	persoña ammagonâ carnaxon cô d’öiva	none
 🙍🏾	persoña ammagonâ carnaxon assæ scua	none
 🙍🏿	persoña ammagonâ carnaxon scua	none
+🙍🏻‍♂	òmmo ammagonou carnaxon ciæa	none
+🙍🏼‍♂	òmmo ammagonou carnaxon assæ ciæa	none
+🙍🏽‍♂	òmmo ammagonou carnaxon cô d’öiva	none
+🙍🏾‍♂	òmmo ammagonou carnaxon assæ scua	none
+🙍🏿‍♂	òmmo ammagonou carnaxon scua	none
+🙍🏻‍♀	dònna ammagonâ carnaxon ciæa	none
+🙍🏼‍♀	dònna ammagonâ carnaxon assæ ciæa	none
+🙍🏽‍♀	dònna ammagonâ carnaxon cô d’öiva	none
+🙍🏾‍♀	dònna ammagonâ carnaxon assæ scua	none
+🙍🏿‍♀	dònna ammagonâ carnaxon scua	none
 🙎🏻	persoña inmoronâ carnaxon ciæa	none
 🙎🏼	persoña inmoronâ carnaxon assæ ciæa	none
 🙎🏽	persoña inmoronâ carnaxon cô d’öiva	none
 🙎🏾	persoña inmoronâ carnaxon assæ scua	none
 🙎🏿	persoña inmoronâ carnaxon scua	none
+🙎🏻‍♂	òmmo inmoronou carnaxon ciæa	none
+🙎🏼‍♂	òmmo inmoronou carnaxon assæ ciæa	none
+🙎🏽‍♂	òmmo inmoronou carnaxon cô d’öiva	none
+🙎🏾‍♂	òmmo inmoronou carnaxon assæ scua	none
+🙎🏿‍♂	òmmo inmoronou carnaxon scua	none
+🙎🏻‍♀	dònna inmoronâ carnaxon ciæa	none
+🙎🏼‍♀	dònna inmoronâ carnaxon assæ ciæa	none
+🙎🏽‍♀	dònna inmoronâ carnaxon cô d’öiva	none
+🙎🏾‍♀	dònna inmoronâ carnaxon assæ scua	none
+🙎🏿‍♀	dònna inmoronâ carnaxon scua	none
 🙅🏻	persoña ch’a fa segno de no carnaxon ciæa	none
 🙅🏼	persoña ch’a fa segno de no carnaxon assæ ciæa	none
 🙅🏽	persoña ch’a fa segno de no carnaxon cô d’öiva	none
 🙅🏾	persoña ch’a fa segno de no carnaxon assæ scua	none
 🙅🏿	persoña ch’a fa segno de no carnaxon scua	none
+🙅🏻‍♂	òmmo ch’o fa segno de no carnaxon ciæa	none
+🙅🏼‍♂	òmmo ch’o fa segno de no carnaxon assæ ciæa	none
+🙅🏽‍♂	òmmo ch’o fa segno de no carnaxon cô d’öiva	none
+🙅🏾‍♂	òmmo ch’o fa segno de no carnaxon assæ scua	none
+🙅🏿‍♂	òmmo ch’o fa segno de no carnaxon scua	none
+🙅🏻‍♀	dònna ch’a fa segno de no carnaxon ciæa	none
+🙅🏼‍♀	dònna ch’a fa segno de no carnaxon assæ ciæa	none
+🙅🏽‍♀	dònna ch’a fa segno de no carnaxon cô d’öiva	none
+🙅🏾‍♀	dònna ch’a fa segno de no carnaxon assæ scua	none
+🙅🏿‍♀	dònna ch’a fa segno de no carnaxon scua	none
 🙆🏻	persoña ch’a fa OK carnaxon ciæa	none
 🙆🏼	persoña ch’a fa OK carnaxon assæ ciæa	none
 🙆🏽	persoña ch’a fa OK carnaxon cô d’öiva	none
 🙆🏾	persoña ch’a fa OK carnaxon assæ scua	none
 🙆🏿	persoña ch’a fa OK carnaxon scua	none
-💁🏻	persoña co-o parmo in sciù carnaxon ciæa	none
-💁🏼	persoña co-o parmo in sciù carnaxon assæ ciæa	none
-💁🏽	persoña co-o parmo in sciù carnaxon cô d’öiva	none
-💁🏾	persoña co-o parmo in sciù carnaxon assæ scua	none
-💁🏿	persoña co-o parmo in sciù carnaxon scua	none
+🙆🏻‍♂	òmmo ch’o fa OK carnaxon ciæa	none
+🙆🏼‍♂	òmmo ch’o fa OK carnaxon assæ ciæa	none
+🙆🏽‍♂	òmmo ch’o fa OK carnaxon cô d’öiva	none
+🙆🏾‍♂	òmmo ch’o fa OK carnaxon assæ scua	none
+🙆🏿‍♂	òmmo ch’o fa OK carnaxon scua	none
+🙆🏻‍♀	dònna ch’a fa OK carnaxon ciæa	none
+🙆🏼‍♀	dònna ch’a fa OK carnaxon assæ ciæa	none
+🙆🏽‍♀	dònna ch’a fa OK carnaxon cô d’öiva	none
+🙆🏾‍♀	dònna ch’a fa OK carnaxon assæ scua	none
+🙆🏿‍♀	dònna ch’a fa OK carnaxon scua	none
+💁🏻	persoña co-a parma in sciù carnaxon ciæa	none
+💁🏼	persoña co-a parma in sciù carnaxon assæ ciæa	none
+💁🏽	persoña co-a parma in sciù carnaxon cô d’öiva	none
+💁🏾	persoña co-a parma in sciù carnaxon assæ scua	none
+💁🏿	persoña co-a parma in sciù carnaxon scua	none
+💁🏻‍♂	òmmo co-a parma in sciù carnaxon ciæa	none
+💁🏼‍♂	òmmo co-a parma in sciù carnaxon assæ ciæa	none
+💁🏽‍♂	òmmo co-a parma in sciù carnaxon cô d’öiva	none
+💁🏾‍♂	òmmo co-a parma in sciù carnaxon assæ scua	none
+💁🏿‍♂	òmmo co-a parma in sciù carnaxon scua	none
+💁🏻‍♀	dònna co-a parma in sciù carnaxon ciæa	none
+💁🏼‍♀	dònna co-a parma in sciù carnaxon assæ ciæa	none
+💁🏽‍♀	dònna co-a parma in sciù carnaxon cô d’öiva	none
+💁🏾‍♀	dònna co-a parma in sciù carnaxon assæ scua	none
+💁🏿‍♀	dònna co-a parma in sciù carnaxon scua	none
 🙋🏻	persoña ch’a tia sciù a man carnaxon ciæa	none
 🙋🏼	persoña ch’a tia sciù a man carnaxon assæ ciæa	none
 🙋🏽	persoña ch’a tia sciù a man carnaxon cô d’öiva	none
 🙋🏾	persoña ch’a tia sciù a man carnaxon assæ scua	none
 🙋🏿	persoña ch’a tia sciù a man carnaxon scua	none
+🙋🏻‍♂	òmmo ch’o l’ïsa a man carnaxon ciæa	none
+🙋🏼‍♂	òmmo ch’o l’ïsa a man carnaxon assæ ciæa	none
+🙋🏽‍♂	òmmo ch’o l’ïsa a man carnaxon cô d’öiva	none
+🙋🏾‍♂	òmmo ch’o l’ïsa a man carnaxon assæ scua	none
+🙋🏿‍♂	òmmo ch’o l’ïsa a man carnaxon scua	none
+🙋🏻‍♀	dònna ch’a l’ïsa a man carnaxon ciæa	none
+🙋🏼‍♀	dònna ch’a l’ïsa a man carnaxon assæ ciæa	none
+🙋🏽‍♀	dònna ch’a l’ïsa a man carnaxon cô d’öiva	none
+🙋🏾‍♀	dònna ch’a l’ïsa a man carnaxon assæ scua	none
+🙋🏿‍♀	dònna ch’a l’ïsa a man carnaxon scua	none
 🧏🏻	persoña sorda carnaxon ciæa	none
 🧏🏼	persoña sorda carnaxon assæ ciæa	none
 🧏🏽	persoña sorda carnaxon cô d’öiva	none
 🧏🏾	persoña sorda carnaxon assæ scua	none
 🧏🏿	persoña sorda carnaxon scua	none
+🧏🏻‍♂	òmmo sordo carnaxon ciæa	none
+🧏🏼‍♂	òmmo sordo carnaxon assæ ciæa	none
+🧏🏽‍♂	òmmo sordo carnaxon cô d’öiva	none
+🧏🏾‍♂	òmmo sordo carnaxon assæ scua	none
+🧏🏿‍♂	òmmo sordo carnaxon scua	none
+🧏🏻‍♀	dònna sorda carnaxon ciæa	none
+🧏🏼‍♀	dònna sorda carnaxon assæ ciæa	none
+🧏🏽‍♀	dònna sorda carnaxon cô d’öiva	none
+🧏🏾‍♀	dònna sorda carnaxon assæ scua	none
+🧏🏿‍♀	dònna sorda carnaxon scua	none
 🙇🏻	persoña ch’a fâ scoaccin carnaxon ciæa	none
 🙇🏼	persoña ch’a fâ scoaccin carnaxon assæ ciæa	none
 🙇🏽	persoña ch’a fâ scoaccin carnaxon cô d’öiva	none
 🙇🏾	persoña ch’a fâ scoaccin carnaxon assæ scua	none
 🙇🏿	persoña ch’a fâ scoaccin carnaxon scua	none
+🙇🏻‍♂	òmmo ch’o fa scoaccin carnaxon ciæa	none
+🙇🏼‍♂	òmmo ch’o fa scoaccin carnaxon assæ ciæa	none
+🙇🏽‍♂	òmmo ch’o fa scoaccin carnaxon cô d’öiva	none
+🙇🏾‍♂	òmmo ch’o fa scoaccin carnaxon assæ scua	none
+🙇🏿‍♂	òmmo ch’o fa scoaccin carnaxon scua	none
+🙇🏻‍♀	dònna ch’a fa scoaccin carnaxon ciæa	none
+🙇🏼‍♀	dònna ch’a fa scoaccin carnaxon assæ ciæa	none
+🙇🏽‍♀	dònna ch’a fa scoaccin carnaxon cô d’öiva	none
+🙇🏾‍♀	dònna ch’a fa scoaccin carnaxon assæ scua	none
+🙇🏿‍♀	dònna ch’a fa scoaccin carnaxon scua	none
 🤦🏻	persoña esasperâ carnaxon ciæa	none
 🤦🏼	persoña esasperâ carnaxon assæ ciæa	none
 🤦🏽	persoña esasperâ carnaxon cô d’öiva	none
 🤦🏾	persoña esasperâ carnaxon assæ scua	none
 🤦🏿	persoña esasperâ carnaxon scua	none
+🤦🏻‍♂	òmmo esasperou carnaxon ciæa	none
+🤦🏼‍♂	òmmo esasperou carnaxon assæ ciæa	none
+🤦🏽‍♂	òmmo esasperou carnaxon cô d’öiva	none
+🤦🏾‍♂	òmmo esasperou carnaxon assæ scua	none
+🤦🏿‍♂	òmmo esasperou carnaxon scua	none
+🤦🏻‍♀	dònna esasperâ carnaxon ciæa	none
+🤦🏼‍♀	dònna esasperâ carnaxon assæ ciæa	none
+🤦🏽‍♀	dònna esasperâ carnaxon cô d’öiva	none
+🤦🏾‍♀	dònna esasperâ carnaxon assæ scua	none
+🤦🏿‍♀	dònna esasperâ carnaxon scua	none
 🤷🏻	persoña ch’a strenze e spalle carnaxon ciæa	none
 🤷🏼	persoña ch’a strenze e spalle carnaxon assæ ciæa	none
 🤷🏽	persoña ch’a strenze e spalle carnaxon cô d’öiva	none
 🤷🏾	persoña ch’a strenze e spalle carnaxon assæ scua	none
 🤷🏿	persoña ch’a strenze e spalle carnaxon scua	none
+🤷🏻‍♂	òmmo ch’o strenze e spalle carnaxon ciæa	none
+🤷🏼‍♂	òmmo ch’o strenze e spalle carnaxon assæ ciæa	none
+🤷🏽‍♂	òmmo ch’o strenze e spalle carnaxon cô d’öiva	none
+🤷🏾‍♂	òmmo ch’o strenze e spalle carnaxon assæ scua	none
+🤷🏿‍♂	òmmo ch’o strenze e spalle carnaxon scua	none
+🤷🏻‍♀	dònna ch’a strenze e spalle carnaxon ciæa	none
+🤷🏼‍♀	dònna ch’a strenze e spalle carnaxon assæ ciæa	none
+🤷🏽‍♀	dònna ch’a strenze e spalle carnaxon cô d’öiva	none
+🤷🏾‍♀	dònna ch’a strenze e spalle carnaxon assæ scua	none
+🤷🏿‍♀	dònna ch’a strenze e spalle carnaxon scua	none
+🧑🏻‍⚕	persoña ch’a travaggia inta sanitæ carnaxon ciæa	none
+🧑🏼‍⚕	persoña ch’a travaggia inta sanitæ carnaxon assæ ciæa	none
+🧑🏽‍⚕	persoña ch’a travaggia inta sanitæ carnaxon cô d’öiva	none
+🧑🏾‍⚕	persoña ch’a travaggia inta sanitæ carnaxon assæ scua	none
+🧑🏿‍⚕	persoña ch’a travaggia inta sanitæ carnaxon scua	none
+👨🏻‍⚕	òmmo ch’o travaggia inta sanitæ carnaxon ciæa	none
+👨🏼‍⚕	òmmo ch’o travaggia inta sanitæ carnaxon assæ ciæa	none
+👨🏽‍⚕	òmmo ch’o travaggia inta sanitæ carnaxon cô d’öiva	none
+👨🏾‍⚕	òmmo ch’o travaggia inta sanitæ carnaxon assæ scua	none
+👨🏿‍⚕	òmmo ch’o travaggia inta sanitæ carnaxon scua	none
+👩🏻‍⚕	dònna ch’a travaggia inta sanitæ carnaxon ciæa	none
+👩🏼‍⚕	dònna ch’a travaggia inta sanitæ carnaxon assæ ciæa	none
+👩🏽‍⚕	dònna ch’a travaggia inta sanitæ carnaxon cô d’öiva	none
+👩🏾‍⚕	dònna ch’a travaggia inta sanitæ carnaxon assæ scua	none
+👩🏿‍⚕	dònna ch’a travaggia inta sanitæ carnaxon scua	none
+🧑🏻‍🎓	studente carnaxon ciæa	none
+🧑🏼‍🎓	studente carnaxon assæ ciæa	none
+🧑🏽‍🎓	studente carnaxon cô d’öiva	none
+🧑🏾‍🎓	studente carnaxon assæ scua	none
+🧑🏿‍🎓	studente carnaxon scua	none
+👨🏻‍🎓	studente masccio carnaxon ciæa	none
+👨🏼‍🎓	studente masccio carnaxon assæ ciæa	none
+👨🏽‍🎓	studente masccio carnaxon cô d’öiva	none
+👨🏾‍🎓	studente masccio carnaxon assæ scua	none
+👨🏿‍🎓	studente masccio carnaxon scua	none
+👩🏻‍🎓	studente femina carnaxon ciæa	none
+👩🏼‍🎓	studente femina carnaxon assæ ciæa	none
+👩🏽‍🎓	studente femina carnaxon cô d’öiva	none
+👩🏾‍🎓	studente femina carnaxon assæ scua	none
+👩🏿‍🎓	studente femina carnaxon scua	none
+🧑🏻‍🏫	meistro carnaxon ciæa	none
+🧑🏼‍🏫	meistro carnaxon assæ ciæa	none
+🧑🏽‍🏫	meistro carnaxon cô d’öiva	none
+🧑🏾‍🏫	meistro carnaxon assæ scua	none
+🧑🏿‍🏫	meistro carnaxon scua	none
+👨🏻‍🏫	meistro masccio carnaxon ciæa	none
+👨🏼‍🏫	meistro masccio carnaxon assæ ciæa	none
+👨🏽‍🏫	meistro masccio carnaxon cô d’öiva	none
+👨🏾‍🏫	meistro masccio carnaxon assæ scua	none
+👨🏿‍🏫	meistro masccio carnaxon scua	none
+👩🏻‍🏫	meistra femina carnaxon ciæa	none
+👩🏼‍🏫	meistra femina carnaxon assæ ciæa	none
+👩🏽‍🏫	meistra femina carnaxon cô d’öiva	none
+👩🏾‍🏫	meistra femina carnaxon assæ scua	none
+👩🏿‍🏫	meistra femina carnaxon scua	none
+🧑🏻‍⚖	giudiçe carnaxon ciæa	none
+🧑🏼‍⚖	giudiçe carnaxon assæ ciæa	none
+🧑🏽‍⚖	giudiçe carnaxon cô d’öiva	none
+🧑🏾‍⚖	giudiçe carnaxon assæ scua	none
+🧑🏿‍⚖	giudiçe carnaxon scua	none
+👨🏻‍⚖	giudiçe masccio carnaxon ciæa	none
+👨🏼‍⚖	giudiçe masccio carnaxon assæ ciæa	none
+👨🏽‍⚖	giudiçe masccio carnaxon cô d’öiva	none
+👨🏾‍⚖	giudiçe masccio carnaxon assæ scua	none
+👨🏿‍⚖	giudiçe masccio carnaxon scua	none
+👩🏻‍⚖	giudiçe femina carnaxon ciæa	none
+👩🏼‍⚖	giudiçe femina carnaxon assæ ciæa	none
+👩🏽‍⚖	giudiçe femina carnaxon cô d’öiva	none
+👩🏾‍⚖	giudiçe femina carnaxon assæ scua	none
+👩🏿‍⚖	giudiçe femina carnaxon scua	none
+🧑🏻‍🌾	contadin carnaxon ciæa	none
+🧑🏼‍🌾	contadin carnaxon assæ ciæa	none
+🧑🏽‍🌾	contadin carnaxon cô d’öiva	none
+🧑🏾‍🌾	contadin carnaxon assæ scua	none
+🧑🏿‍🌾	contadin carnaxon scua	none
+👨🏻‍🌾	contadin masccio carnaxon ciæa	none
+👨🏼‍🌾	contadin masccio carnaxon assæ ciæa	none
+👨🏽‍🌾	contadin masccio carnaxon cô d’öiva	none
+👨🏾‍🌾	contadin masccio carnaxon assæ scua	none
+👨🏿‍🌾	contadin masccio carnaxon scua	none
+👩🏻‍🌾	contadiña femina carnaxon ciæa	none
+👩🏼‍🌾	contadiña femina carnaxon assæ ciæa	none
+👩🏽‍🌾	contadiña femina carnaxon cô d’öiva	none
+👩🏾‍🌾	contadiña femina carnaxon assæ scua	none
+👩🏿‍🌾	contadiña femina carnaxon scua	none
+🧑🏻‍🍳	cheugo carnaxon ciæa	none
+🧑🏼‍🍳	cheugo carnaxon assæ ciæa	none
+🧑🏽‍🍳	cheugo carnaxon cô d’öiva	none
+🧑🏾‍🍳	cheugo carnaxon assæ scua	none
+🧑🏿‍🍳	cheugo carnaxon scua	none
+👨🏻‍🍳	cheugo masccio carnaxon ciæa	none
+👨🏼‍🍳	cheugo masccio carnaxon assæ ciæa	none
+👨🏽‍🍳	cheugo masccio carnaxon cô d’öiva	none
+👨🏾‍🍳	cheugo masccio carnaxon assæ scua	none
+👨🏿‍🍳	cheugo masccio carnaxon scua	none
+👩🏻‍🍳	cheuga femina carnaxon ciæa	none
+👩🏼‍🍳	cheuga femina carnaxon assæ ciæa	none
+👩🏽‍🍳	cheuga femina carnaxon cô d’öiva	none
+👩🏾‍🍳	cheuga femina carnaxon assæ scua	none
+👩🏿‍🍳	cheuga femina carnaxon scua	none
+🧑🏻‍🔧	mecanico carnaxon ciæa	none
+🧑🏼‍🔧	mecanico carnaxon assæ ciæa	none
+🧑🏽‍🔧	mecanico carnaxon cô d’öiva	none
+🧑🏾‍🔧	mecanico carnaxon assæ scua	none
+🧑🏿‍🔧	mecanico carnaxon scua	none
+👨🏻‍🔧	mecanico masccio carnaxon ciæa	none
+👨🏼‍🔧	mecanico masccio carnaxon assæ ciæa	none
+👨🏽‍🔧	mecanico masccio carnaxon cô d’öiva	none
+👨🏾‍🔧	mecanico masccio carnaxon assæ scua	none
+👨🏿‍🔧	mecanico masccio carnaxon scua	none
+👩🏻‍🔧	mecanica femina carnaxon ciæa	none
+👩🏼‍🔧	mecanica femina carnaxon assæ ciæa	none
+👩🏽‍🔧	mecanica femina carnaxon cô d’öiva	none
+👩🏾‍🔧	mecanica femina carnaxon assæ scua	none
+👩🏿‍🔧	mecanica femina carnaxon scua	none
+🧑🏻‍🏭	operäio carnaxon ciæa	none
+🧑🏼‍🏭	operäio carnaxon assæ ciæa	none
+🧑🏽‍🏭	operäio carnaxon cô d’öiva	none
+🧑🏾‍🏭	operäio carnaxon assæ scua	none
+🧑🏿‍🏭	operäio carnaxon scua	none
+👨🏻‍🏭	operäio masccio carnaxon ciæa	none
+👨🏼‍🏭	operäio masccio carnaxon assæ ciæa	none
+👨🏽‍🏭	operäio masccio carnaxon cô d’öiva	none
+👨🏾‍🏭	operäio masccio carnaxon assæ scua	none
+👨🏿‍🏭	operäio masccio carnaxon scua	none
+👩🏻‍🏭	operäia femina carnaxon ciæa	none
+👩🏼‍🏭	operäia femina carnaxon assæ ciæa	none
+👩🏽‍🏭	operäia femina carnaxon cô d’öiva	none
+👩🏾‍🏭	operäia femina carnaxon assæ scua	none
+👩🏿‍🏭	operäia femina carnaxon scua	none
+🧑🏻‍💼	persoña ch’a travaggia in scagno carnaxon ciæa	none
+🧑🏼‍💼	persoña ch’a travaggia in scagno carnaxon assæ ciæa	none
+🧑🏽‍💼	persoña ch’a travaggia in scagno carnaxon cô d’öiva	none
+🧑🏾‍💼	persoña ch’a travaggia in scagno carnaxon assæ scua	none
+🧑🏿‍💼	persoña ch’a travaggia in scagno carnaxon scua	none
+👨🏻‍💼	òmmo ch’o travaggia in scagno carnaxon ciæa	none
+👨🏼‍💼	òmmo ch’o travaggia in scagno carnaxon assæ ciæa	none
+👨🏽‍💼	òmmo ch’o travaggia in scagno carnaxon cô d’öiva	none
+👨🏾‍💼	òmmo ch’o travaggia in scagno carnaxon assæ scua	none
+👨🏿‍💼	òmmo ch’o travaggia in scagno carnaxon scua	none
+👩🏻‍💼	dònna ch’a travaggia in scagno carnaxon ciæa	none
+👩🏼‍💼	dònna ch’a travaggia in scagno carnaxon assæ ciæa	none
+👩🏽‍💼	dònna ch’a travaggia in scagno carnaxon cô d’öiva	none
+👩🏾‍💼	dònna ch’a travaggia in scagno carnaxon assæ scua	none
+👩🏿‍💼	dònna ch’a travaggia in scagno carnaxon scua	none
+🧑🏻‍🔬	sciensiou carnaxon ciæa	none
+🧑🏼‍🔬	sciensiou carnaxon assæ ciæa	none
+🧑🏽‍🔬	sciensiou carnaxon cô d’öiva	none
+🧑🏾‍🔬	sciensiou carnaxon assæ scua	none
+🧑🏿‍🔬	sciensiou carnaxon scua	none
+👨🏻‍🔬	sciensiou masccio carnaxon ciæa	none
+👨🏼‍🔬	sciensiou masccio carnaxon assæ ciæa	none
+👨🏽‍🔬	sciensiou masccio carnaxon cô d’öiva	none
+👨🏾‍🔬	sciensiou masccio carnaxon assæ scua	none
+👨🏿‍🔬	sciensiou masccio carnaxon scua	none
+👩🏻‍🔬	sciensciâ femina carnaxon ciæa	none
+👩🏼‍🔬	sciensciâ femina carnaxon assæ ciæa	none
+👩🏽‍🔬	sciensciâ femina carnaxon cô d’öiva	none
+👩🏾‍🔬	sciensciâ femina carnaxon assæ scua	none
+👩🏿‍🔬	sciensciâ femina carnaxon scua	none
+🧑🏻‍💻	tecnòlogo carnaxon ciæa	none
+🧑🏼‍💻	tecnòlogo carnaxon assæ ciæa	none
+🧑🏽‍💻	tecnòlogo carnaxon cô d’öiva	none
+🧑🏾‍💻	tecnòlogo carnaxon assæ scua	none
+🧑🏿‍💻	tecnòlogo carnaxon scua	none
+👨🏻‍💻	tecnòlogo masccio carnaxon ciæa	none
+👨🏼‍💻	tecnòlogo masccio carnaxon assæ ciæa	none
+👨🏽‍💻	tecnòlogo masccio carnaxon cô d’öiva	none
+👨🏾‍💻	tecnòlogo masccio carnaxon assæ scua	none
+👨🏿‍💻	tecnòlogo masccio carnaxon scua	none
+👩🏻‍💻	tecnòloga femina carnaxon ciæa	none
+👩🏼‍💻	tecnòloga femina carnaxon assæ ciæa	none
+👩🏽‍💻	tecnòloga femina carnaxon cô d’öiva	none
+👩🏾‍💻	tecnòloga femina carnaxon assæ scua	none
+👩🏿‍💻	tecnòloga femina carnaxon scua	none
+🧑🏻‍🎤	cantante carnaxon ciæa	none
+🧑🏼‍🎤	cantante carnaxon assæ ciæa	none
+🧑🏽‍🎤	cantante carnaxon cô d’öiva	none
+🧑🏾‍🎤	cantante carnaxon assæ scua	none
+🧑🏿‍🎤	cantante carnaxon scua	none
+👨🏻‍🎤	cantante masccio carnaxon ciæa	none
+👨🏼‍🎤	cantante masccio carnaxon assæ ciæa	none
+👨🏽‍🎤	cantante masccio carnaxon cô d’öiva	none
+👨🏾‍🎤	cantante masccio carnaxon assæ scua	none
+👨🏿‍🎤	cantante masccio carnaxon scua	none
+👩🏻‍🎤	cantante femina carnaxon ciæa	none
+👩🏼‍🎤	cantante femina carnaxon assæ ciæa	none
+👩🏽‍🎤	cantante femina carnaxon cô d’öiva	none
+👩🏾‍🎤	cantante femina carnaxon assæ scua	none
+👩🏿‍🎤	cantante femina carnaxon scua	none
+🧑🏻‍🎨	artista carnaxon ciæa	none
+🧑🏼‍🎨	artista carnaxon assæ ciæa	none
+🧑🏽‍🎨	artista carnaxon cô d’öiva	none
+🧑🏾‍🎨	artista carnaxon assæ scua	none
+🧑🏿‍🎨	artista carnaxon scua	none
+👨🏻‍🎨	artista masccio carnaxon ciæa	none
+👨🏼‍🎨	artista masccio carnaxon assæ ciæa	none
+👨🏽‍🎨	artista masccio carnaxon cô d’öiva	none
+👨🏾‍🎨	artista masccio carnaxon assæ scua	none
+👨🏿‍🎨	artista masccio carnaxon scua	none
+👩🏻‍🎨	artista femina carnaxon ciæa	none
+👩🏼‍🎨	artista femina carnaxon assæ ciæa	none
+👩🏽‍🎨	artista femina carnaxon cô d’öiva	none
+👩🏾‍🎨	artista femina carnaxon assæ scua	none
+👩🏿‍🎨	artista femina carnaxon scua	none
+🧑🏻‍✈	pilòtto carnaxon ciæa	none
+🧑🏼‍✈	pilòtto carnaxon assæ ciæa	none
+🧑🏽‍✈	pilòtto carnaxon cô d’öiva	none
+🧑🏾‍✈	pilòtto carnaxon assæ scua	none
+🧑🏿‍✈	pilòtto carnaxon scua	none
+👨🏻‍✈	pilòtto masccio carnaxon ciæa	none
+👨🏼‍✈	pilòtto masccio carnaxon assæ ciæa	none
+👨🏽‍✈	pilòtto masccio carnaxon cô d’öiva	none
+👨🏾‍✈	pilòtto masccio carnaxon assæ scua	none
+👨🏿‍✈	pilòtto masccio carnaxon scua	none
+👩🏻‍✈	pilòtta femina carnaxon ciæa	none
+👩🏼‍✈	pilòtta femina carnaxon assæ ciæa	none
+👩🏽‍✈	pilòtta femina carnaxon cô d’öiva	none
+👩🏾‍✈	pilòtta femina carnaxon assæ scua	none
+👩🏿‍✈	pilòtta femina carnaxon scua	none
+🧑🏻‍🚀	astronauta carnaxon ciæa	none
+🧑🏼‍🚀	astronauta carnaxon assæ ciæa	none
+🧑🏽‍🚀	astronauta carnaxon cô d’öiva	none
+🧑🏾‍🚀	astronauta carnaxon assæ scua	none
+🧑🏿‍🚀	astronauta carnaxon scua	none
+👨🏻‍🚀	astronauta masccio carnaxon ciæa	none
+👨🏼‍🚀	astronauta masccio carnaxon assæ ciæa	none
+👨🏽‍🚀	astronauta masccio carnaxon cô d’öiva	none
+👨🏾‍🚀	astronauta masccio carnaxon assæ scua	none
+👨🏿‍🚀	astronauta masccio carnaxon scua	none
+👩🏻‍🚀	astronauta femina carnaxon ciæa	none
+👩🏼‍🚀	astronauta femina carnaxon assæ ciæa	none
+👩🏽‍🚀	astronauta femina carnaxon cô d’öiva	none
+👩🏾‍🚀	astronauta femina carnaxon assæ scua	none
+👩🏿‍🚀	astronauta femina carnaxon scua	none
+🧑🏻‍🚒	pompê carnaxon ciæa	none
+🧑🏼‍🚒	pompê carnaxon assæ ciæa	none
+🧑🏽‍🚒	pompê carnaxon cô d’öiva	none
+🧑🏾‍🚒	pompê carnaxon assæ scua	none
+🧑🏿‍🚒	pompê carnaxon scua	none
+👨🏻‍🚒	pompê masccio carnaxon ciæa	none
+👨🏼‍🚒	pompê masccio carnaxon assæ ciæa	none
+👨🏽‍🚒	pompê masccio carnaxon cô d’öiva	none
+👨🏾‍🚒	pompê masccio carnaxon assæ scua	none
+👨🏿‍🚒	pompê masccio carnaxon scua	none
+👩🏻‍🚒	pompea femina carnaxon ciæa	none
+👩🏼‍🚒	pompea femina carnaxon assæ ciæa	none
+👩🏽‍🚒	pompea femina carnaxon cô d’öiva	none
+👩🏾‍🚒	pompea femina carnaxon assæ scua	none
+👩🏿‍🚒	pompea femina carnaxon scua	none
 👮🏻	poliçiòtto carnaxon ciæa	none
 👮🏼	poliçiòtto carnaxon assæ ciæa	none
 👮🏽	poliçiòtto carnaxon cô d’öiva	none
 👮🏾	poliçiòtto carnaxon assæ scua	none
 👮🏿	poliçiòtto carnaxon scua	none
+👮🏻‍♂	poliçiòtto masccio carnaxon ciæa	none
+👮🏼‍♂	poliçiòtto masccio carnaxon assæ ciæa	none
+👮🏽‍♂	poliçiòtto masccio carnaxon cô d’öiva	none
+👮🏾‍♂	poliçiòtto masccio carnaxon assæ scua	none
+👮🏿‍♂	poliçiòtto masccio carnaxon scua	none
+👮🏻‍♀	poliçiòtta femina carnaxon ciæa	none
+👮🏼‍♀	poliçiòtta femina carnaxon assæ ciæa	none
+👮🏽‍♀	poliçiòtta femina carnaxon cô d’öiva	none
+👮🏾‍♀	poliçiòtta femina carnaxon assæ scua	none
+👮🏿‍♀	poliçiòtta femina carnaxon scua	none
 🕵🏻	investigatô carnaxon ciæa	none
 🕵🏼	investigatô carnaxon assæ ciæa	none
 🕵🏽	investigatô carnaxon cô d’öiva	none
 🕵🏾	investigatô carnaxon assæ scua	none
 🕵🏿	investigatô carnaxon scua	none
+🕵🏻‍♂	investigatô masccio carnaxon ciæa	none
+🕵🏼‍♂	investigatô masccio carnaxon assæ ciæa	none
+🕵🏽‍♂	investigatô masccio carnaxon cô d’öiva	none
+🕵🏾‍♂	investigatô masccio carnaxon assæ scua	none
+🕵🏿‍♂	investigatô masccio carnaxon scua	none
+🕵🏻‍♀	investigatoa femina carnaxon ciæa	none
+🕵🏼‍♀	investigatoa femina carnaxon assæ ciæa	none
+🕵🏽‍♀	investigatoa femina carnaxon cô d’öiva	none
+🕵🏾‍♀	investigatoa femina carnaxon assæ scua	none
+🕵🏿‍♀	investigatoa femina carnaxon scua	none
 💂🏻	guardia carnaxon ciæa	none
 💂🏼	guardia carnaxon assæ ciæa	none
 💂🏽	guardia carnaxon cô d’öiva	none
 💂🏾	guardia carnaxon assæ scua	none
 💂🏿	guardia carnaxon scua	none
+💂🏻‍♂	guardia masccio carnaxon ciæa	none
+💂🏼‍♂	guardia masccio carnaxon assæ ciæa	none
+💂🏽‍♂	guardia masccio carnaxon cô d’öiva	none
+💂🏾‍♂	guardia masccio carnaxon assæ scua	none
+💂🏿‍♂	guardia masccio carnaxon scua	none
+💂🏻‍♀	guardia femina carnaxon ciæa	none
+💂🏼‍♀	guardia femina carnaxon assæ ciæa	none
+💂🏽‍♀	guardia femina carnaxon cô d’öiva	none
+💂🏾‍♀	guardia femina carnaxon assæ scua	none
+💂🏿‍♀	guardia femina carnaxon scua	none
 🥷🏻	ninja carnaxon ciæa	none
 🥷🏼	ninja carnaxon assæ ciæa	none
 🥷🏽	ninja carnaxon cô d’öiva	none
@@ -2102,6 +2603,16 @@ symbols:
 👷🏽	massacan carnaxon cô d’öiva	none
 👷🏾	massacan carnaxon assæ scua	none
 👷🏿	massacan carnaxon scua	none
+👷🏻‍♂	massacan masccio carnaxon ciæa	none
+👷🏼‍♂	massacan masccio carnaxon assæ ciæa	none
+👷🏽‍♂	massacan masccio carnaxon cô d’öiva	none
+👷🏾‍♂	massacan masccio carnaxon assæ scua	none
+👷🏿‍♂	massacan masccio carnaxon scua	none
+👷🏻‍♀	massacaña femina carnaxon ciæa	none
+👷🏼‍♀	massacaña femina carnaxon assæ ciæa	none
+👷🏽‍♀	massacaña femina carnaxon cô d’öiva	none
+👷🏾‍♀	massacaña femina carnaxon assæ scua	none
+👷🏿‍♀	massacaña femina carnaxon scua	none
 🫅🏻	persoña co-a coroña carnaxon ciæa	none
 🫅🏼	persoña co-a coroña carnaxon assæ ciæa	none
 🫅🏽	persoña co-a coroña carnaxon cô d’öiva	none
@@ -2122,6 +2633,16 @@ symbols:
 👳🏽	persoña co-o turbante carnaxon cô d’öiva	none
 👳🏾	persoña co-o turbante carnaxon assæ scua	none
 👳🏿	persoña co-o turbante carnaxon scua	none
+👳🏻‍♂	òmmo co-o turbante carnaxon ciæa	none
+👳🏼‍♂	òmmo co-o turbante carnaxon assæ ciæa	none
+👳🏽‍♂	òmmo co-o turbante carnaxon cô d’öiva	none
+👳🏾‍♂	òmmo co-o turbante carnaxon assæ scua	none
+👳🏿‍♂	òmmo co-o turbante carnaxon scua	none
+👳🏻‍♀	dònna co-o turbante carnaxon ciæa	none
+👳🏼‍♀	dònna co-o turbante carnaxon assæ ciæa	none
+👳🏽‍♀	dònna co-o turbante carnaxon cô d’öiva	none
+👳🏾‍♀	dònna co-o turbante carnaxon assæ scua	none
+👳🏿‍♀	dònna co-o turbante carnaxon scua	none
 👲🏻	persoña con copolin carnaxon ciæa	none
 👲🏼	persoña con copolin carnaxon assæ ciæa	none
 👲🏽	persoña con copolin carnaxon cô d’öiva	none
@@ -2137,11 +2658,31 @@ symbols:
 🤵🏽	persoña in smoking carnaxon cô d’öiva	none
 🤵🏾	persoña in smoking carnaxon assæ scua	none
 🤵🏿	persoña in smoking carnaxon scua	none
+🤵🏻‍♂	òmmo in smoking carnaxon ciæa	none
+🤵🏼‍♂	òmmo in smoking carnaxon assæ ciæa	none
+🤵🏽‍♂	òmmo in smoking carnaxon cô d’öiva	none
+🤵🏾‍♂	òmmo in smoking carnaxon assæ scua	none
+🤵🏿‍♂	òmmo in smoking carnaxon scua	none
+🤵🏻‍♀	dònna in smoking carnaxon ciæa	none
+🤵🏼‍♀	dònna in smoking carnaxon assæ ciæa	none
+🤵🏽‍♀	dònna in smoking carnaxon cô d’öiva	none
+🤵🏾‍♀	dònna in smoking carnaxon assæ scua	none
+🤵🏿‍♀	dònna in smoking carnaxon scua	none
 👰🏻	persoña co-o vello carnaxon ciæa	none
 👰🏼	persoña co-o vello carnaxon assæ ciæa	none
 👰🏽	persoña co-o vello carnaxon cô d’öiva	none
 👰🏾	persoña co-o vello carnaxon assæ scua	none
 👰🏿	persoña co-o vello carnaxon scua	none
+👰🏻‍♂	òmmo co-o vello carnaxon ciæa	none
+👰🏼‍♂	òmmo co-o vello carnaxon assæ ciæa	none
+👰🏽‍♂	òmmo co-o vello carnaxon cô d’öiva	none
+👰🏾‍♂	òmmo co-o vello carnaxon assæ scua	none
+👰🏿‍♂	òmmo co-o vello carnaxon scua	none
+👰🏻‍♀	sposâ co-o vello carnaxon ciæa	none
+👰🏼‍♀	sposâ co-o vello carnaxon assæ ciæa	none
+👰🏽‍♀	sposâ co-o vello carnaxon cô d’öiva	none
+👰🏾‍♀	sposâ co-o vello carnaxon assæ scua	none
+👰🏿‍♀	sposâ co-o vello carnaxon scua	none
 🤰🏻	dònna gräia carnaxon ciæa	none
 🤰🏼	dònna gräia carnaxon assæ ciæa	none
 🤰🏽	dònna gräia carnaxon cô d’öiva	none
@@ -2162,6 +2703,21 @@ symbols:
 🤱🏽	dâ o læte carnaxon cô d’öiva	none
 🤱🏾	dâ o læte carnaxon assæ scua	none
 🤱🏿	dâ o læte carnaxon scua	none
+👩🏻‍🍼	dònna ch’a dà o læte carnaxon ciæa	none
+👩🏼‍🍼	dònna ch’a dà o læte carnaxon assæ ciæa	none
+👩🏽‍🍼	dònna ch’a dà o læte carnaxon cô d’öiva	none
+👩🏾‍🍼	dònna ch’a dà o læte carnaxon assæ scua	none
+👩🏿‍🍼	dònna ch’a dà o læte carnaxon scua	none
+👨🏻‍🍼	òmmo ch’o dà o læte carnaxon ciæa	none
+👨🏼‍🍼	òmmo ch’o dà o læte carnaxon assæ ciæa	none
+👨🏽‍🍼	òmmo ch’o dà o læte carnaxon cô d’öiva	none
+👨🏾‍🍼	òmmo ch’o dà o læte carnaxon assæ scua	none
+👨🏿‍🍼	òmmo ch’o dà o læte carnaxon scua	none
+🧑🏻‍🍼	persoña ch’a dà o læte carnaxon ciæa	none
+🧑🏼‍🍼	persoña ch’a dà o læte carnaxon assæ ciæa	none
+🧑🏽‍🍼	persoña ch’a dà o læte carnaxon cô d’öiva	none
+🧑🏾‍🍼	persoña ch’a dà o læte carnaxon assæ scua	none
+🧑🏿‍🍼	persoña ch’a dà o læte carnaxon scua	none
 👼🏻	angeo figgeu carnaxon ciæa	none
 👼🏼	angeo figgeu carnaxon assæ ciæa	none
 👼🏽	angeo figgeu carnaxon cô d’öiva	none
@@ -2212,36 +2768,128 @@ symbols:
 🧝🏽	elfo carnaxon cô d’öiva	none
 🧝🏾	elfo carnaxon assæ scua	none
 🧝🏿	elfo carnaxon scua	none
-💆🏻	persoña ch’a l’é massaggiâ carnaxon ciæa	none
-💆🏼	persoña ch’a l’é massaggiâ carnaxon assæ ciæa	none
-💆🏽	persoña ch’a l’é massaggiâ carnaxon cô d’öiva	none
-💆🏾	persoña ch’a l’é massaggiâ carnaxon assæ scua	none
-💆🏿	persoña ch’a l’é massaggiâ carnaxon scua	none
-💇🏻	persoña che ghe taggian i cavelli carnaxon ciæa	none
-💇🏼	persoña che ghe taggian i cavelli carnaxon assæ ciæa	none
-💇🏽	persoña che ghe taggian i cavelli carnaxon cô d’öiva	none
-💇🏾	persoña che ghe taggian i cavelli carnaxon assæ scua	none
-💇🏿	persoña che ghe taggian i cavelli carnaxon scua	none
+💆🏻	persoña massaggiâ carnaxon ciæa	none
+💆🏼	persoña massaggiâ carnaxon assæ ciæa	none
+💆🏽	persoña massaggiâ carnaxon cô d’öiva	none
+💆🏾	persoña massaggiâ carnaxon assæ scua	none
+💆🏿	persoña massaggiâ carnaxon scua	none
+💆🏻‍♂	òmmo massaggiou carnaxon ciæa	none
+💆🏼‍♂	òmmo massaggiou carnaxon assæ ciæa	none
+💆🏽‍♂	òmmo massaggiou carnaxon cô d’öiva	none
+💆🏾‍♂	òmmo massaggiou carnaxon assæ scua	none
+💆🏿‍♂	òmmo massaggiou carnaxon scua	none
+💆🏻‍♀	dònna massaggiâ carnaxon ciæa	none
+💆🏼‍♀	dònna massaggiâ carnaxon assæ ciæa	none
+💆🏽‍♀	dònna massaggiâ carnaxon cô d’öiva	none
+💆🏾‍♀	dònna massaggiâ carnaxon assæ scua	none
+💆🏿‍♀	dònna massaggiâ carnaxon scua	none
+💇🏻	cavelli carnaxon ciæa	none
+💇🏼	cavelli carnaxon assæ ciæa	none
+💇🏽	cavelli carnaxon cô d’öiva	none
+💇🏾	cavelli carnaxon assæ scua	none
+💇🏿	cavelli carnaxon scua	none
+💇🏻‍♂	òmmo che ghe taggian i cavalli carnaxon ciæa	none
+💇🏼‍♂	òmmo che ghe taggian i cavalli carnaxon assæ ciæa	none
+💇🏽‍♂	òmmo che ghe taggian i cavalli carnaxon cô d’öiva	none
+💇🏾‍♂	òmmo che ghe taggian i cavalli carnaxon assæ scua	none
+💇🏿‍♂	òmmo che ghe taggian i cavalli carnaxon scua	none
+💇🏻‍♀	dònna che ghe taggian i cavelli carnaxon ciæa	none
+💇🏼‍♀	dònna che ghe taggian i cavelli carnaxon assæ ciæa	none
+💇🏽‍♀	dònna che ghe taggian i cavelli carnaxon cô d’öiva	none
+💇🏾‍♀	dònna che ghe taggian i cavelli carnaxon assæ scua	none
+💇🏿‍♀	dònna che ghe taggian i cavelli carnaxon scua	none
 🚶🏻	persoña ch’a cammiña carnaxon ciæa	none
 🚶🏼	persoña ch’a cammiña carnaxon assæ ciæa	none
 🚶🏽	persoña ch’a cammiña carnaxon cô d’öiva	none
 🚶🏾	persoña ch’a cammiña carnaxon assæ scua	none
 🚶🏿	persoña ch’a cammiña carnaxon scua	none
+🚶🏻‍♂	òmmo ch’o cammiña carnaxon ciæa	none
+🚶🏼‍♂	òmmo ch’o cammiña carnaxon assæ ciæa	none
+🚶🏽‍♂	òmmo ch’o cammiña carnaxon cô d’öiva	none
+🚶🏾‍♂	òmmo ch’o cammiña carnaxon assæ scua	none
+🚶🏿‍♂	òmmo ch’o cammiña carnaxon scua	none
+🚶🏻‍♀	dònna ch’a cammiña carnaxon ciæa	none
+🚶🏼‍♀	dònna ch’a cammiña carnaxon assæ ciæa	none
+🚶🏽‍♀	dònna ch’a cammiña carnaxon cô d’öiva	none
+🚶🏾‍♀	dònna ch’a cammiña carnaxon assæ scua	none
+🚶🏿‍♀	dònna ch’a cammiña carnaxon scua	none
+🚶‍➡	persoña ch’a cammiña in sciâ drita	none
+🚶🏻‍➡	persoña ch’a cammiña carnaxon ciæa e in sciâ drita	none
+🚶🏼‍➡	persoña ch’a cammiña carnaxon assæ ciæa e in sciâ drita	none
+🚶🏽‍➡	persoña ch’a cammiña carnaxon cô d’öiva e in sciâ drita	none
+🚶🏾‍➡	persoña ch’a cammiña carnaxon assæ scua e in sciâ drita	none
+🚶🏿‍➡	persoña ch’a cammiña carnaxon scua e in sciâ drita	none
+🚶‍♀‍➡	dònna ch’a cammiña in sciâ drita	none
+🚶🏻‍♀‍➡	dònna ch’a cammiña carnaxon ciæa e in sciâ drita	none
+🚶🏼‍♀‍➡	dònna ch’a cammiña carnaxon assæ ciæa e in sciâ drita	none
+🚶🏽‍♀‍➡	dònna ch’a cammiña carnaxon cô d’öiva e in sciâ drita	none
+🚶🏾‍♀‍➡	dònna ch’a cammiña carnaxon assæ scua e in sciâ drita	none
+🚶🏿‍♀‍➡	dònna ch’a cammiña carnaxon scua e in sciâ drita	none
+🚶‍♂‍➡	òmmo ch’o cammiña in sciâ drita	none
+🚶🏻‍♂‍➡	òmmo ch’o cammiña carnaxon ciæa e in sciâ drita	none
+🚶🏼‍♂‍➡	òmmo ch’o cammiña carnaxon assæ ciæa e in sciâ drita	none
+🚶🏽‍♂‍➡	òmmo ch’o cammiña carnaxon cô d’öiva e in sciâ drita	none
+🚶🏾‍♂‍➡	òmmo ch’o cammiña carnaxon assæ scua e in sciâ drita	none
+🚶🏿‍♂‍➡	òmmo ch’o cammiña carnaxon scua e in sciâ drita	none
 🧍🏻	persoña in pê carnaxon ciæa	none
 🧍🏼	persoña in pê carnaxon assæ ciæa	none
 🧍🏽	persoña in pê carnaxon cô d’öiva	none
 🧍🏾	persoña in pê carnaxon assæ scua	none
 🧍🏿	persoña in pê carnaxon scua	none
+🧍🏻‍♂	òmmo in pê carnaxon ciæa	none
+🧍🏼‍♂	òmmo in pê carnaxon assæ ciæa	none
+🧍🏽‍♂	òmmo in pê carnaxon cô d’öiva	none
+🧍🏾‍♂	òmmo in pê carnaxon assæ scua	none
+🧍🏿‍♂	òmmo in pê carnaxon scua	none
+🧍🏻‍♀	dònna in pê carnaxon ciæa	none
+🧍🏼‍♀	dònna in pê carnaxon assæ ciæa	none
+🧍🏽‍♀	dònna in pê carnaxon cô d’öiva	none
+🧍🏾‍♀	dònna in pê carnaxon assæ scua	none
+🧍🏿‍♀	dònna in pê carnaxon scua	none
 🧎🏻	persoña in zenoggion carnaxon ciæa	none
 🧎🏼	persoña in zenoggion carnaxon assæ ciæa	none
 🧎🏽	persoña in zenoggion carnaxon cô d’öiva	none
 🧎🏾	persoña in zenoggion carnaxon assæ scua	none
 🧎🏿	persoña in zenoggion carnaxon scua	none
+🧎🏻‍♂	òmmo in zenoggion carnaxon ciæa	none
+🧎🏼‍♂	òmmo in zenoggion carnaxon assæ ciæa	none
+🧎🏽‍♂	òmmo in zenoggion carnaxon cô d’öiva	none
+🧎🏾‍♂	òmmo in zenoggion carnaxon assæ scua	none
+🧎🏿‍♂	òmmo in zenoggion carnaxon scua	none
+🧎🏻‍♀	dònna in zenoggion carnaxon ciæa	none
+🧎🏼‍♀	dònna in zenoggion carnaxon assæ ciæa	none
+🧎🏽‍♀	dònna in zenoggion carnaxon cô d’öiva	none
+🧎🏾‍♀	dònna in zenoggion carnaxon assæ scua	none
+🧎🏿‍♀	dònna in zenoggion carnaxon scua	none
+🧎‍➡	persoña in zenoggion in sciâ drita	none
+🧎🏻‍➡	persoña in zenoggion carnaxon ciæa e in sciâ drita	none
+🧎🏼‍➡	persoña in zenoggion carnaxon assæ ciæa e in sciâ drita	none
+🧎🏽‍➡	persoña in zenoggion carnaxon cô d’öiva e in sciâ drita	none
+🧎🏾‍➡	persoña in zenoggion carnaxon assæ scua e in sciâ drita	none
+🧎🏿‍➡	persoña in zenoggion carnaxon scua e in sciâ drita	none
+🧎‍♀‍➡	dònna in zenoggion in sciâ drita	none
+🧎🏻‍♀‍➡	dònna in zenoggion carnaxon ciæa e in sciâ drita	none
+🧎🏼‍♀‍➡	dònna in zenoggion carnaxon assæ ciæa e in sciâ drita	none
+🧎🏽‍♀‍➡	dònna in zenoggion carnaxon cô d’öiva e in sciâ drita	none
+🧎🏾‍♀‍➡	dònna in zenoggion carnaxon assæ scua e in sciâ drita	none
+🧎🏿‍♀‍➡	dònna in zenoggion carnaxon scua e in sciâ drita	none
+🧎‍♂‍➡	òmmo in zenoggion in sciâ drita	none
+🧎🏻‍♂‍➡	òmmo in zenoggion carnaxon ciæa e in sciâ drita	none
+🧎🏼‍♂‍➡	òmmo in zenoggion carnaxon assæ ciæa e in sciâ drita	none
+🧎🏽‍♂‍➡	òmmo in zenoggion carnaxon cô d’öiva e in sciâ drita	none
+🧎🏾‍♂‍➡	òmmo in zenoggion carnaxon assæ scua e in sciâ drita	none
+🧎🏿‍♂‍➡	òmmo in zenoggion carnaxon scua e in sciâ drita	none
 🏃🏻	persoña ch’a core carnaxon ciæa	none
 🏃🏼	persoña ch’a core carnaxon assæ ciæa	none
 🏃🏽	persoña ch’a core carnaxon cô d’öiva	none
 🏃🏾	persoña ch’a core carnaxon assæ scua	none
 🏃🏿	persoña ch’a core carnaxon scua	none
+🏃‍➡	persoña ch’a core in sciâ drita	none
+🏃🏻‍➡	persoña ch’a core carnaxon ciæa e in sciâ drita	none
+🏃🏼‍➡	persoña ch’a core carnaxon assæ ciæa e in sciâ drita	none
+🏃🏽‍➡	persoña ch’a core carnaxon cô d’öiva e in sciâ drita	none
+🏃🏾‍➡	persoña ch’a core carnaxon assæ scua e in sciâ drita	none
+🏃🏿‍➡	persoña ch’a core carnaxon scua e in sciâ drita	none
 💃🏻	dònna ch’a balla carnaxon ciæa	none
 💃🏼	dònna ch’a balla carnaxon assæ ciæa	none
 💃🏽	dònna ch’a balla carnaxon cô d’öiva	none
@@ -2362,6 +3010,31 @@ symbols:
 🛌🏽	persoña in letto carnaxon cô d’öiva	none
 🛌🏾	persoña in letto carnaxon assæ scua	none
 🛌🏿	persoña in letto carnaxon scua	none
+🧑🏻‍🤝‍🧑🏻	doe persoñe che se tëgnan pe-a man carnaxon ciæa	none
+🧑🏻‍🤝‍🧑🏼	doe persoñe che se tëgnan pe-a man carnaxon ciæa e carnaxon assæ ciæa	none
+🧑🏻‍🤝‍🧑🏽	doe persoñe che se tëgnan pe-a man carnaxon ciæa e carnaxon cô d’öiva	none
+🧑🏻‍🤝‍🧑🏾	doe persoñe che se tëgnan pe-a man carnaxon ciæa e carnaxon assæ scua	none
+🧑🏻‍🤝‍🧑🏿	doe persoñe che se tëgnan pe-a man carnaxon ciæa e carnaxon scua	none
+🧑🏼‍🤝‍🧑🏻	doe persoñe che se tëgnan pe-a man carnaxon assæ ciæa e carnaxon ciæa	none
+🧑🏼‍🤝‍🧑🏼	doe persoñe che se tëgnan pe-a man carnaxon assæ ciæa	none
+🧑🏼‍🤝‍🧑🏽	doe persoñe che se tëgnan pe-a man carnaxon assæ ciæa e carnaxon cô d’öiva	none
+🧑🏼‍🤝‍🧑🏾	doe persoñe che se tëgnan pe-a man carnaxon assæ ciæa e carnaxon assæ scua	none
+🧑🏼‍🤝‍🧑🏿	doe persoñe che se tëgnan pe-a man carnaxon assæ ciæa e carnaxon scua	none
+🧑🏽‍🤝‍🧑🏻	doe persoñe che se tëgnan pe-a man carnaxon cô d’öiva e carnaxon ciæa	none
+🧑🏽‍🤝‍🧑🏼	doe persoñe che se tëgnan pe-a man carnaxon cô d’öiva e carnaxon assæ ciæa	none
+🧑🏽‍🤝‍🧑🏽	doe persoñe che se tëgnan pe-a man carnaxon cô d’öiva	none
+🧑🏽‍🤝‍🧑🏾	doe persoñe che se tëgnan pe-a man carnaxon cô d’öiva e carnaxon assæ scua	none
+🧑🏽‍🤝‍🧑🏿	doe persoñe che se tëgnan pe-a man carnaxon cô d’öiva e carnaxon scua	none
+🧑🏾‍🤝‍🧑🏻	doe persoñe che se tëgnan pe-a man carnaxon assæ scua e carnaxon ciæa	none
+🧑🏾‍🤝‍🧑🏼	doe persoñe che se tëgnan pe-a man carnaxon assæ scua e carnaxon assæ ciæa	none
+🧑🏾‍🤝‍🧑🏽	doe persoñe che se tëgnan pe-a man carnaxon assæ scua e carnaxon cô d’öiva	none
+🧑🏾‍🤝‍🧑🏾	doe persoñe che se tëgnan pe-a man carnaxon assæ scua	none
+🧑🏾‍🤝‍🧑🏿	doe persoñe che se tëgnan pe-a man carnaxon assæ scua e carnaxon scua	none
+🧑🏿‍🤝‍🧑🏻	doe persoñe che se tëgnan pe-a man carnaxon scua e carnaxon ciæa	none
+🧑🏿‍🤝‍🧑🏼	doe persoñe che se tëgnan pe-a man carnaxon scua e carnaxon assæ ciæa	none
+🧑🏿‍🤝‍🧑🏽	doe persoñe che se tëgnan pe-a man carnaxon scua e carnaxon cô d’öiva	none
+🧑🏿‍🤝‍🧑🏾	doe persoñe che se tëgnan pe-a man carnaxon scua e carnaxon assæ scua	none
+🧑🏿‍🤝‍🧑🏿	doe persoñe che se tëgnan pe-a man carnaxon scua	none
 👭🏻	doe dònne che se tëgnan pe-a man carnaxon ciæa	none
 👩🏻‍🤝‍👩🏼	doe dònne che se tëgnan pe-a man carnaxon ciæa e carnaxon assæ ciæa	none
 👩🏻‍🤝‍👩🏽	doe dònne che se tëgnan pe-a man carnaxon ciæa e carnaxon cô d’öiva	none
@@ -2445,14 +3118,14 @@ symbols:
 👩‍❤‍💋‍👨	baxo dònna e òmmo	none
 👨‍❤‍💋‍👨	baxo òmmo e òmmo	none
 👩‍❤‍💋‍👩	baxo dònna e dònna	none
-💑🏻	cobbia con cheucobbia co-o cheu carnaxon ciæa	none
-💑🏼	cobbia con cheucobbia co-o cheu carnaxon assæ ciæa	none
-💑🏽	cobbia con cheucobbia co-o cheu carnaxon cô d’öiva	none
-💑🏾	cobbia con cheucobbia co-o cheu carnaxon assæ scua	none
-💑🏿	cobbia con cheucobbia co-o cheu carnaxon scua	none
-👩‍❤‍👨	cobbia con cheucobbia co-o cheu dònna e òmmo	none
-👨‍❤‍👨	cobbia con cheucobbia co-o cheu òmmo e òmmo	none
-👩‍❤‍👩	cobbia con cheucobbia co-o cheu dònna e dònna	none
+💑🏻	cobbia con cheu carnaxon ciæa	none
+💑🏼	cobbia con cheu carnaxon assæ ciæa	none
+💑🏽	cobbia con cheu carnaxon cô d’öiva	none
+💑🏾	cobbia con cheu carnaxon assæ scua	none
+💑🏿	cobbia con cheu carnaxon scua	none
+👩‍❤‍👨	cobbia con cheu dònna e òmmo	none
+👨‍❤‍👨	cobbia con cheu òmmo e òmmo	none
+👩‍❤‍👩	cobbia con cheu dònna e dònna	none
 👨‍👩‍👦	famiggia òmmo, dònna e figgeu masccio	none
 👨‍👩‍👧	famiggia òmmo, dònna e figgeua	none
 👨‍👩‍👧‍👦	famiggia òmmo, dònna, figgeua e figgeu masccio	none
@@ -2530,6 +3203,7 @@ symbols:
 🇨🇳	bandea Ciña	none
 🇨🇴	bandea Colombia	none
 🇨🇵	bandea Isoa de Clipperton	none
+🇨🇶	bandea Sark	none
 🇨🇷	bandea Còsta Rica	none
 🇨🇺	bandea Cubba	none
 🇨🇻	bandea Cappo Verde	none

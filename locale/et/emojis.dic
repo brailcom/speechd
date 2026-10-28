@@ -275,6 +275,7 @@ symbols:
 🙂	naeratusega nägu	none
 🙃	tagurpidi nägu	none
 🫠	sulav nägu	none
+🫫	pragunev nägu	none
 😉	silma pilgutav nägu	none
 😊	naeratavate silmadega naerunägu	none
 😇	aupaistega naerunägu	none
@@ -464,6 +465,8 @@ symbols:
 🫵	vaataja poole osutav nimetissõrm	none
 👍	meeldib	none
 👎	ei meeldi	none
+🫹	vasakule suunatud pöidla märk	none
+🫺	paremale suunatud pöidla märk	none
 ✊	ülestõstetud rusikas	none
 👊	rusikalöök	none
 🤛	vasakule suunatud rusikas	none
@@ -883,6 +886,7 @@ symbols:
 🦪	auster	none
 🐌	tigu	none
 🦋	liblikas	none
+🫌	monarhliblikas	none
 🐛	röövik	none
 🐜	sipelgas	none
 🐝	mesilane	none
@@ -954,6 +958,7 @@ symbols:
 🌶	tuline pipar	none
 🫑	paprika	none
 🥒	kurk	none
+🫝	hapukurk	none
 🥬	lehtköögivili	none
 🥦	brokoli	none
 🧄	küüslauk	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	vertikaalne foor	none
 🛑	stoppmärk	none
 🚧	ehitustööd	none
+🛙	tuletorn	none
 ⚓	ankur	none
 🛟	päästerõngas	none
 ⛵	purjepaat	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	lumememm	none
 ⛄	lumeta lumememm	none
 ☄	komeet	none
+🪋	meteoor	none
 🔥	tuli	none
 💧	piisk	none
 🌊	veelaine	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	pintsel	none
 🖍	kriit	none
 📝	memo	none
+🪌	kustutuskumm	none
 💼	portfell	none
 📁	kaust	none
 📂	avatud kaust	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	suletud lukk võtmega	none
 🔑	võti	none
 🗝	vana võti	none
+🪍	käepidemega võrk	none
 🔨	haamer	none
 🪓	kirves	none
 ⛏	kirka	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	ei meeldi keskmine nahatoon	none
 👎🏾	ei meeldi keskmiselt tume nahatoon	none
 👎🏿	ei meeldi tume nahatoon	none
+🫹🏻	vasakule suunatud pöidla märk hele nahatoon	none
+🫹🏼	vasakule suunatud pöidla märk keskmiselt hele nahatoon	none
+🫹🏽	vasakule suunatud pöidla märk keskmine nahatoon	none
+🫹🏾	vasakule suunatud pöidla märk keskmiselt tume nahatoon	none
+🫹🏿	vasakule suunatud pöidla märk tume nahatoon	none
+🫺🏻	paremale suunatud pöidla märk hele nahatoon	none
+🫺🏼	paremale suunatud pöidla märk keskmiselt hele nahatoon	none
+🫺🏽	paremale suunatud pöidla märk keskmine nahatoon	none
+🫺🏾	paremale suunatud pöidla märk keskmiselt tume nahatoon	none
+🫺🏿	paremale suunatud pöidla märk tume nahatoon	none
 ✊🏻	ülestõstetud rusikas hele nahatoon	none
 ✊🏼	ülestõstetud rusikas keskmiselt hele nahatoon	none
 ✊🏽	ülestõstetud rusikas keskmine nahatoon	none

@@ -275,6 +275,7 @@ symbols:
 🙂	slightly smiling face	none
 🙃	upside-down face	none
 🫠	melting face	none
+🫫	cracking face	none
 😉	winking face	none
 😊	smiling face with smiling eyes	none
 😇	smiling face with halo	none
@@ -464,6 +465,8 @@ symbols:
 🫵	index pointing at the viewer	none
 👍	thumbs up	none
 👎	thumbs down	none
+🫹	leftwards thumb sign	none
+🫺	rightwards thumb sign	none
 ✊	raised fist	none
 👊	oncoming fist	none
 🤛	left-facing fist	none
@@ -883,6 +886,7 @@ symbols:
 🦪	oyster	none
 🐌	snail	none
 🦋	butterfly	none
+🫌	monarch butterfly	none
 🐛	bug	none
 🐜	ant	none
 🐝	honeybee	none
@@ -954,6 +958,7 @@ symbols:
 🌶	hot pepper	none
 🫑	bell pepper	none
 🥒	cucumber	none
+🫝	pickle	none
 🥬	leafy green	none
 🥦	broccoli	none
 🧄	garlic	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	vertical traffic light	none
 🛑	stop sign	none
 🚧	construction	none
+🛙	lighthouse	none
 ⚓	anchor	none
 🛟	ring buoy	none
 ⛵	sailboat	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	snowman	none
 ⛄	snowman without snow	none
 ☄	comet	none
+🪋	meteor	none
 🔥	fire	none
 💧	droplet	none
 🌊	water wave	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	paintbrush	none
 🖍	crayon	none
 📝	memo	none
+🪌	eraser	none
 💼	briefcase	none
 📁	file folder	none
 📂	open file folder	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	locked with key	none
 🔑	key	none
 🗝	old key	none
+🪍	net with handle	none
 🔨	hammer	none
 🪓	axe	none
 ⛏	pick	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	thumbs down medium skin tone	none
 👎🏾	thumbs down medium-dark skin tone	none
 👎🏿	thumbs down dark skin tone	none
+🫹🏻	leftwards thumb sign light skin tone	none
+🫹🏼	leftwards thumb sign medium-light skin tone	none
+🫹🏽	leftwards thumb sign medium skin tone	none
+🫹🏾	leftwards thumb sign medium-dark skin tone	none
+🫹🏿	leftwards thumb sign dark skin tone	none
+🫺🏻	rightwards thumb sign light skin tone	none
+🫺🏼	rightwards thumb sign medium-light skin tone	none
+🫺🏽	rightwards thumb sign medium skin tone	none
+🫺🏾	rightwards thumb sign medium-dark skin tone	none
+🫺🏿	rightwards thumb sign dark skin tone	none
 ✊🏻	raised fist light skin tone	none
 ✊🏼	raised fist medium-light skin tone	none
 ✊🏽	raised fist medium skin tone	none
@@ -4032,7 +4051,7 @@ symbols:
 🇬🇼	flag Guinea-Bissau	none
 🇬🇾	flag Guyana	none
 🇭🇰	flag Hong Kong SAR China	none
-🇭🇲	flag Heard & McDonald Islands	none
+🇭🇲	flag Heard Island & McDonald Islands	none
 🇭🇳	flag Honduras	none
 🇭🇷	flag Croatia	none
 🇭🇹	flag Haiti	none
@@ -4136,7 +4155,7 @@ symbols:
 🇸🇩	flag Sudan	none
 🇸🇪	flag Sweden	none
 🇸🇬	flag Singapore	none
-🇸🇭	flag St. Helena	none
+🇸🇭	flag St. Helena, Ascension & Tristan da Cunha	none
 🇸🇮	flag Slovenia	none
 🇸🇯	flag Svalbard & Jan Mayen	none
 🇸🇰	flag Slovakia	none
@@ -4154,7 +4173,7 @@ symbols:
 🇹🇦	flag Tristan da Cunha	none
 🇹🇨	flag Turks & Caicos Islands	none
 🇹🇩	flag Chad	none
-🇹🇫	flag French Southern Territories	none
+🇹🇫	flag French Southern and Antarctic Lands	none
 🇹🇬	flag Togo	none
 🇹🇭	flag Thailand	none
 🇹🇯	flag Tajikistan	none

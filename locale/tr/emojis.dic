@@ -275,6 +275,7 @@ symbols:
 🙂	hafifçe gülümseyen yüz	none
 🙃	ters yüz	none
 🫠	eriyen yüz	none
+🫫	çatlayan yüz	none
 😉	göz kırpan yüz	none
 😊	ağzı açık gülme	none
 😇	ışık halkalı gülümseme	none
@@ -464,6 +465,8 @@ symbols:
 🫵	karşıyı işaret eden işaret parmağı	none
 👍	baş parmak yukarıda	none
 👎	baş parmak aşağıda	none
+🫹	baş parmak solda	none
+🫺	başparmak sağda	none
 ✊	yumruk kaldırma	none
 👊	yaklaşan yumruk	none
 🤛	sola bakan yumruk	none
@@ -883,6 +886,7 @@ symbols:
 🦪	istiridye	none
 🐌	salyangoz	none
 🦋	kelebek	none
+🫌	kral kelebeği	none
 🐛	tırtıl	none
 🐜	karınca	none
 🐝	bal arısı	none
@@ -954,6 +958,7 @@ symbols:
 🌶	acı biber	none
 🫑	dolma biber	none
 🥒	salatalık	none
+🫝	turşu	none
 🥬	yeşil yapraklı sebze	none
 🥦	brokoli	none
 🧄	sarımsak	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	dikey trafik ışıkları	none
 🛑	dur işareti	none
 🚧	inşaat	none
+🛙	deniz feneri	none
 ⚓	çıpa	none
 🛟	cankurtaran simidi	none
 ⛵	yelkenli tekne	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	kardan adam	none
 ⛄	kar yağmadan kardan adam	none
 ☄	kuyruklu yıldız	none
+🪋	gök taşı	none
 🔥	ateş	none
 💧	damlacık	none
 🌊	dalga	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	boya fırçası	none
 🖍	pastel boya	none
 📝	not	none
+🪌	silgi	none
 💼	evrak çantası	none
 📁	dosya klasörü	none
 📂	açık dosya klasörü	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	anahtarlı kapalı kilit	none
 🔑	anahtar	none
 🗝	eski anahtar	none
+🪍	kelebek ağı	none
 🔨	çekiç	none
 🪓	balta	none
 ⛏	kazma	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	baş parmak aşağıda orta cilt tonu	none
 👎🏾	baş parmak aşağıda orta koyu cilt tonu	none
 👎🏿	baş parmak aşağıda koyu cilt tonu	none
+🫹🏻	baş parmak solda açık cilt tonu	none
+🫹🏼	baş parmak solda orta açık cilt tonu	none
+🫹🏽	baş parmak solda orta cilt tonu	none
+🫹🏾	baş parmak solda orta koyu cilt tonu	none
+🫹🏿	baş parmak solda koyu cilt tonu	none
+🫺🏻	başparmak sağda açık cilt tonu	none
+🫺🏼	başparmak sağda orta açık cilt tonu	none
+🫺🏽	başparmak sağda orta cilt tonu	none
+🫺🏾	başparmak sağda orta koyu cilt tonu	none
+🫺🏿	başparmak sağda koyu cilt tonu	none
 ✊🏻	yumruk kaldırma açık cilt tonu	none
 ✊🏼	yumruk kaldırma orta açık cilt tonu	none
 ✊🏽	yumruk kaldırma orta cilt tonu	none

@@ -275,6 +275,7 @@ symbols:
 🙂	usmievajúca sa tvár	none
 🙃	prevrátená tvár	none
 🫠	roztopená tvár	none
+🫫	praskajúca tvár	none
 😉	žmurkajúca tvár	none
 😊	smejúca sa tvár s prižmúrenými očami	none
 😇	smejúca sa tvár so svätožiarou	none
@@ -464,6 +465,8 @@ symbols:
 🫵	ukazovanie ukazovákom	none
 👍	palec nahor	none
 👎	palec nadol	none
+🫹	palec vľavo	none
+🫺	palec vpravo	none
 ✊	zdvihnutá päsť	none
 👊	päsť spredu	none
 🤛	päsť doľava	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ustrica	none
 🐌	slimák	none
 🦋	motýľ	none
+🫌	babôčka smradľavá	none
 🐛	húsenica	none
 🐜	mravec	none
 🐝	včela	none
@@ -954,6 +958,7 @@ symbols:
 🌶	čili paprička	none
 🫑	kapia	none
 🥒	uhorka	none
+🫝	nakladačka	none
 🥬	listová zelenina	none
 🥦	brokolica	none
 🧄	cesnak	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	zvislý semafor	none
 🛑	značka stop	none
 🚧	práce na ceste	none
+🛙	maják	none
 ⚓	kotva	none
 🛟	záchranné koleso	none
 ⛵	plachetnica	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	snehuliak	none
 ⛄	snehuliak bez snehu	none
 ☄	kométa	none
+🪋	meteor	none
 🔥	oheň	none
 💧	kvapka	none
 🌊	morská vlna	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	štetec	none
 🖍	pastelka	none
 📝	oznam	none
+🪌	guma	none
 💼	aktovka	none
 📁	fascikel	none
 📂	otvorený fascikel	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	zámka s kľúčom	none
 🔑	kľúč	none
 🗝	starý kľúč	none
+🪍	sieťka na motýle	none
 🔨	kladivo	none
 🪓	sekera	none
 ⛏	krompáč	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	palec nadol stredný tón pleti	none
 👎🏾	palec nadol stredne tmavý tón pleti	none
 👎🏿	palec nadol tmavý tón pleti	none
+🫹🏻	palec vľavo svetlý tón pleti	none
+🫹🏼	palec vľavo stredne svetlý tón pleti	none
+🫹🏽	palec vľavo stredný tón pleti	none
+🫹🏾	palec vľavo stredne tmavý tón pleti	none
+🫹🏿	palec vľavo tmavý tón pleti	none
+🫺🏻	palec vpravo svetlý tón pleti	none
+🫺🏼	palec vpravo stredne svetlý tón pleti	none
+🫺🏽	palec vpravo stredný tón pleti	none
+🫺🏾	palec vpravo stredne tmavý tón pleti	none
+🫺🏿	palec vpravo tmavý tón pleti	none
 ✊🏻	zdvihnutá päsť svetlý tón pleti	none
 ✊🏼	zdvihnutá päsť stredne svetlý tón pleti	none
 ✊🏽	zdvihnutá päsť stredný tón pleti	none

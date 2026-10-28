@@ -275,6 +275,7 @@ symbols:
 🙂	straoiseog ag miongháire de bheagán	none
 🙃	straoiseog bun os cionn	none
 🫠	straoiseog atá ag leá	none
+🫫	straoiseog ag scoilteadh	none
 😉	straoiseog ag caochadh	none
 😊	straoiseog aoibhiúil le súile le miongháire	none
 😇	straoiseog ag gáire le luan	none
@@ -464,6 +465,8 @@ symbols:
 🫵	corrmhéar ag díriú ar an mbreathnóir	none
 👍	ordóg suas	none
 👎	ordóg síos	none
+🫹	ordóg ag díriú ar chlé	none
+🫺	ordóg ag díriú ar dheis	none
 ✊	dorn ardaithe	none
 👊	dorn atá chugat	none
 🤛	dorn ar chlé	none
@@ -883,6 +886,7 @@ symbols:
 🦪	oisre	none
 🐌	seilide	none
 🦋	féileacán	none
+🫌	bleachtfhéileacán	none
 🐛	míol	none
 🐜	seangán	none
 🐝	beach mheala	none
@@ -954,6 +958,7 @@ symbols:
 🌶	píobar te	none
 🫑	piobar	none
 🥒	cúcamar	none
+🫝	gircín picilte	none
 🥬	glasra duilleach	none
 🥦	brocailí	none
 🧄	gairleog	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	soilse tráchta ceartingearacha	none
 🛑	comhartha stop	none
 🚧	suíomh tógála	none
+🛙	teach solais	none
 ⚓	ancaire	none
 🛟	baoi fáinneach	none
 ⛵	bád seoil	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	fear sneachta	none
 ⛄	fear sneachta gan sneachta	none
 ☄	cóiméad	none
+🪋	dreige	none
 🔥	tine	none
 💧	braoinín	none
 🌊	tonn san uisce	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	scuab phéinteála	none
 🖍	crián	none
 📝	meabhrán	none
+🪌	scriosán	none
 💼	mála cáipéisí	none
 📁	fillteán comhad	none
 📂	fillteán oscailte	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	glasáilte le heochair	none
 🔑	eochair	none
 🗝	sean-eochair	none
+🪍	líon le lámh	none
 🔨	casúr	none
 🪓	tua	none
 ⛏	piocóid	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	ordóg síos ton cnis meánach	none
 👎🏾	ordóg síos ton cnis meándorcha	none
 👎🏿	ordóg síos ton cnis dorcha	none
+🫹🏻	ordóg ag díriú ar chlé ton cnis geal	none
+🫹🏼	ordóg ag díriú ar chlé ton cnis mheánach-gheal	none
+🫹🏽	ordóg ag díriú ar chlé ton cnis meánach	none
+🫹🏾	ordóg ag díriú ar chlé ton cnis meándorcha	none
+🫹🏿	ordóg ag díriú ar chlé ton cnis dorcha	none
+🫺🏻	ordóg ag díriú ar dheis ton cnis geal	none
+🫺🏼	ordóg ag díriú ar dheis ton cnis mheánach-gheal	none
+🫺🏽	ordóg ag díriú ar dheis ton cnis meánach	none
+🫺🏾	ordóg ag díriú ar dheis ton cnis meándorcha	none
+🫺🏿	ordóg ag díriú ar dheis ton cnis dorcha	none
 ✊🏻	dorn ardaithe ton cnis geal	none
 ✊🏼	dorn ardaithe ton cnis mheánach-gheal	none
 ✊🏽	dorn ardaithe ton cnis meánach	none

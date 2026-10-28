@@ -275,6 +275,7 @@ symbols:
 🙂	呵呵	none
 🙃	倒脸	none
 🫠	融化	none
+🫫	裂开	none
 😉	眨眼	none
 😊	羞涩微笑	none
 😇	微笑天使	none
@@ -289,7 +290,7 @@ symbols:
 🥲	含泪的笑脸	none
 😋	好吃	none
 😛	吐舌	none
-😜	单眼吐舌	none
+😜	眨眼吐舌	none
 🤪	滑稽	none
 😝	眯眼吐舌	none
 🤑	发财	none
@@ -464,6 +465,8 @@ symbols:
 🫵	指向观察者的食指	none
 👍	拇指向上	none
 👎	拇指向下	none
+🫹	拇指左指	none
+🫺	拇指右指	none
 ✊	举起拳头	none
 👊	出拳	none
 🤛	朝左的拳头	none
@@ -883,6 +886,7 @@ symbols:
 🦪	牡蛎	none
 🐌	蜗牛	none
 🦋	蝴蝶	none
+🫌	帝王蝶	none
 🐛	毛毛虫	none
 🐜	蚂蚁	none
 🐝	蜜蜂	none
@@ -954,6 +958,7 @@ symbols:
 🌶	红辣椒	none
 🫑	灯笼椒	none
 🥒	黄瓜	none
+🫝	酸黄瓜	none
 🥬	绿叶蔬菜	none
 🥦	西兰花	none
 🧄	蒜	none
@@ -1076,7 +1081,7 @@ symbols:
 🏞	国家公园	none
 🏟	体育馆	none
 🏛	古典建筑	none
-🏗	施工	none
+🏗	建筑施工	none
 🧱	砖	none
 🪨	岩石	none
 🪵	木头	none
@@ -1173,7 +1178,8 @@ symbols:
 🚥	横向的红绿灯	none
 🚦	纵向的红绿灯	none
 🛑	停止标志	none
-🚧	路障	none
+🚧	施工	none
+🛙	灯塔	none
 ⚓	锚	none
 🛟	救生圈	none
 ⛵	帆船	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	雪与雪人	none
 ⛄	雪人	none
 ☄	彗星	none
+🪋	陨石	none
 🔥	火焰	none
 💧	水滴	none
 🌊	浪花	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	画笔	none
 🖍	蜡笔	none
 📝	备忘录	none
+🪌	橡皮擦	none
 💼	公文包	none
 📁	文件夹	none
 📂	打开的文件夹	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	钥匙和锁	none
 🔑	钥匙	none
 🗝	老式钥匙	none
+🪍	抄网	none
 🔨	锤子	none
 🪓	斧头	none
 ⛏	铁镐	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	拇指向下 中等肤色	none
 👎🏾	拇指向下 中等-深肤色	none
 👎🏿	拇指向下 较深肤色	none
+🫹🏻	拇指左指 较浅肤色	none
+🫹🏼	拇指左指 中等-浅肤色	none
+🫹🏽	拇指左指 中等肤色	none
+🫹🏾	拇指左指 中等-深肤色	none
+🫹🏿	拇指左指 较深肤色	none
+🫺🏻	拇指右指 较浅肤色	none
+🫺🏼	拇指右指 中等-浅肤色	none
+🫺🏽	拇指右指 中等肤色	none
+🫺🏾	拇指右指 中等-深肤色	none
+🫺🏿	拇指右指 较深肤色	none
 ✊🏻	举起拳头 较浅肤色	none
 ✊🏼	举起拳头 中等-浅肤色	none
 ✊🏽	举起拳头 中等肤色	none

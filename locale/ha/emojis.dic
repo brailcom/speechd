@@ -275,6 +275,7 @@ symbols:
 🙂	fuska mai murmushi kaɗan	none
 🙃	fuska a birkice	none
 🫠	fuska narke	none
+🫫	fuska mai tsagewa	none
 😉	fuska mai yin ƙifta	none
 😊	fuska mai murmushi haɗe da idanu	none
 😇	fuska mai murmushi tare da da’irar haske	none
@@ -464,6 +465,8 @@ symbols:
 🫵	yatsa yana nuna mai kallo	none
 👍	da kyau	none
 👎	babu kyau	none
+🫹	alamar babban ɗan yatsa ɓangaren hagu	none
+🫺	alamar babban ɗan yatsa ɓangaren dama	none
 ✊	ɗagaggen dunƙulen hannu	none
 👊	dunƙulen hannu mai zuwa	none
 🤛	dunƙulen hannu mai fuskanta hagu	none
@@ -770,12 +773,12 @@ symbols:
 🦧	babban biri	none
 🐶	fuskar kare	none
 🐕	kare	none
-🦮	karen jagora	none
+🦮	kare mai jagoranci	none
 🐕‍🦺	karen aiki	none
 🐩	karen poodle	none
-🐺	ƙyarkaci	none
+🐺	kyarkeci	none
 🦊	yanyawa	none
-🦝	rakon	none
+🦝	dabbar raccoon	none
 🐱	fuskar kyanwa	none
 🐈	kyanwa	none
 🐈‍⬛	Bakin kyanwa	none
@@ -881,6 +884,7 @@ symbols:
 🦪	oyesta	none
 🐌	dodon koɗi	none
 🦋	malam-buɗe-mana-littafi	none
+🫌	malam-buɗa-mana-littafi	none
 🐛	ƙwaro	none
 🐜	cinnaka	none
 🐝	zuma	none
@@ -952,6 +956,7 @@ symbols:
 🌶	barkono mai zafi	none
 🫑	koren tattasai	none
 🥒	kokwamba	none
+🫝	tsamiya	none
 🥬	koren ganyayyaki	none
 🥦	burokoli	none
 🧄	tafarnuwa	none
@@ -1172,6 +1177,7 @@ symbols:
 🚦	wutar tarafik mai tsaye	none
 🛑	alamar dakata	none
 🚧	aikin gini	none
+🛙	gidan haske	none
 ⚓	babban karfi	none
 🛟	balan-balan ceto na ruwa	none
 ⛵	jirgin ruwa mai filafilai	none
@@ -1271,6 +1277,7 @@ symbols:
 ☃	mutumin ƙanƙari	none
 ⛄	mutumin ƙanƙara ban da ƙanƙara	none
 ☄	taurariya mai wutsiya	none
+🪋	yanayi	none
 🔥	wuta	none
 💧	ɗan ɗigo	none
 🌊	igiyar ruwa	none
@@ -1521,6 +1528,7 @@ symbols:
 🖌	buroshin fenti	none
 🖍	fensir mai launi	none
 📝	daftari	none
+🪌	kilina	none
 💼	jakar hannu	none
 📁	foldar fayil	none
 📂	buɗaɗɗiyar foldar fayil	none
@@ -1550,6 +1558,7 @@ symbols:
 🔐	a kulle da makulli	none
 🔑	makulli	none
 🗝	tsohon makulli	none
+🪍	raga mai makama	none
 🔨	guduma	none
 🪓	gatari	none
 ⛏	diga	none
@@ -2002,6 +2011,16 @@ symbols:
 👎🏽	babu kyau madaidaicin launin fata	none
 👎🏾	babu kyau launin fata mai madaidaicin duhu	none
 👎🏿	babu kyau launin fata mai duhu	none
+🫹🏻	alamar babban ɗan yatsa ɓangaren hagu launin fata mai haske	none
+🫹🏼	alamar babban ɗan yatsa ɓangaren hagu launin fata mai madaidaicin haske	none
+🫹🏽	alamar babban ɗan yatsa ɓangaren hagu madaidaicin launin fata	none
+🫹🏾	alamar babban ɗan yatsa ɓangaren hagu launin fata mai madaidaicin duhu	none
+🫹🏿	alamar babban ɗan yatsa ɓangaren hagu launin fata mai duhu	none
+🫺🏻	alamar babban ɗan yatsa ɓangaren dama launin fata mai haske	none
+🫺🏼	alamar babban ɗan yatsa ɓangaren dama launin fata mai madaidaicin haske	none
+🫺🏽	alamar babban ɗan yatsa ɓangaren dama madaidaicin launin fata	none
+🫺🏾	alamar babban ɗan yatsa ɓangaren dama launin fata mai madaidaicin duhu	none
+🫺🏿	alamar babban ɗan yatsa ɓangaren dama launin fata mai duhu	none
 ✊🏻	ɗagaggen dunƙulen hannu launin fata mai haske	none
 ✊🏼	ɗagaggen dunƙulen hannu launin fata mai madaidaicin haske	none
 ✊🏽	ɗagaggen dunƙulen hannu madaidaicin launin fata	none
@@ -3294,6 +3313,24 @@ symbols:
 🚶🏽‍♀	mace mai yin tafiya ƙafa madaidaicin launin fata	none
 🚶🏾‍♀	mace mai yin tafiya ƙafa launin fata mai madaidaicin duhu	none
 🚶🏿‍♀	mace mai yin tafiya ƙafa launin fata mai duhu	none
+🚶‍➡	mutum mai yin tafiya ƙafa kallon dama	none
+🚶🏻‍➡	mutum mai yin tafiya ƙafa launin fata mai haske, kallon dama	none
+🚶🏼‍➡	mutum mai yin tafiya ƙafa launin fata mai madaidaicin haske, kallon dama	none
+🚶🏽‍➡	mutum mai yin tafiya ƙafa madaidaicin launin fata, kallon dama	none
+🚶🏾‍➡	mutum mai yin tafiya ƙafa launin fata mai madaidaicin duhu, kallon dama	none
+🚶🏿‍➡	mutum mai yin tafiya ƙafa launin fata mai duhu, kallon dama	none
+🚶‍♀‍➡	mace mai yin tafiya ƙafa kallon dama	none
+🚶🏻‍♀‍➡	mace mai yin tafiya ƙafa launin fata mai haske, kallon dama	none
+🚶🏼‍♀‍➡	mace mai yin tafiya ƙafa launin fata mai madaidaicin haske, kallon dama	none
+🚶🏽‍♀‍➡	mace mai yin tafiya ƙafa madaidaicin launin fata, kallon dama	none
+🚶🏾‍♀‍➡	mace mai yin tafiya ƙafa launin fata mai madaidaicin duhu, kallon dama	none
+🚶🏿‍♀‍➡	mace mai yin tafiya ƙafa launin fata mai duhu, kallon dama	none
+🚶‍♂‍➡	namiji mai yin tafiya ƙafa kallon dama	none
+🚶🏻‍♂‍➡	namiji mai yin tafiya ƙafa launin fata mai haske, kallon dama	none
+🚶🏼‍♂‍➡	namiji mai yin tafiya ƙafa launin fata mai madaidaicin haske, kallon dama	none
+🚶🏽‍♂‍➡	namiji mai yin tafiya ƙafa madaidaicin launin fata, kallon dama	none
+🚶🏾‍♂‍➡	namiji mai yin tafiya ƙafa launin fata mai madaidaicin duhu, kallon dama	none
+🚶🏿‍♂‍➡	namiji mai yin tafiya ƙafa launin fata mai duhu, kallon dama	none
 🧍🏻	mutum a tsaye launin fata mai haske	none
 🧍🏼	mutum a tsaye launin fata mai madaidaicin haske	none
 🧍🏽	mutum a tsaye madaidaicin launin fata	none
@@ -3314,51 +3351,111 @@ symbols:
 🧎🏽	mutum a durƙushe madaidaicin launin fata	none
 🧎🏾	mutum a durƙushe launin fata mai madaidaicin duhu	none
 🧎🏿	mutum a durƙushe launin fata mai duhu	none
+🧎‍➡	mutum a durƙushe kallon dama	none
+🧎🏻‍➡	mutum a durƙushe launin fata mai haske, kallon dama	none
+🧎🏼‍➡	mutum a durƙushe launin fata mai madaidaicin haske, kallon dama	none
+🧎🏽‍➡	mutum a durƙushe madaidaicin launin fata, kallon dama	none
+🧎🏾‍➡	mutum a durƙushe launin fata mai madaidaicin duhu, kallon dama	none
+🧎🏿‍➡	mutum a durƙushe launin fata mai duhu, kallon dama	none
 🧑🏻‍🦯	mutum mai farin bulala launin fata mai haske	none
 🧑🏼‍🦯	mutum mai farin bulala launin fata mai madaidaicin haske	none
 🧑🏽‍🦯	mutum mai farin bulala madaidaicin launin fata	none
 🧑🏾‍🦯	mutum mai farin bulala launin fata mai madaidaicin duhu	none
 🧑🏿‍🦯	mutum mai farin bulala launin fata mai duhu	none
+🧑‍🦯‍➡	mutum mai farin bulala kallon dama	none
+🧑🏻‍🦯‍➡	mutum mai farin bulala launin fata mai haske, kallon dama	none
+🧑🏼‍🦯‍➡	mutum mai farin bulala launin fata mai madaidaicin haske, kallon dama	none
+🧑🏽‍🦯‍➡	mutum mai farin bulala madaidaicin launin fata, kallon dama	none
+🧑🏾‍🦯‍➡	mutum mai farin bulala launin fata mai madaidaicin duhu, kallon dama	none
+🧑🏿‍🦯‍➡	mutum mai farin bulala launin fata mai duhu, kallon dama	none
 👨🏻‍🦯	mutum da farar sanda launin fata mai haske	none
 👨🏼‍🦯	mutum da farar sanda launin fata mai madaidaicin haske	none
 👨🏽‍🦯	mutum da farar sanda madaidaicin launin fata	none
 👨🏾‍🦯	mutum da farar sanda launin fata mai madaidaicin duhu	none
 👨🏿‍🦯	mutum da farar sanda launin fata mai duhu	none
+👨‍🦯‍➡	mutum da farar sanda kallon dama	none
+👨🏻‍🦯‍➡	mutum da farar sanda launin fata mai haske, kallon dama	none
+👨🏼‍🦯‍➡	mutum da farar sanda launin fata mai madaidaicin haske, kallon dama	none
+👨🏽‍🦯‍➡	mutum da farar sanda madaidaicin launin fata, kallon dama	none
+👨🏾‍🦯‍➡	mutum da farar sanda launin fata mai madaidaicin duhu, kallon dama	none
+👨🏿‍🦯‍➡	mutum da farar sanda launin fata mai duhu, kallon dama	none
 👩🏻‍🦯	mace da farar sanda launin fata mai haske	none
 👩🏼‍🦯	mace da farar sanda launin fata mai madaidaicin haske	none
 👩🏽‍🦯	mace da farar sanda madaidaicin launin fata	none
 👩🏾‍🦯	mace da farar sanda launin fata mai madaidaicin duhu	none
 👩🏿‍🦯	mace da farar sanda launin fata mai duhu	none
+👩‍🦯‍➡	mace da farar sanda kallon dama	none
+👩🏻‍🦯‍➡	mace da farar sanda launin fata mai haske, kallon dama	none
+👩🏼‍🦯‍➡	mace da farar sanda launin fata mai madaidaicin haske, kallon dama	none
+👩🏽‍🦯‍➡	mace da farar sanda madaidaicin launin fata, kallon dama	none
+👩🏾‍🦯‍➡	mace da farar sanda launin fata mai madaidaicin duhu, kallon dama	none
+👩🏿‍🦯‍➡	mace da farar sanda launin fata mai duhu, kallon dama	none
 🧑🏻‍🦼	mutum cikin kujeran gurgu launin fata mai haske	none
 🧑🏼‍🦼	mutum cikin kujeran gurgu launin fata mai madaidaicin haske	none
 🧑🏽‍🦼	mutum cikin kujeran gurgu madaidaicin launin fata	none
 🧑🏾‍🦼	mutum cikin kujeran gurgu launin fata mai madaidaicin duhu	none
 🧑🏿‍🦼	mutum cikin kujeran gurgu launin fata mai duhu	none
+🧑‍🦼‍➡	mutum cikin kujeran gurgu kallon dama	none
+🧑🏻‍🦼‍➡	mutum cikin kujeran gurgu launin fata mai haske, kallon dama	none
+🧑🏼‍🦼‍➡	mutum cikin kujeran gurgu launin fata mai madaidaicin haske, kallon dama	none
+🧑🏽‍🦼‍➡	mutum cikin kujeran gurgu madaidaicin launin fata, kallon dama	none
+🧑🏾‍🦼‍➡	mutum cikin kujeran gurgu launin fata mai madaidaicin duhu, kallon dama	none
+🧑🏿‍🦼‍➡	mutum cikin kujeran gurgu launin fata mai duhu, kallon dama	none
 👨🏻‍🦼	mutum a keken guragu na lantarki launin fata mai haske	none
 👨🏼‍🦼	mutum a keken guragu na lantarki launin fata mai madaidaicin haske	none
 👨🏽‍🦼	mutum a keken guragu na lantarki madaidaicin launin fata	none
 👨🏾‍🦼	mutum a keken guragu na lantarki launin fata mai madaidaicin duhu	none
 👨🏿‍🦼	mutum a keken guragu na lantarki launin fata mai duhu	none
+👨‍🦼‍➡	mutum a keken guragu na lantarki kallon dama	none
+👨🏻‍🦼‍➡	mutum a keken guragu na lantarki launin fata mai haske, kallon dama	none
+👨🏼‍🦼‍➡	mutum a keken guragu na lantarki launin fata mai madaidaicin haske, kallon dama	none
+👨🏽‍🦼‍➡	mutum a keken guragu na lantarki madaidaicin launin fata, kallon dama	none
+👨🏾‍🦼‍➡	mutum a keken guragu na lantarki launin fata mai madaidaicin duhu, kallon dama	none
+👨🏿‍🦼‍➡	mutum a keken guragu na lantarki launin fata mai duhu, kallon dama	none
 👩🏻‍🦼	mace a kan keken guragu mai inji launin fata mai haske	none
 👩🏼‍🦼	mace a kan keken guragu mai inji launin fata mai madaidaicin haske	none
 👩🏽‍🦼	mace a kan keken guragu mai inji madaidaicin launin fata	none
 👩🏾‍🦼	mace a kan keken guragu mai inji launin fata mai madaidaicin duhu	none
 👩🏿‍🦼	mace a kan keken guragu mai inji launin fata mai duhu	none
+👩‍🦼‍➡	mace a kan keken guragu mai inji kallon dama	none
+👩🏻‍🦼‍➡	mace a kan keken guragu mai inji launin fata mai haske, kallon dama	none
+👩🏼‍🦼‍➡	mace a kan keken guragu mai inji launin fata mai madaidaicin haske, kallon dama	none
+👩🏽‍🦼‍➡	mace a kan keken guragu mai inji madaidaicin launin fata, kallon dama	none
+👩🏾‍🦼‍➡	mace a kan keken guragu mai inji launin fata mai madaidaicin duhu, kallon dama	none
+👩🏿‍🦼‍➡	mace a kan keken guragu mai inji launin fata mai duhu, kallon dama	none
 🧑🏻‍🦽	mutum cikin motan gurgu wanda ke bukatan tuki da hannu launin fata mai haske	none
 🧑🏼‍🦽	mutum cikin motan gurgu wanda ke bukatan tuki da hannu launin fata mai madaidaicin haske	none
 🧑🏽‍🦽	mutum cikin motan gurgu wanda ke bukatan tuki da hannu madaidaicin launin fata	none
 🧑🏾‍🦽	mutum cikin motan gurgu wanda ke bukatan tuki da hannu launin fata mai madaidaicin duhu	none
 🧑🏿‍🦽	mutum cikin motan gurgu wanda ke bukatan tuki da hannu launin fata mai duhu	none
+🧑‍🦽‍➡	mutum cikin motan gurgu wanda ke bukatan tuki da hannu kallon dama	none
+🧑🏻‍🦽‍➡	mutum cikin motan gurgu wanda ke bukatan tuki da hannu launin fata mai haske, kallon dama	none
+🧑🏼‍🦽‍➡	mutum cikin motan gurgu wanda ke bukatan tuki da hannu launin fata mai madaidaicin haske, kallon dama	none
+🧑🏽‍🦽‍➡	mutum cikin motan gurgu wanda ke bukatan tuki da hannu madaidaicin launin fata, kallon dama	none
+🧑🏾‍🦽‍➡	mutum cikin motan gurgu wanda ke bukatan tuki da hannu launin fata mai madaidaicin duhu, kallon dama	none
+🧑🏿‍🦽‍➡	mutum cikin motan gurgu wanda ke bukatan tuki da hannu launin fata mai duhu, kallon dama	none
 👨🏻‍🦽	na miji a cikin motan gurgu da ke bukatan tuki launin fata mai haske	none
 👨🏼‍🦽	na miji a cikin motan gurgu da ke bukatan tuki launin fata mai madaidaicin haske	none
 👨🏽‍🦽	na miji a cikin motan gurgu da ke bukatan tuki madaidaicin launin fata	none
 👨🏾‍🦽	na miji a cikin motan gurgu da ke bukatan tuki launin fata mai madaidaicin duhu	none
 👨🏿‍🦽	na miji a cikin motan gurgu da ke bukatan tuki launin fata mai duhu	none
+👨‍🦽‍➡	na miji a cikin motan gurgu da ke bukatan tuki kallon dama	none
+👨🏻‍🦽‍➡	na miji a cikin motan gurgu da ke bukatan tuki launin fata mai haske, kallon dama	none
+👨🏼‍🦽‍➡	na miji a cikin motan gurgu da ke bukatan tuki launin fata mai madaidaicin haske, kallon dama	none
+👨🏽‍🦽‍➡	na miji a cikin motan gurgu da ke bukatan tuki madaidaicin launin fata, kallon dama	none
+👨🏾‍🦽‍➡	na miji a cikin motan gurgu da ke bukatan tuki launin fata mai madaidaicin duhu, kallon dama	none
+👨🏿‍🦽‍➡	na miji a cikin motan gurgu da ke bukatan tuki launin fata mai duhu, kallon dama	none
 👩🏻‍🦽	na mace a cikin motan gurgu da ke bukatan tuki launin fata mai haske	none
 👩🏼‍🦽	na mace a cikin motan gurgu da ke bukatan tuki launin fata mai madaidaicin haske	none
 👩🏽‍🦽	na mace a cikin motan gurgu da ke bukatan tuki madaidaicin launin fata	none
 👩🏾‍🦽	na mace a cikin motan gurgu da ke bukatan tuki launin fata mai madaidaicin duhu	none
 👩🏿‍🦽	na mace a cikin motan gurgu da ke bukatan tuki launin fata mai duhu	none
+👩‍🦽‍➡	na mace a cikin motan gurgu da ke bukatan tuki kallon dama	none
+👩🏻‍🦽‍➡	na mace a cikin motan gurgu da ke bukatan tuki launin fata mai haske, kallon dama	none
+👩🏼‍🦽‍➡	na mace a cikin motan gurgu da ke bukatan tuki launin fata mai madaidaicin haske, kallon dama	none
+👩🏽‍🦽‍➡	na mace a cikin motan gurgu da ke bukatan tuki madaidaicin launin fata, kallon dama	none
+👩🏾‍🦽‍➡	na mace a cikin motan gurgu da ke bukatan tuki launin fata mai madaidaicin duhu, kallon dama	none
+👩🏿‍🦽‍➡	na mace a cikin motan gurgu da ke bukatan tuki launin fata mai duhu, kallon dama	none
 🏃🏻	mutum mai yin gudu launin fata mai haske	none
 🏃🏼	mutum mai yin gudu launin fata mai madaidaicin haske	none
 🏃🏽	mutum mai yin gudu madaidaicin launin fata	none
@@ -3374,6 +3471,24 @@ symbols:
 🏃🏽‍♀	mace mai yin gudu madaidaicin launin fata	none
 🏃🏾‍♀	mace mai yin gudu launin fata mai madaidaicin duhu	none
 🏃🏿‍♀	mace mai yin gudu launin fata mai duhu	none
+🏃‍➡	mutum mai yin gudu kallon dama	none
+🏃🏻‍➡	mutum mai yin gudu launin fata mai haske, kallon dama	none
+🏃🏼‍➡	mutum mai yin gudu launin fata mai madaidaicin haske, kallon dama	none
+🏃🏽‍➡	mutum mai yin gudu madaidaicin launin fata, kallon dama	none
+🏃🏾‍➡	mutum mai yin gudu launin fata mai madaidaicin duhu, kallon dama	none
+🏃🏿‍➡	mutum mai yin gudu launin fata mai duhu, kallon dama	none
+🏃‍♀‍➡	mace mai yin gudu kallon dama	none
+🏃🏻‍♀‍➡	mace mai yin gudu launin fata mai haske, kallon dama	none
+🏃🏼‍♀‍➡	mace mai yin gudu launin fata mai madaidaicin haske, kallon dama	none
+🏃🏽‍♀‍➡	mace mai yin gudu madaidaicin launin fata, kallon dama	none
+🏃🏾‍♀‍➡	mace mai yin gudu launin fata mai madaidaicin duhu, kallon dama	none
+🏃🏿‍♀‍➡	mace mai yin gudu launin fata mai duhu, kallon dama	none
+🏃‍♂‍➡	namiji mai yin gudu kallon dama	none
+🏃🏻‍♂‍➡	namiji mai yin gudu launin fata mai haske, kallon dama	none
+🏃🏼‍♂‍➡	namiji mai yin gudu launin fata mai madaidaicin haske, kallon dama	none
+🏃🏽‍♂‍➡	namiji mai yin gudu madaidaicin launin fata, kallon dama	none
+🏃🏾‍♂‍➡	namiji mai yin gudu launin fata mai madaidaicin duhu, kallon dama	none
+🏃🏿‍♂‍➡	namiji mai yin gudu launin fata mai duhu, kallon dama	none
 🧑🏻‍🩰	mai rawar ballet launin fata mai haske	none
 🧑🏼‍🩰	mai rawar ballet launin fata mai madaidaicin haske	none
 🧑🏽‍🩰	mai rawar ballet madaidaicin launin fata	none
@@ -4071,6 +4186,7 @@ symbols:
 🇿🇲	tuta Zambiya	none
 🇿🇼	tuta Zimbabuwe	none
 🏴󠁧󠁢󠁥󠁮󠁧󠁿	tuta Ingila	none
+🏴󠁧󠁢󠁳󠁣󠁴󠁿	tuta Scotland	none
 🏴󠁧󠁢󠁷󠁬󠁳󠁿	tuta Wales	none
 ₡	Colón na ƙasar Costa Rica	none
 ₦	Nairar Najeriya	none

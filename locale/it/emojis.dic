@@ -275,6 +275,7 @@ symbols:
 🙂	faccina con sorriso accennato	none
 🙃	faccina sottosopra	none
 🫠	faccina che si scioglie	none
+🫫	faccia screpolata	none
 😉	faccina che fa l’occhiolino	none
 😊	faccina con occhi sorridenti	none
 😇	faccina con sorriso e aureola	none
@@ -464,6 +465,8 @@ symbols:
 🫵	indice verso l’osservatore	none
 👍	pollice in su	none
 👎	pollice verso	none
+🫹	segno del pollice a sinistra	none
+🫺	segno del pollice a destra	none
 ✊	pugno	none
 👊	pugno chiuso	none
 🤛	pugno a sinistra	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ostrica	none
 🐌	lumaca	none
 🦋	farfalla	none
+🫌	farfalla monarca	none
 🐛	insetto	none
 🐜	formica	none
 🐝	ape	none
@@ -954,6 +958,7 @@ symbols:
 🌶	peperoncino	none
 🫑	peperone	none
 🥒	cetriolo	none
+🫝	sottaceto	none
 🥬	verdure a foglia	none
 🥦	broccoli	none
 🧄	aglio	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	semaforo verticale	none
 🛑	segnale di stop	none
 🚧	area cantiere	none
+🛙	faro	none
 ⚓	ancora	none
 🛟	salvagente	none
 ⛵	barca a vela	none
@@ -1245,7 +1251,7 @@ symbols:
 ☀	sole	none
 🌝	faccina luna piena	none
 🌞	faccina sole	none
-🪐	pianeta con satellite	none
+🪐	pianeta con anelli	none
 ⭐	stella	none
 🌟	stella che brilla	none
 🌠	stella cadente	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	pupazzo di neve	none
 ⛄	pupazzo di neve senza neve	none
 ☄	cometa	none
+🪋	meteora	none
 🔥	fuoco	none
 💧	goccia	none
 🌊	onda	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	pennello	none
 🖍	pastello a cera	none
 📝	memo	none
+🪌	gomma per cancellare	none
 💼	valigetta 24 ore	none
 📁	cartella file	none
 📂	cartella aperta	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	lucchetto chiuso con chiave	none
 🔑	chiave	none
 🗝	chiave antica	none
+🪍	retino	none
 🔨	martello	none
 🪓	ascia	none
 ⛏	piccone	none
@@ -1696,14 +1705,14 @@ symbols:
 ♍	Segno zodiacale della Vergine	none
 ♎	Segno zodiacale della Bilancia	none
 ♏	Segno zodiacale dello Scorpione	none
-♐	Segno zodiacale del Saggitario	none
+♐	Segno zodiacale del Sagittario	none
 ♑	Segno zodiacale del Capricorno	none
 ♒	Segno zodiacale dell’Acquario	none
 ♓	Segno zodiacale dei Pesci	none
 ⛎	Segno zodiacale dell’Ofiuco	none
 🔀	pulsante di riproduzione casuale	none
 🔁	pulsante di ripetizione della riproduzione	none
-🔂	pulsante di ripetizione della riproduzione di una traccia	none
+🔂	pulsante di ripetizione di una traccia	none
 ▶	pulsante di riproduzione	none
 ⏩	pulsante di avanzamento rapido	none
 ⏭	traccia successiva	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	pollice verso carnagione olivastra	none
 👎🏾	pollice verso carnagione abbastanza scura	none
 👎🏿	pollice verso carnagione scura	none
+🫹🏻	segno del pollice a sinistra carnagione chiara	none
+🫹🏼	segno del pollice a sinistra carnagione abbastanza chiara	none
+🫹🏽	segno del pollice a sinistra carnagione olivastra	none
+🫹🏾	segno del pollice a sinistra carnagione abbastanza scura	none
+🫹🏿	segno del pollice a sinistra carnagione scura	none
+🫺🏻	segno del pollice a destra carnagione chiara	none
+🫺🏼	segno del pollice a destra carnagione abbastanza chiara	none
+🫺🏽	segno del pollice a destra carnagione olivastra	none
+🫺🏾	segno del pollice a destra carnagione abbastanza scura	none
+🫺🏿	segno del pollice a destra carnagione scura	none
 ✊🏻	pugno carnagione chiara	none
 ✊🏼	pugno carnagione abbastanza chiara	none
 ✊🏽	pugno carnagione olivastra	none

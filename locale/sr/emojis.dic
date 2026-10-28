@@ -275,6 +275,7 @@ symbols:
 🙂	blago nasmejano lice	none
 🙃	lice okrenuto naopako	none
 🫠	lice se topi	none
+🫫	razbijeno lice	none
 😉	lice koje namiguje	none
 😊	nasmejano lice sa nasmejanim očima	none
 😇	nasmejano lice sa oreolom	none
@@ -464,6 +465,8 @@ symbols:
 🫵	kažiprst koji pokazuje prema gledaocu	none
 👍	palac nagore	none
 👎	palac nadole	none
+🫹	palac nalevo	none
+🫺	palac nadesno	none
 ✊	pesnica	none
 👊	usmerena pesnica	none
 🤛	pesnica ulevo	none
@@ -883,6 +886,7 @@ symbols:
 🦪	ostriga	none
 🐌	puž	none
 🦋	leptir	none
+🫌	leptir monarh	none
 🐛	gusenica	none
 🐜	mrav	none
 🐝	pčela	none
@@ -954,6 +958,7 @@ symbols:
 🌶	ljuta papričica	none
 🫑	babura	none
 🥒	krastavac	none
+🫝	krastavčić	none
 🥬	lisnato zeleno povrće	none
 🥦	brokoli	none
 🧄	beli luk	none
@@ -1174,6 +1179,7 @@ symbols:
 🚦	vertikalni semafor	none
 🛑	znak stop	none
 🚧	radovi u toku	none
+🛙	svetionik	none
 ⚓	sidro	none
 🛟	pojas za spasavanje	none
 ⛵	jedrenjak	none
@@ -1273,6 +1279,7 @@ symbols:
 ☃	sneško belić	none
 ⛄	sneško belić bez snega	none
 ☄	kometa	none
+🪋	meteor	none
 🔥	vatra	none
 💧	kapljica	none
 🌊	talas	none
@@ -1523,6 +1530,7 @@ symbols:
 🖌	slikarska četkica	none
 🖍	voštana bojica	none
 📝	beleška	none
+🪌	gumica	none
 💼	torba	none
 📁	fascikla	none
 📂	otvorena fascikla	none
@@ -1552,6 +1560,7 @@ symbols:
 🔐	zatvoren katanac sa ključem	none
 🔑	ključ	none
 🗝	stari ključ	none
+🪍	mreža s drškom	none
 🔨	čekić	none
 🪓	sekira	none
 ⛏	pijuk	none
@@ -2004,6 +2013,16 @@ symbols:
 👎🏽	palac nadole ni svetla ni tamna koža	none
 👎🏾	palac nadole srednje tamna koža	none
 👎🏿	palac nadole tamna koža	none
+🫹🏻	palac nalevo svetla koža	none
+🫹🏼	palac nalevo srednje svetla koža	none
+🫹🏽	palac nalevo ni svetla ni tamna koža	none
+🫹🏾	palac nalevo srednje tamna koža	none
+🫹🏿	palac nalevo tamna koža	none
+🫺🏻	palac nadesno svetla koža	none
+🫺🏼	palac nadesno srednje svetla koža	none
+🫺🏽	palac nadesno ni svetla ni tamna koža	none
+🫺🏾	palac nadesno srednje tamna koža	none
+🫺🏿	palac nadesno tamna koža	none
 ✊🏻	pesnica svetla koža	none
 ✊🏼	pesnica srednje svetla koža	none
 ✊🏽	pesnica ni svetla ni tamna koža	none
