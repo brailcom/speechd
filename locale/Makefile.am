@@ -472,8 +472,6 @@ ES_419_CLDR = \
 
 import-symbols:
 	./import-symbols.py
-	./import-orca
-	./import-orca -chars
 
 install-data-hook:
 	for lang419 in $(ES_419_CLDR) ; do \
