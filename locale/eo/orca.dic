@@ -47,17 +47,29 @@ _	substreko	most
 £	pundoj	some
 ¤	valutsigno	all
 ¥	eno	some
+¦	rompita stango	most
+§	sekcio	some
 ©	kopirajto	some
+ª	superskribo a	some
+«	maldekstra duobla angula krampo	most
 ¬	logika neo	some
+­	mola streketo	most
 ¯	makrono	most
 °	gradoj	some
 ±	plus-minus-signo	some
+²	superskribo 2	none
+³	superskribo 3	none
 ´	dekstra korno	most
 µ	muo	some
+¶	alinea markilo	most
+·	meza punkto	none
 ¸	subhoko	most
+¹	superskribo 1	none
+»	dekstra duobla angula krampo	most
 ¼	kvarono	none
 ½	duono	none
 ¾	tri kvaronoj	none
+¿	inversa demandosigno	some
 ƒ	florino	all
 ‡	duobla obeluso	some
 •	bulmarko	none
@@ -66,3 +78,30 @@ _	substreko	most
 ⁃	steketa bulmarko	none
 €	eŭro	some
 ™	registrita marko	some
+✓	marko	none
+✔	peza marko	none
+⁰	superskribo 0	none
+⁴	superskribo 4	none
+⁵	superskribo 5	none
+⁶	superskribo 6	none
+⁷	superskribo 7	none
+⁸	superskribo 8	none
+⁹	superskribo 9	none
+⁺	superskribo plus	none
+⁻	superskribo minus	none
+⁼	superskribo egalas	none
+ⁿ	superskribo n	none
+₀	subskribo 0	none
+₁	subskribo 1	none
+₂	subskribo 2	none
+₃	subskribo 3	none
+₄	subskribo 4	none
+₅	subskribo 5	none
+₆	subskribo 6	none
+₇	subskribo 7	none
+₈	subskribo 8	none
+₉	subskribo 9	none
+₊	subskribo plus	none
+₋	subskribo minus	none
+₌	subskribo egalas	none
+￼	objektan anstataŭan karakteron	none
