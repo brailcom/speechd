@@ -10,72 +10,36 @@ symbols:
 ⇕	yukarı aşağı çift ok	none
 ⟨	sol açılı parantez	none
 ⟩	ağ açılı parantez	none
-∡	ölçülmüş açı	none
-∢	küresel açı	none
-∤	bölmez	none
-∭	üçlü integral	none
-∯	yüzey integrali	none
-∰	hacim integrali	none
-∱	saat yönünde integral	none
-∲	saat yönünde kontür integrali	none
-∳	saat yönünün tersinde kontür integrali	none
 ∸	eksi nokta	none
-∹	fazla	none
-∺	geometrik orantı	none
 ∻	homotetik	none
-∿	sinüs dalgası	none
-≀	burum çarpımı	none
 ≁	yaklaşık değildir	none
 ≂	eksi yaklaşıktır	none
-≄	asimptotik olarak eşit değildir	none
-≆	tam olarak değil ama yaklaşık olarak eşittir	none
 ≇	ne yaklaşık olarak ne de tam olarak eşittir	none
 ≉	neredeyse eşit değildir	none
 ≊	neredeyse eşittir veya tam eşittir	none
 ≋	üçlü yaklaşıktır	none
-≍	eşdeğerdir	none
-≎	geometrik olarak eşdeğerdir	none
-≏	aralarındaki fark	none
-≐	limite yaklaşırken	none
-≑	geometrik olarak eşittir	none
 ≓	görüntüsüdür ya da yaklaşık olarak eşittir	none
-≔	iki nokta eşittir	none
-≕	eşittir iki nokta	none
 ≗	halkalı eşittir	none
 ≘	karşılık gelir	none
-≙	tahminen	none
-≚	eşaçılıdır	none
 ≛	yıldızlı eşittir	none
 ≜	deltalı eşittir	none
 ≝	tanım olarak eşittir	none
 ≞	ile ölçülür	none
-≟	soru işaretli eşittir	none
-≢	özdeş değildir	none
 ≨	küçüktür ama eşit değildir	none
 ≩	büyüktür ama eşit değildir	none
-≭	eşdeğer değildir	none
 ≰	küçük eşit değildir	none
 ≱	büyük eşit değildir	none
 ≲	küçüktür ya da eşdeğerdir	none
 ≴	küçük ya da eşdeğer değildir	none
 ≵	büyük ya da eşdeğer değildir	none
-≶	küçüktür ya da büyüktür	none
-≷	büyüktür ya da küçüktür	none
 ≸	küçük ya da büyük değildir	none
 ≹	büyük ya da küçük değildir	none
 ≼	öncülüdür ya da eşittir	none
 ≽	ardılıdır ya da eşittir	none
 ≾	öncülüdür ya da eşdeğeridir	none
 ≿	ardılıdır ya da eşdeğeridir	none
-⊀	öncülü değildir	none
-⊄	alt kümesi değildir	none
-⊅	üst kümesi değildir	none
-⊈	alt kümesi ya da eşidi değildir	none
-⊉	üst kümesi ya da eşidi değildir	none
 ⊊	eşit olmamakla beraber alt kümesidir	none
 ⊋	eşit olmamakla beraber üst kümesidir	none
-⊌	çoklu küme	none
-⊍	çoklu küme çarpımı	none
 ⊎	çoklu küme birleşimi	none
 ⊏	görüntü karesidir	none
 ⊐	görüntü aslıdır	none
@@ -169,10 +133,7 @@ symbols:
 ⨆	kare birleşim	none
 ˇ	vurgu imi (hacek)	none
 ˙	nokta	none
-‖	çift dikey çizgi	none
-∐	alt çarpım	none
 ∔	artı nokta	none
-∖	eksi ayarla	none
 ⌈	sol tavan	none
 ⌉	sağ tavan	none
 ⌊	sol taban	none

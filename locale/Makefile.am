@@ -372,6 +372,7 @@ nobase_localedata_DATA = \
 	sr@latin/orca-math.dic \
 	sr/orca-math.dic \
 	sv/orca-math.dic \
+	th/orca-math.dic \
 	tr/orca-math.dic \
 	ug/orca-math.dic \
 	uk/orca-math.dic \
