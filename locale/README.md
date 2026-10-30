@@ -1,11 +1,10 @@
 # How to import symbols dictionaries
 
-* Get gettext version 0.20 or later
 * Download NVDA sources using this link: https://github.com/nvaccess/nvda/archive/beta.zip
 * Extract the archive in the locale/symbolsrc sub-directory of your Speech-Dispatcher repository, which will create a nvda-beta folder
 * Download the latest unicode CLDR release by clicking the `"cldr-common-<version>.zip"` link on this web page: https://unicode.org/Public/cldr/latest
 * Extract the downloaded file into a sub-directory of locale/symbolsrc named cldr
-* Download UnicodeData.txt: ftp://ftp.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and put it into the locale/symbolsrc directory
+* Download UnicodeData.txt: https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt and put it into the locale/symbolsrc directory
 * In locale, type:
 ```
 make import-symbols
