@@ -22,3 +22,14 @@ by `make import-symbols`: Orca has removed the character and mathematical
 symbol tables that were used by the import script. Installing Orca is
 therefore no longer required to import dictionaries.
 
+After importing NVDA dictionaries, `make import-symbols` runs
+`update-orca-symbols.py` to remove symbols from the Orca dictionaries
+when the same symbol is present in the same locale's `symbols.dic`.
+This compares symbol identifiers, including escaped identifiers, rather than
+translations or punctuation levels. The remaining lines are preserved unchanged.
+Complex-symbol patterns are not used for this comparison.
+
+Dictionaries with no remaining symbols are deleted. The script reports each
+deleted file: manually remove its entry from `nobase_localedata_DATA` in
+`Makefile.am`. The script does not modify `Makefile.am`.
+
