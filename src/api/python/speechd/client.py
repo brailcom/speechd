@@ -195,6 +195,7 @@ class _SSIP_Connection(object):
         self._com_buffer = []
         self._callback = None
         self._ssip_reply_semaphore = threading.Semaphore(0)
+        self._is_alive = True
         self._communication_thread = \
                 threading.Thread(target=self._communication, kwargs={},
                                  name="SSIP client communication thread",
@@ -231,6 +232,9 @@ class _SSIP_Connection(object):
                 code, msg, data = self._recv_message()
             except IOError:
                 # If the socket has been closed, exit the thread
+                # Record we are dead before letting _recv_response see it
+                self._is_alive = False
+                self._ssip_reply_semaphore.release()
                 return
             if code//100 != 7:
                 # This is not an index mark nor an event
@@ -289,11 +293,9 @@ class _SSIP_Connection(object):
     def _recv_response(self):
         """Read server response from the communication thread
         and return the triplet (code, msg, data)."""
-        # TODO: This check is dumb but seems to work.  The main thread
-        # hangs without it, when the Speech Dispatcher connection is lost.
-        if not self._communication_thread.is_alive():
-            raise SSIPCommunicationError
         self._ssip_reply_semaphore.acquire()
+        if not self._is_alive:
+            raise SSIPCommunicationError
         # The list is sorted, read the first item
         response = self._com_buffer[0]
         del self._com_buffer[0]
