@@ -1181,7 +1181,7 @@ int main(int argc, char *argv[])
 
 		/* Setup a speechd-dispatcher directory or create a new one */
 		SpeechdOptions.runtime_speechd_dir =
-		    g_strdup_printf("%s/speech-dispatcher", user_runtime_dir);
+		    g_build_filename(user_runtime_dir, SPD_RUNTIME_SUBDIR, NULL);
 		MSG(4, "Trying to find %s", SpeechdOptions.runtime_speechd_dir);
 		g_mkdir_with_parents(SpeechdOptions.runtime_speechd_dir,
 				     S_IRWXU);
@@ -1271,18 +1271,9 @@ int main(int argc, char *argv[])
 	if (!strcmp(SpeechdOptions.socket_path, "default")) {
 		/* This code cannot be moved above next to conf_dir and pidpath resolution because
 		   we need to also consider the DotConf configuration, which is read in speechd_init() */
-		GString *socket_filename;
-		socket_filename = g_string_new("");
-		if (SpeechdOptions.runtime_speechd_dir) {
-			g_string_printf(socket_filename, "%s/speechd.sock",
-					SpeechdOptions.runtime_speechd_dir);
-		} else {
-			FATAL
-			    ("Socket name file not set and user has no runtime directory");
-		}
 		g_free(SpeechdOptions.socket_path);
-		SpeechdOptions.socket_path = g_strdup(socket_filename->str);
-		g_string_free(socket_filename, 1);
+		SpeechdOptions.socket_path =
+		    SPD_BUILD_SOCKET_PATH(g_get_user_runtime_dir());
 	}
 
 	/* Check if the communication method corresponds to the spawn request */
