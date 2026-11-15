@@ -49,7 +49,6 @@ EXTRA_DIST = \
 	po/Makevars.in \
 	po/README \
 	speech-dispatcher.service.in \
-	speech-dispatcher.socket \
 	speech-dispatcherd.service.in
 
 CLEANFILES=

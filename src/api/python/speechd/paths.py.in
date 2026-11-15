@@ -1,1 +1,2 @@
 SPD_SPAWN_CMD = "@bindir@/speech-dispatcher"
+DEFAULT_SOCKET_PATH = "@spd_socket_path@"

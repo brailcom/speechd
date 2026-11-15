@@ -644,8 +644,9 @@ GETTEXT_PACKAGE=speech-dispatcher
 AC_SUBST([GETTEXT_PACKAGE])
 
 # Default location of the per-user server socket, shared by the
-# server and libspeechd: <runtime dir>/<spd_socket_path>, in the
-# server's directory <runtime dir>/<spd_runtime_subdir>
+# server, libspeechd, the Python client and the systemd user socket:
+# <runtime dir>/<spd_socket_path>, in the server's directory
+# <runtime dir>/<spd_runtime_subdir>
 spd_runtime_subdir=speech-dispatcher
 spd_socket_path=$spd_runtime_subdir/speechd.sock
 AC_DEFINE_UNQUOTED([SPD_RUNTIME_SUBDIR], ["$spd_runtime_subdir"],
@@ -655,6 +656,7 @@ AC_DEFINE_UNQUOTED([SPD_SOCKET_PATH], ["$spd_socket_path"],
 AC_DEFINE([SPD_BUILD_SOCKET_PATH(runtime_dir)],
 	[g_build_filename((runtime_dir), SPD_SOCKET_PATH, NULL)],
 	[Default server socket in runtime_dir, as a string to free with g_free])
+AC_SUBST([spd_socket_path])
 
 # Paths for configuration files:
 spdconfdir='${sysconfdir}/speech-dispatcher'
@@ -731,6 +733,7 @@ AC_CONFIG_FILES([Makefile
                  run-speechd
                  run-spd-say
                  speech-dispatcher.pc
+                 speech-dispatcher.socket
                  config/Makefile
                  config/clients/Makefile
                  config/modules/Makefile

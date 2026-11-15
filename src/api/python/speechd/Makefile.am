@@ -23,6 +23,7 @@ speechd_python_PYTHON = __init__.py _test.py client.py
 nodist_speechd_python_PYTHON = paths.py
 
 edit = sed  \
+	-e 's:@spd_socket_path[@]:$(spd_socket_path):g' \
 	-e 's:@bindir[@]:$(bindir):g'
 
 all: paths.py
