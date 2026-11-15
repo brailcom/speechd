@@ -183,16 +183,7 @@ char *get_line(SPDConnection * conn, int *n)
 /* Determine address for the unix socket */
 static char *_get_default_unix_socket_name(void)
 {
-	GString *socket_filename;
-	char *h;
-	const char *rundir = g_get_user_runtime_dir();
-	socket_filename = g_string_new("");
-	g_string_printf(socket_filename, "%s/speech-dispatcher/speechd.sock",
-			rundir);
-	// Do not return glib string, but glibc string...
-	h = strdup(socket_filename->str);
-	g_string_free(socket_filename, 1);
-	return h;
+	return SPD_BUILD_SOCKET_PATH(g_get_user_runtime_dir());
 }
 
 void SPDConnectionAddress__free(SPDConnectionAddress * address)
