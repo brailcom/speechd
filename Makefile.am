@@ -31,25 +31,26 @@ if ENABLE_DOC
 SUBDIRS += doc
 endif
 
+# Keep sorted in byte order, as "LC_ALL=C sort" does.
 EXTRA_DIST = \
-	config.rpath \
-	COPYING.LGPL \
-	COPYING.GPL-2 \
-	COPYING.GPL-3 \
 	ANNOUNCE \
 	BUGS \
+	COPYING.GPL-2 \
+	COPYING.GPL-3 \
+	COPYING.LGPL \
 	FAQ \
 	README.md \
-	README.packagers \
-	README.translators \
 	README.overview.md \
+	README.packagers \
 	README.style.md \
+	README.translators \
 	build.sh \
-	speech-dispatcherd.service.in \
-	speech-dispatcher.socket \
-	speech-dispatcher.service.in \
+	config.rpath \
 	po/Makevars.in \
-	po/README
+	po/README \
+	speech-dispatcher.service.in \
+	speech-dispatcher.socket \
+	speech-dispatcherd.service.in
 
 CLEANFILES=
 DISTCLEANFILES=
