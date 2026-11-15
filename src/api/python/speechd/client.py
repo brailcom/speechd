@@ -504,7 +504,7 @@ class SSIPClient(object):
     """Default host for server connections."""
     DEFAULT_PORT = 6560
     """Default port number for server connections."""
-    DEFAULT_SOCKET_PATH = "speech-dispatcher/speechd.sock"
+    DEFAULT_SOCKET_PATH = paths.DEFAULT_SOCKET_PATH
     """Default name of the communication unix socket"""
     
     def __init__(self, name, component='default', user='unknown', address=None,

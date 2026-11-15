@@ -2,7 +2,7 @@
 Description=Speech Dispatcher Socket
 
 [Socket]
-ListenStream=%t/speech-dispatcher/speechd.sock
+ListenStream=%t/@spd_socket_path@
 
 [Install]
 WantedBy=sockets.target
