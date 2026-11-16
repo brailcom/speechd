@@ -148,7 +148,7 @@ case "$host" in
 esac
 AM_CONDITIONAL(DARWIN_HOST, test "$darwin_host" = yes)
 
-PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.36])
+PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.46])
 AC_SUBST([GLIB_CFLAGS])
 AC_SUBST([GLIB_LIBS])
 
