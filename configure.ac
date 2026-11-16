@@ -440,7 +440,11 @@ AS_IF([test $with_kitten != "no"],
       [kitten_libxml="yes"],
       [AS_IF([test $with_kitten = "yes"],
         [AC_MSG_FAILURE([libxml-2.0 is not available])])])
-   AS_IF([test "x$kitten_libonnxruntime" = "xyes" -a "x$kitten_libxml" = "xyes"],
+   PKG_CHECK_EXISTS([glib-2.0 >= 2.78],
+      [kitten_glib="yes"],
+      [AS_IF([test $with_kitten = "yes"],
+        [AC_MSG_FAILURE([GLib 2.78 or later is not available])])])
+   AS_IF([test "x$kitten_libonnxruntime" = "xyes" -a "x$kitten_libxml" = "xyes" -a "x$kitten_glib" = "xyes"],
      [with_kitten="yes"])])
 AM_CONDITIONAL([kitten_support], [test $with_kitten = "yes"])
 AC_SUBST([LIBONNXRUNTIME_CFLAGS])
