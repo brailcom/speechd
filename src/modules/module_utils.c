@@ -439,7 +439,7 @@ static gchar *module_multicases_string_replace(
 		return text;
 	}
 
-	result = g_regex_replace(regex, text, -1, 0, mcstr->replace, G_REGEX_MATCH_DEFAULT, NULL);
+	result = g_regex_replace(regex, text, -1, 0, mcstr->replace, 0, NULL);
 
 	g_error_free(error);
 	g_regex_unref(regex);
