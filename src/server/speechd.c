@@ -1343,11 +1343,35 @@ int main(int argc, char *argv[])
 	}
 
 	char *sock_fd = getenv("SPEECHD_SOCK_FD");
+#ifdef USE_LIBSYSTEMD
+	int activated_fds = sock_fd ? 0 : sd_listen_fds(0);
+	const char *listen_pid = getenv("LISTEN_PID");
+	const char *listen_pidfdid = getenv("LISTEN_PIDFDID");
+	const char *target =
+	    !strcmp(SpeechdOptions.communication_method, "inet_socket") ?
+	    "the configured inet port" : SpeechdOptions.socket_path;
+
+	/* sd_listen_fds() returns 0 both when activation was not requested and
+	 * when the fds went to another process, e.g. a supervisor which rewrote
+	 * LISTEN_PID for its child but could not rewrite LISTEN_PIDFDID. */
+	if (activated_fds < 0)
+		MSG(-1, "Error: systemd socket activation failed: %s; "
+		    "falling back to %s", strerror(-activated_fds), target);
+	else if (!sock_fd && activated_fds == 0 && getenv("LISTEN_FDS")
+		 && listen_pid
+		 && strtol(listen_pid, NULL, 0) == (long)getpid())
+		MSG(-1, "Error: systemd socket activation could not claim the "
+		    "passed fds: LISTEN_PIDFDID=%s does not identify this "
+		    "process (pid %ld); falling back to %s; connections already "
+		    "queued on the activation socket will not be served",
+		    listen_pidfdid ? listen_pidfdid : "(unset)",
+		    (long)getpid(), target);
+#endif
 	if (sock_fd) {
 		server_socket = atoi(sock_fd);
 	}
 #ifdef USE_LIBSYSTEMD
-	else if (sd_listen_fds(0) >= 1) {
+	else if (activated_fds >= 1) {
 		MSG(4, "Daemon launched via Systemd socket activation");
 		server_socket = SD_LISTEN_FDS_START;
 	}
