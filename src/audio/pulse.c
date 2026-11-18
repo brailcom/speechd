@@ -40,6 +40,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
+#include <errno.h>
 #include <sys/time.h>
 #include <time.h>
 #include <string.h>
@@ -71,6 +73,7 @@ typedef struct {
 	int pa_current_rate;	// Sample rate for currently PA connection
 	int pa_current_bps;	// Bits per sample rate for currently PA connection
 	int pa_current_channels;	// Number of channels for currently PA connection
+	pthread_mutex_t lock;	// protects pa_simple/pa_current_*
 } spd_pulse_id_t;
 
 /* Initial values, most often what synths will requests */
@@ -82,6 +85,29 @@ typedef struct {
 /* Changed to define on config file. Default is the same. */
 /* Default to 10 ms of latency */
 #define DEFAULT_PA_MIN_AUDIO_LENGTH 10
+
+/* Bound every blocking libpulse mainloop wait.  A server that accepts
+ * the connection but never completes the native protocol handshake, or
+ * stops servicing an established connection, must not wedge a speechd
+ * thread forever. */
+#define PA_WAIT_TIMEOUT_USEC (10 * PA_USEC_PER_SEC)
+
+static pa_usec_t pa_wait_timeout(void)
+{
+	const char *s = getenv("SPEECHD_PULSE_TIMEOUT_MS");
+
+	if (s) {
+		char *end = NULL;
+		long ms;
+
+		errno = 0;
+		ms = strtol(s, &end, 10);
+		if (end != s && end && *end == '\0' && errno == 0 &&
+		    ms > 0 && ms <= 3600000)
+			return (pa_usec_t)ms * 1000;
+	}
+	return PA_WAIT_TIMEOUT_USEC;
+}
 
 static int pulse_log_level;
 static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
@@ -98,11 +124,13 @@ struct spd_pa_simple {
 	pa_context *context;
 	pa_stream *stream;
 
-	int operation_success;
-
 	int32_t bytes_per_s;
 
 	int playing;
+	int in_flight;
+
+	gint dead;
+	int refs;
 
 	pthread_mutex_t drain_lock;
 	pthread_cond_t drain_cond;
@@ -119,7 +147,7 @@ struct spd_pa_simple {
 
 #define CHECK_DEAD_GOTO(p, rerror, label)					\
 	do {									\
-		if (!(p)->context || !PA_CONTEXT_IS_GOOD(pa_context_get_state((p)->context)) || \
+		if (g_atomic_int_get(&(p)->dead) || !(p)->context || !PA_CONTEXT_IS_GOOD(pa_context_get_state((p)->context)) || \
 			!(p)->stream || !PA_STREAM_IS_GOOD(pa_stream_get_state((p)->stream))) { \
 			if (((p)->context && pa_context_get_state((p)->context) == PA_CONTEXT_FAILED) || \
 				((p)->stream && pa_stream_get_state((p)->stream) == PA_STREAM_FAILED)) { \
@@ -181,6 +209,61 @@ static void stream_latency_update_cb(pa_stream *s, void *userdata) {
 
 static void spd_pa_simple_free(spd_pa_simple *s);
 
+struct pa_wait_ctx {
+	spd_pa_simple *p;
+	int timed_out;
+};
+
+static void pa_wait_timeout_cb(pa_mainloop_api *api, pa_time_event *e,
+			       const struct timeval *tv, void *userdata)
+{
+	struct pa_wait_ctx *ctx = userdata;
+
+	(void)api;
+	(void)e;
+	(void)tv;
+	ctx->timed_out = 1;
+	/* Wake the thread sleeping in pa_threaded_mainloop_wait(). */
+	pa_threaded_mainloop_signal(ctx->p->mainloop, 0);
+}
+
+/* Wait once for the threaded mainloop, bounded by an absolute deadline.
+ * The caller must hold the mainloop lock.  A normal wake-up (state change,
+ * writable, operation completion) returns 0 so the caller can re-check its
+ * predicate; only deadline expiry or a dead connection returns -1. */
+static int spd_pa_wait(spd_pa_simple *p, pa_usec_t deadline)
+{
+	pa_time_event *e;
+	pa_usec_t now;
+	struct pa_wait_ctx ctx = { p, 0 };
+
+	if (g_atomic_int_get(&p->dead))
+		return -1;
+
+	now = pa_rtclock_now();
+	if (deadline <= now) {
+		g_atomic_int_set(&p->dead, 1);
+		return -1;
+	}
+
+	e = pa_context_rttime_new(p->context, deadline, pa_wait_timeout_cb,
+				  &ctx);
+	if (!e) {
+		g_atomic_int_set(&p->dead, 1);
+		return -1;
+	}
+
+	pa_threaded_mainloop_wait(p->mainloop);
+
+	pa_threaded_mainloop_get_api(p->mainloop)->time_free(e);
+
+	if (ctx.timed_out || g_atomic_int_get(&p->dead)) {
+		g_atomic_int_set(&p->dead, 1);
+		return -1;
+	}
+	return 0;
+}
+
 static spd_pa_simple* spd_pa_simple_new(
 		const char *server,
 		const char *name,
@@ -194,6 +277,9 @@ static spd_pa_simple* spd_pa_simple_new(
 	int error = PA_ERR_INTERNAL, r;
 
 	p = pa_xnew0(spd_pa_simple, 1);
+	p->refs = 1;
+	pthread_mutex_init(&p->drain_lock, NULL);
+	pthread_cond_init(&p->drain_cond, NULL);
 
 	if (!(p->mainloop = pa_threaded_mainloop_new()))
 		goto fail;
@@ -213,6 +299,8 @@ static spd_pa_simple* spd_pa_simple_new(
 	if (pa_threaded_mainloop_start(p->mainloop) < 0)
 		goto unlock_and_fail;
 
+	pa_usec_t deadline = pa_rtclock_now() + pa_wait_timeout();
+
 	for (;;) {
 		pa_context_state_t state;
 
@@ -226,8 +314,10 @@ static spd_pa_simple* spd_pa_simple_new(
 			goto unlock_and_fail;
 		}
 
-		/* Wait until the context is ready */
-		pa_threaded_mainloop_wait(p->mainloop);
+		if (spd_pa_wait(p, deadline) < 0) {
+			error = PA_ERR_TIMEOUT;
+			goto unlock_and_fail;
+		}
 	}
 
 	if (!(p->stream = pa_stream_new(p->context, stream_name, ss, NULL))) {
@@ -250,6 +340,8 @@ static spd_pa_simple* spd_pa_simple_new(
 		goto unlock_and_fail;
 	}
 
+	deadline = pa_rtclock_now() + pa_wait_timeout();
+
 	for (;;) {
 		pa_stream_state_t state;
 
@@ -263,16 +355,16 @@ static spd_pa_simple* spd_pa_simple_new(
 			goto unlock_and_fail;
 		}
 
-		/* Wait until the stream is ready */
-		pa_threaded_mainloop_wait(p->mainloop);
+		if (spd_pa_wait(p, deadline) < 0) {
+			error = PA_ERR_TIMEOUT;
+			goto unlock_and_fail;
+		}
 	}
 
 	pa_threaded_mainloop_unlock(p->mainloop);
 
 	p->playing = 0;
 	p->bytes_per_s = ss->rate * ss->channels * (ss->format == PA_SAMPLE_U8 ? 1 : 2);
-	pthread_mutex_init(&p->drain_lock, NULL);
-	pthread_cond_init(&p->drain_cond, NULL);
 
 	return p;
 
@@ -301,32 +393,63 @@ static void spd_pa_simple_free(spd_pa_simple *s) {
 	if (s->mainloop)
 		pa_threaded_mainloop_free(s->mainloop);
 
+	pthread_cond_destroy(&s->drain_cond);
+	pthread_mutex_destroy(&s->drain_lock);
 	pa_xfree(s);
 }
 
-static void success_cb(pa_stream *s, int success, void *userdata) {
-	spd_pa_simple *p = userdata;
+static spd_pa_simple *pulse_acquire(spd_pulse_id_t *pulse_id)
+{
+	spd_pa_simple *s;
 
-	p->operation_success = success;
-	pa_threaded_mainloop_signal(p->mainloop, 0);
+	pthread_mutex_lock(&pulse_id->lock);
+	s = pulse_id->pa_simple;
+	if (s)
+		g_atomic_int_inc(&s->refs);
+	pthread_mutex_unlock(&pulse_id->lock);
+	return s;
 }
 
-/* Assumes p is locked */
+static void pulse_release(spd_pa_simple *s)
+{
+	if (s && g_atomic_int_dec_and_test(&s->refs))
+		spd_pa_simple_free(s);
+}
+
+struct pa_op_ctx {
+	spd_pa_simple *p;
+	int success;
+};
+
+static void success_cb(pa_stream *s, int success, void *userdata) {
+	struct pa_op_ctx *ctx = userdata;
+
+	(void)s;
+	ctx->success = success;
+	pa_threaded_mainloop_signal(ctx->p->mainloop, 0);
+}
+
+/* Assumes p->mainloop is locked and p->drain_lock is NOT held */
 static int spd_pa_simple_do_flush(spd_pa_simple *p, int *rerror) {
 	pa_operation *o = NULL;
+	struct pa_op_ctx op_ctx = { p, 0 };
 
 	p->playing = 0;
 	CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
 
-	o = pa_stream_flush(p->stream, success_cb, p);
+	o = pa_stream_flush(p->stream, success_cb, &op_ctx);
 	CHECK_SUCCESS_GOTO(p, rerror, o, unlock_and_fail);
 
-	p->operation_success = 0;
+	pa_usec_t deadline = pa_rtclock_now() + pa_wait_timeout();
 	while (pa_operation_get_state(o) == PA_OPERATION_RUNNING) {
-		pa_threaded_mainloop_wait(p->mainloop);
+		if (spd_pa_wait(p, deadline) < 0) {
+			if (rerror)
+				*rerror = PA_ERR_TIMEOUT;
+			goto unlock_and_fail;
+		}
 		CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
 	}
-	CHECK_SUCCESS_GOTO(p, rerror, p->operation_success, unlock_and_fail);
+	CHECK_SUCCESS_GOTO(p, rerror, op_ctx.success, unlock_and_fail);
 
 	pa_operation_unref(o);
 
@@ -345,16 +468,24 @@ unlock_and_fail:
 static int spd_pa_simple_write(spd_pa_simple *p, const void*data, size_t length, int *rerror) {
 	pa_threaded_mainloop_lock(p->mainloop);
 
-	CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
+	CHECK_DEAD_GOTO(p, rerror, unlock_mainloop_and_fail);
 
+	pthread_mutex_lock(&p->drain_lock);
 	p->playing = 1;
+	p->in_flight++;
+	pthread_mutex_unlock(&p->drain_lock);
 
+	pa_usec_t deadline = pa_rtclock_now() + pa_wait_timeout();
 	while (length > 0) {
 		size_t l;
 		int r;
 
 		while (p->playing && !(l = pa_stream_writable_size(p->stream))) {
-			pa_threaded_mainloop_wait(p->mainloop);
+			if (spd_pa_wait(p, deadline) < 0) {
+				if (rerror)
+					*rerror = PA_ERR_TIMEOUT;
+				goto unlock_and_fail;
+			}
 			CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
 		}
 
@@ -371,6 +502,8 @@ static int spd_pa_simple_write(spd_pa_simple *p, const void*data, size_t length,
 
 		data = (const uint8_t*) data + l;
 		length -= l;
+		/* Progress: allow the next wait a full interval. */
+		deadline = pa_rtclock_now() + pa_wait_timeout();
 	}
 
 	if (pulse_log_level >= 4) {
@@ -383,13 +516,21 @@ static int spd_pa_simple_write(spd_pa_simple *p, const void*data, size_t length,
 
 	if (!p->playing) {
 		/* We got interrupted, flush.  */
-		spd_pa_simple_do_flush(p, NULL);
+		if (spd_pa_simple_do_flush(p, rerror) < 0)
+			goto unlock_and_fail;
 	}
 
+	pthread_mutex_lock(&p->drain_lock);
+	p->in_flight--;
+	pthread_mutex_unlock(&p->drain_lock);
 	pa_threaded_mainloop_unlock(p->mainloop);
 	return 0;
 
 unlock_and_fail:
+	pthread_mutex_lock(&p->drain_lock);
+	p->in_flight--;
+	pthread_mutex_unlock(&p->drain_lock);
+unlock_mainloop_and_fail:
 	pa_threaded_mainloop_unlock(p->mainloop);
 	return -1;
 }
@@ -399,27 +540,50 @@ static int spd_pa_simple_drain(spd_pa_simple *p, pa_usec_t overlap, int *rerror)
 
 	pa_threaded_mainloop_lock(p->mainloop);
 
-	CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
+	CHECK_DEAD_GOTO(p, rerror, unlock_mainloop_and_fail);
+
+	pthread_mutex_lock(&p->drain_lock);
+	p->in_flight++;
+	pthread_mutex_unlock(&p->drain_lock);
 
 	MSG(4, "draining to overlap %llu\n", (unsigned long long) overlap);
 
-	/* Drain until requested overlap */
+	/* Drain until requested overlap.  Do not spin forever if the sink
+	 * reports timing but never consumes the queued samples. */
+	pa_usec_t drain_deadline = pa_rtclock_now() + pa_wait_timeout();
+	int64_t last_left = INT64_MAX;
+
 	while(1) {
+		struct pa_op_ctx op_ctx = { p, 0 };
+
 		if (!p->playing) {
 			/* We got interrupted, flush.  */
-			spd_pa_simple_do_flush(p, NULL);
+			if (spd_pa_simple_do_flush(p, rerror) < 0)
+				goto unlock_and_fail;
 			break;
 		}
 
-		o = pa_stream_update_timing_info(p->stream, success_cb, p);
+		o = pa_stream_update_timing_info(p->stream, success_cb, &op_ctx);
 		CHECK_SUCCESS_GOTO(p, rerror, o, unlock_and_fail);
 
-		p->operation_success = 0;
+		pa_usec_t deadline = pa_rtclock_now() + pa_wait_timeout();
 		while (pa_operation_get_state(o) == PA_OPERATION_RUNNING) {
-			pa_threaded_mainloop_wait(p->mainloop);
+			if (!p->playing) {
+				pa_operation_cancel(o);
+				pa_operation_unref(o);
+				o = NULL;
+				break;
+			}
+			if (spd_pa_wait(p, deadline) < 0) {
+				if (rerror)
+					*rerror = PA_ERR_TIMEOUT;
+				goto unlock_and_fail;
+			}
 			CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
 		}
-		CHECK_SUCCESS_GOTO(p, rerror, p->operation_success, unlock_and_fail);
+		if (!o)
+			continue;
+		CHECK_SUCCESS_GOTO(p, rerror, op_ctx.success, unlock_and_fail);
 
 		pa_operation_unref(o);
 		o = NULL;
@@ -429,14 +593,38 @@ static int spd_pa_simple_drain(spd_pa_simple *p, pa_usec_t overlap, int *rerror)
 
 		if (info) {
 			int64_t left = info->write_index - info->read_index;
-			left_us = left * PA_USEC_PER_SEC / p->bytes_per_s - info->transport_usec - info->sink_usec;
+			pa_usec_t buf_usec;
 
-			//MSG(5, "left %lld bytes, %lldµs\n", (long long) left, (long long) left_us);
-
-			if (left_us <= (int64_t) overlap)
+			if (left <= 0)
 				break;
-			left_us -= overlap;
+			buf_usec = (pa_usec_t)(left / p->bytes_per_s) * PA_USEC_PER_SEC +
+			    (pa_usec_t)(left % p->bytes_per_s) * PA_USEC_PER_SEC /
+			    (pa_usec_t)p->bytes_per_s;
+			if (buf_usec <= info->transport_usec ||
+			    buf_usec - info->transport_usec <= info->sink_usec ||
+			    buf_usec - info->transport_usec - info->sink_usec <= overlap)
+				break;
+			left_us = (int64_t)(buf_usec - info->transport_usec -
+					    info->sink_usec - overlap);
+
+			if (left_us < last_left) {
+				last_left = left_us;
+				drain_deadline = pa_rtclock_now() + pa_wait_timeout();
+			} else if (pa_rtclock_now() >= drain_deadline) {
+				/* A responsive server that never consumes the queue
+				 * looks like progress to the mainloop but is stuck. */
+				g_atomic_int_set(&p->dead, 1);
+				if (rerror)
+					*rerror = PA_ERR_TIMEOUT;
+				goto unlock_and_fail;
+			}
 		} else {
+			if (pa_rtclock_now() >= drain_deadline) {
+				g_atomic_int_set(&p->dead, 1);
+				if (rerror)
+					*rerror = PA_ERR_TIMEOUT;
+				goto unlock_and_fail;
+			}
 			/* Wait a bit for information */
 			left_us = 1000;
 		}
@@ -465,8 +653,12 @@ static int spd_pa_simple_drain(spd_pa_simple *p, pa_usec_t overlap, int *rerror)
 		}
 		pthread_mutex_unlock(&p->drain_lock);
 		pa_threaded_mainloop_lock(p->mainloop);
+		CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
 	}
 
+	pthread_mutex_lock(&p->drain_lock);
+	p->in_flight--;
+	pthread_mutex_unlock(&p->drain_lock);
 	pa_threaded_mainloop_unlock(p->mainloop);
 	return 0;
 
@@ -475,28 +667,47 @@ unlock_and_fail:
 		pa_operation_cancel(o);
 		pa_operation_unref(o);
 	}
-
+	pthread_mutex_lock(&p->drain_lock);
+	p->in_flight--;
+	pthread_mutex_unlock(&p->drain_lock);
+unlock_mainloop_and_fail:
 	pa_threaded_mainloop_unlock(p->mainloop);
 	return -1;
 }
 
 static int spd_pa_simple_flush(spd_pa_simple *p) {
+	int ret = 0;
+	int do_flush = 0;
+
 	pa_threaded_mainloop_lock(p->mainloop);
 
+	if (g_atomic_int_get(&p->dead)) {
+		pa_threaded_mainloop_unlock(p->mainloop);
+		return -1;
+	}
+
 	pthread_mutex_lock(&p->drain_lock);
-	if (p->playing) {
+	p->playing = 0;
+	if (p->in_flight > 0) {
 		/* Still writing or draining, stop it and let it flush.  */
-		p->playing = 0;
 		pa_threaded_mainloop_signal(p->mainloop, 0);
 		pthread_cond_signal(&p->drain_cond);
 	} else {
-		/* Not writing, playback is ongoing, flush it. */
-		spd_pa_simple_do_flush(p, NULL);
+		/* Not writing or draining, playback is ongoing, flush it. */
+		p->in_flight++;
+		do_flush = 1;
 	}
 	pthread_mutex_unlock(&p->drain_lock);
 
+	if (do_flush) {
+		ret = spd_pa_simple_do_flush(p, NULL);
+		pthread_mutex_lock(&p->drain_lock);
+		p->in_flight--;
+		pthread_mutex_unlock(&p->drain_lock);
+	}
+
 	pa_threaded_mainloop_unlock(p->mainloop);
-	return -1;
+	return ret;
 }
 
 /* Now pure-spd code */
@@ -537,17 +748,20 @@ static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 		client_name = strdup("speech-dispatcher");
 
 	/* Open new connection */
-	if (!
-	    (id->pa_simple =
-	     spd_pa_simple_new(id->pa_server, client_name,
-			   id->pa_device, "playback",
-			   &ss, &buffAttr, &error))) {
+	spd_pa_simple *pa_simple =
+	    spd_pa_simple_new(id->pa_server, client_name, id->pa_device,
+			      "playback", &ss, &buffAttr, &error);
+	if (!pa_simple) {
 		fprintf(stderr, __FILE__ ": pa_simple_new() failed: %s\n",
 			pa_strerror(error));
 		free(client_name);
 		return 1;
 	}
 	free(client_name);
+
+	pthread_mutex_lock(&id->lock);
+	id->pa_simple = pa_simple;
+	pthread_mutex_unlock(&id->lock);
 	return 0;
 }
 
@@ -556,15 +770,21 @@ static int _pulse_open(spd_pulse_id_t * id, int sample_rate,
 /* changes in audio parameters. */
 static void pulse_connection_close(spd_pulse_id_t * pulse_id)
 {
-	if (pulse_id->pa_simple != NULL) {
-		spd_pa_simple_free(pulse_id->pa_simple);
-		pulse_id->pa_simple = NULL;
-	}
-	/* Make the next pulse_begin open a new connection, e.g. after a write
-	 * error when the sound server went away */
+	spd_pa_simple *s;
+
+	pthread_mutex_lock(&pulse_id->lock);
+	s = pulse_id->pa_simple;
+	pulse_id->pa_simple = NULL;
+	/* Force the next pulse_begin() to reopen, even for the same track
+	 * parameters.  Otherwise a closed connection would be reused and
+	 * every feed would fail with a NULL pa_simple. */
 	pulse_id->pa_current_rate = -1;
 	pulse_id->pa_current_bps = -1;
 	pulse_id->pa_current_channels = -1;
+	pthread_mutex_unlock(&pulse_id->lock);
+
+	if (s)
+		pulse_release(s);
 }
 
 static AudioID *pulse_open(void **pars)
@@ -578,6 +798,7 @@ static AudioID *pulse_open(void **pars)
 	}
 
 	pulse_id = (spd_pulse_id_t *) g_malloc(sizeof(spd_pulse_id_t));
+	pthread_mutex_init(&pulse_id->lock, NULL);
 
 	/* Select an Endianness for the initial connection. */
 #if defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN)
@@ -587,23 +808,23 @@ static AudioID *pulse_open(void **pars)
 #endif
 	pulse_id->pa_simple = NULL;
 	pulse_id->pa_server = NULL;
-	pulse_id->pa_device = (char *)pars[3];
-	pulse_id->pa_name = (char *)pars[5];
+	pulse_id->pa_device = strcmp((char *)pars[3], "default") ?
+	    g_strdup((char *)pars[3]) : NULL;
+	pulse_id->pa_name = pars[5] ? g_strdup((char *)pars[5]) : NULL;
 	pulse_id->pa_min_audio_length = DEFAULT_PA_MIN_AUDIO_LENGTH;
 
 	pulse_id->pa_current_rate = -1;
 	pulse_id->pa_current_bps = -1;
 	pulse_id->pa_current_channels = -1;
 
-	if (!strcmp(pulse_id->pa_device, "default")) {
-		pulse_id->pa_device = NULL;
-	}
-
 	if (pars[4] != NULL && atoi(pars[4]) != 0)
 		pulse_id->pa_min_audio_length = atoi(pars[4]);
 
 	ret = _pulse_open(pulse_id, DEF_RATE, DEF_CHANNELS, DEF_BYTES_PER_SAMPLE);
 	if (ret) {
+		g_free(pulse_id->pa_device);
+		g_free(pulse_id->pa_name);
+		pthread_mutex_destroy(&pulse_id->lock);
 		g_free(pulse_id);
 		pulse_id = NULL;
 	}
@@ -617,10 +838,29 @@ static int pulse_begin(AudioID * id, AudioTrack track)
 {
 	int bytes_per_sample;
 	int error;
+	int need_reopen;
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
+
+	spd_pa_simple *s;
 
 	if (id == NULL) {
 		return -1;
+	}
+	s = pulse_acquire(pulse_id);
+	if (s) {
+		int bad = g_atomic_int_get(&s->dead);
+
+		if (!bad) {
+			pa_threaded_mainloop_lock(s->mainloop);
+			bad = !s->context ||
+			    !PA_CONTEXT_IS_GOOD(pa_context_get_state(s->context)) ||
+			    !s->stream ||
+			    !PA_STREAM_IS_GOOD(pa_stream_get_state(s->stream));
+			pa_threaded_mainloop_unlock(s->mainloop);
+		}
+		pulse_release(s);
+		if (bad)
+			pulse_connection_close(pulse_id);
 	}
 	if (track.samples == NULL || track.num_samples <= 0) {
 		return 0;
@@ -638,25 +878,30 @@ static int pulse_begin(AudioID * id, AudioTrack track)
 	}
 
 	/* Check if the current connection has suitable parameters for this track */
-	if (pulse_id->pa_current_rate != track.sample_rate
-	    || pulse_id->pa_current_bps != track.bits
-	    || pulse_id->pa_current_channels != track.num_channels) {
+	pthread_mutex_lock(&pulse_id->lock);
+	need_reopen = (pulse_id->pa_simple == NULL ||
+	    pulse_id->pa_current_rate != track.sample_rate ||
+	    pulse_id->pa_current_bps != track.bits ||
+	    pulse_id->pa_current_channels != track.num_channels);
+	pthread_mutex_unlock(&pulse_id->lock);
+
+	if (need_reopen) {
 		MSG(4, "Reopening connection due to change in track parameters sample_rate:%d bps:%d channels:%d\n", track.sample_rate, track.bits, track.num_channels);
 		/* Close old connection if any */
 		pulse_connection_close(pulse_id);
 		/* Open a new connection */
 		error = _pulse_open(pulse_id, track.sample_rate, track.num_channels,
 			    bytes_per_sample);
-		if (error) {
-			pulse_id->pa_current_rate = -1;
-			pulse_id->pa_current_bps = -1;
-			pulse_id->pa_current_channels = -1;
+		if (error)
 			return -1;
-		}
 		/* Keep track of current connection parameters */
-		pulse_id->pa_current_rate = track.sample_rate;
-		pulse_id->pa_current_bps = track.bits;
-		pulse_id->pa_current_channels = track.num_channels;
+		pthread_mutex_lock(&pulse_id->lock);
+		if (pulse_id->pa_simple != NULL) {
+			pulse_id->pa_current_rate = track.sample_rate;
+			pulse_id->pa_current_bps = track.bits;
+			pulse_id->pa_current_channels = track.num_channels;
+		}
+		pthread_mutex_unlock(&pulse_id->lock);
 	}
 
 	return 0;
@@ -666,8 +911,14 @@ static int pulse_feed(AudioID * id, AudioTrack track)
 {
 	int num_bytes;
 	int bytes_per_sample;
-	int error;
+	int error = PA_ERR_INTERNAL;
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
+	spd_pa_simple *s;
+
+	if (pulse_id == NULL)
+		return -1;
+	if (track.samples == NULL || track.num_samples <= 0)
+		return 0;
 
 	if (track.bits == 16) {
 		bytes_per_sample = 2;
@@ -678,24 +929,27 @@ static int pulse_feed(AudioID * id, AudioTrack track)
 		    track.bits);
 		return -1;
 	}
-	num_bytes = track.num_samples * bytes_per_sample;
 
-	if (pulse_id->pa_simple == NULL) {
-		MSG(4, "ERROR: Audio: pulse_feed(): no connection to the sound server\n");
+	s = pulse_acquire(pulse_id);
+	if (!s || g_atomic_int_get(&s->dead)) {
+		pulse_release(s);
 		return -1;
 	}
+	num_bytes = track.num_samples * bytes_per_sample;
 
 	MSG(4, "bytes to play: %d, (%f secs)\n", num_bytes,
 	    (((float)(num_bytes) / 2) / (float)track.sample_rate));
 
 	if (spd_pa_simple_write
-	    (pulse_id->pa_simple, track.samples, num_bytes,
+	    (s, track.samples, num_bytes,
 	     &error) < 0) {
-		spd_pa_simple_flush(pulse_id->pa_simple);
+		spd_pa_simple_flush(s);
 		pulse_connection_close(pulse_id);
 		MSG(4, "ERROR: Audio: pulse_play(): %s - closing device - re-open it in next run\n", pa_strerror(error));
+		pulse_release(s);
 		return -1;
 	}
+	pulse_release(s);
 
 	/* TODO: pa_stream_get_time() or pa_stream_get_latency(). The former
 	will return the current playback time of the hardware since the stream
@@ -709,11 +963,24 @@ static int pulse_feed_sync(AudioID * id, AudioTrack track)
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
 	int ret;
 
+	spd_pa_simple *s;
+
+	if (pulse_id == NULL)
+		return -1;
+	if (track.samples == NULL || track.num_samples <= 0)
+		return 0;
+
 	ret = pulse_feed(id, track);
 	if (ret)
 		return ret;
-
-	return spd_pa_simple_drain(pulse_id->pa_simple, 0, NULL);
+	s = pulse_acquire(pulse_id);
+	if (!s)
+		return -1;
+	ret = spd_pa_simple_drain(s, 0, NULL);
+	if (ret < 0)
+		pulse_connection_close(pulse_id);
+	pulse_release(s);
+	return ret;
 }
 
 static int pulse_feed_sync_overlap(AudioID * id, AudioTrack track)
@@ -721,21 +988,46 @@ static int pulse_feed_sync_overlap(AudioID * id, AudioTrack track)
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
 	int ret;
 
+	spd_pa_simple *s;
+
+	if (pulse_id == NULL)
+		return -1;
+	if (track.samples == NULL || track.num_samples <= 0)
+		return 0;
+
 	ret = pulse_feed(id, track);
 	if (ret)
 		return ret;
-
+	s = pulse_acquire(pulse_id);
+	if (!s)
+		return -1;
 	/* We typically want 20ms overlap: usually about a period size, and
 	   small enough to be unnoticeable */
-	return spd_pa_simple_drain(pulse_id->pa_simple, 20000, NULL);
+	ret = spd_pa_simple_drain(s, 20000, NULL);
+	if (ret < 0)
+		pulse_connection_close(pulse_id);
+	pulse_release(s);
+	return ret;
 }
 
 static int pulse_end(AudioID * id)
 {
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
-	if (pulse_id->pa_simple != NULL)
-		spd_pa_simple_drain(pulse_id->pa_simple, 0, NULL);
-	return 0;
+	spd_pa_simple *s;
+	int ret;
+
+	if (pulse_id == NULL)
+		return -1;
+	s = pulse_acquire(pulse_id);
+	if (!s || g_atomic_int_get(&s->dead)) {
+		pulse_release(s);
+		return -1;
+	}
+	ret = spd_pa_simple_drain(s, 0, NULL);
+	if (ret < 0)
+		pulse_connection_close(pulse_id);
+	pulse_release(s);
+	return ret;
 }
 
 static int pulse_play(AudioID * id, AudioTrack track)
@@ -757,17 +1049,30 @@ static int pulse_play(AudioID * id, AudioTrack track)
 static int pulse_stop(AudioID * id)
 {
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
+	spd_pa_simple *s;
+	int ret;
 
-	if (pulse_id->pa_simple != NULL)
-		spd_pa_simple_flush(pulse_id->pa_simple);
-
-	return 0;
+	if (pulse_id == NULL)
+		return -1;
+	s = pulse_acquire(pulse_id);
+	if (!s || g_atomic_int_get(&s->dead)) {
+		pulse_release(s);
+		return -1;
+	}
+	ret = spd_pa_simple_flush(s);
+	pulse_release(s);
+	return ret;
 }
 
 static int pulse_close(AudioID * id)
 {
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
+	if (pulse_id == NULL)
+		return 0;
 	pulse_connection_close(pulse_id);
+	g_free(pulse_id->pa_device);
+	g_free(pulse_id->pa_name);
+	pthread_mutex_destroy(&pulse_id->lock);
 	g_free(pulse_id);
 	id = NULL;
 
