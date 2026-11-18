@@ -62,7 +62,7 @@ static int output_stop_requested;
 static int output_pause_requested;
 static int output_pause_queued;
 
-static void output_open_audio(OutputModule *output)
+static int output_open_audio(OutputModule *output)
 {
 	void *pars[9] = { NULL };
 	char min_length[11];
@@ -94,7 +94,7 @@ static void output_open_audio(OutputModule *output)
 			}
 
 			g_free(first_error);
-			return;
+			return 0;
 		}
 		DBG("Can't use %s: %s", outputs[i], error);
 		if (!first_error)
@@ -106,6 +106,8 @@ static void output_open_audio(OutputModule *output)
 	MSG(1, "Opening audio failed: %s\n", first_error);
 	g_free(first_error);
 	g_strfreev(outputs);
+	output->audio = NULL;
+	return -1;
 }
 
 /* The audio connection of a closed module that may still be in use by the
@@ -113,22 +115,41 @@ static void output_open_audio(OutputModule *output)
  * output layer mutex. */
 static AudioID *orphan_audio_id;
 
-void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
+int output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
 {
+	if (output->audio == AUDIOID_TOOPEN ||
+	    output->audio == AUDIOID_RETRY) {
+		if (output->audio == AUDIOID_TOOPEN ||
+		    g_get_monotonic_time() >= output->audio_retry_at) {
+			if (output_open_audio(output) < 0) {
+				/* Keep the sentinel so that a later message
+				 * retries the open instead of disabling audio
+				 * for the rest of the session. */
+				output->audio = AUDIOID_RETRY;
+				output->audio_retry_at = g_get_monotonic_time() +
+				    5 * G_TIME_SPAN_SECOND;
+			}
+		}
+		if (output->audio == AUDIOID_RETRY) {
+			module_audio_id = NULL;
+			if (orphan_audio_id) {
+				spd_audio_close(orphan_audio_id);
+				orphan_audio_id = NULL;
+			}
+			speaking_module = NULL;
+			return -1;
+		}
+	}
 	/* Set the speaking-monitor so that we know who is speaking */
 	speaking_module = output;
-	if (output->audio) {
-		if (output->audio == AUDIOID_TOOPEN)
-			output_open_audio(output);
-		if (output->audio)
-			module_audio_id = output->audio;
-	}
+	module_audio_id = output->audio;
 	if (orphan_audio_id && orphan_audio_id != module_audio_id) {
 		spd_audio_close(orphan_audio_id);
 		orphan_audio_id = NULL;
 	}
 	speaking_uid = msg->settings.uid;
 	speaking_gid = msg->settings.reparted;
+	return 0;
 }
 
 OutputModule *get_output_module_by_name(const char *name)
@@ -245,8 +266,11 @@ void
 static output_unlock(void)
 {
 	pthread_mutex_unlock(&output_layer_mutex);
-	if (pthread_self() == speak_thread)
+	if (pthread_self() == speak_thread) {
 		pthread_setcancelstate(oldstate, NULL);
+		if (oldstate == PTHREAD_CANCEL_ENABLE)
+			pthread_testcancel();
+	}
 }
 
 #define OL_RET(value) \
@@ -888,41 +912,59 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 	}
 	msg->bytes = -1;
 
-	output_set_speaking_monitor(msg, output);
+	if (output_set_speaking_monitor(msg, output) < 0)
+		OL_RET(OUTPUT_ERR_AUDIO);
+
+	ret = output_send_settings(msg, output);
+	if (ret != 0) {
+		speaking_module = NULL;
+		OL_RET(ret);
+	}
+
+	MSG(4, "Module speak!");
+
+	switch (msg->settings.type) {
+	case SPD_MSGTYPE_TEXT:
+		err = output_send_data("SPEAK\n", output, 1);
+		break;
+	case SPD_MSGTYPE_SOUND_ICON:
+		err = output_send_data("SOUND_ICON\n", output, 1);
+		break;
+	case SPD_MSGTYPE_CHAR:
+		err = output_send_data("CHAR\n", output, 1);
+		break;
+	case SPD_MSGTYPE_KEY:
+		err = output_send_data("KEY\n", output, 1);
+		break;
+	default:
+		MSG(2, "Invalid message type in output_speak()!");
+		err = -2;
+		break;
+	}
+	if (err < 0) {
+		speaking_module = NULL;
+		OL_RET(err);
+	}
+
+	if (!strcmp(msg->buf, " "))
+		err = output_send_data("space", output, 0);
+	else
+		err = output_send_data(msg->buf, output, 0);
+	if (err < 0) {
+		speaking_module = NULL;
+		OL_RET(err);
+	}
+	err = output_send_data("\n.\n", output, 1);
+	if (err < 0) {
+		speaking_module = NULL;
+		OL_RET(err);
+	}
 
 	if (module_audio_id) {
 		if (!module_speak_queue_before_synth()) {
 			MSG(3, "Warning: couldn't begin speak queue");
 		}
 	}
-
-	ret = output_send_settings(msg, output);
-	if (ret != 0)
-		OL_RET(ret);
-
-	MSG(4, "Module speak!");
-
-	switch (msg->settings.type) {
-	case SPD_MSGTYPE_TEXT:
-		SEND_CMD("SPEAK"); break;
-	case SPD_MSGTYPE_SOUND_ICON:
-		SEND_CMD("SOUND_ICON");
-		break;
-	case SPD_MSGTYPE_CHAR:
-		SEND_CMD("CHAR");
-		break;
-	case SPD_MSGTYPE_KEY:
-		SEND_CMD("KEY");
-		break;
-	default:
-		MSG(2, "Invalid message type in output_speak()!");
-	}
-
-	if (!strcmp(msg->buf, " "))
-		SEND_DATA("space");
-	else
-		SEND_DATA(msg->buf);
-	SEND_CMD("\n.");
 
 	/* Start a thread that will process the module events */
 	output_end_queued = 0;
@@ -1510,7 +1552,8 @@ int output_close(OutputModule * module)
 
 	/* Close the audio connection the server opened for the module, else
 	 * every reload of the configuration leaks one per module that spoke. */
-	if (output->audio && output->audio != AUDIOID_TOOPEN) {
+	if (output->audio && output->audio != AUDIOID_TOOPEN &&
+	    output->audio != AUDIOID_RETRY) {
 		if (output->audio == module_audio_id) {
 			if (orphan_audio_id)
 				spd_audio_close(orphan_audio_id);
