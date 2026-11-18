@@ -62,7 +62,7 @@ static int output_stop_requested;
 static int output_pause_requested;
 static int output_pause_queued;
 
-static void output_open_audio(OutputModule *output)
+static int output_open_audio(OutputModule *output)
 {
 	void *pars[9] = { NULL };
 	char min_length[11];
@@ -94,7 +94,7 @@ static void output_open_audio(OutputModule *output)
 			}
 
 			g_free(first_error);
-			return;
+			return 0;
 		}
 		DBG("Can't use %s: %s", outputs[i], error);
 		if (!first_error)
@@ -106,19 +106,43 @@ static void output_open_audio(OutputModule *output)
 	MSG(1, "Opening audio failed: %s\n", first_error);
 	g_free(first_error);
 	g_strfreev(outputs);
+	output->audio = NULL;
+	return -1;
 }
 
-void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
+int output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
 {
 	/* Set the speaking-monitor so that we know who is speaking */
 	speaking_module = output;
-	if (output->audio) {
-		if (output->audio == AUDIOID_TOOPEN)
-			output_open_audio(output);
-		module_audio_id = output->audio;
+	if (output->audio == AUDIOID_TOOPEN ||
+	    output->audio == AUDIOID_RETRY) {
+		if (output->audio == AUDIOID_TOOPEN ||
+		    g_get_monotonic_time() >= output->audio_retry_at) {
+			if (output_open_audio(output) < 0) {
+				/* Keep the sentinel so that a later message
+				 * retries the open instead of disabling audio
+				 * for the rest of the session. */
+				output->audio = AUDIOID_RETRY;
+				output->audio_retry_at = g_get_monotonic_time() +
+				    5 * G_TIME_SPAN_SECOND;
+				module_audio_id = NULL;
+				speaking_module = NULL;
+				speaking_uid = msg->settings.uid;
+				speaking_gid = msg->settings.reparted;
+				return -1;
+			}
+		} else {
+			module_audio_id = NULL;
+			speaking_module = NULL;
+			speaking_uid = msg->settings.uid;
+			speaking_gid = msg->settings.reparted;
+			return -1;
+		}
 	}
+	module_audio_id = output->audio;
 	speaking_uid = msg->settings.uid;
 	speaking_gid = msg->settings.reparted;
+	return 0;
 }
 
 OutputModule *get_output_module_by_name(const char *name)
@@ -878,7 +902,8 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 	}
 	msg->bytes = -1;
 
-	output_set_speaking_monitor(msg, output);
+	if (output_set_speaking_monitor(msg, output) < 0)
+		OL_RET(-2);
 
 	if (module_audio_id) {
 		if (!module_speak_queue_before_synth()) {

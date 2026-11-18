@@ -34,7 +34,7 @@ int output_check_module(OutputModule * output);
 
 char *escape_dot(char *otext);
 
-void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output);
+int output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output);
 GString *output_read_reply(OutputModule * output);
 int output_send_data(const char *cmd, OutputModule * output, int wfr);
 int output_send_settings(TSpeechDMessage * msg, OutputModule * output);

@@ -42,6 +42,7 @@ typedef struct {
 	pid_t pid;
 	int working;
 	AudioID *audio;
+	gint64 audio_retry_at;
 	pthread_mutex_t read_mutex;
 	pthread_cond_t reply_cond;
 	pthread_cond_t event_cond;
@@ -52,6 +53,7 @@ typedef struct {
 	gboolean waiting_for_reply;
 } OutputModule;
 #define AUDIOID_TOOPEN ((AudioID*) (-1))
+#define AUDIOID_RETRY ((AudioID*) (-2))
 
 GList *detect_output_modules(GList *modules, const char *modules_dirname, const char *user_config_dirname, const char *config_dirname);
 OutputModule *load_output_module(const char *mod_name, const char *mod_prog,

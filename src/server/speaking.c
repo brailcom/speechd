@@ -57,6 +57,8 @@ int pause_requested_fd;
 int pause_requested_uid;
 int resume_requested;
 
+static void report_cancel_fd(int fd, int id, int uid);
+
 /*
   Speak() is responsible for getting right text from right
   queue in right time and saying it loud through the corresponding
@@ -276,17 +278,38 @@ void *speak(void *data)
 		ret = output_speak(message, output);
 
 		MSG(4, "Message sent to output module");
-		if (ret == -1) {
-			MSG(2, "Error: Output module failed");
-			output_check_module(output);
-			pthread_mutex_unlock(&element_free_mutex);
-			continue;
-		}
 		if (ret != 0) {
-			MSG(2,
-			    "ERROR: Can't say message. Module reported error in speaking: %d",
-			    ret);
+			int id = message->id;
+			int uid = message->settings.uid;
+			int notify = message->settings.notification;
+			int fd = -1;
+			TFDSetElement *client;
+
+			if (ret == -1) {
+				MSG(2, "Error: Output module failed");
+				output_check_module(output);
+			} else if (ret == -2) {
+				MSG(2, "Audio output is not available");
+			} else {
+				MSG(2,
+				    "ERROR: Can't say message. Module reported error in speaking: %d",
+				    ret);
+			}
+
+			client = get_client_settings_by_uid(uid);
+			if (client && client->active &&
+			    (notify & SPD_CANCEL))
+				fd = dup(client->fd);
+
+			mem_free_message(message);
+			speaking_module = NULL;
 			pthread_mutex_unlock(&element_free_mutex);
+
+			if (fd >= 0) {
+				report_cancel_fd(fd, id, uid);
+				close(fd);
+			}
+			speaking_semaphore_post();
 			continue;
 		}
 		SPEAKING = 1;
@@ -704,6 +727,20 @@ REPORT_STATE(begin, EVENT_BEGIN_C, EVENT_BEGIN)
     REPORT_STATE(pause, EVENT_PAUSED_C, EVENT_PAUSED)
     REPORT_STATE(resume, EVENT_RESUMED_C, EVENT_RESUMED)
     REPORT_STATE(cancel, EVENT_CANCELED_C, EVENT_CANCELED)
+
+/* Report a cancellation to a duplicated client fd.  The caller must
+ * duplicate the fd so that a concurrent disconnect/reuse cannot send the
+ * event to a different client. */
+static void report_cancel_fd(int fd, int id, int uid)
+{
+	char *cmd = g_strdup_printf(EVENT_CANCELED_C "-%d\r\n"
+				    EVENT_CANCELED_C "-%d\r\n"
+				    EVENT_CANCELED,
+				    id, uid);
+	if (socket_send_msg(fd, cmd))
+		MSG(2, "ERROR: Can't report cancel!");
+	g_free(cmd);
+}
 
 int is_sb_speaking(void)
 {
