@@ -158,6 +158,11 @@ static LocaleMap *G_processors = NULL;
 
 /* List of files to load */
 static GSList *symbols_files;
+/* symbols_files is filled by the main thread when the configuration is read
+ * (again on SIGHUP) and used by the speak thread; symbols_files_changed tells
+ * the speak thread to drop the caches built from the old list */
+static GMutex symbols_files_lock;
+static gboolean symbols_files_changed;
 
 SymLvl str2SymLvl(const char *str)
 {
@@ -764,7 +769,21 @@ static SpeechSymbols *get_locale_speech_symbols(const gchar *locale, const gchar
 void symbols_preprocessing_add_file(const char *name)
 {
 	MSG2(5, "symbols", "Will load symbol file %s", name);
+	g_mutex_lock(&symbols_files_lock);
 	symbols_files = g_slist_append(symbols_files, g_strdup(name));
+	symbols_files_changed = TRUE;
+	g_mutex_unlock(&symbols_files_lock);
+}
+
+/* Forgets the files, before the configuration is read again: otherwise every
+ * reload adds them once more and each symbol is spoken once per reload */
+void symbols_preprocessing_clear_files(void)
+{
+	g_mutex_lock(&symbols_files_lock);
+	g_slist_free_full(symbols_files, g_free);
+	symbols_files = NULL;
+	symbols_files_changed = TRUE;
+	g_mutex_unlock(&symbols_files_lock);
 }
 
 /*------------------ Speech symbol compilation & processing -----------------*/
@@ -1523,8 +1542,22 @@ void insert_symbols(TSpeechDMessage *msg, int punct_missing)
 	}
 
 	MSG2(5, "symbols", "processing at level %d, supporting level %d", level, support_level);
+	g_mutex_lock(&symbols_files_lock);
+	if (symbols_files_changed) {
+		/* the processors point into the dictionaries: free them first */
+		if (G_processors) {
+			g_hash_table_destroy(G_processors);
+			G_processors = NULL;
+		}
+		if (G_symbols_dicts) {
+			g_hash_table_destroy(G_symbols_dicts);
+			G_symbols_dicts = NULL;
+		}
+		symbols_files_changed = FALSE;
+	}
 	processed = process_speech_symbols(locale,
 		msg->buf, level, support_level, msg->settings.ssml_mode);
+	g_mutex_unlock(&symbols_files_lock);
 	if (processed) {
 		MSG2(5, "symbols", "before: |%s|", msg->buf);
 		g_free(msg->buf);
