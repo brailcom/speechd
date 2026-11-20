@@ -560,6 +560,11 @@ static void pulse_connection_close(spd_pulse_id_t * pulse_id)
 		spd_pa_simple_free(pulse_id->pa_simple);
 		pulse_id->pa_simple = NULL;
 	}
+	/* Make the next pulse_begin open a new connection, e.g. after a write
+	 * error when the sound server went away */
+	pulse_id->pa_current_rate = -1;
+	pulse_id->pa_current_bps = -1;
+	pulse_id->pa_current_channels = -1;
 }
 
 static AudioID *pulse_open(void **pars)
@@ -675,6 +680,11 @@ static int pulse_feed(AudioID * id, AudioTrack track)
 	}
 	num_bytes = track.num_samples * bytes_per_sample;
 
+	if (pulse_id->pa_simple == NULL) {
+		MSG(4, "ERROR: Audio: pulse_feed(): no connection to the sound server\n");
+		return -1;
+	}
+
 	MSG(4, "bytes to play: %d, (%f secs)\n", num_bytes,
 	    (((float)(num_bytes) / 2) / (float)track.sample_rate));
 
@@ -723,7 +733,8 @@ static int pulse_feed_sync_overlap(AudioID * id, AudioTrack track)
 static int pulse_end(AudioID * id)
 {
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
-	spd_pa_simple_drain(pulse_id->pa_simple, 0, NULL);
+	if (pulse_id->pa_simple != NULL)
+		spd_pa_simple_drain(pulse_id->pa_simple, 0, NULL);
 	return 0;
 }
 
@@ -747,7 +758,8 @@ static int pulse_stop(AudioID * id)
 {
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
 
-	spd_pa_simple_flush(pulse_id->pa_simple);
+	if (pulse_id->pa_simple != NULL)
+		spd_pa_simple_flush(pulse_id->pa_simple);
 
 	return 0;
 }
