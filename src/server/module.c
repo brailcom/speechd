@@ -380,6 +380,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 		return NULL;
 	}
 
+	module->audio = NULL;
 	module->name = (char *)g_strdup(mod_name);
 	module->progdir = g_strdup(mod_prog_dir);
 	module->configdir = g_strdup(mod_cfg_dir);

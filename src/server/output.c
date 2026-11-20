@@ -108,6 +108,11 @@ static void output_open_audio(OutputModule *output)
 	g_strfreev(outputs);
 }
 
+/* The audio connection of a closed module that may still be in use by the
+ * speak queue; it is closed once another one replaces it.  Protected by the
+ * output layer mutex. */
+static AudioID *orphan_audio_id;
+
 void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
 {
 	/* Set the speaking-monitor so that we know who is speaking */
@@ -115,7 +120,12 @@ void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
 	if (output->audio) {
 		if (output->audio == AUDIOID_TOOPEN)
 			output_open_audio(output);
-		module_audio_id = output->audio;
+		if (output->audio)
+			module_audio_id = output->audio;
+	}
+	if (orphan_audio_id && orphan_audio_id != module_audio_id) {
+		spd_audio_close(orphan_audio_id);
+		orphan_audio_id = NULL;
 	}
 	speaking_uid = msg->settings.uid;
 	speaking_gid = msg->settings.reparted;
@@ -1497,6 +1507,19 @@ int output_close(OutputModule * module)
 		MSG(1,
 		    "ERROR: waitpid() failed when waiting for child (module).");
 	}
+
+	/* Close the audio connection the server opened for the module, else
+	 * every reload of the configuration leaks one per module that spoke. */
+	if (output->audio && output->audio != AUDIOID_TOOPEN) {
+		if (output->audio == module_audio_id) {
+			if (orphan_audio_id)
+				spd_audio_close(orphan_audio_id);
+			orphan_audio_id = output->audio;
+		} else {
+			spd_audio_close(output->audio);
+		}
+	}
+	output->audio = NULL;
 
 	OL_RET(0);
 }
