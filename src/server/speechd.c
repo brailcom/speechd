@@ -52,6 +52,7 @@
 #include "set.h"
 #include "options.h"
 #include "server.h"
+#include "symbols.h"
 
 #include <i18n.h>
 
@@ -775,6 +776,8 @@ static void speechd_load_configuration(void)
 		configfile->includepath = g_strdup(SpeechdOptions.conf_dir);
 		MSG(5, "Config file include path is: %s",
 		    configfile->includepath);
+		/* the file lists them again */
+		symbols_preprocessing_clear_files();
 		if (dotconf_command_loop(configfile) == 0)
 			DIE("Error reading config file\n");
 		dotconf_cleanup(configfile);
