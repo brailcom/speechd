@@ -1638,25 +1638,22 @@ modules.
 server is already running, log an error message and exit with error
 code 1, otherwise create and lock a new pid file.
 </p>
-</li><li>Check for autospawning enabled
-
-<p>If the server is started with &ndash;spawn, check whether autospawn is not
-disabled in the configuration (DisableAutoSpawn config option in
-speechd.conf). If it is disabled, log an error message and exit with
-error code 1.
-</p>
 </li><li>Install signal handlers
-
-</li><li>Create unix or inet sockets and start listening
 
 </li><li>Initialize Speech Dispatcher
 
-<p>Read the configuration files, setup some lateral threads, start and
-initialize output modules. Reinitialize logging (stage 2) into the
-final logfile destination (as determined by the command line option,
-the configuration option and the default location in this order of
+<p>Read the configuration files. If the server is started with &ndash;spawn,
+check whether autospawn is not disabled in the configuration
+(DisableAutoSpawn config option in speechd.conf or in a file it
+includes); if it is disabled, log an error message and exit with
+error code 1. Setup some lateral threads, start and initialize output
+modules. Reinitialize logging (stage 2) into the final logfile
+destination (as determined by the command line option, the
+configuration option and the default location in this order of
 precedence).
 </p>
+</li><li>Create unix or inet sockets and start listening
+
 <p>After this step, Speech Dispatcher is ready to accept new connections.
 </p>
 </li><li>Daemonize the process
