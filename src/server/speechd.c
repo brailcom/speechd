@@ -752,9 +752,31 @@ static gint modules_compare (gconstpointer a, gconstpointer b)
 	return strcmp(name_a, name_b);
 }
 
+/* Reads the configuration file path with the given options, the
+   includes being relative to the configuration directory. Returns FALSE
+   if the file cannot be opened. */
+static gboolean speechd_read_config_file(const char *path,
+					 configoption_t *options)
+{
+	configfile_t *configfile;
+
+	configfile = dotconf_create((char *)path, options, 0,
+				    CASE_INSENSITIVE);
+	if (configfile == NULL)
+		return FALSE;
+
+	free(configfile->includepath);
+	configfile->includepath = g_strdup(SpeechdOptions.conf_dir);
+	MSG(5, "Config file include path is: %s", configfile->includepath);
+	if (dotconf_command_loop(configfile) == 0)
+		DIE("Error reading config file\n");
+	dotconf_cleanup(configfile);
+	MSG(2, "Configuration has been read from \"%s\"", path);
+	return TRUE;
+}
+
 static void speechd_load_configuration(void)
 {
-	configfile_t *configfile = NULL;
 	GList *detected_modules = NULL;
 
 	/* Clean previous configuration */
@@ -777,20 +799,7 @@ static void speechd_load_configuration(void)
 	spd_options = add_config_option(spd_options, &spd_num_options, "", 0,
 					NULL, NULL, 0);
 
-	configfile =
-	    dotconf_create(SpeechdOptions.conf_file, spd_options, 0,
-			   CASE_INSENSITIVE);
-	if (configfile) {
-		free(configfile->includepath);
-		configfile->includepath = g_strdup(SpeechdOptions.conf_dir);
-		MSG(5, "Config file include path is: %s",
-		    configfile->includepath);
-		if (dotconf_command_loop(configfile) == 0)
-			DIE("Error reading config file\n");
-		dotconf_cleanup(configfile);
-		MSG(2, "Configuration has been read from \"%s\"",
-		    SpeechdOptions.conf_file);
-
+	if (speechd_read_config_file(SpeechdOptions.conf_file, spd_options)) {
 		/* We need to load modules here, since this is called both by speechd_init
 		 * and to handle SIGHUP. */
 		if (module_number_of_requested_modules() < 1) {
