@@ -404,12 +404,11 @@ DOTCONF_CB(cb_unknown)
 	return NULL;
 }
 
-/* == Auto-spawn no-action callback == */
+/* == Auto-spawn == */
 DOTCONF_CB(cb_DisableAutoSpawn)
 {
-	/* DisableAutoSpawn option is handled earlier during startup, not via the DotConf
-	   mechanism. This callback here is a hack to ensure DotConf doesn't complain about
-	   an unknown option */
+	/* Checked in speechd_init() once the configuration has been read */
+	SpeechdOptions.disable_autospawn = TRUE;
 	return NULL;
 }
 

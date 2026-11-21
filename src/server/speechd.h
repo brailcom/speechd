@@ -150,6 +150,7 @@ extern struct SpeechdOptions {
 	char *user_module_dir;
 	int log_dir_set;
 	int spawn;
+	int disable_autospawn;
 	int debug;
 	char *debug_destination;
 	char *debug_logfile;
