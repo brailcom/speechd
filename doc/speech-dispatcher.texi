@@ -1385,8 +1385,6 @@ code 1, otherwise create and lock a new pid file.
 
 @item Install signal handlers
 
-@item Create unix or inet sockets and start listening
-
 @item Initialize Speech Dispatcher
 
 Read the configuration files. If the server is started with --spawn,
@@ -1398,6 +1396,8 @@ modules. Reinitialize logging (stage 2) into the final logfile
 destination (as determined by the command line option, the
 configuration option and the default location in this order of
 precedence).
+
+@item Create unix or inet sockets and start listening
 
 After this step, Speech Dispatcher is ready to accept new connections.
 
