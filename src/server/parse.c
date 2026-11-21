@@ -65,7 +65,7 @@ char *parse(const char *buf, const int bytes, const int fd)
 	TSpeechDMessage *new;
 	char *command;
 	int end_data;
-	char *pos;
+	const char *pos;
 	int reparted;
 	int msg_uid;
 	GString *ok_queued_reply;
