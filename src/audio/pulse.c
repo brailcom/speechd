@@ -349,19 +349,21 @@ static int spd_pa_simple_write(spd_pa_simple *p, const void*data, size_t length,
 
 	p->playing = 1;
 
-	while (length > 0) {
+	/* Until all the data is written or the playback gets stopped */
+	while (length > 0 && p->playing) {
 		size_t l;
 		int r;
 
-		while (p->playing && !(l = pa_stream_writable_size(p->stream))) {
+		l = pa_stream_writable_size(p->stream);
+		CHECK_SUCCESS_GOTO(p, rerror, l != (size_t) -1, unlock_and_fail);
+
+		if (l == 0) {
+			/* No room in the stream yet: wait for some, or for the
+			   playback to be stopped */
 			pa_threaded_mainloop_wait(p->mainloop);
 			CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
+			continue;
 		}
-
-		if (!p->playing)
-			break;
-
-		CHECK_SUCCESS_GOTO(p, rerror, l != (size_t) -1, unlock_and_fail);
 
 		if (l > length)
 			l = length;
