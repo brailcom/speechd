@@ -593,8 +593,6 @@ static int alsa_feed(AudioID * id, AudioTrack track)
 	int err;
 	int ret;
 
-	snd_pcm_state_t state;
-
 	snd_pcm_uframes_t framecount;
 	size_t volume_size;
 
@@ -620,11 +618,6 @@ static int alsa_feed(AudioID * id, AudioTrack track)
 
 		/* Write as much samples as possible */
 		framecount = num_bytes / bytes_per_sample / track.num_channels;
-
-		/* Report current state state */
-		state = snd_pcm_state(alsa_id->alsa_pcm);
-		//      MSG("PCM state before writei: %s",
-		//          snd_pcm_state_name(state));
 
 		/* MSG("snd_pcm_writei() called") */
 		ret =
@@ -663,11 +656,6 @@ static int alsa_feed(AudioID * id, AudioTrack track)
 			output_samples +=
 			    ret * bytes_per_sample * track.num_channels / 2;
 		}
-
-		/* Report current state */
-		state = snd_pcm_state(alsa_id->alsa_pcm);
-		//      MSG("PCM state before polling: %s",
-		//          snd_pcm_state_name(state));
 
 		err =
 		    wait_for_poll(alsa_id, alsa_id->alsa_poll_fds,
