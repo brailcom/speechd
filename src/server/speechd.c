@@ -166,11 +166,11 @@ static int daemon(int nochdir, int noclose)
 
 /* --- DEBUGGING --- */
 
-/* Just to be able to set breakpoints */
+/* Called by FATAL() before it logs the error and exits, so that a
+   debugger can stop on fatal errors only ("break fatal_error").
+   Empty on purpose. */
 void fatal_error(void)
 {
-	int i = 0;
-	i++;
 }
 
 /* Logging messages, level of verbosity is defined between 1 and 5,
