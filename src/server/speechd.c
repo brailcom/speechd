@@ -585,6 +585,7 @@ void speechd_modules_nodebug(void)
 void speechd_options_init(void)
 {
 	SpeechdOptions.spawn = FALSE;
+	SpeechdOptions.disable_autospawn = FALSE;
 	SpeechdOptions.log_level_set = 0;
 	SpeechdOptions.communication_method = NULL;
 	SpeechdOptions.socket_path = NULL;
@@ -672,6 +673,18 @@ void speechd_init()
 	MSG(4, "Reading Speech Dispatcher configuration from %s",
 	    SpeechdOptions.conf_file);
 	speechd_load_configuration();
+
+	/* Check whether spawning is not disabled, now that the whole
+	   configuration, included files too, has been read, and before any
+	   output module is started */
+	if (SpeechdOptions.spawn) {
+		if (SpeechdOptions.disable_autospawn) {
+			MSG(-1,
+			    "Autospawn requested but disabled in configuration");
+			exit(1);
+		}
+		MSG(2, "Starting Speech Dispatcher due to auto-spawn");
+	}
 
 	logging_init();
 	MSG(1, "Speech Dispatcher " VERSION " log start");
@@ -1234,35 +1247,6 @@ int main(int argc, char *argv[])
 	   is already running */
 	if (create_pid_file() != 0)
 		exit(1);
-
-	/* Handle --spawn request */
-	if (SpeechdOptions.spawn) {
-		/* Check whether spawning is not disabled */
-		gchar *config_contents;
-		int err;
-		GRegex *regexp;
-		int result;
-
-		err =
-		    g_file_get_contents(SpeechdOptions.conf_file,
-					&config_contents, NULL, NULL);
-		if (err == FALSE) {
-			MSG(-1, "Error opening %s", SpeechdOptions.conf_file);
-			FATAL("Can't open conf file");
-		}
-		regexp =
-		    g_regex_new("^[ ]*DisableAutoSpawn", G_REGEX_MULTILINE, 0,
-				NULL);
-		result = g_regex_match(regexp, config_contents, 0, NULL);
-		if (result) {
-			MSG(-1,
-			    "Autospawn requested but disabled in configuration");
-			exit(1);
-		}
-		g_free(config_contents);
-		g_regex_unref(regexp);
-		MSG(2, "Starting Speech Dispatcher due to auto-spawn");
-	}
 
 	speechd_init();
 
