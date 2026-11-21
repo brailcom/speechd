@@ -116,8 +116,10 @@ typedef struct
 static void forward_logtv(void *object, enum spa_log_level level, const struct spa_log_topic *topic, const char *file, int line, const char *func, const char *fmt, va_list args)
 {
     char *text;
-    vasprintf(&text, fmt, args);
+    if (vasprintf(&text, fmt, args) < 0)
+        return;
     message(pw_to_spd_log_level(level), "%s:%d(%s): %s", file, line, func, text);
+    free(text);
 }
 
 static void forward_logt(void *object, enum spa_log_level level, const struct spa_log_topic *topic, const char *file, int line, const char *func, const char *fmt, ...)
