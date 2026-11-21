@@ -300,6 +300,13 @@ int wait_for_poll(spd_alsa_id_t * id, struct pollfd *alsa_poll_fds,
 	while (1) {
 		ret = poll(id->alsa_poll_fds, count, -1);
 		//      MSG("wait_for_poll: activity on %d descriptors", ret);
+		if (ret < 0) {
+			/* Interrupted by a signal: wait again */
+			if (errno == EINTR)
+				continue;
+			ERR("poll() failed: %s", strerror(errno));
+			return -1;
+		}
 
 		/* Check for stop request from alsa_stop on the last file
 		   descriptors */
