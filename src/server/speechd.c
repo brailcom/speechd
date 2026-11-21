@@ -753,8 +753,8 @@ static gint modules_compare (gconstpointer a, gconstpointer b)
 }
 
 /* Reads the configuration file path with the given options, the
-   includes being relative to the configuration directory. Returns FALSE
-   if the file cannot be opened. */
+   includes being relative to the configuration directory. Returns FALSE,
+   after logging why, if the file cannot be opened. */
 static gboolean speechd_read_config_file(const char *path,
 					 configoption_t *options)
 {
@@ -762,14 +762,20 @@ static gboolean speechd_read_config_file(const char *path,
 
 	configfile = dotconf_create((char *)path, options, 0,
 				    CASE_INSENSITIVE);
-	if (configfile == NULL)
+	if (configfile == NULL) {
+		/* After a failed fopen(), dotconf only frees memory, which
+		   leaves errno as fopen() set it */
+		int err = errno;
+
+		MSG(1, "Can't open %s: %s", path, g_strerror(err));
 		return FALSE;
+	}
 
 	free(configfile->includepath);
 	configfile->includepath = g_strdup(SpeechdOptions.conf_dir);
 	MSG(5, "Config file include path is: %s", configfile->includepath);
 	if (dotconf_command_loop(configfile) == 0)
-		DIE("Error reading config file\n");
+		DIE("Error reading config file %s\n", path);
 	dotconf_cleanup(configfile);
 	MSG(2, "Configuration has been read from \"%s\"", path);
 	return TRUE;
@@ -855,8 +861,6 @@ static void speechd_load_configuration(void)
 						"dummy"),
 				NULL,
 				NULL);
-	} else {
-		MSG(1, "Can't open %s", SpeechdOptions.conf_file);
 	}
 
 	free_config_options(spd_options, &spd_num_options);
