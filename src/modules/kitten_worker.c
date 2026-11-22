@@ -271,7 +271,7 @@ GQueue* parse_ssml_to_gqueue(const char *data, size_t bytes){
 
             SSMLPayload *pl = g_new(SSMLPayload,1);
 
-            pl->mark = g_string_new(mark_name);
+            pl->mark = g_string_new((const char *)mark_name);
             pl->text = g_string_new((const char *)xmlBufferContent(buffer));
 
             g_queue_push_tail(output,pl);
