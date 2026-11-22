@@ -20,6 +20,8 @@
 c_api = $(top_builddir)/src/api/c
 inc_local = -I$(top_srcdir)/include -I$(top_srcdir)/src/api/c -I$(c_api)
 
+AM_CFLAGS = $(ERROR_CFLAGS)
+
 bin_PROGRAMS = spd-say
 spd_say_CPPFLAGS = $(inc_local) $(GLIB_CFLAGS)
 spd_say_SOURCES = say.c options.c options.h

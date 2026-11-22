@@ -140,7 +140,7 @@ endif
 if kitten_support
 modulebin_PROGRAMS += sd_kitten
 sd_kitten_SOURCES = kitten_server.c kitten_utilities.c kitten_model.c kitten_worker.c
-sd_kitten_CFLAGS = $(ESPEAK_NG_CFLAGS) $(GLIB_CFLAGS) $(LIBONNXRUNTIME_CFLAGS) $(LIBXML_CFLAGS) $(DOTCONF_CFLAGS)
+sd_kitten_CPPFLAGS = $(AM_CPPFLAGS) $(ESPEAK_NG_CFLAGS) $(LIBONNXRUNTIME_CFLAGS) $(LIBXML_CFLAGS) $(DOTCONF_CFLAGS)
 sd_kitten_LDADD = $(top_builddir)/src/common/libcommon_la-common.o libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) $(GLIB_LIBS) $(LIBONNXRUNTIME_LIBS) $(LIBXML_LIBS) $(DOTCONF_LIBS)
 endif
 
@@ -186,7 +186,7 @@ endif
 if espeak_ng_support
 modulebin_PROGRAMS += sd_espeak-ng
 sd_espeak_ng_SOURCES = espeak.c $(common_SOURCES)
-sd_espeak_ng_CFLAGS = -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS)
+sd_espeak_ng_CPPFLAGS = $(AM_CPPFLAGS) -DESPEAK_NG_INCLUDE $(ESPEAK_NG_CFLAGS)
 sd_espeak_ng_LDADD = $(top_builddir)/src/common/libcommon.la \
 	$(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS) \
 	$(common_LDADD)
@@ -203,7 +203,7 @@ install-exec-hook: install-exec-hook-espeak
 #
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync
 sd_skeleton0_espeak_ng_sync_SOURCES = skeleton0_espeak-ng-sync.c
-sd_skeleton0_espeak_ng_sync_CFLAGS = $(ESPEAK_NG_CFLAGS)
+sd_skeleton0_espeak_ng_sync_CPPFLAGS = $(AM_CPPFLAGS) $(ESPEAK_NG_CFLAGS)
 sd_skeleton0_espeak_ng_sync_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 
 #
@@ -211,7 +211,7 @@ sd_skeleton0_espeak_ng_sync_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXT
 #
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-async
 sd_skeleton0_espeak_ng_async_SOURCES = skeleton0_espeak-ng-async.c
-sd_skeleton0_espeak_ng_async_CFLAGS = $(ESPEAK_NG_CFLAGS)
+sd_skeleton0_espeak_ng_async_CPPFLAGS = $(AM_CPPFLAGS) $(ESPEAK_NG_CFLAGS)
 sd_skeleton0_espeak_ng_async_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 
 #
@@ -219,7 +219,7 @@ sd_skeleton0_espeak_ng_async_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EX
 #
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-sync-server
 sd_skeleton0_espeak_ng_sync_server_SOURCES = skeleton0_espeak-ng-sync-server.c
-sd_skeleton0_espeak_ng_sync_server_CFLAGS = $(ESPEAK_NG_CFLAGS)
+sd_skeleton0_espeak_ng_sync_server_CPPFLAGS = $(AM_CPPFLAGS) $(ESPEAK_NG_CFLAGS)
 sd_skeleton0_espeak_ng_sync_server_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 
 #
@@ -227,7 +227,7 @@ sd_skeleton0_espeak_ng_sync_server_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS
 #
 noinst_PROGRAMS += sd_skeleton0_espeak-ng-async-server
 sd_skeleton0_espeak_ng_async_server_SOURCES = skeleton0_espeak-ng-async-server.c
-sd_skeleton0_espeak_ng_async_server_CFLAGS = $(ESPEAK_NG_CFLAGS)
+sd_skeleton0_espeak_ng_async_server_CPPFLAGS = $(AM_CPPFLAGS) $(ESPEAK_NG_CFLAGS)
 sd_skeleton0_espeak_ng_async_server_LDADD = libspeechd_module.la $(ESPEAK_NG_LIBS) $(EXTRA_ESPEAK_LIBS)
 endif
 
