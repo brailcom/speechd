@@ -72,7 +72,7 @@ void free_GeneratePayload(gpointer data){
 
 // changes the voice, the inputs are the same as module_set
 // and this should be called from module_set
-int model_change_voice(const char *var, const char *val){
+void model_change_voice(const char *var, const char *val){
     g_mutex_lock(&model_mutex);
 
     GString *voice_name = g_string_new("");
@@ -132,7 +132,7 @@ int model_change_voice(const char *var, const char *val){
 
 // changes the speed, the inputs are the same as module_set
 // and this should be called from module_set
-int model_change_speed(const char *var, const char *val){
+void model_change_speed(const char *var, const char *val){
     g_mutex_lock(&model_mutex);
 
     // parse the string into a int
@@ -534,7 +534,7 @@ int init_model_thread_pool(){
     return 0;
 }
 
-int cleanup_threads(){
+void cleanup_threads(){
 
     // another thread might be using this data
     // wait tell its finished before cleaning up.

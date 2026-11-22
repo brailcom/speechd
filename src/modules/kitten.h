@@ -151,8 +151,8 @@ int reload_models_and_voices(const char *model_filename, const char* voice_filen
 
 // kitten_worker.c
 int init_model_thread_pool();
-int cleanup_threads();
-int model_change_voice(const char *var, const char *val);
-int model_change_speed(const char *var, const char *val);
+void cleanup_threads();
+void model_change_voice(const char *var, const char *val);
+void model_change_speed(const char *var, const char *val);
 int add_generate_speech_task(const char* data, size_t bytes);
 int model_stop_generation();
