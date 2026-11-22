@@ -94,7 +94,7 @@ jobs:
       run: ${{ matrix.configenv }}
            CFLAGS="${{ matrix.configflags }}"
            CXXFLAGS="${{ matrix.configflags }}"
-           ./configure --prefix=/tmp/foobar --with-piper=/tmp/piper1 ${{ matrix.config }}
+           ./configure --prefix=/tmp/foobar --with-piper=/tmp/piper1 --with-ibmtts=shim ${{ matrix.config }}
     - name: Store the config
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
@@ -149,7 +149,7 @@ jobs:
     - name: autoconf
       run: ./build.sh
     - name: configure
-      run: ./configure
+      run: ./configure --with-ibmtts=shim
     - name: Store the config
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
@@ -189,7 +189,7 @@ jobs:
         glib_min=$(sed -n 's/^PKG_CHECK_MODULES(\[GLIB\], \[glib-2.0 >= \([0-9]*\)\.\([0-9]*\)\])$/GLIB_VERSION_\1_\2/p' configure.ac)
         test -n "$glib_min"
         flags="-g -O2 -DGLIB_VERSION_MIN_REQUIRED=$glib_min -DGLIB_VERSION_MAX_ALLOWED=$glib_min -Werror=deprecated-declarations"
-        ./configure --with-kitten=no CFLAGS="$flags" CXXFLAGS="$flags"
+        ./configure --with-kitten=no --with-ibmtts=shim CFLAGS="$flags" CXXFLAGS="$flags"
     - name: Store the config
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
