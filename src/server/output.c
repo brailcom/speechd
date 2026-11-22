@@ -62,6 +62,13 @@ static int output_stop_requested;
 static int output_pause_requested;
 static int output_pause_queued;
 
+/* A module unloaded while it was speaking: the speak thread still polls its
+ * pipe_speak and the module's event thread still reads its pipe_out, so it is
+ * destroyed only once the speak thread speaks through another module.
+ * Protected by the output layer mutex. */
+static OutputModule *orphan_module;
+static void output_flush_events(void);
+
 static void output_open_audio(OutputModule *output)
 {
 	void *pars[9] = { NULL };
@@ -111,6 +118,14 @@ static void output_open_audio(OutputModule *output)
 void output_set_speaking_monitor(TSpeechDMessage * msg, OutputModule * output)
 {
 	/* Set the speaking-monitor so that we know who is speaking */
+	if (orphan_module && orphan_module != output) {
+		/* events the dead module left behind: their wake-up bytes went
+		 * to its own pipe */
+		output_flush_events();
+		close(orphan_module->pipe_out[0]);
+		destroy_module(orphan_module);
+		orphan_module = NULL;
+	}
 	speaking_module = output;
 	if (output->audio) {
 		if (output->audio == AUDIOID_TOOPEN)
@@ -989,6 +1004,56 @@ size_t output_pause()
 static GSList *playback_events = NULL;
 static pthread_mutex_t playback_events_mutex = PTHREAD_MUTEX_INITIALIZER;
 
+static void output_free_event(speak_queue_entry *entry)
+{
+	switch (entry->type) {
+	case SPEAK_QUEUE_QET_AUDIO:
+		g_free(entry->data.audio.track.samples);
+		break;
+	case SPEAK_QUEUE_QET_INDEX_MARK:
+		g_free(entry->data.markId);
+		break;
+	case SPEAK_QUEUE_QET_SOUND_ICON:
+		g_free(entry->data.sound_icon_filename);
+		break;
+	default:
+		break;
+	}
+	g_free(entry);
+}
+
+static void output_flush_events(void)
+{
+	GSList *events;
+
+	pthread_mutex_lock(&playback_events_mutex);
+	events = playback_events;
+	playback_events = NULL;
+	pthread_mutex_unlock(&playback_events_mutex);
+	g_slist_free_full(events, (GDestroyNotify) output_free_event);
+}
+
+/* Called before destroying a module that is being unloaded: returns 1 if
+ * the speak thread still uses it.  The module is then kept until the speak
+ * thread speaks through another one. */
+int output_orphan_module(OutputModule *module)
+{
+	output_lock();
+	if (module != speaking_module) {
+		output_unlock();
+		return 0;
+	}
+	if (orphan_module && orphan_module != module) {
+		close(orphan_module->pipe_out[0]);
+		destroy_module(orphan_module);
+	}
+	orphan_module = module;
+	MSG(3, "Module \"%s\" is still speaking, destroying it later",
+	    module->name);
+	output_unlock();
+	return 1;
+}
+
 static speak_queue_entry *output_new_event(speak_queue_entry_type type)
 {
 	speak_queue_entry *entry = g_new(speak_queue_entry, 1);
@@ -1385,9 +1450,19 @@ int output_is_speaking(char **index_mark)
 		MSG(1, "Warning: couldn't read from pipe_speak: %d returned, (errno = %d, %s)\n", ret, errno, strerror(errno));
 
 	pthread_mutex_lock(&playback_events_mutex);
-	entry = playback_events->data;
+	entry = playback_events ? playback_events->data : NULL;
 	playback_events = g_slist_remove(playback_events, entry);
 	pthread_mutex_unlock(&playback_events_mutex);
+
+	if (entry == NULL) {
+		/* the module went away and its pipe hit end of file: nothing
+		 * more will come from it */
+		MSG(2, "No event from the output module, taking it as broken");
+		*index_mark = NULL;
+		pthread_join(output_thread, NULL);
+		output_stop_reading_events(output);
+		return 0;
+	}
 
 	/* Process next event */
 	switch (entry->type) {

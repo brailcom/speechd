@@ -654,6 +654,8 @@ int unload_output_module(OutputModule * module)
 	output_close(module);
 
 	close(module->pipe_in[1]);
+	if (output_orphan_module(module))
+		return 0;
 	close(module->pipe_out[0]);
 
 	destroy_module(module);

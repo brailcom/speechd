@@ -44,4 +44,5 @@ SPDVoice **output_get_voices(OutputModule * output, const char *language, const 
 int waitpid_with_timeout(pid_t pid, int *status_ptr, int options,
 			 size_t timeout);
 int output_close(OutputModule * module);
+int output_orphan_module(OutputModule * module);
 SPDVoice **output_list_voices(const char *module_name, const char *language, const char *variant);
