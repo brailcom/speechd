@@ -58,6 +58,14 @@ int speaking_pause_all(int fd);
 int speaking_resume(int uid);
 int speaking_resume_all(void);
 
+/* Reloads asked for by signals.  The speak thread runs them between two
+ * messages: it calls speechd_reload() through the main loop and waits until
+ * it has returned, so no module is speaking or being looked up while the
+ * modules are unloaded and loaded again. */
+#define SPEAKING_RELOAD_CONFIGURATION	1
+#define SPEAKING_RELOAD_DEAD_MODULES	2
+void speaking_request_reload(int what);
+
 /* Internal speech flow control functions */
 
 /* If there is someone speaking on some output

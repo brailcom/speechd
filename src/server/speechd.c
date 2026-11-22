@@ -559,11 +559,8 @@ void speechd_module_nodebug(gpointer data, gpointer user_data)
 
 static gboolean speechd_reload_dead_modules(gpointer user_data)
 {
-	/* Reload dead modules */
-	g_list_foreach(output_modules, speechd_modules_reload, NULL);
-
-	/* Make sure there aren't any more child processes left */
-	while (waitpid(-1, NULL, WNOHANG) > 0) ;
+	/* done by speechd_reload() between two messages */
+	speaking_request_reload(SPEAKING_RELOAD_DEAD_MODULES);
 	return TRUE;
 }
 
@@ -858,9 +855,25 @@ static void speechd_load_configuration(void)
 
 static gboolean speechd_reload_configuration(gpointer user_data)
 {
-	speechd_load_configuration();
-	module_load_requested_modules();
+	/* done by speechd_reload() between two messages */
+	speaking_request_reload(SPEAKING_RELOAD_CONFIGURATION);
 	return TRUE;
+}
+
+/* Called in the main loop while the speak thread waits between two messages
+ * (speaking_request_reload()) */
+void speechd_reload(int what)
+{
+	if (what & SPEAKING_RELOAD_CONFIGURATION) {
+		speechd_load_configuration();
+		module_load_requested_modules();
+	}
+	if (what & SPEAKING_RELOAD_DEAD_MODULES) {
+		g_list_foreach(output_modules, speechd_modules_reload, NULL);
+
+		/* Make sure there aren't any more child processes left */
+		while (waitpid(-1, NULL, WNOHANG) > 0) ;
+	}
 }
 
 static void speechd_check_modules(void)
