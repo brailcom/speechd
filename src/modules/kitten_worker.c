@@ -483,7 +483,6 @@ int model_stop_generation(){
 
 int init_model_thread_pool(){
     DEBUG_PRINT("init_model_thread_pool();\n");
-    GError *pool_error = NULL;
 
     g_mutex_init(&model_mutex);
     g_mutex_init(&stop_mutex);
