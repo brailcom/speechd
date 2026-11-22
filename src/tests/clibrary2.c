@@ -55,7 +55,9 @@ int main()
 	char *error;
 	int value;
 	SPDVoiceType voice_type = SPD_CHILD_MALE;
+#ifdef THOROUGH
 	SPDVoice **synth_voices;
+#endif
 #ifndef THOROUGH
 	SPDVoiceType voice_types[] = {
 		SPD_MALE1,
