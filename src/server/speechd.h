@@ -237,6 +237,8 @@ int speechd_connection_destroy(int fd);
 void speechd_modules_terminate(gpointer data, gpointer user_data);
 void speechd_modules_reload(gpointer data, gpointer user_data);
 void speechd_modules_debug(void);
+/* Run the reloads asked for (SPEAKING_RELOAD_*); main loop only */
+void speechd_reload(int what);
 void speechd_modules_nodebug(void);
 
 void speechd_options_init(void);

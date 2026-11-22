@@ -57,6 +57,15 @@ int pause_requested_fd;
 int pause_requested_uid;
 int resume_requested;
 
+/* Reload requests (SPEAKING_RELOAD_*), and whether the main loop is running
+ * one */
+static pthread_mutex_t reload_mutex = PTHREAD_MUTEX_INITIALIZER;
+static pthread_cond_t reload_cond = PTHREAD_COND_INITIALIZER;
+static int reload_requested;
+static int reload_running;
+
+static void speaking_reload(void);
+
 /*
   Speak() is responsible for getting right text from right
   queue in right time and saying it loud through the corresponding
@@ -139,6 +148,22 @@ void *speak(void *data)
 			MSG(5,
 			    "Continuing because already speaking in speak()");
 			continue;
+		}
+
+		/* Reload between two messages, once the module has sent all
+		 * its events (is_sb_speaking() then clears speaking_module) */
+		if (speaking_module == NULL) {
+			int requested;
+
+			pthread_mutex_lock(&reload_mutex);
+			requested = reload_requested;
+			pthread_mutex_unlock(&reload_mutex);
+			if (requested) {
+				/* the module whose pipe we poll may go away */
+				poll_count = 1;
+				speaking_reload();
+				continue;
+			}
 		}
 
 		/* Handle resume requests */
@@ -349,6 +374,53 @@ void *speak(void *data)
 
 		pthread_mutex_unlock(&element_free_mutex);
 	}
+}
+
+void speaking_request_reload(int what)
+{
+	pthread_mutex_lock(&reload_mutex);
+	reload_requested |= what;
+	pthread_mutex_unlock(&reload_mutex);
+	speaking_semaphore_post();
+}
+
+/* Run by the main loop */
+static gboolean speaking_run_reload(gpointer data)
+{
+	speechd_reload(GPOINTER_TO_INT(data));
+
+	pthread_mutex_lock(&reload_mutex);
+	reload_running = 0;
+	pthread_cond_signal(&reload_cond);
+	pthread_mutex_unlock(&reload_mutex);
+	return G_SOURCE_REMOVE;
+}
+
+static void speaking_reload_unlock(void *data)
+{
+	pthread_mutex_unlock(&reload_mutex);
+}
+
+/* The speak thread hands the reload to the main loop, which serves the
+ * clients and reads the module list for them, and waits until it is done */
+static void speaking_reload(void)
+{
+	int what;
+
+	pthread_mutex_lock(&reload_mutex);
+	what = reload_requested;
+	reload_requested = 0;
+	reload_running = 1;
+	pthread_mutex_unlock(&reload_mutex);
+
+	MSG(4, "Reloading (%d) between two messages", what);
+	g_idle_add(speaking_run_reload, GINT_TO_POINTER(what));
+
+	pthread_mutex_lock(&reload_mutex);
+	pthread_cleanup_push(speaking_reload_unlock, NULL);
+	while (reload_running)
+		pthread_cond_wait(&reload_cond, &reload_mutex);
+	pthread_cleanup_pop(1);
 }
 
 int reload_message(TSpeechDMessage * msg)
