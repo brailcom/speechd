@@ -236,7 +236,7 @@ static char *short_options = "r:p:R:i:l:o:OI:t:Ly:ckm:sxeP:N:n:wSCvh";
 		exit(1); \
 	}
 
-int options_parse(int argc, char *argv[])
+void options_parse(int argc, char *argv[])
 {
 	char *tail_ptr;
 	int c_opt;
@@ -337,7 +337,6 @@ int options_parse(int argc, char *argv[])
 			exit(1);
 		}
 	}
-	return 0;
 }
 
 #undef SPD_OPTION_SET_INT

@@ -71,8 +71,6 @@ int main(int argc, char **argv)
 	int err;
 	char *error;
 	int msg_arg_required = 0;
-	int ret;
-	int option_ret;
 	char *line;
 
 	/* initialize i18n support */
@@ -98,7 +96,7 @@ int main(int argc, char **argv)
 	application_name = NULL;
 	connection_name = NULL;
 
-	option_ret = options_parse(argc, argv);
+	options_parse(argc, argv);
 
 	/* Check if the text to say or options are specified in the argument */
 	msg_arg_required = (pipe_mode != 1) && (stop_previous != 1)

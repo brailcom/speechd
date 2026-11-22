@@ -47,6 +47,6 @@ extern char *synthesis_voice;
 extern char *application_name;
 extern char *connection_name;
 
-int options_parse(int argc, char *argv[]);
+void options_parse(int argc, char *argv[]);
 void options_print_version(void);
 void options_print_help(char *argv[]);
