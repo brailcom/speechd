@@ -282,7 +282,7 @@ static int alsa_close(AudioID * id)
 	return 0;
 }
 
-/* Wait until ALSA is readdy for more samples or alsa_stop() was called.
+/* Wait until ALSA is ready for more samples or alsa_stop() was called.
 
 Returns 0 if ALSA is ready for more input, +1 if a request to stop
 the sound output was received and a negative value on error.  */
