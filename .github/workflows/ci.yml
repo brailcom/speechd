@@ -101,10 +101,14 @@ jobs:
       with:
         name: config-${{ matrix.sanitizer }}.log
         path: config.log
+    # Compiler warnings fail the build, test programs included:
+    # ERROR_CFLAGS, set by configure to -Wall and added by the makefiles,
+    # gets -Werror here only, so that configure's own checks are not
+    # affected.
     - name: make
-      run: ${{ matrix.build_env }} make
+      run: ${{ matrix.build_env }} make ERROR_CFLAGS="-Wall -Werror"
     - name: make check
-      run: ${{ matrix.check_env }} make check
+      run: ${{ matrix.check_env }} make check ERROR_CFLAGS="-Wall -Werror"
     - name: make install
       run: ${{ matrix.build_env }} sudo make install
     - name: make testsuite
@@ -157,9 +161,9 @@ jobs:
         name: config-noltdl.log
         path: config.log
     - name: make
-      run: ${{ matrix.build_env }} make
+      run: ${{ matrix.build_env }} make ERROR_CFLAGS="-Wall -Werror"
     - name: make check
-      run: ${{ matrix.check_env }} make check
+      run: ${{ matrix.check_env }} make check ERROR_CFLAGS="-Wall -Werror"
 
   build-glib-min:
     runs-on: ubuntu-26.04
@@ -197,4 +201,4 @@ jobs:
         name: config-glib-min.log
         path: config.log
     - name: make
-      run: make
+      run: make ERROR_CFLAGS="-Wall -Werror"
