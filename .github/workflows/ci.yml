@@ -74,7 +74,7 @@ jobs:
                         libespeak-dev libespeak-ng-dev
                         libttspico-dev
                         libao-dev libasound2-dev libaudio-dev libpulse-dev libpipewire-0.3-dev libxau-dev libsndfile1-dev
-                        libdotconf-dev libglib2.0-dev libltdl-dev systemd
+                        libdotconf-dev libdumbtts-dev libglib2.0-dev libltdl-dev systemd
                         gettext help2man texinfo texlive texlive-plain-generic
                         nlohmann-json3-dev librubberband-dev
                         pulseaudio ${{ matrix.deps }}
@@ -142,7 +142,7 @@ jobs:
                         libespeak-dev libespeak-ng-dev
                         libttspico-dev
                         libao-dev libasound2-dev libaudio-dev libpulse-dev libpipewire-0.3-dev libxau-dev libsndfile1-dev
-                        libdotconf-dev libglib2.0-dev libltdl-dev- libsystemd-dev systemd
+                        libdotconf-dev libdumbtts-dev libglib2.0-dev libltdl-dev- libsystemd-dev systemd
                         gettext help2man texinfo texlive texlive-plain-generic
                         pulseaudio
                         libonnxruntime-dev libxml2-dev
@@ -175,7 +175,7 @@ jobs:
                         libespeak-dev libespeak-ng-dev
                         libttspico-dev
                         libao-dev libasound2-dev libaudio-dev libpulse-dev libpipewire-0.3-dev libxau-dev libsndfile1-dev
-                        libdotconf-dev libglib2.0-dev libltdl-dev libsystemd-dev systemd
+                        libdotconf-dev libdumbtts-dev libglib2.0-dev libltdl-dev libsystemd-dev systemd
                         gettext help2man texinfo texlive texlive-plain-generic
                         pulseaudio
     - name: autoconf
