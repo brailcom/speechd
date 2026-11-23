@@ -25,6 +25,7 @@
 #endif
 
 #include <glib.h>
+#include <fcntl.h>
 #include <poll.h>
 #include <unistd.h>
 #include <safe_io.h>
@@ -65,6 +66,9 @@ static int reload_requested;
 static int reload_running;
 
 static void speaking_reload(void);
+static void report_cancel_fd(int fd, int id, int uid);
+static void cancel_failed_message(TSpeechDMessage *message);
+gint message_has_uid(gconstpointer msg, gconstpointer uid);
 
 /*
   Speak() is responsible for getting right text from right
@@ -257,8 +261,7 @@ void *speak(void *data)
 		output = get_output_module(message);
 		if (output == NULL) {
 			MSG(3, "Output module doesn't work...");
-			output_check_module(output);
-			pthread_mutex_unlock(&element_free_mutex);
+			cancel_failed_message(message);
 			continue;
 		}
 
@@ -280,7 +283,7 @@ void *speak(void *data)
 					G_NORMALIZE_ALL_COMPOSE);
 			if (!normalized) {
 				MSG(2, "Error: Not UTF-8 valid");
-				pthread_mutex_unlock(&element_free_mutex);
+				cancel_failed_message(message);
 				continue;
 			}
 			if (strcmp(message->buf, normalized)) {
@@ -301,17 +304,19 @@ void *speak(void *data)
 		ret = output_speak(message, output);
 
 		MSG(4, "Message sent to output module");
-		if (ret == -1) {
-			MSG(2, "Error: Output module failed");
-			output_check_module(output);
-			pthread_mutex_unlock(&element_free_mutex);
-			continue;
-		}
 		if (ret != 0) {
-			MSG(2,
-			    "ERROR: Can't say message. Module reported error in speaking: %d",
-			    ret);
-			pthread_mutex_unlock(&element_free_mutex);
+			if (ret == -1) {
+				MSG(2, "Error: Output module failed");
+				output_check_module(output);
+			} else if (ret == OUTPUT_ERR_AUDIO) {
+				MSG(2, "Audio output is not available");
+			} else {
+				MSG(2,
+				    "ERROR: Can't say message. Module reported error in speaking: %d",
+				    ret);
+			}
+
+			cancel_failed_message(message);
 			continue;
 		}
 		SPEAKING = 1;
@@ -776,6 +781,71 @@ REPORT_STATE(begin, EVENT_BEGIN_C, EVENT_BEGIN)
     REPORT_STATE(pause, EVENT_PAUSED_C, EVENT_PAUSED)
     REPORT_STATE(resume, EVENT_RESUMED_C, EVENT_RESUMED)
     REPORT_STATE(cancel, EVENT_CANCELED_C, EVENT_CANCELED)
+
+/* Report a cancellation to a duplicated client fd.  The caller must
+ * duplicate the fd so that a concurrent disconnect/reuse cannot send the
+ * event to a different client. */
+static void report_cancel_fd(int fd, int id, int uid)
+{
+	char *cmd = g_strdup_printf(EVENT_CANCELED_C "-%d\r\n"
+				    EVENT_CANCELED_C "-%d\r\n"
+				    EVENT_CANCELED,
+				    id, uid);
+	if (socket_send_msg(fd, cmd))
+		MSG(2, "ERROR: Can't report cancel!");
+	g_free(cmd);
+}
+
+/* Free a message that could not be spoken, release element_free_mutex,
+ * report CANCEL to the client if requested, and wake the speak loop.
+ * Must be called with element_free_mutex held. */
+static void cancel_failed_message(TSpeechDMessage *message)
+{
+	int id = message->id;
+	int uid = message->settings.uid;
+	int notify = message->settings.notification;
+	int fd = -1;
+	TFDSetElement *client;
+
+	if (last_p5_block != NULL) {
+		GList *elem = g_list_last(last_p5_block);
+		if (elem != NULL) {
+			TSpeechDMessage *p5_message = elem->data;
+			if (p5_message->settings.reparted ==
+			    message->settings.reparted) {
+				g_list_foreach(last_p5_block,
+					       (GFunc) mem_free_message, NULL);
+				g_list_free(last_p5_block);
+				last_p5_block = NULL;
+			}
+		}
+	}
+
+	client = get_client_settings_by_uid(uid);
+	if (client) {
+		if (client->active && (notify & SPD_CANCEL) && client->fd >= 0) {
+			fd = fcntl(client->fd, F_DUPFD_CLOEXEC, 0);
+		} else if (!client->active &&
+			   !client_has_messages(uid) &&
+			   (!current_message ||
+			    current_message->settings.uid != uid) &&
+			   !g_list_find_custom(MessagePausedList, &uid,
+					       message_has_uid)) {
+			MSG(4, "Removing client settings for uid %d", uid);
+			remove_client_settings_by_uid(uid);
+		}
+	}
+
+	mem_free_message(message);
+	speaking_module = NULL;
+	pthread_mutex_unlock(&element_free_mutex);
+
+	if (fd >= 0) {
+		report_cancel_fd(fd, id, uid);
+		close(fd);
+	}
+	speaking_semaphore_post();
+}
 
 int is_sb_speaking(void)
 {

@@ -381,6 +381,7 @@ OutputModule *load_output_module(const char *mod_name, const char *mod_prog,
 	}
 
 	module->audio = NULL;
+	module->audio_retry_at = 0;
 	module->name = (char *)g_strdup(mod_name);
 	module->progdir = g_strdup(mod_prog_dir);
 	module->configdir = g_strdup(mod_cfg_dir);

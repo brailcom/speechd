@@ -30,6 +30,7 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <stdint.h>
+#include <time.h>
 #ifdef USE_LIBSYSTEMD
 #include <systemd/sd-daemon.h>
 #endif
@@ -1144,6 +1145,30 @@ static void check_client_count(void)
 	}
 }
 
+/* Last-resort guarantee that the process terminates even if a worker
+ * thread is stuck in a blocking audio operation and cannot be joined.
+ * The speak thread deliberately disables cancellation while it holds the
+ * output lock (see issue #471), so pthread_cancel()+pthread_join() can
+ * wait forever. */
+static void *shutdown_watchdog(void *data)
+{
+	static const char msg[] =
+	    "speechd: shutdown is taking too long, exiting forcibly\n";
+	struct timespec ts = { 10, 0 };
+
+	(void)data;
+	while (nanosleep(&ts, &ts) == -1 && errno == EINTR)
+		;
+	/* Do not use MSG here: the speak thread has asynchronous
+	 * cancellation enabled and may have died while holding the logging
+	 * mutex.  A raw write followed by _exit cannot deadlock. */
+	ssize_t ignored = write(STDERR_FILENO, msg, sizeof(msg) - 1);
+
+	(void)ignored;
+	_exit(EXIT_FAILURE);
+	return NULL;
+}
+
 /* --- MAIN --- */
 
 int main(int argc, char *argv[])
@@ -1462,6 +1487,18 @@ int main(int argc, char *argv[])
 		/* Make a last client check before existing on timeout.
 		 * Systemd will restart us if a client connected in between. */
 	} while (quit_reason == QUIT_TIMEOUT && client_count > 0);
+
+	{
+		pthread_t watchdog_thread;
+
+		if (pthread_create(&watchdog_thread, NULL, shutdown_watchdog,
+				   NULL) == 0) {
+			pthread_detach(watchdog_thread);
+			MSG(4, "Armed shutdown watchdog");
+		} else {
+			MSG(1, "Unable to create shutdown watchdog");
+		}
+	}
 
 	MSG(1, "Terminating...");
 

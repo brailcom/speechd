@@ -54,6 +54,7 @@ static pthread_mutex_t speak_queue_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 static speak_queue_state_t speak_queue_state = IDLE;
 static gboolean speak_queue_configured = FALSE; /* Whether we have configured audio */
+static gint speak_queue_audio_failed = FALSE; /* Stop retrying this message */
 
 static pthread_t speak_queue_play_thread;
 static pthread_t speak_queue_stop_or_pause_thread;
@@ -145,6 +146,7 @@ void module_speak_queue_reset(void)
 	speak_queue_pause_state = SPEAK_QUEUE_PAUSE_OFF;
 	speak_queue_stop_requested = FALSE;
 	speak_queue_flush_requested = FALSE;
+	g_atomic_int_set(&speak_queue_audio_failed, FALSE);
 }
 
 int module_speak_queue_before_synth(void)
@@ -337,14 +339,27 @@ static gboolean speak_queue_send_track_to_audio(AudioTrack *track, AudioFormat f
 	int ret = 0;
 	DBG(DBG_MODNAME " Sending %i samples to audio.",
 	    track->num_samples);
+	if (g_atomic_int_get(&speak_queue_audio_failed)) {
+		/* Do not retry a broken audio backend for every chunk of
+		 * the message; the next message gets a fresh attempt. */
+		return FALSE;
+	}
+	if (track->samples == NULL || track->num_samples <= 0)
+		return TRUE;
 	if (!speak_queue_configured)
 	{
-		spd_audio_begin(module_audio_id, *track, format);
+		ret = spd_audio_begin(module_audio_id, *track, format);
+		if (ret < 0) {
+			DBG("ERROR: Can't begin audio playback.");
+			g_atomic_int_set(&speak_queue_audio_failed, TRUE);
+			return FALSE;
+		}
 		speak_queue_configured = TRUE;
 	}
 	ret = spd_audio_feed_sync_overlap(module_audio_id, *track, format);
 	if (ret < 0) {
 		DBG("ERROR: Can't play track for unknown reason.");
+		g_atomic_int_set(&speak_queue_audio_failed, TRUE);
 		return FALSE;
 	}
 	DBG(DBG_MODNAME " Sent to audio.");
@@ -360,6 +375,9 @@ static gboolean speak_queue_send_file_to_audio(const char *filename)
 	sf_count_t readcount;
 	SNDFILE *sf;
 	SF_INFO sfinfo;
+
+	if (g_atomic_int_get(&speak_queue_audio_failed))
+		return FALSE;
 
 	DBG("Playing |%s|", filename);
 	memset(&sfinfo, 0, sizeof(sfinfo));
@@ -464,6 +482,10 @@ static void *speak_queue_play(void *nothing)
 				break;
 			case SPEAK_QUEUE_QET_INDEX_MARK:
 				markId = playback_queue_entry->data.markId;
+				if (g_atomic_int_get(&speak_queue_audio_failed)) {
+					DBG(DBG_MODNAME " discarding unspoken index mark.");
+					break;
+				}
 				DBG(DBG_MODNAME " reporting index mark |%s|.",
 				    markId);
 				module_report_index_mark(markId);
@@ -486,7 +508,9 @@ static void *speak_queue_play(void *nothing)
 				break;
 			case SPEAK_QUEUE_QET_SOUND_ICON:
 				if (speak_queue_configured) {
-					spd_audio_end(module_audio_id);
+					if (spd_audio_end(module_audio_id) < 0)
+						g_atomic_int_set(&speak_queue_audio_failed,
+								 TRUE);
 					speak_queue_configured = FALSE;
 				}
 				speak_queue_send_file_to_audio(playback_queue_entry->
@@ -505,9 +529,12 @@ static void *speak_queue_play(void *nothing)
 						module_report_event_begin();
 					break;
 				}
-			case SPEAK_QUEUE_QET_END:
+			case SPEAK_QUEUE_QET_END:{
+				gboolean report_end = FALSE;
 				if (speak_queue_configured) {
-					spd_audio_end(module_audio_id);
+					if (spd_audio_end(module_audio_id) < 0)
+						g_atomic_int_set(&speak_queue_audio_failed,
+								 TRUE);
 					speak_queue_configured = FALSE;
 				}
 				pthread_mutex_lock(&speak_queue_mutex);
@@ -518,13 +545,21 @@ static void *speak_queue_play(void *nothing)
 						speak_queue_state = IDLE;
 						speak_queue_pause_state =
 						    SPEAK_QUEUE_PAUSE_OFF;
+						report_end = TRUE;
 					}
 					finished = TRUE;
 				}
 				pthread_mutex_unlock(&speak_queue_mutex);
-				if (finished)
-					module_report_event_end();
+				if (report_end) {
+					if (g_atomic_int_get(&speak_queue_audio_failed)) {
+						DBG(DBG_MODNAME " audio failed, reporting cancel.");
+						module_report_event_stop();
+					} else {
+						module_report_event_end();
+					}
+				}
 				break;
+			}
 			case SPEAK_QUEUE_QET_PAUSE:
 				DBG(DBG_MODNAME " ??? got pause in speak queue ???");
 				break;
@@ -653,10 +688,10 @@ static void *speak_queue_stop_or_pause(void *nothing)
 				DBG("spd_audio_stop returned non-zero value.");
 			pthread_mutex_lock(&speak_queue_mutex);
 			while (!speak_queue_play_sleeping) {
+				pthread_mutex_unlock(&speak_queue_mutex);
 				ret = spd_audio_stop(module_audio_id);
 				if (ret != 0)
 					DBG("spd_audio_stop returned non-zero value.");
-				pthread_mutex_unlock(&speak_queue_mutex);
 				g_usleep(5000);
 				pthread_mutex_lock(&speak_queue_mutex);
 			}
