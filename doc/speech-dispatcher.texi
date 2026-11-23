@@ -477,6 +477,19 @@ configuration file is not found, Speech Dispatcher will simply use the
 system wide configuration file (e.g. in
 @file{/etc/speech-dispatcher/speechd.conf}).
 
+After this configuration file, Speech Dispatcher reads the files
+ending in @file{.conf} in the @file{speechd.conf.d} directory of the
+system wide configuration (e.g.
+@file{/etc/speech-dispatcher/speechd.conf.d/}), even when the user has
+a configuration file of their own, then those of
+@file{~/.config/speech-dispatcher/speechd.conf.d/}. Within each
+directory, the files are read in the byte order of their names. A
+package or the administrator can thus add settings without editing
+@file{speechd.conf}. For a setting given more than once, the last one
+read wins; settings that add to a list, such as @code{AddModule}, add
+up instead. When the configuration directory is given with
+@option{-C}, only its own @file{speechd.conf.d} directory is read.
+
 @example
 # speech-dispatcher
 # spd-say test

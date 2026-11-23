@@ -662,6 +662,13 @@ AC_DEFINE([SPD_BUILD_SOCKET_PATH(runtime_dir)],
 	[Default server socket in runtime_dir, as a string to free with g_free])
 AC_SUBST([spd_socket_path])
 
+# Directory of configuration fragments, next to speechd.conf: read by
+# the server after it, and created by make install
+spd_conf_fragments_subdir=speechd.conf.d
+AC_DEFINE_UNQUOTED([SPD_CONF_FRAGMENTS_SUBDIR], ["$spd_conf_fragments_subdir"],
+	[Directory of configuration fragments, next to speechd.conf])
+AC_SUBST([spd_conf_fragments_subdir])
+
 # Paths for configuration files:
 spdconfdir='${sysconfdir}/speech-dispatcher'
 AC_SUBST([spdconfdir])

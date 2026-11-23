@@ -25,4 +25,16 @@ dist_spdconforig_DATA= speechd.conf
 
 dist_pwpuconf_DATA= speechd-quality.conf
 
+# The directory of configuration fragments, DESTDIR included
+fragments_destdir = $(DESTDIR)$(spdconfdir)/$(spd_conf_fragments_subdir)
+
+# Created empty, so that users find where to add settings without
+# editing speechd.conf
+install-data-hook:
+	$(MKDIR_P) $(fragments_destdir)
+
+# Removed only if still empty
+uninstall-hook:
+	-rmdir $(fragments_destdir)
+
 -include $(top_srcdir)/git.mk
