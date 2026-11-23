@@ -72,7 +72,7 @@ void free_GeneratePayload(gpointer data){
 
 // changes the voice, the inputs are the same as module_set
 // and this should be called from module_set
-int model_change_voice(const char *var, const char *val){
+void model_change_voice(const char *var, const char *val){
     g_mutex_lock(&model_mutex);
 
     GString *voice_name = g_string_new("");
@@ -132,7 +132,7 @@ int model_change_voice(const char *var, const char *val){
 
 // changes the speed, the inputs are the same as module_set
 // and this should be called from module_set
-int model_change_speed(const char *var, const char *val){
+void model_change_speed(const char *var, const char *val){
     g_mutex_lock(&model_mutex);
 
     // parse the string into a int
@@ -271,7 +271,7 @@ GQueue* parse_ssml_to_gqueue(const char *data, size_t bytes){
 
             SSMLPayload *pl = g_new(SSMLPayload,1);
 
-            pl->mark = g_string_new(mark_name);
+            pl->mark = g_string_new((const char *)mark_name);
             pl->text = g_string_new((const char *)xmlBufferContent(buffer));
 
             g_queue_push_tail(output,pl);
@@ -483,7 +483,6 @@ int model_stop_generation(){
 
 int init_model_thread_pool(){
     DEBUG_PRINT("init_model_thread_pool();\n");
-    GError *pool_error = NULL;
 
     g_mutex_init(&model_mutex);
     g_mutex_init(&stop_mutex);
@@ -534,7 +533,7 @@ int init_model_thread_pool(){
     return 0;
 }
 
-int cleanup_threads(){
+void cleanup_threads(){
 
     // another thread might be using this data
     // wait tell its finished before cleaning up.

@@ -73,7 +73,6 @@ int module_config(const char *configfilepath)
 
 DOTCONF_CB(cb_voicefiles)
 {
-	int i;
 	if (cmd->arg_count != 5){
 		MSG(2, "Error: Incorrectly formated .conf line for AddVoiceFile\n");
 		MSG(2, "AddVoiceFile should be formated like\n");

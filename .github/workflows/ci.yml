@@ -74,7 +74,7 @@ jobs:
                         libespeak-dev libespeak-ng-dev
                         libttspico-dev
                         libao-dev libasound2-dev libaudio-dev libpulse-dev libpipewire-0.3-dev libxau-dev libsndfile1-dev
-                        libdotconf-dev libglib2.0-dev libltdl-dev systemd
+                        libdotconf-dev libdumbtts-dev libglib2.0-dev libltdl-dev systemd
                         gettext help2man texinfo texlive texlive-plain-generic
                         nlohmann-json3-dev librubberband-dev
                         pulseaudio ${{ matrix.deps }}
@@ -94,17 +94,21 @@ jobs:
       run: ${{ matrix.configenv }}
            CFLAGS="${{ matrix.configflags }}"
            CXXFLAGS="${{ matrix.configflags }}"
-           ./configure --prefix=/tmp/foobar --with-piper=/tmp/piper1 ${{ matrix.config }}
+           ./configure --prefix=/tmp/foobar --with-piper=/tmp/piper1 --with-ibmtts=shim ${{ matrix.config }}
     - name: Store the config
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
       with:
         name: config-${{ matrix.sanitizer }}.log
         path: config.log
+    # Compiler warnings fail the build, test programs included:
+    # ERROR_CFLAGS, set by configure to -Wall and added by the makefiles,
+    # gets -Werror here only, so that configure's own checks are not
+    # affected.
     - name: make
-      run: ${{ matrix.build_env }} make
+      run: ${{ matrix.build_env }} make ERROR_CFLAGS="-Wall -Werror"
     - name: make check
-      run: ${{ matrix.check_env }} make check
+      run: ${{ matrix.check_env }} make check ERROR_CFLAGS="-Wall -Werror"
     - name: make install
       run: ${{ matrix.build_env }} sudo make install
     - name: make testsuite
@@ -142,14 +146,14 @@ jobs:
                         libespeak-dev libespeak-ng-dev
                         libttspico-dev
                         libao-dev libasound2-dev libaudio-dev libpulse-dev libpipewire-0.3-dev libxau-dev libsndfile1-dev
-                        libdotconf-dev libglib2.0-dev libltdl-dev- libsystemd-dev systemd
+                        libdotconf-dev libdumbtts-dev libglib2.0-dev libltdl-dev- libsystemd-dev systemd
                         gettext help2man texinfo texlive texlive-plain-generic
                         pulseaudio
                         libonnxruntime-dev libxml2-dev
     - name: autoconf
       run: ./build.sh
     - name: configure
-      run: ./configure
+      run: ./configure --with-ibmtts=shim
     - name: Store the config
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
@@ -157,9 +161,9 @@ jobs:
         name: config-noltdl.log
         path: config.log
     - name: make
-      run: ${{ matrix.build_env }} make
+      run: ${{ matrix.build_env }} make ERROR_CFLAGS="-Wall -Werror"
     - name: make check
-      run: ${{ matrix.check_env }} make check
+      run: ${{ matrix.check_env }} make check ERROR_CFLAGS="-Wall -Werror"
 
   build-glib-min:
     runs-on: ubuntu-26.04
@@ -175,7 +179,7 @@ jobs:
                         libespeak-dev libespeak-ng-dev
                         libttspico-dev
                         libao-dev libasound2-dev libaudio-dev libpulse-dev libpipewire-0.3-dev libxau-dev libsndfile1-dev
-                        libdotconf-dev libglib2.0-dev libltdl-dev libsystemd-dev systemd
+                        libdotconf-dev libdumbtts-dev libglib2.0-dev libltdl-dev libsystemd-dev systemd
                         gettext help2man texinfo texlive texlive-plain-generic
                         pulseaudio
     - name: autoconf
@@ -189,7 +193,7 @@ jobs:
         glib_min=$(sed -n 's/^PKG_CHECK_MODULES(\[GLIB\], \[glib-2.0 >= \([0-9]*\)\.\([0-9]*\)\])$/GLIB_VERSION_\1_\2/p' configure.ac)
         test -n "$glib_min"
         flags="-g -O2 -DGLIB_VERSION_MIN_REQUIRED=$glib_min -DGLIB_VERSION_MAX_ALLOWED=$glib_min -Werror=deprecated-declarations"
-        ./configure --with-kitten=no CFLAGS="$flags" CXXFLAGS="$flags"
+        ./configure --with-kitten=no --with-ibmtts=shim CFLAGS="$flags" CXXFLAGS="$flags"
     - name: Store the config
       if: ${{ always() }}
       uses: actions/upload-artifact@v4
@@ -197,4 +201,4 @@ jobs:
         name: config-glib-min.log
         path: config.log
     - name: make
-      run: make
+      run: make ERROR_CFLAGS="-Wall -Werror"

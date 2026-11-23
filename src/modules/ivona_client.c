@@ -23,6 +23,7 @@
 #include <config.h>
 #endif
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -79,6 +80,24 @@ int ivona_init_sock(const char *host, int port)
 #define BASE_WAVE_SIZE 65536
 #define STEP_WAVE_SIZE 32768
 
+/* Writes the len bytes of buf to fd, resuming after partial writes and
+   interruptions by a signal. Returns 0, or -1 on error. */
+static int ivona_write_all(int fd, const char *buf, size_t len)
+{
+	while (len > 0) {
+		ssize_t w = write(fd, buf, len);
+
+		if (w < 0) {
+			if (errno == EINTR)
+				continue;
+			return -1;
+		}
+		buf += w;
+		len -= w;
+	}
+	return 0;
+}
+
 int ivona_send_string(const char *to_say)
 {
 	int fd = ivona_new_sock();
@@ -86,10 +105,14 @@ int ivona_send_string(const char *to_say)
 	if (fd < 0)
 		return -1;
 
-	write(fd, to_say, strlen(to_say));
-	write(fd, "\n", 1);
+	if (ivona_write_all(fd, to_say, strlen(to_say)) < 0
+	    || ivona_write_all(fd, "\n", 1) < 0) {
+		DBG("Ivona: can't send the text to the server: %s",
+		    strerror(errno));
+		close(fd);
+		return -1;
+	}
 	return fd;
-
 }
 
 char *ivona_get_wave_fd(int fd, int *nsamples, int *offset)

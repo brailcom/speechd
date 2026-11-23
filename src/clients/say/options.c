@@ -19,9 +19,6 @@
  * $Id: options.c,v 1.9 2006-07-11 16:12:26 hanke Exp $
  */
 
-/* NOTE: Be careful not to include options.h, we would
-   get repetitive initializations warnings */
-
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -30,6 +27,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
+#include <getopt.h>
 #include "options.h"
 #include <i18n.h>
 
@@ -186,6 +184,37 @@ void options_print_version()
 		 "any later version. Please see COPYING for more details.\n\n"), 2002, 2012);
 }
 
+static struct option long_options[] = {
+	{"rate", 1, 0, 'r'},
+	{"pitch", 1, 0, 'p'},
+	{"pitch-range", 1, 0, 'R'},
+	{"volume", 1, 0, 'i'},
+	{"output-module", 1, 0, 'o'},
+	{"list-output-modules", no_argument, 0, 'O'},
+	{"sound-icon", required_argument, 0, 'I'},
+	{"language", 1, 0, 'l'},
+	{"voice-type", 1, 0, 't'},
+	{"list-synthesis-voices", no_argument, 0, 'L'},
+	{"synthesis-voice", required_argument, 0, 'y'},
+	{"character", 0, 0, 'c'},
+	{"key", 0, 0, 'k'},
+	{"punctuation-mode", 1, 0, 'm'},
+	{"spelling", 0, 0, 's'},
+	{"ssml", 0, 0, 'x'},
+	{"pipe-mode", 0, 0, 'e'},
+	{"priority", 1, 0, 'P'},
+	{"application-name", 1, 0, 'N'},
+	{"connection-name", 1, 0, 'n'},
+	{"wait", 0, 0, 'w'},
+	{"stop", 1, 0, 'S'},
+	{"cancel", no_argument, 0, 'C'},
+	{"version", 0, 0, 'v'},
+	{"help", 0, 0, 'h'},
+	{0, 0, 0, 0}
+};
+
+static char *short_options = "r:p:R:i:l:o:OI:t:Ly:ckm:sxeP:N:n:wSCvh";
+
 #define OPT_SET_INT(param) \
 	val = strtol(optarg, &tail_ptr, 10); \
 	if(tail_ptr != optarg){ \
@@ -207,7 +236,7 @@ void options_print_version()
 		exit(1); \
 	}
 
-int options_parse(int argc, char *argv[])
+void options_parse(int argc, char *argv[])
 {
 	char *tail_ptr;
 	int c_opt;
@@ -308,7 +337,6 @@ int options_parse(int argc, char *argv[])
 			exit(1);
 		}
 	}
-	return 0;
 }
 
 #undef SPD_OPTION_SET_INT
