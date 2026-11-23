@@ -752,6 +752,12 @@ static gint modules_compare (gconstpointer a, gconstpointer b)
 	return strcmp(name_a, name_b);
 }
 
+/* Compares two elements of a GPtrArray of strings, in byte order */
+static gint compare_strings(gconstpointer a, gconstpointer b)
+{
+	return strcmp(*(const gchar * const *)a, *(const gchar * const *)b);
+}
+
 /* Reads the configuration file path with the given options, the
    includes being relative to the configuration directory. Returns FALSE,
    after logging why, if the file cannot be opened. */
@@ -781,6 +787,47 @@ static gboolean speechd_read_config_file(const char *path,
 	return TRUE;
 }
 
+/* Reads the configuration fragments, the files *.conf of the
+   speechd.conf.d subdirectory of conf_dir, in the byte order of their
+   names, so that the last one read wins for a setting given twice.
+   A missing directory is not an error. */
+static void speechd_load_configuration_fragments(const char *conf_dir,
+						 configoption_t *options)
+{
+	gchar *dirname;
+	GDir *dir;
+	const gchar *name;
+	GPtrArray *names;
+	guint i;
+
+	dirname = g_build_filename(conf_dir, SPD_CONF_FRAGMENTS_SUBDIR, NULL);
+	dir = g_dir_open(dirname, 0, NULL);
+	if (dir == NULL) {
+		MSG(5, "No configuration fragments in %s", dirname);
+		g_free(dirname);
+		return;
+	}
+
+	names = g_ptr_array_new_with_free_func(g_free);
+	while ((name = g_dir_read_name(dir)) != NULL)
+		if (g_str_has_suffix(name, ".conf"))
+			g_ptr_array_add(names, g_strdup(name));
+	g_dir_close(dir);
+	g_ptr_array_sort(names, compare_strings);
+
+	for (i = 0; i < names->len; i++) {
+		gchar *path;
+
+		path = g_build_filename(dirname, g_ptr_array_index(names, i),
+					NULL);
+		speechd_read_config_file(path, options);
+		g_free(path);
+	}
+
+	g_ptr_array_unref(names);
+	g_free(dirname);
+}
+
 static void speechd_load_configuration(void)
 {
 	GList *detected_modules = NULL;
@@ -806,6 +853,16 @@ static void speechd_load_configuration(void)
 					NULL, NULL, 0);
 
 	if (speechd_read_config_file(SpeechdOptions.conf_file, spd_options)) {
+		/* Then the fragments: the system ones, which apply even to a
+		   user who has a configuration file of their own, then the
+		   user's (user_conf_dir is not set when the configuration
+		   directory is given on the command line) */
+		speechd_load_configuration_fragments(SpeechdOptions.conf_dir,
+						     spd_options);
+		if (SpeechdOptions.user_conf_dir)
+			speechd_load_configuration_fragments
+			    (SpeechdOptions.user_conf_dir, spd_options);
+
 		/* We need to load modules here, since this is called both by speechd_init
 		 * and to handle SIGHUP. */
 		if (module_number_of_requested_modules() < 1) {
