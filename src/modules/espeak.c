@@ -97,6 +97,8 @@ struct espeak_variant {
 	char *identifier;
 };
 static struct espeak_variant *espeak_variants_array = NULL;
+/* espeak gender of each mbrola voice, in espeak_voice_list order */
+static int *espeak_mbrola_genders = NULL;
 #endif
 
 /* When a voice is set, this is the baseline pitch of the voice.
@@ -139,6 +141,9 @@ static void espeak_set_language(char *lang);
 static void espeak_set_voice(SPDVoiceType voice);
 static void espeak_set_language_and_voice(char *lang, SPDVoiceType voice);
 static void espeak_set_synthesis_voice(char *);
+#ifdef ESPEAK_NG_INCLUDE
+static char *espeak_find_mbrola_voice(const char *lang, SPDVoiceType voice_type);
+#endif
 
 /* > */
 /* < Module configuration options*/
@@ -311,7 +316,12 @@ void module_speak_sync(const gchar * data, size_t bytes, SPDMessageType msgtype)
 		 * https://github.com/espeak-ng/espeak-ng/issues/1011 */
 		espeak_set_language(msg_settings.voice.language);
 		espeak_set_voice(msg_settings.voice_type);
-		espeak_set_synthesis_voice(msg_settings.voice.name);
+		if (msg_settings.voice.name)
+			espeak_set_synthesis_voice(msg_settings.voice.name);
+		else
+			/* espeak-ng does not pick mbrola voices by itself */
+			espeak_set_synthesis_voice(espeak_find_mbrola_voice(
+				msg_settings.voice.language, msg_settings.voice_type));
 	}
 	else
 #endif
@@ -738,6 +748,68 @@ static void espeak_set_synthesis_voice(char *synthesis_voice)
 	}
 }
 
+#ifdef ESPEAK_NG_INCLUDE
+/* Returns the name of the mbrola voice which best matches the language and
+ * voice type, preferring an exact language match over the voice type, or NULL
+ * if no mbrola voice speaks the language. */
+static char *espeak_find_mbrola_voice(const char *lang, SPDVoiceType voice_type)
+{
+	char *best = NULL;
+	int best_score = -1;
+	int gender = 0;
+	size_t lang_len;
+	int i;
+
+	if (lang == NULL || espeak_voice_list == NULL)
+		return NULL;
+
+	switch (voice_type) {
+	case SPD_MALE1:
+	case SPD_MALE2:
+	case SPD_MALE3:
+	case SPD_CHILD_MALE:
+		gender = 1;
+		break;
+	case SPD_FEMALE1:
+	case SPD_FEMALE2:
+	case SPD_FEMALE3:
+	case SPD_CHILD_FEMALE:
+		gender = 2;
+		break;
+	default:
+		break;
+	}
+
+	lang_len = strcspn(lang, "-");
+
+	for (i = 0; espeak_voice_list[i] != NULL; i++) {
+		const char *voice_lang = espeak_voice_list[i]->language;
+		int score;
+
+		if (g_ascii_strcasecmp(voice_lang, lang) == 0)
+			score = 2;
+		else if (strcspn(voice_lang, "-") == lang_len
+			 && g_ascii_strncasecmp(voice_lang, lang, lang_len) == 0)
+			score = 0;
+		else
+			continue;
+
+		if (gender && espeak_mbrola_genders[i] == gender)
+			score++;
+
+		if (score > best_score) {
+			best = espeak_voice_list[i]->name;
+			best_score = score;
+		}
+	}
+
+	DBG(DBG_MODNAME " Picked mbrola voice %s for %s %d",
+	    best ? best : "(none)", lang, voice_type);
+
+	return best;
+}
+#endif
+
 /* Callbacks */
 
 static gboolean espeak_send_audio_upto(short *wav, int *sent, int upto)
@@ -1063,10 +1135,18 @@ static SPDVoice **espeak_list_synthesis_voices()
 		voice_list_iter = voice_list_iter->next;
 	}
 
+#ifdef ESPEAK_NG_INCLUDE
+	if (EspeakMbrola)
+		espeak_mbrola_genders = g_new0(int, totalvoices);
+#endif
+
 	for (j = 0; j < totnummbrola; j++) {
 		if (!espeak_mbrola[j])
 			continue;
 
+#ifdef ESPEAK_NG_INCLUDE
+		espeak_mbrola_genders[i] = espeak_mbrola[j]->gender;
+#endif
 		voice = g_new0(SPDVoice, 1);
 		voice->name = g_strdup_printf("%s", espeak_mbrola[j]->name);
 		voice->language = g_strdup_printf("%s", espeak_mbrola[j]->languages + 1);
@@ -1096,6 +1176,8 @@ static void espeak_free_voice_list()
 {
 #ifdef ESPEAK_NG_INCLUDE
 	free(espeak_variants_array);
+	g_free(espeak_mbrola_genders);
+	espeak_mbrola_genders = NULL;
 #endif
 	if (espeak_voice_list != NULL) {
 		int i;
