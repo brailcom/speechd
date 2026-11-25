@@ -106,7 +106,80 @@ struct spd_pa_simple {
 
 	pthread_mutex_t drain_lock;
 	pthread_cond_t drain_cond;
+
+	/* Stopping. Flushing the stream cuts the audio off mid-wave, which
+	   clicks, so instead the part not played yet is overwritten with a
+	   fade-out and silence. As it cannot be read back from the server, a
+	   copy of what was written last is kept here, in the order the server
+	   queues it. */
+	uint8_t *history;
+	size_t history_size;
+	size_t history_pos;	/* where the next byte goes */
+	size_t history_fill;
+	size_t frame_size;
+	int can_fade;		/* 16 bit samples in native byte order */
+	int unfaded;		/* audio was written since the last stop */
+
+	/* A drain has finished, start the next write at the read index, see
+	   spd_pa_simple_server_drain() */
+	int seek_on_read;
 };
+
+/* How long the fade-out on a stop takes */
+#define FADE_OUT_MS 8
+/* The most audio left as it is before the fade-out, see
+   spd_pa_simple_fade_out() */
+#define FADE_OUT_MAX_DELAY_MS 50
+
+static void history_append(spd_pa_simple *p, const uint8_t *data, size_t len)
+{
+	if (len >= p->history_size) {
+		data += len - p->history_size;
+		len = p->history_size;
+	}
+	while (len > 0) {
+		size_t n = p->history_size - p->history_pos;
+		if (n > len)
+			n = len;
+		memcpy(p->history + p->history_pos, data, n);
+		p->history_pos = (p->history_pos + n) % p->history_size;
+		p->history_fill = MIN(p->history_fill + n, p->history_size);
+		data += n;
+		len -= n;
+	}
+}
+
+/* Copies n bytes, starting back bytes before the end of the history. */
+static void history_get(spd_pa_simple *p, size_t back, uint8_t *out, size_t n)
+{
+	size_t pos =
+	    (p->history_pos + p->history_size - back) % p->history_size;
+	while (n > 0) {
+		size_t c = p->history_size - pos;
+		if (c > n)
+			c = n;
+		memcpy(out, p->history + pos, c);
+		pos = (pos + c) % p->history_size;
+		out += c;
+		n -= c;
+	}
+}
+
+/* Forgets the last n bytes of the history. */
+static void history_rewind(spd_pa_simple *p, size_t n)
+{
+	p->history_pos =
+	    (p->history_pos + p->history_size - n) % p->history_size;
+	p->history_fill -= n;
+}
+
+/* The gain of the frame at position of count frames of a fade-out, going
+   smoothly from just below 1 to just above 0. */
+static float fade_out_gain(size_t position, size_t count)
+{
+	float t = (float)(position + 1) / (float)(count + 1);
+	return 1.0f - t * t * (3.0f - 2.0f * t);
+}
 
 #define CHECK_SUCCESS_GOTO(p, rerror, expression, label)			\
 	do {									\
@@ -271,6 +344,11 @@ static spd_pa_simple* spd_pa_simple_new(
 
 	p->playing = 0;
 	p->bytes_per_s = ss->rate * ss->channels * (ss->format == PA_SAMPLE_U8 ? 1 : 2);
+	p->frame_size = pa_frame_size(ss);
+	p->can_fade = ss->format == PA_SAMPLE_S16NE;
+	/* One second, far more than the server ever queues */
+	p->history_size = p->bytes_per_s - p->bytes_per_s % p->frame_size;
+	p->history = pa_xmalloc(p->history_size);
 	pthread_mutex_init(&p->drain_lock, NULL);
 	pthread_cond_init(&p->drain_cond, NULL);
 
@@ -289,6 +367,8 @@ fail:
 static void spd_pa_simple_free(spd_pa_simple *s) {
 	if (s->mainloop)
 		pa_threaded_mainloop_stop(s->mainloop);
+
+	pa_xfree(s->history);
 
 	if (s->stream)
 		pa_stream_unref(s->stream);
@@ -311,12 +391,26 @@ static void success_cb(pa_stream *s, int success, void *userdata) {
 	pa_threaded_mainloop_signal(p->mainloop, 0);
 }
 
+static int spd_pa_simple_fade_out(spd_pa_simple *p);
+
 /* Assumes p is locked */
 static int spd_pa_simple_do_flush(spd_pa_simple *p, int *rerror) {
 	pa_operation *o = NULL;
 
 	p->playing = 0;
 	CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
+
+	/* A stop gets repeated until playback has ended, see
+	   speak_queue_stop_or_pause(), so there is often nothing new to stop */
+	if (!p->unfaded)
+		return 0;
+	/* Cleared before stopping, not after: waiting for the server below
+	   unlocks the mainloop, and another thread stopping meanwhile must not
+	   stop the same audio a second time */
+	p->unfaded = 0;
+
+	if (p->can_fade && spd_pa_simple_fade_out(p) == 0)
+		return 0;
 
 	o = pa_stream_flush(p->stream, success_cb, p);
 	CHECK_SUCCESS_GOTO(p, rerror, o, unlock_and_fail);
@@ -340,6 +434,92 @@ unlock_and_fail:
 	}
 
 	return -1;
+}
+
+/* Stops what is queued on the server without a click: overwrites the part not
+   played yet, from the read index the server reports, with a fade-out and then
+   silence. By the time the write reaches the server, it may have read on by a
+   cycle, and skipping what it has passed, it would skip the fade-out too. So
+   the first cycle, the minimum request, is left as it is, and the fade-out
+   comes after it.
+
+   Returns 0 when done, a negative value when the stream has to be flushed
+   instead. Assumes p is locked. */
+static int spd_pa_simple_fade_out(spd_pa_simple *p)
+{
+	pa_operation *o;
+	const pa_timing_info *info;
+	const pa_buffer_attr *attr;
+	int64_t queued;
+	size_t keep, fade, frames, channels, i, c;
+	uint8_t *buf;
+	int r;
+
+	o = pa_stream_update_timing_info(p->stream, success_cb, p);
+	if (!o)
+		return -1;
+	p->operation_success = 0;
+	while (pa_operation_get_state(o) == PA_OPERATION_RUNNING) {
+		pa_threaded_mainloop_wait(p->mainloop);
+		if (!p->stream
+		    || !PA_STREAM_IS_GOOD(pa_stream_get_state(p->stream))) {
+			pa_operation_cancel(o);
+			pa_operation_unref(o);
+			return -1;
+		}
+	}
+	pa_operation_unref(o);
+	if (!p->operation_success)
+		return -1;
+
+	info = pa_stream_get_timing_info(p->stream);
+	if (!info || info->write_index_corrupt || info->read_index_corrupt)
+		return -1;
+
+	queued = info->write_index - info->read_index;
+	queued -= queued % (int64_t) p->frame_size;
+	if (queued <= 0)
+		return 0;	/* everything has been played */
+	if ((size_t)queued > p->history_fill)
+		return -1;
+
+	fade = (size_t)p->bytes_per_s * FADE_OUT_MS / 1000;
+	fade -= fade % p->frame_size;
+	fade = MIN(fade, (size_t)queued);
+
+	keep = 0;
+	attr = pa_stream_get_buffer_attr(p->stream);
+	if (attr && attr->minreq != (uint32_t)-1)
+		keep =
+		    MIN(attr->minreq,
+			(size_t)p->bytes_per_s * FADE_OUT_MAX_DELAY_MS / 1000);
+	keep -= keep % p->frame_size;
+	keep = MIN(keep, (size_t)queued - fade);
+
+	buf = pa_xmalloc0(queued);
+	history_get(p, queued, buf, keep + fade);
+	frames = fade / p->frame_size;
+	channels = p->frame_size / sizeof(int16_t);
+	for (i = 0; i < frames; i++) {
+		int16_t *frame = (int16_t *) (buf + keep + i * p->frame_size);
+		float gain = fade_out_gain(i, frames);
+		for (c = 0; c < channels; c++)
+			frame[c] = (int16_t) (frame[c] * gain);
+	}
+
+	r = pa_stream_write(p->stream, buf, queued, NULL, info->read_index,
+			    PA_SEEK_ABSOLUTE);
+	if (r >= 0) {
+		/* The history mirrors the server's queue, so this is now its
+		   end */
+		history_rewind(p, queued);
+		history_append(p, buf, queued);
+		MSG(4,
+		    "Stopped with %lld bytes queued, faded out %zu after %zu\n",
+		    (long long)queued, fade, keep);
+	}
+	pa_xfree(buf);
+	return r < 0 ? -1 : 0;
 }
 
 static int spd_pa_simple_write(spd_pa_simple *p, const void*data, size_t length, int *rerror) {
@@ -366,8 +546,16 @@ static int spd_pa_simple_write(spd_pa_simple *p, const void*data, size_t length,
 		if (l > length)
 			l = length;
 
-		r = pa_stream_write(p->stream, data, l, NULL, 0LL, PA_SEEK_RELATIVE);
+		if (p->seek_on_read) {
+			p->seek_on_read = 0;
+			r = pa_stream_write(p->stream, data, l, NULL, 0LL,
+					    PA_SEEK_RELATIVE_ON_READ);
+		} else
+			r = pa_stream_write(p->stream, data, l, NULL, 0LL,
+					    PA_SEEK_RELATIVE);
 		CHECK_SUCCESS_GOTO(p, rerror, r >= 0, unlock_and_fail);
+		history_append(p, data, l);
+		p->unfaded = 1;
 
 		data = (const uint8_t*) data + l;
 		length -= l;
@@ -478,6 +666,74 @@ unlock_and_fail:
 
 	pa_threaded_mainloop_unlock(p->mainloop);
 	return -1;
+}
+
+/* Waits until everything written has been played, for the end of an utterance.
+
+   Waiting for the latency to reach 0, as spd_pa_simple_drain() does, may never
+   end: a server may keep back data shorter than one of its cycles until more
+   comes, pipewire-pulse does, so the end of a short sound like a single letter
+   either waits for the next sound, or never plays. A drain request tells the
+   server that nothing more is coming, so it plays everything out.
+
+   After a drain, pipewire-pulse may have moved its read index past the end of
+   the data, by up to a cycle. The next write at the write index would then land
+   behind the read index, and the start of the next utterance would be skipped,
+   so the next write is at the read index instead.
+
+   A stop during the drain fades out what is left, and the drain is still waited
+   for: the server stays draining until its queue runs out, and should that
+   happen only after the next utterance has been written, it would skip the
+   start of it. What is left to wait for is short, the server's buffer at
+   most. */
+static int spd_pa_simple_server_drain(spd_pa_simple *p)
+{
+	pa_operation *o;
+	int interrupted = 0;
+
+	pa_threaded_mainloop_lock(p->mainloop);
+
+	if (!p->context || !PA_CONTEXT_IS_GOOD(pa_context_get_state(p->context))
+	    || !p->stream
+	    || !PA_STREAM_IS_GOOD(pa_stream_get_state(p->stream))) {
+		pa_threaded_mainloop_unlock(p->mainloop);
+		return -1;
+	}
+
+	if (!p->playing) {
+		/* We got interrupted, flush.  */
+		spd_pa_simple_do_flush(p, NULL);
+		pa_threaded_mainloop_unlock(p->mainloop);
+		return 0;
+	}
+
+	o = pa_stream_drain(p->stream, success_cb, p);
+	if (!o) {
+		pa_threaded_mainloop_unlock(p->mainloop);
+		return -1;
+	}
+
+	while (pa_operation_get_state(o) == PA_OPERATION_RUNNING) {
+		if (!p->playing && !interrupted) {
+			interrupted = 1;
+			spd_pa_simple_do_flush(p, NULL);
+		}
+		pa_threaded_mainloop_wait(p->mainloop);
+		if (!p->stream
+		    || !PA_STREAM_IS_GOOD(pa_stream_get_state(p->stream))) {
+			pa_operation_cancel(o);
+			pa_operation_unref(o);
+			pa_threaded_mainloop_unlock(p->mainloop);
+			return -1;
+		}
+	}
+	pa_operation_unref(o);
+	p->seek_on_read = 1;
+	p->unfaded = 0;
+	MSG(4, "Drained\n");
+
+	pa_threaded_mainloop_unlock(p->mainloop);
+	return 0;
 }
 
 static int spd_pa_simple_flush(spd_pa_simple *p) {
@@ -713,7 +969,7 @@ static int pulse_feed_sync(AudioID * id, AudioTrack track)
 	if (ret)
 		return ret;
 
-	return spd_pa_simple_drain(pulse_id->pa_simple, 0, NULL);
+	return spd_pa_simple_server_drain(pulse_id->pa_simple);
 }
 
 static int pulse_feed_sync_overlap(AudioID * id, AudioTrack track)
@@ -734,7 +990,7 @@ static int pulse_end(AudioID * id)
 {
 	spd_pulse_id_t *pulse_id = (spd_pulse_id_t *) id;
 	if (pulse_id->pa_simple != NULL)
-		spd_pa_simple_drain(pulse_id->pa_simple, 0, NULL);
+		spd_pa_simple_server_drain(pulse_id->pa_simple);
 	return 0;
 }
 
