@@ -53,29 +53,29 @@ $	dòlar	all	norep
 ¢	cèntim	all	norep
 ¥	ien	all	norep
 ₹	rúpia	some	norep
-%	percentatge	some
-&	i comercial	some
+%	percentatge	some	norep
+&	i comercial	some	norep
 '	apòstrof	all
 (	parèntesi d'obertura	most	always
 )	parèntesi de tancament	most	always
-*	asterisc	some
-+	més	some
+*	asterisc	some	norep
++	més	some	norep
 ,	coma	all	always
 -	guionet	most
-.	punt	some
-/	barra inclinada	some
+.	punt	some	norep
+/	barra inclinada	some	norep
 :	dos punts	most	norep
 ;	punt i coma	most
-<	menor que	some
->	major que	some
-=	igual	some
+<	menor que	some	norep
+>	major que	some	norep
+=	igual	some	norep
 ?	signe d'interrogació	all
-@	arrova	some
+@	arrova	some	norep
 [	claudàtor d'obertura	most
 ]	claudàtor de tancament	most
 \\	barra invertida	most
 ^	circumflex	most
-_	guió baix	most
+_	guió baix	most	norep
 `	greu	most
 {	obrir clau	most
 }	tancar clau	most
@@ -103,7 +103,7 @@ _	guió baix	most
 ◦	pic blanc	some
 ➔	fletxa dreta	some
 §	secció	all
-°	grau	some
+°	grau	some	norep
 «	cometes baixes d'obertura
 »	cometes baixes de tancament
 µ	mi	some
@@ -113,9 +113,9 @@ _	guió baix	most
 ®	registrada	some
 ™	marca registrada	some
 ©	copyright	some
-±	Més o menys	some
-×	signe de multiplicar	some
-÷	signe de dividir per	some
+±	Més o menys	some	norep
+×	signe de multiplicar	some	norep
+÷	signe de dividir per	some	norep
 ←	fletxa esquerra	some
 ↑	fletxa amunt	some
 →	fletxa dreta	some

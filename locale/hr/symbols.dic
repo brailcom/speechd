@@ -59,20 +59,20 @@ $	dolar	all	norep
 ₹	rupija	some	norep
 ƒ	florin	all	norep
 ¤	opći znak valuta	all	norep
-%	posto	some
-‰	promil	some
-&	i	some
+%	posto	some	norep
+‰	promil	some	norep
+&	i	some	norep
 '	izostavnik	all
 (	otvorena zagrada	most	always
 )	zatvorena zagrada	most	always
-*	zvjezdica	some
+*	zvjezdica	some	norep
 ,	zarez	all	always
 、	ideografski zarez	all	always
 ،	arapski zarez	all	always
 -	crtica	most	always
-.	točka	some
+.	točka	some	norep
 ．	Ideografska točka	some
-/	kosa crta	some
+/	kosa crta	some	norep
 :	dvotočka	most	norep
 ：	ideografska dvotočka	most	norep
 ;	točka sa zarezom	most
@@ -81,12 +81,12 @@ $	dolar	all	norep
 ?	upitnik	all	always
 ؟	arapski upitnik	all
 ？	ideografski upitnik	all
-@	et	some
+@	et	some	norep
 [	otvorena uglata zagrada	most
 ]	zatvorena uglata zagrada	most
 \\	obrnuta kosa crta	most
 ^	krović	most
-_	podvlaka	most
+_	podvlaka	most	norep
 `	gravis	most
 {	otvorena vitičasta zagrada	most
 }	zatvorena vitičasta zagrada	most
@@ -137,7 +137,7 @@ _	podvlaka	most
 ♦	karo	some
 ◆	romb	some
 §	znak za članak	all
-°	stupanj	some
+°	stupanj	some	norep
 «	zatvoreni francuski navodnici	most	always
 »	otvoreni francuski navodnici	most	always
 µ	mikro	some
@@ -192,16 +192,16 @@ _	podvlaka	most
 ⇒	dvostruka strelica desno	none
 
 #Arithmetic operators
-+	plus	some
-−	minus	some
-×	puta	some
++	plus	some	norep
+−	minus	some	norep
+×	puta	some	norep
 ⋅	puta	some
 ⨯	puta	none
 ∕	podijeljeno sa	some
 ⁄	podijeljeno sa	some
-÷	podijeljeno sa	some
+÷	podijeljeno sa	some	norep
 ∓	minus plus	some
-±	plus minus	some
+±	plus minus	some	norep
 
 #Set operations
 ∖	razlika skupova	none
@@ -224,7 +224,7 @@ _	podvlaka	most
 ⊌	skup istovrsnih elemenata	none
 
 #Equality signs
-=	jednako	some
+=	jednako	some	norep
 ≃	asimptotski jednako	none
 ≄	nije asimptotski jednako	none
 ≅	približno jednako	none
@@ -246,8 +246,8 @@ _	podvlaka	most
 ≟	upitno jednako	none
 
 #comparison signs
-<	manje od	some
->	veće od	some
+<	manje od	some	norep
+>	veće od	some	norep
 ≤	manje ili jednako	none
 ≦	manje ili jednako	none
 ≪	puno manje od	none

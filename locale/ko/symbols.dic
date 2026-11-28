@@ -55,31 +55,31 @@ $	달러	some	norep
 ₹	루피	some	norep
 ƒ	florin	all	norep
 ¤	일반 화폐 기호	most
-%	퍼센트	some
-‰	천분율	most
-&	앤퍼센드	all
+%	퍼센트	some	norep
+‰	천분율	most	norep
+&	앤퍼센드	all	norep
 '	어퍼스트로피	most
 (	여는 괄호	some	never
 )	닫는 괄호	some	never
-*	스타	some
-+	플러스	some
-−	마이너스	some
+*	스타	some	norep
++	플러스	some	norep
+−	마이너스	some	norep
 ,	콤마	most	always
 -	대시	some
-.	쩜	most
-/	슬래시	some
+.	쩜	most	norep
+/	슬래시	some	norep
 :	콜론	most	norep
 ;	세미콜론	most
-<	레스 댄	some
->	그레이터 댄	some
-=	이퀄	some
+<	레스 댄	some	norep
+>	그레이터 댄	some	norep
+=	이퀄	some	norep
 ?	물음표	most
-@	골뱅이	some
+@	골뱅이	some	norep
 [	여는 대괄호	all
 ]	닫는 대괄호	all
 \\	백슬래시	most
 ^	캐럿	some
-_	언더바	all
+_	언더바	all	norep
 `	그레이브	all
 {	여는 중괄호	all
 }	닫는 중괄호	all
@@ -132,7 +132,7 @@ _	언더바	all
 ♦	검정 마름모	some
 ◆	검정 마름모	most
 §	절표 기호	all
-°	도 기호	some
+°	도 기호	some	norep
 «	여는 기메 큰따옴표	most	always
 »	닫는 기메 큰따옴표	most	always
 µ	마이크로	some
@@ -173,9 +173,9 @@ _	언더바	all
 ™	트레이드마크	some
 ©	저작권 기호	some
 ℠	서비스 마크	some
-±	플러스마이너스	some
-×	곱하기	some
-÷	나누기	some
+±	플러스마이너스	some	norep
+×	곱하기	some	norep
+÷	나누기	some	norep
 ←	왼쪽 화살표	some
 ↑	위쪽 화살표	some
 →	오른쪽 화살표	some

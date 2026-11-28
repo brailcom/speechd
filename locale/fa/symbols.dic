@@ -42,32 +42,32 @@ negative number	منفی
 !	علامتِ تعجب
 "	quote
 \#	شماره
-$	دلار
-£	پوند
-€	یورو
-%	درصد
-&	And
+$	دلار	some	norep
+£	پوند	some	norep
+€	یورو	some	norep
+%	درصد	some	norep
+&	And	some	norep
 '	tick
 (	پرانتز باز
 )	پرانتز بسته
-*	ستاره
-+	به علاوه
+*	ستاره	some	norep
++	به علاوه	some	norep
 ,	Comma
 -	خطِ تیره
-.	نقطه
-/	اِسلَش
+.	نقطه	some	norep
+/	اِسلَش	some	norep
 :	دونقطه
 ;	semicolon
-<	کوچکتر
->	بزرگتر
-=	مساوی
+<	کوچکتر	some	norep
+>	بزرگتر	some	norep
+=	مساوی	some	norep
 ?	question
-@	At
+@	At	some	norep
 [	کروشه باز
 ]	کروشه بسته
 \\	بک اِسلش
 ^	Caret
-_	زیرخط
+_	زیرخط	some	norep
 `	graav
 {	آکولاد باز
 }	آکولاد بسته
@@ -90,13 +90,13 @@ _	زیرخط
 →	‌فِلِشِ راست‌نما
 ←	‌فِلِشِ چپ‌نما
 §	بخش
-°	درجه
+°	درجه	some	norep
 ¹	۱ بالانویس
 ²	۲ بالانویس
 ³	۳  بالانویس
-±	مثبت‌منفی
-×	ضرب‌در
-÷	تقسیم‌بر
+±	مثبت‌منفی	some	norep
+×	ضرب‌در	some	norep
+÷	تقسیم‌بر	some	norep
 ✓	تیک
 ✔	تیکِ ضخیم
 

@@ -53,29 +53,29 @@ $	dollar	all	norep
 ¢	Sens	all	norep
 ¥	Yen	all	norep
 ₹	Rupee	some	norep
-%	sedane	some
-&	û	some
+%	sedane	some	norep
+&	û	some	norep
 '	apostrof	all
 (	kevaneyê veke	most	always
 )	kevaneyê bigire	most	always
-*	stêrk	some
-+	tevşan	some
+*	stêrk	some	norep
++	tevşan	some	norep
 ,	bêhnok	all	always
 -	xêzika kin	most
-.	xal	some
-/	Parşan	some
+.	xal	some	norep
+/	Parşan	some	norep
 :	Xala cot	most	norep
 ;	Xalbêhnok	most
-<	biçûktir	some
->	mezintir	some
-=	yeksan	some
+<	biçûktir	some	norep
+>	mezintir	some	norep
+=	yeksan	some	norep
 ?	pirsşan	all
-@	et	some
+@	et	some	norep
 [	kevaneya bi goşe veke	most
 ]	kevaneya bi goşe bigire	most
 \\	Dabeşa çep	most
 ^	Nîşana sererastkirinê	most
-_	Xêzika binî	most
+_	Xêzika binî	most	norep
 `	Dunika jor	most
 {	Kevaneya komikê veke	most
 }	Kevaneya komikê bigire	most
@@ -107,7 +107,7 @@ _	Xêzika binî	most
 ♣	kuluba reş	some
 ♦	almasta reş	some
 §	beş	all
-°	rade	some
+°	rade	some	norep
 «	double left pointing angle bracket
 »	double right pointing angle bracket
 µ	miKro	some
@@ -117,9 +117,9 @@ _	Xêzika binî	most
 ®	qeydkirî	some
 ™	Trademark	some
 ©	Mafê jêgirtinê	some
-±	Derşan an Parşan	some
-×	carşan	some
-÷	parşan	some
+±	Derşan an Parşan	some	norep
+×	carşan	some	norep
+÷	parşan	some	norep
 ←	tîrika çepê	some
 ↑	tîrika jor	some
 →	tîrika rastê	some

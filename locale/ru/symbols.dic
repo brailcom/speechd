@@ -65,27 +65,27 @@ $	доллар	all	norep
 ¥	иена	all	norep
 ₹	рупия	some	norep
 ƒ	флорин	all	norep
-₽	рубль	some
+₽	рубль	some	norep
 ₴	гривна	some
 ₣	французский франк	some
 ₰	немецкий пенни	some
 圓	юань	some
 ¤	символ валюты	all	norep
-%	процент	some
-‰	промилле	some
-&	амперсант	some
+%	процент	some	norep
+‰	промилле	some	norep
+&	амперсант	some	norep
 '	апостроф	all
 (	левая круглая	most	always
 )	правая круглая	most	always
-*	звёздочка	some
-+	плюс	some
+*	звёздочка	some	norep
++	плюс	some	norep
 ,	запятая	all	always
 、	идеографическая запятая	all	always
 ،	арабская запятая	all	always
 -	дефис	most	always
-.	точка	some
+.	точка	some	norep
 ．	точка полной ширины	some
-/	косая черта	some
+/	косая черта	some	norep
 :	двоеточие	most	norep
 ：	двоеточие полной ширины	most	norep
 ;	точка с запятой	most
@@ -94,12 +94,12 @@ $	доллар	all	norep
 ?	вопросительный знак	all
 ؟	арабский вопросительный знак	all
 ？	вопросительный знак полной ширины	all
-@	собака	some
+@	собака	some	norep
 [	левая квадратная	most
 ]	правая квадратная	most
 \\	обратная косая черта	most
 ^	крышка	most
-_	подчёркивание	most
+_	подчёркивание	most	norep
 `	обратный апостроф	most
 {	левая фигурная	most
 }	правая фигурная	most
@@ -156,7 +156,7 @@ _	подчёркивание	most
 ♥	закрашенные червы	most
 ◆	чёрный ромб	some
 §	параграф	all
-°	градус	some
+°	градус	some	norep
 «	левая кавычка ёлочка	most	always
 »	правая кавычка ёлочка	most	always
 ‹	левая угловая одиночная кавычка	most
@@ -213,7 +213,7 @@ _	подчёркивание	most
 ©	авторское право	some
 ℠	Знак Обслуживания	some
 �	заменяющий символ	char
-№	номер	some
+№	номер	some	norep
 ́	знак ударения	char	always
 ▾	маленький чёрный треугольник вниз	most
 ←	стрелка влево	some
@@ -238,16 +238,16 @@ _	подчёркивание	most
 ⇄	стрелка вправо над стрелкой влево	none
 
 #Arithmetic operators
-+	плюс	some
-−	минус	some
-×	умножить	some
++	плюс	some	norep
+−	минус	some	norep
+×	умножить	some	norep
 ⋅	оператор точки	some
 ⨯	векторное произведение	none
 ∕	знак деления	some
 ⁄	дробная косая черта	some
-÷	разделить на	some
+÷	разделить на	some	norep
 ∓	знак минус плюс	some
-±	знак плюс Минус	some
+±	знак плюс Минус	some	norep
 ∗	оператор звёздочка	most
 ‾	черта сверху	most
 ◊	ромб	most
@@ -277,7 +277,7 @@ _	подчёркивание	most
 ⊌	мультимножество	none
 
 #Equality signs
-=	равно	some
+=	равно	some	norep
 ≃	асимптотически равно	none
 ≄	не равно асимптотически	none
 ≆	не точно равно	none
@@ -299,8 +299,8 @@ _	подчёркивание	most
 ≟	равно с вопросительным знаком	none
 
 #comparison signs
-<	меньше	some
->	больше	some
+<	меньше	some	norep
+>	больше	some	norep
 ≤	меньше либо равно	none
 ≦	меньше над равно	none
 ≪	много меньше	some

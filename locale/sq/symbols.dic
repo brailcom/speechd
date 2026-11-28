@@ -47,31 +47,31 @@ negative number	minus	none	norep
 "	thonjëz	most
 \#	thurje	some
 $	dollar	all	norep
-£	pound	some
+£	pound	some	norep
 €	euro	all	norep
-%	përqind	some
-&	and	some
+%	përqind	some	norep
+&	and	some	norep
 '	apostrofë	all
 (	hap kllapë	most
 )	mbyll kllapë	most
-*	yll	most
-+	plus	most
+*	yll	most	norep
++	plus	most	norep
 ,	presje	all	always
 -	vizë ndarëse	most
-.	pikë	some
-/	slash	some
+.	pikë	some	norep
+/	slash	some	norep
 :	dy pika	most	norep
 ;	pikëpresje	most
-<	më e vogël	most
->	më e madhe	most
-=	baraz	most
+<	më e vogël	most	norep
+>	më e madhe	most	norep
+=	baraz	most	norep
 ?	pikëpyetje	all
-@	at	some
+@	at	some	norep
 [	hap kllapë katrore	most
 ]	mbyll kllapë katrore	most
 \\	backslash	most
 ^	caret	most
-_	nënvizim	most
+_	nënvizim	most	norep
 `	theks	most
 {	hap kllapë gjarpërore	most
 }	mbyll kllapë gjarpërore	most

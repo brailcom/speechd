@@ -59,32 +59,32 @@ $	dollari	all	norep
 ₹	Rupie	some	norep
 ƒ	fiorini	all	norep
 ¤	segno di valuta	all	norep
-%	percento	some
-‰	per mille	some
-&	and	some
+%	percento	some	norep
+‰	per mille	some	norep
+&	and	some	norep
 '	apostrofo	all
 (	aperta parentesi	most	always
 )	chiusa parentesi	most	always
-*	asterisco	some
+*	asterisco	some	norep
 ,	virgola	all	always
 、	virgola ideografica	all	always
 ،	virgola araba	all	always
 -	trattino	most	always
-.	punto	some
+.	punto	some	norep
 ．	punto pieno	some
-/	barra	some
+/	barra	some	norep
 :	due punti	most	norep
 ：	due punti pieni	most	norep
 ;	punto e virgola	most
 ؛	punto e virgola arabo	most
 ?	punto di domanda	all
 ؟	punto di domanda arabo	all
-@	chiocciola	some
+@	chiocciola	some	norep
 [	aperta quadra	most
 ]	chiusa quadra	most
 \\	controbarra	most
 ^	accento circonflesso	most
-_	sottolineato	most
+_	sottolineato	most	norep
 `	accento grave	most
 {	aperta graffa	most
 }	chiusa graffa	most
@@ -136,7 +136,7 @@ _	sottolineato	most
 ♦	segno di quadri	some
 ◆	Segno di quadri	some
 §	sezione	all
-°	gradi	some
+°	gradi	some	norep
 «	aperte doppie virgolette angolari	most	always
 »	chiuse doppie virgolette angolari	most	always
 µ	micro	some
@@ -191,16 +191,16 @@ _	sottolineato	most
 ⇄	freccia destra su freccia sinistra	none
 
 #Arithmetic operators
-+	più	some
-−	meno	some
-×	per	some
++	più	some	norep
+−	meno	some	norep
+×	per	some	norep
 ⋅	per	some
 ⨯	per	none
 ∕	diviso	some
 ⁄	diviso	some
-÷	diviso	some
+÷	diviso	some	norep
 ∓	meno o più	some
-±	più o meno	some
+±	più o meno	some	norep
 
 #Set operations
 ∖	meno none
@@ -223,7 +223,7 @@ _	sottolineato	most
 ⊌	insieme multiplo	none
 
 #Equality signs
-=	uguale	some
+=	uguale	some	norep
 ≃	asintoticamente uguale a	none
 ≄	non asintoticamente uguale a	none
 ≅	approssimativamente uguale a	none
@@ -245,8 +245,8 @@ _	sottolineato	most
 ≟	è equivalente a? (domanda)	none
 
 #comparison signs
-<	minore di	some
->	maggiore di	some
+<	minore di	some	norep
+>	maggiore di	some	norep
 ≤	minore o uguale a	none
 ≦	minore o uguale a	none
 ≪	molto più piccolo di	none

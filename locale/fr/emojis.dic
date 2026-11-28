@@ -106,7 +106,7 @@ symbols:
 ≮	pas inférieur à	none
 ≠	non égal	none
 ≯	pas supérieur à	none
-−	signe moins	none
+−	signe moins	all	norep
 ⁻	exposant moins	none
 ∓	plus ou moins	none
 ∕	barre oblique de division	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lire	none
 ₥	mill	none
 ₩	won	none
-€	euro	none
+€	euro	all	norep
 ₰	penny allemand	none
 ₱	peso	none
 ₳	austral	none
 ₶	livre tournois	none
 ₷	spesmilo	none
 ₹	roupie indienne	none
-₽	rouble	none
+₽	rouble	all	norep
 ₿	bitcoin	none
 ₨	roupie	none
 👋🏻	signe de la main  peau claire	none

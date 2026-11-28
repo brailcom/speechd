@@ -53,29 +53,29 @@ $	دولار	all	norep
 ₹	روبية	some	norep
 ƒ	فلورين	all	norep
 ¤	الرمز العام للعملات	all	norep
-%	بالمائة	some
-‰	لكل ميل	some
-&	و	some
+%	بالمائة	some	norep
+‰	لكل ميل	some	norep
+&	و	some	norep
 '	apostrophe	all
 (	فَتْحُ قَوْسٍ هلالي	most	always
 )	إغلاقُ قَوْسٍ هلالي	most	always
-*	نجمة	some
+*	نجمة	some	norep
 ,	فاصلة	all	always
 ،	فاصلة	all	always
 -	شَرطة	most	always
-.	نقطة	some
-/	شَرطة مائلة	some
+.	نقطة	some	norep
+/	شَرطة مائلة	some	norep
 :	نقطتان رأسيَّتان	most	norep
 ;	فاصلة منقوطة	most
 ؛	فاصلة منقوطة	most
 ?	استفهام	all
 ؟	استفهام	all
-@	at	some
+@	at	some	norep
 [	فَتْحُ قَوْسٍ مُرَبّعْ	most
 ]	إغلاقُ قَوْسٍ مُرَبّعْ	most
 \	شَرطةٌ مائلة للخلف	most
 ^	أُس	most
-_	خط سُفْلِي	most
+_	خط سُفْلِي	most	norep
 `	نبر الإطالة	most
 {	فَتْحُ قَوْسٍ مُزَخرَف	most
 }	إغلاقُ قَوْسٍ مُزَخرَف	most
@@ -116,7 +116,7 @@ _	خط سُفْلِي	most
 ⇨	سهم مفرَّغ إلى اليمين	some
 ➔	سهم يُشير لليمين	some
 §	قسم
-°	درجات
+°	درجات	some	norep
 «	علامة تنصيص مزدوجة للفتح	none
 »	علامة تنصيص مزدوجة للإغلاق	none
 µ	مايكرو	some
@@ -149,24 +149,24 @@ _	خط سُفْلِي	most
 ⇒	سهم مزدوج لليمين	none
 
 #Arithmetic operators
-+	زائد	some
-−	ناقص	some
-×	ضرب
++	زائد	some	norep
+−	ناقص	some	norep
+×	ضرب	some	norep
 ∕	شَرْطة القسمة المائلة	some
 ⁄	شرطة مائلة في كسر	some
-÷	قسمة
+÷	قسمة	some	norep
 ∓	ناقص أو زائد	some
-±	زائد أو ناقص	some
+±	زائد أو ناقص	some	norep
 
 #Equality signs
-=	يساوي	some
+=	يساوي	some	norep
 ≃	يساوي تقاربيا	none
 ≄	لا يساوي بشكل متقارب	none
 ≅	يساوي تقريبا	none
 ≆	تقريبا ولكن لا يساويه في الحقيقة equal to	none
 ≠	لا يساوي	none
-<	أصغر من	most
->	أكبر من	most
+<	أصغر من	most	norep
+>	أكبر من	most	norep
 
 
 

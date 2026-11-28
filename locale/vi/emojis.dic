@@ -106,7 +106,7 @@ symbols:
 ≮	không nhỏ hơn	none
 ≠	dấu khác	none
 ≯	không lớn hơn	none
-−	dấu trừ	none
+−	dấu trừ	all	norep
 ⁻	dấu trừ trên	none
 ∓	trừ hoặc cộng	none
 ∕	dấu gạch chéo phân chia	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lira	none
 ₥	mill	none
 ₩	won	none
-€	euro	none
+€	euro	all	norep
 ₰	xu Đức	none
 ₱	peso	none
 ₳	austral	none
 ₶	đồng livre	none
 ₷	đồng spesmilo	none
 ₹	rupee Ấn Độ	none
-₽	rúp	none
+₽	rúp	all	norep
 ₿	bitcoin	none
 ₨	rupee	none
 👋🏻	vẫy tay màu da sáng	none

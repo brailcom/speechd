@@ -106,7 +106,7 @@ symbols:
 ≮	ei pienempi kuin	none
 ≠	eri suuri kuin	none
 ≯	ei suurempi kuin	none
-−	miinus	none
+−	miinus	all	norep
 ⁻	yläindeksi miinus	none
 ∓	miinus tai plus	none
 ∕	jakoviiva	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	liira	none
 ₥	milli	none
 ₩	won	none
-€	euro	none
+€	euro	all	norep
 ₰	Saksan penni	none
 ₱	peso	none
 ₳	austral	none
 ₶	Toursin livre	none
 ₷	spesmilo	none
 ₹	Intian rupia	none
-₽	rupla	none
+₽	rupla	all	norep
 ₿	bitcoin	none
 ₨	rupia	none
 👋🏻	käden heilautus vaalea iho	none

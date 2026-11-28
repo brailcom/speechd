@@ -41,29 +41,29 @@ $	dollar	all	norep
 ¢	Cent	all	norep
 ¥	Yen	all	norep
 ₹	Rupie	some	norep
-%	procent	some
-&	och	some
+%	procent	some	norep
+&	och	some	norep
 '	apostrof	all
 (	vänster parentes	most	always
 )	höger parentes	most	always
-*	stjärna	most
-+	plus	most
+*	stjärna	most	norep
++	plus	most	norep
 ,	komma	all	always
 -	streck
-.	punkt	some
-/	snedstreck	some
+.	punkt	some	norep
+/	snedstreck	some	norep
 :	kolon	most	norep
 ;	semikolon	most
-<	mindre än	some
->	större än	some
-=	likhetstecken	most
+<	mindre än	some	norep
+>	större än	some	norep
+=	likhetstecken	most	norep
 ?	frågetecken	all
-@	snabel-a	some
+@	snabel-a	some	norep
 [	vänster hakparentes	most
 ]	höger hakparentes	most
 \\	omvänt snedstreck	most
 ^	markör	most
-_	understreck	most
+_	understreck	most	norep
 `	grav accent	most
 {	vänster klammer	most
 }	höger klammer	most
@@ -99,7 +99,7 @@ _	understreck	most
 ♣	klöver	some
 ♦	svart ruter	some
 §	paragraf	all
-°	grader	some
+°	grader	some	norep
 «	dubbla vänstervinklar
 »	dubbla högervinklar
 µ	my	some
@@ -109,9 +109,9 @@ _	understreck	most
 ®	registrerat varumärke	some
 ™	skyddat varumärke	some
 ©	upphovsrättssymbol	some
-±	Plus eller Minus	some
-×	multiplicerat	some
-÷	dividerat med	some
+±	Plus eller Minus	some	norep
+×	multiplicerat	some	norep
+÷	dividerat med	some	norep
 ←	vänsterpil	some
 ↑	uppåtpil	some
 →	högerpil	some

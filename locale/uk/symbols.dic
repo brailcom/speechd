@@ -51,7 +51,7 @@ negative number	мінус	none	norep
 ！	знак оклику на всю ширину	all
 "	лапки	most
 \#	решітка	most
-№	номер	most
+№	номер	most	norep
 $	долар	all	norep
 £	фунт	all	norep
 ¢	центи	all	norep
@@ -63,21 +63,21 @@ $	долар	all	norep
 ₽	російський рубль	all	norep
 ƒ	флорин	all	norep
 ¤	знак валюти	all	norep
-%	відсоток	some
-‰	проміле	some
-&	амперсанд	some
+%	відсоток	some	norep
+‰	проміле	some	norep
+&	амперсанд	some	norep
 '	апостроф	all
 ʼ	апостроф	all
 (	ліва дужка	most
 )	права дужка	most
-*	зірочка	some
+*	зірочка	some	norep
 ,	кома	all	always
 、	ідеографічна кома	all	always
 ،	арабська кома	all	always
 -	дефіс	most	always
-.	крапка	some
+.	крапка	some	norep
 ．	крапка на всю ширину	some
-/	слеш	some
+/	слеш	some	norep
 :	двокрапка	most	norep
 ：	двокрапка на всю ширину	most	norep
 ;	крапка з комою	most
@@ -86,12 +86,12 @@ $	долар	all	norep
 ?	знак питання	all	always
 ؟	арабський знак питання	all
 ？	знак питання на всю ширину	all
-@	равлик	some
+@	равлик	some	norep
 [	ліва квадратна дужка	most
 ]	права квадратна дужка	most
 \\	бекслеш	most
 ^	дашок	most
-_	підкреслення	most
+_	підкреслення	most	norep
 `	зворотний апостроф	most
 {	ліва фігурна дужка	most
 }	права фігурна дужка	most
@@ -144,7 +144,7 @@ _	підкреслення	most
 ◆	чорний ромб	some
 ❖	чорний ромб з білим хрестиком	some
 §	секція	all
-°	градус	some
+°	градус	some	norep
 «	відкрита лапка	most	never
 »	закрита лапка	most	never
 🡺	стрілка вправо	some
@@ -198,16 +198,16 @@ _	підкреслення	most
 ⇄	еквівалентність	none
 
 # Arithmetic operators
-+	плюс	some
-−	мінус	some
-×	помножити	some
++	плюс	some	norep
+−	мінус	some	norep
+×	помножити	some	norep
 ⋅	помножити	some
 ⨯	помножити	none
 ∕	поділено на	some
 ⁄	скісна риска дробу	some
-÷	поділити	most
+÷	поділити	most	norep
 ∓	мінус плюс	some
-±	плюс мінус	some
+±	плюс мінус	some	norep
 
 #Set operations
 ∖	різниця множин	none
@@ -230,7 +230,7 @@ _	підкреслення	most
 ⊌	мультимножина	none
 
 #Equality signs
-=	дорівнює	some
+=	дорівнює	some	norep
 ≃	асимптотично дорівнює	none
 ≄	не асимптотично дорівнює	none
 ≅	приблизно дорівнює	none
@@ -252,8 +252,8 @@ _	підкреслення	most
 ≟	можливо рівне	none
 
 #comparison signs
-<	менше	some
->	більше	some
+<	менше	some	norep
+>	більше	some	norep
 ≤	менше або дорівнює	some
 ≦	менше або дорівнює	none
 ≪	набагато менше за	none

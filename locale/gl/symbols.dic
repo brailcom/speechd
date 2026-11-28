@@ -62,20 +62,20 @@ $	dólares	all	norep
 ₹	rupias	some	norep
 ƒ	floríns	all	norep
 ¤	signo de moneda	all	norep
-%	porcento	some
-‰	por mil	some
-&	et	some
+%	porcento	some	norep
+‰	por mil	some	norep
+&	et	some	norep
 '	apóstrofo	all
 (	abrir paréntese	most	always
 )	pechar paréntese	most	always
-*	estrela	some
+*	estrela	some	norep
 ,	coma	all	always
 、	coma ideográfica	all	always
 ،	coma arábiga	all	always
 -	guion	most	always
-.	punto	some
+.	punto	some	norep
 ．	punto a parte de ancho compreto	some
-/	barra	some
+/	barra	some	norep
 :	dous puntos	most	norep
 ：	dous puntos de ancho compreto	most	norep
 ;	punto e coma	most
@@ -84,12 +84,12 @@ $	dólares	all	norep
 ?	pechar interrogación	all
 ؟	signo de interrogación arábigo	all
 ？	signo de interrogación de ancho compreto	all
-@	arroba	some
+@	arroba	some	norep
 [	abrir corchete	most
 ]	pechar corchete	most
 \\	barra inversa	most
 ^	acento circunfrexo	most
-_	subliñado	most
+_	subliñado	most	norep
 `	acento grave	most
 {	abrir chave	most
 }	pechar chave	most
@@ -139,7 +139,7 @@ _	subliñado	most
 ♦	diamante negro	some
 ◆	diamante negro	some
 §	seción	all
-°	graos	some
+°	graos	some	norep
 «	abrir comiñas angulares	most	always
 »	pechar comiñas angulares	most	always
 µ	micro	some
@@ -194,16 +194,16 @@ _	subliñado	most
 ⇒	frecha dobre á dereita	none
 
 #Arithmetic operators
-+	máis	some
-−	menos	some
-×	multiplicado por	some
++	máis	some	norep
+−	menos	some	norep
+×	multiplicado por	some	norep
 ⋅	punto de multiplicación	some
 ⨯	produto cartesiano	none
 ∕	barra de división	some
 ⁄	barra de fración	some
-÷	dividido por	some
+÷	dividido por	some	norep
 ∓	menos ou máis	some
-±	Máis ou Menos	some
+±	Máis ou Menos	some	norep
 
 #Set operations
 ∖	conxunto menos	none
@@ -226,7 +226,7 @@ _	subliñado	most
 ⊌	multiconxunto	none
 
 #Equality signs
-=	igual	some
+=	igual	some	norep
 ≃	asintóticamente igual a	none
 ≄	non asintóticamente igual a	none
 ≅	aproximadamente igual a	none
@@ -248,8 +248,8 @@ _	subliñado	most
 ≟	cuestionado igual a	none
 
 #comparison signs
-<	menor que	some
->	maior que	some
+<	menor que	some	norep
+>	maior que	some	norep
 ≤	menor ou igual a	none
 ≦	menor ou igual a	none
 ≪	moito menor a	none

@@ -71,44 +71,44 @@ n°	\1 \2 	most	norep	# numéro
 ！	point d'exclamation pleine chasse
 "	guillemet
 \#	dièse	none
-$	dollar
-£	livre
-€	euro
+$	dollar	some	norep
+£	livre	some	norep
+€	euro	some	norep
 ¢	Centimes
-¥	Yen
+¥	Yen	some	norep
 ₹	roupi	some	norep
-%	pour cent
+%	pour cent	some	norep
 &	et commercial	some	norep
 '	apostrophe
 (	parenthèse gauche
 )	parenthèse droite
-*	astérisque
+*	astérisque	some	norep
 ,	virgule
 、	virgule idéographique	all	always
 ،	virgule arabe	all	always
 -	tiret
-.	point
+.	point	some	norep
 ．	point pleine chasse
 |	bar	most
 ·	point médian	most
-/	barre oblique
+/	barre oblique	some	norep
 :	deux points
 ：	deux points pleine chasse
 ;	point virgule
 ؛	point-virgule arabe	most
 ；	point virgule pleine chasse
-<	inférieur
-=	égal
+<	inférieur	some	norep
+=	égal	some	norep
 ?	point d'interrogation
 ⸮	point d'interrogation réfléchi	some
 ؟	point d’interrogation arabe
 ？	point d'interrogation pleine chasse
-@	arobase	none
+@	arobase	none	norep
 [	crochet gauche
 ]	crochet droit
 \\	barre oblique inversée
 ^	accent circonflexe
-_	souligné
+_	souligné	some	norep
 ‐	trait d'union
 `	accent grave
 {	accolade gauche
@@ -195,7 +195,7 @@ _	souligné
 ✓	coché
 ✔	coché
 ¶	paragraphe	all
-‰	pour-mille
+‰	pour-mille	some	norep
 „	double guillemet vers le bas	most
 ↔	flèche gauche droite	none
 ∞	infini	none
@@ -210,15 +210,15 @@ _	souligné
 
 #Opérateurs arithmétiques
 +	pluss	some	norep
-−	moins	none	never
-×	fois
+−	moins	none	norep
+×	fois	some	norep
 ⋅	fois
 ⨯	produit vectoriel
 ∕	divisé par
 ⁄	divisé par
-÷	divisé par
+÷	divisé par	some	norep
 ∓	moins ou plus
-±	plus ou Moins
+±	plus ou Moins	some	norep
 
 #operations sur les ensembles
 ∖	différence d'ensembles
@@ -241,7 +241,7 @@ _	souligné
 ⊌	multiensemble
 
 #Signes d'égalité
-=	égal
+=	égal	some	norep
 ≃	asymptotiquement égal à
 ≄	non asymptotiquement égal à
 ≅	approximativement égal à
@@ -263,7 +263,7 @@ _	souligné
 ≟	égalité en doute
 
 #signes de comparaison
->	supérieur
+>	supérieur	some	norep
 ≦	inférieur ou égal
 ≪	très inférieur
 ≥	supérieur ou égal à

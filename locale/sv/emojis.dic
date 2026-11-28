@@ -106,7 +106,7 @@ symbols:
 ≮	inte mindre än	none
 ≠	inte lika med	none
 ≯	inte större än	none
-−	minustecken	none
+−	minustecken	all	norep
 ⁻	upphöjt till minus	none
 ∓	minus eller plus	none
 ∕	divisionsstreck	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lira	none
 ₥	mill	none
 ₩	won	none
-€	euro	none
+€	euro	all	norep
 ₰	tysk pfennig	none
 ₱	peso	none
 ₳	austral	none
 ₶	livre tournois	none
 ₷	spesmilo	none
 ₹	indisk rupie	none
-₽	rubel	none
+₽	rubel	all	norep
 ₿	bitcoin	none
 ₨	rupie	none
 👋🏻	vinkande hand ljus hy	none

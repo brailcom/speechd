@@ -58,30 +58,30 @@ $	dollar	all	norep
 ₹	Rupee	some	norep
 ƒ	f	all	norep
 ¤	valutategn	all	norep
-%	procent	some
-‰	promille	some
-&	og	some
+%	procent	some	norep
+‰	promille	some	norep
+&	og	some	norep
 '	apostrof	all
 (	venstre parentes	most	always
 )	højre parentes	most	always
-*	stjerne	most
+*	stjerne	most	norep
 ,	komma	all	always
 、	ideografisk komma	all	always
 ،	arabisk komma	all	always
 -	streg	most	always
-.	punkt	some
-/	skråstreg	some
+.	punkt	some	norep
+/	skråstreg	some	norep
 :	kolon	most	norep
 ;	semikolon	most
 ؛	arabisk semikolon	most
 ?	spørgsmålstegn	all
 ؟	arabisk spørgsmålstegn	all
-@	snabel a	some
+@	snabel a	some	norep
 [	venstre klamme	most
 ]	højre klamme	most
 \\	omvendt skråstreg	most
 ^	accent circonflex	most
-_	understregning	most
+_	understregning	most	norep
 `	accent grave	most
 {	venstre tuborg	most
 }	højre tuborg	most
@@ -131,7 +131,7 @@ _	understregning	most
 ♦	ruder	some
 ◆	ruder	some
 §	paragraf	all
-°	grader	some
+°	grader	some	norep
 «	dobbel venstre vinkelparentes	mostalways
 »	dobbel højre vinkelparentes	mostalways
 µ	my	some
@@ -186,16 +186,16 @@ _	understregning	most
 ⇒	dobbelt -højre pil	none
 
 #
-+	plus	some
-−	minus	some
-×	gange	some
++	plus	some	norep
+−	minus	some	norep
+×	gange	some	norep
 ⋅	gange	some
 ⨯	gange	none
 ∕	division	some
 	⁄	brøkdel	some
-÷	divider med	some
+÷	divider med	some	norep
 ∓	minus eller plus	some
-±	plus eller Minus	some
+±	plus eller Minus	some	norep
 
 #Set operations
 ∖	set minus	none
@@ -218,7 +218,7 @@ _	understregning	most
 ⊌	multiset	none
 
 #Equality signs
-=	lig med	some
+=	lig med	some	norep
 ≃	asymptotisk lig med	none
 ≄	ikke asymptotisk lig med	none
 ≅	cirka lig med	none
@@ -240,8 +240,8 @@ _	understregning	most
 ≟	questioned equal to	none
 
 #comparison signs
-<	mindre end	some
->	større end	some
+<	mindre end	some	norep
+>	større end	some	norep
 ≤	mindre end eller lig med	none
 ≦	mindre end eller lig med	none
 ≪	meget mindre end	none

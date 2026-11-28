@@ -106,7 +106,7 @@ symbols:
 ≮	작지 않음	none
 ≠	같지 않음	none
 ≯	크지 않음	none
-−	빼기 표시	none
+−	빼기 표시	all	norep
 ⁻	마이너스 승	none
 ∓	빼기 더하기	none
 ∕	나누기 슬래시	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	리라	none
 ₥	밀	none
 ₩	원	none
-€	유로화	none
+€	유로화	all	norep
 ₰	독일 페니	none
 ₱	페소	none
 ₳	오스트랄	none
 ₶	리브르 투아누아	none
 ₷	스페스밀로	none
 ₹	인도 루피	none
-₽	러시아 루블	none
+₽	러시아 루블	all	norep
 ₿	비트코인	none
 ₨	루피	none
 👋🏻	흔드는 손 하얀 피부	none

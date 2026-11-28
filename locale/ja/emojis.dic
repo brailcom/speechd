@@ -106,7 +106,7 @@ symbols:
 ≮	より小さくはない	none
 ≠	等号否定	none
 ≯	より大きくはない	none
-−	マイナス記号	none
+−	マイナス記号	all	norep
 ⁻	上付きマイナス	none
 ∓	マイナスプラス記号	none
 ∕	除算スラッシュ	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	リラ	none
 ₥	ミル	none
 ₩	ウォン	none
-€	ユーロ	none
+€	ユーロ	all	norep
 ₰	ドイツマルク	none
 ₱	ペソ	none
 ₳	アウストラル	none
 ₶	トゥールリーブル	none
 ₷	スペスミーロ	none
 ₹	インドルピー	none
-₽	ルーブル	none
+₽	ルーブル	all	norep
 ₿	ビットコイン	none
 ₨	ルピー	none
 👋🏻	手を振る 薄い肌色	none

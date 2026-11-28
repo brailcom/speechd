@@ -59,20 +59,20 @@ $	đô la	all	norep
 ₹	Ru pi	some	norep
 ƒ	đồng vàng Anh	all	norep
 ¤	tiền tệ sign	all	norep
-%	phần trăm	some
-‰	phần ngàn	some
-&	và	some
+%	phần trăm	some	norep
+‰	phần ngàn	some	norep
+&	và	some	norep
 '	nháy đơn	all
 (	mở ngoặc tròn	most	always
 )	đóng ngoặc tròn	most	always
-*	sao	some
+*	sao	some	norep
 ,	phẩy	all	always
 、	tượng hình comma	all	always
 ،	ả rập comma	all	always
 -	gạch ngang	most	always
-.	chấm	some
+.	chấm	some	norep
 ．	fullwidth chấm	some
-/	trên	some
+/	trên	some	norep
 :	hai chấm	most	norep
 ：	hai chấm	most	norep
 ;	chấm phẩy	most
@@ -81,12 +81,12 @@ $	đô la	all	norep
 ?	chấm hỏi	all
 ؟	chấm hỏi ả rập mark	all
 ？	chấm hỏi	all
-@	a móc	some
+@	a móc	some	norep
 [	mở ngoặc vuông	most
 ]	đóng ngoặc vuông	most
 \\	chéo ngược	most
 ^	mũ	most
-_	gạch dưới	most
+_	gạch dưới	most	norep
 `	huyền	most
 {	mở ngoặc nhọn	most
 }	đóng ngoặc nhọn	most
@@ -137,7 +137,7 @@ _	gạch dưới	most
 ♦	rô đen	some
 ◆	rô đen	some
 §	phần	all
-°	độ	some
+°	độ	some	norep
 «	mở ngoặc vuông kép	most	always
 »	đóng ngoặc vuông kép bracket	most	always
 µ	micro	some
@@ -192,16 +192,16 @@ _	gạch dưới	most
 
 #Arithmetic operators
 
-+	cộng	some
-−	trừ	some
-×	nhân	some
++	cộng	some	norep
+−	trừ	some	norep
+×	nhân	some	norep
 ⋅	nhân	some
 ⨯	tích hữu hướng	none
 ∕	chia	some
 ⁄	chia	some
-÷	chia	some
+÷	chia	some	norep
 ∓	cộng trừ	some
-±	cộng trừ	some
+±	cộng trừ	some	norep
 
 #Set operations
 ∖	trừ tập hợp	none
@@ -225,7 +225,7 @@ _	gạch dưới	most
 ⊌	multiset	none
 
 #Equality signs
-=	bằng	some
+=	bằng	some	norep
 ≃	tiệm cận với	none
 ≄	không tiệm cận với	none
 ≅	gần bằng	none
@@ -247,8 +247,8 @@ _	gạch dưới	most
 ≟	chấm hỏi bằng	none
 
 #comparison signs
-<	nhỏ hơn	some
->	lớn hơn	some
+<	nhỏ hơn	some	norep
+>	lớn hơn	some	norep
 ≤	nhỏ hơn hoặc bằng	none
 ≦	nhỏ hơn hoặc bằng	none
 ≪	nhỏ hơn nhiều so với	none

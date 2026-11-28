@@ -85,7 +85,7 @@ symbols:
 ⇩	向下空心箭嘴	none
 ⇪	尾部帶槓的向上空心箭嘴	none
 ⇵	向下箭嘴在左，向上箭嘴在右	none
-−	減法符號	none
+−	減法符號	all	norep
 ∧	邏輯與	none
 ≅	近似相等	none
 ≈	約等於	none

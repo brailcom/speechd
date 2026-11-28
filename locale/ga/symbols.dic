@@ -53,29 +53,29 @@ $	dollar	all	norep
 €	euro	all	norep
 ¢	Cent	all	norep
 ¥	Yen	all	norep
-%	faoin gcéad	some
-&	amparsan	some
+%	faoin gcéad	some	norep
+&	amparsan	some	norep
 '	uaschamóg	all
 (	lúibín clé	most
 )	lúibín deas	most
-*	réalta	most
-+	móide	most
+*	réalta	most	norep
++	móide	most	norep
 ,	camóg	all	always
 -	fleiscín	most	always
-.	ponc	some
-/	slais	some
+.	ponc	some	norep
+/	slais	some	norep
 :	idirstad	most	norep
 ;	leathstad	most
-<	níos lú ná	most
->	níos mó ná	most
-=	cothrom le	most
+<	níos lú ná	most	norep
+>	níos mó ná	most	norep
+=	cothrom le	most	norep
 ?	comhartha ceiste	all
-@	ag	some
+@	ag	some	norep
 [	lúibín cearnach ar chlé	most
 ]	lúibín cearnach ar dheis	most
 \\	cúlslais	most
 ^	caret	most
-_	líne faoi	most
+_	líne faoi	most	norep
 `	graif	most
 {	lúibín slabhrach ar chlé	most
 }	lúibín slabhrach ar dheis	most
@@ -100,7 +100,7 @@ _	líne faoi	most
 ■	cearnóg dhubh	some
 ➔	saighead dheas	some
 §	rannóg	all
-°	céimeanna	some
+°	céimeanna	some	norep
 «	lúibín uilleach an dá rinn ar chlé
 »	lúibín uilleach an dá rinn ar dheis
 µ	micrea	some
@@ -110,9 +110,9 @@ _	líne faoi	most
 ®	cláraithe	some
 ™	trádmharc	some
 ©	cóipcheart	some
-±	móide nó míneas	most
-×	méadaithe faoi	most
-÷	roinnte ar	most
+±	móide nó míneas	most	norep
+×	méadaithe faoi	most	norep
+÷	roinnte ar	most	norep
 →	saighead dheas	some
 ✓	ticeáil	some
 ✔	ticeáil	some

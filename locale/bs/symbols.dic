@@ -58,20 +58,20 @@ $	dolar	some	norep
 ₹	rupija	some	norep
 ƒ	florin	some	norep
 ¤	znak za valutu	all	norep
-%	posto	some
-‰	promil	some
-&	trgovačko i	some
+%	posto	some	norep
+‰	promil	some	norep
+&	trgovačko i	some	norep
 '	apostrof	all
 (	lijeva zagrada	most	always
 )	desna zagrada	most	always
-*	zvjezdica	some
+*	zvjezdica	some	norep
 ,	zarez	all	always
 、	ideografski zarez	all	always
 ،	arapski zarez	all	always
 -	crtica	most	always
-.	tačka	some
+.	tačka	some	norep
 ．	proširena tačka	some
-/	kosa crtica	some
+/	kosa crtica	some	norep
 :	dvotačka	most	norep
 ：	proširena dvotačka	most	norep
 ;	tačka-zarez	most
@@ -80,12 +80,12 @@ $	dolar	some	norep
 ?	upitnik	all
 ؟	arapski upitnik	all
 ？	prošireni upitnik	all
-@	et	some
+@	et	some	norep
 [	lijeva uglasta zagrada	most
 ]	desna uglasta zagrada	most
 \\	obrnuta kosa crtica	most
 ^	krović	most
-_	donja crtica	most
+_	donja crtica	most	norep
 `	akcenat	most
 {	lijeva vitičasta zagrada	most
 }	desna vitičasta zagrada	most
@@ -135,7 +135,7 @@ _	donja crtica	most
 ♦	crni karo	some
 ◆	crni romb	some
 §	odlomak	all
-°	stepeni	some
+°	stepeni	some	norep
 «	francuski lijevi navodnikmost	always
 »	francuski desni navodnik	most	always
 µ	mikro	some
@@ -190,16 +190,16 @@ _	donja crtica	most
 ⇒	dvostruka strelica desno	none
 
 #Arithmetic operators
-+	plus	some
-−	minus	some
-×	puta	some
++	plus	some	norep
+−	minus	some	norep
+×	puta	some	norep
 ⋅	puta	some
 ⨯	puta	none
 ∕	kroz	some
 ⁄	razlomačka crtica	some
-÷	podijeljeno sa	some
+÷	podijeljeno sa	some	norep
 ∓	minus ili plus	some
-±	plus ili Minus	some
+±	plus ili Minus	some	norep
 
 #Set operations
 ∖	set minus	none
@@ -222,7 +222,7 @@ _	donja crtica	most
 ⊌	multiset	none
 
 #Equality signs
-=	jednako	some
+=	jednako	some	norep
 ≃	asimptotički jednako	none
 ≄	nije asimptotički jednako	none
 ≅	približno jednako	none
@@ -244,8 +244,8 @@ _	donja crtica	most
 ≟	upitno jednako	none
 
 #comparison signs
-<	manje od	some
->	veće od	some
+<	manje od	some	norep
+>	veće od	some	norep
 ≤	manje ili jednako	none
 ≦	manje ili jednako	none
 ≪	mnogo manje od	none

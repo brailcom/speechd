@@ -106,7 +106,7 @@ symbols:
 ≮	nach bhfuil níos lú ná	none
 ≠	míchothrom	none
 ≯	nach bhfuil níos mó ná	none
-−	comhartha lúide	none
+−	comhartha lúide	all	norep
 ⁻	lúide forscríofa	none
 ∓	lúide nó móide	none
 ∕	slais roinnte	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lira	none
 ₥	mil	none
 ₩	won	none
-€	euro	none
+€	euro	all	norep
 ₰	pingin na Gearmáine	none
 ₱	peso	none
 ₳	austral	none
 ₶	livre tournois	none
 ₷	spesmilo	none
 ₹	rúipí na hIndia	none
-₽	rúbal	none
+₽	rúbal	all	norep
 ₿	bonn giotáin	none
 ₨	rúipí	none
 👋🏻	lámh ag croitheadh ton cnis geal	none

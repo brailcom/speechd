@@ -31,32 +31,32 @@ in-word '	apostrof
 !	ropeteikn
 "	sitat
 \#	nummer
-$	dollar
-£	pund
-€	euro
-%	prosent
-&	og
+$	dollar	some	norep
+£	pund	some	norep
+€	euro	some	norep
+%	prosent	some	norep
+&	og	some	norep
 '	apostrof
 (	venstre parentes
 )	høgre parentes
-*	stjerne
-+	pluss
+*	stjerne	some	norep
++	pluss	some	norep
 ,	komma
 -	bindestrek
-.	punktum
-/	skråstrek
+.	punktum	some	norep
+/	skråstrek	some	norep
 :	kolon
 ;	semikolon
-<	mindre enn
->	større enn
-=	er lik
+<	mindre enn	some	norep
+>	større enn	some	norep
+=	er lik	some	norep
 ?	spørjeteikn
-@	krøllalfa
+@	krøllalfa	some	norep
 [	venstre hakeparentes
 ]	høgre hakeparentes
 \\	omvendt skråstrek
 ^	markør
-_	understrek
+_	understrek	some	norep
 `	accent grave
 {	venstre klamme
 }	høgre klamme
@@ -80,7 +80,7 @@ _	understrek
 ■	svart rute
 ➔høgrepil
 §	seksjon
-°	grader
+°	grader	some	norep
 «	dobbel venstre vinkelparentes
 »	dobbel høgre vinkelparentes
 µ	mikro
@@ -90,9 +90,9 @@ _	understrek
 ®	registrert
 ™	varemerke
 ©	copyright
-±	pluss eller minus
-×	gonger
-÷	delt på
+±	pluss eller minus	some	norep
+×	gonger	some	norep
+÷	delt på	some	norep
 →	høgrepil
 ✓	avkryssing
 ✔	avkryssing

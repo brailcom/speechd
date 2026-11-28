@@ -106,7 +106,7 @@ symbols:
 ≮	ne manjše od	none
 ≠	ni enako	none
 ≯	ne večje od	none
-−	znak za minus	none
+−	znak za minus	all	norep
 ⁻	nadpisani minus	none
 ∓	minus ali plus	none
 ∕	poševnica za deljenje	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lira	none
 ₥	tisočinka	none
 ₩	won	none
-€	evro	none
+€	evro	all	norep
 ₰	nemški pfenig	none
 ₱	peso	none
 ₳	avstral	none
 ₶	livre tournois	none
 ₷	spesmilo	none
 ₹	indijska rupija	none
-₽	rubelj	none
+₽	rubelj	all	norep
 ₿	bitcoin	none
 ₨	rupija	none
 👋🏻	mahajoča dlan svetel ten kože	none

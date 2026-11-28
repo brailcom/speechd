@@ -106,7 +106,7 @@ symbols:
 ≮	ne méně než	none
 ≠	nerovná se	none
 ≯	ne více než	none
-−	znaménko minus	none
+−	znaménko minus	all	norep
 ⁻	minus jako horní index	none
 ∓	minus nebo plus	none
 ∕	dělicí lomítko	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lira	none
 ₥	mill	none
 ₩	won	none
-€	euro	none
+€	euro	all	norep
 ₰	německý fenik	none
 ₱	peso	none
 ₳	austral	none
 ₶	tourská libra	none
 ₷	spesmilo	none
 ₹	indická rupie	none
-₽	rubl	none
+₽	rubl	all	norep
 ₿	bitcoin	none
 ₨	rupie	none
 👋🏻	mávající ruka světlý odstín pleti	none

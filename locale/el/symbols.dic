@@ -57,29 +57,29 @@ $	δολλάριο	all	norep
 €	ευρώ	all	norep
 ¢	σέντς	all	norep
 ¥	γιέν	all	norep
-%	τοις εκατό	some
-&	και	some
+%	τοις εκατό	some	norep
+&	και	some	norep
 '	απόστροφος	all
 (	άνοιγμα παρένθεσης	most
 )	κλείσιμο παρένθεσης	most
-*	αστερίσκος	most
-+	συν	most
+*	αστερίσκος	most	norep
++	συν	most	norep
 ,	κόμμα	all	always
 -	παύλα	most
-.	τελεία	some
-/	κάθετος	some
+.	τελεία	some	norep
+/	κάθετος	some	norep
 :	άνω κάτω τελεία	most	norep
 ;	ερωτηματικό	most
-<	μικρότερο	most
->	μεγαλύτερο	most
-=	ίσον	most
+<	μικρότερο	most	norep
+>	μεγαλύτερο	most	norep
+=	ίσον	most	norep
 ?	αγγλικό ερωτηματικό	all
-@	παπάκι	some
+@	παπάκι	some	norep
 [	άνοιγμα αγκύλης	most
 ]	κλείσιμο αγκύλης	most
 \\	ανάποδη κάθετος	most
 ^	δύναμη	most
-_	κάτω παύλα	most
+_	κάτω παύλα	most	norep
 `	βαρεία	most
 {	άνοιγμα αγκίστρου	most
 }	κλείσιμο αγκίστρου	most
@@ -105,7 +105,7 @@ _	κάτω παύλα	most
 ■	μαύρο τετράγωνο	some
 ➔	δεξί βέλος	some
 §	παράγραφος	all
-°	βαθμοί	some
+°	βαθμοί	some	norep
 «	άνοιγμα εισαγωγικών
 »	κλείσιμο εισαγωγικών
 µ	μίκρο	some
@@ -115,9 +115,9 @@ _	κάτω παύλα	most
 ®	καταχωρημένο	some
 ™	σήμα κατατεθέν	some
 ©	πνευματική ιδιοκτησία	some
-±	συν πλην	most
-×	επί	most
-÷	διά	most
+±	συν πλην	most	norep
+×	επί	most	norep
+÷	διά	most	norep
 →	δεξί βέλος	some
 ✓	τσεκ	some
 ✔	τσεκ	some

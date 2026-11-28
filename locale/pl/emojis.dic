@@ -106,7 +106,7 @@ symbols:
 ≮	nie mniejsze niż	none
 ≠	różne	none
 ≯	nie większe niż	none
-−	minus	none
+−	minus	all	norep
 ⁻	minus w indeksie górnym	none
 ∓	plus lub minus	none
 ∕	ukośnik dzielenia	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lira	none
 ₥	mill	none
 ₩	won	none
-€	euro	none
+€	euro	all	norep
 ₰	niemiecki fenig	none
 ₱	peso	none
 ₳	austral	none
 ₶	funt turoński	none
 ₷	spesmilo	none
 ₹	rupia indyjska	none
-₽	rubel	none
+₽	rubel	all	norep
 ₿	bitcoin	none
 ₨	rupia	none
 👋🏻	machająca dłoń karnacja jasna	none

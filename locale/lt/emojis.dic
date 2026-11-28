@@ -106,7 +106,7 @@ symbols:
 ≮	ne mažiau nei	none
 ≠	nelygu	none
 ≯	ne daugiau nei	none
-−	minuso ženklas	none
+−	minuso ženklas	all	norep
 ⁻	minusas viršutiniame indekse	none
 ∓	minusas arba pliusas	none
 ∕	dalybos ženklas	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lita	none
 ₥	milio ženklas	none
 ₩	vono ženklas	none
-€	euras	none
+€	euras	all	norep
 ₰	pfenigas	none
 ₱	peso ženklas	none
 ₳	australis	none
 ₶	Tūro livras	none
 ₷	spesmilo	none
 ₹	Indijos rupija	none
-₽	rublis	none
+₽	rublis	all	norep
 ₿	bitkoino ženklas	none
 ₨	rupija	none
 👋🏻	mojuojanti ranka šviesios odos	none

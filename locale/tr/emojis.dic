@@ -106,7 +106,7 @@ symbols:
 ≮	küçük değildir	none
 ≠	eşit değildir	none
 ≯	büyük değildir	none
-−	eksi işareti	none
+−	eksi işareti	all	norep
 ⁻	üs eksi	none
 ∓	artı veya eksi	none
 ∕	bölme çizgisi	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lira	none
 ₥	mill	none
 ₩	won	none
-€	avro	none
+€	avro	all	norep
 ₰	alman senti	none
 ₱	pezo	none
 ₳	austral	none
 ₶	livre tournois	none
 ₷	spesmilo	none
 ₹	hint rupisi	none
-₽	ruble	none
+₽	ruble	all	norep
 ₿	bitcoin	none
 ₨	rupi	none
 👋🏻	el sallama açık cilt tonu	none

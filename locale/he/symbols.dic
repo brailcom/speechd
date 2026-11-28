@@ -53,29 +53,29 @@ $	סימן דולר	all	norep
 ¢	Cents	all	norep
 ¥	ין יפאני	all	norep
 ₹	רופי	all	norep
-%	אחוז	some
-&	סימן וגם	some
+%	אחוז	some	norep
+&	סימן וגם	some	norep
 '	גרש	all
 (	סוגר שמאלי	most
 )	סוגר ימני	most
-*	כוכבית	some
-+	חיבור 	some
+*	כוכבית	some	norep
++	חיבור 	some	norep
 ,	פסיק	all	always
 -	מקף	most
-.	נקודה	some
-/	קו נטוי	some
+.	נקודה	some	norep
+/	קו נטוי	some	norep
 :	נקודתיים	most	norep
 ;	נקודה פסיק	most
-<	פחות מ...	some
->	גדול מ...	some
-=	שווה	some
+<	פחות מ...	some	norep
+>	גדול מ...	some	norep
+=	שווה	some	norep
 ?	סימן שאלה	all
-@	שטרודל	some
+@	שטרודל	some	norep
 [	סוגר מרובע שמאלי	most
 ]	סוגר ימני מרובע	most
 \\	לוכסן אחורי	most
 ^	גג	most
-_	קו תחתון	most
+_	קו תחתון	most	norep
 `	פסיק עליון	most
 {	סוגר מסולסל שמאלי	most
 }	סוגר מסולסל ימני	most
@@ -103,7 +103,7 @@ _	קו תחתון	most
 ◦	נקודה מודגשת לבנה	some
 ➔	חץ ימין	some
 §	סעיף	all
-°	סמן מעלה	some
+°	סמן מעלה	some	norep
 «	סוגריים משולשים שמאליים כפולים
 »	סוגרים משולשים כפולים ימניים
 µ	micro	some
@@ -113,9 +113,9 @@ _	קו תחתון	most
 ®	סימן משכרי רשום	some
 ™	Trademark	some
 ©	זכויות יוצרים	some
-±	פלוס או מינוס	some
-×	times	some
-÷	חלוקה	some
+±	פלוס או מינוס	some	norep
+×	times	some	norep
+÷	חלוקה	some	norep
 ←	חץ שמאלה	some
 ↑	חצ מעלה	some
 →	חץ ימינה	some

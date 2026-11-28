@@ -106,7 +106,7 @@ symbols:
 ≮	jo më pak se	none
 ≠	jo baras	none
 ≯	jo më shumë se	none
-−	shenja e minusit	none
+−	shenja e minusit	all	norep
 ⁻	minus me superskript	none
 ∓	minus ose plus	none
 ∕	thyesë pjesëtimi	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lirë	none
 ₥	mill	none
 ₩	uon	none
-€	euro	none
+€	euro	all	norep
 ₰	qindarkë gjermane	none
 ₱	pezo	none
 ₳	austral	none
 ₶	lirë tureze	none
 ₷	spesmilo	none
 ₹	rupi indiane	none
-₽	rubël	none
+₽	rubël	all	norep
 ₿	bitcoin	none
 ₨	rupi	none
 👋🏻	dorë që tundet nuancë lëkure e çelët	none

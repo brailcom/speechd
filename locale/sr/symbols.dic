@@ -58,20 +58,20 @@ $	dolar	all	norep
 ₹	Rupi	some	norep
 ƒ	florin	all	norep
 ¤	Znak za valutu	all	norep
-%	Procenat	some
-‰	Promil	some
-&	Ampersand	some
+%	Procenat	some	norep
+‰	Promil	some	norep
+&	Ampersand	some	norep
 '	Apostrof	all
 (	Otvorena zagrada	most	always
 )	Zatvorena zagrada	most	always
-*	Zvezdica	some
+*	Zvezdica	some	norep
 ,	Zarez	all	always
 、	ideografski zarez	all	always
 ،	arapski zarez	all	always
 -	Crtica	most	always
-.	Tačka	some
+.	Tačka	some	norep
 ．	proširena tačka	some
-/	Kosa crta	some
+/	Kosa crta	some	norep
 :	Dve tačke	most	norep
 ：	proširene dve tačke	most	norep
 ;	Tačkazarez	most
@@ -80,12 +80,12 @@ $	dolar	all	norep
 ?	Upitnik	all
 ؟	arapski upitnik	all
 ？	prošireni upitnik	all
-@	Et	some
+@	Et	some	norep
 [	Leva uglasta	most
 ]	Desna uglasta	most
 \\	Obrnuta kosa crta	most
 ^	Krović	most
-_	Donja crta	most
+_	Donja crta	most	norep
 `	Akcenat	most
 {	Leva vitičasta	most
 }	Desna vitičasta	most
@@ -134,7 +134,7 @@ _	Donja crta	most
 ♦	Crni karo	some
 ◆	Crni romb	some
 §	Paragraf	all
-°	Stepeni	some
+°	Stepeni	some	norep
 «	Leva dupla izlomljena zagrada	most	always
 »	Desna dupla izlomljena zagrada	most	always
 µ	Mikro	some
@@ -190,16 +190,16 @@ _	Donja crta	most
 ⇒	Dvostruka strelica desno	none
 
 #Arithmetic operators
-+	plus	some
-−	minus	some
-×	Puta	some
++	plus	some	norep
+−	minus	some	norep
+×	Puta	some	norep
 ⋅	Puta	some
 ⨯	Puta	none
 ∕	Podeljeno sa	some
 ⁄	Podeljeno sa	some
-÷	Podeljeno sa	some
+÷	Podeljeno sa	some	norep
 ∓	Minus ili plus	some
-±	Plus ili minus	some
+±	Plus ili minus	some	norep
 
 #Set operations
 ∖	Minus skupa	none
@@ -222,7 +222,7 @@ _	Donja crta	most
 ⊌	Multi skup	none
 
 #Equality signs
-=	Jednako	some
+=	Jednako	some	norep
 ≃	Asiptomatično jednako 	none
 ≄	Nije asiptomatično jednako	none
 ≅	Približno jednako	none
@@ -244,8 +244,8 @@ _	Donja crta	most
 ≟	Upitna jednakost	none
 
 #comparison signs
-<	Manje od	some
->	Veće od	some
+<	Manje od	some	norep
+>	Veće od	some	norep
 ≤	Manje od ili jednako	none
 ≦	Manje od ili jednako	none
 ≪	Mnogo manje od	none

@@ -51,20 +51,20 @@ $	dollar	all	norep
 ₹	rupee	some	norep	# የህንድ ሩፒ
 ƒ	florin	all	norep
 ¤	የገንዘብ ምልክት	all	norep	# currency sign
-%	percent	some
-‰	በእያንዳንዱ ሺህ	some	# per mille
-&	እና	some	# and
+%	percent	some	norep
+‰	በእያንዳንዱ ሺህ	some	norep	# per mille
+&	እና	some	norep	# and
 '	አፖስትሮፊ	all	# tick
 (	የግራ ፓረንተሲስ	most	always	# left paren
 )	የቀኝ ፓረንተሲስ	most	always	# right paren
-*	ኮከቢት	some	# star
+*	ኮከቢት	some	norep	# star
 ,	comma	all	always
 、	ideographic comma	all	always	# ምስላዊ ምልክት ነጠላ ሰረዝ
 ،	arabic comma	all	always
 -	ሠረዝ	most	always	# dash
-.	ነጥብ	some
+.	ነጥብ	some	norep
 ．	አርበ ሠፊ ነጥብ	some	# fullwidth full stop
-/	ሕዝባር	some
+/	ሕዝባር	some	norep
 :	colon	most	norep
 ：	fullwidth colon	most	norep
 ;	semi	most
@@ -73,12 +73,12 @@ $	dollar	all	norep
 ?	የጥያቄ ምልክት	all
 ؟	arabic question mark	all
 ？	አርበ ሠፊ የጥያቄ ምልክት	all	# fullwidth question mark
-@	at	some
+@	at	some	norep
 [	ክፍት የማዕዘን ቅንፍ	most	# left bracket ስኩዌር 
 ]	ዝግ የማዕዘን ቅንፍ	most	# right bracket ስኩዌር 
 \\	የኋሊት ሕዝባር	most
 ^	caret	most
-_	መስመር ከወለል	most	# line ዝቅተኛ
+_	መስመር ከወለል	most	norep	# line ዝቅተኛ
 `	ግሬቭ ዘዬ	most	# graav
 {	ክፍት የሃረግ ቅንፍ	most	# left brace ከርሊ 
 }	ዝግ የሃረግ ቅንፍ	most	# right brace ከርሊ 
@@ -129,7 +129,7 @@ _	መስመር ከወለል	most	# line ዝቅተኛ
 ♦	ዳይመንድ የመጫወቻ ካርታ መለያ	some	# black diamond
 ◆	ድፍን ዳይመንድ	some	# black diamond
 §	የክፍል ምልክት	all	# ጉርድ አካፋይ section
-°	ዲግሪ	some	# degrees
+°	ዲግሪ	some	norep	# degrees
 «	የግራ ጠቋሚ ድርብ አንግል ቅንፍ	most	always	# double left pointing angle bracket
 »	የቀኝ ጠቋሚ ድርብ አንግል ቅንፍ	most	always	# double right pointing angle bracket
 µ	micro	some	# የማይክሮ ምልክት
@@ -184,16 +184,16 @@ _	መስመር ከወለል	most	# line ዝቅተኛ
 ⇒	ወደ ቀኝ ድርብ ቀስት	none	# double right arrow
 
 #Arithmetic operators
-+	ሲደመር	some	# plus
-−	ሲቀነስ	some	# minus
-×	ሲባዛ	some	# times
++	ሲደመር	some	norep	# plus
+−	ሲቀነስ	some	norep	# minus
+×	ሲባዛ	some	norep	# times
 ⋅	የዶት ኦፕሬተር	some	# times
 ⨯	የቬክተር ብዜት	none	# ክሮስ times
 ∕	የማካፈል ሰያፍ	some	# divided by
 ⁄	የክፍልፋይ ሰያፍ	some	# divided by
-÷	ሲካፈል	some	# divide by
+÷	ሲካፈል	some	norep	# divide by
 ∓	መቀነስ ወይም መደመር	some	# minus or plus
-±	መደመር ወይም መቀነስ	some	# plus or Minus
+±	መደመር ወይም መቀነስ	some	norep	# plus or Minus
 
 #Set operations
 ∖	set minus	none
@@ -216,7 +216,7 @@ _	መስመር ከወለል	most	# line ዝቅተኛ
 ⊌	multiset	none
 
 #Equality signs
-=	እኩል	some	# equals
+=	እኩል	some	norep	# equals
 ≃	በይጠጌ አይነኬ እኩል የሚሆን	none	# asymptotically equal to ጥጉን የማካ 
 ≄	በይጠጌ አይነኬ እኩል የማይሆን	none	# not asymptotically equal to
 ≅	እኩል ሊባል የሚችል	none	# approximately equal to
@@ -238,8 +238,8 @@ _	መስመር ከወለል	most	# line ዝቅተኛ
 ≟	ጥያቄ ያለበት እኩል	none	# questioned equal to
 
 #comparison signs
-<	የሚያንስ	some	# less
->	የሚበልጥ	some	# greater
+<	የሚያንስ	some	norep	# less
+>	የሚበልጥ	some	norep	# greater
 ≤	ያንሳል ወይም እኩል ይሆናል	none	# less- than or equal to
 ≦	ያንሳል ወይም እኩል ይሆናል	none	# less- than or equal to የተጣበቁ
 ≪	በጣም ያንሳል	none	# much smaller than

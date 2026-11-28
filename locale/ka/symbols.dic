@@ -55,30 +55,30 @@ $	დოლარი	all	norep
 ₹	ინდური რუპია	some	norep
 ƒ	ფლორრინი	all	norep
 ¤	ვალუტის ნიშანი	all	norep
-%	პროცენტი	some
-‰	პრომილე	some
-&	და	some
+%	პროცენტი	some	norep
+‰	პრომილე	some	norep
+&	და	some	norep
 '	აპოსტროფი	all
 (	მარცხენა ფრჩხილი	most	always
 )	მარჯვენა ფრჩხილი	most	always
-*	ვარსკვლავი	some
+*	ვარსკვლავი	some	norep
 ,	მძიმე	all	always
 、	იდეოგრაფიული მძიმე	all	always
 ،	არაბული მძიმე	all	always
 -	მინუსი	most
-.	წერტილი	some
-/	დახრილი ხაზი	some
+.	წერტილი	some	norep
+/	დახრილი ხაზი	some	norep
 :	ორწერტილი	most	norep
 ;	წერტილმძიმე	most
 ؛	არაბული წერტილმძიმე	most
 ?	კითხვის ნიშანი	all
 ؟	არაბული კითხვის ნიშანი	all
-@	ძაღლუკა	some
+@	ძაღლუკა	some	norep
 [	მარცხენა კვადრატული ფრჩხილი	most
 ]	მარჯვენა კვადრატული ფრჩხილი	most
 \\	პირიქით დახრილი ხაზი	most
 ^	სახურავი	most
-_	ქვედა ტირე	most
+_	ქვედა ტირე	most	norep
 `	უკუღმა აპოსტროფი	most
 {	მარცხენა ფიგურული ფრჩხილი	most
 }	მარჯვენა ფიგურული ფრჩხილი	most
@@ -128,7 +128,7 @@ _	ქვედა ტირე	most
 ♦	აგურები	some
 ◆	აგურები	some
 §	პარაგრაფი	all
-°	გრადუსი	some
+°	გრადუსი	some	norep
 «	მარცხენა ორმაგი კუთხოვანი ბრჭყალი	none
 »	მარჯვენა ორმაგი კუთხოვანი ბრჭყალი	none
 µ	მიკრო	some
@@ -183,16 +183,16 @@ _	ქვედა ტირე	most
 ⇒	ორმაგი მარჯვენა ისარი	none
 
 #Arithmetic operators
-+	პლიუსი	some
-−	მინუსი	some
-×	გამრავლება	some
++	პლიუსი	some	norep
+−	მინუსი	some	norep
+×	გამრავლება	some	norep
 ⋅	გამრავლება	some
 ⨯	გამრავლება	none
 ∕	გაყოფა	some
 ⁄	გაყოფა	some
-÷	გაყოფა	some
+÷	გაყოფა	some	norep
 ∓	მინუს-პლიუსი	some
-±	პლიუს-მინუსი	some
+±	პლიუს-მინუსი	some	norep
 
 #Set operations
 ∖	სიმრავლე	none
@@ -215,7 +215,7 @@ _	ქვედა ტირე	most
 ⊌	multiset	none
 
 #Equality signs
-=	equals	some
+=	equals	some	norep
 ≃	asymptotically equal to	none
 ≄	not asymptotically equal to	none
 ≅	approximately equal to	none
@@ -237,8 +237,8 @@ _	ქვედა ტირე	most
 ≟	questioned equal to	none
 
 #comparison signs
-<	ნაკლებია	some
->	მეტია	some
+<	ნაკლებია	some	norep
+>	მეტია	some	norep
 ≤	ნაკლებია ან ტოლია	none
 ≦	ნაკლებია ან ტოლია	none
 ≪	უფრო მცირე ვიდრე	none

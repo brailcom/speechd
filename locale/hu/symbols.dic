@@ -53,29 +53,29 @@ $	dollár	all	norep
 ¢	Cent	all	norep
 ¥	Jen	all	norep
 ₹	rúpia	some	norep
-%	százalék	some
-&	és	some
+%	százalék	some	norep
+&	és	some	norep
 '	aposztrof	all
 (	balzárójel	most	always
 )	jobbzárójel	most	always
-*	csillag	most
-+	plusz	most
+*	csillag	most	norep
++	plusz	most	norep
 ,	vessző	all	always
 -	minusz	most
-.	pont	some
-/	per	some
+.	pont	some	norep
+/	per	some	norep
 :	kettőspont	most	norep
 ;	pontosvessző	most
-<	kisebb	some
->	nagyobb	some
-=	egyenlő	some
+<	kisebb	some	norep
+>	nagyobb	some	norep
+=	egyenlő	some	norep
 ?	kérdőjel	all
-@	kukac	some
+@	kukac	some	norep
 [	nyitószögletes	most
 ]	zárószögletes	most
 \\	bekszles	most
 ^	fölfelényíl	most
-_	aláhúzás	most
+_	aláhúzás	most	norep
 `	tompa ékezet	most
 {	kezdőkapcsos	most
 }	végkapcsos	most
@@ -103,7 +103,7 @@ _	aláhúzás	most
 ◦	Felsoroló üres karika	some
 ➔	jobbra nyíl	some
 §	szakasz	all
-°	fok	some
+°	fok	some	norep
 «	dupla bal idézőjel	some
 »	dupla jobb idézőjel	some
 µ	mű	some
@@ -113,9 +113,9 @@ _	aláhúzás	most
 ®	bejegyzett	some
 ™	Védjegy	some
 ©	Copyright	some
-±	Plusz vagy Minusz	some
-×	szorozva	some
-÷	osztva	some
+±	Plusz vagy Minusz	some	norep
+×	szorozva	some	norep
+÷	osztva	some	norep
 ←	balra nyíl	some
 ↑	fel nyíl	some
 →	jobbra nyíl	some

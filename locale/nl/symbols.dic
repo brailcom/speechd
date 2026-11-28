@@ -48,29 +48,29 @@ $	dollar	all	norep
 ¢	cent	all	norep
 ¥	yen	all	norep
 ₹	roepie	some	norep
-%	procent	some
-&	en	some
+%	procent	some	norep
+&	en	some	norep
 '	apostrofe	all
 (	haakje openen	most	always
 )	haakje sluiten	most	always
-*	ster	some
-+	plus	some
+*	ster	some	norep
++	plus	some	norep
 ,	comma	all	always
 -	min	most
-.	punt	some
-/	slash	some
+.	punt	some	norep
+/	slash	some	norep
 :	dubbele punt	most	norep
 ;	puntcomma	most
-<	kleiner dan	some
->	groter dan	some
-=	gelijk aan	some
+<	kleiner dan	some	norep
+>	groter dan	some	norep
+=	gelijk aan	some	norep
 ?	vraagteken	all
-@	at	some
+@	at	some	norep
 [	rechte haak openen	most
 ]	rechte haak sluiten	most
 \\	backslash	most
 ^	dakje	most
-_	onderstreping	most
+_	onderstreping	most	norep
 `	accent grave	most
 {	accolade openen	most
 }	accolade sluiten	most
@@ -98,7 +98,7 @@ _	onderstreping	most
 ◦	wit opsommingsteken	some
 ➔	pijl naar rechts	some
 §	sectie	all
-°	graden	some
+°	graden	some	norep
 «	linker dubbele pijl
 »	rechter dubbele pijl
 µ	micro	some
@@ -108,9 +108,9 @@ _	onderstreping	most
 ®	geregistreerd	some
 ™	handelsmerk	some
 ©	Copyright	some
-±	Plusminus	some
-×	maal	some
-÷	delen door	some
+±	Plusminus	some	norep
+×	maal	some	norep
+÷	delen door	some	norep
 ←	pijl naar links	some
 ↑	pijl omhoog	some
 →	pijl naar rechts	some

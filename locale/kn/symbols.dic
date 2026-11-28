@@ -53,29 +53,29 @@ $	ಡಾಲರ್	all	norep
 €	ಯೂರೋ	all	norep
 ¢	ಸೆಂಟ್ಸ್	all	norep
 ¥	ಯೆನ್ನ್	all	norep
-%	ಪ್ರತಿಶತ	some
-&	ಮತ್ತು	some
+%	ಪ್ರತಿಶತ	some	norep
+&	ಮತ್ತು	some	norep
 '	ಅಲ್ಪ ಪ್ರಧಾನ	all
 (	ಎಡ ಆವರಣ	most
 )	ಬಲ ಆವರಣ	most
-*	ನಕ್ಷತ್ರ	some
-+	ಸಂಕಲನ	some
+*	ನಕ್ಷತ್ರ	some	norep
++	ಸಂಕಲನ	some	norep
 ,	ಅಲ್ಪ ವಿರಾಮ	all	always
 -	ವ್ಯವಕಲನ	most
-.	ಪೂರ್ಣವಿರಾಮ	some
-/	ಬಾಗಾಕಾರ	some
+.	ಪೂರ್ಣವಿರಾಮ	some	norep
+/	ಬಾಗಾಕಾರ	some	norep
 :	ವಿವರನಾತ್ಮಕ	most	norep
 ;	ಅರ್ಧ ನಿಲುಗಡೆ	most
-<	ಕಡಮೆಗೊಳಿಸುವುದು	most
->	ಹೆಚ್ಚಿಸುವುದು	most
-=	ಸಮಸೂಚಕ	some
+<	ಕಡಮೆಗೊಳಿಸುವುದು	most	norep
+>	ಹೆಚ್ಚಿಸುವುದು	most	norep
+=	ಸಮಸೂಚಕ	some	norep
 ?	ಪ್ರಶ್ಣಾರ್ಥಕ	all
-@	ಕ್ಕೆ	some
+@	ಕ್ಕೆ	some	norep
 [	ಎಡಚೌಕಟ್ಟು ಆವರಣ	most
 ]	ಬಲಚೌಕಟ್ಟು ಆವರಣ	most
 \\	ಎಡ ೋರೆಯ ಗೆರೆ	most
 ^	ತೆರೆ ಬಾಣ	most
-_	ಅಡ್ಡ ಗೆರೆ	most
+_	ಅಡ್ಡ ಗೆರೆ	most	norep
 `	ಗ್ರಾವ್	most
 {	ಎಡಪುಶ್ಪಾವರಣ	most
 }	ಬಲಪುಶ್ಪಾವರಣ	most
@@ -104,7 +104,7 @@ _	ಅಡ್ಡ ಗೆರೆ	most
 ◦	ಬಿಳಿಯ ಅಂಶಸೂಚಕ	some
 ➔	ಬಲ ಬಾಣ	some
 §	ವಿಬಾಗ	all
-°	ಡಿಗ್ರೀಗಳು	some
+°	ಡಿಗ್ರೀಗಳು	some	norep
 «	ಎಡ ಧ್ವಿಕೋನದ ಆವರಣ
 »	ಬಲ ಧ್ವಿಕೋನದ ಆವರಣ
 µ	ಸೂಕ್ಷಮ	some
@@ -114,9 +114,9 @@ _	ಅಡ್ಡ ಗೆರೆ	most
 ®	ನೋಂಧಆಯಿಸು	some
 ™	ವ್ಯಾಪಾರಕ್ಕೆ ಸಂಬಂಧಿಸಿದ	some
 ©	ಹಕ್ಕು ಸ್ವಾಮ್ಯ	some
-±	ಸಂಕಲನ ಅಥವ ವ್ಯವಕಲನ	most
-×	ಸಮಯ	most
-÷	ಭಾಗಾಕಾರ	most
+±	ಸಂಕಲನ ಅಥವ ವ್ಯವಕಲನ	most	norep
+×	ಸಮಯ	most	norep
+÷	ಭಾಗಾಕಾರ	most	norep
 ←	ಎಡ ಬಾಣ	some
 →	ಬಲ ಬಾಣ	some
 ✓	ಪರಶೀಲನೆ	some

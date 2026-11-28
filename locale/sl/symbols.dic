@@ -55,26 +55,26 @@ $	dolar	all	norep
 ₹	rupia	some	norep
 ƒ	šiling	all	norep
 ¤	valutni simbol	all	norep
-%	odstotek	some
-‰	promil	some
-&	in	some
+%	odstotek	some	norep
+‰	promil	some	norep
+&	in	some	norep
 '	opuščaj	all
 (	okrogli oklepaj	most	always
 )	okrogli zaklepaj	most	always
-*	zvezdica	some
+*	zvezdica	some	norep
 ,	vejica	all	always
 -	kratka črtica	most
-.	pika	some
-/	desna poševnica	some
+.	pika	some	norep
+/	desna poševnica	some	norep
 :	dvopičje	most	norep
 ;	podpičje	most
 ?	vprašaj	all
-@	afna	some
+@	afna	some	norep
 [	oglati oklepaj	most
 ]	oglati zaklepaj	most
 \\	leva poševnica	most
 ^	strešica	most
-_	podčrtaj	most
+_	podčrtaj	most	norep
 `	krativec	most
 {	zaviti oklepaj	most
 }	zaviti zaklepaj	most
@@ -124,7 +124,7 @@ _	podčrtaj	most
 ♦	črni diamant	some
 ◆	črni diamant	some
 §	razdelek	all
-°	stopinje	some
+°	stopinje	some	norep
 «	double dvojni začetni narekovaj	none
 »	double dvojni zaključni narekovaj	none
 µ	mikro	some
@@ -179,16 +179,16 @@ _	podčrtaj	most
 ⇒	dvojna desna puščica	none
 
 #Arithmetic operators
-+	plus	some
-−	minus	some
-×	krat	some
++	plus	some	norep
+−	minus	some	norep
+×	krat	some	norep
 ⋅	krat	some
 ⨯	krat	none
 ∕	deljeno	some
 ⁄	deljeno	some
-÷	deli	some
+÷	deli	some	norep
 ∓	minus ali plus	some
-±	plus ali Minus	some
+±	plus ali Minus	some	norep
 
 #Set operations
 ∖	množiški minus	none
@@ -211,7 +211,7 @@ _	podčrtaj	most
 ⊌	množica množic	none
 
 #Equality signs
-=	je enako	some
+=	je enako	some	norep
 ≃	je asimptotično enako	none
 ≄	ni asimptotično enako	none
 ≅	je približno enako	none
@@ -233,8 +233,8 @@ _	podčrtaj	most
 ≟	je vprašan enako	none
 
 #comparison signs
-<	manjše	some
->	večje	some
+<	manjše	some	norep
+>	večje	some	norep
 ≤	manjše ali enako	none
 ≦	manjše ali enako	none
 ≪	precej manjše kot	none

@@ -60,20 +60,20 @@ $	dolár	all	norep
 ₹	rupia	some	norep
 ƒ	florén	all	norep
 ¤	mena	all	norep
-%	percento	some
-‰	promile	some
-&	and	some
+%	percento	some	norep
+‰	promile	some	norep
+&	and	some	norep
 '	apostrof	all
 (	zátvorka	most	always
 )	zatvoriť	most	always
-*	hviezda	some
+*	hviezda	some	norep
 ,	čiarka	all	always
 、	ideografická čiarka	all	always
 ،	arabská čiarka	all	always
 -	spojovník	most	always
-.	bodka	some
+.	bodka	some	norep
 ．	široká bodka	some
-/	lomka	some
+/	lomka	some	norep
 :	dvojbodka	most	norep
 ：	široká dvojbodka	most	norep
 ;	bodkočiarka	most
@@ -82,13 +82,13 @@ $	dolár	all	norep
 ?	otáznik	all
 ؟	arabský otáznik	all
 ？	široký otáznik	all
-@	zavináč	some
+@	zavináč	some	norep
 [	hranatá zátvorka	most
 ]	hranatá zatvoriť	most
 \\	opačná lomka	most
 ^	vokáň	most
 ˆ	vokáň modifikátor	most
-_	podčiarkovník	most
+_	podčiarkovník	most	norep
 `	prízvuk	most
 ̀	prízvuk	most
 ˋ	prízvuk modifikátor	most
@@ -190,7 +190,7 @@ _	podčiarkovník	most
 ♥	srdce	some
 ♧	Biely kríž	some
 §	paragraf	all
-°	stupňov	some
+°	stupňov	some	norep
 〈	lomená zátvorka	most
 〉	lomená zatvoriť	most
 《	dvojitá lomená zátvorka	most
@@ -253,16 +253,16 @@ _	podčiarkovník	most
 ⇒	dvojitá šípka vpravo	none
 
 #Arithmetic operators
-+	plus	some
-−	mínus	some
-×	krát	some
++	plus	some	norep
+−	mínus	some	norep
+×	krát	some	norep
 ⋅	krát	some
 ⨯	krát	none
 ∕	deleno	some
 ⁄	deleno	some
-÷	deleno	some
+÷	deleno	some	norep
 ∓	mínus plus	some
-±	plus mínus	some
+±	plus mínus	some	norep
 
 #Set operations
 ∖	množinové mínus	none
@@ -285,7 +285,7 @@ _	podčiarkovník	most
 ⊌	multimnožina	none
 
 #Equality signs
-=	rovná sa	some
+=	rovná sa	some	norep
 ≃	asymptoticky sa rovná	none
 ≄	asymptoticky sa nerovná	none
 ≅	približne sa rovná	none
@@ -307,8 +307,8 @@ _	podčiarkovník	most
 ≟	rovná sa s otáznikom	none
 
 #comparison signs
-<	menší	some
->	väčší	some
+<	menší	some	norep
+>	väčší	some	norep
 ≤	menší alebo sa rovná	none
 ≦	menší alebo sa rovná	none
 ≪	omnoho menší	none

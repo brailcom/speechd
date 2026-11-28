@@ -83,9 +83,9 @@ symbols:
 ㊣	正字標記	none
 ＋	加號	most
 －	減號	most
-×	乘號	most
-÷	除號	most
-±	正負號	most
+×	乘號	most	norep
+÷	除號	most	norep
+±	正負號	most	norep
 √	開根號	most
 ＜	小於	most
 ＞	大於	most
@@ -149,7 +149,7 @@ symbols:
 ㎎	公克	none
 ㎏	公斤	none
 ㏄	立方公分	none
-°	度	none
+°	度	none	norep
 兙	十克	none
 兛	千克	none
 兡	百克	none

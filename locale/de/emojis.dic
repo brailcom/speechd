@@ -106,7 +106,7 @@ symbols:
 ≮	nicht kleiner als	none
 ≠	ungleich	none
 ≯	nicht größer als	none
-−	Minuszeichen	none
+−	Minuszeichen	all	norep
 ⁻	hochgestelltes Minuszeichen	none
 ∓	minus oder plus	none
 ∕	Divisionsstrich	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	Lira	none
 ₥	Millzeichen	none
 ₩	Won	none
-€	Euro	none
+€	Euro	all	norep
 ₰	Pfennig	none
 ₱	Peso	none
 ₳	Austral	none
 ₶	Livre tournoise	none
 ₷	Spesmilo	none
 ₹	Indische Rupie	none
-₽	Rubel	none
+₽	Rubel	all	norep
 ₿	Bitcoin-Zeichen	none
 ₨	Rupie	none
 👋🏻	winkende Hand helle Hautfarbe	none

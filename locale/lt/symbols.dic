@@ -53,30 +53,30 @@ $	doleris	all	norep
 ¢	centas	all	norep
 ¥	jena	all	norep
 ₹	rupija	some	norep
-%	procentai	some
-&	ampersendas	some
+%	procentai	some	norep
+&	ampersendas	some	norep
 '	apostrofas	all
 (	kairys skliaustas	most	always
 )	dešinys skliaustas	most	always
-*	žvaigždutė	some
-+	plius	some
+*	žvaigždutė	some	norep
++	plius	some	norep
 ,	kablelis	all	always
 # hyphen should be sent when not replaced, in order to have ordinal numbers pronounced correctly, for example.
 -	brūkšnelis	most	norep
 .	taškas	some	norep
-/	dešininis pasviręs brūkšnys	some
+/	dešininis pasviręs brūkšnys	some	norep
 :	dvitaškis	most	norep
 ;	kabliataškis	most	norep
-<	mažiau	some
->	daugiau	some
-=	lygu	some
+<	mažiau	some	norep
+>	daugiau	some	norep
+=	lygu	some	norep
 ?	klaustukas	all	norep
-@	eta	some
+@	eta	some	norep
 [	kairys laužtinis	most
 ]	dešinys laužtinis	most
 \\	kairinis pasviręs	most
 ^	stogelis	most
-_	pabraukimas	most
+_	pabraukimas	most	norep
 `	gravis	most
 {	kairys riestinis	most
 }	dešinys riestinis	most
@@ -107,7 +107,7 @@ _	pabraukimas	most
 ➔	rodyklė dešinėn	some
 §	paragrafas	all
 ¶	pastraipos pabaiga	some
-°	laipsniai	some
+°	laipsniai	some	norep
 ′	štrichas	some
 ″	dvigubas štrichas	some
 «	dvigubos kairinės laužtinės kabutės
@@ -129,10 +129,10 @@ _	pabraukimas	most
 ™	prekės ženklas	some
 ©	autoriaus teisės	some
 ℗	garso įrašo autoriaus teisės	some
-−	minus	some
-±	plius-minus	some
-×	dauginti	some
-÷	dalinti iš	some
+−	minus	some	norep
+±	plius-minus	some	norep
+×	dauginti	some	norep
+÷	dalinti iš	some	norep
 ←	rodyklė kairėn	some
 ↑	rodyklė aukštyn	some
 →	rodyklė dešinėn	some

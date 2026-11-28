@@ -106,7 +106,7 @@ symbols:
 ≮	不小於	none
 ≠	不等號	none
 ≯	不大於	none
-−	減號	none
+−	減號	all	norep
 ⁻	上標負數	none
 ∓	負正號	none
 ∕	除法斜線	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	里拉	none
 ₥	密爾	none
 ₩	韓元	none
-€	歐元符號	none
+€	歐元符號	all	norep
 ₰	德國便士	none
 ₱	比索	none
 ₳	奧斯特拉爾	none
 ₶	圖爾里弗爾	none
 ₷	斯貝斯米羅	none
 ₹	印度盧比	none
-₽	盧布	none
+₽	盧布	all	norep
 ₿	比特幣	none
 ₨	盧比	none
 👋🏻	揮手：白皮膚	none

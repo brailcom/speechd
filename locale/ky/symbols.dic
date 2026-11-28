@@ -53,29 +53,29 @@ $	доллар	all	norep
 ¢	цент 	all	norep
 ¥	иен	all	norep
 ₹	рупий	some	norep
-%	пайыз	some
-&	жана	some
+%	пайыз	some	norep
+&	жана	some	norep
 '	апостроф	all
 (	тегерек кашаа ачуу	most	always
 )	тегерек кашаа жабуу	most	always
-*	жылдызча 	some
-+	кошуу белги	some
+*	жылдызча 	some	norep
++	кошуу белги	some	norep
 ,	үтүр	all	always
 -	сызыкча	most
-.	чекит 	some
-/	слэш	some
+.	чекит 	some	norep
+/	слэш	some	norep
 :	кош чекит 	most	norep
 ;	үтүрлүү чекит	most
-<	кичине белги some
->	чоң белги	some
-=	 барабар	some
+<	кичине белги some	some	norep
+>	чоң белги	some	norep
+=	 барабар	some	norep
 ?	суроо белгиси	all
-@	маймылча at	some
+@	маймылча at	some	norep
 [	төрт бурчтуу кашаа ачуу 	most
 ]	төрт бурчтуу кашаа жабуу	most
 \\	тескери слэш	most
 ^	капкак	most
-_	ылдыйкы сызык	most
+_	ылдыйкы сызык	most	norep
 `	тескери апостроф	most
 {	фигуралык кашаа ачуу	most
 }	фигуралык кашаа жабуу	most
@@ -103,7 +103,7 @@ _	ылдыйкы сызык	most
 ◦	ак  белги 	some
 ➔	оңго жебе arrow	some
 §	бөлүк	all
-°	градус	some
+°	градус	some	norep
 «	ачык тырмакча
 »	жабык тырмакча
 µ	микро	some
@@ -113,9 +113,9 @@ _	ылдыйкы сызык	most
 ®	катталган 	some
 ™	соода маркасы some
 ©	Автордук укук	some
-±	кошуу же алуу	some
-×	көбөйтүү	some
-÷	бөлүү  by	some
+±	кошуу же алуу	some	norep
+×	көбөйтүү	some	norep
+÷	бөлүү  by	some	norep
 ←	солго жебе  arrow	some
 ↑	өйдөгө жебе 	some
 →	оңго жебе 	some

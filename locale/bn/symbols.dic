@@ -55,26 +55,26 @@ $	dollar	all	norep
 ₹	rupee	some	norep
 ƒ	florin	all	norep
 ¤	currency sign	all	norep
-%	percent	some
-‰	per mille	some
-&	and	some
+%	percent	some	norep
+‰	per mille	some	norep
+&	and	some	norep
 '	tick	all
 (	left paren	most	always
 )	right paren	most	always
-*	star	some
+*	star	some	norep
 ,	comma	all	always
 -	dash	most
-.	dot	some
-/	slash	some
+.	dot	some	norep
+/	slash	some	norep
 :	colon	most	norep
 ;	semi	most
 ?	question	all
-@	at	some
+@	at	some	norep
 [	left bracket	most
 ]	right bracket	most
 \\	backslash	most
 ^	caret	most
-_	line	most
+_	line	most	norep
 `	graav	most
 {	left brace	most
 }	right brace	most
@@ -124,7 +124,7 @@ _	line	most
 ♦	black diamond	some
 ◆	black diamond	some
 §	section	all
-°	degrees	some
+°	degrees	some	norep
 «	double left pointing angle bracket	none
 »	double right pointing angle bracket	none
 µ	micro	some
@@ -179,16 +179,16 @@ _	line	most
 ⇒	double right arrow	none
 
 #Arithmetic operators
-+	plus	some
-−	minus	some
-×	times	some
++	plus	some	norep
+−	minus	some	norep
+×	times	some	norep
 ⋅	times	some
 ⨯	times	none
 ∕	divided by	some
 ⁄	divided by	some
-÷	divide by	some
+÷	divide by	some	norep
 ∓	minus or plus	some
-±	plus or Minus	some
+±	plus or Minus	some	norep
 
 #Set operations
 ∖	set minus	none
@@ -211,7 +211,7 @@ _	line	most
 ⊌	multiset	none
 
 #Equality signs
-=	equals	some
+=	equals	some	norep
 ≃	asymptotically equal to	none
 ≄	not asymptotically equal to	none
 ≅	approximately equal to	none
@@ -233,8 +233,8 @@ _	line	most
 ≟	questioned equal to	none
 
 #comparison signs
-<	less	some
->	greater	some
+<	less	some	norep
+>	greater	some	norep
 ≤	less- than or equal to	none
 ≦	less- than or equal to	none
 ≪	much smaller than	none

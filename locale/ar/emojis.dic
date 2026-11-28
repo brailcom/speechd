@@ -106,7 +106,7 @@ symbols:
 ≮	ليس أقل من	none
 ≠	لا يساوي	none
 ≯	ليس أكثر من	none
-−	علامة الطرح	none
+−	علامة الطرح	all	norep
 ⁻	علامة ناقص علوية	none
 ∓	ناقص أو زائد	none
 ∕	شرطة القسمة المائلة	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	الليرة	none
 ₥	ميل	none
 ₩	وون	none
-€	يورو	none
+€	يورو	all	norep
 ₰	بنس ألماني	none
 ₱	بيزو	none
 ₳	أسترال	none
 ₶	جنيه تورز	none
 ₷	سبيسميلو	none
 ₹	روبيه هندي	none
-₽	روبل	none
+₽	روبل	all	norep
 ₿	بيتكوين	none
 ₨	روبية	none
 👋🏻	تلويح باليد بشرة بلون فاتح	none

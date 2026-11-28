@@ -65,27 +65,27 @@ $	долар	all	norep
 ¥	ена	all	norep
 ₹	рупія	some	norep
 ƒ	фларын	all	norep
-₽	рубель	some
+₽	рубель	some	norep
 ₴	грыўня	some
 ₣	французскі франк	some
 ₰	нямецкі пені	some
 圓	юань	some
 ¤	сімвал валюты	all	norep
-%	працэнт	some
-‰	праміле	some
-&	амперсант	some
+%	працэнт	some	norep
+‰	праміле	some	norep
+&	амперсант	some	norep
 '	апостраф	all
 (	левая круглая	most	always
 )	правая круглая	most	always
-*	зорачка	some
-+	плюс	some
+*	зорачка	some	norep
++	плюс	some	norep
 ,	коска	all	always
 、	ідэаграфічная коска	all	always
 ،	арабская коска	all	always
 -	злучок	most	always
-.	кропка	some
+.	кропка	some	norep
 ．	кропка поўнай шырыні	some
-/	касая рыса	some
+/	касая рыса	some	norep
 :	двукроп'е	most	norep
 ：	двукроп'е поўнай шырыні	most	norep
 ;	кропка з коскай	most
@@ -94,12 +94,12 @@ $	долар	all	norep
 ?	пытальнік	all
 ؟	арабскі пытальнік	all
 ？	пытальнік поўнай шырыні	all
-@	сабака	some
+@	сабака	some	norep
 [	левая квадратная	most
 ]	правая квадратная	most
 \\	адваротная касая рыса	most
 ^	дашак	most
-_	падкрэсліванне	most
+_	падкрэсліванне	most	norep
 `	адваротны апостраф	most
 {	левая фігурная	most
 }	правая фігурная	most
@@ -156,7 +156,7 @@ _	падкрэсліванне	most
 ♥	зафарбаваныя чырвы	most
 ◆	чорны ромб	some
 §	параграф	all
-°	градус	some
+°	градус	some	norep
 «	левае двукоссе елачка	most	always
 »	правае двукоссе елачка	most	always
 ‹	левае кутнае адзіночнае двукоссе	most
@@ -213,7 +213,7 @@ _	падкрэсліванне	most
 ©	аўтарскае права	some
 ℠	Знак Абслугоўвання	some
 �	замяняльны сімвал	char
-№	нумар	some
+№	нумар	some	norep
 ́	знак націску	char	always
 ▾	маленькі чорны трохвугольнік уніз	most
 ←	стрэлка ўлева	some
@@ -238,16 +238,16 @@ _	падкрэсліванне	most
 ⇄	стрэлка ўправа над стрэлкай улева	none
 
 #Arithmetic operators
-+	плюс	some
-−	мінус	some
-×	памножыць	some
++	плюс	some	norep
+−	мінус	some	norep
+×	памножыць	some	norep
 ⋅	аператар кропкі	some
 ⨯	вектарны здабытак	none
 ∕	знак дзялення	some
 ⁄	дробная касая рыса	some
-÷	падзяліць на	some
+÷	падзяліць на	some	norep
 ∓	знак мінус плюс	some
-±	знак плюс мінус	some
+±	знак плюс мінус	some	norep
 ∗	аператар зорачка	most
 ‾	рыса зверху	most
 ◊	ромб	most
@@ -277,7 +277,7 @@ _	падкрэсліванне	most
 ⊌	мультымноства	none
 
 #Equality signs
-=	роўна	some
+=	роўна	some	norep
 ≃	асімптатычна роўна	none
 ≄	не роўна асімптатычна	none
 ≆	не дакладна роўна	none
@@ -299,8 +299,8 @@ _	падкрэсліванне	most
 ≟	роўна з пытальнікам	none
 
 #comparison signs
-<	менш за	some
->	больш за	some
+<	менш за	some	norep
+>	больш за	some	norep
 ≤	менш альбо роўна	none
 ≦	менш над роўна	none
 ≪	шмат менш	some

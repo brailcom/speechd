@@ -31,15 +31,15 @@ negative number	负
 # 	不间断空格	all	# no-break space
 　	全角空格	all
 
-$	美元
-/	斜杠
+$	美元	some	norep
+/	斜杠	some	norep
 ;	分号
 \\	反斜杠
 |	竖线	most
 ¦	间断条	most
 ¡	倒置感叹号	some
 ¿	倒置问号	some
-.	点
+.	点	some	norep
 :	冒号
 ,	逗号
 ，	全角逗号	most	always
@@ -47,17 +47,17 @@ $	美元
 ...	省略号
 !	感叹号
 "	双引号
-@	at
+@	at	some	norep
 \#	井号
-%	百分号
-&	和号
+%	百分号	some	norep
+&	和号	some	norep
 '	单引号
 (	左括号
 )	右括号
-*	星号
-+	加
+*	星号	some	norep
++	加	some	norep
 -	减	most	never
-_	下划线
+_	下划线	some	norep
 [	左方括号
 ]	右方括号
 〖	左空方头括号	most	always
@@ -83,11 +83,11 @@ _	下划线
 •	着重号	most
 `	反撇号	most
 ^	脱字符	most
-¥	元	most
+¥	元	most	norep
 ?	问号	most	always
 ¢	分	most	always
-€	欧元	most	always
-£	英镑	most	always
+€	欧元	most	norep
+£	英镑	most	norep
 、	全角顿号	all	always
 ،	阿拉伯文逗号	all	always
 ؛	阿拉伯文分号	most
@@ -242,7 +242,7 @@ _	下划线
 ㎎	毫克	none
 ㎏	公斤	none
 ㏄	立方公分	none
-°	度	none
+°	度	none	norep
 兙	十克	none
 兛	千克	none
 兡	百克	none
@@ -455,7 +455,7 @@ _	下划线
 ≸	不小於或大於	most
 ≹	不大於或小於	most
 ∓	減或加	most
-−	減號	most
+−	減號	most	norep
 ℇ	歐拉常數	most
 ℒ	拉普拉斯变换	most
 ℱ	傅立叶变换	most
@@ -782,14 +782,14 @@ _	下划线
 ✗	叉号	none
 ￼	对象替换符	all	always
 ƒ	弗罗林	all	norep
-‰	千分之	some
+‰	千分之	some	norep
 ®	注册	some
 ™	商标	some
 ©	版权所有	some
 ℠	服务标记	some
-±	正负号	some
-×	乘号	some
-÷	除号	some
+±	正负号	some	norep
+×	乘号	some	norep
+÷	除号	some	norep
 
 # GBK盲文字符
 	一点	some
@@ -912,7 +912,7 @@ _	下划线
 ⊌	多重集	none
 
 # Equality signs（相等关系符号）
-=	等于	some
+=	等于	some	norep
 ≃	渐近等于	none
 ≄	不渐近等于	none
 ≅	近似等于	none
@@ -934,8 +934,8 @@ _	下划线
 ≟	问号等于	none
 
 #comparison signs
-<	小于	most
->	大于	most
+<	小于	most	norep
+>	大于	most	norep
 ≤	小于等于	none
 ≦	全角小于等于号	none
 ≪	远远小于	none

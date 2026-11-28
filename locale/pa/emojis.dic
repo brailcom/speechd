@@ -106,7 +106,7 @@ symbols:
 ≮	ਇਸ ਤੋਂ ਛੋਟਾ ਨਹੀਂ	none
 ≠	ਬਰਾਬਰ ਨਹੀਂ	none
 ≯	ਇਸ ਤੋਂ ਵੱਡਾ ਨਹੀਂ	none
-−	ਘਟਾਓ ਦਾ ਚਿੰਨ੍ਹ	none
+−	ਘਟਾਓ ਦਾ ਚਿੰਨ੍ਹ	all	norep
 ⁻	ਸੁਪਰਸਕ੍ਰਿਪਟ ਘਟਾਓ	none
 ∓	ਘਟਾਓ ਜਾਂ ਜੋੜ	none
 ∕	ਭਾਗ ਸਲੈਸ਼	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	ਲੀਰਾ	none
 ₥	ਮਿੱਲ	none
 ₩	ਵੌਨ	none
-€	ਯੂਰੋ	none
+€	ਯੂਰੋ	all	norep
 ₰	ਜਰਮਨ ਪੈਣੀ	none
 ₱	ਪੇਸੋ	none
 ₳	ਆਸਟਰਲ	none
 ₶	ਲਿਵਰ ਟੌਰਨੋਇਸ	none
 ₷	ਸਪੈਸਮਿਲੋ	none
 ₹	ਭਾਰਤੀ ਰੁਪਿਆ	none
-₽	ਰੂਬਲ	none
+₽	ਰੂਬਲ	all	norep
 ₿	ਬਿਟਕੌਇਨ	none
 ₨	ਰੁਪਿਆ	none
 👋🏻	ਹੱਥ ਹਿਲਾਉਣਾ ਗੋਰਾ ਰੰਗ	none

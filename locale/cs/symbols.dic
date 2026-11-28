@@ -38,32 +38,32 @@ negative number	mínus	none	norep	# záporné číslo
 !	vykřičník	all
 "	uvozovky	most
 \#	křížek	most
-$	dolar	some
-£	libra	some
-€	euro	some
-%	procento	some
-&	ampersand	some
+$	dolar	some	norep
+£	libra	some	norep
+€	euro	some	norep
+%	procento	some	norep
+&	ampersand	some	norep
 '	apostrof	some
 (	levá závorka	most
 )	pravá závorka	most
-*	hvězdička	most
-+	plus	most
+*	hvězdička	most	norep
++	plus	most	norep
 ,	čárka	all	always
 -	pomlčka	most
-.	tečka	all
-/	lomeno	some
+.	tečka	all	norep
+/	lomeno	some	norep
 :	dvojtečka	most
 ;	středník	most
-<	menší	most
->	větší	most
-=	rovná se	most
+<	menší	most	norep
+>	větší	most	norep
+=	rovná se	most	norep
 ?	otazník	all
-@	zavináč	some
+@	zavináč	some	norep
 [	levá hranatá	most
 ]	pravá hranatá	most
 \\	obrácené lomítko	most
 ^	stříška	most
-_	podtržení	most
+_	podtržení	most	norep
 `	akcent	most
 {	levá složená	most
 }	pravá složená	most
@@ -100,14 +100,14 @@ _	podtržení	most
 ¿	obrácený otazník	most
 ‡	dvojitý kříž	most
 ‣	odrážka trojúhelník	most
-‰	promile	most
-÷	děleno	some
-×	krát	some
-°	stupňů	some
+‰	promile	most	norep
+÷	děleno	some	norep
+×	krát	some	norep
+°	stupňů	some	norep
 ¢	centů	some
 ¤	značka měny	some
-−	mínus	some
-±	plus mínus	some
+−	mínus	some	norep
+±	plus mínus	some	norep
 ¼	čtvrtina	some
 ¾	tři čtvrtiny	some
 ⅓	třetina	some
@@ -116,7 +116,7 @@ _	podtržení	most
 ™	týem	some
 ®	registrováno	some
 ©	copiright	some
-¥	jen	some
+¥	jen	some	norep
 ₨	rupie	some
 √	odmocnina	some
 ∞	nekonečno	some

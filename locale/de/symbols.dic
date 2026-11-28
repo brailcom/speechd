@@ -66,20 +66,20 @@ $	Dollar	all	norep
 ₹	Rupie	some	norep
 ƒ	Gulden	all	norep
 ¤	Währungszeichen	all	norep
-%	Prozent	some
-‰	Promille	some
-&	und	some
+%	Prozent	some	norep
+‰	Promille	some	norep
+&	und	some	norep
 '	Apostroph	all
 (	Runde Klammer auf	most	always
 )	Runde Klammer zu	most	always
-*	Stern	some
+*	Stern	some	norep
 ,	Komma	all	always
 、	ideografisches Komma	all	always
 ،	arabisches Komma	all	always
 -	Strich	most	always
-.	Punkt	some
+.	Punkt	some	norep
 ．	Breiter Satzpunkt	some
-/	Schrägstrich	some
+/	Schrägstrich	some	norep
 :	Doppelpunkt	most	norep
 ：	Breiter Doppelpunkt	most	norep
 ;	Semikolon	most
@@ -88,12 +88,12 @@ $	Dollar	all	norep
 ?	Fragezeichen	all
 ؟	arabisches Fragezeichen	all
 ？	Breites Fragezeichen	all
-@	ät	some
+@	ät	some	norep
 [	Eckige Klammer auf	most
 ]	Eckige Klammer zu	most
 \\	Bäcksläsch	most
 ^	Dach	most
-_	Unterstrich	most
+_	Unterstrich	most	norep
 `	Gravis	most
 {	Geschweifte Klammer auf	most
 }	Geschweifte Klammer zu	most
@@ -144,7 +144,7 @@ _	Unterstrich	most
 ♦	Karo	some
 ◆	Schwarzes Karo	some
 §	Paragraf	some
-°	Grad	some
+°	Grad	some	norep
 «	Doppelt gewinkelte Klammer auf	most	always
 »	Doppelt gewinkelte Klammer zu	most	always
 µ	Mikro	some
@@ -238,16 +238,16 @@ _	Unterstrich	most
 ⇅	Nach oben und nach unten weisende Pfeile
 
 # Arithmetic Operators
-+	plus	some
-−	minus	some
-×	Kreuz	some
++	plus	some	norep
+−	minus	some	norep
+×	Kreuz	some	norep
 ⋅	mal	some
 ⨯	mal	none
 ∕	geteilt durch	some
 ⁄	geteilt durch	some
-÷	geteilt durch	some
+÷	geteilt durch	some	norep
 ∓	minus plus	some
-±	plus minus	some
+±	plus minus	some	norep
 
 # Set Operations
 ∖	Differenzmenge	none
@@ -270,7 +270,7 @@ _	Unterstrich	most
 ⊌	Multimenge	none
 
 # Gleichheitszeichen
-=	gleich	some
+=	gleich	some	norep
 ≃	Asymptotisch Gleich	none
 ≄	nicht asymptotisch Gleich	none
 ≅	ungefähr gleich	none
@@ -292,8 +292,8 @@ _	Unterstrich	most
 ≟	Vielleicht gleich	none
 
 # Vergleichszeichen
-<	kleiner als	some
->	größer als	some
+<	kleiner als	some	norep
+>	größer als	some	norep
 ≤	kleiner gleich	none
 ≦	kleiner als über gleich	none
 ≪	viel kleiner als	none

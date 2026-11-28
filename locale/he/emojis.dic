@@ -106,7 +106,7 @@ symbols:
 ≮	לא קטן מ-	none
 ≠	לא שווה	none
 ≯	לא גדול מ-	none
-−	סימן מינוס	none
+−	סימן מינוס	all	norep
 ⁻	סימן מינוס עילי	none
 ∓	חיבור או חיסור	none
 ∕	לוכסן חילוק	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	לִירָה	none
 ₥	סימן אלפית	none
 ₩	סימן וון	none
-€	אירו	none
+€	אירו	all	norep
 ₰	אגורה גרמנית	none
 ₱	פסו	none
 ₳	אוסטרלי	none
 ₶	ליבר טורנואה	none
 ₷	ספשמילו	none
 ₹	רופי הודי	none
-₽	רובל	none
+₽	רובל	all	norep
 ₿	ביטקוין	none
 ₨	רוּפּיָה	none
 👋🏻	יד מנופפת גוון עור בהיר	none

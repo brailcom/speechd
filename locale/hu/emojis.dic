@@ -106,7 +106,7 @@ symbols:
 ≮	nem kisebb, mint	none
 ≠	nem egyenlő	none
 ≯	nem nagyobb, mint	none
-−	mínuszjel	none
+−	mínuszjel	all	norep
 ⁻	mínuszjel felső indexben	none
 ∓	mínusz vagy plusz	none
 ∕	osztási perjel	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	líra	none
 ₥	mill	none
 ₩	von	none
-€	euró	none
+€	euró	all	norep
 ₰	német pfennig	none
 ₱	peso	none
 ₳	austral	none
 ₶	livre tournois	none
 ₷	spesmilo	none
 ₹	indiai rúpia	none
-₽	rubel	none
+₽	rubel	all	norep
 ₿	bitcoin	none
 ₨	rúpia	none
 👋🏻	integető kéz világos bőrtónus	none

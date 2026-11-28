@@ -73,20 +73,20 @@ $	dollari	all	norep
 ₹	rupia	some	norep
 ƒ	floriini	all	norep
 ¤	valuuttamerkki	all	norep
-%	prosentti	some
-‰	promille	some
-&	et	some
+%	prosentti	some	norep
+‰	promille	some	norep
+&	et	some	norep
 '	heitto	all
 (	alkusulku	most	always
 )	loppusulku	most	always
-*	tähti	some
+*	tähti	some	norep
 ,	pilkku	all	always
 、	ideografinen pilkku	all	always
 ،	arabialainen pilkku	all	always
 -	viiva	most	always
-.	piste	some
+.	piste	some	norep
 ．	piste	some
-/	kautta	some
+/	kautta	some	norep
 ：	kaksoispiste	most	norep
 ;	puolipiste	most
 ؛	arabialainen puolipiste	most
@@ -94,7 +94,7 @@ $	dollari	all	norep
 ?	kysymys	all
 ؟	arabialainen kysymys	all
 ？	kysymys	all
-@	ät	some
+@	ät	some	norep
 [	alkuhaka	most
 ]	loppuhaka	most
 \\	keno	some
@@ -150,7 +150,7 @@ _	alaviiva	most	norep
 ♦	musta ruutu	some
 ◆	musta timantti	some
 §	pykälä	some
-°	aste	some
+°	aste	some	norep
 «	vasen kulmalainaus	most	always
 »	oikea kulmalainaus	most	always
 µ	mikro	some
@@ -226,16 +226,16 @@ _	alaviiva	most	norep
 ♫	varrellinen kahdeksasosanuotti	most
 
 # Arithmetic operators
-+	plus	some
-−	miinus	some
-×	kertaa	some
++	plus	some	norep
+−	miinus	some	norep
+×	kertaa	some	norep
 ⋅	pisteoperaattori	some
 ⨯	kertaa	none
 ∕	jakoviiva	some
 ⁄	murtoluvun kauttaviiva	some
-÷	jaettuna	some
+÷	jaettuna	some	norep
 ∓	miinus tai plus	some
-±	plus tai miinus	some
+±	plus tai miinus	some	norep
 
 # Set operations
 ∖	joukkomiinus	none
@@ -257,7 +257,7 @@ _	alaviiva	most	norep
 ⊌	monijoukko	none
 
 # Equality signs
-=	on yhtä kuin	some
+=	on yhtä kuin	some	norep
 ≃	asymptoottisesti yhtä suuri kuin	none
 ≄	ei asymptoottisesti yhtä suuri kuin	none
 ≅	yhtenevä	none
@@ -279,8 +279,8 @@ _	alaviiva	most	norep
 ≟	kyseenalaisesti yhtä suuri kuin	none
 
 # Comparison signs
-<	pienempi	some
->	suurempi	some
+<	pienempi	some	norep
+>	suurempi	some	norep
 ≤	pienempi tai yhtäsuuri kuin	none
 ≦	pienempi tai yhtä suuri kuin	none
 ≪	paljon pienempi kuin	none

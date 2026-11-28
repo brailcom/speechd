@@ -106,7 +106,7 @@ symbols:
 ≮	nu mai mic decât	none
 ≠	nu este egal	none
 ≯	nu mai mare decât	none
-−	semnul minus	none
+−	semnul minus	all	norep
 ⁻	exponent minus	none
 ∓	minus sau plus	none
 ∕	bară oblică de împărțire	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	liră sterlină	none
 ₥	mill	none
 ₩	won	none
-€	euro	none
+€	euro	all	norep
 ₰	pfenig german	none
 ₱	peso	none
 ₳	austral argentinian	none
 ₶	livră tournois	none
 ₷	spesmilo	none
 ₹	rupie indiană	none
-₽	rublă	none
+₽	rublă	all	norep
 ₿	bitcoin	none
 ₨	rupie	none
 👋🏻	mână fluturată ton deschis al pielii	none

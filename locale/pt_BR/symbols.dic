@@ -45,29 +45,29 @@ thousands separator	ponto	all	norep	# separador de classes numéricas (milhares,
 "	aspas
 # pt_BR: "#" na tabela Unicode (caractere U+0023) é nomeado oficialmente como "number sign" (sinal de número), no symbols.dic está como "number", traduzido então como "número"
 \#	número
-$	cifrão
-£	libra
-€	euro
+$	cifrão	some	norep
+£	libra	some	norep
+€	euro	some	norep
 ¢	centavos
-¥	iene
+¥	iene	some	norep
 ₹	rupya
 ƒ	florim
 ¤	símbolo monetário
-%	porcento
+%	porcento	some	norep
 # pt_BR: nos itens em que aparece letra "e" individual, usado "eh" no lugar para pronúncia correta com alguns sintetizadores
-&	eh comercial
-‰	por mil
+&	eh comercial	some	norep
+‰	por mil	some	norep
 '	apóstrofo
 (	abre parêntesis
 )	fecha parêntesis
-*	asterisco
+*	asterisco	some	norep
 ,	vírgula
 、	vírgula ideográfica
 ،	vírgula árabe
 -	hífen
-.	ponto
+.	ponto	some	norep
 ．	ponto de largura total
-/	barra
+/	barra	some	norep
 :	dois pontos
 ：	dois pontos de largura total
 ;	ponto e vírgula
@@ -76,12 +76,12 @@ $	cifrão
 ?	interrogação
 ؟	ponto de interrogação árabe
 ？	ponto de interrogação de largura total
-@	arroba
+@	arroba	some	norep
 [	abre colchete
 ]	fecha colchete
 \\	barra invertida
 ^	circunflexo
-_	sublinha
+_	sublinha	some	norep
 `	grave
 {	abre chave
 }	fecha chave
@@ -133,7 +133,7 @@ _	sublinha
 ♦	naipe de ouros Preto
 ◆	losango preto
 §	parágrafo
-°	graus
+°	graus	some	norep
 «	abre aspas angulares
 »	fecha aspas angulares
 µ	micro
@@ -188,16 +188,16 @@ _	sublinha
 ⇒	seta dupla para a direita
 
 #Arithmetic operators
-+	mais
-−	menos
-×	vezes
++	mais	some	norep
+−	menos	some	norep
+×	vezes	some	norep
 ⋅	operador ponto de multiplicação
 ⨯	vetor ou produto vetorial
 ∕	barra de divisão
 ⁄	barra de fração
-÷	dividido por
+÷	dividido por	some	norep
 ∓	menos ou mais
-±	mais ou menos
+±	mais ou menos	some	norep
 
 #Set operations
 ∖	diferença de conjunto
@@ -220,7 +220,7 @@ _	sublinha
 ⊌	multiconjunto
 
 #Equality signs
-=	igual
+=	igual	some	norep
 ≃	assintoticamente igual a
 ≄	não assintoticamente igual a
 ≅	aproximadamente igual a
@@ -242,8 +242,8 @@ _	sublinha
 ≟	questionado igual a
 
 #comparison signs
-<	menor
->	maior
+<	menor	some	norep
+>	maior	some	norep
 ≤	menor ou igual a
 ≦	menos do quê igual a
 ≪	muito menor quê

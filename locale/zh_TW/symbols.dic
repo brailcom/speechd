@@ -59,29 +59,29 @@ $	錢號	all	norep
 ₹	盧比	some	norep
 ƒ	弗羅林	all	norep
 ¤	貨幣符號	all	norep
-%	percent	some
-&	and	some
-‰	per mille	some
+%	percent	some	norep
+&	and	some	norep
+‰	per mille	some	norep
 '	tick	all
 (	左括號	most	always
 )	右括號	most	always
-*	star	some
+*	star	some	norep
 ,	comma	all	always
 ،	阿拉伯文逗號	all	always
 -	dash	most	always
-.	dot	some
-/	slash	some
+.	dot	some	norep
+/	slash	some	norep
 :	colon	most	norep
 ;	semi	most
 ؛	阿拉伯文分號	most
 ?	question	all
 ؟	阿拉伯文問號	all
-@	小老鼠	some
+@	小老鼠	some	norep
 [	左中括號	most	always
 ]	右中括號	most	always
 \\	backslash	most
 ^	caret	most
-_	底線	most
+_	底線	most	norep
 ‐	hyphen	most	always
 `	graav	most
 {	左大括號	most	always
@@ -131,7 +131,7 @@ _	底線	most
 ♣	梅花	some	# 撲克牌花色
 ♦	方塊	some	# 撲克牌花色
 §	章節符號	all
-°	度	some
+°	度	some	norep
 «	double left pointing angle bracket	most	always
 »	double right pointing angle bracket	most	always
 µ	micro	some
@@ -186,16 +186,16 @@ _	底線	most
 ⇒	向右雙箭頭	none
 
 # Arithmetic operators
-+	plus	some
-−	減	some
-×	乘以	some
++	plus	some	norep
+−	減	some	norep
+×	乘以	some	norep
 ⋅	乘以	some
 ⨯	乘以	none
 ∕	除以	some
 ⁄	除以	some
-÷	除以	some
+÷	除以	some	norep
 ∓	減加	some
-±	加減	some
+±	加減	some	norep
 
 # Set operations
 ∖	差集	none
@@ -218,7 +218,7 @@ _	底線	most
 ⊌	多重集合	none
 
 # Equality signs
-=	equals	some
+=	equals	some	norep
 ≃	漸近等於	none
 ≄	不漸近等於	none
 ≅	約等於	none
@@ -240,8 +240,8 @@ _	底線	most
 ≟	問號等於	none
 
 # comparison signs
-<	less	some
->	greater	some
+<	less	some	norep
+>	greater	some	norep
 ≤	小於等於	none
 ≦	小於等於	none
 ≪	遠小於	none

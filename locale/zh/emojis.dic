@@ -106,7 +106,7 @@ symbols:
 ≮	不小于	none
 ≠	不等于	none
 ≯	不大于	none
-−	减号	none
+−	减号	all	norep
 ⁻	上标减号	none
 ∓	减或加	none
 ∕	除号斜线	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	里拉	none
 ₥	密尔	none
 ₩	韩元	none
-€	欧元符号	none
+€	欧元符号	all	norep
 ₰	德国便士	none
 ₱	比索	none
 ₳	奥斯特拉尔	none
 ₶	里弗尔	none
 ₷	斯佩斯米洛	none
 ₹	印度卢比符号	none
-₽	卢布符号	none
+₽	卢布符号	all	norep
 ₿	比特币	none
 ₨	卢比	none
 👋🏻	挥手 较浅肤色	none

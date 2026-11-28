@@ -59,41 +59,41 @@ negative number	マイナス	none	norep
 !	カンタンフ	some
 "	コーテーション	some
 \#	シャープ
-$	ドル	none
-£	ポンド	none
-€	ユーロ	none
+$	ドル	none	norep
+£	ポンド	none	norep
+€	ユーロ	none	norep
 ¢	セント	none
-¥	エン	none
+¥	エン	none	norep
 ₹	ルピー	some	norep
 ƒ	フローリン
 ¤	コクサイ ツウカ キゴー
-%	パーセント	some
-&	アンド	some
+%	パーセント	some	norep
+&	アンド	some	norep
 '	シングル	some
 (	カッコ	-	never
 )	カッコトジ	-	never
-*	アスタリスク	some
-+	プラス
-−	マイナス
+*	アスタリスク	some	norep
++	プラス	some	norep
+−	マイナス	some	norep
 ,	コンマ	most	never
 ،	アラビック カンマ	-	norep
 -	マイナス	some	norep
-.	ピリオド	some
-/	スラッシュ	some
+.	ピリオド	some	norep
+/	スラッシュ	some	norep
 :	コロン	some	norep
 ;	セミコロン	some
 ؛	アラビック セミコロン
-<	ショーナリ
->	ダイナリ
-=	イコール
+<	ショーナリ	some	norep
+>	ダイナリ	some	norep
+=	イコール	some	norep
 ?	クエスチョン	some
 ؟	サユウハンテンノ ギモンフ
-@	アット	some
+@	アット	some	norep
 [	ダイカッコ	most
 ]	ダイカッコトジ	most
 \\	エン	none
 ^	ベキジョー	all
-_	アンダーライン	some
+_	アンダーライン	some	norep
 `	アクサングラーブ	some
 {	チューカッコ	most
 }	チューカッコトジ	most
@@ -136,7 +136,7 @@ _	アンダーライン	some
 ♣	クラブ	none
 ♦	ダイヤ	none
 §	セクション	all
-°	ド	all
+°	ド	all	norep
 «	ヒダリ ダブル ブラケット
 »	ミギ ダブル ブラケット
 µ	マイクロ	some
@@ -176,9 +176,9 @@ _	アンダーライン	some
 ®	アール
 ™	ティーエム
 ©	シー
-±	プラスマイナス
-×	カケル
-÷	ワル
+±	プラスマイナス	some	norep
+×	カケル	some	norep
+÷	ワル	some	norep
 ←	ヒダリ ヤジルシ	some
 ↑	ウエ ヤジルシ	some
 →	ミギ ヤジルシ	some
@@ -459,7 +459,7 @@ _	アンダーライン	some
 ′	フン	all
 ″	ビョー	all
 ※	コメジルシ	some
-‰	パーミル	most
+‰	パーミル	most	norep
 ‡	ダブルダガー	most
 ‼	ニジュウカンタンフ	none
 ⁉	ギモンフカンタンフ	none
@@ -471,7 +471,7 @@ _	アンダーライン	some
 ℡	テレフォン	none
 ⇔	ドーチ	all
 Å	オングストローム	all
-№	ナンバー	none
+№	ナンバー	none	norep
 Ⅰ	ワン	none
 Ⅱ	ツー	none
 Ⅲ	スリー	none

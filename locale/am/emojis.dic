@@ -106,7 +106,7 @@ symbols:
 ≮	አያንስም	none
 ≠	እኩል አይደለም	none
 ≯	አይበልጥም	none
-−	የመቀነስ ምልክት	none
+−	የመቀነስ ምልክት	all	norep
 ⁻	ራስጌ ምልክት መቀነስ	none
 ∓	መቀነስ-ወይም-መጨመር	none
 ∕	የማካፈል ሰያፍ	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	ሊራል	none
 ₥	ሚል	none
 ₩	ዎን	none
-€	ዩሮ	none
+€	ዩሮ	all	norep
 ₰	የጀርመን ሳንቲም	none
 ₱	ፔሶ	none
 ₳	አውስትራል	none
 ₶	ሊቭሬ ቱርኗ	none
 ₷	ስፕስሚሎ	none
 ₹	የህንድ ሩፒ	none
-₽	ሩብል	none
+₽	ሩብል	all	norep
 ₿	ቢትኮን	none
 ₨	ሩፒ	none
 👋🏻	ተወዛዋዥ እጅ የቆዳ ዓይነት-1-2	none

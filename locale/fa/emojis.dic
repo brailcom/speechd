@@ -106,7 +106,7 @@ symbols:
 ≮	کمتر نباشد از	none
 ≠	نامساوی	none
 ≯	بزرگتر نباشد از	none
-−	علامت منها	none
+−	علامت منها	all	norep
 ⁻	منفی زِبَرنوشت، منفی برنوشته	none
 ∓	به‌اضافه یا منهای	none
 ∕	خط مایل تقسیم	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	لیره	none
 ₥	میلیون	none
 ₩	وون	none
-€	یورو	none
+€	یورو	all	norep
 ₰	پنی آلمانی	none
 ₱	پزو	none
 ₳	آئوسترال	none
 ₶	لیور تورنوا	none
 ₷	اسپسمیلو	none
 ₹	روپیه هند	none
-₽	روبل	none
+₽	روبل	all	norep
 ₿	بیت‌کوین	none
 ₨	روپیه	none
 👋🏻	تکان دادن دست پوست سفید	none

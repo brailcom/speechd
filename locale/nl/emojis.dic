@@ -106,7 +106,7 @@ symbols:
 ≮	niet minder dan	none
 ≠	niet-gelijkteken	none
 ≯	niet groter dan	none
-−	minteken	none
+−	minteken	all	norep
 ⁻	superscript min	none
 ∓	min-of-plusteken	none
 ∕	deelstreep	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lira	none
 ₥	mill	none
 ₩	won	none
-€	euro	none
+€	euro	all	norep
 ₰	Duitse pfennig	none
 ₱	peso	none
 ₳	austral	none
 ₶	livre tournois	none
 ₷	spesmilo	none
 ₹	Indiase roepie	none
-₽	roebel	none
+₽	roebel	all	norep
 ₿	bitcoin	none
 ₨	roepie	none
 👋🏻	zwaaiende hand lichte huidskleur	none

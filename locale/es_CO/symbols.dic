@@ -60,29 +60,29 @@ $	dólar	all	norep
 €	euros	all	norep
 ¢	Centavos	all	norep
 ¥	Yen	all	norep
-%	porciento	some
-&	anpersán	some
+%	porciento	some	norep
+&	anpersán	some	norep
 '	apóstrofo	all
 (	abrir paréntesis	most
 )	cerrar paréntesis	most
-*	asterisco	some
-+	más	some
+*	asterisco	some	norep
++	más	some	norep
 ,	coma	all	always
 -	guión	most
-.	punto	some
-/	barra 	some
+.	punto	some	norep
+/	barra 	some	norep
 :	dos puntos	most	norep
 ;	punto y coma	most
-<	menor que	most
->	mayor que	most
-=	igual	some
+<	menor que	most	norep
+>	mayor que	most	norep
+=	igual	some	norep
 ?	cerrar interrogación	all
-@	arroba	some
+@	arroba	some	norep
 [	abrir corchete	most
 ]	cerrar corchete	most
 \\	barra inversa	most
 ^	circunflejo	most
-_	subrayado	most
+_	subrayado	most	norep
 `	grave	most
 {	abrir llave	most
 }	cerrar llave	most
@@ -109,7 +109,7 @@ _	subrayado	most
 ■	Barra vertical cortada	some
 ➔	flecha a la derecha	some
 §	Sección	most
-°	grados	some
+°	grados	some	norep
 «	Abrir Comillas angulares
 »	Cerrar comillas angulares
 µ	micro	some
@@ -119,9 +119,9 @@ _	subrayado	most
 ®	registrado	some
 ™	Marca registrada	some
 ©	copyright	some	norep
-±	Más o menos	most
-×	multiplicado por	most
-÷	dividido por	most
+±	Más o menos	most	norep
+×	multiplicado por	most	norep
+÷	dividido por	most	norep
 ←	Flecha izquierda	some
 →	Flecha derecha	some
 ✓	marcado	some

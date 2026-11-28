@@ -53,31 +53,31 @@ $	dollar	all	norep
 ₹	Rupee	some	norep
 ƒ	florin	all	norep
 ¤	currency sign	all	norep
-%	percent	some
-‰	per mille	some
-&	and	some
+%	percent	some	norep
+‰	per mille	some	norep
+&	and	some	norep
 '	tick	all
 (	left paren	most	always
 )	right paren	most	always
-*	star	some
-+	加號	some
-−	減號	most
+*	star	some	norep
++	加號	some	norep
+−	減號	most	norep
 ,	comma	all	always
 -	dash	most
-.	dot	some
-/	slash	some
+.	dot	some	norep
+/	slash	some	norep
 :	colon	most	norep
 ;	semi	most
-<	小於	most
->	大於	most
-=	等於	most
+<	小於	most	norep
+>	大於	most	norep
+=	等於	most	norep
 ?	question	all
-@	at	some
+@	at	some	norep
 [	left bracket	most
 ]	right bracket	most
 \\	backslash	most
 ^	caret	most
-_	line	most
+_	line	most	norep
 `	graav	most
 {	left brace	most
 }	right brace	most
@@ -127,7 +127,7 @@ _	line	most
 ♣	黑桃	some
 ♦	實心方塊	some
 §	章節符號	all
-°	度	some
+°	度	some	norep
 «	double left pointing angle bracket
 »	double right pointing angle bracket
 µ	micro	some
@@ -168,9 +168,9 @@ _	line	most
 ™	商標	some
 ©	Copyright	some
 ℠	ServiceMark	some
-±	加減號	most
-×	乘號	most
-÷	除號	most
+±	加減號	most	norep
+×	乘號	most	norep
+÷	除號	most	norep
 ←	左箭頭	most
 →	右箭頭	most
 ✓	勾選	some
@@ -321,7 +321,7 @@ _	line	most
 ℷ	gimel	most
 ℸ	dalet	most
 ℔	l-b bar	most
-№	numero	most
+№	numero	most	norep
 ℯ	double-struck exponential e	most
 ί	double-struck imaginary i	most
 ℂ	double-struck C	most

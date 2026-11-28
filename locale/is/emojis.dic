@@ -106,7 +106,7 @@ symbols:
 ≮	ekki minna en	none
 ≠	ekki jafnt	none
 ≯	ekki stærra en	none
-−	mínusmerki	none
+−	mínusmerki	all	norep
 ⁻	brjóstletur mínus	none
 ∓	mínus-eða-plús	none
 ∕	deilingarskástrik	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	líra	none
 ₥	millidalur	none
 ₩	vonn	none
-€	evra	none
+€	evra	all	norep
 ₰	þýskt pfennig	none
 ₱	pesi	none
 ₳	austral	none
 ₶	livre tournois	none
 ₷	spesmilo	none
 ₹	indversk rúpía	none
-₽	rúbla	none
+₽	rúbla	all	norep
 ₿	bitcoin	none
 ₨	rúpía	none
 👋🏻	hönd veifar ljós húðlitur	none

@@ -55,26 +55,26 @@ $	долар	all	norep
 ₹	рупија	some	norep
 ƒ	флорин	all	norep
 ¤	знак за валута	all	norep
-%	отсто	some
-‰	промил	some
-&	амперсанд	some
+%	отсто	some	norep
+‰	промил	some	norep
+&	амперсанд	some	norep
 '	апостроф	all	always
 (	отворена заграда	most	always
 )	затворена заграда	most	always
-*	ѕвездичка	some
+*	ѕвездичка	some	norep
 ,	запирка	all	always
 -	цртичка	most	always
-.	точка	some
-/	коса црта	some
+.	точка	some	norep
+/	коса црта	some	norep
 :	две точки	most	norep
 ;	точка запирка	most
 ?	прашалник	all	always
-@	мајмунче	some
+@	мајмунче	some	norep
 [	лева квадратна заграда	most
 ]	десна квадратна заграда	most
 \\	обратна коса црта	most
 ^	карает	most
-_	долна црта	most
+_	долна црта	most	norep
 `	акцент	most
 {	лева голема заграда	most
 }	десна голема заграда	most
@@ -124,7 +124,7 @@ _	долна црта	most
 ♦	црна баклава	some
 ◆	црн ромб	some
 §	параграф	all
-°	степени	some
+°	степени	some	norep
 «	двојни стрелки налево	none
 »	двојни стрелки надесно	none
 µ	микро	some
@@ -179,16 +179,16 @@ _	долна црта	most
 ⇒	двојна стрелка надесно	none
 
 #Arithmetic operators
-+	плус	some
-−	минус	some
-×	помножено со	some
++	плус	some	norep
+−	минус	some	norep
+×	помножено со	some	norep
 ⋅	помножено со	some
 ⨯	помножено со	none
 ∕	поделено со	some
 ⁄	поделено со	some
-÷	поделено со	some
+÷	поделено со	some	norep
 ∓	минус или плус	some
-±	плус или минус	some
+±	плус или минус	some	norep
 
 #Set operations
 ∖	разлика на множества	none
@@ -211,7 +211,7 @@ _	долна црта	most
 ⊌	множество од елементи од иста врста	none
 
 #Equality signs
-=	еднакво	some
+=	еднакво	some	norep
 ≃	асимптотски еднакво на	none
 ≄	не е асимптотски еднакво на	none
 ≅	приближно еднакво на	none
@@ -233,8 +233,8 @@ _	долна црта	most
 ≟	прашално еднакво на	none
 
 #comparison signs
-<	помало	some
->	поголемо	some
+<	помало	some	norep
+>	поголемо	some	norep
 ≤	помало или еднакво од	none
 ≦	помало или еднакво од	none
 ≪	многу помало од	none

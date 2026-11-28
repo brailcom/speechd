@@ -49,15 +49,15 @@ negative number	minus	none	norep	# - înaintea unei cifre
 !	semnul exclamării
 "	ghilimele
 \#	diez
-$	dolar
-£	liră sterlină
-€	euro
+$	dolar	some	norep
+£	liră sterlină	some	norep
+€	euro	some	norep
 ¢	cent
-¥	yen japonez
+¥	yen japonez	some	norep
 ₹	rupie indiană
 ƒ	florin
 ¤	semn de monedă
-₽	rublă rusă
+₽	rublă rusă	some	norep
 ؋	afgani
 ֏	dram armean
 ₼	manat azer
@@ -79,36 +79,36 @@ $	dolar
 ฿	baht thailandez
 ₴	grivnă ucraineană
 ₫	dong vietnamez
-%	procent
-‰	pe milă
-&	ampersand
+%	procent	some	norep
+‰	pe milă	some	norep
+&	ampersand	some	norep
 '	apostrof
 (	paranteză rotundă deschisă
 )	paranteză rotundă închisă
-*	asterisc
-+	plus
+*	asterisc	some	norep
++	plus	some	norep
 ,	virgulă
 、	virgulă ideografică
 ،	virgulă arabă
 -	cratimă
 ‑	cratimă de unire
-.	punct
+.	punct	some	norep
 ·	punct central
-/	bară oblică
+/	bară oblică	some	norep
 :	două puncte
 ;	punct și virgulă
 ؛	punct și virgulă arabe
-<	mai mic
->	mai mare
-=	egal
+<	mai mic	some	norep
+>	mai mare	some	norep
+=	egal	some	norep
 ?	semnul întrebării
 ؟	semnul întrebării arab
-@	a rond
+@	a rond	some	norep
 [	paranteză pătrată deschisă
 ]	paranteză pătrată închisă
 \\	bară oblică inversă
 ^	circumflex
-_	liniuță joasă
+_	liniuță joasă	some	norep
 `	accent grav
 {	acoladă deschisă
 }	acoladă închisă
@@ -157,7 +157,7 @@ _	liniuță joasă
 ♦	Diamant negru
 ◆	diamant negru
 §	secțiune
-°	grade
+°	grade	some	norep
 «	ghilimele unghiulare deschise	some
 »	ghilimele unghiulare închise	some
 µ	micro
@@ -199,9 +199,9 @@ _	liniuță joasă
 ©	drepturi de autor
 ℠	marcă de serviciu
 
-±	plus sau minus
-×	înmulțit
-÷	împărțit
+±	plus sau minus	some	norep
+×	înmulțit	some	norep
+÷	împărțit	some	norep
 ←	săgeată stânga
 ↑	săgeată sus
 →	săgeată dreapta

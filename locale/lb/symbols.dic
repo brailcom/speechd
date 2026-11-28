@@ -63,20 +63,20 @@ $	Dollar	all	norep
 ₹	Rupie	some	norep
 ƒ	Gulden	all	norep
 ¤	Währungszeichen	all	norep
-%	Prozent	some
-‰	Permille	some
-&	an	some	always
+%	Prozent	some	norep
+‰	Permille	some	norep
+&	an	some	norep
 '	Apostroph	all
 (	klammer op	most	always
 )	klammer zou	most	always
-*	Stär	some
+*	Stär	some	norep
 ,	Komma	all	always
 、	ideografescht Komma	all	always
 ،	Arabesche Komma	all	always
 -	Strich	most	always
-.	Punkt	some
+.	Punkt	some	norep
 ．	Breet Sazpunkt	some
-/	slash	some
+/	slash	some	norep
 :	Doppelpunkt	most	norep
 ：	Breete Doppelpunkt	most	norep
 ;	Stréchpunkt	most
@@ -85,12 +85,12 @@ $	Dollar	all	norep
 ?	Frozeechen	all
 ؟	Arabescht Frozeechen	all
 ？	Breet Frozeechen	all
-@	ät	some
+@	ät	some	norep
 [	Eckeg Klammer lénks	most
 ]	Eckeg Klammer riets	most
 \\	Bäcksläsch	most
 ^	Daach	most
-_	Ënnersträichen	most
+_	Ënnersträichen	most	norep
 `	Gravis	most
 {	Spann lénks	most
 }	Spann riets	most
@@ -140,7 +140,7 @@ _	Ënnersträichen	most
 ♦	Karo	some
 ◆	Schwaarzen Diamant	some
 §	Absatz	some
-°	Grad	some
+°	Grad	some	norep
 «	Duebel gewénkelte Klammer op	most	always
 »	Duebel gewénkelte Klammer zou	most	always
 µ	Mikro	some
@@ -193,16 +193,16 @@ _	Ënnersträichen	most
 ⊖	Minus agekreest	none
 ⇄	Pfeil nach rechts über Pfeil nach links	none
 ⇒	et folgt	none
-+	plus	some
-−	Minus	some
-×	Kräiz	some
++	plus	some	norep
+−	Minus	some	norep
+×	Kräiz	some	norep
 ⋅	mal	some
 ⨯	mal	none
 ∕	gedeelt duerch	some
 ⁄	gedeelt duerch	some
-÷	gedeelt duerch	some
+÷	gedeelt duerch	some	norep
 ∓	Minus Plus	some
-±	plus minus	some
+±	plus minus	some	norep
 ∖	Differenzquantitéit	none
 ⊍	Multiplikatioun vu verschiddene Sets	none
 𝒫	Mathematischer Grossbuchstabe Schreibschrift-P	none
@@ -219,7 +219,7 @@ _	Ënnersträichen	most
 ⊇	Ass eng Supermenge vun oder gläich wéi	none
 ⊉	Ass weder eng Supermenge vun nach gläich wéi	none
 ⊌	Multiset	none
-=	gläich	some
+=	gläich	some	norep
 ≃	Asymptotesch gläich	none
 ≄	net asymptotesch gläich	none
 ≅	ungefähr gleich	none
@@ -239,8 +239,8 @@ _	Ënnersträichen	most
 ∼	Proportional	none
 ≙	entsprécht	none
 ≟	Vläicht geschwënn	none
-<	manner wéi	some
->	grösser als	some
+<	manner wéi	some	norep
+>	grösser als	some	norep
 ≤	manner wéi oder gläich wéi	none
 ≦	kleiner als über gleich	none
 ≪	vill méi kleng wéi	none

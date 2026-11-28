@@ -61,31 +61,31 @@ $	Dollar	all	norep
 ₹	Rupie	some	norep
 ƒ	Lateinischer Kleinbuchstabe F mit Haken	all	norep
 ¤	Allgemeines Währungssymbol	all	norep
-%	Prozent	some
-‰	Promille	some
-&	Und	some
+%	Prozent	some	norep
+‰	Promille	some	norep
+&	Und	some	norep
 '	Apostroph	all
 (	Runde Klammer auf	most	always
 )	Runde Klammer zu	most	always
-*	Stern	some
-+	Plus	some
-−	Minus	some
+*	Stern	some	norep
++	Plus	some	norep
+−	Minus	some	norep
 ,	Komma	all	always
 -	Bindestrich	most
-.	Punkt	some
-/	Schrägstrich	some
+.	Punkt	some	norep
+/	Schrägstrich	some	norep
 :	Doppelpunkt	most	norep
 ;	Semikolon	most
-<	Kleiner Als	some
->	Größer Als	some
-=	Gleichheitszeichen	some
+<	Kleiner Als	some	norep
+>	Größer Als	some	norep
+=	Gleichheitszeichen	some	norep
 ?	Fragezeichen	all
-@	ätt	some
+@	ätt	some	norep
 [	Eckige Klammer auf	most
 ]	Eckige Klammer zu	most
 \	Bäcksläsch	most
 ^	Dach	most
-_	Unterstrich	most
+_	Unterstrich	most	norep
 `	Gravis	most
 {	Geschweifte Klammer auf	most
 }	Geschweifte Klammer zu	most
@@ -137,7 +137,7 @@ _	Unterstrich	most
 ♣	Schwarzes Kreuz	some
 ◆	Schwarzes Karo	some
 §	Paragraf	all
-°	Grad	some
+°	Grad	some	norep
 «	Doppelte, gewinkelte Klammer auf
 »	Doppelte, gewinkelte Klammer zu
 µ	Mikro	some
@@ -177,9 +177,9 @@ _	Unterstrich	most
 ®	Registriertes Warenzeichen	some
 ™	Eingetragenes Warenzeichen	some
 ©	Copyright	some
-±	Plus oder Minus	some
-×	Mal	some
-÷	Geteilt Durch	some
+±	Plus oder Minus	some	norep
+×	Mal	some	norep
+÷	Geteilt Durch	some	norep
 ←	Pfeil nach links	some
 ↑	Pfeil nach oben	some
 →	Pfeil nach rechts	some

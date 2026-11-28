@@ -106,7 +106,7 @@ symbols:
 ≮	не менш за	none
 ≠	не роўны	none
 ≯	не больш за	none
-−	мінус	none
+−	мінус	all	norep
 ⁻	надрадковы мінус	none
 ∓	плюс або мінус	none
 ∕	касая дзялення	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	ліра	none
 ₥	міль	none
 ₩	вона	none
-€	еўра	none
+€	еўра	all	norep
 ₰	пфеніг	none
 ₱	песа	none
 ₳	аўстраль	none
 ₶	турскі ліўр	none
 ₷	спесміла	none
 ₹	індыйская рупія	none
-₽	расійскі рубель	none
+₽	расійскі рубель	all	norep
 ₿	біткойн	none
 ₨	рупія	none
 👋🏻	махае рукой светлы тон скуры	none

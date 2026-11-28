@@ -106,7 +106,7 @@ symbols:
 ≮	no menor que	none
 ≠	no és igual que	none
 ≯	no major que	none
-−	signe menys	none
+−	signe menys	all	norep
 ⁻	superíndex resta	none
 ∓	més menys	none
 ∕	barra de divisió	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	lira	none
 ₥	milió	none
 ₩	won	none
-€	euro	none
+€	euro	all	norep
 ₰	penic alemany	none
 ₱	peso	none
 ₳	austral	none
 ₶	lliura tornesa	none
 ₷	spesmilo	none
 ₹	rupia índia	none
-₽	ruble	none
+₽	ruble	all	norep
 ₿	bitcoin	none
 ₨	rupia	none
 👋🏻	mà que saluda pell molt clara	none

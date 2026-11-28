@@ -55,26 +55,26 @@ $	dólar	all	norep
 ₹	Rupia	some	norep
 ƒ	florín	all	norep
 ¤	símbolo de moneda	all	norep
-%	por cient	some
-‰	por mil	some
-&	ampersán	some
+%	por cient	some	norep
+‰	por mil	some	norep
+&	ampersán	some	norep
 '	falqueta	all
 (	ubrir parentesi	most	always
 )	zarrar parentesi	most	always
-*	asterisco	some
+*	asterisco	some	norep
 ,	coma	all	always
 -	guión	most
-.	punto	some
-/	barra 	some
+.	punto	some	norep
+/	barra 	some	norep
 :	dos puntos	most	norep
 ;	punto y coma	most
 ?	zarrar interrogación	all
-@	arroba	some
+@	arroba	some	norep
 [	ubrir gafet	most
 ]	zarrar gafet	most
 \\	barra inversa	most
 ^	circumfleixo	most
-_	guión baixo	most
+_	guión baixo	most	norep
 `	accento grau	most
 {	ubrir clau	most
 }	zarrar clau	most
@@ -124,7 +124,7 @@ _	guión baixo	most
 ♦	diamant negro	some
 ◆	diamant negro	some
 §	Sección	most
-°	graus	some
+°	graus	some	norep
 «	ubrir cometas angulars
 »	zarrar cometas angulars
 µ	micro	some
@@ -179,16 +179,16 @@ _	guión baixo	most
 ⇒	flecha dople t'a dreita	none
 
 #Arithmetic operators
-+	mas	some
-−	menos	some
-×	multiplicau por	some
++	mas	some	norep
+−	menos	some	norep
+×	multiplicau por	some	norep
 ⋅	punto de multiplicación	some
 ⨯	producto cartesiano	none
 ∕	barra de división	some
 ⁄	barra de fracción	some
-÷	dividiu por	some
+÷	dividiu por	some	norep
 ∓	menos u mas	some
-±	mas u Menos	som
+±	mas u Menos	som	norep
 
 #Set operations
 ∖	conchunto menos	none
@@ -211,7 +211,7 @@ _	guión baixo	most
 ⊌	multiconchunto	none
 
 #Equality signs
-=	igual	some
+=	igual	some	norep
 ≃	asintoticament igual que	none
 ≄	no asintoticament igual que	none
 ≅	aproximadament igual que	none
@@ -233,8 +233,8 @@ _	guión baixo	most
 ≟	qüestionau igual que	none
 
 #comparison signs
-<	menor que	some
->	mayor que	some
+<	menor que	some	norep
+>	mayor que	some	norep
 ≤	menor u igual que	none
 ≦	menor que sobre igual que	none
 ≪	muito menor que	none

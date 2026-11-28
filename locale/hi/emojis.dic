@@ -106,7 +106,7 @@ symbols:
 ≮	इससे कम नहीं	none
 ≠	बराबर नहीं	none
 ≯	इससे अधिक नहीं	none
-−	माइनस चिह्न	none
+−	माइनस चिह्न	all	norep
 ⁻	सुपरस्क्रिप्ट माइनस	none
 ∓	ऋण-या-धन	none
 ∕	विभाजन स्लैश	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	लीरा	none
 ₥	मिल	none
 ₩	वॉन	none
-€	यूरो	none
+€	यूरो	all	norep
 ₰	जर्मन पैसा	none
 ₱	पेसो	none
 ₳	एस्ट्रल	none
 ₶	लिवर टूरनॉइस	none
 ₷	स्पेसमिलो	none
 ₹	भारतीय रुपया	none
-₽	रूबल	none
+₽	रूबल	all	norep
 ₿	बिटकॉइन	none
 ₨	रुपया	none
 👋🏻	हाथ हिलाना गोरी त्वचा	none

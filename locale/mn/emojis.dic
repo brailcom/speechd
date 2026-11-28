@@ -106,7 +106,7 @@ symbols:
 ≮	бага биш	none
 ≠	тэнцүү биш	none
 ≯	их биш	none
-−	хасах тэмдэг	none
+−	хасах тэмдэг	all	norep
 ⁻	хасах зэрэг	none
 ∓	хасах, нэмэх	none
 ∕	хуваах налуу зураас	none
@@ -1838,14 +1838,14 @@ symbols:
 ₤	лир	none
 ₥	сая	none
 ₩	вон	none
-€	евро	none
+€	евро	all	norep
 ₰	герман цент	none
 ₱	песо	none
 ₳	аустрал	none
 ₶	турнуа ливр	none
 ₷	спесмило	none
 ₹	энэтхэгийн рупи	none
-₽	рубль	none
+₽	рубль	all	norep
 ₿	биткойн	none
 ₨	рупи	none
 👋🏻	мэндчилж байгаа гар цайвар	none

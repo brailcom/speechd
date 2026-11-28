@@ -52,29 +52,29 @@ $	дооллар	all	norep
 €	ёвроо	all	norep
 ¢	цээнт	all	norep
 ¥	еэн	all	norep
-%	хувь	some
-&	ээнд	some
+%	хувь	some	norep
+&	ээнд	some	norep
 '	дусал хаалт	all
 (	нээх хаалт	most
 )	хаах хаалт	most
-*	од	most
-+	нэмэх	most
+*	од	most	norep
++	нэмэх	most	norep
 ,	таслал	all	always
 -	хасах	most
-.	цэг	some
-/	налуу зураас	some
+.	цэг	some	norep
+/	налуу зураас	some	norep
 :	давхар цэг	most	norep
 ;	цэгтэй таслал	most
-<	бага	most
->	их	most
-=	тэнцүү	most
+<	бага	most	norep
+>	их	most	norep
+=	тэнцүү	most	norep
 ?	асуултын тэмдэг	all
-@	эт	some
+@	эт	some	norep
 [	нээх дөрвөлжин хаалт	most
 ]	хаах дөрвөлжин хаалт	most
 \\	бөхрөг зураас	most
 ^	малгай	most
-_	доогуур зураас	most
+_	доогуур зураас	most	norep
 `	гэдрэг дусал хаалт	most
 {	зүүн гоё хаалт	most
 }	баруун гоё хаалт	most
@@ -99,7 +99,7 @@ _	доогуур зураас	most
 ■	хар дөрвөлжин	some
 ➔	баруун сум	some
 §	хэсэг	all
-°	хэм	some
+°	хэм	some	norep
 «	зүүн давхар өнцөг
 »	баруун давхар өнцөг
 µ	бэчил	some
@@ -109,9 +109,9 @@ _	доогуур зураас	most
 ®	бүртгэлтэй	some
 ™	худалдааны тэмдэг	some
 ©	зохиогчийн эрх	some
-±	нэмэх хасах	most
-×	үржүүлэх	most
-÷	хуваах на	most
+±	нэмэх хасах	most	norep
+×	үржүүлэх	most	norep
+÷	хуваах на	most	norep
 →	баруун сум	some
 ✓	чагт	some
 ✔	чагт	some

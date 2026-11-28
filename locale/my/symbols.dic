@@ -53,29 +53,29 @@ $	dollar	all	norep
 ¢	Cents	all	norep
 ¥	Yen	all	norep
 ₹	Rupee	some	norep
-%	percent	some
-&	and	some
+%	percent	some	norep
+&	and	some	norep
 '	tick	all
 (	left paren	most	always
 )	right paren	most	always
-*	star	some
-+	plus	some
+*	star	some	norep
++	plus	some	norep
 ,	comma	all	always
 -	dash	most
-.	dot	some
-/	slash	some
+.	dot	some	norep
+/	slash	some	norep
 :	colon	most	norep
 ;	semi	most
-<	less	some
->	greater	some
-=	equals	some
+<	less	some	norep
+>	greater	some	norep
+=	equals	some	norep
 ?	question	all
-@	at	some
+@	at	some	norep
 [	left bracket	most
 ]	right bracket	most
 \\	backslash	most
 ^	caret	most
-_	line	most
+_	line	most	norep
 `	graav	most
 {	left brace	most
 }	right brace	most
@@ -103,7 +103,7 @@ _	line	most
 ◦	white bullet	some
 ➔	right arrow	some
 §	section	all
-°	degrees	some
+°	degrees	some	norep
 «	double left pointing angle bracket
 »	double right pointing angle bracket
 µ	micro	some
@@ -113,9 +113,9 @@ _	line	most
 ®	registered	some
 ™	Trademark	some
 ©	Copyright	some
-±	Plus or Minus	some
-×	times	some
-÷	divide by	some
+±	Plus or Minus	some	norep
+×	times	some	norep
+÷	divide by	some	norep
 ←	left arrow	some
 →	right arrow	some
 ✓	check	some
